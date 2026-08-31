@@ -1,0 +1,147 @@
+import { generatePageMeta } from '@/lib/page-utils';
+import { PageShell } from '@/components/layout/page-shell';
+import { ScrollReveal } from '@/components/motion/scroll-reveal';
+import { PlaceholderVisual } from '@/components/content/placeholder-visual';
+import { FAQAccordion } from '@/components/content/faq-accordion';
+import Link from 'next/link';
+import { Calendar, Clock, Repeat, ArrowRight } from 'lucide-react';
+
+/**
+ * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
+ * <head> tags, and by `PageShell` for the on-page structured data. Keeping it in one
+ * const is what stops the meta description and the schema drifting apart.
+ */
+const pageMeta = {
+  title: "Automated Security Patrol Scheduling | Scheduled Camera Patrols",
+  description: "Schedule automated AI patrol rounds by frequency, active hours, and active days. Camzify runs every round unattended and emails the completed PDF report.",
+  path: "/virtual-patrolling/automated-patrol-scheduling",
+};
+
+export const metadata = generatePageMeta({ ...pageMeta });
+
+const faqs = [
+  { question: 'Can different cameras in the same sequence run on different schedules?', answer: 'No — a patrol sequence runs as one unit, so every camera in it fires together on the same schedule. If two groups of cameras need different frequencies or active hours, split them into separate sequences, each with its own schedule.' },
+  { question: 'What happens if a scheduled round is still running when the next one is due?', answer: 'The current round finishes its remaining stops before the next scheduled trigger is allowed to start, so rounds don\'t overlap or stack on top of each other. A tightly spaced frequency should leave enough time for a full round to complete.' },
+  { question: 'Can I pause a schedule without losing its configuration?', answer: 'Yes. Pausing keeps the frequency, active hours, and active days exactly as configured — no rounds fire while paused, and resuming picks the schedule back up unchanged.' },
+  { question: 'Does automated scheduling account for holidays?', answer: 'Yes. Specific dates can be marked as exceptions so the schedule skips them without needing to be rebuilt or re-enabled afterward.' },
+  { question: 'Who receives the report from a scheduled round?', answer: 'Whoever is configured as a recipient for that site. The PDF report is emailed automatically the moment the round finishes, with no manual step required to generate or send it.' },
+];
+
+export default function AutomatedSchedulingPage() {
+  return (
+    <PageShell {...pageMeta} faqs={faqs} breadcrumbs={[
+      { label: 'Virtual Patrolling', href: '/virtual-patrolling' },
+      { label: 'Automated Scheduling' },
+    ]}>
+      <section className="pb-16">
+        <div className="mx-auto max-w-site px-6">
+          <span className="font-mono text-mono-sm uppercase text-primary">Automated Scheduling</span>
+          <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Automated Patrol Scheduling</h1>
+          <p className="mt-6 max-w-2xl text-body text-muted-foreground">
+            Automated patrol scheduling is the ability to configure <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrol</Link> rounds
+            to run at a defined frequency, during specific active hours, on selected days of the week — completely
+            unattended. The system handles every round, from the first camera to the final report.
+          </p>
+
+          <div className="mt-12 grid gap-8 sm:grid-cols-3">
+            {[
+              { icon: Repeat, title: 'Frequency', desc: 'Set how often rounds run — every 30 minutes, every hour, every 2 hours. The system follows the schedule precisely.' },
+              { icon: Clock, title: 'Active hours', desc: 'Define the window when patrols are active. Night-only, business hours, or 24/7 — matched to your operational needs.' },
+              { icon: Calendar, title: 'Active days', desc: 'Select which days of the week the schedule applies. Weekdays only, weekends only, or every day.' },
+            ].map((item: any, i: number) => {
+              const Icon = item?.icon ?? Calendar;
+              return (
+                <ScrollReveal key={i} delay={i * 0.06}>
+                  <div className="rounded-xl border border-border bg-card p-6 transition-all hover:border-primary/20 hover:shadow-md">
+                    <Icon className="h-5 w-5 text-primary" />
+                    <h3 className="mt-3 font-display text-lg font-bold">{item?.title ?? ''}</h3>
+                    <p className="mt-2 text-sm text-muted-foreground">{item?.desc ?? ''}</p>
+                  </div>
+                </ScrollReveal>
+              );
+            })}
+          </div>
+
+          <div className="mt-16">
+            <ScrollReveal>
+              <span className="font-mono text-mono-sm uppercase text-primary">Why Scheduling Matters</span>
+              <h2 className="mt-2 font-display text-2xl font-bold">Why automated scheduling matters</h2>
+              <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
+                <p>Physical guard rounds depend on someone remembering to run them. A scheduled patrol slips when a site is short-staffed, when other calls take priority, or simply when a written schedule doesn't get checked — and the gap in coverage isn't discovered until something goes wrong and nobody can say when the area was last looked at.</p>
+                <p>Running virtual patrols manually has the same weakness in a different form. Someone still has to log in and start the round at the right time, every time, across every site — which works fine until they don't.</p>
+                <p>Automated scheduling removes the dependency on memory entirely. Once frequency, active hours, and active days are set, every round fires exactly on time, unattended, whether it's 3am on a Tuesday or a day nobody happened to be tracking.</p>
+              </div>
+            </ScrollReveal>
+          </div>
+
+          <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
+            <ScrollReveal>
+              <div>
+                <span className="font-mono text-mono-sm uppercase text-primary">How It Runs</span>
+                <h2 className="mt-2 font-display text-2xl font-bold">What happens during an auto-patrol</h2>
+                <ul className="mt-4 space-y-3 text-muted-foreground">
+                  <li className="flex gap-3"><span className="font-mono text-primary">01</span> Schedule triggers at the configured time</li>
+                  <li className="flex gap-3"><span className="font-mono text-primary">02</span> System steps through each camera in the <Link href="/virtual-patrolling/patrol-sequences" className="text-primary hover:underline">patrol sequence</Link></li>
+                  <li className="flex gap-3"><span className="font-mono text-primary">03</span> Each <Link href="/virtual-patrolling/patrol-checklists" className="text-primary hover:underline">checklist item</Link> is auto-evaluated</li>
+                  <li className="flex gap-3"><span className="font-mono text-primary">04</span> Non-compliant items notify the assigned guard</li>
+                  <li className="flex gap-3"><span className="font-mono text-primary">05</span> PDF <Link href="/virtual-patrolling/patrol-reports" className="text-primary hover:underline">report</Link> is emailed to designated recipients</li>
+                  <li className="flex gap-3"><span className="font-mono text-primary">06</span> Round is logged with <Link href="/virtual-patrolling/patrol-compliance-tracking" className="text-primary hover:underline">compliance percentage</Link></li>
+                </ul>
+              </div>
+            </ScrollReveal>
+            <PlaceholderVisual type="config-ui" caption="SCHEDULE CONFIGURATION" alt="Auto-patrol scheduling interface showing frequency, active hours, and day selection" />
+          </div>
+
+          <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
+            <ScrollReveal>
+              <div>
+                <span className="font-mono text-mono-sm uppercase text-primary">Configuration</span>
+                <h2 className="mt-2 font-display text-2xl font-bold">Timezone, holidays &amp; pause/resume</h2>
+                <ul className="mt-4 space-y-3 text-muted-foreground">
+                  <li className="flex gap-2">• Schedules run in the site's local timezone, not the account default, so multi-region deployments stay accurate</li>
+                  <li className="flex gap-2">• Mark specific dates as exceptions — the schedule skips holidays or closures without being rebuilt</li>
+                  <li className="flex gap-2">• Pause a schedule during maintenance and resume it later with the same frequency, hours, and days intact</li>
+                  <li className="flex gap-2">• The next scheduled run time for each sequence is visible at a glance from the schedule list</li>
+                </ul>
+              </div>
+            </ScrollReveal>
+            <PlaceholderVisual type="config-ui" caption="SCHEDULE EXCEPTIONS" alt="Configuration screen for timezone, holiday exceptions, and pause or resume controls on a patrol schedule" />
+          </div>
+
+          <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
+            <PlaceholderVisual type="diagram" caption="SCHEDULED ROUND DELIVERY" alt="Diagram showing a scheduled patrol round completing and its report and notifications being delivered" />
+            <ScrollReveal>
+              <div>
+                <span className="font-mono text-mono-sm uppercase text-primary">After The Round</span>
+                <h2 className="mt-2 font-display text-2xl font-bold">Recipients and escalation for scheduled rounds</h2>
+                <ul className="mt-4 space-y-3 text-muted-foreground">
+                  <li className="flex gap-2">• A distribution list per site controls who receives the PDF <Link href="/virtual-patrolling/patrol-reports" className="text-primary hover:underline">report</Link> the moment a round finishes</li>
+                  <li className="flex gap-2">• Any Not Compliant item still triggers its normal guard notification, scheduled or manual</li>
+                  <li className="flex gap-2">• A skipped or overdue round is flagged in <Link href="/virtual-patrolling/patrol-compliance-tracking" className="text-primary hover:underline">compliance tracking</Link> the same way a missed manual round would be</li>
+                </ul>
+              </div>
+            </ScrollReveal>
+          </div>
+
+          <div className="mt-16 rounded-2xl border border-border bg-card p-8 sm:p-10">
+            <span className="font-mono text-mono-sm uppercase text-primary">FAQ</span>
+            <h2 className="mt-2 font-display text-2xl font-bold">Frequently asked questions</h2>
+            <div className="mt-6">
+              <FAQAccordion items={faqs} />
+            </div>
+          </div>
+
+          <div className="mt-16">
+            <h2 className="font-display text-2xl font-bold">Related</h2>
+            <div className="mt-4 flex flex-wrap gap-3">
+              <Link href="/virtual-patrolling/patrol-reports" className="inline-flex items-center gap-1 rounded-lg border border-border bg-card px-4 py-2 text-sm hover:border-primary/30 hover:text-primary">Patrol Reports <ArrowRight className="h-3 w-3" /></Link>
+              <Link href="/use-cases/after-hours-monitoring" className="inline-flex items-center gap-1 rounded-lg border border-border bg-card px-4 py-2 text-sm hover:border-primary/30 hover:text-primary">After-Hours Monitoring <ArrowRight className="h-3 w-3" /></Link>
+              <Link href="/industries/warehouses" className="inline-flex items-center gap-1 rounded-lg border border-border bg-card px-4 py-2 text-sm hover:border-primary/30 hover:text-primary">Warehouses <ArrowRight className="h-3 w-3" /></Link>
+              <Link href="/pricing" className="inline-flex items-center gap-1 rounded-lg border border-border bg-card px-4 py-2 text-sm hover:border-primary/30 hover:text-primary">Pricing <ArrowRight className="h-3 w-3" /></Link>
+            </div>
+          </div>
+        </div>
+      </section>
+    </PageShell>
+  );
+}

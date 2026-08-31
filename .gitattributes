@@ -1,0 +1,13 @@
+# Normalise line endings so diffs stay clean across macOS/Linux/Windows.
+* text=auto eol=lf
+
+# Binary assets — never try to diff or normalise these.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.svg text
+*.ico binary
+
+# Generated: collapse in PR diffs.
+package-lock.json linguist-generated=true -diff

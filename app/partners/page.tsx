@@ -1,0 +1,54 @@
+import { generatePageMeta } from '@/lib/page-utils';
+import { PageShell } from '@/components/layout/page-shell';
+import { ScrollReveal } from '@/components/motion/scroll-reveal';
+import Link from 'next/link';
+import { Handshake, Shield, Monitor, Server } from 'lucide-react';
+
+/**
+ * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
+ * <head> tags, and by `PageShell` for the on-page structured data. Keeping it in one
+ * const is what stops the meta description and the schema drifting apart.
+ */
+const pageMeta = {
+  title: "Partners | Reseller & Integration Partners",
+  description: "Join the Camzify partner program — resellers, security integrators, monitoring centres, and managed service providers.",
+  path: "/partners",
+};
+
+export const metadata = generatePageMeta({ ...pageMeta });
+
+const partnerTypes = [
+  { slug: 'become-a-reseller', title: 'Become a Reseller', icon: Handshake, desc: 'Sell Camzify to your customers with dedicated support and margin.' },
+  { slug: 'for-security-integrators', title: 'For Security Integrators', icon: Shield, desc: 'Add virtual patrolling to your installation and maintenance offering.' },
+  { slug: 'for-monitoring-centres', title: 'For Monitoring Centres', icon: Monitor, desc: 'Augment human monitoring with AI-powered patrol automation.' },
+  { slug: 'for-managed-service-providers', title: 'For Managed Service Providers', icon: Server, desc: 'Offer Camzify as a managed security service to your clients.' },
+];
+
+export default function PartnersHub() {
+  return (
+    <PageShell {...pageMeta} breadcrumbs={[{ label: 'Partners' }]}>
+      <section className="pb-20">
+        <div className="mx-auto max-w-site px-6">
+          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Partners</h1>
+          <p className="mt-6 max-w-2xl text-body text-muted-foreground">
+            Camzify works with security integrators, resellers, monitoring centres, and MSPs to bring <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</Link> to facilities worldwide.
+          </p>
+          <div className="mt-14 grid gap-6 sm:grid-cols-2">
+            {partnerTypes.map((p, i) => (
+              <ScrollReveal key={p.slug} delay={i * 0.08}>
+                <Link href={`/partners/${p.slug}`} className="group flex items-start gap-5 rounded-xl bg-card p-8 shadow-md transition-all hover:shadow-lg hover:-translate-y-0.5">
+                  <p.icon className="mt-0.5 h-8 w-8 shrink-0 text-primary" />
+                  <div>
+                    <h2 className="font-display text-lg font-bold">{p.title}</h2>
+                    <p className="mt-2 text-sm text-muted-foreground">{p.desc}</p>
+                    <span className="mt-3 block text-sm font-semibold text-primary">Learn more →</span>
+                  </div>
+                </Link>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+    </PageShell>
+  );
+}

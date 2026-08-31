@@ -1,0 +1,37 @@
+# Files excluded from the Vercel upload.
+#
+# CRITICAL: when a .vercelignore exists, Vercel ignores .gitignore completely.
+# Everything that must not be uploaded has to be listed HERE, even if .gitignore
+# already covers it. Omitting node_modules and .next made every CLI deploy try to
+# upload ~955MB; uploads stalled indefinitely and the build never started.
+
+# Dependencies — Vercel installs these itself
+node_modules/
+
+# Build output — Vercel builds from source
+.next/
+.next-probe/
+out/
+build/
+dist/
+*.tsbuildinfo
+
+# Version control
+.git/
+.gitignore
+.gitattributes
+
+# Environment — never upload secrets
+.env
+.env.local
+.env.*.local
+
+# Local tooling and docs, not needed by the build
+.idea/
+.vscode/
+.claude/
+.agents/
+docs/
+coverage/
+playwright-report/
+test-results/

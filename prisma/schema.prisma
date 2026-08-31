@@ -1,0 +1,45 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+model DemoRequest {
+  id          String   @id @default(cuid())
+  name        String
+  email       String
+  company     String
+  cameras     String
+  createdAt   DateTime @default(now())
+  status      String   @default("pending")
+}
+
+model ContactSubmission {
+  id          String   @id @default(cuid())
+  name        String
+  email       String
+  subject     String
+  message     String
+  createdAt   DateTime @default(now())
+  status      String   @default("new")
+}
+
+model FreeTrialRequest {
+  id          String   @id @default(cuid())
+  name        String
+  email       String
+  company     String
+  phone       String   @default("")
+  cameras     String   @default("")
+  createdAt   DateTime @default(now())
+  status      String   @default("pending")
+}
+
+model NewsletterSubscription {
+  id          String   @id @default(cuid())
+  email       String   @unique
+  createdAt   DateTime @default(now())
+}

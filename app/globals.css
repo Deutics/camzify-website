@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light theme */
+    --background: 210 25% 97%;
+    --foreground: 215 25% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 10%;
+    --primary: 0 99% 33%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 215 15% 92%;
+    --secondary-foreground: 215 25% 15%;
+    --muted: 215 15% 92%;
+    --muted-foreground: 215 10% 45%;
+    --accent: 215 15% 92%;
+    --accent-foreground: 215 25% 15%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 215 15% 88%;
+    --input: 215 15% 88%;
+    --ring: 0 99% 33%;
+    --radius: 0.625rem;
+    --radius-sm: calc(0.625rem - 4px);
+    --radius-lg: calc(0.625rem + 4px);
+    --radius-full: 9999px;
+
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    --spacing-2xl: 48px;
+    --spacing-3xl: 64px;
+
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.03), 0 1px 3px 0 rgb(0 0 0 / 0.06);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.07), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+
+    --duration-fast: 150ms;
+    --duration-normal: 250ms;
+    --duration-slow: 350ms;
+
+    --chart-1: 0 99% 33%;
+    --chart-2: 168 68% 39%;
+    --chart-3: 36 91% 55%;
+    --chart-4: 0 72% 51%;
+    --chart-5: 215 25% 35%;
+
+    /*
+     * Signal colours — status semantics, not brand.
+     *   live     = healthy / online / compliant / saving
+     *   warn     = roadmap / degraded / needs attention
+     *   critical = failure / cost / non-compliant
+     *
+     * Light-theme values are darkened relative to the dark theme so text using them
+     * clears contrast requirements on a near-white background. The literal Tailwind
+     * palette classes these replaced (emerald-400, amber-400, red-400) were tuned for
+     * the dark theme only and failed contrast in light mode.
+     */
+    --live: 168 88% 24%;
+    --warn: 30 92% 31%;
+    --critical: 0 74% 44%;
+  }
+
+  .dark {
+    --background: 216 22% 4%;
+    --foreground: 210 25% 97%;
+    --card: 215 22% 8%;
+    --card-foreground: 210 25% 97%;
+    --popover: 215 22% 8%;
+    --popover-foreground: 210 25% 97%;
+    --primary: 0 99% 33%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 215 18% 14%;
+    --secondary-foreground: 210 25% 97%;
+    --muted: 215 18% 14%;
+    --muted-foreground: 213 14% 62%;
+    --accent: 215 18% 14%;
+    --accent-foreground: 210 25% 97%;
+    --destructive: 0 100% 65%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 100% / 0.08;
+    --input: 0 0% 100% / 0.08;
+    --ring: 0 99% 33%;
+
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.2);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4);
+
+    /* Signal colours, brightened for the dark surface. */
+    --live: 168 100% 42%;
+    --warn: 38 92% 58%;
+    --critical: 0 100% 68%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .prose-measure {
+    max-width: 68ch;
+  }
+}
+
+/* Patrol sweep animation */
+@keyframes patrol-sweep {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(400%); }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+@keyframes slide-in-right {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fade-up {
+  from { transform: translateY(16px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
+}
