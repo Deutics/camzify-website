@@ -1,44 +1,131 @@
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
-import { Wifi, Route, Cpu, Bell } from 'lucide-react';
+import { ProductShot } from '@/components/content/product-shot';
 
+/**
+ * How it works — a four-step sequence.
+ *
+ * Numbering is meaningful here: the steps happen in this order and each depends on the
+ * one before, which is the only case where numbered markers earn their place. Three of
+ * the four steps carry the console screen where that step actually happens, so the
+ * section shows the product rather than describing it.
+ *
+ * Rows alternate side on wide viewports, which is what breaks the uniform card rhythm
+ * the rest of the page had.
+ */
 const steps = [
-  { icon: Wifi, title: 'Connect cameras', desc: 'RTSP, RTMP, HLS or WebRTC — any IP camera on your network connects in minutes.' },
-  { icon: Route, title: 'Build a patrol sequence', desc: 'Set the camera order, assign per-camera checklists, and name the guard responsible for each.' },
-  { icon: Cpu, title: 'AI runs the round', desc: 'On schedule or on demand — Camzify steps through each camera, evaluates every checklist item, and logs the result.' },
-  { icon: Bell, title: 'Failures reach the guard', desc: 'Non-compliant items trigger a notification to the assigned guard. A PDF report lands in your inbox.' },
+  {
+    title: 'Connect the cameras you already have',
+    desc: 'Any ONVIF or RTSP camera connects directly. RTMP, HLS and WebRTC are supported too, and cameras on a private network relay through the Camzify Connector with no port forwarding. Sites and cameras are grouped as you organise them operationally.',
+    shot: '/product-configuration.jpg',
+    alt: 'Camzify configuration screen showing four sites with per-site camera counts and seven-day event trends',
+    label: 'Configuration · Camzify console',
+  },
+  {
+    title: 'Build the patrol sequence',
+    desc: 'Set the camera order for the round, write the checklist each camera is checked against, and name the guard responsible for each stop. Then choose the frequency, the active hours and the active days.',
+    shot: '/product-virtual-patrolling.jpg',
+    alt: 'Camzify patrol sequence configuration showing auto-patrol frequency, active hours, active days and reporting settings',
+    label: 'Patrol setup · Camzify console',
+  },
+  {
+    title: 'The AI runs the round',
+    desc: 'On schedule or on demand, Camzify steps through every camera in the sequence, evaluates each checklist item against what the camera can see, and records a result per item. It does not skip stops and it does not get tired at 04:00.',
+    shot: null,
+    alt: '',
+    label: '',
+  },
+  {
+    title: 'Failures reach the person responsible',
+    desc: 'Any non-compliant item notifies the guard assigned to that camera with a message explaining what was found. The completed round is emailed as a PDF with every check, the compliance percentage, and who was notified.',
+    shot: '/product-notifications.jpg',
+    alt: 'Camzify notifications screen showing a critical acknowledgement banner, severity breakdown and per-event detail',
+    label: 'Notifications · Camzify console',
+  },
 ];
 
 export function HowItWorks() {
   return (
-    <section className="py-20 sm:py-28">
+    <section className="border-t border-border py-20 sm:py-28">
       <div className="mx-auto max-w-site px-6">
         <ScrollReveal>
-          <div className="text-center">
-            <span className="font-mono text-mono-sm uppercase text-primary">How It Works</span>
-            <h2 className="mt-3 font-display text-3xl font-bold tracking-tight sm:text-4xl">
-              Four steps from cameras to compliance
+          <div className="max-w-3xl">
+            <span className="font-mono text-mono-sm uppercase text-primary">How it works</span>
+            <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">
+              Four steps from cameras to a compliance record
             </h2>
           </div>
         </ScrollReveal>
-        <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {(steps ?? []).map((step: any, i: number) => {
-            const Icon = step?.icon ?? Wifi;
-            return (
-              <ScrollReveal key={i} delay={i * 0.06}>
-                <div className="group relative rounded-xl border border-border bg-card p-6 transition-all duration-200 hover:border-primary/30 hover:shadow-lg hover:-translate-y-1">
-                  <div className="absolute -top-3 -left-3 flex h-7 w-7 items-center justify-center rounded-full bg-primary text-xs font-bold text-white">
-                    {i + 1}
+
+        <ol className="mt-16 space-y-20 lg:space-y-24">
+          {steps.map((step, i) => (
+            <li key={step.title}>
+              <div
+                className={`grid items-center gap-10 lg:grid-cols-2 lg:gap-16 ${
+                  i % 2 === 1 ? 'lg:[&>figure]:order-first' : ''
+                }`}
+              >
+                <ScrollReveal>
+                  <div>
+                    <div className="flex items-center gap-4">
+                      <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border border-primary/40 bg-primary/10 font-mono text-sm font-medium text-primary tabular-nums">
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                      <span className="h-px flex-1 bg-border" aria-hidden="true" />
+                    </div>
+                    <h3 className="mt-6 font-display text-2xl font-bold tracking-tight">
+                      {step.title}
+                    </h3>
+                    <p className="mt-4 max-w-prose text-body leading-relaxed text-muted-foreground">
+                      {step.desc}
+                    </p>
                   </div>
-                  <div className="rounded-lg bg-primary/10 p-2.5 inline-flex">
-                    <Icon className="h-5 w-5 text-primary" />
-                  </div>
-                  <h3 className="mt-4 font-display text-base font-bold">{step?.title ?? ''}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{step?.desc ?? ''}</p>
-                </div>
-              </ScrollReveal>
-            );
-          })}
-        </div>
+                </ScrollReveal>
+
+                {step.shot ? (
+                  <ScrollReveal delay={0.08}>
+                    <ProductShot src={step.shot} alt={step.alt} label={step.label} />
+                  </ScrollReveal>
+                ) : (
+                  <ScrollReveal delay={0.08}>
+                    <div className="rounded-xl border border-border bg-card p-8">
+                      <span className="font-mono text-mono-sm uppercase text-muted-foreground">
+                        Round in progress
+                      </span>
+                      <ul className="mt-6 space-y-3.5">
+                        {[
+                          ['CAM 01 · Main gate', 'Gate closed', true],
+                          ['CAM 01 · Main gate', 'No tailgating observed', true],
+                          ['CAM 02 · Loading dock', 'Bay clear', true],
+                          ['CAM 03 · Server room', 'Door secured', false],
+                          ['CAM 04 · Perimeter east', 'Fence line unbreached', true],
+                        ].map(([cam, check, ok], n) => (
+                          <li key={n} className="flex items-start justify-between gap-4 text-sm">
+                            <span>
+                              <span className="block font-mono text-mono-sm uppercase text-muted-foreground">
+                                {cam as string}
+                              </span>
+                              <span className="mt-0.5 block">{check as string}</span>
+                            </span>
+                            <span
+                              className={`mt-1 flex-shrink-0 font-mono text-mono-sm uppercase ${
+                                ok ? 'text-live' : 'text-critical'
+                              }`}
+                            >
+                              {ok ? 'Compliant' : 'Not compliant'}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                      <p className="mt-6 border-t border-border pt-4 font-mono text-mono-sm uppercase text-muted-foreground">
+                        Round score · 4 of 5 · 80% compliant
+                      </p>
+                    </div>
+                  </ScrollReveal>
+                )}
+              </div>
+            </li>
+          ))}
+        </ol>
       </div>
     </section>
   );

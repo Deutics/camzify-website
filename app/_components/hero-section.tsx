@@ -29,10 +29,19 @@ export function HeroSection() {
               <span className="text-primary">Without the guard.</span>
             </h1>
 
+            {/*
+              The H1 above is deliberately keyword-free — it is the memorable line. The
+              primary keyword is carried here instead, in the first six words, which is
+              also the sentence AI answer engines are most likely to extract as the
+              definition of what Camzify is.
+            */}
             <p className="mt-6 max-w-xl text-body text-muted-foreground">
-              Camzify runs scheduled AI patrol rounds across the cameras you already own —
-              checking every point on the route, flagging what fails, and notifying the
-              guard responsible.
+              <strong className="font-semibold text-foreground">
+                Camzify is virtual patrolling software
+              </strong>{' '}
+              that runs scheduled AI patrol rounds across the cameras you already own —
+              checking every point on the route, flagging what fails, and notifying the guard
+              responsible.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-4">

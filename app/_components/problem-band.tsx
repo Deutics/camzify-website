@@ -1,43 +1,50 @@
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
-import { EyeOff, Video, Bell } from 'lucide-react';
 
+/**
+ * The problem statement.
+ *
+ * Previously three icon-in-a-box cards — the first of five consecutive sections using
+ * that same device, which gave the page one flat texture from hero to footer. A problem
+ * statement is prose, not a feature list, so it is set as prose: large type, a left
+ * rule, no cards, no icons.
+ */
 const problems = [
   {
-    icon: EyeOff,
-    title: 'Guards can\'t be everywhere',
-    desc: 'A single guard covers one location. Your sites run 24/7 across multiple zones — and fatigue sets in after the first hour.',
+    lead: 'A guard covers one place at a time.',
+    body: 'Your sites run around the clock across multiple zones. One person walking a route reaches any given point for a few minutes an hour, and attention measurably degrades after the first.',
   },
   {
-    icon: Video,
-    title: 'Cameras record but don\'t check',
-    desc: 'Traditional CCTV captures footage. Nobody reviews it until something goes wrong. By then the damage is done.',
+    lead: 'Cameras record. They do not check.',
+    body: 'Conventional CCTV captures everything and reviews nothing. The footage is only consulted once an incident has already been reported, by which point it is evidence rather than prevention.',
   },
   {
-    icon: Bell,
-    title: 'Alerts arrive with no owner',
-    desc: 'Motion alerts flood the inbox with no context, no assignment, and no way to prove someone acted on them.',
+    lead: 'Alerts arrive with nobody attached.',
+    body: 'Pixel-based motion floods an inbox with events that carry no context, no assigned owner, and no record that anyone acted. Teams either stop reading them or turn the sensitivity down until real events are missed too.',
   },
 ];
 
 export function ProblemBand() {
   return (
-    <section className="border-y border-border bg-muted/30 py-16 sm:py-20">
+    <section className="border-t border-border py-20 sm:py-28">
       <div className="mx-auto max-w-site px-6">
-        <div className="grid gap-8 md:grid-cols-3">
-          {(problems ?? []).map((p: any, i: number) => {
-            const Icon = p?.icon ?? EyeOff;
-            return (
-              <ScrollReveal key={i} delay={i * 0.06}>
-                <div className="text-center">
-                  <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
-                    <Icon className="h-6 w-6 text-primary" />
-                  </div>
-                  <h3 className="mt-4 font-display text-lg font-bold">{p?.title ?? ''}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{p?.desc ?? ''}</p>
-                </div>
-              </ScrollReveal>
-            );
-          })}
+        <ScrollReveal>
+          <div className="max-w-3xl">
+            <span className="font-mono text-mono-sm uppercase text-primary">The gap</span>
+            <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">
+              Cameras everywhere. Nobody watching.
+            </h2>
+          </div>
+        </ScrollReveal>
+
+        <div className="mt-14 grid gap-10 lg:grid-cols-3 lg:gap-12">
+          {problems.map((p, i) => (
+            <ScrollReveal key={p.lead} delay={i * 0.08}>
+              <div className="border-l-2 border-critical/50 pl-6">
+                <p className="font-display text-xl font-bold leading-snug sm:text-2xl">{p.lead}</p>
+                <p className="mt-4 text-body leading-relaxed text-muted-foreground">{p.body}</p>
+              </div>
+            </ScrollReveal>
+          ))}
         </div>
       </div>
     </section>
