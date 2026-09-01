@@ -1,5 +1,6 @@
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { ProductShot } from '@/components/content/product-shot';
+import { SectionAtmosphere } from '@/components/motion/section-atmosphere';
 
 /**
  * How it works — a four-step sequence.
@@ -45,8 +46,9 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section className="border-t border-border py-20 sm:py-28">
-      <div className="mx-auto max-w-site px-6">
+    <section className="relative overflow-hidden py-20 sm:py-24">
+      <SectionAtmosphere variant="center" intensity="subtle" />
+      <div className="relative z-10 mx-auto max-w-site px-6">
         <ScrollReveal>
           <div className="max-w-3xl">
             <span className="font-mono text-mono-sm uppercase text-primary">How it works</span>
@@ -56,21 +58,22 @@ export function HowItWorks() {
           </div>
         </ScrollReveal>
 
-        <ol className="mt-16 space-y-20 lg:space-y-24">
-          {steps.map((step, i) => (
+        <ol className="mt-14 space-y-14 lg:space-y-16">
+          {steps.map((step, i) => {
+            const imageFirst = i % 2 === 1;
+            return (
             <li key={step.title}>
-              <div
-                className={`grid items-center gap-10 lg:grid-cols-2 lg:gap-16 ${
-                  i % 2 === 1 ? 'lg:[&>figure]:order-first' : ''
-                }`}
-              >
-                <ScrollReveal>
+              <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
+                <ScrollReveal className={imageFirst ? 'lg:order-2' : ''}>
                   <div>
                     <div className="flex items-center gap-4">
                       <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border border-primary/40 bg-primary/10 font-mono text-sm font-medium text-primary tabular-nums">
                         {String(i + 1).padStart(2, '0')}
                       </span>
-                      <span className="h-px flex-1 bg-border" aria-hidden="true" />
+                      <span
+                        aria-hidden="true"
+                        className="h-px flex-1 bg-gradient-to-r from-primary/40 via-border to-transparent"
+                      />
                     </div>
                     <h3 className="mt-6 font-display text-2xl font-bold tracking-tight">
                       {step.title}
@@ -82,12 +85,12 @@ export function HowItWorks() {
                 </ScrollReveal>
 
                 {step.shot ? (
-                  <ScrollReveal delay={0.08}>
+                  <ScrollReveal delay={0.08} className={imageFirst ? 'lg:order-1' : ''}>
                     <ProductShot src={step.shot} alt={step.alt} label={step.label} />
                   </ScrollReveal>
                 ) : (
-                  <ScrollReveal delay={0.08}>
-                    <div className="rounded-xl border border-border bg-card p-8">
+                  <ScrollReveal delay={0.08} className={imageFirst ? 'lg:order-1' : ''}>
+                    <div className="console-panel corner-ticks p-8">
                       <span className="font-mono text-mono-sm uppercase text-muted-foreground">
                         Round in progress
                       </span>
@@ -124,7 +127,8 @@ export function HowItWorks() {
                 )}
               </div>
             </li>
-          ))}
+            );
+          })}
         </ol>
       </div>
     </section>

@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
+import { SectionAtmosphere } from '@/components/motion/section-atmosphere';
+import { Stagger, StaggerItem } from '@/components/motion/stagger';
 
 /**
  * Use-case row.
@@ -43,8 +45,9 @@ const useCases = [
 
 export function UseCasesRow() {
   return (
-    <section className="border-t border-border py-20 sm:py-28">
-      <div className="mx-auto max-w-site px-6">
+    <section className="relative overflow-hidden py-20 sm:py-24">
+      <SectionAtmosphere variant="left" intensity="subtle" />
+      <div className="relative z-10 mx-auto max-w-site px-6">
         <ScrollReveal>
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div className="max-w-2xl">
@@ -62,9 +65,9 @@ export function UseCasesRow() {
           </div>
         </ScrollReveal>
 
-        <div className="mt-12 grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
-          {useCases.map((u, i) => (
-            <ScrollReveal key={u.href} delay={i * 0.04}>
+        <Stagger className="mt-12 grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-3" stagger={0.05}>
+          {useCases.map((u) => (
+            <StaggerItem key={u.href} className="h-full">
               <Link
                 href={u.href}
                 className="group flex h-full flex-col bg-card p-7 transition-colors duration-normal hover:bg-accent/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring"
@@ -80,9 +83,9 @@ export function UseCasesRow() {
                   →
                 </span>
               </Link>
-            </ScrollReveal>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </div>
     </section>
   );

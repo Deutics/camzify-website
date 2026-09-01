@@ -165,3 +165,74 @@
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(var(--muted-foreground) / 0.5);
 }
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Console surface treatment.
+
+   The site's visual language is CCTV/operations UI, so cards read as instrument
+   panels rather than generic rounded boxes: a hairline that brightens toward the
+   top edge, corner ticks like a camera viewfinder, and a warm bloom that only
+   appears on hover. Kept in CSS because a gradient border needs a masked
+   pseudo-element that Tailwind cannot express cleanly.
+   ───────────────────────────────────────────────────────────────────────── */
+.console-panel {
+  position: relative;
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.75rem;
+  isolation: isolate;
+}
+
+/* Top-edge highlight — the "machined" seam. */
+.console-panel::before {
+  content: "";
+  position: absolute;
+  inset-inline: 12%;
+  top: -1px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.5), transparent);
+  opacity: 0.7;
+  transition: opacity var(--duration-normal) ease;
+  pointer-events: none;
+}
+
+/* Hover bloom, drawn behind content so text never dims. */
+.console-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: radial-gradient(120% 100% at 50% 0%, hsl(var(--primary) / 0.10), transparent 60%);
+  opacity: 0;
+  transition: opacity var(--duration-normal) ease;
+  pointer-events: none;
+}
+
+.console-panel:hover::after,
+.console-panel:focus-within::after { opacity: 1; }
+.console-panel:hover::before,
+.console-panel:focus-within::before { opacity: 1; }
+
+/* Viewfinder corner ticks. */
+.corner-ticks::before,
+.corner-ticks::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-color: hsl(var(--primary) / 0.45);
+  transition: border-color var(--duration-normal) ease;
+  pointer-events: none;
+}
+.corner-ticks::before { top: 9px; left: 9px; border-top: 1px solid; border-left: 1px solid; }
+.corner-ticks::after  { bottom: 9px; right: 9px; border-bottom: 1px solid; border-right: 1px solid; }
+.corner-ticks:hover::before,
+.corner-ticks:hover::after { border-color: hsl(var(--primary) / 0.9); }
+
+/* Vertical progress rail for the How-It-Works stepper. */
+@keyframes rail-fill { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .console-panel::after { transition: none; }
+}

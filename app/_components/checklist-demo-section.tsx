@@ -1,24 +1,74 @@
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
+import { SectionAtmosphere } from '@/components/motion/section-atmosphere';
 import { InteractiveChecklistDemo } from '@/components/motion/interactive-checklist-demo';
 
+/**
+ * The interactive demo.
+ *
+ * Previously a centred heading with the demo card floating alone in a wide empty band,
+ * which made the most distinctive thing on the page look like an afterthought. Now a
+ * two-column layout: the argument on the left, the working demo on the right, with the
+ * section's atmosphere glow sitting behind the demo so it reads as the focal point.
+ */
 export function ChecklistDemoSection() {
   return (
-    <section className="bg-muted/30 py-20 sm:py-28">
-      <div className="mx-auto max-w-site px-6">
-        <ScrollReveal>
-          <div className="mx-auto max-w-prose text-center">
-            <span className="font-mono text-mono-sm uppercase text-primary">Try It Yourself</span>
-            <h2 className="mt-3 font-display text-3xl font-bold tracking-tight sm:text-4xl">
-              Run a patrol round in 20 seconds
-            </h2>
-            <p className="mt-4 text-body text-muted-foreground">
-              Step through three cameras, answer each checklist item, and see the compliance
-              report Camzify generates automatically after every round.
-            </p>
-          </div>
-        </ScrollReveal>
-        <div className="mt-12">
-          <InteractiveChecklistDemo />
+    <section className="relative overflow-hidden bg-muted/20 py-20 sm:py-24">
+      <SectionAtmosphere variant="right" />
+
+      <div className="relative z-10 mx-auto max-w-site px-6">
+        <div className="grid items-center gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+          <ScrollReveal>
+            <div>
+              <span className="font-mono text-mono-sm uppercase text-primary">Try it yourself</span>
+              <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">
+                Run a patrol round in 20 seconds
+              </h2>
+              <p className="mt-5 max-w-prose text-body leading-relaxed text-muted-foreground">
+                This is the actual loop. Step through three cameras, mark each checklist item, and
+                watch the compliance report build — the same report the platform emails after every
+                automated round.
+              </p>
+
+              <ul className="mt-8 space-y-3.5">
+                {[
+                  ['01', 'Every camera on the route gets its own checklist'],
+                  ['02', 'A failed item names the guard responsible for that camera'],
+                  ['03', 'The round is scored and archived as a PDF'],
+                ].map(([n, label]) => (
+                  <li key={n} className="flex items-start gap-3.5">
+                    <span className="mt-0.5 font-mono text-mono-sm text-primary tabular-nums">
+                      {n}
+                    </span>
+                    <span className="text-sm leading-relaxed text-muted-foreground">{label}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <Link
+                href="/virtual-patrolling/patrol-checklists"
+                className="mt-8 inline-flex items-center gap-2 rounded font-semibold text-primary transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                How checklists are built <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.12}>
+            <div className="relative">
+              {/* Focal bloom behind the demo card. */}
+              <div
+                aria-hidden="true"
+                className="absolute -inset-8 -z-10 rounded-full blur-3xl motion-safe:animate-hero-glow-drift-b"
+                style={{
+                  background:
+                    'radial-gradient(circle, hsl(var(--primary)/0.18) 0%, transparent 65%)',
+                }}
+              />
+              <InteractiveChecklistDemo />
+            </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { ProductShot } from '@/components/content/product-shot';
+import { SectionAtmosphere } from '@/components/motion/section-atmosphere';
+import { Stagger, StaggerItem } from '@/components/motion/stagger';
 
 /**
  * Every shipping detection model, grouped by the same six categories the main
@@ -106,8 +108,9 @@ const shippingCount = groups.reduce((n, g) => n + g.items.length, 0);
 
 export function DetectionGrid() {
   return (
-    <section className="border-t border-border py-20 sm:py-28">
-      <div className="mx-auto max-w-site px-6">
+    <section className="relative overflow-hidden py-20 sm:py-24">
+      <SectionAtmosphere variant="right" />
+      <div className="relative z-10 mx-auto max-w-site px-6">
         <ScrollReveal>
           <div className="max-w-3xl">
             <span className="font-mono text-mono-sm uppercase text-primary">AI Detection</span>
@@ -122,15 +125,18 @@ export function DetectionGrid() {
           </div>
         </ScrollReveal>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {featured.map((f, i) => (
-            <ScrollReveal key={f.href} delay={i * 0.05}>
+        <Stagger className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {featured.map((f) => (
+            <StaggerItem key={f.href} className="h-full">
               <Link
                 href={f.href}
-                className="group flex h-full flex-col rounded-xl border border-border bg-card p-6 transition-all duration-normal hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                className="console-panel corner-ticks group flex h-full flex-col p-6 transition-transform duration-normal hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-mono-sm uppercase text-live">Live</span>
+                  <span className="flex items-center gap-1.5 font-mono text-mono-sm uppercase text-live">
+                    <span className="h-1.5 w-1.5 rounded-full bg-live motion-safe:animate-pulse-dot" />
+                    Live
+                  </span>
                   <span
                     aria-hidden="true"
                     className="text-muted-foreground transition-transform duration-fast group-hover:translate-x-0.5 group-hover:text-primary"
@@ -143,9 +149,9 @@ export function DetectionGrid() {
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.desc}</p>
               </Link>
-            </ScrollReveal>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
 
         <ScrollReveal delay={0.1}>
           <div className="mt-16 rounded-2xl border border-border bg-card/40 p-8 sm:p-10">
