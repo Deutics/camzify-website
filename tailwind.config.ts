@@ -82,6 +82,15 @@ const config: Config = {
         15: '0.15',
         25: '0.25',
       },
+      /*
+       * `text-primary` resolves to the contrast-corrected token while `bg-primary`,
+       * `border-primary` and `ring-primary` keep the true brand crimson. Configuring
+       * textColor separately is what makes this a one-line fix rather than a rename
+       * across ~200 usages.
+       */
+      textColor: {
+        primary: 'hsl(var(--primary-text))',
+      },
       maxWidth: {
         'site': '1280px',
         'prose': '720px',

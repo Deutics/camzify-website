@@ -65,6 +65,21 @@
     --live: 168 88% 24%;
     --warn: 30 92% 31%;
     --critical: 0 74% 44%;
+
+    /*
+     * The brand crimson used as TEXT rather than as a fill.
+     *
+     * --primary is #A80101, which is correct for button and badge backgrounds where
+     * it carries white text. As a text colour on the dark ground it measures 2.50:1,
+     * well under the 4.5 WCAG AA needs — and that affected every crimson link and
+     * eyebrow on the site, on the default theme.
+     *
+     * On the light ground the brand value already measures 7.39, so it is unchanged
+     * here; only the dark theme needs lifting. Tailwind maps `text-primary` to this
+     * token while `bg-primary` and `border-primary` keep the true brand colour, so
+     * fills stay exactly on-brand and only text is adjusted.
+     */
+    --primary-text: 0 99% 33%;
   }
 
   .dark {
@@ -91,6 +106,9 @@
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.2);
     --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3);
     --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4);
+
+    /* Brand crimson lifted to clear WCAG AA as text on the near-black ground. */
+    --primary-text: 0 95% 68%;
 
     /* Signal colours, brightened for the dark surface. */
     --live: 168 100% 42%;

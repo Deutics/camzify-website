@@ -30,18 +30,19 @@ export function HeroSection() {
             </h1>
 
             {/*
-              The H1 above is deliberately keyword-free — it is the memorable line. The
-              primary keyword is carried here instead, in the first six words, which is
-              also the sentence AI answer engines are most likely to extract as the
-              definition of what Camzify is.
+              The keyword stays in the first six words — this is the sentence answer
+              engines extract as the definition — but the rest now names the whole
+              platform. The previous version described only patrolling, which undersold
+              a product that also does detection, live viewing and retention, and left
+              buyers searching those terms with no reason to think Camzify covers them.
             */}
-            <p className="mt-6 max-w-xl text-body text-muted-foreground">
+            <p className="mt-6 max-w-xl text-body leading-relaxed text-muted-foreground">
               <strong className="font-semibold text-foreground">
-                Camzify is virtual patrolling software
+                Camzify is virtual patrolling and AI video surveillance software
               </strong>{' '}
-              that runs scheduled AI patrol rounds across the cameras you already own —
-              checking every point on the route, flagging what fails, and notifying the guard
-              responsible.
+              for the cameras you already own. Scheduled patrol rounds that produce a
+              compliance record, 22 AI detection models running in real time, live multi-site
+              viewing and cloud video retention — one platform, no new hardware.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -61,20 +62,19 @@ export function HeroSection() {
               </Link>
             </div>
 
-            <div className="mt-8 flex flex-wrap items-center gap-6 text-sm text-muted-foreground">
-              <span className="flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-live" />
-                Works with existing cameras
-              </span>
-              <span className="flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-live" />
-                No proprietary hardware
-              </span>
-              <span className="flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-live" />
-                PDF patrol reports
-              </span>
-            </div>
+            <ul className="mt-8 grid gap-x-6 gap-y-2.5 text-sm text-muted-foreground sm:grid-cols-2">
+              {[
+                'Scheduled AI patrol rounds',
+                '22 detection models, real time',
+                'Live multi-site viewing',
+                'Cloud video backup & retention',
+              ].map((f) => (
+                <li key={f} className="flex items-center gap-2.5">
+                  <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-live" aria-hidden="true" />
+                  {f}
+                </li>
+              ))}
+            </ul>
           </motion.div>
 
           {/* Right: Patrol Sweep Animation */}
