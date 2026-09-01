@@ -30,17 +30,26 @@ export function HeroSection() {
             </h1>
 
             {/*
-              Kept to one sentence. The opening clause is the definition answer engines
-              extract, so it carries both category terms and stays self-contained when
-              quoted; the four pillars are named compactly rather than described, since
-              the list below already expands them and repeating both read as padding.
+              Two sentences, doing two jobs.
+
+              The first is the definition an answer engine extracts: it carries both
+              category terms, opens with the brand, and stands alone when quoted with no
+              surrounding context.
+
+              The second is written for a person. The previous version ended in a feature
+              list — "patrol rounds, real-time detection, live viewing and cloud retention"
+              — which reads like a spec sheet and duplicates the bullets directly below it.
+              Verbs describe what the product actually does instead: checks, catches, tells.
+              The closing clause is the differentiator competitors lack, so it earns the
+              words: anyone can raise an alert, far fewer produce an auditable record.
             */}
             <p className="mt-6 max-w-xl text-body leading-relaxed text-muted-foreground">
               <strong className="font-semibold text-foreground">
                 Camzify is virtual patrolling and AI video surveillance software
               </strong>{' '}
-              for the cameras you already own — patrol rounds, real-time detection, live
-              viewing and cloud retention in one platform.
+              for the cameras you already own. It checks every site on schedule, catches
+              what matters in between, and tells the person responsible &mdash; with a record
+              to prove it.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-4">
