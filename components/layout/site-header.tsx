@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useCallback, type MouseEvent as ReactMouseEvent } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, ChevronDown, ChevronRight } from 'lucide-react';
+import { Menu, X, ChevronDown, ChevronRight, ArrowUpRight } from 'lucide-react';
 import { navItems, siteConfig } from '@/lib/site-config';
 import { ThemeToggle } from '@/components/system/theme-toggle';
 import { SiteLogo } from '@/components/layout/site-logo';
@@ -36,11 +36,9 @@ export function SiteHeader() {
   const [activeGroup, setActiveGroup] = useState<string | null>(null);
   const [flyoutAlign, setFlyoutAlign] = useState<'left' | 'right'>('right');
   const [mobileOpenGroup, setMobileOpenGroup] = useState<string | null>(null);
-  const [ctaOpen, setCtaOpen] = useState(false);
 
   const pathname = usePathname();
   const triggerRefs = useRef<Record<string, HTMLButtonElement | null>>({});
-  const ctaTriggerRef = useRef<HTMLButtonElement | null>(null);
 
   const closeAll = useCallback(() => {
     setActiveMenu(null);
@@ -57,7 +55,6 @@ export function SiteHeader() {
   useEffect(() => {
     setMobileOpen(false);
     setMobileOpenGroup(null);
-    setCtaOpen(false);
     closeAll();
   }, [pathname, closeAll]);
 
@@ -74,14 +71,10 @@ export function SiteHeader() {
         closeAll();
         return;
       }
-      if (ctaOpen) {
-        setCtaOpen(false);
-        ctaTriggerRef.current?.focus();
-      }
     };
     document.addEventListener('keydown', onKeyDown);
     return () => document.removeEventListener('keydown', onKeyDown);
-  }, [activeMenu, activeGroup, ctaOpen, closeAll]);
+  }, [activeMenu, activeGroup, closeAll]);
 
   const handleGroupOpen = (label: string, el: HTMLElement | null) => {
     setActiveGroup(label);
@@ -106,14 +99,14 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-site items-center justify-between px-6">
         <Link
           href="/"
-          className="flex items-center rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          className="flex flex-shrink-0 items-center rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           aria-label={`${siteConfig.name} home`}
         >
-          <SiteLogo className="h-9 w-auto" priority />
+          <SiteLogo className="h-8 w-auto" priority />
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Main">
+        <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Main">
           {(navItems ?? []).map((item: any) => {
             const label = item?.label ?? '';
             const href = item?.href ?? '/';
@@ -133,7 +126,7 @@ export function SiteHeader() {
                 <div className="flex items-center">
                   <Link
                     href={href}
-                    className={`rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
+                    className={`whitespace-nowrap rounded-md px-2 py-2 text-[13px] font-medium transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
                       isActivePath(href) ? 'text-primary' : 'text-foreground/80'
                     }`}
                     aria-current={pathname === href ? 'page' : undefined}
@@ -150,7 +143,7 @@ export function SiteHeader() {
                       aria-expanded={isOpen}
                       aria-controls={menuId}
                       aria-label={`${label} menu`}
-                      className="-ml-1 rounded-md p-1 text-foreground/80 transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                      className="-ml-1.5 rounded-md p-0.5 text-foreground/80 transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                     >
                       <ChevronDown
                         className={`h-3.5 w-3.5 transition-transform ${isOpen ? 'rotate-180' : ''}`}
@@ -282,49 +275,30 @@ export function SiteHeader() {
         </nav>
 
         {/* Right actions */}
-        <div className="flex items-center gap-3">
+        <div className="flex flex-shrink-0 items-center gap-2">
           <ThemeToggle />
-          <div
-            className="relative hidden sm:block"
-            onMouseEnter={() => setCtaOpen(true)}
-            onMouseLeave={() => setCtaOpen(false)}
-            onBlur={(e) => handleBlurOut(e, () => setCtaOpen(false))}
+          {/*
+            Two distinct actions rather than one dropdown. Sign-in and booking a demo
+            are different intents — an existing customer should not have to open a menu
+            labelled "Book a Demo" to reach the product — and burying the app link cost
+            a click for the people who use it most.
+          */}
+          <a
+            href={siteConfig.appUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden items-center gap-1.5 whitespace-nowrap rounded-lg border border-border px-3.5 py-2 text-[13px] font-semibold transition-colors duration-fast hover:border-primary/40 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:inline-flex"
           >
-            <button
-              type="button"
-              ref={ctaTriggerRef}
-              onClick={() => setCtaOpen((v) => !v)}
-              className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-all duration-fast hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-              aria-expanded={ctaOpen}
-              aria-controls="header-cta-menu"
-            >
-              Book a Demo
-              <ChevronDown className={`h-3.5 w-3.5 transition-transform ${ctaOpen ? 'rotate-180' : ''}`} aria-hidden="true" />
-            </button>
+            Sign in
+            <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+          </a>
 
-            <div
-              id="header-cta-menu"
-              {...({ inert: ctaOpen ? undefined : '' } as any)}
-              className={`absolute right-0 top-full z-50 mt-1 w-[200px] rounded-xl border border-border bg-card p-2 shadow-lg transition-all duration-fast ${
-                ctaOpen ? 'visible translate-y-0 opacity-100' : 'invisible pointer-events-none translate-y-2 opacity-0'
-              }`}
-            >
-              <Link
-                href="/book-a-demo"
-                className="block rounded-lg px-3 py-2.5 text-sm font-medium transition-colors hover:bg-accent hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-              >
-                Book a Demo
-              </Link>
-              <a
-                href={siteConfig.appUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block rounded-lg px-3 py-2.5 text-sm font-medium transition-colors hover:bg-accent hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-              >
-                App Login
-              </a>
-            </div>
-          </div>
+          <Link
+            href="/book-a-demo"
+            className="hidden items-center whitespace-nowrap rounded-lg bg-primary px-4 py-2 text-[13px] font-semibold text-primary-foreground transition-all duration-fast hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:inline-flex"
+          >
+            Book a Demo
+          </Link>
 
           <button
             type="button"
@@ -440,7 +414,7 @@ export function SiteHeader() {
                   rel="noopener noreferrer"
                   className="block w-full rounded-lg border border-border px-5 py-3 text-center text-sm font-semibold transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 >
-                  App Login
+                  Sign in to Camzify
                 </a>
               </div>
             </nav>

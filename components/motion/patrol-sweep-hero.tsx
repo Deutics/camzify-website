@@ -3,6 +3,13 @@
 import { useState, useEffect } from 'react';
 import { useReducedMotion } from 'framer-motion';
 
+// Frames are stills lifted from the product's own live-view screen. They are
+// deliberately abstract — low-light colour fields rather than recognisable scenes —
+// so they read as camera feeds without implying footage from a real customer site.
+// Assigned so adjacent tiles never share a frame.
+const FRAMES = ['01', '02', '03', '04', '05', '06'];
+const frameFor = (i: number) => FRAMES[(i * 5 + Math.floor(i / 4)) % FRAMES.length];
+
 const cameras = [
   { id: 'CAM 01', loc: 'MAIN GATE', status: 'checked' },
   { id: 'CAM 02', loc: 'PARKING LOT A', status: 'checked' },
@@ -81,7 +88,25 @@ export function PatrolSweepHero() {
                   : 'border-border bg-card/50'
               }`}
             >
-              <div className="aspect-video p-2 sm:p-3">
+              {/* Camera frame + scrim. Dimmed until the sweep reaches this tile, so the
+                  grid visibly "wakes up" camera by camera as the round progresses. */}
+              <img
+                src={`/cam-${frameFor(i)}.jpg`}
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+                width={480}
+                height={270}
+                className={`absolute inset-0 h-full w-full object-cover transition-all duration-500 ${
+                  isActive ? 'opacity-70 saturate-100' : isChecked ? 'opacity-45' : 'opacity-20 saturate-50'
+                }`}
+              />
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/70 to-background/40"
+              />
+
+              <div className="relative aspect-video p-2 sm:p-3">
                 <div className="flex items-center justify-between">
                   <span
                     className={`font-mono text-[9px] uppercase tracking-wider sm:text-[10px] ${

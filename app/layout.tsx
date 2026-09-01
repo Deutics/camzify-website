@@ -42,11 +42,8 @@ export const metadata: Metadata = {
     'video management system',
   ],
   alternates: { canonical: '/' },
-  icons: {
-    icon: siteConfig.favicon,
-    shortcut: siteConfig.favicon,
-    apple: siteConfig.favicon,
-  },
+  // No `icons` key: app/icon.png and app/apple-icon.png are picked up by Next's file
+  // convention and emit the tags automatically. Declaring icons here would override them.
   // No `images` key on purpose: app/opengraph-image.tsx and app/twitter-image.tsx are
   // picked up by Next's file convention and emit correctly-sized tags automatically.
   // Setting `images` here would override them with a static file again.

@@ -52,7 +52,6 @@ export const siteConfig = {
   ogImage: '/opengraph-image',
   /** Black wordmark. Used for schema.org, where consumers render on light grounds. */
   logo: '/camzify-logo-light.png',
-  favicon: '/favicon.svg',
 
   /** Populate as profiles go live — schema.org sameAs strengthens entity disambiguation. */
   sameAs: [] as string[],
