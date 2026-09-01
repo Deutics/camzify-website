@@ -30,19 +30,17 @@ export function HeroSection() {
             </h1>
 
             {/*
-              The keyword stays in the first six words — this is the sentence answer
-              engines extract as the definition — but the rest now names the whole
-              platform. The previous version described only patrolling, which undersold
-              a product that also does detection, live viewing and retention, and left
-              buyers searching those terms with no reason to think Camzify covers them.
+              Kept to one sentence. The opening clause is the definition answer engines
+              extract, so it carries both category terms and stays self-contained when
+              quoted; the four pillars are named compactly rather than described, since
+              the list below already expands them and repeating both read as padding.
             */}
             <p className="mt-6 max-w-xl text-body leading-relaxed text-muted-foreground">
               <strong className="font-semibold text-foreground">
                 Camzify is virtual patrolling and AI video surveillance software
               </strong>{' '}
-              for the cameras you already own. Scheduled patrol rounds that produce a
-              compliance record, 22 AI detection models running in real time, live multi-site
-              viewing and cloud video retention — one platform, no new hardware.
+              for the cameras you already own — patrol rounds, real-time detection, live
+              viewing and cloud retention in one platform.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-4">

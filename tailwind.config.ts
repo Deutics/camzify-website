@@ -89,7 +89,15 @@ const config: Config = {
        * across ~200 usages.
        */
       textColor: {
-        primary: 'hsl(var(--primary-text))',
+        primary: {
+          // `text-primary` — the brand colour used as text, contrast-corrected per theme.
+          DEFAULT: 'hsl(var(--primary-text))',
+          // `text-primary-foreground` — the label ON a primary fill. Must be restated:
+          // extending textColor.primary replaces the whole key, so declaring only
+          // DEFAULT silently destroyed this one and every primary button rendered its
+          // label in the inherited colour instead of white.
+          foreground: 'hsl(var(--primary-foreground))',
+        },
       },
       maxWidth: {
         'site': '1280px',

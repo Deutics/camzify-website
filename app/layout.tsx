@@ -99,7 +99,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Skip to content
         </a>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+        {/*
+          defaultTheme="system" so a first-time visitor gets the theme their OS asks
+          for. The site is designed dark-first and dark remains the fallback when the
+          OS expresses no preference, but forcing dark on someone whose machine is set
+          to light is a preference we should not be overriding.
+        */}
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <SiteHeader />
           <main id="main" className="min-h-screen">{children}</main>
           <SiteFooter />
