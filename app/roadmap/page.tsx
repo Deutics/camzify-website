@@ -21,7 +21,6 @@ export const metadata = generatePageMeta({ ...pageMeta });
 const roadmapItems = [
   { title: 'Loitering Detection', href: '/ai-features/loitering-detection', icon: Clock, status: 'In Development', desc: 'Detect when a person or vehicle remains in a defined area beyond a configured dwell time. This addresses a common security gap — someone lingering near a fence line, ATM, or restricted entrance.' },
   { title: 'Forensic Video Search', href: '/ai-features/forensic-video-search', icon: Search, status: 'Planned', desc: 'Search recorded footage using natural language queries — "person in red jacket near gate 3 between 2am and 4am." This will significantly reduce the time required for incident investigation.' },
-  { title: 'Behavioral Analytics', href: '/ai-features/behavioral-analytics', icon: Brain, status: 'Planned', desc: 'Identify anomalous behavior patterns without predefined rules — unusual movement patterns, crowd formation, or activity that deviates from the learned baseline for that time and location.' },
 ];
 
 export default function RoadmapPage() {

@@ -12,6 +12,18 @@ const nextConfig = {
     ignoreBuildErrors: false,
   },
   images: { unoptimized: true },
+  async redirects() {
+    return [
+      {
+        // The roadmap "Behavioral Analytics" page was superseded by the shipping
+        // Behavioral Anomaly Detection feature, which works differently enough to
+        // warrant its own slug. Permanent so any existing link equity follows.
+        source: '/ai-features/behavioral-analytics',
+        destination: '/ai-features/behavioral-anomaly-detection',
+        permanent: true,
+      },
+    ];
+  },
   webpack: (config, { isServer }) => {
     if (!isServer) {
       config.output.filename = 'static/chunks/[name]-[contenthash:8].js';

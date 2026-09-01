@@ -48,7 +48,7 @@ const liveDetections = [
 
 const roadmapDetections = [
   { icon: <ClockIcon className="h-5 w-5" />, title: 'Loitering Detection', desc: 'Configurable dwell-time threshold. Brief entries ignored, lingering subjects escalate. In development.', href: '/ai-features/loitering-detection' },
-  { icon: <Eye className="h-5 w-5" />, title: 'Behavioral Analytics', desc: 'Running, object abandonment, crowd formation, counter-flow movement. On the roadmap.', href: '/ai-features/behavioral-analytics' },
+  { icon: <Eye className="h-5 w-5" />, title: 'Behavioral Anomaly Detection', desc: 'Describe the behaviour to watch for in plain language — fights, smoking, vandalism, trespassing — and it monitors for exactly that.', href: '/ai-features/behavioral-anomaly-detection' },
 ];
 
 export default function DetectionHubPage() {

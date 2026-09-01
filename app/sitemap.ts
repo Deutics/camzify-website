@@ -107,7 +107,7 @@ const aiFeatures = group(
     '/ai-features/heatmap-anomalies',
     '/ai-features/occupancy-and-peak-hour-trends',
     '/ai-features/loitering-detection',
-    '/ai-features/behavioral-analytics',
+    '/ai-features/behavioral-anomaly-detection',
   ],
   0.7,
   'monthly'

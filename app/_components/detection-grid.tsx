@@ -19,6 +19,11 @@ import { Stagger, StaggerItem } from '@/components/motion/stagger';
  */
 const featured = [
   {
+    title: 'Behavioral Anomaly Detection',
+    href: '/ai-features/behavioral-anomaly-detection',
+    desc: 'Describe the behaviour you want watched in plain language — fights, smoking, vandalism, trespassing — and it monitors for exactly that.',
+  },
+  {
     title: 'Line Intrusion Detection',
     href: '/ai-features/line-intrusion-detection',
     desc: 'A virtual tripwire with directional control. Fires on a confirmed object track crossing the line — not on a shadow or a lighting shift.',
@@ -43,11 +48,6 @@ const featured = [
     href: '/ai-features/ai-attribute-extraction',
     desc: 'A vision-language model reads the scene and attaches structured attributes — clothing colour, object type, behaviour.',
   },
-  {
-    title: 'AI Suspect Search',
-    href: '/ai-features/forensic-video-search',
-    desc: 'Search recorded video by attribute rather than by timestamp. Find the subject, not the hour.',
-  },
 ];
 
 const groups = [
@@ -63,6 +63,7 @@ const groups = [
   {
     label: 'Threat & Incident',
     items: [
+      ['Behavioral Anomaly Detection', '/ai-features/behavioral-anomaly-detection'],
       ['Weapons Detection', '/ai-features/weapons-detection'],
       ['Aggression & Fight Detection', '/ai-features/aggression-and-fight-detection'],
       ['Slip & Fall Detection', '/ai-features/slip-and-fall-detection'],

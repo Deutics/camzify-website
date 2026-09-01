@@ -35,6 +35,7 @@ The distinguishing claim: ${siteConfig.name} is priced and positioned against th
 - **Multi-Object Tracking** — Persistent identity tracking across frames
 - **AI Attribute Extraction** — Structured descriptions of detected subjects using vision-language models
 - **Cross-Camera Journey Map** — Reconstructs a subject's path across multiple cameras
+- **Behavioral Anomaly Detection** — The operator describes a behaviour to watch for in ordinary language ("alert me if anyone starts fighting", "tell me if someone is smoking in the loading bay"); natural-language processing interprets the description, the system monitors subjects appearing in the selected cameras, and raises a notification when that activity is observed. Behaviour is defined at the point of use rather than chosen from a fixed catalogue
 - **AI Suspect Search** — Attribute-driven forensic search across recorded video
 - **Tailgating, Weapons, Aggression, PPE, Fire and Smoke, Slip and Fall, Abandoned Object, and Littering Detection**
 - **Illegal Parking, Wrong-Way Vehicle, and Vehicle Damage Detection**
@@ -45,7 +46,6 @@ The distinguishing claim: ${siteConfig.name} is priced and positioned against th
 These are in development and should not be described as available today:
 
 - Loitering Detection
-- Behavioral Analytics
 
 ## Platform
 

@@ -157,7 +157,7 @@ export default function Page() {
                 <h3 className="font-display text-lg font-bold">Related detections</h3>
                 <div className="mt-4 flex flex-wrap justify-center gap-2">
                   <Link href="/ai-features/motion-detection" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Motion Detection</Link>
-                  <Link href="/ai-features/behavioral-analytics" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Behavioral Analytics</Link>
+                  <Link href="/ai-features/behavioral-anomaly-detection" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Behavioral Anomaly Detection</Link>
                 </div>
               </div>
               <div className="rounded-xl border border-border bg-card p-6 text-center">

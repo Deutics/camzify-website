@@ -120,6 +120,7 @@ export const navItems = [
       {
         label: 'Threat & Incident',
         items: [
+          { label: 'Behavioral Anomaly Detection', href: '/ai-features/behavioral-anomaly-detection' },
           { label: 'Weapons Detection', href: '/ai-features/weapons-detection' },
           { label: 'Aggression & Fight Detection', href: '/ai-features/aggression-and-fight-detection' },
           { label: 'Slip & Fall Detection', href: '/ai-features/slip-and-fall-detection' },
@@ -163,7 +164,6 @@ export const navItems = [
         label: 'Coming Soon',
         items: [
           { label: 'Loitering Detection', href: '/ai-features/loitering-detection' },
-          { label: 'Behavioral Analytics', href: '/ai-features/behavioral-analytics' },
         ],
       },
     ],
