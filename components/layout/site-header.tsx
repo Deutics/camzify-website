@@ -2,11 +2,11 @@
 
 import { useState, useEffect, useRef, useCallback, type MouseEvent as ReactMouseEvent } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Menu, X, ChevronDown, ChevronRight } from 'lucide-react';
 import { navItems, siteConfig } from '@/lib/site-config';
 import { ThemeToggle } from '@/components/system/theme-toggle';
+import { SiteLogo } from '@/components/layout/site-logo';
 import { AnimatePresence, motion } from 'framer-motion';
 
 const FLYOUT_WIDTH = 280;
@@ -109,7 +109,7 @@ export function SiteHeader() {
           className="flex items-center rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           aria-label={`${siteConfig.name} home`}
         >
-          <Image src="/camzify-logo.png" alt={siteConfig.name} width={825} height={192} className="h-9 w-auto" priority />
+          <SiteLogo className="h-9 w-auto" priority />
         </Link>
 
         {/* Desktop nav */}

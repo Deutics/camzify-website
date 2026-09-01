@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/image';
+import { SiteLogo } from '@/components/layout/site-logo';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { siteConfig, formattedAddress } from '@/lib/site-config';
 
@@ -94,7 +94,7 @@ export function SiteFooter() {
         <div className="mt-12 flex flex-col items-start gap-6 border-t border-border pt-8 lg:flex-row lg:items-center lg:justify-between">
           <div className="flex items-center gap-6">
             <Link href="/" className="flex items-center">
-              <Image src="/camzify-logo.png" alt="Camzify" width={825} height={192} className="h-8 w-auto" />
+              <SiteLogo className="h-8 w-auto" />
             </Link>
             <span className="text-xs text-muted-foreground">
               Powered by {siteConfig.engineering}
