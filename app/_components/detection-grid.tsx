@@ -204,7 +204,7 @@ export function DetectionGrid() {
           </ScrollReveal>
           <ScrollReveal delay={0.08}>
             <ProductShot
-              src="/product-notifications.jpg"
+              src="/product-notifications"
               alt="Camzify notifications screen showing 54 detection events with severity filters, a critical acknowledgement banner, and average time to acknowledge"
               label="Notifications · Camzify console"
             />

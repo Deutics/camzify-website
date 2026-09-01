@@ -51,7 +51,7 @@ export function WhatIsVP() {
 
           <ScrollReveal delay={0.1}>
             <ProductShot
-              src="/product-virtual-patrolling.jpg"
+              src="/product-virtual-patrolling"
               alt="Camzify virtual patrolling screen showing three patrol sequences, auto-patrol scheduling with round frequency and active hours, and per-round reporting settings"
               label="Virtual Patrolling · Camzify console"
               sizes="(max-width: 1024px) 100vw, 58vw"

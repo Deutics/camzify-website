@@ -17,14 +17,14 @@ const steps = [
   {
     title: 'Connect the cameras you already have',
     desc: 'Any ONVIF or RTSP camera connects directly. RTMP, HLS and WebRTC are supported too, and cameras on a private network relay through the Camzify Connector with no port forwarding. Sites and cameras are grouped as you organise them operationally.',
-    shot: '/product-configuration.jpg',
+    shot: '/product-configuration',
     alt: 'Camzify configuration screen showing four sites with per-site camera counts and seven-day event trends',
     label: 'Configuration · Camzify console',
   },
   {
     title: 'Build the patrol sequence',
     desc: 'Set the camera order for the round, write the checklist each camera is checked against, and name the guard responsible for each stop. Then choose the frequency, the active hours and the active days.',
-    shot: '/product-virtual-patrolling.jpg',
+    shot: '/product-virtual-patrolling',
     alt: 'Camzify patrol sequence configuration showing auto-patrol frequency, active hours, active days and reporting settings',
     label: 'Patrol setup · Camzify console',
   },
@@ -38,7 +38,7 @@ const steps = [
   {
     title: 'Failures reach the person responsible',
     desc: 'Any non-compliant item notifies the guard assigned to that camera with a message explaining what was found. The completed round is emailed as a PDF with every check, the compliance percentage, and who was notified.',
-    shot: '/product-notifications.jpg',
+    shot: '/product-notifications',
     alt: 'Camzify notifications screen showing a critical acknowledgement banner, severity breakdown and per-event detail',
     label: 'Notifications · Camzify console',
   },
