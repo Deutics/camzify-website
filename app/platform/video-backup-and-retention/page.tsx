@@ -21,6 +21,8 @@ const pageMeta = {
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
+  { question: 'Does Camzify record continuously, or only at certain times?', answer: 'Either. Continuous recording captures around the clock. Scheduled recording captures only during hours you define — an office that is empty from 7pm to 7am does not need to pay to store twelve hours of an unlit corridor every day. A schedule can be applied to one site or to every camera at once, so it does not have to be set camera by camera.' },
+  { question: 'Which costs less, continuous or scheduled recording?', answer: 'Scheduled, in direct proportion to the hours you drop — storage is consumed per hour recorded, so halving the recording window roughly halves the storage for that camera. Continuous is the right default where an incident could occur at any hour, or where an insurer or regulator expects unbroken coverage. Many sites run both: continuous on perimeter and entry cameras, scheduled on interior ones.' },
   { question: 'How is the Est. Storage figure calculated, and how accurate is it?', answer: 'It\'s a planning estimate, calculated from each camera\'s typical bitrate for its configured resolution and frame rate — not a live measurement of what has actually been recorded. Actual usage varies with scene activity, motion, and compression, so treat it as a sizing guide rather than an exact reading.' },
   { question: 'What happens when a camera runs out of assigned storage?', answer: 'When a camera is set to a storage (GB) cap and reaches it, the oldest footage rolls off to make room for new recording, the same way a "By Days" camera drops footage older than its retention window. Either way the camera keeps recording — older history is what gives way.' },
   { question: 'What\'s the difference between retention "By Days" and "By Storage"?', answer: 'By Days keeps a fixed time window — say 14 days — regardless of how much footage that ends up being. By Storage instead caps a camera at a fixed GB allowance and lets the retained time window shrink or grow with scene activity. 24/7 continuous recording can be paired with either limit.' },
@@ -85,6 +87,16 @@ export default function Page() {
                   A smashed or stolen NVR is a common way footage disappears right when it matters most.
                   Camzify streams and stores footage off-site in the cloud as it's captured, so the recording
                   survives even if the physical hardware on-site doesn't.
+                </p>
+                <p className="mt-4 text-muted-foreground">
+                  <strong className="font-semibold text-foreground">
+                    Recording runs continuously or on a schedule, set per camera.
+                  </strong>{' '}
+                  Continuous suits anywhere an incident could happen at any hour. Scheduled records
+                  only during the hours you define, which is the bluntest and most effective control
+                  on storage cost — an interior camera watching an empty office overnight is paying
+                  to store twelve hours of nothing. A schedule can be applied to a whole site or to
+                  every camera at once rather than set one at a time.
                 </p>
                 <p className="mt-4 text-muted-foreground">
                   Retention policy is where storage cost and evidence coverage trade off against each other —

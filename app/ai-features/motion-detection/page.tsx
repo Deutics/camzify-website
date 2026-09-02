@@ -23,6 +23,8 @@ const faqs = [
   { question: 'What is motion detection and how is it different from line or zone intrusion detection?', answer: 'Motion detection flags meaningful movement anywhere in the frame using background-subtraction analysis, without evaluating a specific line or zone. Line and zone intrusion detection go a step further, requiring a confirmed object track to cross a defined boundary or enter a defined area before firing.' },
   { question: 'Does motion detection replace multi-object tracking?', answer: 'No. Motion detection identifies candidate regions of meaningful change in the frame. Those candidates are then handed off to multi-object tracking, which confirms whether the movement corresponds to an actual person, vehicle, or other object before an alert is generated.' },
   { question: 'How does Camzify avoid the false-alarm problem of legacy motion detection?', answer: 'Instead of comparing raw pixel values frame to frame, the system models what the static background of a scene normally looks like and only flags regions that deviate from that model, filtering out lighting transitions, auto-exposure changes, and small repetitive movement like foliage in wind.' },
+  { question: 'Can I stop a camera alerting on animals or on anything that is not a person?', answer: 'Yes. Each camera carries an object filter that restricts alerts to Person, Vehicle or Animal, so a car park camera can ignore a cat crossing at 3am while still reporting a person on foot. It works alongside the sensitivity setting and the minimum object size threshold rather than replacing them.' },
+  { question: 'What is the difference between an inclusion zone and an exclusion zone?', answer: 'An inclusion zone limits assessment to the area you draw, so everything outside it is ignored. An exclusion zone does the reverse: the rest of the frame is assessed and the area you draw is left out. Most false-alarm problems are solved with an exclusion zone over the specific thing that moves and does not matter — a tree line, a public pavement, a flapping banner.' },
   { question: 'Can I mask out parts of the camera view?', answer: 'Yes. Masked regions can be drawn over areas like public streets, tree lines, or reflective surfaces that would otherwise generate motion candidates, so the system only evaluates the parts of the frame that matter.' },
   { question: 'Does motion detection work with PTZ (moving) cameras?', answer: 'Motion detection is built around a modeled static background, so it performs best on fixed camera views. A PTZ camera that is actively panning or zooming will temporarily invalidate the background model until it settles on a new fixed position.' },
   { question: 'What happens after a motion event is confirmed?', answer: 'A confirmed motion event includes a timestamp, the affected region of the frame, and a snapshot, and routes through the notification queue with the same acknowledgement and false-positive marking workflow as every other alert type.' },
@@ -109,12 +111,18 @@ export default function Page() {
                   Motion detection is tuned per camera in the configuration panel. Each camera supports:
                 </p>
                 <ul className="mt-4 space-y-3 text-muted-foreground">
-                  <li className="flex gap-2">• Sensitivity adjustment to match scene complexity</li>
-                  <li className="flex gap-2">• Masked regions to exclude areas like tree lines or public streets</li>
+                  <li className="flex gap-2">• Sensitivity set to Low, Medium, High or a custom level, to match scene complexity</li>
+                  <li className="flex gap-2">• Inclusion and exclusion zones, so a tree line or a public pavement is never assessed at all</li>
+                  <li className="flex gap-2">• A minimum object size threshold, to ignore movement below the size you care about</li>
+                  <li className="flex gap-2">• An object filter, so a camera alerts only on Person, Vehicle or Animal rather than on any motion</li>
                   <li className="flex gap-2">• Schedule-based activation, e.g. after-hours only</li>
-                  <li className="flex gap-2">• Minimum object size threshold to ignore small movement</li>
-                  <li className="flex gap-2">• Alert suppression during known high-traffic periods</li>
                 </ul>
+                <p className="mt-4 text-muted-foreground">
+                  These stack. A loading yard that alerts all night on foliage usually needs an
+                  exclusion zone over the tree line and an object filter set to Person and Vehicle —
+                  after which the same camera reports the arrivals that matter and stays quiet for
+                  everything else.
+                </p>
               </div>
             </ScrollReveal>
             <PlaceholderVisual type="config-ui" caption="MOTION SENSITIVITY" alt="Configuration panel showing motion sensitivity, masked regions, and schedule controls for a camera feed" />

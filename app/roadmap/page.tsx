@@ -3,7 +3,7 @@ import { PageShell } from '@/components/layout/page-shell';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { RoadmapBadge } from '@/components/content/roadmap-badge';
 import Link from 'next/link';
-import { Clock, Search, Brain } from 'lucide-react';
+import { Clock, Search, Brain, Smartphone } from 'lucide-react';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -20,6 +20,7 @@ export const metadata = generatePageMeta({ ...pageMeta });
 
 const roadmapItems = [
   { title: 'Loitering Detection', href: '/ai-features/loitering-detection', icon: Clock, status: 'In Development', desc: 'Detect when a person or vehicle remains in a defined area beyond a configured dwell time. This addresses a common security gap — someone lingering near a fence line, ATM, or restricted entrance.' },
+  { title: 'Camzify Mobile Apps', href: '/platform/mobile-access', icon: Smartphone, status: 'In Development', desc: 'Native iOS and Android apps for live streams, push alerts and patrol reviews on the go. Not yet released — mobile access today is the responsive browser interface, which will remain available after the apps ship.' },
   { title: 'Forensic Video Search', href: '/ai-features/forensic-video-search', icon: Search, status: 'Planned', desc: 'Search recorded footage using natural language queries — "person in red jacket near gate 3 between 2am and 4am." This will significantly reduce the time required for incident investigation.' },
 ];
 

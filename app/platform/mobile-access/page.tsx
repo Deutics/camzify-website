@@ -14,14 +14,14 @@ import { Smartphone, Globe, ShieldCheck, Bell } from 'lucide-react';
  */
 const pageMeta = {
   title: "Mobile Access | Security on the Go",
-  description: "Camzify mobile access: live streams, alerts, and patrol compliance from any device. Responsive interface, no app download required.",
+  description: "Camzify mobile access: live streams, alerts, and patrol compliance from any phone or tablet browser, with nothing to install. Native iOS and Android apps are in development.",
   path: "/platform/mobile-access",
 };
 
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
-  { question: 'Do guards need to install anything?', answer: 'No. Mobile access runs in the phone\'s own browser — Safari, Chrome, whatever\'s already there — so there\'s nothing to download, install, or keep updated through an app store.' },
+  { question: 'Do guards need to install anything?', answer: 'No. Mobile access runs in the phone\'s own browser — Safari, Chrome, whatever is already there — so there is nothing to download, install, or keep updated. Native iOS and Android apps are in development; the browser interface is what is available today, and it stays available afterwards for anyone who would rather not install anything.' },
   { question: 'Does mobile access work on tablets too?', answer: 'Yes. The interface is responsive rather than built around one fixed screen size, so it adapts across phones, tablets, and desktop browsers alike.' },
   { question: 'Can I acknowledge a critical alert from my phone?', answer: 'Yes, and it\'s the same acknowledgement state as everywhere else — acknowledging a critical event on mobile marks it acknowledged on the dashboard and in Notifications too, not just on the device you\'re holding.' },
   { question: 'Is the mobile experience missing any features compared to desktop?', answer: 'The core operational views — live streams, the alert feed, and patrol compliance — are all fully available on mobile. Some administrative and configuration screens are simply easier to work through on a larger display, but nothing is desktop-only by design.' },
@@ -82,12 +82,17 @@ export default function Page() {
             <ScrollReveal>
               <div>
                 <span className="font-mono text-mono-sm uppercase text-primary">Built For Shift Work</span>
-                <h2 className="mt-2 font-display text-2xl font-bold">Responsive, not a separate app</h2>
+                <h2 className="mt-2 font-display text-2xl font-bold">Works on whatever is already in their hand</h2>
                 <p className="mt-4 text-muted-foreground">
                   Guards and supervisors don't work from one device. A round might start on a phone in a parking lot
-                  and end at a desktop back in the office — a native app locked to one platform would mean re-learning
-                  the interface, or losing features, every time the device changes. A responsive web app carries the
-                  same layout logic and the same data across all of them.
+                  and end at a desktop back in the office, and the responsive interface carries the same layout logic
+                  and the same data across both, so nothing has to be re-learned when the device changes.
+                </p>
+                <p className="mt-4 text-muted-foreground">
+                  Native Camzify apps for iOS and Android are in development. Until they ship, mobile access is the
+                  browser interface described here — which is also what makes it available to a contractor or a
+                  relief guard on their own phone, on their first shift, with nothing to install. See the{' '}
+                  <Link href="/roadmap" className="text-primary hover:underline">roadmap</Link> for what is coming.
                 </p>
                 <p className="mt-4 text-muted-foreground">
                   It also means there's no separate install to push out or keep current across a team's devices.

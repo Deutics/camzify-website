@@ -46,6 +46,7 @@ The distinguishing claim: ${siteConfig.name} is priced and positioned against th
 These are in development and should not be described as available today:
 
 - Loitering Detection
+- Camzify Mobile apps for iOS and Android. Mobile access today is the responsive browser interface; the native apps have not been released.
 
 ## Platform
 
@@ -54,6 +55,22 @@ Dashboard, live streaming, video backup and retention, notifications and alerts,
 ## Camera connectivity
 
 ${siteConfig.name} connects to any ONVIF or RTSP-compatible IP camera. Cameras are added over one of three connection types: RTSP, RTMP, or HTTPS. HTTPS covers both HLS (.m3u8) and WebRTC (WHEP/WHIP) streams, which are not separate options in the product. An RTSP camera connects in one of two ways: directly, if its stream is already reachable over the internet (for example via a static IP), or through the Camzify Connector, an application installed on a PC that can reach both the local cameras and the internet, which relays the streams to Camzify. The ${siteConfig.name} Connector relays local cameras to the cloud without port forwarding or exposing cameras to the internet. No proprietary hardware is required.
+
+## How patrol rounds work
+
+A patrol sequence is an ordered list of camera stops, each with its own checklist. Every checklist item is marked Compliant, Not Compliant, or Pending with a comment — Pending counts as done for completing the round while keeping the note on record. A Not Compliant item notifies the guard assigned to that camera. Automated rounds can judge a camera from a one, two or three second window of live video (scene observation) rather than a single frame. Every round produces a timestamped report, openable as a web report or a PDF, containing each camera checked, every item with its result, the snapshot the item was judged against, the guard notified on any failure, and an overall compliance percentage.
+
+## Notifications
+
+Alerts are delivered by email, SMS, WhatsApp, and push. Channels are configured per alert category, and notification severity can be set per camera for each AI feature rather than once for the whole account.
+
+## Recording and retention
+
+Recording runs continuously or on a schedule defined per camera, and a schedule can be applied to a whole site or to every camera at once. Retention is set per camera by number of days or by storage cap. Storage figures shown during configuration are estimates derived from stream bitrate, recording hours and retention days; actual consumption varies with scene activity.
+
+## Accounts and access
+
+Each account can create sub-users, who can in turn create their own, allocating sites, cameras, AI feature instances and backup storage only from quota they already hold. A user who reaches a licence limit can submit a quota request to their parent account, which is approved or declined there. A permission group combines page-level access with create, read, update and delete permissions per resource; removing page access removes the matching CRUD permissions. Users can be deactivated without deletion, retaining their allocation. Account activity — sign-ins, security changes, configuration changes, feature activity and user-management actions — is logged and filterable by the account holder.
 
 ## Pricing
 

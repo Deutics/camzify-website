@@ -31,6 +31,21 @@ export default function TrustPage() {
               <p className="mt-4 text-muted-foreground">Camera feeds are processed for AI detection and patrol verification. Video footage is stored according to your configured retention policy and encrypted at rest. We do not sell, share, or use customer video data for model training without explicit consent.</p>
             </ScrollReveal>
             <ScrollReveal>
+              <h2 className="font-display text-2xl font-bold">Account actions are logged</h2>
+              <p className="mt-4 text-muted-foreground">
+                Every account keeps an activity record covering sign-ins, security changes,
+                configuration changes, AI feature activity and user-management actions, filterable
+                by category. It is visible to the account holder under My Profile, not something
+                that has to be requested from us.
+              </p>
+              <p className="mt-4 text-muted-foreground">
+                We mention it here because it is a thing that exists today and can be checked,
+                rather than a certification we are working towards. If you need to answer who
+                changed a retention policy, who added a camera, or who acknowledged an alert and
+                when, that record is already being kept.
+              </p>
+            </ScrollReveal>
+            <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">What we do not claim</h2>
               <p className="mt-4 text-muted-foreground">We do not claim to replace all security guards at all facilities. We do not claim zero false alarms. We do not claim compliance with certifications we have not obtained. See the <Link href="/security-and-compliance" className="text-primary hover:underline">security and compliance</Link> page for specific details on our security posture.</p>
             </ScrollReveal>
