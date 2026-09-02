@@ -110,7 +110,7 @@ export default function SupportedCamerasPage() {
                   },
                   {
                     q: 'Can Camzify reach the stream?',
-                    a: 'On a local network with no public route, the Camzify Connector relays the stream to the cloud — no port forwarding, and the camera is never exposed to the internet.',
+                    a: 'If the RTSP stream is already reachable over the internet — via a static IP or an existing forwarded route — connect it directly. If it only exists on the local network, the Camzify Connector relays it from a PC on that network, with no port forwarding and the camera never exposed to the internet.',
                   },
                   {
                     q: 'Is the picture good enough?',

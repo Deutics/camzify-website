@@ -16,7 +16,7 @@ import { SectionAtmosphere } from '@/components/motion/section-atmosphere';
 const steps = [
   {
     title: 'Connect the cameras you already have',
-    desc: 'Any ONVIF or RTSP camera connects directly. RTMP and HTTPS streams are supported too, and cameras on a private network relay through the Camzify Connector with no port forwarding. Sites and cameras are grouped as you organise them operationally.',
+    desc: 'An RTSP stream that is reachable online connects directly; cameras on a private network relay through the Camzify Connector with no port forwarding. RTMP and HTTPS streams are supported too. Sites and cameras are grouped as you organise them operationally.',
     shot: '/product-configuration',
     alt: 'Camzify configuration screen showing four sites with per-site camera counts and seven-day event trends',
     label: 'Configuration · Camzify console',

@@ -4,7 +4,7 @@ import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { Wifi, Radio, Globe, ArrowRight } from 'lucide-react';
 
 const paths = [
-  { icon: Radio, title: 'RTSP', desc: 'Local network cameras relayed via the Camzify Connector.', href: '/camera-connectivity/rtsp-setup' },
+  { icon: Radio, title: 'RTSP', desc: 'Direct if the stream is reachable online, or via the Camzify Connector for local cameras.', href: '/camera-connectivity/rtsp-setup' },
   { icon: Wifi, title: 'RTMP', desc: 'Generated private ingest address with server URL and stream key.', href: '/camera-connectivity/rtmp-setup' },
   { icon: Globe, title: 'HTTPS', desc: 'Streams served over the web — both HLS and WebRTC connect here.', href: '/camera-connectivity/https-setup' },
 ];

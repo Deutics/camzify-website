@@ -53,7 +53,7 @@ Dashboard, live streaming, video backup and retention, notifications and alerts,
 
 ## Camera connectivity
 
-${siteConfig.name} connects to any ONVIF or RTSP-compatible IP camera. Cameras are added over one of three connection types: RTSP, RTMP, or HTTPS. HTTPS covers both HLS (.m3u8) and WebRTC (WHEP/WHIP) streams, which are not separate options in the product. The ${siteConfig.name} Connector relays local cameras to the cloud without port forwarding or exposing cameras to the internet. No proprietary hardware is required.
+${siteConfig.name} connects to any ONVIF or RTSP-compatible IP camera. Cameras are added over one of three connection types: RTSP, RTMP, or HTTPS. HTTPS covers both HLS (.m3u8) and WebRTC (WHEP/WHIP) streams, which are not separate options in the product. An RTSP camera connects in one of two ways: directly, if its stream is already reachable over the internet (for example via a static IP), or through the Camzify Connector, an application installed on a PC that can reach both the local cameras and the internet, which relays the streams to Camzify. The ${siteConfig.name} Connector relays local cameras to the cloud without port forwarding or exposing cameras to the internet. No proprietary hardware is required.
 
 ## Pricing
 

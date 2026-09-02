@@ -24,7 +24,7 @@ export const metadata = generatePageMeta({ ...pageMeta });
  * exist in the product. Their setup guides live under the HTTPS page.
  */
 const protocols = [
-  { slug: 'rtsp-setup', title: 'RTSP', icon: Radio, desc: 'The most common protocol. Works with any ONVIF-compatible IP camera.' },
+  { slug: 'rtsp-setup', title: 'RTSP', icon: Radio, desc: 'The most common protocol. Connect an internet-reachable stream directly, or relay local cameras through the Camzify Connector.' },
   { slug: 'rtmp-setup', title: 'RTMP', icon: Upload, desc: 'Push-based streaming from encoders and RTMP-capable cameras.' },
   { slug: 'https-setup', title: 'HTTPS', icon: Globe, desc: 'Streams delivered over the web. Covers both HLS (.m3u8) and WebRTC (WHEP/WHIP).' },
 ];
@@ -39,7 +39,7 @@ export default function CameraConnectivityHub() {
             <strong className="font-semibold text-foreground">A camera connects to Camzify in one of three ways: RTSP, RTMP or HTTPS.</strong> Camzify uses the cameras you already own, with no proprietary hardware required. Choose your connection type below for step-by-step setup instructions, then start running <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrol</a> rounds within minutes.
           </p>
           <p className="mt-4 text-muted-foreground">
-            For cameras on local networks without direct cloud access, the <Link href="/camzify-connector" className="text-primary hover:underline">Camzify Connector</Link> relays streams securely. See <Link href="/guides/onvif-and-rtsp-explained" className="text-primary hover:underline">ONVIF and RTSP explained</Link> for protocol fundamentals.
+            An RTSP stream that is already reachable over the internet connects directly. For cameras on local networks without direct cloud access, the <Link href="/camzify-connector" className="text-primary hover:underline">Camzify Connector</Link> relays streams securely. See <Link href="/guides/onvif-and-rtsp-explained" className="text-primary hover:underline">ONVIF and RTSP explained</Link> for protocol fundamentals.
           </p>
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {protocols.map((p, i) => (
