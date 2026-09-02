@@ -112,6 +112,46 @@ comparison page to earn its keep. Revisit if any starts ranking, or if sales rep
 of them coming up repeatedly in live deals — a name prospects raise themselves is worth a
 page regardless of search volume.
 
+### Who competitors target on their own websites
+
+Researched 2026-09-03 by reading the sites themselves. This matters because the business
+has named security agencies as its primary target, and the answer splits cleanly in two.
+
+**The big VMS names do not sell to guarding companies as a buyer.** Milestone, Genetec,
+Verkada and Eagle Eye all address (a) end-user organisations by industry — retail,
+education, healthcare, manufacturing, government, hotels, logistics — and (b) a channel of
+**installers, resellers, distributors, integrators and A&E consultants**. That channel is
+people who *fit* systems, not people who *run monitoring as a service*. Eagle Eye's site
+carries no mention of monitoring stations or guarding companies at all. Verkada names its
+buyers as "security and IT leaders" from "small and midsize businesses to Fortune 500".
+
+**The AI-analytics tier sells to exactly the segment Camzify has named.** Actuate.ai's
+navigation is built around it: "Central Monitoring Stations (CMS)", "Alarm Receiving
+Centers (ARC)", "Global Security Operations Centers (GSOC)", "Managed Service Providers
+(MSP)" and "Remote Guarding", with end-user "Self-Monitoring" as the secondary track.
+Irisity carries "Channel Partners", "Central Monitoring Stations" and "Integration
+Partners", and names Securitas, G4S, Prosegur and Convergint — the largest guarding
+companies in the world — as partners.
+
+Beyond the supplied list, the same segment is served by Becklar (explicit white-label,
+"promote your services under your own brand"), 3dEYE, Cloudastructure and Hakimo.
+
+**What this means:**
+
+1. The incumbents leave this buyer alone, so the segment is not crowded by big brands —
+   but it is not empty either, and Actuate is the direct rival for it rather than Milestone.
+2. Irisity naming Securitas and G4S is proof the segment buys this category. That is the
+   strongest available evidence that the agency pitch works.
+3. **Competitor tiering should follow the target.** If agencies are primary, the
+   comparison pages that matter are Actuate, 3dEYE, Hakimo and Cloudastructure. Milestone
+   and Verkada still capture end-user search, but an agency evaluating Camzify is not
+   comparing it to a VMS.
+4. **There is a vocabulary gap.** The segment searches in its own words and the site does
+   not use them: "central monitoring station" (0 pages), "alarm receiving centre" (0),
+   "GSOC" (0), "security agency" / "guarding company" (0), "white label" (1 passing
+   mention). "Remote guarding" appears on 4. Whatever is decided about positioning, these
+   are the terms the buyer types.
+
 **Category competitors the site positions against explicitly** (still the most important
 group, because the site's whole argument is category-level):
 - Manned guarding / security guard companies — **but see the positioning conflict in Part 2:
