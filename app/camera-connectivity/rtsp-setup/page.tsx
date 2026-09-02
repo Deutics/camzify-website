@@ -93,7 +93,7 @@ export default function RtspSetupPage() {
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-lg font-bold text-white">3</span>
                 <div>
                   <h2 className="font-display text-xl font-bold">Add the camera in Camzify</h2>
-                  <div className="mt-2 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `In the Camzify dashboard, go to Camera Management → Add Camera. Enter the RTSP URL directly, or select a stream the Connector is already relaying. Either way the platform verifies connectivity and displays the live preview.` }} />
+                  <div className="mt-2 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `In the Camzify dashboard, go to Camera Management → Add Camera. Enter the RTSP URL directly, or select a stream the Connector is already relaying. Most cameras require a username and password on the stream; there are optional fields for them, and you only need them if the camera asks for credentials. Either way the platform verifies connectivity and displays the live preview.` }} />
                 </div>
               </li>
             </ScrollReveal>
