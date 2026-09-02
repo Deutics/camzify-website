@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { BrandStrip } from '@/components/content/brand-strip';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { Wifi, Radio, Globe, Zap, ArrowRight } from 'lucide-react';
 
@@ -51,6 +52,12 @@ export function CameraSupport() {
           >
             View supported camera database <ArrowRight className="h-4 w-4" />
           </Link>
+          <div className="mt-14">
+            <p className="text-center font-mono text-mono-sm uppercase text-muted-foreground">
+              Deployed on cameras from
+            </p>
+            <BrandStrip className="mt-6" limit={8} />
+          </div>
         </div>
       </div>
     </section>

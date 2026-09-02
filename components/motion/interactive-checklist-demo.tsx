@@ -8,6 +8,9 @@ interface DemoCamera {
   id: string;
   name: string;
   zone: string;
+  /** Scene shown while the operator judges this stop. See public/cam-*.jpg. */
+  frame: string;
+  frameAlt: string;
   items: { label: string; guard: string; guardMsg: string }[];
 }
 
@@ -16,6 +19,8 @@ const demoCameras: DemoCamera[] = [
     id: 'CAM 01',
     name: 'Main Gate',
     zone: 'PERIMETER',
+    frame: '/cam-06.jpg',
+    frameAlt: 'Camera view of a site entrance gate at night, partly open, with a person approaching',
     items: [
       { label: 'Gate fully closed', guard: 'Ahmad K.', guardMsg: 'Gate left open after delivery — close immediately.' },
       { label: 'No tailgating observed', guard: 'Ahmad K.', guardMsg: 'Possible tailgating incident — verify entry log.' },
@@ -25,6 +30,8 @@ const demoCameras: DemoCamera[] = [
     id: 'CAM 04',
     name: 'Loading Dock',
     zone: 'LOGISTICS',
+    frame: '/cam-02.jpg',
+    frameAlt: 'Camera view of a loading dock with three bay doors, one open, and a pallet on the floor',
     items: [
       { label: 'Dock door secured', guard: 'Priya R.', guardMsg: 'Dock door unsecured — lock and report.' },
       { label: 'No unauthorised persons in zone', guard: 'Priya R.', guardMsg: 'Unregistered person at dock — investigate.' },
@@ -34,6 +41,8 @@ const demoCameras: DemoCamera[] = [
     id: 'CAM 09',
     name: 'Server Room Corridor',
     zone: 'RESTRICTED',
+    frame: '/cam-03.jpg',
+    frameAlt: 'Camera view down an interior corridor with doors along one wall and a person mid-corridor',
     items: [
       { label: 'Corridor clear of obstructions', guard: 'David L.', guardMsg: 'Obstruction in corridor — clear for fire safety.' },
       { label: 'Access door closed', guard: 'David L.', guardMsg: 'Server room door ajar — secure immediately.' },
@@ -135,6 +144,31 @@ export function InteractiveChecklistDemo() {
               transition={{ duration: 0.25 }}
               className="p-5"
             >
+              {/*
+                The live view. Without it the demo asked the visitor to rule on
+                "gate fully closed" with nothing to look at, which is not what the
+                real product does — a manual round shows the footage and the operator
+                judges against it.
+              */}
+              <div className="relative mb-4 overflow-hidden rounded-lg border border-border">
+                <img
+                  src={currentCam?.frame ?? '/cam-01.jpg'}
+                  alt={currentCam?.frameAlt ?? ''}
+                  width={480}
+                  height={270}
+                  className="w-full"
+                />
+                <div className="pointer-events-none absolute inset-x-0 top-0 flex items-center justify-between p-2.5">
+                  <span className="flex items-center gap-1.5 rounded bg-background/75 px-2 py-1 font-mono text-[10px] uppercase tracking-wider text-live backdrop-blur-sm">
+                    <span className="h-1.5 w-1.5 rounded-full bg-live motion-safe:animate-pulse-dot" />
+                    Live
+                  </span>
+                  <span className="rounded bg-background/75 px-2 py-1 font-mono text-[10px] uppercase tracking-wider text-muted-foreground backdrop-blur-sm">
+                    {currentCam?.id ?? ''}
+                  </span>
+                </div>
+              </div>
+
               {/* Camera info */}
               <div className="flex items-center gap-3">
                 <div className="rounded-lg bg-primary/10 p-2">

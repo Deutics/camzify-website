@@ -2,6 +2,8 @@ import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
+import { BrandStrip } from '@/components/content/brand-strip';
+import { cameraBrands } from '@/lib/camera-brands';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -9,14 +11,13 @@ import Link from 'next/link';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Supported Cameras | ONVIF Compatible Cameras",
-  description: "Camzify works with any ONVIF or RTSP-compatible IP camera. Browse supported camera brands and models, or check compatibility.",
+  title: "Supported Cameras | ONVIF Compatible IP Camera Brands",
+  description: "Camzify works with any ONVIF or RTSP-compatible IP camera — Axis, Hikvision, Dahua, Hanwha, Bosch and more. What ONVIF means, and how to check your own cameras.",
   path: "/supported-cameras",
 };
 
 export const metadata = generatePageMeta({ ...pageMeta });
 
-const brands = ['Axis', 'Dahua', 'Hanwha (Wisenet)', 'Hikvision', 'Uniview', 'Vivotek', 'Bosch', 'Honeywell', 'Pelco', 'Reolink', 'TP-Link (VIGI)', 'Ubiquiti'];
 
 export default function SupportedCamerasPage() {
   return (
@@ -25,7 +26,7 @@ export default function SupportedCamerasPage() {
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Cameras We Support</h1>
           <p className="mt-6 max-w-prose text-body text-muted-foreground">
-            Camzify connects to any IP camera that supports ONVIF, RTSP, RTMP, HLS, or WebRTC. Most IP cameras manufactured after 2010 are compatible. The list below represents verified brands — if your camera streams via RTSP, it will likely work with Camzify and the <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</Link> system.
+            Camzify connects to any IP camera that supports ONVIF, RTSP, RTMP, HLS or WebRTC — which covers effectively every IP camera made in the last decade, whoever made it. Compatibility is decided by the protocol rather than the brand, so if your camera exposes an RTSP stream it will work with Camzify and the <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</Link> system.
           </p>
           <p className="mt-4 text-muted-foreground">
             New to camera protocols? Read <Link href="/guides/onvif-and-rtsp-explained" className="text-primary hover:underline">ONVIF and RTSP explained</Link> for a plain-language guide.
@@ -33,12 +34,47 @@ export default function SupportedCamerasPage() {
 
           <div className="mt-14">
             <ScrollReveal>
-              <h2 className="font-display text-2xl font-bold">Verified brands</h2>
-              <div className="mt-6 grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-                {brands.map(b => (
-                  <div key={b} className="rounded-lg bg-card p-4 text-center font-display font-bold shadow">{b}</div>
-                ))}
+              <h2 className="font-display text-2xl font-bold">What ONVIF means for compatibility</h2>
+              <div className="mt-4 max-w-prose space-y-4 text-muted-foreground">
+                <p>
+                  <strong className="font-semibold text-foreground">
+                    ONVIF is an open standard that lets IP cameras, recorders and software from
+                    different manufacturers work together.
+                  </strong>{' '}
+                  A camera that conforms to ONVIF Profile S exposes its video stream and basic
+                  controls in a documented way, so any conformant system can consume it without a
+                  manufacturer-specific integration.
+                </p>
+                <p>
+                  This is why compatibility is a property of the protocol rather than the badge on
+                  the housing. Camzify does not maintain per-model drivers; it speaks ONVIF and
+                  RTSP, so a camera supporting either works — including models released after this
+                  page was written, and brands not listed below.
+                </p>
+                <p>
+                  Practically, nearly every IP camera manufactured in the last decade qualifies.
+                  The exceptions are consumer devices locked to a vendor cloud app, which
+                  sometimes expose no local stream at all. If the camera has an RTSP URL in its
+                  admin panel, it works.
+                </p>
               </div>
+            </ScrollReveal>
+          </div>
+
+          <div className="mt-14">
+            <ScrollReveal>
+              <div className="flex flex-wrap items-end justify-between gap-4">
+                <h2 className="font-display text-2xl font-bold">Manufacturers commonly deployed</h2>
+                <span className="font-mono text-mono-sm uppercase text-muted-foreground">
+                  {cameraBrands.length} listed &middot; not exhaustive
+                </span>
+              </div>
+              <p className="mt-4 max-w-prose text-muted-foreground">
+                These come up most often in deployments. The list is a recognition aid for buyers
+                who search by brand — it is not a compatibility matrix, and a manufacturer&rsquo;s
+                absence from it says nothing about whether its cameras work.
+              </p>
+              <BrandStrip className="mt-8" showNotes />
             </ScrollReveal>
           </div>
 
