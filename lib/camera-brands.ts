@@ -6,17 +6,34 @@
  * This list exists because buyers search by brand name, not by protocol — it is a
  * recognition aid, not an exhaustive compatibility matrix, and the pages say so.
  *
- * TRADEMARKS: every name below belongs to its owner. Listing a manufacturer states an
- * interoperability fact; it does not assert partnership, endorsement or certification
- * by that manufacturer. Before adding actual logo artwork, check each brand's trademark
- * usage policy — several require written permission for third-party marketing use, and
- * a few prohibit it outright. `logo` stays null until a file has been cleared; the
- * component falls back to a typographic wordmark, which carries none of that risk.
+ * TRADEMARKS: every name and mark below belongs to its owner. Listing a manufacturer
+ * states an interoperability fact; it does not assert partnership, endorsement or
+ * certification. Both placements carry that disclaimer in visible text.
+ *
+ * ADDING ARTWORK
+ *   1. Put the file in public/brands/ named <slug>.svg (SVG strongly preferred — these
+ *      render at 28px tall and raster marks fringe badly at that size on hidpi).
+ *   2. Set `logo` to '/brands/<slug>.svg'.
+ *   3. If the mark is dark-on-transparent it will disappear on the dark theme. Either
+ *      supply a light variant as `logoDark`, or set `monochrome: true` to let the
+ *      component invert it. Only set `monochrome` on marks that are genuinely one
+ *      colour — inverting a coloured logo produces a wrong logo, which is worse than
+ *      no logo.
+ *   4. Brands with no artwork keep rendering as wordmarks, so a partial set is fine.
+ *
+ * Source artwork from the manufacturer's own brand or press-kit page, not from a logo
+ * aggregator: aggregators carry outdated marks and redrawn approximations, and several
+ * of these companies have rebranded (Hanwha Vision was Hanwha Techwin, and Wisenet
+ * before that).
  */
 export interface CameraBrand {
   name: string;
-  /** Path under /public once artwork is cleared for use, e.g. '/brands/axis.svg'. */
+  /** Path under /public once artwork is in place, e.g. '/brands/axis.svg'. */
   logo: string | null;
+  /** Light-theme-hostile marks: supply a variant for the dark theme. */
+  logoDark?: string | null;
+  /** True only for genuinely single-colour marks that survive being inverted. */
+  monochrome?: boolean;
   /** Why this brand is commonly seen — kept factual, no performance claims. */
   note: string;
 }
