@@ -1,0 +1,65 @@
+<!--
+  Source for public/cam-02-after.jpg — the rectification frame that pairs with cam-02.jpg
+  on the patrol demo.
+
+  cam-02 is the loading dock with the middle bay standing open and a pallet on the
+  floor. This is the same camera after the bay has been shut and the floor cleared.
+  Same geometry, same grade, same artefacts as the "before" frame, so the pair reads as
+  two moments on one camera rather than two different scenes. Synthesised, not
+  photographed: there is no third-party copyright attached to it.
+
+  Regenerate:
+    CHROME="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+    "$CHROME" --headless=new --disable-gpu --hide-scrollbars \
+      --window-size=640,360 --force-device-scale-factor=2 \
+      --screenshot=/tmp/after.png \
+      "file://$PWD/scripts/assets/camera-frame-dock-after.html"
+  Then resize to 480x270 and save as public/cam-02-after.jpg.
+-->
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#000; }
+  .cam { position:relative; width:640px; height:360px; overflow:hidden; background:#0a0c0e; }
+  .scene { position:absolute; inset:0; }
+  .grain {
+    position:absolute; inset:0; opacity:.28; mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/></filter><rect width='120' height='120' filter='url(%23n)' opacity='0.55'/></svg>");
+  }
+  .scan { position:absolute; inset:0; opacity:.20;
+    background:repeating-linear-gradient(180deg, rgba(0,0,0,.55) 0 1px, transparent 1px 3px); }
+  .vig { position:absolute; inset:0;
+    background:radial-gradient(ellipse 78% 68% at 50% 45%, transparent 52%, rgba(0,0,0,.5) 100%); }
+  .ir { filter:saturate(.25) sepia(1) hue-rotate(66deg) saturate(2.2) brightness(1.55) contrast(1.15); }
+  svg { position:absolute; inset:0; width:100%; height:100%; display:block; }
+</style>
+
+<div class="cam">
+  <div class="scene dim">
+    <svg viewBox="0 0 640 360" preserveAspectRatio="none">
+      <rect width="640" height="360" fill="#14161a"/>
+      <polygon points="0,360 640,360 640,214 0,238" fill="#1c1f24"/>
+      <rect x="0" y="70" width="640" height="150" fill="#191c21"/>
+      <g>
+        <rect x="46" y="98" width="150" height="122" fill="#101317"/>
+        <rect x="52" y="104" width="138" height="110" fill="#22262c"/>
+        <rect x="246" y="98" width="150" height="122" fill="#101317"/>
+        <rect x="252" y="104" width="138" height="110" fill="#21252b"/>
+        <rect x="446" y="98" width="150" height="122" fill="#101317"/>
+        <rect x="452" y="104" width="138" height="110" fill="#20242a"/>
+      </g>
+      <g stroke="#2a2e34" stroke-width="2" opacity=".7">
+        <line x1="252" y1="126" x2="390" y2="126"/><line x1="252" y1="148" x2="390" y2="148"/>
+        <line x1="252" y1="170" x2="390" y2="170"/><line x1="252" y1="192" x2="390" y2="192"/>
+      </g>
+      <g fill="#2e343c">
+        <rect x="46" y="224" width="150" height="6"/><rect x="246" y="224" width="150" height="6"/>
+        <rect x="446" y="224" width="150" height="6"/>
+      </g>
+      <g stroke="#3a4048" stroke-width="4" opacity=".8">
+        <line x1="120" y1="248" x2="60" y2="360"/><line x1="320" y1="244" x2="320" y2="360"/>
+        <line x1="520" y1="248" x2="580" y2="360"/>
+      </g>
+    </svg>
+  </div>
+  <div class="grain"></div><div class="scan"></div><div class="vig"></div>
+</div>

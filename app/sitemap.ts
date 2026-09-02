@@ -173,6 +173,7 @@ const compare = group(
 const guides = group(
   [
     '/guides/what-is-virtual-patrolling',
+    '/guides/how-to-run-a-virtual-patrol-round',
     '/guides/virtual-patrolling-cost',
     '/guides/security-guard-cost-per-hour',
     '/guides/ai-video-analytics-cost',

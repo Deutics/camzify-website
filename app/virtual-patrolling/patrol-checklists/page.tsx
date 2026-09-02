@@ -40,7 +40,7 @@ export default function PatrolChecklistsPage() {
           <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Security Patrol Checklists</h1>
           <p className="mt-6 max-w-2xl text-body text-muted-foreground">
             A security patrol checklist is a set of compliance items assigned to each camera in a <Link href="/virtual-patrolling/patrol-sequences" className="text-primary hover:underline">patrol sequence</Link>.
-            During every <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrol</Link> round, each item is evaluated and marked Compliant, Not Compliant, or Pending with a comment.
+            During every <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrol</Link> round, each item is evaluated and marked Compliant, Not Compliant, or Pending with a written reason. An item marked Not Compliant cannot stay that way: the round will not close until it has been fixed and re-checked, or held as pending with a reason on the record. The <Link href="/guides/how-to-run-a-virtual-patrol-round" className="text-primary hover:underline">step-by-step walkthrough</Link> covers the full loop.
             Failed items trigger an automatic notification to the guard assigned to that camera.
           </p>
 
@@ -125,7 +125,7 @@ export default function PatrolChecklistsPage() {
                 <ol className="mt-6 space-y-4 text-muted-foreground">
                   <li className="flex gap-3"><span className="font-mono text-primary">01</span> The patrol round reaches this camera's stop in the sequence</li>
                   <li className="flex gap-3"><span className="font-mono text-primary">02</span> Every item assigned to that camera is checked against the current view</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">03</span> Each item is marked Compliant, Not Compliant, or Pending with a comment, all timestamped</li>
+                  <li className="flex gap-3"><span className="font-mono text-primary">03</span> Each item is marked Compliant or Not Compliant, and a failed item is then resolved as Fixed or Pending — all timestamped</li>
                   <li className="flex gap-3"><span className="font-mono text-primary">04</span> Any Not Compliant item triggers a <Link href="/virtual-patrolling/guard-notifications" className="text-primary hover:underline">guard notification</Link></li>
                   <li className="flex gap-3"><span className="font-mono text-primary">05</span> Results are written into that round's <Link href="/virtual-patrolling/patrol-reports" className="text-primary hover:underline">patrol report</Link></li>
                 </ol>

@@ -20,7 +20,7 @@ const pageMeta = {
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
-  { question: 'Does the patrol report include camera images?', answer: 'Yes. Every checklist result carries the snapshot from the camera at the moment that item was checked, so the report shows what was actually on screen rather than only the verdict. This is what makes it usable as evidence: an insurer, auditor or manager reviewing a round months later can see the gate, the dock door or the corridor for themselves instead of relying on the recorded result alone.' },
+  { question: 'Does the patrol report include camera images?', answer: 'Yes. Every checklist result carries the snapshot from the camera at the moment that item was checked, so the report shows what was actually on screen rather than only the verdict. An item that failed and was then fixed during the round carries two frames — the camera as found and the same camera after the fix — which is what turns the report from a list of problems reported into a record of problems closed. An item still outstanding carries the frame as found, alongside the written reason it is pending.' },
   { question: 'How long are patrol reports kept?', answer: 'Reports stay in the patrol log for as long as the account is active, so a report from months back is still available if an insurer or auditor asks for it. There\'s no separate archiving step required.' },
   { question: 'Can a report be exported for a date range instead of a single round?', answer: 'Yes. A date range covering multiple rounds can be exported together, which is typically faster than pulling individual reports one at a time for an audit or an insurance claim.' },
   { question: 'Who gets emailed when a report is generated?', answer: 'Whoever is configured as a recipient on that site\'s distribution list. Recipients can be added, removed, or changed at any time, and the change applies to the next report onward.' },
@@ -57,6 +57,7 @@ export default function PatrolReportsPage() {
                   'Each camera in the sequence with its checklist results',
                   'Compliant and Not Compliant status per item',
                   'The camera snapshot each item was judged against, which can be zoomed into',
+                  'Before and after frames on any item that was fixed during the round',
                   'Guard notifications sent on failures',
                   'Overall compliance percentage for the round',
                   'Patrol type (Manual or Auto)',
@@ -82,7 +83,7 @@ export default function PatrolReportsPage() {
                 that answers all three — generated automatically, every round, with zero manual input.
               </p>
               <p className="mt-4 max-w-2xl text-muted-foreground">
-                Combined with <Link href="/virtual-patrolling/patrol-compliance-tracking" className="text-primary hover:underline">compliance tracking</Link>,
+                See <Link href="/guides/how-to-run-a-virtual-patrol-round" className="text-primary hover:underline">how a round is run</Link> for where each part of the report comes from. Combined with <Link href="/virtual-patrolling/patrol-compliance-tracking" className="text-primary hover:underline">compliance tracking</Link>,
                 these reports create a continuous audit trail that proves patrol discipline across every site.
               </p>
             </ScrollReveal>

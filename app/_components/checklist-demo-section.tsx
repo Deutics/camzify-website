@@ -26,17 +26,19 @@ export function ChecklistDemoSection() {
                 Run a patrol round in 20 seconds
               </h2>
               <p className="mt-5 max-w-prose text-body leading-relaxed text-muted-foreground">
-                This is the actual loop. Step through three cameras, mark each checklist item, and
-                watch the compliance report build — the same report the platform emails after every
-                automated round.
+                This is the actual loop. Step through three cameras and mark each checklist item.
+                Fail one and you will be asked whether to message the guard — and then the round
+                will not let you move on until the item is either fixed and re-checked or held as
+                pending with a reason.
               </p>
 
               <ul className="mt-8 space-y-3.5">
                 {[
                   ['01', 'Every camera on the route gets its own checklist'],
-                  ['02', 'A failed item names the guard responsible for that camera'],
-                  ['03', 'Each result is filed with the snapshot it was judged against'],
-                  ['04', 'The round is scored and archived as a PDF'],
+                  ['02', 'A failed item offers a message to the guard responsible for that camera'],
+                  ['03', 'No item can be left failing — it is fixed and re-checked, or marked pending with a reason'],
+                  ['04', 'A fixed item is filed with both frames: as found, and after the fix'],
+                  ['05', 'The round is scored and archived as a web report and a PDF'],
                 ].map(([n, label]) => (
                   <li key={n} className="flex items-start gap-3.5">
                     <span className="mt-0.5 font-mono text-mono-sm text-primary tabular-nums">
@@ -48,10 +50,10 @@ export function ChecklistDemoSection() {
               </ul>
 
               <Link
-                href="/virtual-patrolling/patrol-checklists"
+                href="/guides/how-to-run-a-virtual-patrol-round"
                 className="mt-8 inline-flex items-center gap-2 rounded font-semibold text-primary transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
-                How checklists are built <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                Read the full walkthrough <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
             </div>
           </ScrollReveal>

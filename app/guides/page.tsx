@@ -19,6 +19,7 @@ export const metadata = generatePageMeta({ ...pageMeta });
 
 const items = [
   { slug: 'what-is-virtual-patrolling', title: 'What Is Virtual Patrolling?' },
+  { slug: 'how-to-run-a-virtual-patrol-round', title: 'How to Run a Virtual Patrol Round' },
   { slug: 'virtual-patrolling-cost', title: 'Virtual Patrolling Cost' },
   { slug: 'security-guard-cost-per-hour', title: 'Security Guard Cost Per Hour' },
   { slug: 'ai-video-analytics-cost', title: 'AI Video Analytics Cost' },
