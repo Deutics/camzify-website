@@ -23,7 +23,7 @@ const faqs = [
   { question: 'What happens if the assigned guard doesn\'t respond to a notification?', answer: 'If the guard doesn\'t acknowledge the alert within the configured window, it escalates automatically to a backup contact or site supervisor. The failure is never left waiting on a single person\'s availability.' },
   { question: 'Can a camera have more than one guard assigned?', answer: 'Yes. A camera can carry a primary guard who receives the first notification, plus one or more escalation contacts who are only alerted if the primary doesn\'t acknowledge in time.' },
   { question: 'Are notification messages customisable per checklist item?', answer: 'Each checklist item carries its own predefined message, written when the checklist is set up. A gate-related failure and a loitering failure can trigger entirely different wording, tailored to what the guard actually needs to do.' },
-  { question: 'Which channels do notifications use?', answer: 'Push, SMS, and email are all supported. Guards can have more than one channel configured, and the order they\'re tried in is set per guard rather than fixed for the whole site.' },
+  { question: 'Which channels do notifications use?', answer: 'Email, SMS, WhatsApp, and push are all supported. Guards can have more than one channel configured, and the order they\'re tried in is set per guard rather than fixed for the whole site.' },
   { question: 'Is every notification logged somewhere?', answer: 'Yes. Every notification — who it was sent to, when, and whether it was acknowledged — is written into that round\'s patrol report, so there\'s a record independent of the guard\'s own memory of the shift.' },
 ];
 
@@ -128,7 +128,7 @@ export default function GuardNotificationsPage() {
                 <h2 className="mt-2 font-display text-2xl font-bold">Escalation and delivery channels</h2>
                 <p className="mt-4 text-muted-foreground">Notifications aren't a single fire-and-forget message. Delivery and escalation are configured per guard, so coverage doesn't depend on one phone being switched on.</p>
                 <ul className="mt-4 space-y-3 text-muted-foreground">
-                  <li className="flex gap-2">• Each guard can have multiple channels configured — push, SMS, and email — in a preferred order</li>
+                  <li className="flex gap-2">• Each guard can have multiple channels configured — email, SMS, WhatsApp, and push — in a preferred order</li>
                   <li className="flex gap-2">• Acknowledgement is required within a configurable window before an alert counts as unactioned</li>
                   <li className="flex gap-2">• Unacknowledged alerts escalate automatically to a backup guard or site supervisor</li>
                   <li className="flex gap-2">• Escalation contacts are set independently of the primary guard, so backup coverage is never assumed</li>

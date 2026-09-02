@@ -96,7 +96,19 @@ export default function AutomatedSchedulingPage() {
             <ScrollReveal>
               <div>
                 <span className="font-mono text-mono-sm uppercase text-primary">Configuration</span>
-                <h2 className="mt-2 font-display text-2xl font-bold">Timezone, holidays &amp; pause/resume</h2>
+                <h2 className="mt-2 font-display text-2xl font-bold">Scene observation: judging on more than one frame</h2>
+                <p className="mt-4 max-w-prose text-muted-foreground">
+                  <strong className="font-semibold text-foreground">
+                    An automated round can judge a camera from a short window of live video rather
+                    than a single still frame.
+                  </strong>{' '}
+                  Scene observation watches the feed for one, two or three seconds before deciding.
+                  A single frame is enough to tell whether a shutter is down, but not whether a
+                  person in view is walking through or loitering &mdash; the kind of check that needs
+                  a moment of context to call correctly.
+                </p>
+
+                <h2 className="mt-16 font-display text-2xl font-bold">Timezone, holidays &amp; pause/resume</h2>
                 <ul className="mt-4 space-y-3 text-muted-foreground">
                   <li className="flex gap-2">• Schedules run in the site's local timezone, not the account default, so multi-region deployments stay accurate</li>
                   <li className="flex gap-2">• Mark specific dates as exceptions — the schedule skips holidays or closures without being rebuilt</li>

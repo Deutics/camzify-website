@@ -42,7 +42,8 @@ export default function PatrolReportsPage() {
             A security patrol report is the PDF document generated after every <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrol</Link> round.
             It contains the patrol sequence name, date and time, every camera checked, each checklist item with its
             compliance status, the camera snapshot that item was judged against, the guard notified on any failure,
-            and an overall compliance percentage. Reports are emailed automatically and stored in the patrol log.
+            and an overall compliance percentage. Reports are emailed automatically and stored in the patrol log,
+            where each round opens as a web report or a PDF.
           </p>
 
           <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
@@ -55,7 +56,7 @@ export default function PatrolReportsPage() {
                   'Date, start time, and end time',
                   'Each camera in the sequence with its checklist results',
                   'Compliant and Not Compliant status per item',
-                  'The camera snapshot each item was judged against',
+                  'The camera snapshot each item was judged against, which can be zoomed into',
                   'Guard notifications sent on failures',
                   'Overall compliance percentage for the round',
                   'Patrol type (Manual or Auto)',
@@ -98,7 +99,7 @@ export default function PatrolReportsPage() {
                   <li className="flex gap-3"><span className="font-mono text-primary">02</span> Every checklist result from the round is compiled into a single record, each one paired with the snapshot taken at that camera</li>
                   <li className="flex gap-3"><span className="font-mono text-primary">03</span> The record is formatted into a PDF with the sequence name, timestamps, and per-camera results</li>
                   <li className="flex gap-3"><span className="font-mono text-primary">04</span> The report is emailed automatically to configured recipients</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">05</span> The report is stored in the patrol log, linked to that round's <Link href="/virtual-patrolling/patrol-compliance-tracking" className="text-primary hover:underline">compliance percentage</Link></li>
+                  <li className="flex gap-3"><span className="font-mono text-primary">05</span> The report is stored in the patrol log, openable as a web report or a PDF, linked to that round's <Link href="/virtual-patrolling/patrol-compliance-tracking" className="text-primary hover:underline">compliance percentage</Link></li>
                 </ol>
               </div>
             </ScrollReveal>

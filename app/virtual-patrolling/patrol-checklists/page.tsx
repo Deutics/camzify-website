@@ -14,7 +14,7 @@ import { ClipboardCheck, ListChecks, UserCheck, ShieldCheck, ArrowRight } from '
  */
 const pageMeta = {
   title: "Security Patrol Checklists | Per-Camera Compliance Checks",
-  description: "Define per-camera checklist items for every patrol round. Each item is marked Compliant or Not Compliant, and failures trigger automatic guard notifications.",
+  description: "Define per-camera checklist items for every patrol round. Each item is marked Compliant, Not Compliant, or Pending with a comment, and failures trigger automatic guard notifications.",
   path: "/virtual-patrolling/patrol-checklists",
 };
 
@@ -40,7 +40,7 @@ export default function PatrolChecklistsPage() {
           <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Security Patrol Checklists</h1>
           <p className="mt-6 max-w-2xl text-body text-muted-foreground">
             A security patrol checklist is a set of compliance items assigned to each camera in a <Link href="/virtual-patrolling/patrol-sequences" className="text-primary hover:underline">patrol sequence</Link>.
-            During every <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrol</Link> round, each item is evaluated and marked Compliant or Not Compliant.
+            During every <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrol</Link> round, each item is evaluated and marked Compliant, Not Compliant, or Pending with a comment.
             Failed items trigger an automatic notification to the guard assigned to that camera.
           </p>
 
@@ -125,7 +125,7 @@ export default function PatrolChecklistsPage() {
                 <ol className="mt-6 space-y-4 text-muted-foreground">
                   <li className="flex gap-3"><span className="font-mono text-primary">01</span> The patrol round reaches this camera's stop in the sequence</li>
                   <li className="flex gap-3"><span className="font-mono text-primary">02</span> Every item assigned to that camera is checked against the current view</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">03</span> Each item is marked Compliant or Not Compliant, with a timestamp</li>
+                  <li className="flex gap-3"><span className="font-mono text-primary">03</span> Each item is marked Compliant, Not Compliant, or Pending with a comment, all timestamped</li>
                   <li className="flex gap-3"><span className="font-mono text-primary">04</span> Any Not Compliant item triggers a <Link href="/virtual-patrolling/guard-notifications" className="text-primary hover:underline">guard notification</Link></li>
                   <li className="flex gap-3"><span className="font-mono text-primary">05</span> Results are written into that round's <Link href="/virtual-patrolling/patrol-reports" className="text-primary hover:underline">patrol report</Link></li>
                 </ol>
