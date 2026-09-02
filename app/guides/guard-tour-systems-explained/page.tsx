@@ -1,6 +1,7 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
-import { articleSchema } from '@/lib/seo';
+import { articleSchema, personSchema } from '@/lib/seo';
+import { AuthorByline } from '@/components/content/author-byline';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
 
@@ -19,13 +20,14 @@ export const metadata = generatePageMeta({ ...pageMeta, type: 'article', publish
 
 export default function GuardTourSystemsExplainedPage() {
   return (
-    <PageShell {...pageMeta} schema={[articleSchema({ headline: "Guard Tour Systems Explained", description: "What is a guard tour system? How NFC/QR guard tour systems work, their limitations, and how virtual patrolling offers a different approach.", path: "/guides/guard-tour-systems-explained", datePublished: '2026-08-31', dateModified: '2026-08-31' })]} breadcrumbs={[
+    <PageShell {...pageMeta} schema={[articleSchema({ headline: "Guard Tour Systems Explained", description: "What is a guard tour system? How NFC/QR guard tour systems work, their limitations, and how virtual patrolling offers a different approach.", path: "/guides/guard-tour-systems-explained", datePublished: '2026-08-31', dateModified: '2026-08-31' }), personSchema()]} breadcrumbs={[
       { label: 'Guides', href: '/guides' },
       { label: 'Guard Tour Systems Explained' },
     ]}>
       <article className="pb-16">
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Guard Tour Systems Explained</h1>
+          <AuthorByline className="mt-6" />
           <p className="mt-6 max-w-prose text-body text-muted-foreground">A guard tour system is a technology used to verify that security guards complete their assigned patrol routes. Traditional systems use NFC tags, QR codes, or Bluetooth beacons placed at checkpoints. The guard scans each checkpoint during their round, and the system logs the timestamp to prove they were there.</p>
 
           <section className="mt-16">

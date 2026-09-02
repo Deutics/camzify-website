@@ -1,6 +1,7 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
-import { articleSchema } from '@/lib/seo';
+import { articleSchema, personSchema } from '@/lib/seo';
+import { AuthorByline } from '@/components/content/author-byline';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
 
@@ -19,13 +20,14 @@ export const metadata = generatePageMeta({ ...pageMeta, type: 'article', publish
 
 export default function VirtualPatrollingCostPage() {
   return (
-    <PageShell {...pageMeta} schema={[articleSchema({ headline: "Virtual Patrolling Cost", description: "What does virtual patrolling cost? Per-camera pricing, comparison with guard costs, and how to calculate ROI for your facility.", path: "/guides/virtual-patrolling-cost", datePublished: '2026-08-31', dateModified: '2026-08-31' })]} breadcrumbs={[
+    <PageShell {...pageMeta} schema={[articleSchema({ headline: "Virtual Patrolling Cost", description: "What does virtual patrolling cost? Per-camera pricing, comparison with guard costs, and how to calculate ROI for your facility.", path: "/guides/virtual-patrolling-cost", datePublished: '2026-08-31', dateModified: '2026-08-31' }), personSchema()]} breadcrumbs={[
       { label: 'Guides', href: '/guides' },
       { label: 'Virtual Patrolling Cost' },
     ]}>
       <article className="pb-16">
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Virtual Patrolling Cost</h1>
+          <AuthorByline className="mt-6" />
           <p className="mt-6 max-w-prose text-body text-muted-foreground">Virtual patrolling cost is typically structured as a per-camera, per-month subscription. The total cost depends on the number of cameras monitored, the AI features activated per camera, and the storage retention period. For most facilities, it represents a fraction of the cost of equivalent manned guard coverage.</p>
 
           <section className="mt-16">

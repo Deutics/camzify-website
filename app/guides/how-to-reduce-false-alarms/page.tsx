@@ -1,6 +1,7 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
-import { articleSchema } from '@/lib/seo';
+import { articleSchema, personSchema } from '@/lib/seo';
+import { AuthorByline } from '@/components/content/author-byline';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
 
@@ -19,13 +20,14 @@ export const metadata = generatePageMeta({ ...pageMeta, type: 'article', publish
 
 export default function HowToReduceFalseAlarmsPage() {
   return (
-    <PageShell {...pageMeta} schema={[articleSchema({ headline: "How to Reduce False Alarms", description: "Reduce false alarms from security cameras with AI detection, proper zone configuration, and object-based tracking. Practical steps.", path: "/guides/how-to-reduce-false-alarms", datePublished: '2026-08-31', dateModified: '2026-08-31' })]} breadcrumbs={[
+    <PageShell {...pageMeta} schema={[articleSchema({ headline: "How to Reduce False Alarms", description: "Reduce false alarms from security cameras with AI detection, proper zone configuration, and object-based tracking. Practical steps.", path: "/guides/how-to-reduce-false-alarms", datePublished: '2026-08-31', dateModified: '2026-08-31' }), personSchema()]} breadcrumbs={[
       { label: 'Guides', href: '/guides' },
       { label: 'How to Reduce False Alarms from Security Cameras' },
     ]}>
       <article className="pb-16">
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">How to Reduce False Alarms from Security Cameras</h1>
+          <AuthorByline className="mt-6" />
           <p className="mt-6 max-w-prose text-body text-muted-foreground">False alarms in video surveillance are alerts triggered by non-threatening events — shadows, animals, weather, lighting changes, or camera vibration. They are the primary failure mode of security camera systems, causing operators to ignore genuine alerts and undermining the value of the entire deployment.</p>
 
           <section className="mt-16">

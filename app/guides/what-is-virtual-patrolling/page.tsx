@@ -1,6 +1,7 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
-import { articleSchema } from '@/lib/seo';
+import { articleSchema, personSchema } from '@/lib/seo';
+import { AuthorByline } from '@/components/content/author-byline';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
 
@@ -19,13 +20,14 @@ export const metadata = generatePageMeta({ ...pageMeta, type: 'article', publish
 
 export default function WhatIsVirtualPatrollingPage() {
   return (
-    <PageShell {...pageMeta} schema={[articleSchema({ headline: "What Is Virtual Patrolling?", description: "Virtual patrolling is a system that runs scheduled AI patrol rounds on existing cameras, checking a defined checklist at each point. Complete guide.", path: "/guides/what-is-virtual-patrolling", datePublished: '2026-08-31', dateModified: '2026-08-31' })]} breadcrumbs={[
+    <PageShell {...pageMeta} schema={[articleSchema({ headline: "What Is Virtual Patrolling?", description: "Virtual patrolling is a system that runs scheduled AI patrol rounds on existing cameras, checking a defined checklist at each point. Complete guide.", path: "/guides/what-is-virtual-patrolling", datePublished: '2026-08-31', dateModified: '2026-08-31' }), personSchema()]} breadcrumbs={[
       { label: 'Guides', href: '/guides' },
       { label: 'What Is Virtual Patrolling?' },
     ]}>
       <article className="pb-16">
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">What Is Virtual Patrolling?</h1>
+          <AuthorByline className="mt-6" />
           <p className="mt-6 max-w-prose text-body text-muted-foreground">Virtual patrolling is a system that runs scheduled AI patrol rounds across your existing security cameras. At each camera stop, the system checks a defined list of conditions — is the door closed, is the area clear, is the perimeter intact — and flags failures to the assigned security contact. It is an alternative to physical guard patrols that provides consistent, verifiable, and auditable coverage.</p>
 
           <section className="mt-16">

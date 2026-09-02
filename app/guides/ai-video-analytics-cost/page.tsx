@@ -1,6 +1,7 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
-import { articleSchema } from '@/lib/seo';
+import { articleSchema, personSchema } from '@/lib/seo';
+import { AuthorByline } from '@/components/content/author-byline';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
 
@@ -19,13 +20,14 @@ export const metadata = generatePageMeta({ ...pageMeta, type: 'article', publish
 
 export default function AiVideoAnalyticsCostPage() {
   return (
-    <PageShell {...pageMeta} schema={[articleSchema({ headline: "AI Video Analytics Cost", description: "What does AI video analytics cost? Per-camera pricing models, cloud vs on-premise, and how to evaluate ROI for your security budget.", path: "/guides/ai-video-analytics-cost", datePublished: '2026-08-31', dateModified: '2026-08-31' })]} breadcrumbs={[
+    <PageShell {...pageMeta} schema={[articleSchema({ headline: "AI Video Analytics Cost", description: "What does AI video analytics cost? Per-camera pricing models, cloud vs on-premise, and how to evaluate ROI for your security budget.", path: "/guides/ai-video-analytics-cost", datePublished: '2026-08-31', dateModified: '2026-08-31' }), personSchema()]} breadcrumbs={[
       { label: 'Guides', href: '/guides' },
       { label: 'AI Video Analytics Cost' },
     ]}>
       <article className="pb-16">
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">AI Video Analytics Cost</h1>
+          <AuthorByline className="mt-6" />
           <p className="mt-6 max-w-prose text-body text-muted-foreground">AI video analytics cost is the price of adding automated detection, classification, and alerting capabilities to your existing camera infrastructure. Pricing models vary: per-camera subscriptions, per-channel licenses, or hardware-bundled solutions. Cloud-based analytics like Camzify typically offer the lowest entry cost with subscription pricing.</p>
 
           <section className="mt-16">

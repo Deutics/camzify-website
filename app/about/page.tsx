@@ -36,6 +36,19 @@ export default function AboutPage() {
               <p className="mt-4 text-muted-foreground">Most security cameras record footage that no one watches. Guards cannot be everywhere, and monitoring centres scale poorly. We believe AI should handle the routine verification — checking the same conditions at the same cameras on the same schedule — so that humans can focus on response, judgment, and the exceptions that genuinely need attention.</p>
             </ScrollReveal>
             <ScrollReveal>
+              <h2 className="font-display text-2xl font-bold">Who writes the guides</h2>
+              <p className="mt-4 max-w-prose text-muted-foreground">
+                The <Link href="/guides" className="text-primary hover:underline">guides on this site</Link> are
+                written by{' '}
+                <Link href={`/about/${siteConfig.author.slug}`} className="text-primary hover:underline">
+                  {siteConfig.author.name}
+                </Link>
+                , {siteConfig.author.role} at {siteConfig.name} &mdash;{' '}
+                {siteConfig.author.credential.toLowerCase()}. They are written from building and
+                running the product, which is why several of them state plainly what it does not do.
+              </p>
+            </ScrollReveal>
+            <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Company information</h2>
               <ul className="mt-4 space-y-2 text-muted-foreground">
                 {/*

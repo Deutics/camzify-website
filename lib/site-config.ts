@@ -55,6 +55,28 @@ export const siteConfig = {
 
   /** Populate as profiles go live — schema.org sameAs strengthens entity disambiguation. */
   sameAs: [] as string[],
+
+  /**
+   * The named author behind the guides.
+   *
+   * Guides were Organization-attributed until a real person could be credited, because
+   * an invented byline on a site whose whole position is not publishing unverifiable
+   * claims would be the worst possible thing to fake. Everything here is supplied by
+   * the business and is publicly checkable against the LinkedIn profile.
+   *
+   * Consumed by lib/seo.ts (the Person node that articleSchema points its author at),
+   * the author page, and the byline on every guide. Do not restate it anywhere else.
+   */
+  author: {
+    name: 'Muhammad Talha',
+    /** Slug for the author page under /about. */
+    slug: 'muhammad-talha',
+    role: 'Product Manager and CTO',
+    /** One line, used as the schema jobTitle description and under the byline. */
+    credential: 'Nine years building computer vision and automated surveillance systems',
+    email: 'talha@camzify.com',
+    linkedin: 'https://www.linkedin.com/in/its-talha/',
+  },
 } as const;
 
 /** Full one-line postal address, e.g. for the footer and contact page. */

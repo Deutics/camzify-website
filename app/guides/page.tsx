@@ -3,6 +3,7 @@ import { PageShell } from '@/components/layout/page-shell';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
 import { BookOpen } from 'lucide-react';
+import { AuthorByline } from '@/components/content/author-byline';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -17,6 +18,7 @@ const pageMeta = {
 
 export const metadata = generatePageMeta({ ...pageMeta });
 
+/** Guides carry a named byline; the index says so once rather than repeating it per card. */
 const items = [
   { slug: 'what-is-virtual-patrolling', title: 'What Is Virtual Patrolling?' },
   { slug: 'how-to-run-a-virtual-patrol-round', title: 'How to Run a Virtual Patrol Round' },
@@ -46,6 +48,8 @@ export default function GuidesHub() {
           <p className="mt-6 max-w-2xl text-body text-muted-foreground">
             Practical, honest guides on <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a>, security costs, camera technology, and best practices. Written to help you make informed decisions — including where Camzify is not the right answer.
           </p>
+          <AuthorByline className="mt-8" />
+
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {items.map((item, i) => (
               <ScrollReveal key={item.slug} delay={i * 0.05}>

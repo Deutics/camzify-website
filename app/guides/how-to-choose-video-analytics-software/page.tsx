@@ -1,6 +1,7 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
-import { articleSchema } from '@/lib/seo';
+import { articleSchema, personSchema } from '@/lib/seo';
+import { AuthorByline } from '@/components/content/author-byline';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
 
@@ -19,13 +20,14 @@ export const metadata = generatePageMeta({ ...pageMeta, type: 'article', publish
 
 export default function HowToChooseVideoAnalyticsSoftwarePage() {
   return (
-    <PageShell {...pageMeta} schema={[articleSchema({ headline: "How to Choose Video Analytics Software", description: "A practical guide to evaluating AI video analytics software — what to look for, what to avoid, and how to make the right decision for your facility.", path: "/guides/how-to-choose-video-analytics-software", datePublished: '2026-08-31', dateModified: '2026-08-31' })]} breadcrumbs={[
+    <PageShell {...pageMeta} schema={[articleSchema({ headline: "How to Choose Video Analytics Software", description: "A practical guide to evaluating AI video analytics software — what to look for, what to avoid, and how to make the right decision for your facility.", path: "/guides/how-to-choose-video-analytics-software", datePublished: '2026-08-31', dateModified: '2026-08-31' }), personSchema()]} breadcrumbs={[
       { label: 'Guides', href: '/guides' },
       { label: 'How to Choose Video Analytics Software' },
     ]}>
       <article className="pb-16">
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">How to Choose Video Analytics Software</h1>
+          <AuthorByline className="mt-6" />
           <p className="mt-6 max-w-prose text-body text-muted-foreground">Choosing video analytics software requires evaluating detection accuracy, camera compatibility, deployment model, total cost of ownership, and the specific capabilities your security program needs. This guide provides a practical framework for making that decision.</p>
 
           <section className="mt-16">

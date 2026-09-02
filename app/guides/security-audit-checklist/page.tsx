@@ -1,6 +1,7 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
-import { articleSchema } from '@/lib/seo';
+import { articleSchema, personSchema } from '@/lib/seo';
+import { AuthorByline } from '@/components/content/author-byline';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
 
@@ -19,13 +20,14 @@ export const metadata = generatePageMeta({ ...pageMeta, type: 'article', publish
 
 export default function SecurityAuditChecklistPage() {
   return (
-    <PageShell {...pageMeta} schema={[articleSchema({ headline: "Security Audit Checklist", description: "A practical security audit checklist for evaluating your facility\\'s physical security posture — cameras, access control, lighting, procedures, and monitoring.", path: "/guides/security-audit-checklist", datePublished: '2026-08-31', dateModified: '2026-08-31' })]} breadcrumbs={[
+    <PageShell {...pageMeta} schema={[articleSchema({ headline: "Security Audit Checklist", description: "A practical security audit checklist for evaluating your facility\\'s physical security posture — cameras, access control, lighting, procedures, and monitoring.", path: "/guides/security-audit-checklist", datePublished: '2026-08-31', dateModified: '2026-08-31' }), personSchema()]} breadcrumbs={[
       { label: 'Guides', href: '/guides' },
       { label: 'Security Audit Checklist' },
     ]}>
       <article className="pb-16">
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Security Audit Checklist</h1>
+          <AuthorByline className="mt-6" />
           <p className="mt-6 max-w-prose text-body text-muted-foreground">A security audit checklist is a structured assessment tool for evaluating the physical security posture of a facility. It covers camera coverage, access control, lighting, perimeter integrity, monitoring procedures, and incident response capabilities. Regular audits identify gaps before they become incidents.</p>
 
           <section className="mt-16">

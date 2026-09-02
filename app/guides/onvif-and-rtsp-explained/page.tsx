@@ -1,6 +1,7 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
-import { articleSchema } from '@/lib/seo';
+import { articleSchema, personSchema } from '@/lib/seo';
+import { AuthorByline } from '@/components/content/author-byline';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
 
@@ -19,13 +20,14 @@ export const metadata = generatePageMeta({ ...pageMeta, type: 'article', publish
 
 export default function OnvifAndRtspExplainedPage() {
   return (
-    <PageShell {...pageMeta} schema={[articleSchema({ headline: "What Is RTSP? ONVIF Protocol Explained", description: "Plain-language explanation of ONVIF and RTSP — the protocols that connect security cameras to cloud platforms like Camzify.", path: "/guides/onvif-and-rtsp-explained", datePublished: '2026-08-31', dateModified: '2026-08-31' })]} breadcrumbs={[
+    <PageShell {...pageMeta} schema={[articleSchema({ headline: "What Is RTSP? ONVIF Protocol Explained", description: "Plain-language explanation of ONVIF and RTSP — the protocols that connect security cameras to cloud platforms like Camzify.", path: "/guides/onvif-and-rtsp-explained", datePublished: '2026-08-31', dateModified: '2026-08-31' }), personSchema()]} breadcrumbs={[
       { label: 'Guides', href: '/guides' },
       { label: 'ONVIF and RTSP Explained' },
     ]}>
       <article className="pb-16">
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">ONVIF and RTSP Explained</h1>
+          <AuthorByline className="mt-6" />
           <p className="mt-6 max-w-prose text-body text-muted-foreground">ONVIF and RTSP are the two most important protocols for connecting IP security cameras to video management and analytics platforms. ONVIF is a standardised interface for camera discovery and configuration. RTSP (Real Time Streaming Protocol) is the protocol for streaming live video from the camera to a receiving system.</p>
 
           <section className="mt-16">

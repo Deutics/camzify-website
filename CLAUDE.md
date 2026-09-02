@@ -146,12 +146,22 @@ rendered result — do not ask the user to look for you.
 
 ---
 
+## Images
+
+Photos are served as responsive WebP through `components/content/site-image.tsx`, not
+`next/image` directly — `images.unoptimized` means `next/image` emits no `srcset`, so
+`sizes` on those call sites did nothing and every device downloaded the desktop file.
+Add a photo, run `python3 scripts/optimise-images.py`, use `<SiteImage>` with a real
+`sizes`, and commit the generated `.webp` files with `lib/image-manifest.ts`. In a
+mapped list, `priority={i === 0}` — not on every card.
+
+## Author identity
+
+Guides carry a named byline: Muhammad Talha, from `siteConfig.author`. The visible
+byline, the author page and the `Person` node in `lib/seo.ts` all read from that one
+object, so never restate the name, role or credential anywhere else.
+
 ## Known gaps worth flagging, not silently fixing
 
 - There is **no test suite**. The gates are `tsc`, the build, and the SSR lint.
 - `/api/newsletter` exists with no UI posting to it.
-- **`public/` is 134MB.** Seven industry hero PNGs are 9–10MB each and are served
-  unoptimised as `priority` LCP images. This is a live Core Web Vitals problem, not just
-  repo weight. Flag it; do not silently re-encode assets without agreement on format.
-- **Author identity is unresolved.** Guides are Organization-attributed pending a named
-  author (see `site-brief.md`). Do not invent a byline.

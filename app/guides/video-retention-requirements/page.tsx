@@ -1,6 +1,7 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
-import { articleSchema } from '@/lib/seo';
+import { articleSchema, personSchema } from '@/lib/seo';
+import { AuthorByline } from '@/components/content/author-byline';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
 
@@ -19,13 +20,14 @@ export const metadata = generatePageMeta({ ...pageMeta, type: 'article', publish
 
 export default function VideoRetentionRequirementsPage() {
   return (
-    <PageShell {...pageMeta} schema={[articleSchema({ headline: "Video Retention Requirements", description: "How long should you retain security camera footage? Legal requirements, industry standards, and storage planning for video surveillance.", path: "/guides/video-retention-requirements", datePublished: '2026-08-31', dateModified: '2026-08-31' })]} breadcrumbs={[
+    <PageShell {...pageMeta} schema={[articleSchema({ headline: "Video Retention Requirements", description: "How long should you retain security camera footage? Legal requirements, industry standards, and storage planning for video surveillance.", path: "/guides/video-retention-requirements", datePublished: '2026-08-31', dateModified: '2026-08-31' }), personSchema()]} breadcrumbs={[
       { label: 'Guides', href: '/guides' },
       { label: 'Video Retention Requirements' },
     ]}>
       <article className="pb-16">
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Video Retention Requirements</h1>
+          <AuthorByline className="mt-6" />
           <p className="mt-6 max-w-prose text-body text-muted-foreground">Video retention requirements define how long security camera footage must be stored before it can be deleted. Requirements vary by jurisdiction, industry, and insurance policy. Getting retention wrong — too short and you lose evidence; too long and storage costs escalate.</p>
 
           <section className="mt-16">

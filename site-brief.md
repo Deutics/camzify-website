@@ -98,16 +98,23 @@ content and AI citations, so a fabricated claim here poisons everything downstre
 
 ### Author identity (for author bios and E-E-A-T)
 
-**Decision made:** guides will be credited to a **named person**. The name has not been supplied yet.
+**Resolved 2026-09-02.** Guides carry a named byline.
 
-- **Who is credited as author:** ⚠️ NEEDS INPUT — name pending from the business
-- **Their credentials, in one line:** ⚠️ NEEDS INPUT
-- **Author page URL:** ⚠️ NEEDS INPUT — to be created at `/about/<slug>`
+- **Who is credited as author:** Muhammad Talha, Product Manager and CTO at Camzify
+- **Their credentials, in one line:** Nine years building computer vision and automated surveillance systems
+- **Author page URL:** `/about/muhammad-talha`
+- **Contact on the byline:** talha@camzify.com · https://www.linkedin.com/in/its-talha/
 
-Once the name arrives, the implementation is: add a `Person` node to `lib/seo.ts`, point
-`articleSchema`'s `author` at it instead of `ORG_ID`, build the author page, and add a
-byline to the 11 guide pages. Until then guides stay Organization-attributed — an empty
-or invented byline is worse than none.
+Implemented: `siteConfig.author` holds the identity, `personSchema()` in `lib/seo.ts`
+emits the Person node, `articleSchema` points its `author` at `PERSON_ID` instead of
+`ORG_ID`, and `components/content/author-byline.tsx` renders the visible byline on all
+11 article guides plus the guides index. The Person node is emitted on every page that
+references it so the `@id` resolves rather than dangling.
+
+Everything visible and everything in the schema reads from `siteConfig.author`, so a
+byline and its structured data cannot disagree — which is the specific failure that
+gets a rich result withheld.
+
 
 ### The call to action
 

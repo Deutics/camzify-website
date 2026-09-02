@@ -1,6 +1,7 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
-import { articleSchema } from '@/lib/seo';
+import { articleSchema, personSchema } from '@/lib/seo';
+import { AuthorByline } from '@/components/content/author-byline';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
 
@@ -19,13 +20,14 @@ export const metadata = generatePageMeta({ ...pageMeta, type: 'article', publish
 
 export default function SecurityGuardCostPerHourPage() {
   return (
-    <PageShell {...pageMeta} schema={[articleSchema({ headline: "Security Guard Cost Per Hour", description: "What does a security guard cost per hour? Rates by region, total cost of 24/7 coverage, and how to calculate your annual guard spend.", path: "/guides/security-guard-cost-per-hour", datePublished: '2026-08-31', dateModified: '2026-08-31' })]} breadcrumbs={[
+    <PageShell {...pageMeta} schema={[articleSchema({ headline: "Security Guard Cost Per Hour", description: "What does a security guard cost per hour? Rates by region, total cost of 24/7 coverage, and how to calculate your annual guard spend.", path: "/guides/security-guard-cost-per-hour", datePublished: '2026-08-31', dateModified: '2026-08-31' }), personSchema()]} breadcrumbs={[
       { label: 'Guides', href: '/guides' },
       { label: 'Security Guard Cost Per Hour' },
     ]}>
       <article className="pb-16">
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Security Guard Cost Per Hour</h1>
+          <AuthorByline className="mt-6" />
           <p className="mt-6 max-w-prose text-body text-muted-foreground">Security guard cost per hour varies by region, level of training, and contract terms. In Singapore, unarmed security guards typically cost SGD 8-15 per hour. In the US, rates range from USD 15-35 per hour. The true cost of guard coverage goes far beyond the hourly rate — it includes overtime, benefits, training, supervision, and the 4.5 FTE required for genuine 24/7 coverage.</p>
 
           <section className="mt-16">

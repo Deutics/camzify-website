@@ -17,6 +17,8 @@ import { siteConfig, formattedAddress, absoluteUrl } from '@/lib/site-config';
 
 /** Stable @id anchors so every page's schema joins the same entity graph. */
 export const ORG_ID = `${siteConfig.url}/#organization`;
+/** The named author. Stable @id so every Article can reference one Person node. */
+export const PERSON_ID = `${siteConfig.url}/about/${siteConfig.author.slug}#person`;
 export const WEBSITE_ID = `${siteConfig.url}/#website`;
 export const SOFTWARE_ID = `${siteConfig.url}/#software`;
 
@@ -183,6 +185,34 @@ export function faqSchema(items: QA[], currentPath?: string) {
 }
 
 /** Article node for guides. `dateModified` materially affects freshness ranking. */
+/**
+ * The Person behind the guides.
+ *
+ * Emitted once on the author page and referenced by @id from every Article, rather
+ * than repeated inline on each one — a single node is what lets a search engine treat
+ * eleven bylines as one author with a track record instead of eleven strangers.
+ */
+export function personSchema() {
+  return {
+    '@type': 'Person',
+    '@id': PERSON_ID,
+    name: siteConfig.author.name,
+    jobTitle: siteConfig.author.role,
+    description: siteConfig.author.credential,
+    email: siteConfig.author.email,
+    url: absoluteUrl(`/about/${siteConfig.author.slug}`),
+    sameAs: [siteConfig.author.linkedin],
+    worksFor: { '@id': ORG_ID },
+    knowsAbout: [
+      'Computer vision',
+      'Video surveillance',
+      'Video analytics',
+      'Virtual patrolling',
+      'Physical security operations',
+    ],
+  };
+}
+
 export function articleSchema({
   headline,
   description,
@@ -207,7 +237,9 @@ export function articleSchema({
     mainEntityOfPage: { '@type': 'WebPage', '@id': absoluteUrl(path) },
     datePublished,
     dateModified: dateModified ?? datePublished,
-    author: { '@id': ORG_ID },
+    // Named author rather than the Organization: guides carry a byline now, and the
+    // schema has to agree with what the page shows.
+    author: { '@id': PERSON_ID },
     publisher: { '@id': ORG_ID },
     image: absoluteUrl(image ?? siteConfig.ogImage),
     isPartOf: { '@id': WEBSITE_ID },

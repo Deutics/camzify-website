@@ -221,7 +221,7 @@ const partners = group(
 
 // Trust and company pages: low crawl priority, high conversion-assist value.
 const company = group(
-  ['/about', '/faqs', '/trust', '/security-and-compliance', '/roadmap', '/blog', '/sitemap-page'],
+  ['/about', '/about/muhammad-talha', '/faqs', '/trust', '/security-and-compliance', '/roadmap', '/blog', '/sitemap-page'],
   0.5,
   'monthly'
 );
