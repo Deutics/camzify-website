@@ -3,6 +3,7 @@ import { TrustBand } from './_components/trust-band';
 import { ProblemBand } from './_components/problem-band';
 import { WhatIsVP } from './_components/what-is-vp';
 import { ChecklistDemoSection } from './_components/checklist-demo-section';
+import { AutoPatrolSection } from './_components/auto-patrol-section';
 import { HowItWorks } from './_components/how-it-works';
 import { DetectionGrid } from './_components/detection-grid';
 import { PlatformModules } from './_components/platform-modules';
@@ -49,6 +50,7 @@ export default function HomePage() {
       <ProblemBand />
       <WhatIsVP />
       <ChecklistDemoSection />
+      <AutoPatrolSection />
       <HowItWorks />
       <DetectionGrid />
       <PlatformModules />

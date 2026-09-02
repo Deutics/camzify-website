@@ -1,6 +1,7 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
+import { SceneObservation } from '@/components/motion/scene-observation';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
@@ -20,6 +21,8 @@ const pageMeta = {
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
+  { question: 'What is scene observation in automated patrolling?', answer: 'It lets an automated round judge a camera from a short window of live video — one, two or three seconds — instead of a single still frame. A frame tells you someone is in a corridor; a few seconds tell you whether they walked through or stayed. Single frame is faster and right for static checks like a gate or a roller door; watching is worth the extra seconds anywhere people are involved, because it is what stops a round waking a guard over somebody walking past a camera.' },
+  { question: 'Does an automated round feel different from a guard walking the site?', answer: 'It covers the same sequence with the same checks at the same times, and unlike a physical round it happens at 3am on the fourth night as reliably as the first. What it does not do is intervene — it observes, judges, notifies the responsible guard and files the record, so a person is dispatched to the things that need a person rather than to everything.' },
   { question: 'Can different cameras in the same sequence run on different schedules?', answer: 'No — a patrol sequence runs as one unit, so every camera in it fires together on the same schedule. If two groups of cameras need different frequencies or active hours, split them into separate sequences, each with its own schedule.' },
   { question: 'What happens if a scheduled round is still running when the next one is due?', answer: 'The current round finishes its remaining stops before the next scheduled trigger is allowed to start, so rounds don\'t overlap or stack on top of each other. A tightly spaced frequency should leave enough time for a full round to complete.' },
   { question: 'Can I pause a schedule without losing its configuration?', answer: 'Yes. Pausing keeps the frequency, active hours, and active days exactly as configured — no rounds fire while paused, and resuming picks the schedule back up unchanged.' },
@@ -107,6 +110,16 @@ export default function AutomatedSchedulingPage() {
                   person in view is walking through or loitering &mdash; the kind of check that needs
                   a moment of context to call correctly.
                 </p>
+                <p className="mt-4 max-w-prose text-muted-foreground">
+                  Single frame is the faster of the two and the right choice for anything static: a
+                  gate, a barrier, a roller door. Watching costs a little more time per stop and
+                  earns it back on anything involving people, where the question is almost never
+                  &ldquo;is someone there&rdquo; but &ldquo;is someone still there&rdquo;.
+                </p>
+
+                <div className="mt-8">
+                  <SceneObservation />
+                </div>
 
                 <h2 className="mt-16 font-display text-2xl font-bold">Timezone, holidays &amp; pause/resume</h2>
                 <ul className="mt-4 space-y-3 text-muted-foreground">
