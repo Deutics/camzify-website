@@ -25,7 +25,9 @@ export default function HlsSetupPage() {
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">HLS Camera Setup</h1>
           <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            Follow these steps to connect your camera to Camzify using HLS.
+            Follow these steps to connect your camera to Camzify using HLS. HLS is one of the two
+            stream formats handled by the <a href="/camera-connectivity/https-setup" className="text-primary hover:underline">HTTPS connection type</a>;
+            <a href="/camera-connectivity/webrtc-setup" className="text-primary hover:underline">WebRTC</a> is the other.
           </p>
           <ol className="mt-12 space-y-10 max-w-prose">
             <ScrollReveal key={0} delay={0 * 0.1}>
@@ -42,7 +44,7 @@ export default function HlsSetupPage() {
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-lg font-bold text-white">2</span>
                 <div>
                   <h2 className="font-display text-xl font-bold">Add the camera in Camzify</h2>
-                  <div className="mt-2 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `In Camera Management → Add Camera → HLS, paste the .m3u8 URL. Camzify will connect to the stream and display the live preview.` }} />
+                  <div className="mt-2 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `In Camera Management → Add Camera → HTTPS, paste the .m3u8 URL. HLS and WebRTC are both added under the single HTTPS connection type. Camzify will connect to the stream and display the live preview.` }} />
                 </div>
               </li>
             </ScrollReveal>

@@ -63,7 +63,7 @@ export default function PatrolSequencesPage() {
                   <h3 className="mt-3 font-display text-lg font-bold">Camera allocation</h3>
                   <p className="mt-2 text-sm text-muted-foreground">
                     Add cameras up to your licensed VPS camera allocation. Any camera connected to
-                    the platform can be included — RTSP, RTMP, HLS, or WebRTC.
+                    the platform can be included — over RTSP, RTMP or HTTPS.
                   </p>
                 </div>
               </ScrollReveal>

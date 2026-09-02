@@ -39,7 +39,7 @@ export default function CamzifyVsTraditionalVmsPage() {
                 rows={[
                   { label: "Primary function", values: ["Active AI verification via patrol rounds", "Passive video recording and playback"] },
                   { label: "Detection", values: ["AI-powered: zone, line, motion, tampering, tracking", "Basic motion detection or none"] },
-                  { label: "Deployment", values: ["Cloud-based, connect via RTSP/RTMP/HLS", "On-premise NVR/server installation"] },
+                  { label: "Deployment", values: ["Cloud-based, connect via RTSP/RTMP/HTTPS", "On-premise NVR/server installation"] },
                   { label: "Patrol automation", values: ["Built-in virtual patrolling with checklists", "Not available"] },
                   { label: "Compliance reporting", values: ["Automated PDF reports with compliance %", "Manual review of recorded footage"] },
                   { label: "Scalability", values: ["Add cameras from any location", "Limited by on-premise hardware capacity"] },

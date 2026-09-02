@@ -26,7 +26,7 @@ export default function SupportedCamerasPage() {
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Cameras We Support</h1>
           <p className="mt-6 max-w-prose text-body text-muted-foreground">
-            Camzify connects to any IP camera that supports ONVIF, RTSP, RTMP, HLS or WebRTC — which covers effectively every IP camera made in the last decade, whoever made it. Compatibility is decided by the protocol rather than the brand, so if your camera exposes an RTSP stream it will work with Camzify and the <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</Link> system.
+            Camzify connects to any IP camera that supports ONVIF or RTSP — which covers effectively every IP camera made in the last decade, whoever made it. A camera is added over one of three connection types: RTSP, RTMP or HTTPS. Compatibility is decided by the protocol rather than the brand, so if your camera exposes an RTSP stream it will work with Camzify and the <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</Link> system.
           </p>
           <p className="mt-4 text-muted-foreground">
             New to camera protocols? Read <Link href="/guides/onvif-and-rtsp-explained" className="text-primary hover:underline">ONVIF and RTSP explained</Link> for a plain-language guide.
@@ -80,12 +80,11 @@ export default function SupportedCamerasPage() {
 
           <div className="mt-16">
             <ScrollReveal>
-              <h2 className="font-display text-2xl font-bold">Connectivity options</h2>
-              <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              <h2 className="font-display text-2xl font-bold">The three connection types</h2>
+              <div className="mt-6 grid gap-4 sm:grid-cols-3">
                 <Link href="/camera-connectivity/rtsp-setup" className="rounded-lg bg-card p-5 shadow transition-shadow hover:shadow-md"><span className="font-display font-bold">RTSP</span><p className="mt-1 text-sm text-muted-foreground">Most common. Direct stream from camera.</p></Link>
                 <Link href="/camera-connectivity/rtmp-setup" className="rounded-lg bg-card p-5 shadow transition-shadow hover:shadow-md"><span className="font-display font-bold">RTMP</span><p className="mt-1 text-sm text-muted-foreground">Encoder-based push streaming.</p></Link>
-                <Link href="/camera-connectivity/hls-setup" className="rounded-lg bg-card p-5 shadow transition-shadow hover:shadow-md"><span className="font-display font-bold">HLS</span><p className="mt-1 text-sm text-muted-foreground">HTTP-based .m3u8 streams.</p></Link>
-                <Link href="/camera-connectivity/webrtc-setup" className="rounded-lg bg-card p-5 shadow transition-shadow hover:shadow-md"><span className="font-display font-bold">WebRTC</span><p className="mt-1 text-sm text-muted-foreground">Lowest latency via WHEP/WHIP.</p></Link>
+                <Link href="/camera-connectivity/https-setup" className="rounded-lg bg-card p-5 shadow transition-shadow hover:shadow-md"><span className="font-display font-bold">HTTPS</span><p className="mt-1 text-sm text-muted-foreground">Web-delivered streams — HLS (.m3u8) and WebRTC (WHEP/WHIP).</p></Link>
               </div>
             </ScrollReveal>
           </div>

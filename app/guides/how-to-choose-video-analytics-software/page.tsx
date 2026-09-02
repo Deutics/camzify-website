@@ -45,7 +45,7 @@ export default function HowToChooseVideoAnalyticsSoftwarePage() {
           <section className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Camera compatibility</h2>
-              <div className="mt-4 max-w-prose space-y-4 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `Verify that the platform works with your existing cameras. Key protocols: ONVIF, RTSP, RTMP, HLS. If your cameras are on a local network without cloud access, confirm the vendor offers a relay solution. Camzify supports all four protocols plus the <a href="/camzify-connector">Camzify Connector</a> for local-only cameras.` }} />
+              <div className="mt-4 max-w-prose space-y-4 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `Verify that the platform works with your existing cameras. Key protocols: ONVIF, RTSP, RTMP, HLS. If your cameras are on a local network without cloud access, confirm the vendor offers a relay solution. Camzify supports all of them across its three connection types &mdash; RTSP, RTMP and HTTPS &mdash; plus the <a href="/camzify-connector">Camzify Connector</a> for local-only cameras.` }} />
             </ScrollReveal>
           </section>
 

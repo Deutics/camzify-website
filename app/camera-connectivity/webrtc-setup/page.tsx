@@ -25,7 +25,7 @@ export default function WebrtcSetupPage() {
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">WebRTC Camera Setup</h1>
           <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            Follow these steps to connect your camera to Camzify using WEBRTC.
+            Follow these steps to connect your camera to Camzify using WebRTC. WebRTC is one of the two stream formats handled by the <a href="/camera-connectivity/https-setup" className="text-primary hover:underline">HTTPS connection type</a>; <a href="/camera-connectivity/hls-setup" className="text-primary hover:underline">HLS</a> is the other.
           </p>
           <ol className="mt-12 space-y-10 max-w-prose">
             <ScrollReveal key={0} delay={0 * 0.1}>
@@ -42,7 +42,7 @@ export default function WebrtcSetupPage() {
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-lg font-bold text-white">2</span>
                 <div>
                   <h2 className="font-display text-xl font-bold">Configure the WebRTC endpoint</h2>
-                  <div className="mt-2 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `In Camera Management → Add Camera → WebRTC, enter the WHEP/WHIP endpoint URL provided by your camera or media server.` }} />
+                  <div className="mt-2 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `In Camera Management → Add Camera → HTTPS, enter the WHEP/WHIP endpoint URL provided by your camera or media server.` }} />
                 </div>
               </li>
             </ScrollReveal>

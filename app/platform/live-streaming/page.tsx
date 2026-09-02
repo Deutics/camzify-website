@@ -14,7 +14,7 @@ import { LayoutGrid, Gauge, AlertOctagon, Filter } from 'lucide-react';
  */
 const pageMeta = {
   title: "Live Camera Streaming | Multi-Camera Live View",
-  description: "Camzify live streaming: multi-camera grid grouped by site, slideshow mode, per-site and per-AI-feature filters, no-signal states. RTSP, RTMP, HLS, WebRTC.",
+  description: "Camzify live streaming: multi-camera grid grouped by site, slideshow mode, per-site and per-AI-feature filters, no-signal states. RTSP, RTMP and HTTPS.",
   path: "/platform/live-streaming",
 };
 
@@ -100,8 +100,7 @@ export default function Page() {
                   {[
                     { proto: 'RTSP', desc: 'Most IP cameras and NVRs' },
                     { proto: 'RTMP', desc: 'Encoders and streaming appliances' },
-                    { proto: 'HLS', desc: 'HTTP-based adaptive streams' },
-                    { proto: 'WebRTC', desc: 'Sub-second latency links' },
+                    { proto: 'HTTPS', desc: 'Web-delivered HLS and WebRTC streams' },
                   ].map((p) => (
                     <div key={p.proto} className="flex items-center justify-between rounded-lg bg-muted/30 px-4 py-2.5">
                       <span className="font-mono text-mono-sm text-primary">{p.proto}</span>

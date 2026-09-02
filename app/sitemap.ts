@@ -192,6 +192,7 @@ const connectivity = group(
   [
     '/camera-connectivity/rtsp-setup',
     '/camera-connectivity/rtmp-setup',
+    '/camera-connectivity/https-setup',
     '/camera-connectivity/hls-setup',
     '/camera-connectivity/webrtc-setup',
     '/camzify-connector',

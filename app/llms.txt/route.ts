@@ -53,7 +53,7 @@ Dashboard, live streaming, video backup and retention, notifications and alerts,
 
 ## Camera connectivity
 
-${siteConfig.name} connects to any ONVIF or RTSP-compatible IP camera. Supported ingest protocols: RTSP, RTMP, HLS, WebRTC. The ${siteConfig.name} Connector relays local cameras to the cloud without port forwarding or exposing cameras to the internet. No proprietary hardware is required.
+${siteConfig.name} connects to any ONVIF or RTSP-compatible IP camera. Cameras are added over one of three connection types: RTSP, RTMP, or HTTPS. HTTPS covers both HLS (.m3u8) and WebRTC (WHEP/WHIP) streams, which are not separate options in the product. The ${siteConfig.name} Connector relays local cameras to the cloud without port forwarding or exposing cameras to the internet. No proprietary hardware is required.
 
 ## Pricing
 

@@ -1,13 +1,12 @@
 import Link from 'next/link';
 import { BrandStrip } from '@/components/content/brand-strip';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
-import { Wifi, Radio, Globe, Zap, ArrowRight } from 'lucide-react';
+import { Wifi, Radio, Globe, ArrowRight } from 'lucide-react';
 
 const paths = [
   { icon: Radio, title: 'RTSP', desc: 'Local network cameras relayed via the Camzify Connector.', href: '/camera-connectivity/rtsp-setup' },
   { icon: Wifi, title: 'RTMP', desc: 'Generated private ingest address with server URL and stream key.', href: '/camera-connectivity/rtmp-setup' },
-  { icon: Globe, title: 'HLS', desc: 'Direct .m3u8 streaming with no connector required.', href: '/camera-connectivity/hls-setup' },
-  { icon: Zap, title: 'WebRTC', desc: 'WHEP/WHIP protocol for the lowest-latency connection.', href: '/camera-connectivity/webrtc-setup' },
+  { icon: Globe, title: 'HTTPS', desc: 'Streams served over the web — both HLS and WebRTC connect here.', href: '/camera-connectivity/https-setup' },
 ];
 
 export function CameraSupport() {
@@ -18,7 +17,7 @@ export function CameraSupport() {
           <div className="text-center">
             <span className="font-mono text-mono-sm uppercase text-primary">Cameras We Support</span>
             <h2 className="mt-3 font-display text-3xl font-bold tracking-tight sm:text-4xl">
-              Four ways to connect your cameras
+              Three ways to connect your cameras
             </h2>
             <p className="mt-4 mx-auto max-w-2xl text-body text-muted-foreground">
               Any RTSP-capable IP camera works with Camzify. No proprietary hardware, no
@@ -26,7 +25,7 @@ export function CameraSupport() {
             </p>
           </div>
         </ScrollReveal>
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid gap-6 sm:grid-cols-3">
           {(paths ?? []).map((p: any, i: number) => {
             const Icon = p?.icon ?? Wifi;
             return (

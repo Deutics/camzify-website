@@ -41,7 +41,7 @@ export default function CamzifyVsEagleEyeNetworksPage() {
                   { label: "Patrol automation", values: ["Built-in scheduled patrol rounds with checklists", "Not available — integrations-based approach"] },
                   { label: "AI detection", values: ["Zone, line, motion, tampering, tracking, attributes", "Partner-dependent analytics via API"] },
                   { label: "Compliance reporting", values: ["Automated PDF patrol reports with compliance %", "Alert-based reporting"] },
-                  { label: "Camera connectivity", values: ["RTSP, RTMP, HLS, WebRTC + Camzify Connector", "Bridge device + cloud connectivity"] },
+                  { label: "Camera connectivity", values: ["RTSP, RTMP, HTTPS + Camzify Connector", "Bridge device + cloud connectivity"] },
                   { label: "Pricing model", values: ["Per camera per month, feature-based licensing", "Per camera per month + bridge hardware"] },
                 ]}
               />
