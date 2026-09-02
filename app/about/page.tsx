@@ -11,7 +11,7 @@ import { siteConfig, formattedAddress } from '@/lib/site-config';
  */
 const pageMeta = {
   title: "About Camzify | AI Video Surveillance from Singapore",
-  description: "Camzify is an AI video analytics and virtual patrolling platform by Deutics Global Pte Ltd, headquartered in Singapore.",
+  description: "Camzify is an AI video analytics and virtual patrolling platform by Camzify Global Pte Ltd, headquartered in Singapore, serving customers since 2023.",
   path: "/about",
 };
 
@@ -24,7 +24,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">About Camzify</h1>
           <p className="mt-6 max-w-prose text-body text-muted-foreground">
-            Camzify is an AI video analytics and <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</Link> platform built by Deutics Global Pte Ltd, headquartered in Singapore. The platform turns existing security cameras into an active verification system — running scheduled AI patrol rounds, checking defined conditions at each camera, and notifying the right person when something fails.
+            Camzify is an AI video analytics and <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</Link> platform built by {siteConfig.legalName}, headquartered in Singapore and serving customers since 2023. The platform turns existing security cameras into an active verification system — running scheduled AI patrol rounds, checking defined conditions at each camera, and notifying the right person when something fails.
           </p>
           <div className="mt-16 space-y-12 max-w-prose">
             <ScrollReveal>

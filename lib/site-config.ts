@@ -10,11 +10,19 @@ export const siteConfig = {
   /** Brand / trading name — what users and search engines should call us. */
   name: 'Camzify',
   /** Registered legal entity. Used for schema.org legalName and the copyright line. */
-  legalName: 'Deutics Global Pte Ltd',
-  /** Consumer-facing parent brand. */
+  legalName: 'Camzify Global Pte Ltd',
+  /**
+   * Short form of the legal entity, emitted as an Organization alternateName.
+   *
+   * Deutics Global LLP used to be credited here and in the footer as the engineering
+   * arm. It was removed rather than corrected: it is a separate Pakistan-registered
+   * consulting and development company, and naming two organisations behind one
+   * product is the same entity-resolution problem as publishing two addresses — a
+   * search engine cannot tell which one the reviews, links and citations belong to.
+   * The relationship is real and is stated where it is unambiguous: on the author
+   * page, as a fact about a person rather than about this business.
+   */
   company: 'Camzify Global',
-  /** Engineering arm, credited in the footer. */
-  engineering: 'Deutics Global',
 
   tagline: 'Smart Surveillance, Safer Spaces',
   description:
@@ -76,6 +84,20 @@ export const siteConfig = {
     credential: 'Nine years building computer vision and automated surveillance systems',
     email: 'talha@camzify.com',
     linkedin: 'https://www.linkedin.com/in/its-talha/',
+    /**
+     * A second company he leads. It sits on the Person rather than on the
+     * Organization deliberately: Deutics Global LLP is a separate Pakistan-registered
+     * consulting and development firm, and crediting it alongside Camzify at the
+     * organisation level made it ambiguous which entity actually operates the
+     * product. As a fact about a person it is unambiguous, and it is the kind of
+     * track record that makes a byline worth having.
+     */
+    alsoLeads: {
+      name: 'Deutics Global LLP',
+      role: 'CEO',
+      url: 'https://deutics.com',
+      note: 'a Pakistan-based consulting and software development firm',
+    },
   },
 } as const;
 

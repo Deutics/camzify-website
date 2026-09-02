@@ -17,7 +17,7 @@ import { Mail, Linkedin } from 'lucide-react';
  * Everything here comes from `siteConfig.author`, which `personSchema()` also reads,
  * so the page and the Person node cannot drift apart.
  */
-const { name, role, credential, email, linkedin, slug } = siteConfig.author;
+const { name, role, credential, email, linkedin, slug, alsoLeads } = siteConfig.author;
 
 const pageMeta = {
   title: `${name} | Product Manager and CTO at ${siteConfig.name}`,
@@ -70,6 +70,20 @@ export default function AuthorPage() {
             system, the{' '}
             <Link href="/ai-features" className="text-primary hover:underline">AI detection models</Link>{' '}
             that run on customer cameras, and the platform those sit on.
+          </p>
+
+          <p className="mt-4 max-w-prose text-muted-foreground">
+            He is also {alsoLeads.role} of{' '}
+            <a
+              href={alsoLeads.url}
+              rel="noopener noreferrer"
+              target="_blank"
+              className="text-primary hover:underline"
+            >
+              {alsoLeads.name}
+            </a>
+            , {alsoLeads.note} &mdash; separate from {siteConfig.name}, which is operated by{' '}
+            {siteConfig.legalName} in Singapore.
           </p>
 
           <p className="mt-4 max-w-prose text-muted-foreground">

@@ -1,6 +1,6 @@
 # Camzify Website
 
-Marketing and SEO site for **Camzify** — an AI virtual-patrolling and video-analytics platform by Deutics Global Pte Ltd (Singapore).
+Marketing and SEO site for **Camzify** — an AI virtual-patrolling and video-analytics platform by Camzify Global Pte Ltd (Singapore).
 
 This is a **content site, not an application**. There is no login, no dashboard, no authenticated area. The product app lives separately at `app.camzify.live`. Everything here exists to be found — by search engines, by AI answer engines, and by buyers — and to convert that traffic into demo requests.
 

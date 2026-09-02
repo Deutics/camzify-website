@@ -15,7 +15,15 @@
 
 ## Part 1 — Business
 
-- **Business name:** Camzify (trading name of Deutics Global Pte Ltd)
+- **Business name:** Camzify (trading name of Camzify Global Pte Ltd, Singapore)
+- **Entity note:** Deutics Global LLP is a **separate** Pakistan-registered consulting and
+  development firm led by the same person. It was previously credited on this site as
+  Camzify's legal entity and in the footer as its engineering arm; both were wrong and
+  have been removed. Naming two organisations behind one product is the same
+  entity-resolution failure as publishing two addresses — a search engine cannot tell
+  which entity the links, reviews and citations belong to. The relationship is stated
+  only on `/about/muhammad-talha`, as a fact about a person, where it is unambiguous
+  and adds to the author's track record.
 - **Domain:** https://camzify.com
 - **Industry / niche:** AI video analytics and virtual patrolling software for physical security (B2B SaaS)
 - **What they actually sell (one sentence):** A per-camera, per-month subscription that runs scheduled AI patrol rounds on the IP cameras a business already owns — checking a defined checklist at each camera, flagging failures, notifying the assigned guard, and producing a timestamped PDF compliance report.

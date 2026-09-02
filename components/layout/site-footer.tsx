@@ -96,9 +96,6 @@ export function SiteFooter() {
             <Link href="/" className="flex items-center">
               <SiteLogo className="h-8 w-auto" />
             </Link>
-            <span className="text-xs text-muted-foreground">
-              Powered by {siteConfig.engineering}
-            </span>
           </div>
 
           {/*

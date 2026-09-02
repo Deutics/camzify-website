@@ -203,6 +203,14 @@ export function personSchema() {
     url: absoluteUrl(`/about/${siteConfig.author.slug}`),
     sameAs: [siteConfig.author.linkedin],
     worksFor: { '@id': ORG_ID },
+    // Affiliation rather than a second worksFor: the employer relevant to this site is
+    // Camzify, and a competing Organization node would reintroduce exactly the entity
+    // ambiguity that removing Deutics from the footer was meant to fix.
+    affiliation: {
+      '@type': 'Organization',
+      name: siteConfig.author.alsoLeads.name,
+      url: siteConfig.author.alsoLeads.url,
+    },
     knowsAbout: [
       'Computer vision',
       'Video surveillance',
