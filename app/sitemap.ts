@@ -174,6 +174,11 @@ const guides = group(
   [
     '/guides/what-is-virtual-patrolling',
     '/guides/how-to-run-a-virtual-patrol-round',
+    '/guides/how-to-set-up-sites-and-cameras',
+    '/guides/how-to-monitor-live-camera-feeds',
+    '/guides/how-to-configure-cloud-video-backup',
+    '/guides/how-to-manage-sub-users-and-quotas',
+    '/guides/how-to-manage-security-alerts',
     '/guides/virtual-patrolling-cost',
     '/guides/security-guard-cost-per-hour',
     '/guides/ai-video-analytics-cost',
