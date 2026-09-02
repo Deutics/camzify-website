@@ -5,7 +5,7 @@ import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
-import Image from 'next/image';
+import { SiteImage } from '@/components/content/site-image';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -45,7 +45,7 @@ export default function IncidentInvestigationPage() {
                 <p className="mt-4 max-w-prose text-muted-foreground">Reviewing hours of footage from multiple cameras is the most time-consuming part of any incident investigation. Without timestamps and detection markers, investigators scrub through continuous recordings looking for the moment something happened.</p>
               </div>
             </ScrollReveal>
-            <Image
+            <SiteImage
               src="/incident-investigation.jpg" alt="Two security analysts reviewing multi-camera footage and a thermal-camera feed while investigating an incident" className="w-full rounded-xl"
               width={1229}
               height={692}

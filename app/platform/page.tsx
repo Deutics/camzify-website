@@ -2,7 +2,7 @@ import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
-import Image from 'next/image';
+import { SiteImage } from '@/components/content/site-image';
 import { LayoutDashboard, Video, HardDrive, Bell, BarChart3, Users, Shield, Layers, Globe, Smartphone, Brain, ArrowRight, Lock } from 'lucide-react';
 
 /**
@@ -52,13 +52,12 @@ export default function PlatformPage() {
                   <Link href={m?.href ?? '/'} className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card transition-colors duration-200 hover:bg-accent/50">
                     <div className="aspect-video w-full overflow-hidden p-4 pb-0">
                       {m?.image && (
-                        <Image
+                        <SiteImage
                           src={m.image}
                           alt={`${m?.title ?? ''} screen preview`}
                           className="h-full w-full rounded-lg object-cover object-top"
                           width={1229}
                           height={692}
-                          loading="lazy"
                           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         />
                       )}

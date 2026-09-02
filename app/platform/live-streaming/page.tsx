@@ -4,7 +4,7 @@ import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { LiveStreamingMockup } from '@/components/mockups/live-streaming-mockup';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
-import Image from 'next/image';
+import { SiteImage } from '@/components/content/site-image';
 import { LayoutGrid, Gauge, AlertOctagon, Filter } from 'lucide-react';
 
 /**
@@ -43,7 +43,7 @@ export default function Page() {
 
           <div className="mt-8 grid items-center gap-8 lg:grid-cols-[2fr_3fr]">
             <p className="text-body text-muted-foreground">Camzify live streaming provides a multi-camera grid view grouped by site, with slideshow mode cycling between cameras at 5-second to 1-minute intervals. Filter by site, user, or AI feature. No-signal states display clearly rather than freezing on a stale frame. All streams run through the same four ingest paths — RTSP, RTMP, HLS, and WebRTC.</p>
-            <Image
+            <SiteImage
               src="/live-camera-streaming.jpg"
               alt="A laptop showing the Camzify Live Streaming grid with retail camera feeds, a site-down banner for Parking Structure B, and the 23 live / 7 offline camera count"
               className="w-full"

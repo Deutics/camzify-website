@@ -3,7 +3,7 @@ import { PageShell } from '@/components/layout/page-shell';
 import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
-import Image from 'next/image';
+import { SiteImage } from '@/components/content/site-image';
 import { Shield, Moon, KeyRound, UserX, Paintbrush, ShoppingBag, Truck, ParkingCircle, Radio, Car, MoonStar, ClipboardCheck, Search } from 'lucide-react';
 
 /**
@@ -49,15 +49,19 @@ export default function UseCasesHub() {
               <ScrollReveal key={uc.href} delay={i * 0.05}>
                 <Link href={uc.href} className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card transition-colors duration-200 hover:bg-accent/50">
                   <div className="aspect-video w-full overflow-hidden p-4 pb-0">
-                    <Image
-              src={uc.image}
+                    <SiteImage
+                      src={uc.image}
                       alt={`${uc.title} preview`}
                       className="h-full w-full rounded-lg object-cover object-top"
-              width={1229}
-              height={692}
-              priority
-              sizes="(max-width: 1024px) 100vw, 60vw"
-            />
+                      width={1229}
+                      height={692}
+                      // Only the first card is above the fold. Marking every card in the
+                      // grid high priority makes the browser fetch a dozen images eagerly
+                      // and compete with the real LCP element, which is the same as
+                      // prioritising nothing.
+                      priority={i === 0}
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
                   </div>
                   <div className="flex flex-1 flex-col p-6">
                     <div className="flex items-center justify-between gap-3">

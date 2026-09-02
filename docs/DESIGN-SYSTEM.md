@@ -179,3 +179,30 @@ These are not aspirational — the current code meets them and regressions are b
 5. Respect `prefers-reduced-motion` if it animates.
 6. Match the surrounding defensive style (`item?.label ?? ''`).
 7. Run the verification loop in [`CONTRIBUTING.md`](CONTRIBUTING.md).
+
+## Images
+
+Photographic assets are served as responsive WebP through
+`components/content/site-image.tsx`, not `next/image` directly.
+
+The reason is `images: { unoptimized: true }` in `next.config.js`, which is deliberate
+for the deploy target. It means `next/image` emits a single `src` and no `srcset`, so
+the `sizes` attribute on those call sites did nothing and every device downloaded the
+desktop file — 544KB to a phone that needed 58KB.
+
+**To add or replace a photo:**
+
+1. Put the source JPEG in `public/`.
+2. Run `python3 scripts/optimise-images.py`. It generates the WebP ladder and rewrites
+   `lib/image-manifest.ts`.
+3. Use `<SiteImage>` with a `sizes` value that reflects how wide the image actually
+   renders. `sizes` is what decides which variant the browser takes; getting it wrong
+   is the difference between 58KB and 241KB.
+4. Commit the generated `.webp` files and the manifest alongside the source.
+
+`SiteImage` falls back to `next/image` for anything with no manifest entry, so icons and
+one-off images keep working without special handling.
+
+**`priority` marks the LCP element only.** In a mapped list that means `priority={i === 0}`.
+Marking every card in a grid high priority makes the browser fetch a dozen images eagerly
+in competition with the real LCP element, which is the same as prioritising nothing.

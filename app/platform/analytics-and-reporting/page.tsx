@@ -4,7 +4,7 @@ import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { AnalyticsMockup } from '@/components/mockups/analytics-mockup';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
-import Image from 'next/image';
+import { SiteImage } from '@/components/content/site-image';
 import { TrendingUp, Gauge, FileDown, Layers } from 'lucide-react';
 
 /**
@@ -41,7 +41,7 @@ export default function Page() {
 
           <div className="mt-8 grid items-center gap-8 lg:grid-cols-[2fr_3fr]">
             <p className="text-body text-muted-foreground">Camzify analytics provides detection breakdowns by feature, object type, site, and severity. Attribute trends track people vs vehicles with distributions, and the detection-confidence split shows High, Medium, and Low confidence levels across all alerts. Every AI feature also carries its own 7-day event trend against the prior week, plus how many of its licensed camera instances are actively running — so a feature quietly nearing its limit shows up before it becomes a blind spot. All data is exportable.</p>
-            <Image
+            <SiteImage
               src="/video-surveillance-analytics-and-reporting.jpg"
               alt="A laptop showing the Camzify Configuration AI Features screen with per-feature active-camera counts and 7-day event trends for Line Intrusion, Zone Intrusion, Heatmap Anomalies, and Camera Tampering"
               className="w-full"

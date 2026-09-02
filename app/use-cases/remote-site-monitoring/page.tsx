@@ -5,7 +5,7 @@ import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
-import Image from 'next/image';
+import { SiteImage } from '@/components/content/site-image';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -45,7 +45,7 @@ export default function RemoteSiteMonitoringPage() {
                 <p className="mt-4 max-w-prose text-muted-foreground">Remote sites are expensive to staff and difficult to patrol. A guard visiting once per day cannot provide continuous coverage. Incidents at unmanned sites often go undetected for hours or days, compounding the damage.</p>
               </div>
             </ScrollReveal>
-            <Image
+            <SiteImage
               src="/remote-site-monitoring.jpg" alt="AI-monitored remote substation with a drone and networked cameras tracking a vehicle, deer, and perimeter fence line" className="w-full rounded-xl"
               width={1229}
               height={692}

@@ -4,7 +4,7 @@ import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PermissionGroupsMockup } from '@/components/mockups/permission-groups-mockup';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
-import Image from 'next/image';
+import { SiteImage } from '@/components/content/site-image';
 import { LayoutList, SlidersHorizontal, Users, Zap } from 'lucide-react';
 
 /**
@@ -43,7 +43,7 @@ export default function Page() {
 
           <div className="mt-8 grid items-center gap-8 lg:grid-cols-[2fr_3fr]">
             <p className="text-body text-muted-foreground">Permission groups in Camzify define a per-module access matrix: which of the seven platform pages a role can reach, and View, Create, Edit, and Delete rights across the ten AI-feature instance types. Four ready-made roles — Site Admin, Guard, Auditor, and Surveillance Manager — cover the operational patterns most deployments need. Combined with site-level access control, this creates fine-grained security appropriate for multi-site enterprise deployments.</p>
-            <Image
+            <SiteImage
               src="/permission-group.jpg"
               alt="A laptop showing the Camzify Create Permission Group screen with page-access toggles and a View/Create/Edit/Delete instance permissions matrix"
               className="w-full"

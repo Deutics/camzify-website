@@ -5,7 +5,7 @@ import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
-import Image from 'next/image';
+import { SiteImage } from '@/components/content/site-image';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -45,7 +45,7 @@ export default function NightSecurityPage() {
                 <p className="mt-4 max-w-prose text-muted-foreground">Overnight guard shifts are expensive, fatiguing, and difficult to verify. A single guard cannot cover a large facility effectively, and shift changes create coverage gaps. Most overnight incidents happen during the hours when the guard is least alert.</p>
               </div>
             </ScrollReveal>
-            <Image
+            <SiteImage
               src="/night-security.jpg" alt="AI-monitored facility perimeter at night showing networked security cameras and drone coverage around the building" className="w-full rounded-xl"
               width={1229}
               height={692}

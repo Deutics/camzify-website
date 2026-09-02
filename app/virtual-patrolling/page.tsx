@@ -7,7 +7,7 @@ import { ComparisonTable } from '@/components/content/comparison-table';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import Link from 'next/link';
-import Image from 'next/image';
+import { SiteImage } from '@/components/content/site-image';
 import {
   Shield, ArrowRight, Camera, ClipboardCheck, Bell, FileText,
   Route, Clock, CheckCircle, XCircle, BarChart3, Users, Calendar,
@@ -97,13 +97,12 @@ export default function VirtualPatrollingPage() {
             </div>
 
             <div className="overflow-hidden rounded-xl bg-card">
-              <Image
+              <SiteImage
               src="/Virtual-Patrolling-System-1.jpg"
                 alt="A person reviewing the Camzify Virtual Patrolling dashboard on a laptop, showing an active patrol round and camera sequence"
                 className="w-full"
               width={1000}
               height={563}
-              loading="lazy"
             />
             </div>
           </div>
@@ -267,13 +266,12 @@ export default function VirtualPatrollingPage() {
                 </p>
               </div>
               <div className="overflow-hidden rounded-xl bg-card">
-                <Image
+                <SiteImage
               src="/Virtual-Patrolling-System-2.jpg"
                   alt="Camzify patrol history screen listing completed, flagged, and overdue rounds with a 94% patrol health score across all sites"
                   className="w-full"
               width={1000}
               height={563}
-              loading="lazy"
             />
               </div>
             </div>

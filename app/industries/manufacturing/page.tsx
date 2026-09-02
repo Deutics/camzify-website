@@ -6,7 +6,7 @@ import { DeploymentPlan } from '@/components/content/deployment-plan';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
-import Image from 'next/image';
+import { SiteImage } from '@/components/content/site-image';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -63,7 +63,7 @@ export default function ManufacturingPage() {
                 </ul>
               </div>
             </ScrollReveal>
-            <Image
+            <SiteImage
               src="/ai-security-for-manufacturing.jpg" alt="AI-monitored manufacturing floor showing a bounding box around a package on a conveyor line, with workers, machinery, and a production worker in PPE" className="w-full rounded-xl"
               width={1600}
               height={900}

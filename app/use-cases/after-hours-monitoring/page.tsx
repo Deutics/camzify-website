@@ -5,7 +5,7 @@ import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
-import Image from 'next/image';
+import { SiteImage } from '@/components/content/site-image';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -46,7 +46,7 @@ export default function AfterHoursMonitoringPage() {
                 <p className="mt-4 max-w-prose text-muted-foreground">Most businesses cannot justify 24/7 guard coverage. Cameras record overnight footage that no one reviews until something goes wrong. By then, the damage is done and the footage is only useful for post-incident investigation, not prevention.</p>
               </div>
             </ScrollReveal>
-            <Image
+            <SiteImage
               src="/after-hours-security-monitoring.jpg" alt="A security operations desk with curved monitors showing multiple AI-flagged night camera feeds across a facility" className="w-full rounded-xl"
               width={1229}
               height={692}

@@ -5,7 +5,7 @@ import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
-import Image from 'next/image';
+import { SiteImage } from '@/components/content/site-image';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -46,7 +46,7 @@ export default function PerimeterSecurityPage() {
                 <p className="mt-4 max-w-prose text-muted-foreground">Conventional CCTV records perimeter footage but cannot distinguish a genuine intrusion from a shadow, animal, or tree branch. Guards monitoring multiple screens miss events during shift changes, fatigue periods, and breaks. The result: breaches detected hours after the fact, if at all.</p>
               </div>
             </ScrollReveal>
-            <Image
+            <SiteImage
               src="/ai-perimeter-security.jpg" alt="AI-monitored facility perimeter at dusk with networked cameras and a drone tracking activity along the fence line" className="w-full rounded-xl"
               width={1229}
               height={692}

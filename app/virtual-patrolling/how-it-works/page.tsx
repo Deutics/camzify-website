@@ -4,7 +4,7 @@ import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
-import Image from 'next/image';
+import { SiteImage } from '@/components/content/site-image';
 import { Wifi, Route, Cpu, Bell, FileText, BarChart3 } from 'lucide-react';
 
 /**
@@ -77,13 +77,16 @@ export default function HowItWorksPage() {
                     </div>
                     {step?.image ? (
                       <div className={`overflow-hidden rounded-xl bg-card ${!isEven ? 'lg:order-1' : ''}`}>
-                        <Image
-              src={step.image} alt={step.imageAlt ?? step?.title ?? ''} className="w-full"
-              width={1229}
-              height={692}
-              priority
-              sizes="(max-width: 1024px) 100vw, 60vw"
-            />
+                        <SiteImage
+                          src={step.image}
+                          alt={step.imageAlt ?? step?.title ?? ''}
+                          className="w-full"
+                          width={1229}
+                          height={692}
+                          // Only the first step is above the fold.
+                          priority={i === 0}
+                          sizes="(max-width: 1024px) 100vw, 60vw"
+                        />
                       </div>
                     ) : (
                       <PlaceholderVisual

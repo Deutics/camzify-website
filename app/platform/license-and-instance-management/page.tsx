@@ -4,7 +4,7 @@ import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { LicenseMockup } from '@/components/mockups/license-mockup';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
-import Image from 'next/image';
+import { SiteImage } from '@/components/content/site-image';
 import { Layers, HardDrive, Users, RefreshCcw } from 'lucide-react';
 
 /**
@@ -41,7 +41,7 @@ export default function Page() {
 
           <div className="mt-8 grid items-center gap-8 lg:grid-cols-[2fr_3fr]">
             <p className="text-body text-muted-foreground">The Plan & Usage page shows total instances per AI feature, how many are activated by you, how many are granted to sub-users, and how many remain available — plus a separate storage entitlement tracked in terabytes. Plan terms show start date, expiry, and days remaining. On the current Enterprise Plan, 96 instances are granted across 8 features, with 12 still available and 161 days left on the term.</p>
-            <Image
+            <SiteImage
               src="/license-and-instance-management.jpg"
               alt="A laptop showing the Camzify Plan & Usage screen with subscription term, instance totals, storage entitlement, and a per-feature allocation table"
               className="w-full"

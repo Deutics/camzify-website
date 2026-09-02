@@ -5,7 +5,7 @@ import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
-import Image from 'next/image';
+import { SiteImage } from '@/components/content/site-image';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -46,7 +46,7 @@ export default function GuardTourVerificationPage() {
                 <p className="mt-4 max-w-prose text-muted-foreground">Traditional guard tour systems use NFC tags or QR codes that guards scan at each checkpoint. This confirms the guard was physically present, but not that they actually looked at what they were supposed to check. A guard can tap a tag and walk past without verifying anything.</p>
               </div>
             </ScrollReveal>
-            <Image
+            <SiteImage
               src="/guard-tour-verification.jpg" alt="A guard reviewing an AI-verified patrol route on a tablet, with a route map and checkpoint markers overlaid on a campus at night" className="w-full rounded-xl"
               width={1229}
               height={692}

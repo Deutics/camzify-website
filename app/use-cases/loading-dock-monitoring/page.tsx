@@ -5,7 +5,7 @@ import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
-import Image from 'next/image';
+import { SiteImage } from '@/components/content/site-image';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -45,7 +45,7 @@ export default function LoadingDockMonitoringPage() {
                 <p className="mt-4 max-w-prose text-muted-foreground">Loading docks are high-risk areas — they combine valuable inventory, vehicle access, and frequent door openings. A dock door left open overnight or an unauthorized vehicle at the bay is a direct theft vector, but guards checking multiple docks on foot miss these conditions regularly.</p>
               </div>
             </ScrollReveal>
-            <Image
+            <SiteImage
               src="/loading-dock-security.jpg" alt="AI-monitored loading dock with cameras tracking trucks, a forklift, and dock doors, flagging cleared and restricted bays" className="w-full rounded-xl"
               width={1229}
               height={692}

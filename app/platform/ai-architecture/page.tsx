@@ -4,7 +4,7 @@ import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { AiPipelineDiagram } from '@/components/mockups/ai-pipeline-diagram';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
-import Image from 'next/image';
+import { SiteImage } from '@/components/content/site-image';
 import { Radio, Zap, Boxes, MessageSquare } from 'lucide-react';
 
 /**
@@ -41,7 +41,7 @@ export default function Page() {
 
           <div className="mt-8 grid items-center gap-8 lg:grid-cols-[2fr_3fr]">
             <p className="text-body text-muted-foreground">Camzify AI architecture consists of six processing layers: Object Detection, Multi-Object Tracking, Custom Domain Models (industry-specific classes), Vision-Language Model (attributes and natural-language context), Signal Analysis (tampering, motion gating, stream health — no GPU required), and Adaptive Inference (skips static frames, full attention on active scenes).</p>
-            <Image
+            <SiteImage
               src="/ai-video-analytics-architecture.jpg"
               alt="Diagram of the Camzify AI detection pipeline, from camera feed through object detection, tracking, domain classification, analysis, and confidence-checked output"
               className="w-full rounded-xl"

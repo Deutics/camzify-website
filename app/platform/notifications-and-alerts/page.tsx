@@ -4,7 +4,7 @@ import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { NotificationsMockup } from '@/components/mockups/notifications-mockup';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
-import Image from 'next/image';
+import { SiteImage } from '@/components/content/site-image';
 import { Radio, ListFilter, CheckCircle2, SlidersHorizontal } from 'lucide-react';
 
 /**
@@ -41,7 +41,7 @@ export default function Page() {
 
           <div className="mt-8 grid items-center gap-8 lg:grid-cols-[2fr_3fr]">
             <p className="text-body text-muted-foreground">The Camzify notification system provides total events, unread count, critical alerts (weapons and fire/smoke), and average time to acknowledge. Filter by category, site, camera, severity, object type, and acknowledgement status. Every alert supports four states: Ack Required, Acknowledged, Escalated, and False Positive.</p>
-            <Image
+            <SiteImage
               src="/security-alert-management.jpg"
               alt="A laptop showing the Camzify Notifications screen with stat tiles, filters, and a categorized alert feed showing critical, warning, and info events"
               className="w-full"

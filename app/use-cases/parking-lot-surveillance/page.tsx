@@ -5,7 +5,7 @@ import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
-import Image from 'next/image';
+import { SiteImage } from '@/components/content/site-image';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -45,7 +45,7 @@ export default function ParkingLotSurveillancePage() {
                 <p className="mt-4 max-w-prose text-muted-foreground">Parking lots are large, often poorly lit, and difficult to monitor with foot patrols. Cameras cover the area but generate so much footage that manual review is impractical. Incidents — break-ins, vandalism, unauthorized overnight parking — are discovered the next morning.</p>
               </div>
             </ScrollReveal>
-            <Image
+            <SiteImage
               src="/parking-lot-surveillance.jpg" alt="AI-monitored night parking lot with bounding boxes tracking parked vehicles, a moving car, and a pedestrian" className="w-full rounded-xl"
               width={1229}
               height={692}

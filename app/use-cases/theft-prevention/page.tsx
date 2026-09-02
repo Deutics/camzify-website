@@ -5,7 +5,7 @@ import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
-import Image from 'next/image';
+import { SiteImage } from '@/components/content/site-image';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -45,7 +45,7 @@ export default function TheftPreventionPage() {
                 <p className="mt-4 max-w-prose text-muted-foreground">Shrinkage costs businesses billions annually. Traditional CCTV records the event but does not flag it. Loss prevention teams review hours of footage after the fact, identifying patterns too late to prevent the next incident.</p>
               </div>
             </ScrollReveal>
-            <Image
+            <SiteImage
               src="/ai-theft-detection.jpg" alt="A warehouse operator reviewing an AI theft alert on a tablet, with a ceiling camera tracking a suspicious figure near a caged storage area" className="w-full rounded-xl"
               width={1229}
               height={692}

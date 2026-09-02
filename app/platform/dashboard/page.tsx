@@ -4,7 +4,7 @@ import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DashboardMockup } from '@/components/mockups/dashboard-mockup';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
-import Image from 'next/image';
+import { SiteImage } from '@/components/content/site-image';
 import { Building2, ShieldAlert, ClipboardList, HardDrive } from 'lucide-react';
 
 /**
@@ -41,7 +41,7 @@ export default function Page() {
 
           <div className="mt-8 grid items-center gap-8 lg:grid-cols-[2fr_3fr]">
             <p className="text-body text-muted-foreground">The Camzify dashboard is the first screen every operator sees: cameras online with uptime percentage, AI alerts across all detection models, patrol compliance, retention coverage, and a critical-event acknowledgement queue. It combines your own sites with sub-user sites in one combined view when you need it, and refreshes live from every 1 second to every 1 minute.</p>
-            <Image
+            <SiteImage
               src="/Video-Surveillance-Dashboard.jpg"
               alt="The Camzify Video Surveillance Dashboard showing live stat tiles, detection events, alert feed, site health, and sub-user summary"
               className="w-full"

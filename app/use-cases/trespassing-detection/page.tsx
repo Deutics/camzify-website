@@ -5,7 +5,7 @@ import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
-import Image from 'next/image';
+import { SiteImage } from '@/components/content/site-image';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -46,7 +46,7 @@ export default function TrespassingDetectionPage() {
                 <p className="mt-4 max-w-prose text-muted-foreground">Trespassers rarely enter through controlled access points. They climb fences, cut through gaps, or enter via unmonitored areas. Static cameras record the footage, but without AI analysis, no one knows until the next morning — or until damage is discovered.</p>
               </div>
             </ScrollReveal>
-            <Image
+            <SiteImage
               src="/trespassing-detection.jpg" alt="AI-monitored perimeter fence at night with a person climbing over, flagged in a thermal-camera detection overlay" className="w-full rounded-xl"
               width={1229}
               height={692}

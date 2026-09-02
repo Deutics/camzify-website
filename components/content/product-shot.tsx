@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import { SiteImage } from '@/components/content/site-image';
 
 /**
  * A product screenshot in a console frame, matched to the visitor's theme.
@@ -48,7 +48,6 @@ export function ProductShot({
     height: 1224,
     sizes,
     priority,
-    loading: priority ? undefined : ('lazy' as const),
   };
 
   return (
@@ -64,12 +63,12 @@ export function ProductShot({
         <span className="font-mono text-mono-sm uppercase text-muted-foreground">{label}</span>
       </div>
 
-      <Image
+      <SiteImage
         {...shared}
         src={`${base}-light.jpg`}
         className="w-full transition-transform duration-slow ease-out dark:hidden motion-safe:group-hover:scale-[1.015]"
       />
-      <Image
+      <SiteImage
         {...shared}
         src={`${base}-dark.jpg`}
         // Empty alt on the duplicate: the light variant above already carries the

@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import { SiteImage } from '@/components/content/site-image';
 import { siteConfig } from '@/lib/site-config';
 
 /**
@@ -31,12 +31,16 @@ export function SiteLogo({
     width: 825,
     height: 192,
     priority,
+    // The masthead renders it around 150px wide, so a 300px variant covers 1x and a
+    // 600px variant covers 2x. Without this the browser has no reason not to take the
+    // widest file in the set for a wordmark the height of a line of text.
+    sizes: '165px',
   };
 
   return (
     <>
-      <Image {...shared} src="/camzify-logo-light.png" className={`${className} dark:hidden`} />
-      <Image
+      <SiteImage {...shared} src="/camzify-logo-light.png" className={`${className} dark:hidden`} />
+      <SiteImage
         {...shared}
         src="/camzify-logo-dark.png"
         alt=""

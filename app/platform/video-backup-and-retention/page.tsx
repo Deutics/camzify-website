@@ -4,7 +4,7 @@ import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { VideoBackupMockup } from '@/components/mockups/video-backup-mockup';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
-import Image from 'next/image';
+import { SiteImage } from '@/components/content/site-image';
 import { HardDrive, Clock, Zap, Info } from 'lucide-react';
 
 /**
@@ -44,7 +44,7 @@ export default function Page() {
 
           <div className="mt-8 grid items-center gap-8 lg:grid-cols-[2fr_3fr]">
             <p className="text-body text-muted-foreground">Footage stays safe in the cloud, even if the on-site hardware doesn't. Camzify lets you set per-camera retention policies by days or GB cap, with bulk application per site. The system shows projected storage usage, enables playback and multi-camera comparison, and manages storage allocation across sub-accounts — so a broken or stolen NVR never means lost evidence.</p>
-            <Image
+            <SiteImage
               src="/cloud-video-backup-and-retention-management.jpg"
               alt="A laptop showing the Camzify Video Backup screen with storage allocation, per-site storage breakdown, and per-camera retention settings"
               className="w-full"

@@ -5,7 +5,7 @@ import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
-import Image from 'next/image';
+import { SiteImage } from '@/components/content/site-image';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -45,7 +45,7 @@ export default function VandalismPreventionPage() {
                 <p className="mt-4 max-w-prose text-muted-foreground">Vandalism is typically discovered after the fact. Cameras record it, but passive recording does nothing to prevent it. By the time footage is reviewed, the damage is done and the perpetrator is gone.</p>
               </div>
             </ScrollReveal>
-            <Image
+            <SiteImage
               src="/vandalism-prevention.jpg" alt="AI camera detecting a person spray-painting a wall at night in an alley, flagged with an alert on the live detection feed" className="w-full rounded-xl"
               width={1229}
               height={692}

@@ -5,7 +5,7 @@ import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
-import Image from 'next/image';
+import { SiteImage } from '@/components/content/site-image';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -45,7 +45,7 @@ export default function VehicleMonitoringPage() {
                 <p className="mt-4 max-w-prose text-muted-foreground">Vehicle-related incidents — unauthorized fleet access, after-hours loading dock activity, overnight parking violations — are difficult to catch with human monitoring alone. The volume of vehicle movement during business hours makes it impractical to flag every event manually.</p>
               </div>
             </ScrollReveal>
-            <Image
+            <SiteImage
               src="/vehicle-monitoring.jpg" alt="Aerial AI view of a logistics yard tracking trucks, vans, and cars across zoned areas with color-coded bounding boxes" className="w-full rounded-xl"
               width={1229}
               height={692}

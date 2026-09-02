@@ -4,7 +4,7 @@ import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { UserManagementMockup } from '@/components/mockups/user-management-mockup';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
-import Image from 'next/image';
+import { SiteImage } from '@/components/content/site-image';
 import { ShieldCheck, Cpu, MapPin, UserCog } from 'lucide-react';
 
 /**
@@ -46,7 +46,7 @@ export default function Page() {
 
           <div className="mt-8 grid items-center gap-8 lg:grid-cols-[2fr_3fr]">
             <p className="text-body text-muted-foreground">User management in Camzify supports sub-users with permission groups — a per-module View, Edit, Delete matrix. Site-level access control limits which locations a user can see. AI feature instance grants let a parent account allocate detection capacity to child accounts.</p>
-            <Image
+            <SiteImage
               src="/security-system-user-management.jpg"
               alt="A laptop showing the Camzify User Management screen with the Create Permission Group modal open, including page-access toggles and a View/Create/Edit/Delete instance permissions matrix"
               className="w-full"

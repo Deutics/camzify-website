@@ -4,7 +4,7 @@ import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { MobileAccessMockup } from '@/components/mockups/mobile-access-mockup';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
-import Image from 'next/image';
+import { SiteImage } from '@/components/content/site-image';
 import { Smartphone, Globe, ShieldCheck, Bell } from 'lucide-react';
 
 /**
@@ -41,7 +41,7 @@ export default function Page() {
 
           <div className="mt-8 grid items-center gap-8 lg:grid-cols-[2fr_3fr]">
             <p className="text-body text-muted-foreground">Camzify mobile access lets operations managers and guards view live streams, review alerts, and check patrol compliance from any device. The responsive web interface works on phones and tablets without a separate app download. Notifications reach guards wherever they are, and the same account data — cameras live, open critical alerts, patrol compliance — carries over exactly as it appears on desktop.</p>
-            <Image
+            <SiteImage
               src="/mobile-access.jpg"
               alt="A field worker checking a live camera grid on a phone and a multi-site status map on a tablet at a construction site"
               className="w-full rounded-xl"

@@ -4,7 +4,7 @@ import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
-import Image from 'next/image';
+import { SiteImage } from '@/components/content/site-image';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -56,7 +56,7 @@ export default function Page() {
               </div>
             </ScrollReveal>
             <div className="overflow-hidden rounded-xl bg-card">
-              <Image
+              <SiteImage
               src="/motion-detection-1.jpg"
                 alt="Camzify motion detection zone configuration showing a shipment truck flagged inside a drawn detection zone at a warehouse entry point"
                 className="aspect-video w-full object-cover"

@@ -4,7 +4,7 @@ import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { MultiSiteMockup } from '@/components/mockups/multi-site-mockup';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
-import Image from 'next/image';
+import { SiteImage } from '@/components/content/site-image';
 import { Building2, SlidersHorizontal, BarChart3, Camera } from 'lucide-react';
 
 /**
@@ -41,7 +41,7 @@ export default function Page() {
 
           <div className="mt-8 grid items-center gap-8 lg:grid-cols-[2fr_3fr]">
             <p className="text-body text-muted-foreground">Multi-site management in Camzify provides a single console to oversee cameras, detection alerts, and patrol compliance across all locations. Each site is a separate entity with its own cameras, sequences, and operators, but the parent account has visibility into everything. This account runs 4 sites with 15 cameras configured and 6 of 9 AI features active, and every dashboard, live view, and notification feed can be filtered by site.</p>
-            <Image
+            <SiteImage
               src="/multi-site-video-surveillance.jpg"
               alt="A laptop showing the Camzify Live Streaming grid with camera feeds grouped across four sites — Warehouse, HQ Campus, Retail Downtown, and Parking Structure B"
               className="w-full"

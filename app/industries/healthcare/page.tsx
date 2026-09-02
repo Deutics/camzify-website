@@ -6,7 +6,7 @@ import { DeploymentPlan } from '@/components/content/deployment-plan';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
-import Image from 'next/image';
+import { SiteImage } from '@/components/content/site-image';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -63,7 +63,7 @@ export default function HealthcarePage() {
                 </ul>
               </div>
             </ScrollReveal>
-            <Image
+            <SiteImage
               src="/ai-security-for-healthcare.jpg" alt="AI-monitored hospital corridor showing bounding boxes around staff and equipment, with an emergency entrance and clinical team scenes" className="w-full rounded-xl"
               width={1600}
               height={900}

@@ -5,7 +5,7 @@ import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
-import Image from 'next/image';
+import { SiteImage } from '@/components/content/site-image';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -46,7 +46,7 @@ export default function UnauthorizedAccessDetectionPage() {
                 <p className="mt-4 max-w-prose text-muted-foreground">Access control systems track badge swipes but cannot verify what happens after the door opens. Tailgating, propped doors, and badge-sharing create gaps that conventional CCTV records but does not flag. The footage exists, but no one watches it in real time.</p>
               </div>
             </ScrollReveal>
-            <Image
+            <SiteImage
               src="/unauthorized-access-detection.jpg" alt="AI cameras at a facility gate detecting a person and vehicle attempting unauthorized entry at night, flagged with an alert" className="w-full rounded-xl"
               width={1229}
               height={692}
