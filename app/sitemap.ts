@@ -57,6 +57,7 @@ const virtualPatrolling = group(
     '/virtual-patrolling/automated-patrol-scheduling',
     '/virtual-patrolling/patrol-reports',
     '/virtual-patrolling/guard-notifications',
+    '/virtual-patrolling/risk-detection',
     '/virtual-patrolling/patrol-compliance-tracking',
     '/virtual-patrolling/vs-security-guards',
     '/virtual-patrolling/for-multi-site-operations',

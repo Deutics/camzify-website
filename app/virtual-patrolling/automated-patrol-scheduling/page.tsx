@@ -148,6 +148,8 @@ export default function AutomatedSchedulingPage() {
                     condition.
                   </p>
                   <p className="mt-4 max-w-prose text-muted-foreground">
+                    More on what this covers and where it fits:{' '}
+                    <Link href="/virtual-patrolling/risk-detection" className="text-primary hover:underline">AI risk detection on patrol</Link>.
                     These arrive as{' '}
                     <Link href="/platform/notifications-and-alerts" className="text-primary hover:underline">critical notifications</Link>,
                     in the same queue as{' '}

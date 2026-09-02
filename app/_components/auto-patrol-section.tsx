@@ -77,6 +77,12 @@ export function AutoPatrolSection() {
               </ul>
 
               <Link
+                href="/virtual-patrolling/risk-detection"
+                className="mt-8 mr-6 inline-flex items-center gap-2 rounded font-semibold text-primary transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                Risks it flags beyond the checklist <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+              <Link
                 href="/virtual-patrolling/automated-patrol-scheduling"
                 className="mt-8 inline-flex items-center gap-2 rounded font-semibold text-primary transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >

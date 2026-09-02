@@ -20,6 +20,7 @@ const pageMeta = {
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
+  { question: 'Do I only get notified about things on the checklist?', answer: 'No. An automated round also raises critical notifications for safety and security risks it observes at a stop, even where no checklist item covered them — see risk detection on patrol. Those arrive on the same channels as a failed checklist item and expect the same acknowledgement.' },
   { question: 'Is the notification sent automatically, or does someone have to approve it?', answer: 'It depends which kind of round found the problem. On an automated round it is sent automatically as the round runs, with nobody in the loop — which is the whole point of a round that happens at 3am. On a manual round the operator is already looking at the camera, so the message is offered with the specifics filled in and they choose to send it, skip it, or send it later from the same item.' },
   { question: 'What happens if the assigned guard doesn\'t respond to a notification?', answer: 'If the guard doesn\'t acknowledge the alert within the configured window, it escalates automatically to a backup contact or site supervisor. The failure is never left waiting on a single person\'s availability.' },
   { question: 'Can a camera have more than one guard assigned?', answer: 'Yes. A camera can carry a primary guard who receives the first notification, plus one or more escalation contacts who are only alerted if the primary doesn\'t acknowledge in time.' },

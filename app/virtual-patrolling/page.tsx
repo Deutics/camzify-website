@@ -146,18 +146,31 @@ export default function VirtualPatrollingPage() {
               { icon: Camera, title: 'Camera stop', desc: 'At each camera in the sequence, the system pauses and evaluates the assigned checklist.' },
               { icon: ClipboardCheck, title: 'Checklist evaluation', desc: 'Each item is marked Compliant or Not Compliant — gate closed, zone clear, access secured.' },
               { icon: Bell, title: 'Guard notification', desc: 'Non-compliant items trigger an automatic notification to the guard assigned to that camera.' },
-              { icon: ShieldAlert, title: 'Risk detection', desc: 'On an automated round the AI also flags safety and security risks it sees at a stop — raising a critical alert even where no checklist item asked about it.' },
+              { icon: ShieldAlert, title: 'Risk detection', desc: 'On an automated round the AI also flags safety and security risks it sees at a stop — raising a critical alert even where no checklist item asked about it.', href: '/virtual-patrolling/risk-detection' },
               { icon: FileText, title: 'PDF report', desc: 'A complete report lands in your inbox: every camera, every item, every result, timestamped, with the snapshot behind each check.' },
               { icon: BarChart3, title: 'Patrol log', desc: 'Every round is logged with status — Completed, Flagged, or Overdue — and a compliance percentage.' },
             ].map((item: any, i: number) => {
               const Icon = item?.icon ?? Route;
               return (
                 <ScrollReveal key={i} delay={i * 0.06}>
-                  <div className="rounded-xl border border-border bg-card p-6 transition-all hover:border-primary/20 hover:shadow-md">
-                    <Icon className="h-5 w-5 text-primary" />
-                    <h3 className="mt-3 font-display text-base font-bold">{item?.title ?? ''}</h3>
-                    <p className="mt-2 text-sm text-muted-foreground">{item?.desc ?? ''}</p>
-                  </div>
+                  {/* A card with somewhere to go becomes a link; the rest stay plain. */}
+                  {item?.href ? (
+                    <Link
+                      href={item.href}
+                      className="block h-full rounded-xl border border-border bg-card p-6 transition-all hover:border-primary/20 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    >
+                      <Icon className="h-5 w-5 text-primary" />
+                      <h3 className="mt-3 font-display text-base font-bold">{item?.title ?? ''}</h3>
+                      <p className="mt-2 text-sm text-muted-foreground">{item?.desc ?? ''}</p>
+                      <span className="mt-3 inline-block text-sm font-semibold text-primary">Learn more &rarr;</span>
+                    </Link>
+                  ) : (
+                    <div className="h-full rounded-xl border border-border bg-card p-6 transition-all hover:border-primary/20 hover:shadow-md">
+                      <Icon className="h-5 w-5 text-primary" />
+                      <h3 className="mt-3 font-display text-base font-bold">{item?.title ?? ''}</h3>
+                      <p className="mt-2 text-sm text-muted-foreground">{item?.desc ?? ''}</p>
+                    </div>
+                  )}
                 </ScrollReveal>
               );
             })}

@@ -83,6 +83,7 @@ export const navItems = [
       { label: 'Automated Scheduling', href: '/virtual-patrolling/automated-patrol-scheduling', description: 'Set frequency, hours, and days' },
       { label: 'Patrol Reports', href: '/virtual-patrolling/patrol-reports', description: 'PDF reports for every round' },
       { label: 'Guard Notifications', href: '/virtual-patrolling/guard-notifications', description: 'Automatic alerts to assigned guards' },
+      { label: 'Risk Detection', href: '/virtual-patrolling/risk-detection', description: 'Hazards flagged beyond the checklist' },
       { label: 'Compliance Tracking', href: '/virtual-patrolling/patrol-compliance-tracking', description: 'Rounds completed vs scheduled' },
       { label: 'vs Security Guards', href: '/virtual-patrolling/vs-security-guards', description: 'Compare AI patrols to manned guarding' },
       { label: 'Multi-Site Operations', href: '/virtual-patrolling/for-multi-site-operations', description: 'Patrol across distributed locations' },
