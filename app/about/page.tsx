@@ -38,6 +38,13 @@ export default function AboutPage() {
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Company information</h2>
               <ul className="mt-4 space-y-2 text-muted-foreground">
+                {/*
+                  Three years is the first genuinely publishable number this site has —
+                  everything else on /trust is withheld as unverified. It is stated as a
+                  fact about how long the business has been serving customers rather than
+                  dressed up, because the point of publishing it is that it can be checked.
+                */}
+                <li><strong>Serving customers since:</strong> 2023 — three years of production deployments</li>
                 <li><strong>Company:</strong> {siteConfig.legalName}</li>
                 <li><strong>Trading as:</strong> {siteConfig.name}</li>
                 <li><strong>Headquarters:</strong> {siteConfig.address.countryName}</li>

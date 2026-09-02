@@ -9,7 +9,7 @@
 > Built from the site's own source (121 pages), not a crawl — so the service
 > inventory, voice observations and content rules below are read from the real copy.
 >
-> Last updated: 2026-08-31
+> Last updated: 2026-09-02 — competitors, years in business and team size supplied by the business. Still outstanding: customer value, and the author identity below.
 
 ---
 
@@ -68,8 +68,10 @@
 ### Competitors
 
 1. **Eagle Eye Networks** — the only competitor named on the site (there is a dedicated `/compare/camzify-vs-eagle-eye-networks` page).
-2. ⚠️ NEEDS INPUT — no second named software competitor found anywhere in the source. With a US target market, likely candidates to confirm are Verkada, Rhombus, Solink, Deep Sentinel, Ambient.ai and Spot AI. `ai-visibility-checker` can confirm which actually surface for your queries.
-3. ⚠️ NEEDS INPUT
+2. **Actuate.ai** — US-based, sells AI detection layered onto cameras the customer already owns, which is the closest match on the market to Camzify's own core pitch. Competes directly for "AI video surveillance software" and "AI security camera detection" queries in the target market.
+3. **Irisity** — established AI video analytics vendor competing on breadth and maturity of detection models; the useful foil for the AI features side of the site rather than the patrolling side.
+
+*Picked from the list supplied by the business on 2026-09-02. Others on that list — Digifort, Videonetics, Camect, Umbo CV, Specter, Enview, IPTechView, Airship AI, PromptView, VisionFacts, Hexatech, Bluedove, WeSight, Surveillant, CameraDX, FortixAI, Intelisenz, Torlin, Staqu, Envision Labs — are real competitors commercially, but either sit in the traditional VMS category the site already positions against at category level, or carry too little organic search presence for a comparison page to earn traffic. Revisit if any of them starts ranking for the target terms.*
 
 **Category competitors the site positions against explicitly** (these are arguably more important than named vendors, because the site's whole argument is category-level):
 - Manned guarding / security guard companies
@@ -81,7 +83,7 @@
 ### Goals
 
 - **Primary goal:** Demo requests. Every page ends in a CTA band pointing at `/book-a-demo`, with `/roi-calculator` as the secondary "calculate your savings" path.
-- **What a customer is worth, roughly:** ⚠️ NEEDS INPUT
+- **What a customer is worth, roughly:** ⚠️ NEEDS INPUT — still outstanding. This one decides how much effort a single demo request justifies, so it sets the ceiling on paid acquisition and on how far down the long tail organic content is worth chasing.
 - **What this business will NOT do:** Publish unverified numbers, publish a public rate card, claim certifications it does not hold, claim to replace all security guards, or claim zero false alarms. These are not preferences — they are published commitments on `/trust` and in `/llms.txt`.
 
 ### Proof and assets
@@ -92,7 +94,7 @@ content and AI citations, so a fabricated claim here poisons everything downstre
 - **Real numbers the business can claim:** **None currently publishable.** The `/trust` page states explicitly that customer counts, cameras connected, patrol volumes, uptime percentages and response times are not published because they have not been through a verification process the business would defend.
 - **Case studies / results that actually exist:** **None.** The 16 industry pages carry a "What a first deployment looks like" process block instead of case studies, precisely because no publishable customer results exist yet.
 - **Certifications, awards, associations, memberships:** Singapore PDPA, GDPR, SOC 2 Type II and ISO 27001 are **all in progress and none are held**. The site renders each with an explicit "In progress" badge. **No skill may describe Camzify as certified under any of these.**
-- **Years in business / team size:** ⚠️ NEEDS INPUT
+- **Years in business / team size:** Serving customers for three years as of 2026. Team of around 20. *(Supplied by the business 2026-09-02.)* The three-year figure is publishable and now appears on `/about`; the team size is recorded here for context but is deliberately not on the site — for an enterprise security buyer a headcount in the tens reads as a risk signal rather than a credential, and nothing on the site currently needs it.
 
 ### Author identity (for author bios and E-E-A-T)
 

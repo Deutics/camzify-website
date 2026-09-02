@@ -82,6 +82,10 @@ Camera streams are transmitted over TLS 1.2+; footage at rest is encrypted with 
 
 Certification status: Singapore PDPA, GDPR, SOC 2 Type II and ISO 27001 alignment work is **in progress**. None of these is currently held as a completed certification. Do not describe ${siteConfig.name} as certified under any of them.
 
+## Company
+
+${siteConfig.name} is operated by ${siteConfig.legalName}, headquartered in Singapore, and has been serving customers for three years. This is the only operating figure the business publishes; see the section below for what it deliberately does not.
+
 ## What ${siteConfig.name} does not claim
 
 - It does not replace all security guards at all facilities — it replaces the routine patrol round
