@@ -3,26 +3,38 @@
 import { useState, useEffect } from 'react';
 import { useReducedMotion } from 'framer-motion';
 
-// Frames are stills lifted from the product's own live-view screen. They are
-// deliberately abstract — low-light colour fields rather than recognisable scenes —
-// so they read as camera feeds without implying footage from a real customer site.
-// Assigned so adjacent tiles never share a frame.
-const FRAMES = ['01', '02', '03', '04', '05', '06'];
-const frameFor = (i: number) => FRAMES[(i * 5 + Math.floor(i / 4)) % FRAMES.length];
+/*
+ * Frames are synthesised camera views — perspective geometry, IR or low-light grade,
+ * grain, scanlines and vignette rendered from vector sources. Deliberately stylised
+ * rather than photographic: they read unmistakably as camera feeds without being
+ * mistaken for footage from a real customer site, and nothing here is licensed from
+ * a third party.
+ *
+ * Each camera gets the scene that matches its location, so a tile labelled
+ * PARKING LOT A shows a parking lot rather than an arbitrary frame.
+ */
+const FRAME = {
+  gate: '06',
+  perimeter: '01',
+  parking: '04',
+  dock: '02',
+  warehouse: '05',
+  corridor: '03',
+} as const;
 
 const cameras = [
-  { id: 'CAM 01', loc: 'MAIN GATE', status: 'checked' },
-  { id: 'CAM 02', loc: 'PARKING LOT A', status: 'checked' },
-  { id: 'CAM 03', loc: 'REAR ENTRANCE', status: 'checked' },
-  { id: 'CAM 04', loc: 'LOADING DOCK', status: 'checked' },
-  { id: 'CAM 05', loc: 'WAREHOUSE EAST', status: 'checked' },
-  { id: 'CAM 06', loc: 'OFFICE LOBBY', status: 'checked' },
-  { id: 'CAM 07', loc: 'SERVER ROOM', status: 'fail' },
-  { id: 'CAM 08', loc: 'STAIRWELL B', status: 'checked' },
-  { id: 'CAM 09', loc: 'ROOFTOP', status: 'checked' },
-  { id: 'CAM 10', loc: 'STORAGE UNIT', status: 'checked' },
-  { id: 'CAM 11', loc: 'FIRE EXIT C', status: 'checked' },
-  { id: 'CAM 12', loc: 'DELIVERY BAY', status: 'checked' },
+  { id: 'CAM 01', loc: 'MAIN GATE', status: 'checked', frame: FRAME.gate },
+  { id: 'CAM 02', loc: 'PARKING LOT A', status: 'checked', frame: FRAME.parking },
+  { id: 'CAM 03', loc: 'REAR ENTRANCE', status: 'checked', frame: FRAME.gate },
+  { id: 'CAM 04', loc: 'LOADING DOCK', status: 'checked', frame: FRAME.dock },
+  { id: 'CAM 05', loc: 'WAREHOUSE EAST', status: 'checked', frame: FRAME.warehouse },
+  { id: 'CAM 06', loc: 'OFFICE LOBBY', status: 'checked', frame: FRAME.corridor },
+  { id: 'CAM 07', loc: 'SERVER ROOM', status: 'fail', frame: FRAME.corridor },
+  { id: 'CAM 08', loc: 'STAIRWELL B', status: 'checked', frame: FRAME.corridor },
+  { id: 'CAM 09', loc: 'ROOFTOP', status: 'checked', frame: FRAME.perimeter },
+  { id: 'CAM 10', loc: 'STORAGE UNIT', status: 'checked', frame: FRAME.warehouse },
+  { id: 'CAM 11', loc: 'FIRE EXIT C', status: 'checked', frame: FRAME.corridor },
+  { id: 'CAM 12', loc: 'DELIVERY BAY', status: 'checked', frame: FRAME.dock },
 ];
 
 export function PatrolSweepHero() {
@@ -91,19 +103,19 @@ export function PatrolSweepHero() {
               {/* Camera frame + scrim. Dimmed until the sweep reaches this tile, so the
                   grid visibly "wakes up" camera by camera as the round progresses. */}
               <img
-                src={`/cam-${frameFor(i)}.jpg`}
+                src={`/cam-${cam.frame}.jpg`}
                 alt=""
                 aria-hidden="true"
                 loading="lazy"
                 width={480}
                 height={270}
                 className={`absolute inset-0 h-full w-full object-cover transition-all duration-500 ${
-                  isActive ? 'opacity-70 saturate-100' : isChecked ? 'opacity-45' : 'opacity-20 saturate-50'
+                  isActive ? 'opacity-95 saturate-110' : isChecked ? 'opacity-70' : 'opacity-35 saturate-75'
                 }`}
               />
               <div
                 aria-hidden="true"
-                className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/70 to-background/40"
+                className="absolute inset-0 bg-gradient-to-b from-background/85 via-background/35 to-background/92"
               />
 
               <div className="relative aspect-video p-2 sm:p-3">
