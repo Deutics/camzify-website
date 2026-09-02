@@ -50,8 +50,15 @@ export const siteConfig = {
   },
 
   phone: '+65 6901 8738',
-  email: 'support@camzify.com',
-  salesEmail: 'support@camzify.com',
+  /**
+   * The single public address for the business. Sales and support both land here.
+   *
+   * There used to be a separate `salesEmail`; it held the same value, and two fields
+   * for one address is how they end up disagreeing after somebody changes one of them.
+   * The author's own address lives under `author.email` and is a different thing —
+   * that one reaches a person, this one reaches the business.
+   */
+  email: 'contact@camzify.com',
 
   /** Founded/served geography — used for LocalBusiness areaServed. */
   areaServed: ['Singapore', 'Southeast Asia', 'Middle East', 'United Kingdom', 'United States', 'Australia'],
