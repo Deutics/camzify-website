@@ -10,7 +10,7 @@ import Link from 'next/link';
 import { SiteImage } from '@/components/content/site-image';
 import {
   Shield, ArrowRight, Camera, ClipboardCheck, Bell, FileText,
-  Route, Clock, CheckCircle, XCircle, BarChart3, Users, Calendar,
+  Route, Clock, CheckCircle, XCircle, BarChart3, Users, Calendar, ShieldAlert,
 } from 'lucide-react';
 
 /**
@@ -45,6 +45,7 @@ const faqs = [
   { question: 'What happens when a checklist item fails?', answer: 'The system marks the item as Not Compliant, logs the failure with a timestamp, and sends an automatic notification to the guard assigned to that specific camera. The guard receives a predefined message explaining what was found and what action is expected.' },
   { question: 'Can patrols run automatically?', answer: 'Yes. Auto-Patrol runs on a configured schedule — you set the frequency (e.g. every 2 hours), active hours, and active days. The system steps through each camera in the sequence, evaluates every checklist item, and emails the completed PDF report.' },
   { question: 'What is in the patrol report?', answer: 'The PDF report includes: patrol sequence name, date and time, each camera checked, every checklist item with its compliance status, the camera snapshot each item was judged against, before and after frames on anything fixed during the round, the guard notified on any failure, and an overall compliance percentage for the round. The snapshots are what make the report usable as proof — a reviewer months later can see what the camera showed rather than taking the result on trust.' },
+  { question: 'Does virtual patrolling only check what is on the checklist?', answer: 'A manual round does — the operator answers the items in front of them. An automated round does both: it works through the checklist and also assesses each camera for safety and security risks in its own right, raising a critical notification for anything it finds even where no item covered it. That matters because a checklist can only ask what somebody thought to ask when it was written, and the condition that causes an incident is often not on it.' },
   { question: 'Which cameras work with virtual patrolling?', answer: 'Any IP camera that supports RTSP, RTMP or HTTPS — the three connection types Camzify offers, where HTTPS covers both HLS and WebRTC streams. Camzify connects via four ingest paths and auto-detects stream quality. No proprietary hardware is required.' },
 ];
 
@@ -145,6 +146,7 @@ export default function VirtualPatrollingPage() {
               { icon: Camera, title: 'Camera stop', desc: 'At each camera in the sequence, the system pauses and evaluates the assigned checklist.' },
               { icon: ClipboardCheck, title: 'Checklist evaluation', desc: 'Each item is marked Compliant or Not Compliant — gate closed, zone clear, access secured.' },
               { icon: Bell, title: 'Guard notification', desc: 'Non-compliant items trigger an automatic notification to the guard assigned to that camera.' },
+              { icon: ShieldAlert, title: 'Risk detection', desc: 'On an automated round the AI also flags safety and security risks it sees at a stop — raising a critical alert even where no checklist item asked about it.' },
               { icon: FileText, title: 'PDF report', desc: 'A complete report lands in your inbox: every camera, every item, every result, timestamped, with the snapshot behind each check.' },
               { icon: BarChart3, title: 'Patrol log', desc: 'Every round is logged with status — Completed, Flagged, or Overdue — and a compliance percentage.' },
             ].map((item: any, i: number) => {

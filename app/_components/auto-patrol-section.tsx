@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRight, Clock, Eye, FileText } from 'lucide-react';
+import { ArrowRight, Clock, Eye, FileText, ShieldAlert } from 'lucide-react';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { SectionAtmosphere } from '@/components/motion/section-atmosphere';
 import { SceneObservation } from '@/components/motion/scene-observation';
@@ -33,9 +33,10 @@ export function AutoPatrolSection() {
                 Auto-Patrol runs the sequence you built on a schedule you set &mdash; every fifteen
                 minutes, every two hours, only after closing.
               </strong>{' '}
-              It stops at each camera in order, works through that camera&rsquo;s checklist, flags
-              what fails, notifies the guard responsible, and files the report before anyone opens
-              a laptop. The 3am round happens at 3am, on the fourth night as reliably as the first.
+              It stops at each camera in order, works through that camera&rsquo;s checklist, messages
+              the guard responsible for anything that fails, and files the report before anyone opens
+              a laptop &mdash; no operator approving each step. The 3am round happens at 3am, on the
+              fourth night as reliably as the first.
             </p>
           </div>
         </ScrollReveal>
@@ -55,6 +56,7 @@ export function AutoPatrolSection() {
                 {[
                   [Clock, 'On a schedule', 'Frequency, active hours and active days, in the site’s own timezone.'],
                   [Eye, 'With context', 'Judge each stop on a single frame, or on a few seconds of live video.'],
+                  [ShieldAlert, 'With judgement', 'Flags safety and security risks it sees, even where no checklist item asked.'],
                   [FileText, 'With a record', 'Every round files a compliance report whether or not anyone was watching.'],
                 ].map(([Icon, title, desc]) => {
                   const I = Icon as typeof Clock;

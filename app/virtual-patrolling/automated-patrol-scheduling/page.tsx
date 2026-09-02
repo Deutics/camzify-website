@@ -5,7 +5,7 @@ import { SceneObservation } from '@/components/motion/scene-observation';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
-import { Calendar, Clock, Repeat, ArrowRight } from 'lucide-react';
+import { Calendar, Clock, Repeat, ArrowRight, ShieldAlert } from 'lucide-react';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -21,6 +21,8 @@ const pageMeta = {
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
+  { question: 'Does an automated round only check the items on the checklist?', answer: 'No. It works through the checklist, and it also assesses each stop for safety and security risks in its own right, raising a critical notification for anything it finds even where no checklist item covered it. A checklist can only ask what somebody thought to ask when the sequence was written, and the useful things a round finds are often not on it — a blocked exit, an unattended bag, smoke, somebody in a place they should not be.' },
+  { question: 'Does a failed item notify the guard without anyone approving it?', answer: 'On an automated round, yes — the notification goes to the guard assigned to that camera as the round runs, with no operator in the loop. That is the point of running it at 3am. On a manual round the operator is already looking at the camera, so the message is offered rather than sent automatically, and they can send it, skip it, or send it later from the same item.' },
   { question: 'What is scene observation in automated patrolling?', answer: 'It lets an automated round judge a camera from a short window of live video — one, two or three seconds — instead of a single still frame. A frame tells you someone is in a corridor; a few seconds tell you whether they walked through or stayed. Single frame is faster and right for static checks like a gate or a roller door; watching is worth the extra seconds anywhere people are involved, because it is what stops a round waking a guard over somebody walking past a camera.' },
   { question: 'Does an automated round feel different from a guard walking the site?', answer: 'It covers the same sequence with the same checks at the same times, and unlike a physical round it happens at 3am on the fourth night as reliably as the first. What it does not do is intervene — it observes, judges, notifies the responsible guard and files the record, so a person is dispatched to the things that need a person rather than to everything.' },
   { question: 'Can different cameras in the same sequence run on different schedules?', answer: 'No — a patrol sequence runs as one unit, so every camera in it fires together on the same schedule. If two groups of cameras need different frequencies or active hours, split them into separate sequences, each with its own schedule.' },
@@ -86,9 +88,10 @@ export default function AutomatedSchedulingPage() {
                   <li className="flex gap-3"><span className="font-mono text-primary">01</span> Schedule triggers at the configured time</li>
                   <li className="flex gap-3"><span className="font-mono text-primary">02</span> System steps through each camera in the <Link href="/virtual-patrolling/patrol-sequences" className="text-primary hover:underline">patrol sequence</Link></li>
                   <li className="flex gap-3"><span className="font-mono text-primary">03</span> Each <Link href="/virtual-patrolling/patrol-checklists" className="text-primary hover:underline">checklist item</Link> is auto-evaluated</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">04</span> Non-compliant items notify the assigned guard</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">05</span> PDF <Link href="/virtual-patrolling/patrol-reports" className="text-primary hover:underline">report</Link> is emailed to designated recipients</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">06</span> Round is logged with <Link href="/virtual-patrolling/patrol-compliance-tracking" className="text-primary hover:underline">compliance percentage</Link></li>
+                  <li className="flex gap-3"><span className="font-mono text-primary">04</span> Non-compliant items notify the assigned guard automatically &mdash; no operator has to approve the message</li>
+                  <li className="flex gap-3"><span className="font-mono text-primary">05</span> Safety and security risks spotted at a stop raise a critical notification, whether or not a checklist item covered them</li>
+                  <li className="flex gap-3"><span className="font-mono text-primary">06</span> PDF <Link href="/virtual-patrolling/patrol-reports" className="text-primary hover:underline">report</Link> is emailed to designated recipients</li>
+                  <li className="flex gap-3"><span className="font-mono text-primary">07</span> Round is logged with <Link href="/virtual-patrolling/patrol-compliance-tracking" className="text-primary hover:underline">compliance percentage</Link></li>
                 </ul>
               </div>
             </ScrollReveal>
@@ -119,6 +122,38 @@ export default function AutomatedSchedulingPage() {
 
                 <div className="mt-8">
                   <SceneObservation />
+                </div>
+
+                <div className="mt-16 rounded-xl border border-border bg-card p-6">
+                  <div className="flex items-center gap-2">
+                    <ShieldAlert className="h-4 w-4 text-primary" aria-hidden="true" />
+                    <span className="font-mono text-mono-sm uppercase text-primary">Beyond the checklist</span>
+                  </div>
+                  <h2 className="mt-3 font-display text-2xl font-bold">Risks nobody thought to put on the list</h2>
+                  <p className="mt-4 max-w-prose text-muted-foreground">
+                    <strong className="font-semibold text-foreground">
+                      A checklist can only ask what you thought to ask.
+                    </strong>{' '}
+                    An automated round also assesses each stop for safety and security risks in its
+                    own right and raises a critical notification when it finds one, whether or not
+                    any checklist item covered it. The blocked fire exit, the unattended bag, the
+                    smoke, the person somewhere they should not be &mdash; these do not need to
+                    have been anticipated when the sequence was written.
+                  </p>
+                  <p className="mt-4 max-w-prose text-muted-foreground">
+                    The point is when the alert arrives. A condition like a propped-open door or an
+                    obstructed exit is a risk for a while before it is an incident, and that window
+                    is when it is cheap to fix. A round that only answers the questions on the list
+                    walks past everything else; this one flags it while it is still just a
+                    condition.
+                  </p>
+                  <p className="mt-4 max-w-prose text-muted-foreground">
+                    These arrive as{' '}
+                    <Link href="/platform/notifications-and-alerts" className="text-primary hover:underline">critical notifications</Link>,
+                    in the same queue as{' '}
+                    <Link href="/ai-features" className="text-primary hover:underline">AI detections</Link> from
+                    continuous monitoring, with the snapshot attached and an acknowledgement expected.
+                  </p>
                 </div>
 
                 <h2 className="mt-16 font-display text-2xl font-bold">Timezone, holidays &amp; pause/resume</h2>
