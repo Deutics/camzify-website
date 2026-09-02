@@ -10,7 +10,7 @@ import Link from 'next/link';
  */
 const pageMeta = {
   title: "Camzify for MSPs | Managed Security Service",
-  description: "Offer AI virtual patrolling as a managed service. Multi-tenant management, white-label reporting, and scalable licensing.",
+  description: "Offer AI virtual patrolling as a managed service. Multi-tenant client accounts, per-client patrol reporting, and licence quota you allocate and reclaim.",
   path: "/partners/for-managed-service-providers",
 };
 

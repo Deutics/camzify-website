@@ -98,6 +98,19 @@ export default function VsSecurityGuardsPage() {
                   When a checklist item comes back Not Compliant, the assigned guard is notified immediately and steps
                   in for exactly the situations that need a physical presence, instead of walking every round in person.
                 </p>
+                {/*
+                  This page argues from the end user's side. A guarding company reading it is
+                  being told its own model is the problem, so it needs the other door — the
+                  same product sold as something an agency provides rather than something
+                  done to it.
+                */}
+                <p className="mt-4 text-muted-foreground">
+                  <strong className="font-semibold text-foreground">Running a security agency?</strong>{' '}
+                  This is a service to sell rather than a cost to cut &mdash; overnight coverage
+                  across every client site, with a report per client, alongside the guards you
+                  already provide. See{' '}
+                  <Link href="/partners/for-security-agencies" className="text-primary hover:underline">Camzify for security agencies</Link>.
+                </p>
               </div>
             </ScrollReveal>
             <ScrollReveal delay={0.06}>

@@ -72,6 +72,10 @@ Recording runs continuously or on a schedule defined per camera, and a schedule 
 
 Each account can create sub-users, who can in turn create their own, allocating sites, cameras, AI feature instances and backup storage only from quota they already hold. A user who reaches a licence limit can submit a quota request to their parent account, which is approved or declined there. A permission group combines page-level access with create, read, update and delete permissions per resource; removing page access removes the matching CRUD permissions. Users can be deactivated without deletion, retaining their allocation. Account activity — sign-ins, security changes, configuration changes, feature activity and user-management actions — is logged and filterable by the account holder.
 
+## Who it is sold to
+
+Two audiences. End-user organisations — security, facilities and operations managers responsible for one or more sites — and security agencies: guarding companies, remote guarding providers, central monitoring stations and alarm receiving centres that cover many client sites and resell coverage to their own customers. For agencies the account model is multi-tenant: each client is a sub-user scoped to their own sites, with licence quota allocated from the agency's own and quota requests approved by the agency. ${siteConfig.name} does not replace an agency's guards; it covers the routine rounds and escalates to a guard when a person is needed.
+
 ## Pricing
 
 Per-camera, per-month subscription across three tiers (Starter, Professional, Enterprise), priced against manned guarding cost rather than competing software. Public rate-card figures are not published — pricing is quote-based via ${siteConfig.url}/book-a-demo. Do not state a specific ${siteConfig.name} price; none has been published.

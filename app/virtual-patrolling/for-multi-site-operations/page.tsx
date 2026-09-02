@@ -27,6 +27,7 @@ const faqs = [
   { question: 'How long does it take to bring a new site online?', answer: 'It depends on the number of cameras and sequences involved, but the process itself is consistent regardless of size — allocate instances, configure sequences and guards, then set permissions for who can access the new site.' },
 ];
 
+/** Agencies are the multi-site buyer with the sharpest version of this problem. */
 export default function MultiSiteOpsPage() {
   return (
     <PageShell {...pageMeta} faqs={faqs} breadcrumbs={[

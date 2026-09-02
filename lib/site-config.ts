@@ -292,6 +292,7 @@ export const navItems = [
       { label: 'FAQs', href: '/faqs', description: 'Common questions answered' },
       { label: 'Blog', href: '/blog', description: 'Latest insights and updates' },
       { label: 'Roadmap', href: '/roadmap', description: 'What we are building next' },
+      { label: 'For Security Agencies', href: '/partners/for-security-agencies', description: 'Add virtual patrolling to a guarding offer' },
     ],
   },
 ] as const;

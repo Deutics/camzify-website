@@ -2,7 +2,7 @@ import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
-import { Handshake, Shield, Monitor, Server } from 'lucide-react';
+import { Handshake, Shield, Monitor, Server, Users } from 'lucide-react';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -18,6 +18,7 @@ const pageMeta = {
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const partnerTypes = [
+  { slug: 'for-security-agencies', title: 'For Security Agencies', icon: Users, desc: 'Sell overnight coverage across every client site, with a report per client — alongside the guards you already provide.' },
   { slug: 'become-a-reseller', title: 'Become a Reseller', icon: Handshake, desc: 'Sell Camzify to your customers with dedicated support and margin.' },
   { slug: 'for-security-integrators', title: 'For Security Integrators', icon: Shield, desc: 'Add virtual patrolling to your installation and maintenance offering.' },
   { slug: 'for-monitoring-centres', title: 'For Monitoring Centres', icon: Monitor, desc: 'Augment human monitoring with AI-powered patrol automation.' },
