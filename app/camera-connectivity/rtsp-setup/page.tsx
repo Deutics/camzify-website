@@ -22,11 +22,11 @@ const faqs = [
   },
   {
     question: 'What is the Camzify Connector and where does it run?',
-    answer: 'It is a lightweight application installed on a PC or server that can reach both the local cameras and the internet at the same time. You give it the RTSP URLs of the cameras on that network, and it relays their streams to Camzify, where they appear alongside any directly connected cameras.',
+    answer: 'It is a lightweight application for Windows, macOS or Linux, installed on a machine that can reach both the local cameras and the internet at the same time. You give it the RTSP URLs of the cameras on that network, and it relays their streams to Camzify, where they appear alongside any directly connected cameras.',
   },
   {
     question: 'Is a directly connected RTSP camera treated differently from a relayed one?',
-    answer: 'No. Once connected, both behave identically in Camzify — the same live view, AI detections, patrol sequences and reports. The route only decides how the stream reaches the platform.',
+    answer: 'No. Once connected, both behave identically in Camzify — the same live view, AI detections, patrol sequences and reports. PTZ control on a local camera is carried by the Connector along with the video. The route only decides how the stream reaches the platform.',
   },
 ];
 
@@ -63,8 +63,9 @@ export default function RtspSetupPage() {
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                 If the cameras only exist on the local network, install the{' '}
                 <a href="/camzify-connector" className="text-primary hover:underline">Camzify Connector</a>{' '}
-                on a PC that can reach both those cameras and the internet. It relays the streams
-                out &mdash; no port forwarding, no static IP, and the cameras stay off the internet.
+                on a Windows, macOS or Linux machine that can reach both those cameras and the internet.
+                It relays the streams out &mdash; along with PTZ control &mdash; with no port
+                forwarding, no static IP, and the cameras never exposed to the internet.
               </p>
             </div>
           </div>
@@ -83,7 +84,7 @@ export default function RtspSetupPage() {
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-lg font-bold text-white">2</span>
                 <div>
                   <h2 className="font-display text-xl font-bold">Decide which route the stream takes</h2>
-                  <div className="mt-2 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `Test the URL from a machine outside the camera's network. If it plays, the stream is internet-reachable and you can skip straight to adding it. If it does not, install the <a href="/camzify-connector">Camzify Connector</a> on a PC that sits on the camera network and has internet access, and enter the RTSP URL there instead.` }} />
+                  <div className="mt-2 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `Test the URL from a machine outside the camera's network. If it plays, the stream is internet-reachable and you can skip straight to adding it. If it does not, install the <a href="/camzify-connector">Camzify Connector</a> on a Windows, macOS or Linux machine that sits on the camera network and has internet access, and enter the RTSP URL there instead.` }} />
                 </div>
               </li>
             </ScrollReveal>
