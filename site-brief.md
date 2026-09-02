@@ -75,14 +75,47 @@
 
 ### Competitors
 
-1. **Eagle Eye Networks** — the only competitor named on the site (there is a dedicated `/compare/camzify-vs-eagle-eye-networks` page).
-2. **Actuate.ai** — US-based, sells AI detection layered onto cameras the customer already owns, which is the closest match on the market to Camzify's own core pitch. Competes directly for "AI video surveillance software" and "AI security camera detection" queries in the target market.
-3. **Irisity** — established AI video analytics vendor competing on breadth and maturity of detection models; the useful foil for the AI features side of the site rather than the patrolling side.
+Two different jobs, and conflating them is why the first pass here was wrong.
 
-*Picked from the list supplied by the business on 2026-09-02. Others on that list — Digifort, Videonetics, Camect, Umbo CV, Specter, Enview, IPTechView, Airship AI, PromptView, VisionFacts, Hexatech, Bluedove, WeSight, Surveillant, CameraDX, FortixAI, Intelisenz, Torlin, Staqu, Envision Labs — are real competitors commercially, but either sit in the traditional VMS category the site already positions against at category level, or carry too little organic search presence for a comparison page to earn traffic. Revisit if any of them starts ranking for the target terms.*
+**Tier 1 — named for search capture.** Big incumbents with real query volume behind
+"<name> alternative" and "vs <name>". These are not who Camzify loses deals to; they are
+who prospects have already heard of, and the terms are worth ranking for.
 
-**Category competitors the site positions against explicitly** (these are arguably more important than named vendors, because the site's whole argument is category-level):
-- Manned guarding / security guard companies
+1. **Milestone Systems (XProtect)** — the biggest name in video management software. High
+   volume on alternative/comparison queries.
+2. **Genetec** — enterprise VMS, same shape of demand.
+3. **Verkada** — cloud-native and heavily marketed in the US; the closest big name to
+   Camzify's own delivery model, so the comparison is the most natural of the three.
+4. **Eagle Eye Networks** — already has a page at `/compare/camzify-vs-eagle-eye-networks`.
+
+The honest angle for all four is the one the site already makes at category level: a VMS
+records and manages video, and Camzify verifies that specific things were checked and
+produces the evidence. A page that pretends to match Milestone on device support, on-prem
+deployment or integration breadth will lose, and would deserve to. A page that says "if
+you need a VMS, buy a VMS — here is the different problem we solve" is credible, ranks for
+the same term, and converts the subset who actually wanted verification rather than
+storage.
+
+**Tier 2 — positioning peers.** Who the product actually competes with on the merits, and
+what messaging should be sharpened against. Lower search volume; not comparison-page
+material yet.
+
+- **Actuate.ai** — US-based, AI detection layered onto cameras the customer already owns.
+  The closest match on the market to Camzify's own pitch.
+- **Irisity** — established AI video analytics; the foil for the AI features side.
+
+**Tier 3 — supplied by the business, not currently worth a page.** Digifort, Videonetics,
+Camect, Umbo CV, Specter, Enview, IPTechView, Airship AI, PromptView, VisionFacts,
+Hexatech, Bluedove, WeSight, Surveillant, CameraDX, FortixAI, Intelisenz, Torlin, Staqu,
+Envision Labs. Real competitors commercially, but too little organic search presence for a
+comparison page to earn its keep. Revisit if any starts ranking, or if sales reports one
+of them coming up repeatedly in live deals — a name prospects raise themselves is worth a
+page regardless of search volume.
+
+**Category competitors the site positions against explicitly** (still the most important
+group, because the site's whole argument is category-level):
+- Manned guarding / security guard companies — **but see the positioning conflict in Part 2:
+  security agencies are now the stated primary target, so this framing is aimed at the buyer**
 - Guard tour systems (NFC/QR checkpoint verification)
 - Traditional VMS and on-premise NVR systems
 - Basic pixel-based motion detection
@@ -91,7 +124,9 @@
 ### Goals
 
 - **Primary goal:** Demo requests. Every page ends in a CTA band pointing at `/book-a-demo`, with `/roi-calculator` as the secondary "calculate your savings" path.
-- **What a customer is worth, roughly:** ⚠️ NEEDS INPUT — still outstanding. This one decides how much effort a single demo request justifies, so it sets the ceiling on paid acquisition and on how far down the long tail organic content is worth chasing.
+- **What a customer is worth, roughly:** Supplied 2026-09-02. Entry point is roughly **20 cameras at a floor of USD 300/month**, so about **USD 3,600/year at the very bottom**. Pricing scales on camera count and features. Some accounts run **100+ streams**, which at the entry ratio implies **five figures a year**. Security agencies covering several client sites sit at the top of that range rather than the bottom.
+  **What this means for content strategy:** with an entry ACV in the thousands and a ceiling in five figures, a guide that produces two or three qualified demo requests a year has paid for itself many times over. The long tail is worth chasing much further down than a low-ACV business could justify — a page targeting 40 searches a month is viable here. It also means depth beats volume: one page that convinces a security agency with 200 cameras is worth more than fifty that attract single-site prospects.
+  **Not published, and should not be.** Pricing stays quote-based, and these figures are internal.
 - **What this business will NOT do:** Publish unverified numbers, publish a public rate card, claim certifications it does not hold, claim to replace all security guards, or claim zero false alarms. These are not preferences — they are published commitments on `/trust` and in `/llms.txt`.
 
 ### Proof and assets
@@ -142,10 +177,21 @@ Plain. Technical. Unhyped.
 
 ### The reader
 
-- **Who is reading:** A security manager, facilities manager, or operations director responsible for one or more physical sites. They already own cameras. They are evaluating whether to cut, supplement or justify guarding spend. Secondary reader: security integrators, MSPs and monitoring centres evaluating a channel partnership.
+- **PRIMARY TARGET, stated by the business 2026-09-02: security agencies.** Guarding companies that cover many client sites and would use Camzify to deliver monitoring across all of them. This is a reseller-shaped buyer, not an end user: they care about coverage per guard-hour, per-client separation, and what they can show their own customers. **See the positioning conflict flagged at the end of this section.**
+- **Who is reading (end-user segment):** A security manager, facilities manager, or operations director responsible for one or more physical sites. They already own cameras. They are evaluating whether to cut, supplement or justify guarding spend. Secondary reader: security integrators, MSPs and monitoring centres evaluating a channel partnership.
 - **Reading level:** Professional/technical B2B. Comfortable with RTSP, ONVIF, NVR, false-positive rates. Does not need jargon explained, but does need claims substantiated.
 - **What they are afraid of:** Paying for patrol rounds that are not actually happening. An incident occurring in an unwatched window and being asked afterwards why nobody saw it. Alert fatigue from a system that cries wolf. Buying software that turns out not to work with the cameras already installed. Being sold an AI product that is a demo, not a shipping capability.
 - **What would make them trust this business:** Specificity and admitted limits. The site already earns trust by publishing what it does *not* claim, by marking roadmap features as roadmap, and by refusing to publish numbers it cannot verify. That posture is the differentiator — protect it.
+
+> **⚠️ POSITIONING CONFLICT — needs a decision from the business.**
+>
+> The site's strongest argument is aimed at *replacing* manned guarding: `/virtual-patrolling/vs-security-guards`, the cost-versus-guards section on the homepage, the guard-cost guides, and the repeated line that it "replaces the routine patrol round". That argument is written for an end user who is currently paying a guarding company.
+>
+> If security agencies are the primary target, the site is arguing against its own buyer. A guarding company reading "here is what you would save by not hiring guards" is being told its business model is the problem.
+>
+> The same product supports the opposite pitch without a single false claim: an agency that adds virtual patrolling covers more client sites per guard-hour, offers overnight coverage it could not staff, and hands each client a compliance report with its own name on it. Camzify becomes margin rather than a threat.
+>
+> Both audiences can be served, but not by the same page. The likely shape is: keep the replacement argument for end users, and build an agency track — `/partners/for-security-agencies`, with the multi-tenant sub-user model, per-client reporting and coverage-per-guard-hour economics — then decide which one the homepage leads with. That is a business decision, not a copy edit.
 
 ### Say / don't say
 
