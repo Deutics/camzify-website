@@ -52,10 +52,26 @@ const demoCameras: DemoCamera[] = [
 
 type ItemStatus = 'compliant' | 'not-compliant' | 'pending';
 
+/**
+ * Wall-clock time of a check, as HH:MM:SS.
+ *
+ * Only ever called from an event handler and stored in state, never computed during
+ * render — a clock read in render is a hydration mismatch. Formatted by hand rather
+ * than with toLocaleTimeString so it does not pick up the runtime's locale either.
+ */
+function captureTime(): string {
+  const d = new Date();
+  return [d.getHours(), d.getMinutes(), d.getSeconds()]
+    .map((n) => String(n).padStart(2, '0'))
+    .join(':');
+}
+
 export function InteractiveChecklistDemo() {
   const [cameraIndex, setCameraIndex] = useState(0);
   const [results, setResults] = useState<Record<string, Record<number, ItemStatus>>>({});
   const [phase, setPhase] = useState<'patrol' | 'report'>('patrol');
+  /** Time the frame for each camera was judged — attached to the report as evidence. */
+  const [snapshotTimes, setSnapshotTimes] = useState<Record<string, string>>({});
 
   const currentCam = demoCameras[cameraIndex] ?? demoCameras[0];
   const camResults = results[currentCam?.id ?? ''] ?? {};
@@ -63,6 +79,8 @@ export function InteractiveChecklistDemo() {
 
   const handleAnswer = useCallback(
     (itemIndex: number, status: ItemStatus) => {
+      const camId = currentCam?.id ?? '';
+      setSnapshotTimes((prev) => (prev[camId] ? prev : { ...prev, [camId]: captureTime() }));
       setResults((prev: any) => ({
         ...(prev ?? {}),
         [currentCam?.id ?? '']: {
@@ -85,6 +103,7 @@ export function InteractiveChecklistDemo() {
   const handleReset = useCallback(() => {
     setCameraIndex(0);
     setResults({});
+    setSnapshotTimes({});
     setPhase('patrol');
   }, []);
 
@@ -291,29 +310,94 @@ export function InteractiveChecklistDemo() {
                 </p>
               </div>
 
-              {/* Per-camera results */}
-              <div className="mt-6 space-y-2">
-                {(demoCameras ?? []).map((cam: DemoCamera) => {
-                  const camR = results[cam?.id ?? ''] ?? {};
-                  const passed = Object.values(camR ?? {}).filter((s: any) => s === 'compliant').length;
-                  const total = cam?.items?.length ?? 0;
-                  return (
-                    <div key={cam?.id ?? ''} className="flex items-center justify-between rounded-lg bg-muted/30 px-4 py-2.5">
-                      <div>
-                        <span className="font-mono text-mono-sm text-muted-foreground">{cam?.id ?? ''}</span>
-                        <span className="mx-2 text-muted-foreground/40">·</span>
-                        <span className="text-sm font-medium">{cam?.name ?? ''}</span>
-                      </div>
-                      <span
-                        className={`font-mono text-mono-sm ${
-                          passed === total ? 'text-live' : 'text-critical'
+              {/*
+                Evidence. The real report attaches the frame each check was judged
+                against, which is the whole point of it as proof — a compliance score
+                with no picture behind it is an assertion, not a record. The demo
+                showed a bare pass count, so it undersold the artefact it is meant to
+                be selling.
+              */}
+              <div className="mt-6">
+                <div className="flex items-baseline justify-between">
+                  <h4 className="font-mono text-mono-sm uppercase text-muted-foreground">
+                    Evidence attached
+                  </h4>
+                  <span className="font-mono text-mono-sm text-muted-foreground">
+                    {demoCameras?.length ?? 0} snapshots
+                  </span>
+                </div>
+
+                <ul className="mt-3 space-y-2.5">
+                  {(demoCameras ?? []).map((cam: DemoCamera) => {
+                    const camR = results[cam?.id ?? ''] ?? {};
+                    const passed = Object.values(camR ?? {}).filter((s: any) => s === 'compliant').length;
+                    const total = cam?.items?.length ?? 0;
+                    const clean = passed === total;
+                    return (
+                      <li
+                        key={cam?.id ?? ''}
+                        className={`flex gap-3 rounded-xl border p-3 ${
+                          clean ? 'border-border bg-muted/20' : 'border-critical/30 bg-critical/5'
                         }`}
                       >
-                        {passed}/{total} PASSED
-                      </span>
-                    </div>
-                  );
-                })}
+                        <div className="relative h-[68px] w-28 shrink-0 overflow-hidden rounded-md border border-border">
+                          <img
+                            src={cam?.frame ?? '/cam-01.jpg'}
+                            alt={`Snapshot recorded at ${cam?.name ?? ''} during the patrol round`}
+                            width={112}
+                            height={68}
+                            className="h-full w-full object-cover"
+                          />
+                          <span className="absolute inset-x-0 bottom-0 bg-background/80 px-1 py-0.5 text-center font-mono text-[9px] uppercase tracking-wider text-muted-foreground backdrop-blur-sm">
+                            {cam?.id ?? ''} · {snapshotTimes[cam?.id ?? ''] ?? '--:--:--'}
+                          </span>
+                        </div>
+
+                        <div className="min-w-0 flex-1">
+                          <div className="flex items-baseline justify-between gap-2">
+                            <span className="truncate text-sm font-medium">{cam?.name ?? ''}</span>
+                            <span
+                              className={`shrink-0 font-mono text-mono-sm ${
+                                clean ? 'text-live' : 'text-critical'
+                              }`}
+                            >
+                              {passed}/{total} PASSED
+                            </span>
+                          </div>
+                          <ul className="mt-1.5 space-y-1">
+                            {(cam?.items ?? []).map((item: any, i: number) => {
+                              const ok = camR[i] === 'compliant';
+                              return (
+                                <li
+                                  key={i}
+                                  className="flex items-start gap-1.5 text-xs leading-snug text-muted-foreground"
+                                >
+                                  <span
+                                    aria-hidden="true"
+                                    className={`mt-px font-mono ${ok ? 'text-live' : 'text-critical'}`}
+                                  >
+                                    {ok ? '\u2713' : '\u2717'}
+                                  </span>
+                                  <span className="min-w-0">
+                                    {item?.label ?? ''}
+                                    <span className="sr-only">
+                                      {ok ? ' — compliant' : ' — not compliant'}
+                                    </span>
+                                  </span>
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ul>
+
+                <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
+                  Every result is stored with the frame it was judged against, so a report can be
+                  reviewed months later without taking anyone&rsquo;s word for what the camera showed.
+                </p>
               </div>
 
               <div className="mt-6 flex gap-2">

@@ -35,7 +35,8 @@ export function ChecklistDemoSection() {
                 {[
                   ['01', 'Every camera on the route gets its own checklist'],
                   ['02', 'A failed item names the guard responsible for that camera'],
-                  ['03', 'The round is scored and archived as a PDF'],
+                  ['03', 'Each result is filed with the snapshot it was judged against'],
+                  ['04', 'The round is scored and archived as a PDF'],
                 ].map(([n, label]) => (
                   <li key={n} className="flex items-start gap-3.5">
                     <span className="mt-0.5 font-mono text-mono-sm text-primary tabular-nums">

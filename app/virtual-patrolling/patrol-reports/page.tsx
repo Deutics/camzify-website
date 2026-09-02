@@ -13,13 +13,14 @@ import { FileText, CheckCircle, ArrowRight } from 'lucide-react';
  */
 const pageMeta = {
   title: "Security Patrol Reports | Automated PDF Patrol Reports",
-  description: "Every virtual patrol round generates a timestamped PDF report with compliance results for every camera and checklist item. Exportable for audits and insurance.",
+  description: "Every virtual patrol round generates a timestamped PDF report with compliance results and the camera snapshot behind every check. Exportable for audits and insurance.",
   path: "/virtual-patrolling/patrol-reports",
 };
 
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
+  { question: 'Does the patrol report include camera images?', answer: 'Yes. Every checklist result carries the snapshot from the camera at the moment that item was checked, so the report shows what was actually on screen rather than only the verdict. This is what makes it usable as evidence: an insurer, auditor or manager reviewing a round months later can see the gate, the dock door or the corridor for themselves instead of relying on the recorded result alone.' },
   { question: 'How long are patrol reports kept?', answer: 'Reports stay in the patrol log for as long as the account is active, so a report from months back is still available if an insurer or auditor asks for it. There\'s no separate archiving step required.' },
   { question: 'Can a report be exported for a date range instead of a single round?', answer: 'Yes. A date range covering multiple rounds can be exported together, which is typically faster than pulling individual reports one at a time for an audit or an insurance claim.' },
   { question: 'Who gets emailed when a report is generated?', answer: 'Whoever is configured as a recipient on that site\'s distribution list. Recipients can be added, removed, or changed at any time, and the change applies to the next report onward.' },
@@ -40,8 +41,8 @@ export default function PatrolReportsPage() {
           <p className="mt-6 max-w-2xl text-body text-muted-foreground">
             A security patrol report is the PDF document generated after every <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrol</Link> round.
             It contains the patrol sequence name, date and time, every camera checked, each checklist item with its
-            compliance status, the guard notified on any failure, and an overall compliance percentage. Reports are
-            emailed automatically and stored in the patrol log.
+            compliance status, the camera snapshot that item was judged against, the guard notified on any failure,
+            and an overall compliance percentage. Reports are emailed automatically and stored in the patrol log.
           </p>
 
           <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
@@ -54,6 +55,7 @@ export default function PatrolReportsPage() {
                   'Date, start time, and end time',
                   'Each camera in the sequence with its checklist results',
                   'Compliant and Not Compliant status per item',
+                  'The camera snapshot each item was judged against',
                   'Guard notifications sent on failures',
                   'Overall compliance percentage for the round',
                   'Patrol type (Manual or Auto)',
@@ -93,7 +95,7 @@ export default function PatrolReportsPage() {
                 <h2 className="mt-2 font-display text-2xl font-bold">How a patrol report gets generated</h2>
                 <ol className="mt-6 space-y-4 text-muted-foreground">
                   <li className="flex gap-3"><span className="font-mono text-primary">01</span> The patrol round reaches its final camera stop, whether manual or run on an <Link href="/virtual-patrolling/automated-patrol-scheduling" className="text-primary hover:underline">automated schedule</Link></li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">02</span> Every checklist result from the round is compiled into a single record</li>
+                  <li className="flex gap-3"><span className="font-mono text-primary">02</span> Every checklist result from the round is compiled into a single record, each one paired with the snapshot taken at that camera</li>
                   <li className="flex gap-3"><span className="font-mono text-primary">03</span> The record is formatted into a PDF with the sequence name, timestamps, and per-camera results</li>
                   <li className="flex gap-3"><span className="font-mono text-primary">04</span> The report is emailed automatically to configured recipients</li>
                   <li className="flex gap-3"><span className="font-mono text-primary">05</span> The report is stored in the patrol log, linked to that round's <Link href="/virtual-patrolling/patrol-compliance-tracking" className="text-primary hover:underline">compliance percentage</Link></li>
