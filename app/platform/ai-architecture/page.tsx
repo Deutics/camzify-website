@@ -1,6 +1,7 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
+import { FeatureHero } from '@/components/content/feature-hero';
 import { AiPipelineDiagram } from '@/components/mockups/ai-pipeline-diagram';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
@@ -34,13 +35,13 @@ export default function Page() {
       { label: 'Platform', href: '/platform' },
       { label: 'AI Video Analytics Architecture' },
     ]}>
-      <section className="pb-16">
-        <div className="mx-auto max-w-site px-6">
-          <span className="font-mono text-mono-sm uppercase text-primary">Under The Hood</span>
-          <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">AI Video Analytics Architecture</h1>
-
-          <div className="mt-8 grid items-center gap-8 lg:grid-cols-[2fr_3fr]">
-            <p className="text-body text-muted-foreground">Camzify AI architecture consists of six processing layers: Object Detection, Multi-Object Tracking, Custom Domain Models (industry-specific classes), Vision-Language Model (attributes and natural-language context), Signal Analysis (tampering, motion gating, stream health — no GPU required), and Adaptive Inference (skips static frames, full attention on active scenes).</p>
+      <FeatureHero
+        eyebrow="Under The Hood"
+        title="AI video analytics architecture"
+        lede={<>Camzify AI architecture consists of six processing layers: Object Detection, Multi-Object Tracking, Custom Domain Models (industry-specific classes), Vision-Language Model (attributes and natural-language context), Signal Analysis (tampering, motion gating, stream health — no GPU required), and Adaptive Inference (skips static frames, full attention on active scenes).</>}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/ai-features', label: 'The 22 detection models' }}
+        visual={<div className="overflow-hidden rounded-xl border border-border bg-card">
             <SiteImage
               src="/ai-video-analytics-architecture.jpg"
               alt="Diagram of the Camzify AI detection pipeline, from camera feed through object detection, tracking, domain classification, analysis, and confidence-checked output"
@@ -48,15 +49,22 @@ export default function Page() {
               width={1229}
               height={692}
               priority
-              sizes="(max-width: 1024px) 100vw, 60vw"
-            />
-          </div>
+            sizes="(max-width: 1024px) 100vw, 45vw" />
+          </div>}
+      />
+
+      <section className="pb-16">
+        <div className="mx-auto max-w-site px-6">
 
           <div className="mt-12">
             <AiPipelineDiagram />
           </div>
 
-          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-16">
+            <span className="font-mono text-mono-sm uppercase text-primary">In practice</span>
+            <h2 className="mt-2 font-display text-2xl font-bold">The six processing layers</h2>
+          </div>
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { icon: Radio, title: 'GPU-efficient signal analysis', desc: 'Tampering, motion gating, and stream health run on signal-processing logic rather than a neural network — no GPU required for this layer at all.' },
               { icon: Zap, title: 'Adaptive inference saves compute', desc: 'Static frames get skipped rather than reprocessed, so full model attention — and compute budget — goes to scenes that are actually active.' },

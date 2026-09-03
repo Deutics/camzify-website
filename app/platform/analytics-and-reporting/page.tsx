@@ -1,6 +1,7 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
+import { FeatureHero } from '@/components/content/feature-hero';
 import { AnalyticsMockup } from '@/components/mockups/analytics-mockup';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
@@ -34,13 +35,13 @@ export default function Page() {
       { label: 'Platform', href: '/platform' },
       { label: 'Video Surveillance Analytics & Reporting' },
     ]}>
-      <section className="pb-16">
-        <div className="mx-auto max-w-site px-6">
-          <span className="font-mono text-mono-sm uppercase text-primary">Detection Data, Broken Down</span>
-          <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Video Surveillance Analytics & Reporting</h1>
-
-          <div className="mt-8 grid items-center gap-8 lg:grid-cols-[2fr_3fr]">
-            <p className="text-body text-muted-foreground">Camzify analytics provides detection breakdowns by feature, object type, site, and severity. Attribute trends track people vs vehicles with distributions, and the detection-confidence split shows High, Medium, and Low confidence levels across all alerts. Every AI feature also carries its own 7-day event trend against the prior week, plus how many of its licensed camera instances are actively running — so a feature quietly nearing its limit shows up before it becomes a blind spot. All data is exportable.</p>
+      <FeatureHero
+        eyebrow="Detection Data, Broken Down"
+        title="Video surveillance analytics & reporting"
+        lede={<><strong className="font-semibold text-foreground">Camzify analytics provides detection breakdowns by feature, object type, site, and severity.</strong> Attribute trends track people vs vehicles with distributions, and the detection-confidence split shows High, Medium, and Low confidence levels across all alerts. Every AI feature also carries its own 7-day event trend against the prior week, plus how many of its licensed camera instances are actively running — so a feature quietly nearing its limit shows up before it becomes a blind spot. All data is exportable.</>}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/platform/dashboard', label: 'The dashboard' }}
+        visual={<div className="overflow-hidden rounded-xl border border-border bg-card">
             <SiteImage
               src="/video-surveillance-analytics-and-reporting.jpg"
               alt="A laptop showing the Camzify Configuration AI Features screen with per-feature active-camera counts and 7-day event trends for Line Intrusion, Zone Intrusion, Heatmap Anomalies, and Camera Tampering"
@@ -48,15 +49,22 @@ export default function Page() {
               width={1229}
               height={692}
               priority
-              sizes="(max-width: 1024px) 100vw, 60vw"
-            />
-          </div>
+            sizes="(max-width: 1024px) 100vw, 45vw" />
+          </div>}
+      />
+
+      <section className="pb-16">
+        <div className="mx-auto max-w-site px-6">
 
           <div className="mt-12">
             <AnalyticsMockup />
           </div>
 
-          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-16">
+            <span className="font-mono text-mono-sm uppercase text-primary">In practice</span>
+            <h2 className="mt-2 font-display text-2xl font-bold">What the analytics break down</h2>
+          </div>
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { icon: TrendingUp, title: 'Per-feature trend visibility', desc: 'Every AI feature shows its own 7-day event count and week-over-week percentage change, not just a combined total.' },
               { icon: Gauge, title: 'Capacity and licensing at a glance', desc: 'Active camera instances against licensed or capacity limits per feature, so a feature nearing its limit is visible before it becomes a blind spot.' },

@@ -158,8 +158,10 @@ export function DetectionGrid() {
           <div className="mt-16 rounded-2xl border border-border bg-card/40 p-8 sm:p-10">
             <h3 className="font-display text-xl font-bold">The full detection set</h3>
             <p className="mt-2 max-w-prose text-sm text-muted-foreground">
-              Grouped the way the platform groups them. Two further models — loitering and
-              behavioural analytics — are on the roadmap and marked as such on their pages.
+              Grouped the way the platform groups them. One further model — loitering
+              detection — is in development and marked as such on its page; the{' '}
+              <Link href="/roadmap" className="text-primary hover:underline">roadmap</Link> lists
+              what else is coming.
             </p>
             <div className="mt-8 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
               {groups.map((g) => (

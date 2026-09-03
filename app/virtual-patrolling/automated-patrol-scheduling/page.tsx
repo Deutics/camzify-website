@@ -1,8 +1,10 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { HeroPlaceholder } from '@/components/content/hero-placeholder';
+import { SectionVisual } from '@/components/content/section-visual';
 import { SceneObservation } from '@/components/motion/scene-observation';
-import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 import { Calendar, Clock, Repeat, ArrowRight, ShieldAlert } from 'lucide-react';
@@ -38,15 +40,20 @@ export default function AutomatedSchedulingPage() {
       { label: 'Virtual Patrolling', href: '/virtual-patrolling' },
       { label: 'Automated Scheduling' },
     ]}>
+      <FeatureHero
+        eyebrow="Automated Scheduling"
+        title="Automated patrol scheduling"
+        lede={<>Automated patrol scheduling is the ability to configure <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrol</Link> rounds
+            to run at a defined frequency, during specific active hours, on selected days of the week — completely
+            unattended. The system handles every round, from the first camera to the final report.</>}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/virtual-patrolling/risk-detection', label: 'Risk detection on patrol' }}
+        visual={<HeroPlaceholder label="Auto-Patrol · Perimeter round" alt="Camzify console illustrating automated patrol scheduling" />}
+      />
+
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <span className="font-mono text-mono-sm uppercase text-primary">Automated Scheduling</span>
-          <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Automated Patrol Scheduling</h1>
-          <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            Automated patrol scheduling is the ability to configure <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrol</Link> rounds
-            to run at a defined frequency, during specific active hours, on selected days of the week — completely
-            unattended. The system handles every round, from the first camera to the final report.
-          </p>
+
 
           <div className="mt-12 grid gap-8 sm:grid-cols-3">
             {[
@@ -85,17 +92,17 @@ export default function AutomatedSchedulingPage() {
                 <span className="font-mono text-mono-sm uppercase text-primary">How It Runs</span>
                 <h2 className="mt-2 font-display text-2xl font-bold">What happens during an auto-patrol</h2>
                 <ul className="mt-4 space-y-3 text-muted-foreground">
-                  <li className="flex gap-3"><span className="font-mono text-primary">01</span> Schedule triggers at the configured time</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">02</span> System steps through each camera in the <Link href="/virtual-patrolling/patrol-sequences" className="text-primary hover:underline">patrol sequence</Link></li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">03</span> Each <Link href="/virtual-patrolling/patrol-checklists" className="text-primary hover:underline">checklist item</Link> is auto-evaluated</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">04</span> Non-compliant items notify the assigned guard automatically &mdash; no operator has to approve the message</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">05</span> Safety and security risks spotted at a stop raise a critical notification, whether or not a checklist item covered them</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">06</span> PDF <Link href="/virtual-patrolling/patrol-reports" className="text-primary hover:underline">report</Link> is emailed to designated recipients</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">07</span> Round is logged with <Link href="/virtual-patrolling/patrol-compliance-tracking" className="text-primary hover:underline">compliance percentage</Link></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">01</span><span>Schedule triggers at the configured time</span></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">02</span><span>System steps through each camera in the <Link href="/virtual-patrolling/patrol-sequences" className="text-primary hover:underline">patrol sequence</Link></span></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">03</span><span>Each <Link href="/virtual-patrolling/patrol-checklists" className="text-primary hover:underline">checklist item</Link> is auto-evaluated</span></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">04</span><span>Non-compliant items notify the assigned guard automatically &mdash; no operator has to approve the message</span></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">05</span><span>Safety and security risks spotted at a stop raise a critical notification, whether or not a checklist item covered them</span></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">06</span><span>PDF <Link href="/virtual-patrolling/patrol-reports" className="text-primary hover:underline">report</Link> is emailed to designated recipients</span></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">07</span><span>Round is logged with <Link href="/virtual-patrolling/patrol-compliance-tracking" className="text-primary hover:underline">compliance percentage</Link></span></li>
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="SCHEDULE CONFIGURATION" alt="Auto-patrol scheduling interface showing frequency, active hours, and day selection" />
+            <SectionVisual variant="schedule" caption="Schedule Configuration" alt="Auto-patrol scheduling interface showing frequency, active hours, and day selection" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
@@ -176,11 +183,11 @@ export default function AutomatedSchedulingPage() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="SCHEDULE EXCEPTIONS" alt="Configuration screen for timezone, holiday exceptions, and pause or resume controls on a patrol schedule" />
+            <SectionVisual variant="flow" caption="Schedule Exceptions" steps={['Runs in the site timezone', 'Mark holiday dates', 'Pause for maintenance', 'Resume with settings intact']} alt="Configuration screen for timezone, holiday exceptions, and pause or resume controls on a patrol schedule" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="SCHEDULED ROUND DELIVERY" alt="Diagram showing a scheduled patrol round completing and its report and notifications being delivered" />
+            <SectionVisual variant="flow" caption="Scheduled Round Delivery" alt="Diagram showing a scheduled patrol round completing and its report and notifications being delivered" steps={['Schedule fires', 'Round runs unattended', 'Guard notified on failure', 'Report emailed and logged']} />
             <ScrollReveal>
               <div>
                 <span className="font-mono text-mono-sm uppercase text-primary">After The Round</span>

@@ -1,6 +1,7 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
+import { FeatureHero } from '@/components/content/feature-hero';
 import { MobileAccessMockup } from '@/components/mockups/mobile-access-mockup';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
@@ -34,13 +35,13 @@ export default function Page() {
       { label: 'Platform', href: '/platform' },
       { label: 'Mobile Access' },
     ]}>
-      <section className="pb-16">
-        <div className="mx-auto max-w-site px-6">
-          <span className="font-mono text-mono-sm uppercase text-primary">Security On The Go</span>
-          <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Mobile Access</h1>
-
-          <div className="mt-8 grid items-center gap-8 lg:grid-cols-[2fr_3fr]">
-            <p className="text-body text-muted-foreground">Camzify mobile access lets operations managers and guards view live streams, review alerts, and check patrol compliance from any device. The responsive web interface works on phones and tablets without a separate app download. Notifications reach guards wherever they are, and the same account data — cameras live, open critical alerts, patrol compliance — carries over exactly as it appears on desktop.</p>
+      <FeatureHero
+        eyebrow="Security On The Go"
+        title="Mobile access"
+        lede={<><strong className="font-semibold text-foreground">Camzify mobile access lets operations managers and guards view live streams, review alerts, and check patrol compliance from any device.</strong> The responsive web interface works on phones and tablets without a separate app download. Notifications reach guards wherever they are, and the same account data — cameras live, open critical alerts, patrol compliance — carries over exactly as it appears on desktop.</>}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/roadmap', label: 'Native apps on the roadmap' }}
+        visual={<div className="overflow-hidden rounded-xl border border-border bg-card">
             <SiteImage
               src="/mobile-access.jpg"
               alt="A field worker checking a live camera grid on a phone and a multi-site status map on a tablet at a construction site"
@@ -48,9 +49,12 @@ export default function Page() {
               width={1229}
               height={692}
               priority
-              sizes="(max-width: 1024px) 100vw, 60vw"
-            />
-          </div>
+            sizes="(max-width: 1024px) 100vw, 45vw" />
+          </div>}
+      />
+
+      <section className="pb-16">
+        <div className="mx-auto max-w-site px-6">
 
           <div className="mt-12 flex justify-center">
             <div className="w-full max-w-sm">
@@ -58,7 +62,11 @@ export default function Page() {
             </div>
           </div>
 
-          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-16">
+            <span className="font-mono text-mono-sm uppercase text-primary">In practice</span>
+            <h2 className="mt-2 font-display text-2xl font-bold">What works on a phone</h2>
+          </div>
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { icon: Smartphone, title: 'No app download', desc: 'Runs in any mobile browser — nothing to install, nothing to keep updated through an app store.' },
               { icon: Globe, title: 'Reachable from anywhere', desc: 'Live streams and the alert feed are one login away, whether a guard is on-site or off.' },

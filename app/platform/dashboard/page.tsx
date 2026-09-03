@@ -1,10 +1,11 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { ProductShot } from '@/components/content/product-shot';
 import { DashboardMockup } from '@/components/mockups/dashboard-mockup';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
-import { SiteImage } from '@/components/content/site-image';
 import { Building2, ShieldAlert, ClipboardList, HardDrive } from 'lucide-react';
 
 /**
@@ -34,29 +35,33 @@ export default function Page() {
       { label: 'Platform', href: '/platform' },
       { label: 'Video Surveillance Dashboard' },
     ]}>
+      <FeatureHero
+        eyebrow="Central Operations Screen"
+        title="Video surveillance dashboard"
+        lede={<><strong className="font-semibold text-foreground">The Camzify dashboard is the first screen every operator sees: cameras online with uptime percentage, AI alerts across all detection models, patrol compliance, retention coverage, and a critical-event acknowledgement queue.</strong> It combines your own sites with sub-user sites in one combined view when you need it, and refreshes live from every 1 second to every 1 minute.</>}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/platform/live-streaming', label: 'Live streaming' }}
+        visual={<ProductShot
+            src="/product-dashboard"
+            alt="The Camzify Video Surveillance Dashboard showing live stat tiles, detection events, alert feed, site health, and sub-user summary"
+            label="Dashboard · Camzify console"
+            priority
+            sizes="(max-width: 1024px) 100vw, 45vw"
+          />}
+      />
+
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <span className="font-mono text-mono-sm uppercase text-primary">Central Operations Screen</span>
-          <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Video Surveillance Dashboard</h1>
-
-          <div className="mt-8 grid items-center gap-8 lg:grid-cols-[2fr_3fr]">
-            <p className="text-body text-muted-foreground">The Camzify dashboard is the first screen every operator sees: cameras online with uptime percentage, AI alerts across all detection models, patrol compliance, retention coverage, and a critical-event acknowledgement queue. It combines your own sites with sub-user sites in one combined view when you need it, and refreshes live from every 1 second to every 1 minute.</p>
-            <SiteImage
-              src="/Video-Surveillance-Dashboard.jpg"
-              alt="The Camzify Video Surveillance Dashboard showing live stat tiles, detection events, alert feed, site health, and sub-user summary"
-              className="w-full"
-              width={1229}
-              height={692}
-              priority
-              sizes="(max-width: 1024px) 100vw, 60vw"
-            />
-          </div>
 
           <div className="mt-12">
             <DashboardMockup />
           </div>
 
-          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-16">
+            <span className="font-mono text-mono-sm uppercase text-primary">In practice</span>
+            <h2 className="mt-2 font-display text-2xl font-bold">What the dashboard puts on one screen</h2>
+          </div>
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { icon: Building2, title: 'Site Health at a glance', desc: 'Cameras online, alerts today, and retention status per site — Warehouse, HQ Campus, Retail, Parking, whatever you run.' },
               { icon: ShieldAlert, title: 'Critical queue up front', desc: 'Unacknowledged high-severity detections sit at the top, oldest first, with one-click acknowledge and review.' },

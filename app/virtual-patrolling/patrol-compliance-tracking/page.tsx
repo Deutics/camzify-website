@@ -1,7 +1,9 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
-import { PlaceholderVisual } from '@/components/content/placeholder-visual';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { HeroPlaceholder } from '@/components/content/hero-placeholder';
+import { SectionVisual } from '@/components/content/section-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 import { BarChart3, TrendingUp, ArrowRight } from 'lucide-react';
@@ -33,16 +35,21 @@ export default function ComplianceTrackingPage() {
       { label: 'Virtual Patrolling', href: '/virtual-patrolling' },
       { label: 'Compliance Tracking' },
     ]}>
-      <section className="pb-16">
-        <div className="mx-auto max-w-site px-6">
-          <span className="font-mono text-mono-sm uppercase text-primary">Compliance Visibility</span>
-          <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Patrol Compliance Tracking</h1>
-          <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            Patrol compliance tracking is the measurement of rounds completed versus rounds scheduled across
+      <FeatureHero
+        eyebrow="Compliance Visibility"
+        title="Patrol compliance tracking"
+        lede={<>Patrol compliance tracking is the measurement of rounds completed versus rounds scheduled across
             all <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrol</Link> sequences.
             Every round is logged with a status — Completed, Flagged, or Overdue — and a compliance percentage.
-            The dashboard surfaces a single compliance figure across all sites.
-          </p>
+            The dashboard surfaces a single compliance figure across all sites.</>}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/virtual-patrolling/patrol-reports', label: 'Patrol reports' }}
+        visual={<HeroPlaceholder label="Compliance · 4 sites" alt="Camzify console illustrating patrol compliance tracking" />}
+      />
+
+      <section className="pb-16">
+        <div className="mx-auto max-w-site px-6">
+
 
           <div className="mt-16">
             <ScrollReveal>
@@ -57,17 +64,17 @@ export default function ComplianceTrackingPage() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="STATUS DETERMINATION" alt="Diagram showing how a patrol round's checklist results roll up into a compliance percentage and status" />
+            <SectionVisual variant="flow" caption="Status Determination" alt="Diagram showing how a patrol round's checklist results roll up into a compliance percentage and status" steps={['Round scheduled', 'Did it run on time?', 'Did every item pass?', 'Completed · Flagged · Overdue']} />
             <ScrollReveal>
               <div>
                 <span className="font-mono text-mono-sm uppercase text-primary">How It's Determined</span>
                 <h2 className="mt-2 font-display text-2xl font-bold">How a round's status is determined</h2>
                 <ol className="mt-6 space-y-4 text-muted-foreground">
-                  <li className="flex gap-3"><span className="font-mono text-primary">01</span> The round completes and every checklist item's result is collected</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">02</span> Compliant items are divided by total items to give the round's compliance percentage</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">03</span> If any item came back Not Compliant, the round is marked Flagged</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">04</span> If the round never executed by its scheduled time, it's marked Overdue instead</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">05</span> The status and percentage are written to the patrol log for that round</li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">01</span><span>The round completes and every checklist item's result is collected</span></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">02</span><span>Compliant items are divided by total items to give the round's compliance percentage</span></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">03</span><span>If any item came back Not Compliant, the round is marked Flagged</span></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">04</span><span>If the round never executed by its scheduled time, it's marked Overdue instead</span></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">05</span><span>The status and percentage are written to the patrol log for that round</span></li>
                 </ol>
               </div>
             </ScrollReveal>
@@ -93,11 +100,11 @@ export default function ComplianceTrackingPage() {
                 </div>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="dashboard" caption="COMPLIANCE DASHBOARD" alt="Patrol compliance dashboard showing completion rates, status breakdown, and compliance trends" />
+            <SectionVisual variant="compliance" caption="Compliance Dashboard" alt="Patrol compliance dashboard showing completion rates, status breakdown, and compliance trends" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="config-ui" caption="REPORTING & THRESHOLDS" alt="Configuration screen for exporting compliance reports and setting low-compliance alert thresholds" />
+            <SectionVisual variant="flow" caption="Reporting & Thresholds" steps={['Set a compliance threshold', 'Each round is scored', 'Falls below it?', 'Flagged and exportable']} alt="Configuration screen for exporting compliance reports and setting low-compliance alert thresholds" />
             <ScrollReveal>
               <div>
                 <span className="font-mono text-mono-sm uppercase text-primary">Configuration</span>

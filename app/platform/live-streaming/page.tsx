@@ -1,10 +1,11 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { ProductShot } from '@/components/content/product-shot';
 import { LiveStreamingMockup } from '@/components/mockups/live-streaming-mockup';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
-import { SiteImage } from '@/components/content/site-image';
 import { LayoutGrid, Gauge, AlertOctagon, Filter } from 'lucide-react';
 
 /**
@@ -36,29 +37,33 @@ export default function Page() {
       { label: 'Platform', href: '/platform' },
       { label: 'Live Camera Streaming' },
     ]}>
+      <FeatureHero
+        eyebrow="Multi-Camera Live View"
+        title="Live camera streaming"
+        lede={<><strong className="font-semibold text-foreground">Camzify live streaming provides a multi-camera grid view grouped by site, with slideshow mode cycling between cameras at 5-second to 1-minute intervals.</strong> Filter by site, user, or AI feature. No-signal states display clearly rather than freezing on a stale frame. Cameras connect over RTSP, RTMP or HTTPS, which covers HLS and WebRTC streams.</>}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/guides/how-to-monitor-live-camera-feeds', label: 'How to set up a camera wall' }}
+        visual={<ProductShot
+            src="/product-live-streaming"
+            alt="A laptop showing the Camzify Live Streaming grid with retail camera feeds, a site-down banner for Parking Structure B, and the 23 live / 7 offline camera count"
+            label="Live streaming · Camzify console"
+            priority
+            sizes="(max-width: 1024px) 100vw, 45vw"
+          />}
+      />
+
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <span className="font-mono text-mono-sm uppercase text-primary">Multi-Camera Live View</span>
-          <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Live Camera Streaming</h1>
-
-          <div className="mt-8 grid items-center gap-8 lg:grid-cols-[2fr_3fr]">
-            <p className="text-body text-muted-foreground">Camzify live streaming provides a multi-camera grid view grouped by site, with slideshow mode cycling between cameras at 5-second to 1-minute intervals. Filter by site, user, or AI feature. No-signal states display clearly rather than freezing on a stale frame. All streams run through the same four ingest paths — RTSP, RTMP, HLS, and WebRTC.</p>
-            <SiteImage
-              src="/live-camera-streaming.jpg"
-              alt="A laptop showing the Camzify Live Streaming grid with retail camera feeds, a site-down banner for Parking Structure B, and the 23 live / 7 offline camera count"
-              className="w-full"
-              width={1229}
-              height={692}
-              priority
-              sizes="(max-width: 1024px) 100vw, 60vw"
-            />
-          </div>
 
           <div className="mt-12">
             <LiveStreamingMockup />
           </div>
 
-          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-16">
+            <span className="font-mono text-mono-sm uppercase text-primary">In practice</span>
+            <h2 className="mt-2 font-display text-2xl font-bold">What the live wall does</h2>
+          </div>
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { icon: LayoutGrid, title: 'Grouped by site', desc: 'Cameras stay organized by location, with a per-site online count always visible in the grid strip.' },
               { icon: Gauge, title: 'Two playback modes', desc: 'Low Latency for active monitoring, High Stability for a steadier feed on a busier network.' },

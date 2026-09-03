@@ -1,6 +1,9 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { HeroPlaceholder } from '@/components/content/hero-placeholder';
+import { SectionVisual } from '@/components/content/section-visual';
 import Link from 'next/link';
 import { ShieldAlert, Bell, Eye, ClipboardCheck } from 'lucide-react';
 
@@ -50,21 +53,24 @@ export default function RiskDetectionPage() {
       { label: 'Virtual Patrolling', href: '/virtual-patrolling' },
       { label: 'Risk Detection' },
     ]}>
-      <section className="pb-16">
-        <div className="mx-auto max-w-site px-6">
-          <span className="font-mono text-mono-sm uppercase text-primary">Beyond the checklist</span>
-          <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">
-            AI risk detection on patrol
-          </h1>
-          <p className="mt-6 max-w-prose text-body text-muted-foreground">
-            <strong className="font-semibold text-foreground">
-              A checklist can only ask what you thought to ask.
+      <FeatureHero
+        eyebrow="Beyond the checklist"
+        title="AI risk detection on patrol"
+        lede={<><strong className="font-semibold text-foreground">
+            A checklist can only ask what you thought to ask.
             </strong>{' '}
             During an{' '}
             <Link href="/virtual-patrolling/automated-patrol-scheduling" className="text-primary hover:underline">automated patrol round</Link>,
             Camzify assesses each camera for safety and security risks in its own right and raises
-            a critical alert for what it finds &mdash; whether or not any checklist item covered it.
-          </p>
+            a critical alert for what it finds &mdash; whether or not any checklist item covered it.</>}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/virtual-patrolling/automated-patrol-scheduling', label: 'Automated scheduling' }}
+        visual={<HeroPlaceholder label="Auto-Patrol · risk assessment" alt="Camzify console illustrating ai risk detection on patrol" />}
+      />
+
+      <section className="pb-16">
+        <div className="mx-auto max-w-site px-6">
+
 
           <div className="mt-14">
             <ScrollReveal>
@@ -135,6 +141,14 @@ export default function RiskDetectionPage() {
                 that it reaches a hazardous condition while it is still just a condition, and tells
                 a named person who can deal with it.
               </p>
+              <SectionVisual
+                className="mt-8"
+                variant="flow"
+                caption="Risk window"
+                alt="Flow showing a hazardous condition appearing, the scheduled round reaching it while it is still a condition, the responsible person notified, and the record filed"
+                steps={['Fire door is wedged open', 'Scheduled round reaches the stop', 'Critical alert to the guard', 'Fixed while it is still a condition']}
+              />
+
               <div className="mt-8 rounded-xl border border-warn/30 bg-warn/5 p-6">
                 <p className="max-w-prose text-sm leading-relaxed text-muted-foreground">
                   <strong className="font-semibold text-foreground">What this is not:</strong>{' '}

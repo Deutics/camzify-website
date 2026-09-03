@@ -1,7 +1,9 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
-import { PlaceholderVisual } from '@/components/content/placeholder-visual';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { HeroPlaceholder } from '@/components/content/hero-placeholder';
+import { SectionVisual } from '@/components/content/section-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 import { Bell, User, MessageSquare, ArrowRight, AlertTriangle, Phone } from 'lucide-react';
@@ -35,16 +37,21 @@ export default function GuardNotificationsPage() {
       { label: 'Virtual Patrolling', href: '/virtual-patrolling' },
       { label: 'Guard Notifications' },
     ]}>
-      <section className="pb-16">
-        <div className="mx-auto max-w-site px-6">
-          <span className="font-mono text-mono-sm uppercase text-primary">Automatic Escalation</span>
-          <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Guard Notifications</h1>
-          <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            A guard notification is an automatic alert sent to the security guard assigned to a specific camera
+      <FeatureHero
+        eyebrow="Automatic Escalation"
+        title="Guard notifications"
+        lede={<>A guard notification is an automatic alert sent to the security guard assigned to a specific camera
             when a <Link href="/virtual-patrolling/patrol-checklists" className="text-primary hover:underline">checklist item</Link> is
             marked Not Compliant during a <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrol</Link> round.
-            Each notification carries a predefined message explaining what was found and what action is expected.
-          </p>
+            Each notification carries a predefined message explaining what was found and what action is expected.</>}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/platform/notifications-and-alerts', label: 'The alert queue' }}
+        visual={<HeroPlaceholder label="Guard notifications · Priya R." alt="Camzify console illustrating guard notifications" />}
+      />
+
+      <section className="pb-16">
+        <div className="mx-auto max-w-site px-6">
+
 
           <div className="mt-12 grid gap-8 sm:grid-cols-3">
             {[
@@ -101,7 +108,7 @@ export default function GuardNotificationsPage() {
               </div>
             </ScrollReveal>
             <ScrollReveal delay={0.06}>
-              <PlaceholderVisual type="report" caption="NOTIFICATION LOG" alt="Log of guard notifications showing predefined messages sent for failed checklist items" />
+              <SectionVisual variant="notification" caption="Notification Log" alt="Log of guard notifications showing predefined messages sent for failed checklist items" />
             </ScrollReveal>
           </div>
 
@@ -111,19 +118,19 @@ export default function GuardNotificationsPage() {
                 <span className="font-mono text-mono-sm uppercase text-primary">How It Flows</span>
                 <h2 className="mt-2 font-display text-2xl font-bold">How notifications flow</h2>
                 <ol className="mt-6 space-y-4 text-muted-foreground">
-                  <li className="flex gap-3"><span className="font-mono text-primary">01</span> Patrol round reaches a camera in the sequence</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">02</span> Checklist item is evaluated — Compliant or Not Compliant</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">03</span> On failure, the system retrieves the guard assigned to that camera</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">04</span> The predefined message for that checklist item is sent to the guard</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">05</span> The notification is logged in the <Link href="/virtual-patrolling/patrol-reports" className="text-primary hover:underline">patrol report</Link></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">01</span><span>Patrol round reaches a camera in the sequence</span></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">02</span><span>Checklist item is evaluated — Compliant or Not Compliant</span></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">03</span><span>On failure, the system retrieves the guard assigned to that camera</span></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">04</span><span>The predefined message for that checklist item is sent to the guard</span></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">05</span><span>The notification is logged in the <Link href="/virtual-patrolling/patrol-reports" className="text-primary hover:underline">patrol report</Link></span></li>
                 </ol>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="GUARD NOTIFICATION FLOW" alt="Guard notification system showing automatic alert routing from failed checklist item to assigned guard" />
+            <SectionVisual variant="flow" caption="Guard Notification Flow" alt="Guard notification system showing automatic alert routing from failed checklist item to assigned guard" steps={['Item fails at a stop', 'Assigned guard resolved', 'Predefined message sent', 'Logged to the report']} />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="ESCALATION CHAIN" alt="Diagram showing an unacknowledged guard notification escalating from primary guard to backup contact" />
+            <SectionVisual variant="flow" caption="Escalation Chain" steps={['Guard notified', 'No acknowledgement in window', 'Escalates to backup contact', 'Every step logged']} alt="Diagram showing an unacknowledged guard notification escalating from primary guard to backup contact" />
             <ScrollReveal>
               <div>
                 <span className="font-mono text-mono-sm uppercase text-primary">Configuration</span>
