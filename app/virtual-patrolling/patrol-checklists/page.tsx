@@ -1,7 +1,9 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
-import { PlaceholderVisual } from '@/components/content/placeholder-visual';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { HeroPlaceholder } from '@/components/content/hero-placeholder';
+import { SectionVisual } from '@/components/content/section-visual';
 import { InteractiveChecklistDemo } from '@/components/motion/interactive-checklist-demo';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
@@ -34,15 +36,20 @@ export default function PatrolChecklistsPage() {
       { label: 'Virtual Patrolling', href: '/virtual-patrolling' },
       { label: 'Patrol Checklists' },
     ]}>
+      <FeatureHero
+        eyebrow="Per-Camera Compliance"
+        title="Security patrol checklists"
+        lede={<>A security patrol checklist is a set of compliance items assigned to each camera in a <Link href="/virtual-patrolling/patrol-sequences" className="text-primary hover:underline">patrol sequence</Link>.
+            During every <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrol</Link> round, each item is evaluated and marked Compliant, Not Compliant, or Pending with a written reason. An item marked Not Compliant cannot stay that way: the round will not close until it has been fixed and re-checked, or held as pending with a reason on the record. The <Link href="/guides/how-to-run-a-virtual-patrol-round" className="text-primary hover:underline">step-by-step walkthrough</Link> covers the full loop.
+            Failed items trigger an automatic notification to the guard assigned to that camera.</>}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/guides/how-to-run-a-virtual-patrol-round', label: 'Run a round yourself' }}
+        visual={<HeroPlaceholder label="Checklist · CAM 04 Loading dock" alt="Camzify console illustrating security patrol checklists" />}
+      />
+
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <span className="font-mono text-mono-sm uppercase text-primary">Per-Camera Compliance</span>
-          <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Security Patrol Checklists</h1>
-          <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            A security patrol checklist is a set of compliance items assigned to each camera in a <Link href="/virtual-patrolling/patrol-sequences" className="text-primary hover:underline">patrol sequence</Link>.
-            During every <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrol</Link> round, each item is evaluated and marked Compliant, Not Compliant, or Pending with a written reason. An item marked Not Compliant cannot stay that way: the round will not close until it has been fixed and re-checked, or held as pending with a reason on the record. The <Link href="/guides/how-to-run-a-virtual-patrol-round" className="text-primary hover:underline">step-by-step walkthrough</Link> covers the full loop.
-            Failed items trigger an automatic notification to the guard assigned to that camera.
-          </p>
+
 
           <div className="mt-12 grid gap-6 sm:grid-cols-3">
             {[
@@ -112,12 +119,12 @@ export default function PatrolChecklistsPage() {
               </div>
             </ScrollReveal>
             <ScrollReveal delay={0.06}>
-              <PlaceholderVisual type="checklist" caption="CHECKLIST CONFIGURATION" alt="Patrol checklist configuration panel showing per-camera compliance items" />
+              <SectionVisual variant="checklist" caption="Checklist Configuration" alt="Patrol checklist configuration panel showing per-camera compliance items" />
             </ScrollReveal>
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="CHECKLIST EVALUATION FLOW" alt="Diagram showing a checklist item being evaluated against a camera view and logged as compliant or not" />
+            <SectionVisual variant="flow" caption="Checklist Evaluation Flow" alt="Diagram showing a checklist item being evaluated against a camera view and logged as compliant or not" steps={['Live view at the stop', 'Item judged against it', 'Failure notifies the guard', 'Fixed or pending, then close']} />
             <ScrollReveal>
               <div>
                 <span className="font-mono text-mono-sm uppercase text-primary">How It Runs</span>
@@ -147,7 +154,7 @@ export default function PatrolChecklistsPage() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="CHECKLIST SETUP" alt="Configuration screen for adding and editing per-camera checklist items" />
+            <SectionVisual variant="flow" caption="Checklist Setup" steps={['Pick the camera', 'Write what it is judged on', 'Name the guard and message', 'Reorder any time']} alt="Configuration screen for adding and editing per-camera checklist items" />
           </div>
 
           <div className="mt-16 rounded-2xl border border-border bg-card p-8 sm:p-10">

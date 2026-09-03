@@ -1,7 +1,9 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
-import { PlaceholderVisual } from '@/components/content/placeholder-visual';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { HeroPlaceholder } from '@/components/content/hero-placeholder';
+import { SectionVisual } from '@/components/content/section-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 import { FileText, CheckCircle, ArrowRight } from 'lucide-react';
@@ -36,17 +38,22 @@ export default function PatrolReportsPage() {
       { label: 'Virtual Patrolling', href: '/virtual-patrolling' },
       { label: 'Patrol Reports' },
     ]}>
-      <section className="pb-16">
-        <div className="mx-auto max-w-site px-6">
-          <span className="font-mono text-mono-sm uppercase text-primary">Automated Reporting</span>
-          <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Security Patrol Reports</h1>
-          <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            A security patrol report is the PDF document generated after every <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrol</Link> round.
+      <FeatureHero
+        eyebrow="Automated Reporting"
+        title="Security patrol reports"
+        lede={<>A security patrol report is the PDF document generated after every <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrol</Link> round.
             It contains the patrol sequence name, date and time, every camera checked, each checklist item with its
             compliance status, the camera snapshot that item was judged against, the guard notified on any failure,
             and an overall compliance percentage. Reports are emailed automatically and stored in the patrol log,
-            where each round opens as a web report or a PDF.
-          </p>
+            where each round opens as a web report or a PDF.</>}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/virtual-patrolling/patrol-compliance-tracking', label: 'Compliance tracking' }}
+        visual={<HeroPlaceholder label="Patrol history · Perimeter round" alt="Camzify console illustrating security patrol reports" />}
+      />
+
+      <section className="pb-16">
+        <div className="mx-auto max-w-site px-6">
+
 
           <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
             <div>
@@ -74,7 +81,7 @@ export default function PatrolReportsPage() {
                 ))}
               </ul>
             </div>
-            <PlaceholderVisual type="report" caption="PATROL REPORT PDF" alt="Sample patrol report PDF showing camera checks, compliance scores, and audit trail" />
+            <SectionVisual variant="report" caption="Patrol Report Pdf" alt="Sample patrol report PDF showing camera checks, compliance scores, and audit trail" />
           </div>
 
           <div className="mt-16">
@@ -94,7 +101,7 @@ export default function PatrolReportsPage() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="REPORT GENERATION FLOW" alt="Diagram showing a patrol round finishing and its results being compiled into a PDF report" />
+            <SectionVisual variant="flow" caption="Report Generation Flow" alt="Diagram showing a patrol round finishing and its results being compiled into a PDF report" steps={['Round reaches its last stop', 'Every result compiled', 'Report built with snapshots', 'Emailed and logged']} />
             <ScrollReveal>
               <div>
                 <span className="font-mono text-mono-sm uppercase text-primary">How It Runs</span>
@@ -123,7 +130,7 @@ export default function PatrolReportsPage() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="REPORT SETTINGS" alt="Configuration screen for report recipients, retention, and export options" />
+            <SectionVisual variant="flow" caption="Report Settings" steps={['Set the distribution list', 'Round finishes', 'PDF emailed to every recipient', 'Retained and filterable']} alt="Configuration screen for report recipients, retention, and export options" />
           </div>
 
           <div className="mt-16 rounded-2xl border border-border bg-card p-8 sm:p-10">

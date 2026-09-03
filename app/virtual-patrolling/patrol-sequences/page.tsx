@@ -1,7 +1,9 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
-import { PlaceholderVisual } from '@/components/content/placeholder-visual';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { HeroPlaceholder } from '@/components/content/hero-placeholder';
+import { SectionVisual } from '@/components/content/section-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 import { Route, Camera, Plus, ArrowRight } from 'lucide-react';
@@ -33,17 +35,20 @@ export default function PatrolSequencesPage() {
       { label: 'Virtual Patrolling', href: '/virtual-patrolling' },
       { label: 'Patrol Sequences' },
     ]}>
+      <FeatureHero
+        eyebrow="Site-Level Routing"
+        title="Camera patrol sequences"
+        lede={<>A patrol sequence is an ordered list of cameras that defines the route a <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrol</Link> follows
+            across a site. Each camera in the sequence carries its own checklist items, assigned guard, and
+            predefined escalation messages. The sequence determines the exact path the AI takes during every round.</>}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/virtual-patrolling/patrol-checklists', label: 'Patrol checklists' }}
+        visual={<HeroPlaceholder label="Patrol sequence · Perimeter round" alt="Camzify console illustrating camera patrol sequences" />}
+      />
+
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <span className="font-mono text-mono-sm uppercase text-primary">Site-Level Routing</span>
-          <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">
-            Camera Patrol Sequences
-          </h1>
-          <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            A patrol sequence is an ordered list of cameras that defines the route a <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrol</Link> follows
-            across a site. Each camera in the sequence carries its own checklist items, assigned guard, and
-            predefined escalation messages. The sequence determines the exact path the AI takes during every round.
-          </p>
+
 
           <div className="mt-12 grid gap-8 lg:grid-cols-[1.2fr_1fr]">
             <div className="space-y-6">
@@ -79,7 +84,7 @@ export default function PatrolSequencesPage() {
               </ScrollReveal>
             </div>
             <ScrollReveal delay={0.06}>
-              <PlaceholderVisual type="patrol-route" caption="PATROL SEQUENCE BUILDER" alt="Patrol sequence configuration showing ordered camera list with per-camera checklist assignments" />
+              <SectionVisual variant="route" caption="Patrol Sequence Builder" alt="Patrol sequence configuration showing ordered camera list with per-camera checklist assignments" />
             </ScrollReveal>
           </div>
 
@@ -96,7 +101,7 @@ export default function PatrolSequencesPage() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="SEQUENCE EXECUTION ORDER" alt="Diagram showing a patrol sequence advancing in order from one camera stop to the next" />
+            <SectionVisual variant="flow" caption="Sequence Execution Order" alt="Diagram showing a patrol sequence advancing in order from one camera stop to the next" steps={['Round starts at stop 1', 'Stop evaluated, results logged', 'Advances to the next camera', 'Round completes at the last stop']} />
             <ScrollReveal>
               <div>
                 <span className="font-mono text-mono-sm uppercase text-primary">How It Runs</span>
@@ -126,7 +131,7 @@ export default function PatrolSequencesPage() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="SEQUENCE CONFIGURATION" alt="Configuration screen for naming, reordering, and assigning cameras within a patrol sequence" />
+            <SectionVisual variant="flow" caption="Sequence Configuration" steps={['Name the sequence for its zone', 'Add cameras in patrol order', 'Checklist and guard per stop', 'Attach a schedule']} alt="Configuration screen for naming, reordering, and assigning cameras within a patrol sequence" />
           </div>
 
           <div className="mt-16 rounded-2xl border border-border bg-card p-8 sm:p-10">

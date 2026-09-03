@@ -1,8 +1,10 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { HeroPlaceholder } from '@/components/content/hero-placeholder';
+import { SectionVisual } from '@/components/content/section-visual';
 import { ComparisonTable } from '@/components/content/comparison-table';
-import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
@@ -48,16 +50,21 @@ export default function VsSecurityGuardsPage() {
       { label: 'Virtual Patrolling', href: '/virtual-patrolling' },
       { label: 'vs Security Guards' },
     ]}>
-      <section className="pb-16">
-        <div className="mx-auto max-w-site px-6">
-          <span className="font-mono text-mono-sm uppercase text-primary">Head-To-Head Comparison</span>
-          <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Virtual Patrolling vs Security Guards</h1>
-          <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            <Link href="/virtual-patrolling" className="text-primary hover:underline">Virtual patrolling</Link> and manned guarding
+      <FeatureHero
+        eyebrow="Head-To-Head Comparison"
+        title="Virtual patrolling vs security guards"
+        lede={<><Link href="/virtual-patrolling" className="text-primary hover:underline">Virtual patrolling</Link> and manned guarding
             solve the same problem — ensuring every checkpoint on a site is checked regularly and failures are
             acted on. The difference is cost, consistency, and auditability. This page compares them honestly,
-            including where guards still win.
-          </p>
+            including where guards still win.</>}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/roi-calculator', label: 'Run your own numbers' }}
+        visual={<HeroPlaceholder label="Blended model · Perimeter round" alt="Camzify console illustrating virtual patrolling vs security guards" />}
+      />
+
+      <section className="pb-16">
+        <div className="mx-auto max-w-site px-6">
+
 
           <div className="mt-12">
             <ScrollReveal>
@@ -114,7 +121,7 @@ export default function VsSecurityGuardsPage() {
               </div>
             </ScrollReveal>
             <ScrollReveal delay={0.06}>
-              <PlaceholderVisual type="diagram" caption="BLENDED PATROL MODEL" alt="Diagram showing virtual patrolling handling routine rounds and a guard-on-call responding to flagged exceptions" />
+              <SectionVisual variant="flow" caption="Blended Patrol Model" alt="Diagram showing virtual patrolling handling routine rounds and a guard-on-call responding to flagged exceptions" steps={['AI runs every routine round', 'A check fails', 'Guard dispatched to that stop', 'Round and response recorded']} />
             </ScrollReveal>
           </div>
 

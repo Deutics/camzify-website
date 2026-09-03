@@ -1,7 +1,9 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
-import { PlaceholderVisual } from '@/components/content/placeholder-visual';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { HeroPlaceholder } from '@/components/content/hero-placeholder';
+import { SectionVisual } from '@/components/content/section-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 import { Building, Globe, Users, ArrowRight } from 'lucide-react';
@@ -12,7 +14,7 @@ import { Building, Globe, Users, ArrowRight } from 'lucide-react';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Virtual Patrolling for Multi-Site Operations",
+  title: "Multi-Site Virtual Patrolling | One Console, Every Location",
   description: "Run virtual patrol rounds across distributed locations from a single console. Each site gets its own sequences, checklists, and compliance tracking.",
   path: "/virtual-patrolling/for-multi-site-operations",
 };
@@ -34,16 +36,21 @@ export default function MultiSiteOpsPage() {
       { label: 'Virtual Patrolling', href: '/virtual-patrolling' },
       { label: 'Multi-Site Operations' },
     ]}>
-      <section className="pb-16">
-        <div className="mx-auto max-w-site px-6">
-          <span className="font-mono text-mono-sm uppercase text-primary">Multi-Site Coverage</span>
-          <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Virtual Patrolling for Multi-Site Operations</h1>
-          <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            Multi-site <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</Link> is
+      <FeatureHero
+        eyebrow="Multi-Site Coverage"
+        title="Multi-site virtual patrolling"
+        lede={<>Multi-site <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</Link> is
             the ability to run scheduled AI patrol rounds across multiple distributed locations from a single console.
             Each site has its own patrol sequences, checklists, assigned guards, and compliance scores — all visible
-            on one dashboard.
-          </p>
+            on one dashboard.</>}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/partners/for-security-agencies', label: 'For security agencies' }}
+        visual={<HeroPlaceholder label="Multi-site · 4 locations" alt="Camzify console illustrating multi-site virtual patrolling" />}
+      />
+
+      <section className="pb-16">
+        <div className="mx-auto max-w-site px-6">
+
 
           <div className="mt-12 grid gap-8 sm:grid-cols-3">
             {[
@@ -90,7 +97,7 @@ export default function MultiSiteOpsPage() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="PER-SITE CONFIGURATION" alt="Configuration screen showing per-site patrol sequences, guard rosters, and permission settings" />
+            <SectionVisual variant="sites" caption="Per-Site Configuration" alt="Configuration screen showing per-site patrol sequences, guard rosters, and permission settings" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
@@ -111,11 +118,11 @@ export default function MultiSiteOpsPage() {
                 </p>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="dashboard" caption="MULTI-SITE COMPLIANCE" alt="Multi-site dashboard showing patrol compliance across distributed locations" />
+            <SectionVisual variant="compliance" caption="Multi-Site Compliance" alt="Multi-site dashboard showing patrol compliance across distributed locations" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="SITE ROLLOUT" alt="Diagram showing the steps of rolling out virtual patrolling to a new site under a parent account" />
+            <SectionVisual variant="flow" caption="Site Rollout" alt="Diagram showing the steps of rolling out virtual patrolling to a new site under a parent account" steps={['Connect the site\'s cameras', 'Build its sequences', 'Assign guards and checklists', 'Schedule the rounds']} />
             <ScrollReveal>
               <div>
                 <span className="font-mono text-mono-sm uppercase text-primary">Rollout</span>
