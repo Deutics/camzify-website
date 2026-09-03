@@ -179,10 +179,14 @@ content and AI citations, so a fabricated claim here poisons everything downstre
 - **Certifications, awards, associations, memberships:** Singapore PDPA, GDPR, SOC 2 Type II and ISO 27001 are **all in progress and none are held**. The site renders each with an explicit "In progress" badge. **No skill may describe Camzify as certified under any of these.**
 - **Years in business / team size:** Serving customers for three years as of 2026. Team of around 20. *(Supplied by the business 2026-09-02.)* The three-year figure is publishable and now appears on `/about`; the team size is recorded here for context but is deliberately not on the site — for an enterprise security buyer a headcount in the tens reads as a risk signal rather than a credential, and nothing on the site currently needs it.
 
-### Report contents — verified against real output 2026-09-03
+### Report contents — read from two SUPERSEDED reports, 2026-09-03
 
-Two production reports were supplied (one manual, one automated). What they contain,
-confirmed rather than assumed:
+Two reports were supplied, one manual and one automated. **The business subsequently
+clarified that both come from a previous report design and do not necessarily reflect
+current output.** They were shared as a source of material for the site, not as a
+specification, so everything below is evidence of what the product did at some point —
+not confirmation of what it does now. Treat any claim resting only on these as
+provisional until checked against a current report.
 
 **Manual round, per item:** serial number, site, time, checklist item, compliance answer,
 remarks, rectification message, a BEFORE frame, and an AFTER frame (or "No Rectification
@@ -196,9 +200,18 @@ with its answer **and the reasoning behind it** — e.g. "the room appears to be
 indicating lights might be on".
 
 **Two fields are deliberately NOT promoted on the site: estimated gender and emotions
-and expressions.** See the risk note below. Everything else is now reflected on
-`/virtual-patrolling/patrol-reports`, `/virtual-patrolling/risk-detection`,
-`/virtual-patrolling/automated-patrol-scheduling`, the homepage and `/llms.txt`.
+and expressions.** See the risk note below.
+
+**Which live site claims rest on what.** Independently confirmed by the business or by the
+application itself, so safe regardless of the report design: before/after frames on a fixed
+item, the checklist states, guard notification, and the safety/security risk assessment on
+automated rounds. Resting **only** on these superseded reports, and needing confirmation
+against a current one: the plain-language reasoning attached to each automated answer, the
+scene description, the people count, the objects-detected list, and the claim that risk
+entries are filled in at every stop rather than only when something is found. All five are
+currently live on `/virtual-patrolling/patrol-reports`,
+`/virtual-patrolling/automated-patrol-scheduling`, `/virtual-patrolling/risk-detection`,
+the homepage Auto-Patrol section and `/llms.txt`.
 
 > **⚠️ LEGAL RISK — needs a decision, and probably legal advice.**
 >
@@ -216,7 +229,10 @@ and expressions.** See the risk note below. Everything else is now reflected on
 > site mentions it. Worth a conversation with counsel about whether these fields should be
 > generated at all, especially for any EU or Illinois deployment.
 
-### Issues observed in the supplied reports (product, not website)
+### Issues observed in the superseded reports — may already be fixed
+
+*Recorded from the superseded design. Re-check against a current report before acting on
+any of them — the report design has changed since.*
 
 - **Domain inconsistency.** The manual report footer reads `www.camzify.com`; the automated
   report reads `www.camzify.live`. One of the two is wrong on a document customers keep.
