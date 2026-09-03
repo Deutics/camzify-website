@@ -15,7 +15,7 @@ import { Smartphone, Globe, ShieldCheck, Bell } from 'lucide-react';
  */
 const pageMeta = {
   title: "Mobile Access | Security on the Go",
-  description: "Camzify mobile access: live streams, alerts, and patrol compliance from any phone or tablet browser, with nothing to install. Native iOS and Android apps are in development.",
+  description: "Live streams, alerts and patrol compliance from any phone or tablet browser, nothing to install. Native iOS and Android apps are in development.",
   path: "/platform/mobile-access",
 };
 

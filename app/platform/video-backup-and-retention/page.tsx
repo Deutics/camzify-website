@@ -15,7 +15,7 @@ import { HardDrive, Clock, Zap, Info } from 'lucide-react';
  */
 const pageMeta = {
   title: "Cloud Video Backup & Retention Management",
-  description: "Camzify cloud video backup keeps footage safe even if the on-site NVR or hardware is destroyed. Per-camera retention by days or GB, bulk apply per site, playback, comparison.",
+  description: "Cloud video backup that survives a destroyed NVR. Retention per camera by days or GB, applied per site in bulk, with playback and comparison.",
   path: "/platform/video-backup-and-retention",
 };
 
@@ -23,13 +23,13 @@ export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
   { question: 'How do I set up video backup for the first time?', answer: 'Pick which cameras record, choose continuous or scheduled recording, set a retention window per camera, and check the storage estimate before committing. The walkthrough is at /guides/how-to-configure-cloud-video-backup.' },
-  { question: 'Does Camzify record continuously, or only at certain times?', answer: 'Either. Continuous recording captures around the clock. Scheduled recording captures only during hours you define — an office that is empty from 7pm to 7am does not need to pay to store twelve hours of an unlit corridor every day. A schedule can be applied to one site or to every camera at once, so it does not have to be set camera by camera.' },
-  { question: 'Which costs less, continuous or scheduled recording?', answer: 'Scheduled, in direct proportion to the hours you drop — storage is consumed per hour recorded, so halving the recording window roughly halves the storage for that camera. Continuous is the right default where an incident could occur at any hour, or where an insurer or regulator expects unbroken coverage. Many sites run both: continuous on perimeter and entry cameras, scheduled on interior ones.' },
-  { question: 'How is the Est. Storage figure calculated, and how accurate is it?', answer: 'It\'s a planning estimate, calculated from each camera\'s typical bitrate for its configured resolution and frame rate — not a live measurement of what has actually been recorded. Actual usage varies with scene activity, motion, and compression, so treat it as a sizing guide rather than an exact reading.' },
-  { question: 'What happens when a camera runs out of assigned storage?', answer: 'When a camera is set to a storage (GB) cap and reaches it, the oldest footage rolls off to make room for new recording, the same way a "By Days" camera drops footage older than its retention window. Either way the camera keeps recording — older history is what gives way.' },
-  { question: 'What\'s the difference between retention "By Days" and "By Storage"?', answer: 'By Days keeps a fixed time window — say 14 days — regardless of how much footage that ends up being. By Storage instead caps a camera at a fixed GB allowance and lets the retained time window shrink or grow with scene activity. 24/7 continuous recording can be paired with either limit.' },
-  { question: 'Can retention be set per camera, or only for the whole account?', answer: 'Both. Each camera can carry its own retention mode and limit, or you can use the quick-apply presets — 7, 30, 60, or 90 days — to set every camera on the account to the same policy in one action.' },
-  { question: 'What happens to a camera\'s footage if the camera is removed?', answer: 'Footage already stored under that camera remains subject to its existing retention policy until it ages out or is manually cleared — removing a camera from active monitoring doesn\'t immediately delete its backed-up history.' },
+  { question: 'Does Camzify record continuously, or only at certain times?', answer: 'Either. Continuous recording captures around the clock. Scheduled recording captures only during hours you define. An office that is empty from 7pm to 7am does not need to pay to store twelve hours of an unlit corridor every day. A schedule can be applied to one site or to every camera at once, so it does not have to be set camera by camera.' },
+  { question: 'Which costs less, continuous or scheduled recording?', answer: 'Scheduled, in direct proportion to the hours you drop. Storage is consumed per hour recorded, so halving the recording window roughly halves the storage for that camera. Continuous is the right default where an incident could occur at any hour, or where an insurer or regulator expects unbroken coverage. Many sites run both: continuous on perimeter and entry cameras, scheduled on interior ones.' },
+  { question: 'How is the Est. Storage figure calculated, and how accurate is it?', answer: 'It\'s a planning estimate, calculated from each camera\'s typical bitrate for its configured resolution and frame rate, not a live measurement of what has actually been recorded. Actual usage varies with scene activity, motion, and compression, so treat it as a sizing guide rather than an exact reading.' },
+  { question: 'What happens when a camera runs out of assigned storage?', answer: 'When a camera is set to a storage (GB) cap and reaches it, the oldest footage rolls off to make room for new recording, the same way a "By Days" camera drops footage older than its retention window. Either way the camera keeps recording. Older history is what gives way.' },
+  { question: 'What\'s the difference between retention "By Days" and "By Storage"?', answer: 'By Days keeps a fixed time window, say 14 days, regardless of how much footage that ends up being. By Storage instead caps a camera at a fixed GB allowance and lets the retained time window shrink or grow with scene activity. 24/7 continuous recording can be paired with either limit.' },
+  { question: 'Can retention be set per camera, or only for the whole account?', answer: 'Both. Each camera can carry its own retention mode and limit, or you can use the quick-apply presets of 7, 30, 60 or 90 days to set every camera on the account to the same policy in one action.' },
+  { question: 'What happens to a camera\'s footage if the camera is removed?', answer: 'Footage already stored under that camera remains subject to its existing retention policy until it ages out or is manually cleared. Removing a camera from active monitoring doesn\'t immediately delete its backed-up history.' },
 ];
 
 export default function Page() {
@@ -66,10 +66,10 @@ export default function Page() {
           </div>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { icon: HardDrive, title: 'Storage transparency', desc: 'Provisioned, used, assigned to child accounts, and remaining are always broken out separately — never one blended number.' },
-              { icon: Clock, title: 'Flexible retention modes', desc: 'Set each camera by days, by a GB storage cap, or to record 24/7 — whichever fits how that camera is used.' },
+              { icon: HardDrive, title: 'Storage transparency', desc: 'Provisioned, used, assigned to child accounts, and remaining are always broken out separately, never one blended number.' },
+              { icon: Clock, title: 'Flexible retention modes', desc: 'Set each camera by days, by a GB storage cap, or to record 24/7, whichever fits how that camera is used.' },
               { icon: Zap, title: 'Quick-apply presets', desc: '7, 30, 60, or 90-day retention can be pushed to every camera on the account in a single action, no per-camera editing required.' },
-              { icon: Info, title: 'Honest planning estimates', desc: 'Storage projections are clearly labeled as estimates based on typical bitrate — not dressed up as exact usage figures.' },
+              { icon: Info, title: 'Honest planning estimates', desc: 'Storage projections are clearly labeled as estimates based on typical bitrate, not dressed up as exact usage figures.' },
             ].map((item, i) => {
               const Icon = item.icon;
               return (
@@ -100,12 +100,12 @@ export default function Page() {
                   </strong>{' '}
                   Continuous suits anywhere an incident could happen at any hour. Scheduled records
                   only during the hours you define, which is the bluntest and most effective control
-                  on storage cost — an interior camera watching an empty office overnight is paying
+                  on storage cost. An interior camera watching an empty office overnight is paying
                   to store twelve hours of nothing. A schedule can be applied to a whole site or to
                   every camera at once rather than set one at a time.
                 </p>
                 <p className="mt-4 text-muted-foreground">
-                  Retention policy is where storage cost and evidence coverage trade off against each other —
+                  Retention policy is where storage cost and evidence coverage trade off against each other.
                   a high-motion entrance camera at 4K eats storage far faster than a quiet loading dock at
                   1080p, which is why retention is configurable per camera rather than forced to one account-wide
                   setting. This module integrates with <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</Link> too,

@@ -22,13 +22,13 @@ const pageMeta = {
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
-  { question: 'Do I only get notified about things on the checklist?', answer: 'No. An automated round also raises critical notifications for safety and security risks it observes at a stop, even where no checklist item covered them — see risk detection on patrol. Those arrive on the same channels as a failed checklist item and expect the same acknowledgment.' },
-  { question: 'Is the notification sent automatically, or does someone have to approve it?', answer: 'It depends which kind of round found the problem. On an automated round it is sent automatically as the round runs, with nobody in the loop — which is the whole point of a round that happens at 3am. On a manual round the operator is already looking at the camera, so the message is offered with the specifics filled in and they choose to send it, skip it, or send it later from the same item.' },
+  { question: 'Do I only get notified about things on the checklist?', answer: 'No. An automated round also raises critical notifications for safety and security risks it observes at a stop, even where no checklist item covered them; see risk detection on patrol. Those arrive on the same channels as a failed checklist item and expect the same acknowledgment.' },
+  { question: 'Is the notification sent automatically, or does someone have to approve it?', answer: 'It depends which kind of round found the problem. On an automated round it is sent automatically as the round runs, with nobody in the loop, which is the whole point of a round that happens at 3am. On a manual round the operator is already looking at the camera, so the message is offered with the specifics filled in and they choose to send it, skip it, or send it later from the same item.' },
   { question: 'What happens if the assigned guard doesn\'t respond to a notification?', answer: 'If the guard doesn\'t acknowledge the alert within the configured window, it escalates automatically to a backup contact or site supervisor. The failure is never left waiting on a single person\'s availability.' },
   { question: 'Can a camera have more than one guard assigned?', answer: 'Yes. A camera can carry a primary guard who receives the first notification, plus one or more escalation contacts who are only alerted if the primary doesn\'t acknowledge in time.' },
   { question: 'Are notification messages customisable per checklist item?', answer: 'Each checklist item carries its own predefined message, written when the checklist is set up. A gate-related failure and a loitering failure can trigger entirely different wording, tailored to what the guard actually needs to do.' },
   { question: 'Which channels do notifications use?', answer: 'Email, SMS, WhatsApp, and push are all supported. Guards can have more than one channel configured, and the order they\'re tried in is set per guard rather than fixed for the whole site.' },
-  { question: 'Is every notification logged somewhere?', answer: 'Yes. Every notification — who it was sent to, when, and whether it was acknowledged — is written into that round\'s patrol report, so there\'s a record independent of the guard\'s own memory of the shift.' },
+  { question: 'Is every notification logged somewhere?', answer: 'Yes. Every notification, with who it was sent to, when, and whether it was acknowledged, is written into that round\'s patrol report, so there\'s a record independent of the guard\'s own memory of the shift.' },
 ];
 
 export default function GuardNotificationsPage() {
@@ -77,9 +77,9 @@ export default function GuardNotificationsPage() {
               <span className="font-mono text-mono-sm uppercase text-primary">Why It Matters</span>
               <h2 className="mt-2 font-display text-2xl font-bold">Why guard notifications matter</h2>
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
-                <p>A failed checklist item is only useful if it reaches someone who can act on it. Without an automatic alert, that failure sits in a report until an operator happens to review it — which might be minutes later, or might be at the end of the shift, long after the gate has been left open or the zone has stayed unattended.</p>
+                <p>A failed checklist item is only useful if it reaches someone who can act on it. Without an automatic alert, that failure sits in a report until an operator happens to review it, which might be minutes later, or might be at the end of the shift, long after the gate has been left open or the zone has stayed unattended.</p>
                 <p>Radioing around or calling the guard on duty works occasionally, but it depends on someone remembering to do it, knowing who is actually covering that camera right now, and reaching them on whatever channel they happen to have open. None of that is guaranteed, and none of it leaves a record of when the guard was told or whether they responded.</p>
-                <p>Tying the notification directly to the checklist item removes the guesswork. The moment a result is logged as Not Compliant, the system already knows which camera it came from, which guard is assigned to it, and what message to send — so the alert goes out immediately, to the right person, with no one in between.</p>
+                <p>Tying the notification directly to the checklist item removes the guesswork. The moment a result is logged as Not Compliant, the system already knows which camera it came from, which guard is assigned to it, and what message to send, so the alert goes out immediately, to the right person, with no one in between.</p>
               </div>
             </ScrollReveal>
           </div>
@@ -119,7 +119,7 @@ export default function GuardNotificationsPage() {
                 <h2 className="mt-2 font-display text-2xl font-bold">How notifications flow</h2>
                 <ol className="mt-6 space-y-4 text-muted-foreground">
                   <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">01</span><span>Patrol round reaches a camera in the sequence</span></li>
-                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">02</span><span>Checklist item is evaluated — Compliant or Not Compliant</span></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">02</span><span>Checklist item is evaluated as Compliant or Not Compliant</span></li>
                   <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">03</span><span>On failure, the system retrieves the guard assigned to that camera</span></li>
                   <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">04</span><span>The predefined message for that checklist item is sent to the guard</span></li>
                   <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">05</span><span>The notification is logged in the <Link href="/virtual-patrolling/patrol-reports" className="text-primary hover:underline">patrol report</Link></span></li>
@@ -137,7 +137,7 @@ export default function GuardNotificationsPage() {
                 <h2 className="mt-2 font-display text-2xl font-bold">Escalation and delivery channels</h2>
                 <p className="mt-4 text-muted-foreground">Notifications aren't a single fire-and-forget message. Delivery and escalation are configured per guard, so coverage doesn't depend on one phone being switched on.</p>
                 <ul className="mt-4 space-y-3 text-muted-foreground">
-                  <li className="flex gap-2">• Each guard can have multiple channels configured — email, SMS, WhatsApp, and push — in a preferred order</li>
+                  <li className="flex gap-2">• Each guard can have multiple channels configured, email, SMS, WhatsApp and push, in a preferred order</li>
                   <li className="flex gap-2">• Acknowledgment is required within a configurable window before an alert counts as unactioned</li>
                   <li className="flex gap-2">• Unacknowledged alerts escalate automatically to a backup guard or site supervisor</li>
                   <li className="flex gap-2">• Escalation contacts are set independently of the primary guard, so backup coverage is never assumed</li>

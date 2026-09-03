@@ -14,7 +14,7 @@ import { Building, Globe, Users, ArrowRight } from 'lucide-react';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Multi-Site Virtual Patrolling | One Console, Every Location",
+  title: "Multi-Site Virtual Patrolling | One Console",
   description: "Run virtual patrol rounds across distributed locations from a single console. Each site gets its own sequences, checklists, and compliance tracking.",
   path: "/virtual-patrolling/for-multi-site-operations",
 };

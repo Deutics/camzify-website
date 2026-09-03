@@ -27,12 +27,12 @@ export const homepageFaqs = [
   {
     question: 'Does Camzify work with the cameras I already have?',
     answer:
-      'Yes, in almost all cases. Camzify connects to any IP camera that supports ONVIF or RTSP, which covers effectively every IP camera manufactured in the last decade, and it also accepts RTMP and HTTPS (HLS or WebRTC) streams. Camzify sells no hardware, so there is no feature reserved for its own cameras — every detection model and every patrol capability runs on whatever cameras you have.',
+      'Yes, in almost all cases. Camzify connects to any IP camera that supports ONVIF or RTSP, which covers effectively every IP camera manufactured in the last decade, and it also accepts RTMP and HTTPS (HLS or WebRTC) streams. Camzify sells no hardware, so there is no feature reserved for its own cameras. Every detection model and every patrol capability runs on whatever cameras you have.',
   },
   {
     question: 'Where is footage stored, and for how long?',
     answer:
-      'In the cloud, under a retention policy set per camera rather than once for the account — by a number of days or by a storage cap. Recording runs continuously or on a schedule you define, so an interior camera watching an empty office overnight does not have to consume storage doing it. Footage past its window is deleted automatically, and any clip can be exported for a chosen time range.',
+      'In the cloud, under a retention policy set per camera rather than once for the account, by a number of days or by a storage cap. Recording runs continuously or on a schedule you define, so an interior camera watching an empty office overnight does not have to consume storage doing it. Footage past its window is deleted automatically, and any clip can be exported for a chosen time range.',
   },
   {
     question: 'How is the platform secured?',
@@ -42,12 +42,12 @@ export const homepageFaqs = [
   {
     question: 'Can I search recorded footage for a specific person?',
     answer:
-      'Yes. AI suspect search takes a plain-language description — clothing color, bag, approximate age, direction of travel — and returns every matching appearance across indexed cameras and time windows, ranked by confidence. No reference photo is needed. It is not facial recognition: matches are made on confirmed object tracks and appearance attributes, and identification is always a human decision. The cross-camera journey map then shows a matched subject’s full path.',
+      'Yes. AI suspect search takes a plain-language description, such as clothing color, bag, approximate age or direction of travel, and returns every matching appearance across indexed cameras and time windows, ranked by confidence. No reference photo is needed. It is not facial recognition: matches are made on confirmed object tracks and appearance attributes, and identification is always a human decision. The cross-camera journey map then shows a matched subject’s full path.',
   },
   {
     question: 'Can guards and managers use it on a phone?',
     answer:
-      'Yes. Mobile access runs in the phone’s own browser — Safari, Chrome, whatever is already there — with live streams, alerts and patrol compliance in a responsive interface, so there is nothing to install for a relief guard on their first shift. Native iOS and Android apps are in development and listed on the roadmap; the browser interface stays available after they ship.',
+      'Yes. Mobile access runs in the phone’s own browser, Safari, Chrome or whatever is already there, with live streams, alerts and patrol compliance in a responsive interface, so there is nothing to install for a relief guard on their first shift. Native iOS and Android apps are in development and listed on the roadmap; the browser interface stays available after they ship.',
   },
   {
     question: 'What is virtual patrolling?',
@@ -72,7 +72,7 @@ export const homepageFaqs = [
   {
     question: 'What happens when a checklist item fails during a round?',
     answer:
-      'The item is marked Not Compliant and the snapshot is kept. On an automated round the guard assigned to that camera is notified immediately; on a manual round the operator is offered the message and chooses. The item then has to be resolved before the round can close — either fixed and re-checked, which captures a second frame, or held as Pending with a written reason, which counts against the compliance score. The report carries all of it.',
+      'The item is marked Not Compliant and the snapshot is kept. On an automated round the guard assigned to that camera is notified immediately; on a manual round the operator is offered the message and chooses. The item then has to be resolved before the round can close: either fixed and re-checked, which captures a second frame, or held as Pending with a written reason, which counts against the compliance score. The report carries all of it.',
   },
   {
     question: 'How is this different from motion detection?',

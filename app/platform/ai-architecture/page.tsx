@@ -14,7 +14,7 @@ import { Radio, Zap, Boxes, MessageSquare } from 'lucide-react';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "AI Video Analytics Architecture | Six Processing Layers",
+  title: "AI Video Analytics Architecture | Six Layers",
   description: "Camzify AI architecture: six layers from object detection to adaptive inference. Custom domain models, vision-language analysis, GPU-efficient processing.",
   path: "/platform/ai-architecture",
 };
@@ -22,10 +22,10 @@ const pageMeta = {
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
-  { question: 'Why six separate layers instead of one AI model?', answer: 'Each layer does one distinct job — detection, tracking, domain classification, language context, signal integrity, and compute allocation. Splitting the pipeline that way means any single layer can be improved, retrained, or swapped without touching the rest of the system, which a single monolithic model doesn\'t allow.' },
-  { question: 'Does Signal Analysis really need no GPU, and why does that matter for cost?', answer: 'Yes — tampering detection, motion gating, and stream health checks run on signal-processing techniques rather than a neural network, so this layer runs on CPU. That keeps a meaningful share of the pipeline\'s workload off the GPU capacity the deep-learning layers actually need.' },
-  { question: 'What does Adaptive Inference actually skip, and is anything missed?', answer: 'It skips frames that haven\'t meaningfully changed since the last one processed — a static, unchanging scene — and puts full model attention on frames where something is actually moving or happening. Because the skip decision is driven by detecting change in the first place, genuinely active frames aren\'t the ones being skipped.' },
-  { question: 'Are Custom Domain Models retrained per customer, or shared?', answer: 'They\'re built per industry or vertical — warehouse, retail, construction, and so on — rather than retrained from scratch for each individual customer, so a deployment in a given vertical starts with domain-relevant classes already in place.' },
+  { question: 'Why six separate layers instead of one AI model?', answer: 'Each layer does one distinct job: detection, tracking, domain classification, language context, signal integrity, and compute allocation. Splitting the pipeline that way means any single layer can be improved, retrained, or swapped without touching the rest of the system, which a single monolithic model doesn\'t allow.' },
+  { question: 'Does Signal Analysis really need no GPU, and why does that matter for cost?', answer: 'Yes. Tampering detection, motion gating, and stream health checks run on signal-processing techniques rather than a neural network, so this layer runs on CPU. That keeps a meaningful share of the pipeline\'s workload off the GPU capacity the deep-learning layers actually need.' },
+  { question: 'What does Adaptive Inference actually skip, and is anything missed?', answer: 'It skips frames that haven\'t meaningfully changed since the last one processed, a static and unchanging scene, and puts full model attention on frames where something is actually moving or happening. Because the skip decision is driven by detecting change in the first place, genuinely active frames aren\'t the ones being skipped.' },
+  { question: 'Are Custom Domain Models retrained per customer, or shared?', answer: 'They\'re built per industry or vertical, such as warehouse, retail or construction, rather than retrained from scratch for each individual customer, so a deployment in a given vertical starts with domain-relevant classes already in place.' },
   { question: 'How does the Vision-Language layer differ from basic object detection?', answer: 'Basic detection returns a bounding box and a class label. The Vision-Language layer adds descriptive attributes and natural-language context on top of that, so a detection reads more like a description of what\'s happening than a coordinate and a tag.' },
 ];
 
@@ -38,7 +38,7 @@ export default function Page() {
       <FeatureHero
         eyebrow="Under The Hood"
         title="AI video analytics architecture"
-        lede={<>Camzify AI architecture consists of six processing layers: Object Detection, Multi-Object Tracking, Custom Domain Models (industry-specific classes), Vision-Language Model (attributes and natural-language context), Signal Analysis (tampering, motion gating, stream health — no GPU required), and Adaptive Inference (skips static frames, full attention on active scenes).</>}
+        lede={<>Camzify AI architecture consists of six processing layers: Object Detection, Multi-Object Tracking, Custom Domain Models (industry-specific classes), Vision-Language Model (attributes and natural-language context), Signal Analysis (tampering, motion gating, stream health, no GPU required), and Adaptive Inference (skips static frames, full attention on active scenes).</>}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'The 22 detection models' }}
         visual={<div className="overflow-hidden rounded-xl border border-border bg-card">
@@ -66,8 +66,8 @@ export default function Page() {
           </div>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { icon: Radio, title: 'GPU-efficient signal analysis', desc: 'Tampering, motion gating, and stream health run on signal-processing logic rather than a neural network — no GPU required for this layer at all.' },
-              { icon: Zap, title: 'Adaptive inference saves compute', desc: 'Static frames get skipped rather than reprocessed, so full model attention — and compute budget — goes to scenes that are actually active.' },
+              { icon: Radio, title: 'GPU-efficient signal analysis', desc: 'Tampering, motion gating, and stream health run on signal-processing logic rather than a neural network, so this layer needs no GPU at all.' },
+              { icon: Zap, title: 'Adaptive inference saves compute', desc: 'Static frames get skipped rather than reprocessed, so full model attention, and the compute budget, goes to scenes that are actually active.' },
               { icon: Boxes, title: 'Custom models per industry', desc: 'Domain models carry object classes trained for the vertical being monitored, not a generic one-size-fits-all detector.' },
               { icon: MessageSquare, title: 'Natural-language context', desc: 'The vision-language layer adds descriptive attributes on top of detections, so alerts read as description, not just coordinates.' },
             ].map((item, i) => {
@@ -90,7 +90,7 @@ export default function Page() {
                 <span className="font-mono text-mono-sm uppercase text-primary">Why Layers, Not One Model</span>
                 <h2 className="mt-2 font-display text-2xl font-bold">Better accuracy, tuned independently</h2>
                 <p className="mt-4 text-muted-foreground">
-                  A single monolithic model has to be everything at once — detector, tracker, domain classifier, and
+                  A single monolithic model has to be everything at once: detector, tracker, domain classifier, and
                   language layer rolled into one set of weights. Splitting those responsibilities across six purpose-built
                   layers means each one can be evaluated, tuned, or retrained on its own, without the risk of a fix in
                   one area quietly degrading another.

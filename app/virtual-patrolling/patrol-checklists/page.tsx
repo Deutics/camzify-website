@@ -15,8 +15,8 @@ import { ClipboardCheck, ListChecks, UserCheck, ShieldCheck, ArrowRight } from '
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Security Patrol Checklists | Per-Camera Compliance Checks",
-  description: "Define per-camera checklist items for every patrol round. Each item is marked Compliant, Not Compliant, or Pending with a comment, and failures trigger automatic guard notifications.",
+  title: "Security Patrol Checklists | Per-Camera Checks",
+  description: "Per-camera checklist items for every patrol round. Each is marked Compliant, Not Compliant or Pending, and a failure captures a snapshot and alerts the guard.",
   path: "/virtual-patrolling/patrol-checklists",
 };
 

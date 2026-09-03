@@ -35,14 +35,14 @@ export function CostVsGuards() {
               <div className="mt-5 max-w-prose space-y-4 text-body text-muted-foreground">
                 <p>
                   A security guard costs roughly $15–$30 an hour depending on the market, and one
-                  staffed post is not one guard — allowing for leave, sickness and breaks,
+                  staffed post is not one guard. Allowing for leave, sickness and breaks,
                   continuous cover of a single post typically needs four to five people on the
                   roster.
                 </p>
                 <p>
                   Most of those paid hours go on the routine round: walking the same route,
                   checking the same doors, confirming the same areas are clear. That is the part
-                  virtual patrolling replaces — not the response, not the judgment.
+                  virtual patrolling replaces, not the response and not the judgment.
                 </p>
               </div>
 
@@ -67,7 +67,7 @@ export function CostVsGuards() {
               */}
               <p className="mt-8 rounded-lg border border-border bg-card/60 p-4 text-sm text-muted-foreground">
                 <strong className="font-semibold text-foreground">Run a security agency?</strong>{' '}
-                For you this is coverage to sell rather than a cost to cut — overnight rounds across
+                For you this is coverage to sell rather than a cost to cut: overnight rounds across
                 every client site, alongside the guards you already provide.{' '}
                 <Link href="/partners/for-security-agencies" className="text-primary hover:underline">
                   Camzify for security agencies
@@ -81,7 +81,7 @@ export function CostVsGuards() {
 
               <p className="mt-6 text-sm text-muted-foreground">
                 Weighing the options?{' '}
-                <Link href="/compare/virtual-patrolling-vs-security-guards" className="text-primary hover:underline">
+                <Link href="/virtual-patrolling/vs-security-guards" className="text-primary hover:underline">
                   Virtual patrolling vs security guards
                 </Link>
                 ,{' '}
@@ -133,7 +133,7 @@ export function CostVsGuards() {
               <p className="mt-8 border-t border-border pt-5 text-xs leading-relaxed text-muted-foreground">
                 Guard figures are order-of-magnitude estimates from published industry averages and
                 vary widely by market and contract. Camzify is licensed per camera per month, so the
-                comparable figure depends on your camera count rather than headcount — the ROI
+                comparable figure depends on your camera count rather than headcount, and the ROI
                 calculator works it out against your own site.
               </p>
             </div>

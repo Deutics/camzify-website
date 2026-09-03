@@ -21,12 +21,12 @@ const featured = [
   {
     title: 'Behavioral Anomaly Detection',
     href: '/ai-features/behavioral-anomaly-detection',
-    desc: 'Describe the behavior you want watched in plain language — fights, smoking, vandalism, trespassing — and it monitors for exactly that.',
+    desc: 'Describe the behavior you want watched in plain language, such as fights, smoking, vandalism or trespassing, and it monitors for exactly that.',
   },
   {
     title: 'Line Intrusion Detection',
     href: '/ai-features/line-intrusion-detection',
-    desc: 'A virtual tripwire with directional control. Fires on a confirmed object track crossing the line — not on a shadow or a lighting shift.',
+    desc: 'A virtual tripwire with directional control. Fires on a confirmed object track crossing the line, not on a shadow or a lighting shift.',
   },
   {
     title: 'Zone Intrusion Detection',
@@ -46,7 +46,7 @@ const featured = [
   {
     title: 'AI Attribute Extraction',
     href: '/ai-features/ai-attribute-extraction',
-    desc: 'A vision-language model reads the scene and attaches structured attributes — clothing color, object type, behavior.',
+    desc: 'A vision-language model reads the scene and attaches structured attributes: clothing color, object type, behavior.',
   },
 ];
 
@@ -119,7 +119,7 @@ export function DetectionGrid() {
               {shippingCount} detection models, all shipping
             </h2>
             <p className="mt-5 max-w-prose text-body text-muted-foreground">
-              Every detection fires on a confirmed object track — not a shadow, not a lighting
+              Every detection fires on a confirmed object track, not a shadow, not a lighting
               shift, not camera noise. Each one feeds directly into your patrol rounds, so a
               detection between rounds is logged against the camera it belongs to.
             </p>
@@ -158,8 +158,8 @@ export function DetectionGrid() {
           <div className="mt-16 rounded-2xl border border-border bg-card/40 p-8 sm:p-10">
             <h3 className="font-display text-xl font-bold">The full detection set</h3>
             <p className="mt-2 max-w-prose text-sm text-muted-foreground">
-              Grouped the way the platform groups them. One further model — loitering
-              detection — is in development and marked as such on its page; the{' '}
+              Grouped the way the platform groups them. One further model, loitering
+              detection, is in development and marked as such on its page; the{' '}
               <Link href="/roadmap" className="text-primary hover:underline">roadmap</Link> lists
               what else is coming.
             </p>

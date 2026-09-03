@@ -14,8 +14,8 @@ import { FileText, CheckCircle, ArrowRight } from 'lucide-react';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Security Patrol Reports | Automated PDF Patrol Reports",
-  description: "Every virtual patrol round generates a timestamped PDF report with compliance results and the camera snapshot behind every check. Exportable for audits and insurance.",
+  title: "Security Patrol Reports | PDF With Snapshots",
+  description: "Every virtual patrol round produces a timestamped PDF report with compliance results and the camera snapshot behind every check. Exportable for audits.",
   path: "/virtual-patrolling/patrol-reports",
 };
 

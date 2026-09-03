@@ -15,8 +15,8 @@ import { ArrowRight } from 'lucide-react';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Virtual Patrolling vs Security Guards | AI vs Manned Guarding",
-  description: "Compare virtual patrolling to manned security guards across cost, coverage, consistency, audit trails, and scalability. See where AI patrols win and where guards are still needed.",
+  title: "Virtual Patrolling vs Security Guards",
+  description: "Virtual patrolling compared with manned guards on cost, coverage, consistency, audit trail and scale, including where guards are still needed.",
   path: "/virtual-patrolling/vs-security-guards",
 };
 
@@ -151,7 +151,6 @@ export default function VsSecurityGuardsPage() {
             <div className="mt-4 flex flex-wrap gap-3">
               <Link href="/pricing" className="inline-flex items-center gap-1 rounded-lg border border-border bg-card px-4 py-2 text-sm hover:border-primary/30 hover:text-primary">Pricing <ArrowRight className="h-3 w-3" /></Link>
               <Link href="/roi-calculator" className="inline-flex items-center gap-1 rounded-lg border border-border bg-card px-4 py-2 text-sm hover:border-primary/30 hover:text-primary">ROI Calculator <ArrowRight className="h-3 w-3" /></Link>
-              <Link href="/compare/virtual-patrolling-vs-security-guards" className="inline-flex items-center gap-1 rounded-lg border border-border bg-card px-4 py-2 text-sm hover:border-primary/30 hover:text-primary">Full Comparison <ArrowRight className="h-3 w-3" /></Link>
               <Link href="/guides/security-guard-cost-per-hour" className="inline-flex items-center gap-1 rounded-lg border border-border bg-card px-4 py-2 text-sm hover:border-primary/30 hover:text-primary">Guard Cost Guide <ArrowRight className="h-3 w-3" /></Link>
             </div>
           </div>

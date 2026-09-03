@@ -18,7 +18,7 @@ import {
  */
 const pageMeta = {
   title: "AI Video Management Platform | Cloud VMS Modules",
-  description: "The Camzify platform on one login: live streaming, cloud video backup and retention, alerts, analytics, user management, permission groups, license control and multi-site management — with AI detection and virtual patrolling built in.",
+  description: "One login for live streaming, cloud backup, alerts, analytics, users, permissions, licensing and multi-site control, with virtual patrolling built in.",
   path: "/platform",
 };
 

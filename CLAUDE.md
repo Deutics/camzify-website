@@ -140,8 +140,10 @@ rendered result — do not ask the user to look for you.
   `tailwind.config.ts`.** They are not Tailwind defaults; without them `bg-live/15` or
   `text-foreground/85` silently generates no CSS at all, and text falls back to the
   inherited body colour — which is how the hero labels went dark-on-dark in light mode.
-- **`app/opengraph-image.tsx` generates the social card at build time.** Do not add an
-  `images` key to `openGraph` in metadata — it would override the generated card.
+- **`app/opengraph-image.tsx` generates the social card at build time**, and
+  `generatePageMeta` attaches it to every page as the default `og:image`. A page that
+  exports its own metadata does not inherit the root card on its own, so do not remove
+  that fallback; pass `image` to `generatePageMeta` only for a page with its own card.
 - **The homepage has no `export const metadata`.** It inherits the root layout's, which is
   correct. Every other page must define its own.
 - **`components/system/safe-format.tsx` and `client-only.tsx` are currently unused.** They

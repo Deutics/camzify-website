@@ -15,7 +15,7 @@ import { Calendar, Clock, Repeat, ArrowRight, ShieldAlert } from 'lucide-react';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Automated Security Patrol Scheduling | Scheduled Camera Patrols",
+  title: "Automated Security Patrol Scheduling",
   description: "Schedule automated AI patrol rounds by frequency, active hours, and active days. Camzify runs every round unattended and emails the completed PDF report.",
   path: "/virtual-patrolling/automated-patrol-scheduling",
 };
@@ -24,12 +24,12 @@ export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
   { question: 'Does an automated round only check the items on the checklist?', answer: 'No. It works through the checklist, and it also assesses each stop for safety and security risks in its own right, raising a critical notification for anything it finds even where no checklist item covered it. A checklist can only ask what somebody thought to ask when the sequence was written, and the useful things a round finds are often not on it — a blocked exit, an unattended bag, smoke, somebody in a place they should not be.' },
-  { question: 'Does a failed item notify the guard without anyone approving it?', answer: 'On an automated round, yes — the notification goes to the guard assigned to that camera as the round runs, with no operator in the loop. That is the point of running it at 3am. On a manual round the operator is already looking at the camera, so the message is offered rather than sent automatically, and they can send it, skip it, or send it later from the same item.' },
-  { question: 'What is scene observation in automated patrolling?', answer: 'It lets an automated round judge a camera from a short window of live video — one, two or three seconds — instead of a single still frame. A frame tells you someone is in a corridor; a few seconds tell you whether they walked through or stayed. Single frame is faster and right for static checks like a gate or a roller door; watching is worth the extra seconds anywhere people are involved, because it is what stops a round waking a guard over somebody walking past a camera.' },
-  { question: 'Does an automated round feel different from a guard walking the site?', answer: 'It covers the same sequence with the same checks at the same times, and unlike a physical round it happens at 3am on the fourth night as reliably as the first. What it does not do is intervene — it observes, judges, notifies the responsible guard and files the record, so a person is dispatched to the things that need a person rather than to everything.' },
-  { question: 'Can different cameras in the same sequence run on different schedules?', answer: 'No — a patrol sequence runs as one unit, so every camera in it fires together on the same schedule. If two groups of cameras need different frequencies or active hours, split them into separate sequences, each with its own schedule.' },
+  { question: 'Does a failed item notify the guard without anyone approving it?', answer: 'On an automated round, yes. The notification goes to the guard assigned to that camera as the round runs, with no operator in the loop. That is the point of running it at 3am. On a manual round the operator is already looking at the camera, so the message is offered rather than sent automatically, and they can send it, skip it, or send it later from the same item.' },
+  { question: 'What is scene observation in automated patrolling?', answer: 'It lets an automated round judge a camera from a short window of live video, one to three seconds, instead of a single still frame. A frame tells you someone is in a corridor; a few seconds tell you whether they walked through or stayed. Single frame is faster and right for static checks like a gate or a roller door; watching is worth the extra seconds anywhere people are involved, because it is what stops a round waking a guard over somebody walking past a camera.' },
+  { question: 'Does an automated round feel different from a guard walking the site?', answer: 'It covers the same sequence with the same checks at the same times, and unlike a physical round it happens at 3am on the fourth night as reliably as the first. What it does not do is intervene. It observes, judges, notifies the responsible guard and files the record, so a person is dispatched to the things that need a person rather than to everything.' },
+  { question: 'Can different cameras in the same sequence run on different schedules?', answer: 'No. A patrol sequence runs as one unit, so every camera in it fires together on the same schedule. If two groups of cameras need different frequencies or active hours, split them into separate sequences, each with its own schedule.' },
   { question: 'What happens if a scheduled round is still running when the next one is due?', answer: 'The current round finishes its remaining stops before the next scheduled trigger is allowed to start, so rounds don\'t overlap or stack on top of each other. A tightly spaced frequency should leave enough time for a full round to complete.' },
-  { question: 'Can I pause a schedule without losing its configuration?', answer: 'Yes. Pausing keeps the frequency, active hours, and active days exactly as configured — no rounds fire while paused, and resuming picks the schedule back up unchanged.' },
+  { question: 'Can I pause a schedule without losing its configuration?', answer: 'Yes. Pausing keeps the frequency, active hours, and active days exactly as configured. No rounds fire while paused, and resuming picks the schedule back up unchanged.' },
   { question: 'Does automated scheduling account for holidays?', answer: 'Yes. Specific dates can be marked as exceptions so the schedule skips them without needing to be rebuilt or re-enabled afterward.' },
   { question: 'Who receives the report from a scheduled round?', answer: 'Whoever is configured as a recipient for that site. The PDF report is emailed automatically the moment the round finishes, with no manual step required to generate or send it.' },
 ];
@@ -44,7 +44,7 @@ export default function AutomatedSchedulingPage() {
         eyebrow="Automated Scheduling"
         title="Automated patrol scheduling"
         lede={<>Automated patrol scheduling is the ability to configure <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrol</Link> rounds
-            to run at a defined frequency, during specific active hours, on selected days of the week — completely
+            to run at a defined frequency, during specific active hours, on selected days of the week, completely
             unattended. The system handles every round, from the first camera to the final report.</>}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/risk-detection', label: 'Risk detection on patrol' }}
@@ -57,8 +57,8 @@ export default function AutomatedSchedulingPage() {
 
           <div className="mt-12 grid gap-8 sm:grid-cols-3">
             {[
-              { icon: Repeat, title: 'Frequency', desc: 'Set how often rounds run — every 30 minutes, every hour, every 2 hours. The system follows the schedule precisely.' },
-              { icon: Clock, title: 'Active hours', desc: 'Define the window when patrols are active. Night-only, business hours, or 24/7 — matched to your operational needs.' },
+              { icon: Repeat, title: 'Frequency', desc: 'Set how often rounds run: every 30 minutes, every hour, every 2 hours. The system follows the schedule precisely.' },
+              { icon: Clock, title: 'Active hours', desc: 'Define the window when patrols are active. Night-only, business hours or 24/7, matched to your operational needs.' },
               { icon: Calendar, title: 'Active days', desc: 'Select which days of the week the schedule applies. Weekdays only, weekends only, or every day.' },
             ].map((item: any, i: number) => {
               const Icon = item?.icon ?? Calendar;
@@ -79,8 +79,8 @@ export default function AutomatedSchedulingPage() {
               <span className="font-mono text-mono-sm uppercase text-primary">Why Scheduling Matters</span>
               <h2 className="mt-2 font-display text-2xl font-bold">Why automated scheduling matters</h2>
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
-                <p>Physical guard rounds depend on someone remembering to run them. A scheduled patrol slips when a site is short-staffed, when other calls take priority, or simply when a written schedule doesn't get checked — and the gap in coverage isn't discovered until something goes wrong and nobody can say when the area was last looked at.</p>
-                <p>Running virtual patrols manually has the same weakness in a different form. Someone still has to log in and start the round at the right time, every time, across every site — which works fine until they don't.</p>
+                <p>Physical guard rounds depend on someone remembering to run them. A scheduled patrol slips when a site is short-staffed, when other calls take priority, or simply when a written schedule doesn't get checked. The gap in coverage isn't discovered until something goes wrong and nobody can say when the area was last looked at.</p>
+                <p>Running virtual patrols manually has the same weakness in a different form. Someone still has to log in and start the round at the right time, every time, across every site, which works fine until they don't.</p>
                 <p>Automated scheduling removes the dependency on memory entirely. Once frequency, active hours, and active days are set, every round fires exactly on time, unattended, whether it's 3am on a Tuesday or a day nobody happened to be tracking.</p>
               </div>
             </ScrollReveal>
@@ -177,7 +177,7 @@ export default function AutomatedSchedulingPage() {
                 <h2 className="mt-16 font-display text-2xl font-bold">Timezone, holidays &amp; pause/resume</h2>
                 <ul className="mt-4 space-y-3 text-muted-foreground">
                   <li className="flex gap-2">• Schedules run in the site's local timezone, not the account default, so multi-region deployments stay accurate</li>
-                  <li className="flex gap-2">• Mark specific dates as exceptions — the schedule skips holidays or closures without being rebuilt</li>
+                  <li className="flex gap-2">• Mark specific dates as exceptions so the schedule skips holidays or closures without being rebuilt</li>
                   <li className="flex gap-2">• Pause a schedule during maintenance and resume it later with the same frequency, hours, and days intact</li>
                   <li className="flex gap-2">• The next scheduled run time for each sequence is visible at a glance from the schedule list</li>
                 </ul>

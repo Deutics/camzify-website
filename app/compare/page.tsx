@@ -18,11 +18,11 @@ const pageMeta = {
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const items = [
-  { slug: 'virtual-patrolling-vs-security-guards', title: 'Virtual Patrolling vs Security Guards' },
-  { slug: 'virtual-patrolling-vs-guard-tour-systems', title: 'Virtual Patrolling vs Guard Tour Systems' },
-  { slug: 'camzify-vs-traditional-vms', title: 'Camzify vs Traditional VMS' },
-  { slug: 'ai-video-analytics-vs-motion-detection', title: 'AI Video Analytics vs Motion Detection' },
-  { slug: 'cloud-vms-vs-on-premise', title: 'Cloud VMS vs On-Premise VMS' },
+  { href: '/virtual-patrolling/vs-security-guards', title: 'Virtual Patrolling vs Security Guards' },
+  { href: '/compare/virtual-patrolling-vs-guard-tour-systems', title: 'Virtual Patrolling vs Guard Tour Systems' },
+  { href: '/compare/camzify-vs-traditional-vms', title: 'Camzify vs Traditional VMS' },
+  { href: '/compare/ai-video-analytics-vs-motion-detection', title: 'AI Video Analytics vs Motion Detection' },
+  { href: '/compare/cloud-vms-vs-on-premise', title: 'Cloud VMS vs On-Premise VMS' },
 ];
 
 export default function CompareHub() {
@@ -36,8 +36,8 @@ export default function CompareHub() {
           </p>
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {items.map((item, i) => (
-              <ScrollReveal key={item.slug} delay={i * 0.05}>
-                <Link href={`/compare/${item.slug}`} className="group flex items-start gap-4 rounded-xl bg-card p-6 shadow-md transition-all hover:shadow-lg hover:-translate-y-0.5">
+              <ScrollReveal key={item.href} delay={i * 0.05}>
+                <Link href={item.href} className="group flex items-start gap-4 rounded-xl bg-card p-6 shadow-md transition-all hover:shadow-lg hover:-translate-y-0.5">
                   <ArrowLeftRight className="mt-0.5 h-6 w-6 shrink-0 text-primary" />
                   <div>
                     <h2 className="font-display text-lg font-bold">{item.title}</h2>

@@ -160,7 +160,6 @@ const industries = group(
 // Comparison pages punch above their weight on bottom-funnel queries.
 const compare = group(
   [
-    '/compare/virtual-patrolling-vs-security-guards',
     '/compare/virtual-patrolling-vs-guard-tour-systems',
     '/compare/camzify-vs-traditional-vms',
     '/compare/ai-video-analytics-vs-motion-detection',

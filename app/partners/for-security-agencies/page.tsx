@@ -11,8 +11,8 @@ import { Building2, Users, FileText, Clock, ShieldAlert, Layers } from 'lucide-r
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Camzify for Security Agencies | Remote Guarding Software",
-  description: "Add virtual patrolling to a manned guarding offer. Cover every client site on schedule overnight, give each client its own scoped login and reports, and dispatch guards to verified events.",
+  title: "For Security Agencies | Remote Guarding Software",
+  description: "Add virtual patrolling to a guarding offer: client sites covered overnight, a scoped login and reports per client, guards sent to verified events.",
   path: "/partners/for-security-agencies",
 };
 
@@ -203,7 +203,9 @@ export default function ForSecurityAgenciesPage() {
                 you and notifies your guards, the{' '}
                 <Link href="/partners/for-monitoring-centers" className="text-primary hover:underline">monitoring companies</Link>{' '}
                 page covers that angle, including who holds the account in that arrangement. If you resell rather than operate, see{' '}
-                <Link href="/partners/become-a-reseller" className="text-primary hover:underline">becoming a reseller</Link>.
+                <Link href="/partners/become-a-reseller" className="text-primary hover:underline">becoming a reseller</Link>; if
+                you install and maintain camera systems, see{' '}
+                <Link href="/partners/for-security-integrators" className="text-primary hover:underline">security integrators</Link>.
               </p>
             </ScrollReveal>
           </div>

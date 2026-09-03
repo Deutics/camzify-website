@@ -14,8 +14,8 @@ import { ShieldAlert, Bell, Eye, ClipboardCheck } from 'lucide-react';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "AI Risk Detection on Patrol | Proactive Security Alerts",
-  description: "An automated patrol round flags safety and security risks it sees at each camera — a blocked exit, an unattended object, smoke — and raises a critical alert even where no checklist item asked about it.",
+  title: "AI Risk Detection on Patrol | Critical Alerts",
+  description: "Automated rounds flag safety and security risks at each camera, such as a blocked exit or smoke, and raise a critical alert where no checklist item asked.",
   path: "/virtual-patrolling/risk-detection",
 };
 

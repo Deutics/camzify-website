@@ -18,8 +18,8 @@ import {
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Virtual Patrolling System | Automated AI Security Patrols",
-  description: "A virtual patrolling system runs scheduled AI patrol rounds across your cameras, checking a defined checklist at each point, notifying the assigned guard on failure, and filing a compliance report with the evidence attached.",
+  title: "Virtual Patrolling System | AI Security Patrols",
+  description: "Scheduled AI patrol rounds on your cameras: a checklist at each stop, the guard notified on failure, and a compliance report with the evidence attached.",
   path: "/virtual-patrolling",
 };
 

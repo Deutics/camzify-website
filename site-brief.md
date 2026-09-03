@@ -347,7 +347,7 @@ Plain. Technical. Unhyped.
 - **Person:** First person plural for the company ("we build", "we do not claim"); second person for the reader ("your site", "the cameras you already own"). Feature and guide pages are largely impersonal and descriptive.
 - **Contractions:** Rare. The copy consistently prefers expanded forms — "cannot", "does not", "is not". Match this.
 - **Humour:** None. Not one joke across 121 pages. Do not introduce any.
-- **Sentence length:** Medium, varied. Frequent em-dash asides. Paragraphs run 2–4 sentences. Opening sentences are definitional and self-contained.
+- **Sentence length:** Medium, varied. Em-dash asides sparingly (2026-09-03: cut from ~100 to ~20 across the revamped pages; a dash-heavy page reads as machine-written). Prefer a full stop, a colon or a comma. Paragraphs run 2–4 sentences. Opening sentences are definitional and self-contained.
 - **Anything structural to always do or never do:** Answer in the first two sentences, then expand. Write sentences that survive being quoted out of context. Never open with a preamble or a rhetorical question. Never use a heading that does not describe what follows.
 
 ### Words from the business's own mouth

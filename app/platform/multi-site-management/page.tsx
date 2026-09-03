@@ -14,7 +14,7 @@ import { Building2, SlidersHorizontal, BarChart3, Camera } from 'lucide-react';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Multi-Site Video Surveillance | Centralized Management",
+  title: "Multi-Site Video Surveillance Management",
   description: "Camzify multi-site management: centralized console for cameras, alerts, and patrol compliance across all distributed locations.",
   path: "/platform/multi-site-management",
 };

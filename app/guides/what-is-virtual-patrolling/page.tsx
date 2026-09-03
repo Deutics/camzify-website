@@ -56,7 +56,7 @@ The entire round produces a compliance report — exportable as PDF — showing 
           <section className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Virtual patrolling vs security guards</h2>
-              <div className="mt-4 max-w-prose space-y-4 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `The comparison is not binary — many facilities use both. Virtual patrolling provides the consistent, verifiable baseline; guards provide the physical response capability. The cost difference is significant: a single guard at SGD 12/hour for overnight coverage costs roughly SGD 43,800/year. Camzify monitors the same cameras for a fraction of that. See the full comparison at <a href="/compare/virtual-patrolling-vs-security-guards">virtual patrolling vs security guards</a>, or model your specific scenario with the <a href="/roi-calculator">ROI calculator</a>.` }} />
+              <div className="mt-4 max-w-prose space-y-4 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `The comparison is not binary — many facilities use both. Virtual patrolling provides the consistent, verifiable baseline; guards provide the physical response capability. The cost difference is significant: a single guard at SGD 12/hour for overnight coverage costs roughly SGD 43,800/year. Camzify monitors the same cameras for a fraction of that. See the full comparison at <a href="/virtual-patrolling/vs-security-guards">virtual patrolling vs security guards</a>, or model your specific scenario with the <a href="/roi-calculator">ROI calculator</a>.` }} />
             </ScrollReveal>
           </section>
 

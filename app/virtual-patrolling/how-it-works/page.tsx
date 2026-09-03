@@ -16,8 +16,8 @@ import { Wifi, Route, ClipboardCheck, Calendar, Cpu, FileText } from 'lucide-rea
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "How Virtual Patrolling Works | Six Steps From Camera to Report",
-  description: "How a virtual patrol round moves from camera connection to compliance report: connect cameras, build the sequence, assign checklists and guards, schedule it, let the AI run the round, and file the record.",
+  title: "How Virtual Patrolling Works | Camera to Report",
+  description: "How a virtual patrol round runs: connect cameras, build the sequence, assign checklists and guards, schedule it, let the AI run the round, file the record.",
   path: "/virtual-patrolling/how-it-works",
 };
 
