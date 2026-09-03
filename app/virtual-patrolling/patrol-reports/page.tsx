@@ -20,6 +20,8 @@ const pageMeta = {
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
+  { question: 'Does the report explain why the AI answered the way it did?', answer: 'Yes, on automated rounds. Each checklist response carries the verdict and the reasoning behind it in plain language — for example "the metal gate appears to be closed", or, against a lights-off check, "the room appears to be lit, indicating lights might be on". You are reading an argument rather than accepting a verdict, which means a wrong call can be spotted and the checklist wording fixed instead of the result being quietly distrusted.' },
+  { question: 'What does an automated round record about each camera?', answer: 'A written description of the scene, a count of people present, the objects detected in view, a safety risk assessment, a security risk assessment, the captured frame, and each checklist item with its answer and reasoning. The risk assessments are recorded for every camera whether or not anything is wrong — "none apparent" is itself a result, and a run of them is what makes the one that says otherwise worth acting on.' },
   { question: 'Does the patrol report include camera images?', answer: 'Yes. Every checklist result carries the snapshot from the camera at the moment that item was checked, so the report shows what was actually on screen rather than only the verdict. An item that failed and was then fixed during the round carries two frames — the camera as found and the same camera after the fix — which is what turns the report from a list of problems reported into a record of problems closed. An item still outstanding carries the frame as found, alongside the written reason it is pending.' },
   { question: 'How long are patrol reports kept?', answer: 'Reports stay in the patrol log for as long as the account is active, so a report from months back is still available if an insurer or auditor asks for it. There\'s no separate archiving step required.' },
   { question: 'Can a report be exported for a date range instead of a single round?', answer: 'Yes. A date range covering multiple rounds can be exported together, which is typically faster than pulling individual reports one at a time for an audit or an insurance claim.' },
@@ -58,6 +60,8 @@ export default function PatrolReportsPage() {
                   'Compliant and Not Compliant status per item',
                   'The camera snapshot each item was judged against, which can be zoomed into',
                   'Before and after frames on any item that was fixed during the round',
+                  'On automated rounds: a written description of the scene, the objects detected in it, and the reasoning behind each answer',
+                  'On automated rounds: a safety and security risk assessment for every camera, recorded even when nothing is wrong',
                   'Guard notifications sent on failures',
                   'Overall compliance percentage for the round',
                   'Patrol type (Manual or Auto)',

@@ -148,6 +148,15 @@ export default function AutomatedSchedulingPage() {
                     condition.
                   </p>
                   <p className="mt-4 max-w-prose text-muted-foreground">
+                    <strong className="font-semibold text-foreground">
+                      Both assessments are written into the report at every stop, not only when
+                      something is found.
+                    </strong>{' '}
+                    Alongside them each camera records a plain-language description of the scene,
+                    the number of people present, and the objects detected in view &mdash; so a
+                    risk entry can be read against what the camera was actually looking at.
+                  </p>
+                  <p className="mt-4 max-w-prose text-muted-foreground">
                     More on what this covers and where it fits:{' '}
                     <Link href="/virtual-patrolling/risk-detection" className="text-primary hover:underline">AI risk detection on patrol</Link>.
                     These arrive as{' '}

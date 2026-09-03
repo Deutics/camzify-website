@@ -95,6 +95,32 @@ export default function RiskDetectionPage() {
 
           <div className="mt-16">
             <ScrollReveal>
+              <h2 className="font-display text-2xl font-bold">It is assessed at every stop, not only when something is wrong</h2>
+              <p className="mt-4 max-w-prose text-muted-foreground">
+                Every camera on an automated round gets two entries in the report:{' '}
+                <strong className="font-semibold text-foreground">possible safety risks</strong> and{' '}
+                <strong className="font-semibold text-foreground">possible security risks</strong>.
+                They are filled in whether or not anything is wrong. A gym might read &ldquo;possible
+                tripping hazards due to equipment left out on the floor&rdquo;; a pathway,
+                &ldquo;wet surfaces might cause slipping&rdquo;; most stops, &ldquo;none
+                apparent&rdquo;.
+              </p>
+              <p className="mt-4 max-w-prose text-muted-foreground">
+                Recording the negatives is what makes the positives worth reading. A system that
+                only speaks up when it has something to say gives you no way to tell the difference
+                between a quiet night and a system that stopped looking &mdash; and it leaves no
+                record that a hazard was absent at the time somebody later says it was there.
+              </p>
+              <p className="mt-4 max-w-prose text-muted-foreground">
+                Each stop also records what the camera actually saw: a plain-language description of
+                the scene, the number of people present, and the objects detected in view. That is
+                the context an assessment is made against, kept alongside it.
+              </p>
+            </ScrollReveal>
+          </div>
+
+          <div className="mt-16">
+            <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Why the timing is the whole point</h2>
               <p className="mt-4 max-w-prose text-muted-foreground">
                 Most site risks are not instantaneous. A fire door wedged open at the start of a

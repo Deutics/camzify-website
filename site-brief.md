@@ -179,6 +179,54 @@ content and AI citations, so a fabricated claim here poisons everything downstre
 - **Certifications, awards, associations, memberships:** Singapore PDPA, GDPR, SOC 2 Type II and ISO 27001 are **all in progress and none are held**. The site renders each with an explicit "In progress" badge. **No skill may describe Camzify as certified under any of these.**
 - **Years in business / team size:** Serving customers for three years as of 2026. Team of around 20. *(Supplied by the business 2026-09-02.)* The three-year figure is publishable and now appears on `/about`; the team size is recorded here for context but is deliberately not on the site — for an enterprise security buyer a headcount in the tens reads as a risk signal rather than a credential, and nothing on the site currently needs it.
 
+### Report contents — verified against real output 2026-09-03
+
+Two production reports were supplied (one manual, one automated). What they contain,
+confirmed rather than assumed:
+
+**Manual round, per item:** serial number, site, time, checklist item, compliance answer,
+remarks, rectification message, a BEFORE frame, and an AFTER frame (or "No Rectification
+Required"). Header carries total checklist items covered, compliance count, non-compliance
+count and pending count.
+
+**Automated round, per camera:** checklist number, site, time, a plain-language scene
+description, people count, estimated gender, the captured frame, emotions and expressions,
+possible safety risks, possible security risks, objects detected, and each checklist item
+with its answer **and the reasoning behind it** — e.g. "the room appears to be lit,
+indicating lights might be on".
+
+**Two fields are deliberately NOT promoted on the site: estimated gender and emotions
+and expressions.** See the risk note below. Everything else is now reflected on
+`/virtual-patrolling/patrol-reports`, `/virtual-patrolling/risk-detection`,
+`/virtual-patrolling/automated-patrol-scheduling`, the homepage and `/llms.txt`.
+
+> **⚠️ LEGAL RISK — needs a decision, and probably legal advice.**
+>
+> The automated report performs **emotion inference** ("Emotions and Expressions") and
+> **gender estimation** ("Estimated Gender") on people in frame, and these are written into
+> a document customers receive.
+>
+> Under the **EU AI Act**, emotion recognition in the workplace is a prohibited practice,
+> and inferring characteristics such as gender from biometric data is restricted
+> biometric categorisation. In the **US**, Illinois BIPA and comparable state laws create
+> exposure around biometric identifiers, with a private right of action in Illinois.
+>
+> This is why neither field appears anywhere in the marketing copy. Marketing them would
+> advertise the exposure; but the exposure exists in the product regardless of whether the
+> site mentions it. Worth a conversation with counsel about whether these fields should be
+> generated at all, especially for any EU or Illinois deployment.
+
+### Issues observed in the supplied reports (product, not website)
+
+- **Domain inconsistency.** The manual report footer reads `www.camzify.com`; the automated
+  report reads `www.camzify.live`. One of the two is wrong on a document customers keep.
+- **`Location: None`** on both reports — the field renders but is never populated.
+- **Two of six stops returned `N/A` for every field** in the automated report, including the
+  checklist response. A third of the round produced no assessment and the report does not
+  say why.
+- The automated report has no overall compliance count or percentage in its header, while
+  the manual one does.
+
 ### Author identity (for author bios and E-E-A-T)
 
 **Resolved 2026-09-02.** Guides carry a named byline.
