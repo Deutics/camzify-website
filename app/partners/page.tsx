@@ -19,10 +19,10 @@ export const metadata = generatePageMeta({ ...pageMeta });
 
 const partnerTypes = [
   { slug: 'for-security-agencies', title: 'For Security Agencies', icon: Users, desc: 'Sell overnight coverage across every client site, with a report per client — alongside the guards you already provide.' },
-  { slug: 'become-a-reseller', title: 'Become a Reseller', icon: Handshake, desc: 'Sell Camzify to your customers with dedicated support and margin.' },
-  { slug: 'for-security-integrators', title: 'For Security Integrators', icon: Shield, desc: 'Add virtual patrolling to your installation and maintenance offering.' },
+  { slug: 'become-a-reseller', title: 'Become a Reseller', icon: Handshake, desc: 'Sell a cloud VMS with virtual patrolling built in. Software only, quote-based pricing, a page you can quote for every claim.' },
+  { slug: 'for-security-integrators', title: 'For Security Integrators', icon: Shield, desc: 'Attach virtual patrolling to systems you already install: RTSP, RTMP or HTTPS, a Connector for LAN cameras, a clean hand-over.' },
   { slug: 'for-monitoring-centers', title: 'For Monitoring Companies', icon: Monitor, desc: 'Run scheduled rounds for every agency you monitor for, notify their guards from the round, and hand each one a report per round.' },
-  { slug: 'for-managed-service-providers', title: 'For Managed Service Providers', icon: Server, desc: 'Offer Camzify as a managed security service to your clients.' },
+  { slug: 'for-managed-service-providers', title: 'For Managed Service Providers', icon: Server, desc: 'One account you hold, a scoped login per customer, quota you allocate and reclaim, alerts and reports per client.' },
 ];
 
 export default function PartnersHub() {

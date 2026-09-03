@@ -88,6 +88,16 @@ export default function CamzifyConnectorPage() {
           </div>
         </div>
       </section>
+      <section className="pb-4">
+        <div className="mx-auto max-w-site px-6">
+          <p className="max-w-prose text-muted-foreground">
+            Installing the Connector on a customer&apos;s network as part of a wider job? The{' '}
+            <Link href="/partners/for-security-integrators" className="text-primary hover:underline">security integrators</Link>{' '}
+            page covers commissioning and hand-over.
+          </p>
+        </div>
+      </section>
+
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
           <div className="rounded-2xl border border-border bg-card p-8 sm:p-10">

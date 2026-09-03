@@ -256,7 +256,9 @@ export default function ForMonitoringCentresPage() {
                 it applies to partner conversations as much as to marketing. If you run guarding
                 rather than monitoring, the{' '}
                 <Link href="/partners/for-security-agencies" className="text-primary hover:underline">security agencies</Link>{' '}
-                page is written for you.
+                page is written for you; if you hold accounts for customers as part of a wider IT
+                service, see{' '}
+                <Link href="/partners/for-managed-service-providers" className="text-primary hover:underline">managed service providers</Link>.
               </p>
             </ScrollReveal>
           </div>
