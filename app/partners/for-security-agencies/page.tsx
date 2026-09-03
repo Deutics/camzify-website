@@ -198,9 +198,10 @@ export default function ForSecurityAgenciesPage() {
                 ))}
               </div>
               <p className="mt-6 max-w-prose text-muted-foreground">
-                If you run a staffed monitoring operation, the{' '}
-                <Link href="/partners/for-monitoring-centers" className="text-primary hover:underline">monitoring centers</Link>{' '}
-                page covers that angle. If you resell rather than operate, see{' '}
+                If you run a staffed monitoring operation, or a monitoring company runs it for
+                you and notifies your guards, the{' '}
+                <Link href="/partners/for-monitoring-centers" className="text-primary hover:underline">monitoring companies</Link>{' '}
+                page covers that angle, including who holds the account in that arrangement. If you resell rather than operate, see{' '}
                 <Link href="/partners/become-a-reseller" className="text-primary hover:underline">becoming a reseller</Link>.
               </p>
             </ScrollReveal>

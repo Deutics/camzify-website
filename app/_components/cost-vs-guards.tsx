@@ -72,6 +72,10 @@ export function CostVsGuards() {
                 <Link href="/partners/for-security-agencies" className="text-primary hover:underline">
                   Camzify for security agencies
                 </Link>
+                . Monitor on an agency&apos;s behalf? See{' '}
+                <Link href="/partners/for-monitoring-centers" className="text-primary hover:underline">
+                  Camzify for monitoring companies
+                </Link>
                 .
               </p>
 

@@ -293,6 +293,7 @@ export const navItems = [
       { label: 'Blog', href: '/blog', description: 'Latest insights and updates' },
       { label: 'Roadmap', href: '/roadmap', description: 'What we are building next' },
       { label: 'For Security Agencies', href: '/partners/for-security-agencies', description: 'Add virtual patrolling to a guarding offer' },
+      { label: 'For Monitoring Companies', href: '/partners/for-monitoring-centers', description: 'Run rounds for the agencies you monitor for' },
     ],
   },
 ] as const;

@@ -21,7 +21,7 @@ const partnerTypes = [
   { slug: 'for-security-agencies', title: 'For Security Agencies', icon: Users, desc: 'Sell overnight coverage across every client site, with a report per client — alongside the guards you already provide.' },
   { slug: 'become-a-reseller', title: 'Become a Reseller', icon: Handshake, desc: 'Sell Camzify to your customers with dedicated support and margin.' },
   { slug: 'for-security-integrators', title: 'For Security Integrators', icon: Shield, desc: 'Add virtual patrolling to your installation and maintenance offering.' },
-  { slug: 'for-monitoring-centers', title: 'For Monitoring Centers', icon: Monitor, desc: 'Augment human monitoring with AI-powered patrol automation.' },
+  { slug: 'for-monitoring-centers', title: 'For Monitoring Companies', icon: Monitor, desc: 'Run scheduled rounds for every agency you monitor for, notify their guards from the round, and hand each one a report per round.' },
   { slug: 'for-managed-service-providers', title: 'For Managed Service Providers', icon: Server, desc: 'Offer Camzify as a managed security service to your clients.' },
 ];
 
