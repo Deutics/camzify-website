@@ -44,33 +44,35 @@ export function CameraSupport() {
             );
           })}
         </div>
-        <div className="mt-8 text-center">
+        {/*
+          A marquee here rather than the grid: this is recognition, not reference. The
+          full sixteen with their protocol notes stay on /supported-cameras, where a
+          reader is checking a specific fleet and needs to scan rather than watch.
+        */}
+        <div className="mt-14">
+          <p className="text-center font-mono text-mono-sm uppercase text-muted-foreground">
+            Deployed on cameras from
+          </p>
+          <LogoMarquee className="mt-6" />
+          {/*
+            Disclaimer only. The link to the full list lives once, below, as the
+            section's closing action — adding one here too put two links to the same
+            page within a few hundred pixels of each other.
+          */}
+          <p className="mx-auto mt-6 max-w-3xl text-center text-xs leading-relaxed text-muted-foreground">
+            Brand names and logos are trademarks of their respective owners. Listing a
+            manufacturer states that its ONVIF-conformant cameras interoperate with Camzify;
+            it does not imply partnership or endorsement.
+          </p>
+        </div>
+
+        <div className="mt-10 text-center">
           <Link
             href="/supported-cameras"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80"
+            className="inline-flex items-center gap-2 rounded text-sm font-semibold text-primary transition-colors hover:text-primary/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
-            View supported camera database <ArrowRight className="h-4 w-4" />
+            View all supported camera brands <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
-          {/*
-            A marquee here rather than the grid: this is recognition, not reference. The
-            full sixteen with their protocol notes stay on /supported-cameras, where a
-            reader is checking a specific fleet and needs to scan rather than watch.
-          */}
-          <div className="mt-14">
-            <p className="text-center font-mono text-mono-sm uppercase text-muted-foreground">
-              Deployed on cameras from
-            </p>
-            <LogoMarquee className="mt-6" />
-            <p className="mt-6 text-center text-xs leading-relaxed text-muted-foreground">
-              Brand names and logos are trademarks of their respective owners. Listing a
-              manufacturer states that its ONVIF-conformant cameras interoperate with Camzify;
-              it does not imply partnership or endorsement.{' '}
-              <Link href="/supported-cameras" className="text-primary hover:underline">
-                See all supported manufacturers
-              </Link>
-              .
-            </p>
-          </div>
         </div>
       </div>
     </section>
