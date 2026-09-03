@@ -4,50 +4,38 @@ import { cameraBrands, type CameraBrand } from '@/lib/camera-brands';
 /**
  * Camera manufacturer marks.
  *
- * Renders each brand's logo where artwork exists and a typographic wordmark where it
- * does not, so a partially supplied set looks deliberate rather than broken.
+ * Every cell is a white plate. That is not a styling preference — it is what the
+ * artwork requires. Four of the eight marks (Axis, Dahua, Hanwha Vision, Uniview)
+ * carry black or near-black lettering and vanish against the dark theme, and the fix
+ * cannot be to recolour them: altering a trademark is worse than omitting it, and
+ * inverting a two-colour mark yields something that is not the logo. On a white plate
+ * each mark renders in exactly the colours its owner published, in both themes.
  *
- * Two things this gets right that a naive logo wall does not:
+ * Brands still awaiting artwork render a wordmark on the same plate, so the grid stays
+ * one visual treatment rather than splitting into logos and text.
  *
- * Optical sizing. Logos arrive at wildly different aspect ratios — Bosch is nearly
- * square, Hanwha Vision is a long lockup. Scaling all of them to the same *width*
- * makes the tall ones tower over the wide ones. Every mark is instead capped to the
- * same height inside a fixed box with object-contain, which is how a logo wall reads
- * as one row rather than a pile.
- *
- * Dark theme. The previous version applied `invert brightness-0` to every mark, which
- * would have turned every coloured logo into a white silhouette — a wrong logo, and a
- * worse trademark problem than no logo. Inversion is now opt-in per brand via
- * `monochrome`, and brands that need a genuinely different file supply `logoDark`.
+ * Optical sizing: logos arrive at very different aspect ratios — Ubiquiti's is nearly
+ * square, Axis is a wide lockup. Every mark is capped to the same height inside a fixed
+ * box with object-contain, which is what makes the row read as one row.
  */
 function BrandMark({ brand }: { brand: CameraBrand }) {
   if (!brand.logo) {
     return (
-      <span className="font-display text-base font-bold tracking-tight text-foreground/70 transition-colors duration-normal group-hover:text-foreground">
-        {brand.name}
-      </span>
+      <span className="font-display text-base font-bold tracking-tight">{brand.name}</span>
     );
   }
 
-  const common = 'max-h-7 w-auto object-contain opacity-75 transition-opacity duration-normal group-hover:opacity-100';
-
-  // A separate dark-theme file: show one, hide the other. Both stay in the DOM.
-  if (brand.logoDark) {
-    return (
-      <>
-        <Image src={brand.logo} alt={brand.name} width={140} height={28} className={`${common} dark:hidden`} />
-        <Image src={brand.logoDark} alt="" aria-hidden="true" width={140} height={28} className={`hidden ${common} dark:block`} />
-      </>
-    );
-  }
-
+  // Capped on both axes rather than one. A single height cap crushes stacked lockups
+  // (Hanwha Vision and Uniview set their mark above the wordmark) while wide lockups
+  // like Axis and TP-Link are limited by width anyway, so the two constraints together
+  // are what make marks of different shapes read as the same size.
   return (
     <Image
       src={brand.logo}
       alt={brand.name}
-      width={140}
-      height={28}
-      className={`${common} ${brand.monochrome ? 'dark:brightness-0 dark:invert' : ''}`}
+      width={180}
+      height={44}
+      className="max-h-11 w-auto max-w-[180px] object-contain"
     />
   );
 }
@@ -67,13 +55,14 @@ export function BrandStrip({
     <div className={className}>
       <ul className="grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-3 lg:grid-cols-4">
         {brands.map((b) => (
-          <li key={b.name} className="group flex flex-col justify-center bg-card px-5 py-6 text-center">
-            {/* Fixed-height box: every mark is optically the same size whatever its ratio. */}
-            <span className="flex h-7 items-center justify-center">
+          <li key={b.name} className="flex flex-col bg-card">
+            <span className="brand-plate flex h-20 items-center justify-center px-5">
               <BrandMark brand={b} />
             </span>
             {showNotes && (
-              <span className="mt-2.5 block text-xs leading-snug text-muted-foreground">{b.note}</span>
+              <span className="block px-5 py-3 text-xs leading-snug text-muted-foreground">
+                {b.note}
+              </span>
             )}
           </li>
         ))}

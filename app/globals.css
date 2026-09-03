@@ -140,6 +140,27 @@
 }
 
 /* Patrol sweep animation */
+/*
+ * Brand plate.
+ *
+ * Manufacturer logos are colour marks with black or near-black lettering — Axis, Dahua,
+ * Hanwha Vision and Uniview all disappear against the dark theme. Recolouring them is
+ * not an option: altering a trademark is worse than not showing it, and inverting a
+ * two-colour mark produces something that is not the logo.
+ *
+ * So every mark sits on a white plate in both themes. The colours stay exactly as the
+ * owner published them, the strip reads consistently light-on-dark and light-on-light,
+ * and brands still awaiting artwork put their wordmark on the same plate so the grid
+ * does not split into two visual treatments.
+ *
+ * Literal colours are deliberate here and belong in this layer rather than in JSX: the
+ * plate is white because the logos require white, not because the theme says so.
+ */
+.brand-plate {
+  background: #ffffff;
+  color: #1c1c1f;
+}
+
 @keyframes patrol-sweep {
   0% { transform: translateX(-100%); }
   100% { transform: translateX(400%); }
