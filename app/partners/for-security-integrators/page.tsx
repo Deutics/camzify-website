@@ -19,7 +19,7 @@ import { Cable, Server, Users, FileCheck2, Camera, KeyRound, HardDrive } from 'l
  */
 const pageMeta = {
   title: "For Security Integrators | Cloud VMS Add-On",
-  description: "Attach virtual patrolling to camera systems you already install. RTSP, RTMP or HTTPS, a Connector for LAN cameras, no NVR replaced, and a clean hand-over to the customer.",
+  description: "Attach virtual patrolling to camera systems you already install. RTSP, RTMP or HTTPS, a Connector for LAN cameras, nothing replaced, a clean hand-over.",
   path: "/partners/for-security-integrators",
 };
 
@@ -145,8 +145,8 @@ export default function ForSecurityIntegratorsPage() {
             <ScrollReveal>
               <SectionVisual
                 variant="schedule"
-                caption="Recording and retention are set per camera and can be applied to a whole site at once. The on-site recorder is not involved."
-                alt="A per-camera recording schedule with retention settings, applied across a site"
+                caption="A patrol round scheduled per site. Recording and retention are set per camera in the same console, and the on-site recorder is not involved."
+                alt="A scheduled patrol round with its frequency, active hours and active days"
               />
             </ScrollReveal>
             <ScrollReveal delay={0.1}>

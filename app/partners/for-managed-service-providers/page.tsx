@@ -18,7 +18,7 @@ import { Layers, Users, KeyRound, Bell, HardDrive, FileCheck2, ShieldCheck } fro
  */
 const pageMeta = {
   title: "For Managed Service Providers | Multi-Tenant VMS",
-  description: "Run video surveillance and virtual patrolling as a managed service. One account, a scoped login per customer, quota you allocate and reclaim, alerts and reports per client.",
+  description: "Run video surveillance and virtual patrolling as a managed service: one account, a login per customer, quota you allocate, alerts and reports per client.",
   path: "/partners/for-managed-service-providers",
 };
 
