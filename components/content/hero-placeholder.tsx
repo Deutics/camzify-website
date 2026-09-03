@@ -42,7 +42,7 @@ export function HeroPlaceholder({
       data-replace="hero"
       role="img"
       aria-label={alt}
-      className="console-panel corner-ticks overflow-hidden"
+      className="console-panel corner-ticks w-full min-w-0 max-w-full overflow-hidden"
     >
       <div className="flex items-center gap-2 border-b border-border bg-muted/30 px-4 py-2.5">
         <span className="flex gap-1.5" aria-hidden="true">

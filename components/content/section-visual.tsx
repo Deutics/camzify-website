@@ -28,7 +28,7 @@ export type SectionVisualVariant =
 
 function Frame({ children, caption, alt }: { children: React.ReactNode; caption: string; alt: string }) {
   return (
-    <figure role="img" aria-label={alt} className="console-panel corner-ticks overflow-hidden">
+    <figure role="img" aria-label={alt} className="console-panel corner-ticks w-full min-w-0 max-w-full overflow-hidden">
       <div className="flex items-center gap-2 border-b border-border bg-muted/30 px-4 py-2.5">
         <span className="flex gap-1.5" aria-hidden="true">
           <span className="h-2 w-2 rounded-full bg-muted-foreground/25" />
@@ -57,16 +57,16 @@ function Route() {
     <ol className="relative space-y-3">
       <span aria-hidden="true" className="absolute left-[19px] top-4 bottom-4 w-px bg-border" />
       {stops.map((s, i) => (
-        <li key={s.id} className="relative flex items-center gap-4">
+        <li key={s.id} className="relative flex min-w-0 items-center gap-3 sm:gap-4">
           <span className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-primary/40 bg-card font-mono text-sm text-primary tabular-nums">
             {String(i + 1).padStart(2, '0')}
           </span>
-          <img src={s.frame} alt="" aria-hidden="true" width={96} height={54} loading="lazy" className="h-12 w-[84px] shrink-0 rounded-md border border-border object-cover" />
+          <img src={s.frame} alt="" aria-hidden="true" width={96} height={54} loading="lazy" className="h-9 w-16 shrink-0 rounded-md border border-border object-cover sm:h-12 sm:w-[84px]" />
           <span className="min-w-0 flex-1">
             <span className="block font-mono text-mono-sm uppercase text-muted-foreground">{s.id}</span>
             <span className="block truncate text-sm font-medium">{s.loc}</span>
           </span>
-          <span className="shrink-0 font-mono text-mono-sm text-muted-foreground">{s.items} checks</span>
+          <span className="shrink-0 font-mono text-mono-sm text-muted-foreground">{s.items}<span className="hidden sm:inline"> checks</span></span>
         </li>
       ))}
     </ol>
@@ -94,8 +94,8 @@ function Checklist() {
               state === 'ok' ? 'border-live/30 bg-live/5' : state === 'fail' ? 'border-critical/30 bg-critical/5' : 'border-warn/40 bg-warn/5'
             }`}
           >
-            <span>{label}</span>
-            <span className={`flex items-center gap-1.5 font-mono text-mono-sm uppercase ${state === 'ok' ? 'text-live' : state === 'fail' ? 'text-critical' : 'text-warn'}`}>
+            <span className="min-w-0 pr-2">{label}</span>
+            <span className={`flex shrink-0 items-center gap-1.5 font-mono text-mono-sm uppercase ${state === 'ok' ? 'text-live' : state === 'fail' ? 'text-critical' : 'text-warn'}`}>
               {state === 'ok' ? <CheckCircle className="h-3.5 w-3.5" aria-hidden="true" /> : state === 'fail' ? <XCircle className="h-3.5 w-3.5" aria-hidden="true" /> : <AlertTriangle className="h-3.5 w-3.5" aria-hidden="true" />}
               {state === 'ok' ? 'Compliant' : state === 'fail' ? 'Not compliant' : 'Pending'}
             </span>
@@ -112,7 +112,7 @@ function Report() {
     <div>
       <div className="flex items-center gap-5">
         <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border-4 border-live font-display text-lg font-bold text-live">80%</span>
-        <div className="min-w-0">
+        <div className="min-w-0 flex-1">
           <span className="block font-display text-base font-bold">Perimeter round · Manual</span>
           <span className="block text-xs text-muted-foreground">5 items · 1 site · 3 cameras</span>
           <span className="mt-1.5 flex flex-wrap gap-1.5">
@@ -126,14 +126,14 @@ function Report() {
           <span className="text-sm font-medium">Gate fully closed</span>
           <span className="font-mono text-mono-sm uppercase text-live">Fixed &amp; verified</span>
         </div>
-        <div className="mt-2.5 flex gap-2">
+        <div className="mt-2.5 flex flex-wrap gap-2">
           {[['/cam-06.jpg', 'Before'], ['/cam-06-after.jpg', 'After']].map(([src, cap]) => (
-            <figure key={cap} className="w-28">
+            <figure key={cap} className="w-[calc(50%-4px)] sm:w-28">
               <img src={src} alt="" aria-hidden="true" width={112} height={63} loading="lazy" className="h-[63px] w-full rounded-md border border-border object-cover" />
               <figcaption className="mt-1 text-center font-mono text-[9px] uppercase tracking-wider text-muted-foreground">{cap}</figcaption>
             </figure>
           ))}
-          <p className="min-w-0 flex-1 self-center text-xs leading-relaxed text-muted-foreground">
+          <p className="w-full text-xs leading-relaxed text-muted-foreground sm:min-w-0 sm:w-auto sm:flex-1 sm:self-center">
             Guard message sent. Re-checked and closed with the second frame attached.
           </p>
         </div>
