@@ -40,7 +40,7 @@ export default function CloudVmsVsOnPremisePage() {
                   { label: "Upfront cost", values: ["Low — subscription per camera", "High — server hardware, NVR, licenses"] },
                   { label: "Maintenance", values: ["Managed by provider — updates automatic", "On-site IT team required for updates and repairs"] },
                   { label: "Remote access", values: ["Native — access from any device, anywhere", "VPN or port forwarding required"] },
-                  { label: "Multi-site", values: ["Centralised dashboard for all locations", "Separate systems per site or complex networking"] },
+                  { label: "Multi-site", values: ["Centralized dashboard for all locations", "Separate systems per site or complex networking"] },
                   { label: "Scalability", values: ["Add cameras instantly", "Hardware upgrade required at capacity"] },
                   { label: "AI capabilities", values: ["Cloud-native AI processing", "Limited — requires dedicated GPU hardware"] },
                 ]}

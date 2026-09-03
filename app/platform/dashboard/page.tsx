@@ -26,7 +26,7 @@ const faqs = [
   { question: 'Can I see data for sub-accounts, or only my own?', answer: 'The Operations Overview toggles between "This Account" and "All Sub-Users Combined," so an account owner can view their own sites in isolation or roll every sub-user\'s sites into one combined picture.' },
   { question: 'What counts toward Retention Coverage?', answer: 'It\'s the number of cameras whose recorded footage currently meets the retention period configured for that camera. A camera drops out of coverage if its actual stored history falls short of its target — usually from a storage cap being reached sooner than expected.' },
   { question: 'How is Patrol Compliance calculated on the dashboard?', answer: 'It\'s the share of scheduled and manual patrol rounds completed today, out of the total scheduled for today across all patrol sequences — the same figure that appears on the Virtual Patrolling page, surfaced here for a quick operational check.' },
-  { question: 'Does acknowledging an alert here affect Notifications elsewhere?', answer: 'Yes. Acknowledgement state is shared — acknowledging a critical event from the dashboard\'s queue marks it acknowledged in the Notifications feed too, and vice versa.' },
+  { question: 'Does acknowledging an alert here affect Notifications elsewhere?', answer: 'Yes. Acknowledgment state is shared — acknowledging a critical event from the dashboard\'s queue marks it acknowledged in the Notifications feed too, and vice versa.' },
 ];
 
 export default function Page() {
@@ -38,7 +38,7 @@ export default function Page() {
       <FeatureHero
         eyebrow="Central Operations Screen"
         title="Video surveillance dashboard"
-        lede={<><strong className="font-semibold text-foreground">The Camzify dashboard is the first screen every operator sees: cameras online with uptime percentage, AI alerts across all detection models, patrol compliance, retention coverage, and a critical-event acknowledgement queue.</strong> It combines your own sites with sub-user sites in one combined view when you need it, and refreshes live from every 1 second to every 1 minute.</>}
+        lede={<><strong className="font-semibold text-foreground">The Camzify dashboard is the first screen every operator sees: cameras online with uptime percentage, AI alerts across all detection models, patrol compliance, retention coverage, and a critical-event acknowledgment queue.</strong> It combines your own sites with sub-user sites in one combined view when you need it, and refreshes live from every 1 second to every 1 minute.</>}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/platform/live-streaming', label: 'Live streaming' }}
         visual={<ProductShot

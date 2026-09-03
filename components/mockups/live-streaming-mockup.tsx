@@ -13,8 +13,8 @@ const sites = [
 ];
 
 /*
- * Tiles carry the site's own synthesised camera frames (public/cam-*.jpg) rather than
- * a flat grey box with the word LIVE on it. A live wall whose tiles show nothing read
+ * Tiles carry the site's own synthesized camera frames (public/cam-*.jpg) rather than
+ * a flat gray box with the word LIVE on it. A live wall whose tiles show nothing read
  * as a wireframe; the frames make it read as the product. The offline tile stays
  * frameless on purpose — no signal should look like no signal.
  */

@@ -57,7 +57,7 @@ export default function RemoteSiteMonitoringPage() {
           <div className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">How Camzify handles it</h2>
-              <div className="mt-4 max-w-prose text-muted-foreground" dangerouslySetInnerHTML={{ __html: `Camzify provides 24/7 automated monitoring for remote sites through <a href="/virtual-patrolling" class="text-primary hover:underline">virtual patrol</a> rounds that run on a configurable schedule without any on-site presence. <a href="/ai-features/zone-intrusion-detection" class="text-primary hover:underline">Zone intrusion detection</a> and <a href="/ai-features/camera-tampering-detection" class="text-primary hover:underline">camera tampering detection</a> provide real-time alerts to a centralised monitoring team.` }} />
+              <div className="mt-4 max-w-prose text-muted-foreground" dangerouslySetInnerHTML={{ __html: `Camzify provides 24/7 automated monitoring for remote sites through <a href="/virtual-patrolling" class="text-primary hover:underline">virtual patrol</a> rounds that run on a configurable schedule without any on-site presence. <a href="/ai-features/zone-intrusion-detection" class="text-primary hover:underline">Zone intrusion detection</a> and <a href="/ai-features/camera-tampering-detection" class="text-primary hover:underline">camera tampering detection</a> provide real-time alerts to a centralized monitoring team.` }} />
             </ScrollReveal>
           </div>
 

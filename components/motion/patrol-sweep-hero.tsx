@@ -4,8 +4,8 @@ import { useState, useEffect } from 'react';
 import { useReducedMotion } from 'framer-motion';
 
 /*
- * Frames are synthesised camera views — perspective geometry, IR or low-light grade,
- * grain, scanlines and vignette rendered from vector sources. Deliberately stylised
+ * Frames are synthesized camera views — perspective geometry, IR or low-light grade,
+ * grain, scanlines and vignette rendered from vector sources. Deliberately stylized
  * rather than photographic: they read unmistakably as camera feeds without being
  * mistaken for footage from a real customer site, and nothing here is licensed from
  * a third party.
@@ -116,7 +116,7 @@ export function PatrolSweepHero() {
               <div aria-hidden="true" className="camera-tile-scrim absolute inset-0" />
 
               {/*
-                `camera-tile` re-declares the colour tokens at their dark-surface values
+                `camera-tile` re-declares the color tokens at their dark-surface values
                 for everything inside it. The labels sit on a dark camera frame in both
                 themes, so they must not follow the page theme — in light mode that
                 resolved to near-black text on a dark photograph.

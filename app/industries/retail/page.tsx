@@ -29,7 +29,7 @@ const deploymentPhases = [
 
 const faqs = [
   { question: "Does Camzify detect shoplifting?", answer: "Camzify detects zone violations and unusual presence in restricted areas. It does not identify the specific act of concealing merchandise, but zone-based detection in high-shrinkage areas provides early warning." },
-  { question: "Can I monitor multiple stores from one dashboard?", answer: "Yes. Camzify's multi-site management allows centralised monitoring and patrol scheduling across all locations." },
+  { question: "Can I monitor multiple stores from one dashboard?", answer: "Yes. Camzify's multi-site management allows centralized monitoring and patrol scheduling across all locations." },
   { question: 'How long does it take to get a retail store live on Camzify?', answer: 'Most stores connect their existing cameras through the Camzify Connector or a direct RTSP feed, so there\'s no new hardware to install. Once the feeds are connected, zones and patrol schedules for the stockroom, back door, and sales floor are typically configured within a few days.' },
   { question: 'Will Camzify flag every customer walking past a stockroom camera?', answer: 'No. Detections are scoped to defined zones and time windows rather than the whole camera view, so a stockroom zone only triggers when someone enters it, and it can be scheduled to stay quiet during hours when staff are expected to be there. This keeps alert volume focused on genuine deviations instead of routine foot traffic.' },
   { question: 'Does Camzify store or identify customers in a way that raises privacy concerns?', answer: 'Camzify processes video from cameras you already operate and does not perform facial recognition or build customer identity profiles. Footage and alert clips are retained and access-controlled according to your account settings, and detections are based on presence, zones, and movement rather than personal identity.' },
@@ -58,7 +58,7 @@ export default function RetailPage() {
                   <li className="flex gap-2">• Back doors propped open for deliveries and never re-secured</li>
                   <li className="flex gap-2">• Fitting rooms and blind aisles with inconsistent camera coverage</li>
                   <li className="flex gap-2">• After-hours entry with no one on site to verify who's inside</li>
-                  <li className="flex gap-2">• Multi-location chains with no centralised view of every store's status</li>
+                  <li className="flex gap-2">• Multi-location chains with no centralized view of every store's status</li>
                   <li className="flex gap-2">• Loss prevention relying on manual video review after the fact</li>
                 </ul>
               </div>
@@ -163,7 +163,7 @@ export default function RetailPage() {
           <div className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Deployment notes</h2>
-              <p className="mt-4 max-w-prose text-muted-foreground">Retail locations typically have existing camera infrastructure. Camzify connects to these cameras via RTSP or the Camzify Connector without additional hardware. Multi-site retail chains benefit from centralised management.</p>
+              <p className="mt-4 max-w-prose text-muted-foreground">Retail locations typically have existing camera infrastructure. Camzify connects to these cameras via RTSP or the Camzify Connector without additional hardware. Multi-site retail chains benefit from centralized management.</p>
             </ScrollReveal>
           </div>
 

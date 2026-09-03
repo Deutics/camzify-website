@@ -182,7 +182,7 @@ export default function VirtualPatrollingPage() {
               <span className="font-mono text-mono-sm uppercase text-primary">Two ways to run it</span>
               <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">Manual round, or Auto-Patrol</h2>
               <p className="mt-5 max-w-prose text-body text-muted-foreground">
-                Same sequence, same checklists, same report. The difference is who makes each judgement and when the round happens.
+                Same sequence, same checklists, same report. The difference is who makes each judgment and when the round happens.
               </p>
             </div>
           </ScrollReveal>

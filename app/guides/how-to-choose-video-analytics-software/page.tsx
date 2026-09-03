@@ -40,7 +40,7 @@ export default function HowToChooseVideoAnalyticsSoftwarePage() {
           <section className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Detection accuracy and false alarm rate</h2>
-              <div className="mt-4 max-w-prose space-y-4 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `Ask every vendor: what is your false alarm rate for the detections I need? Request a proof of concept on your own cameras. False alarms are the primary reason video analytics deployments fail — if the system alerts too often on irrelevant events, operators stop paying attention. Camzify uses object-track-based detection rather than pixel-based motion to minimise false positives.` }} />
+              <div className="mt-4 max-w-prose space-y-4 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `Ask every vendor: what is your false alarm rate for the detections I need? Request a proof of concept on your own cameras. False alarms are the primary reason video analytics deployments fail — if the system alerts too often on irrelevant events, operators stop paying attention. Camzify uses object-track-based detection rather than pixel-based motion to minimize false positives.` }} />
             </ScrollReveal>
           </section>
 

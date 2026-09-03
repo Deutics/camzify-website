@@ -21,8 +21,8 @@ import Image from 'next/image';
  * It pauses on hover and on keyboard focus, which is what WCAG 2.2.2 asks of content
  * that moves on its own for more than five seconds.
  *
- * Every mark sits on a white plate in both themes. These are colour marks — brand reds,
- * blues and golds — and inverting or recolouring a trademark is worse than omitting it.
+ * Every mark sits on a white plate in both themes. These are color marks — brand reds,
+ * blues and golds — and inverting or recoloring a trademark is worse than omitting it.
  */
 export interface MarqueeItem {
   name: string;

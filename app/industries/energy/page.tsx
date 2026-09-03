@@ -21,7 +21,7 @@ const pageMeta = {
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const deploymentPhases = [
-    { title: "Onboard the unmanned assets first", body: "Substations, compounds, pump stations and remote installations are prioritised — the sites with no permanent staff and the longest response distance." },
+    { title: "Onboard the unmanned assets first", body: "Substations, compounds, pump stations and remote installations are prioritized — the sites with no permanent staff and the longest response distance." },
     { title: "Run frequent rounds over thin bandwidth", body: "Sequences are tuned for constrained links, and the Connector relays feeds without exposing equipment to the internet or requiring port forwarding at each site." },
     { title: "Escalate by site, not by queue", body: "Each remote asset is mapped to the responder who covers it, so a perimeter breach at one compound reaches the person who can actually attend it." },
 ];

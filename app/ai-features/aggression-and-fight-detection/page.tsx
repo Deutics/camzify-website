@@ -49,7 +49,7 @@ export default function Page() {
                   <li className="flex gap-2">• Rapid, aggressive multi-person body movement consistent with a physical altercation</li>
                   <li className="flex gap-2">• Sustained pushing, striking, or grappling between confirmed subjects</li>
                   <li className="flex gap-2">• Escalating confrontations in queues, entrances, and common areas</li>
-                  <li className="flex gap-2">• Immediate, prioritised alert routing to the nearest available guard</li>
+                  <li className="flex gap-2">• Immediate, prioritized alert routing to the nearest available guard</li>
                   <li className="flex gap-2">• Altercations involving three or more people in the same tracked event</li>
                   <li className="flex gap-2">• Repeated aggressive incidents at the same location within a short window</li>
                 </ul>

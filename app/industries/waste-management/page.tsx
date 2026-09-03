@@ -21,7 +21,7 @@ const pageMeta = {
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const deploymentPhases = [
-    { title: "Cover the weighbridge and tipping areas", body: "Gate, weighbridge, tipping floor and scrap storage are onboarded first — the points where unauthorised dumping and metal theft concentrate." },
+    { title: "Cover the weighbridge and tipping areas", body: "Gate, weighbridge, tipping floor and scrap storage are onboarded first — the points where unauthorized dumping and metal theft concentrate." },
     { title: "Patrol closed hours and the boundary", body: "Rounds check that the gate is secured, the yard is clear and the fence line is unbreached during the long stretches when the site is shut." },
     { title: "Record vehicle activity", body: "Vehicle and wrong-way rules on the approach and weighbridge lanes give a timestamped record of movements outside operating hours." },
 ];

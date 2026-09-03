@@ -36,7 +36,7 @@ export default function Page() {
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Multi-Object Tracking</h1>
-          <p className="mt-6 max-w-2xl text-body text-muted-foreground">Multi-object tracking maintains persistent identity for every subject in the camera view. Each tracked object gets a unique track ID that survives brief occlusions — when a person walks behind a pillar and reappears, the system recognises it as the same subject. This is the foundation that makes line and zone intrusion detection accurate.</p>
+          <p className="mt-6 max-w-2xl text-body text-muted-foreground">Multi-object tracking maintains persistent identity for every subject in the camera view. Each tracked object gets a unique track ID that survives brief occlusions — when a person walks behind a pillar and reappears, the system recognizes it as the same subject. This is the foundation that makes line and zone intrusion detection accurate.</p>
 
           <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
             <ScrollReveal>

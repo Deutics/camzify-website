@@ -27,7 +27,7 @@ const faqs = [
   { question: 'What is the difference between an inclusion zone and an exclusion zone?', answer: 'An inclusion zone limits assessment to the area you draw, so everything outside it is ignored. An exclusion zone does the reverse: the rest of the frame is assessed and the area you draw is left out. Most false-alarm problems are solved with an exclusion zone over the specific thing that moves and does not matter — a tree line, a public pavement, a flapping banner.' },
   { question: 'Can I mask out parts of the camera view?', answer: 'Yes. Masked regions can be drawn over areas like public streets, tree lines, or reflective surfaces that would otherwise generate motion candidates, so the system only evaluates the parts of the frame that matter.' },
   { question: 'Does motion detection work with PTZ (moving) cameras?', answer: 'Motion detection is built around a modeled static background, so it performs best on fixed camera views. A PTZ camera that is actively panning or zooming will temporarily invalidate the background model until it settles on a new fixed position.' },
-  { question: 'What happens after a motion event is confirmed?', answer: 'A confirmed motion event includes a timestamp, the affected region of the frame, and a snapshot, and routes through the notification queue with the same acknowledgement and false-positive marking workflow as every other alert type.' },
+  { question: 'What happens after a motion event is confirmed?', answer: 'A confirmed motion event includes a timestamp, the affected region of the frame, and a snapshot, and routes through the notification queue with the same acknowledgment and false-positive marking workflow as every other alert type.' },
 ];
 
 export default function Page() {
@@ -97,7 +97,7 @@ export default function Page() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Alert delivery</h3>
                 <p className="mt-2 text-muted-foreground">
-                  Confirmed motion events include a timestamp, the affected region of the frame, and a snapshot. They route through the <Link href="/platform/notifications-and-alerts" className="text-primary hover:underline">notification queue</Link> alongside every other alert type, with the same acknowledgement and false-positive marking workflow.
+                  Confirmed motion events include a timestamp, the affected region of the frame, and a snapshot. They route through the <Link href="/platform/notifications-and-alerts" className="text-primary hover:underline">notification queue</Link> alongside every other alert type, with the same acknowledgment and false-positive marking workflow.
                 </p>
               </div>
             </ScrollReveal>

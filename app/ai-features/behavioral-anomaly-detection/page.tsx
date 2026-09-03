@@ -12,13 +12,13 @@ import Link from 'next/link';
  *
  * This page supersedes /ai-features/behavioral-analytics, which described a roadmap
  * set of fixed models (running, abandonment, crowd formation). The shipping feature
- * is broader and works differently — the operator describes the behaviour in their
- * own words instead of picking from a catalogue — so the old slug redirects here.
+ * is broader and works differently — the operator describes the behavior in their
+ * own words instead of picking from a catalog — so the old slug redirects here.
  */
 const pageMeta = {
   title: 'Behavioral Anomaly Detection | Describe What to Watch For',
   description:
-    'Describe the behaviour you want watched in plain language — fights, smoking, vandalism, trespassing — and Camzify monitors for it continuously and notifies you when it happens.',
+    'Describe the behavior you want watched in plain language — fights, smoking, vandalism, trespassing — and Camzify monitors for it continuously and notifies you when it happens.',
   path: '/ai-features/behavioral-anomaly-detection',
 };
 
@@ -37,35 +37,35 @@ const faqs = [
   {
     question: 'What is behavioral anomaly detection?',
     answer:
-      'Behavioral anomaly detection lets an operator describe, in ordinary language, a behaviour they want monitored — for example "alert me if anyone starts fighting" or "tell me if someone is smoking near the loading bay". Camzify interprets that description, watches the people appearing in the selected camera views, and raises a notification when the described activity is observed. It differs from a conventional detection model because the behaviour is defined by the operator in words rather than chosen from a fixed list.',
+      'Behavioral anomaly detection lets an operator describe, in ordinary language, a behavior they want monitored — for example "alert me if anyone starts fighting" or "tell me if someone is smoking near the loading bay". Camzify interprets that description, watches the people appearing in the selected camera views, and raises a notification when the described activity is observed. It differs from a conventional detection model because the behavior is defined by the operator in words rather than chosen from a fixed list.',
   },
   {
     question: 'How is this different from the other detection models?',
     answer:
-      'The other models are purpose-built for one thing each: a line-crossing model watches a tripwire, a PPE model watches for helmets and vests. Behavioral anomaly detection is defined at the point of use. You describe the behaviour and the system interprets it, so you are not limited to the behaviours someone anticipated when the model catalogue was built.',
+      'The other models are purpose-built for one thing each: a line-crossing model watches a tripwire, a PPE model watches for helmets and vests. Behavioral anomaly detection is defined at the point of use. You describe the behavior and the system interprets it, so you are not limited to the behaviors someone anticipated when the model catalog was built.',
   },
   {
-    question: 'What kinds of behaviour can I ask it to watch for?',
+    question: 'What kinds of behavior can I ask it to watch for?',
     answer:
-      'Behaviours that are visible in the camera view and describable in a sentence. Fighting, smoking, vandalism, climbing a fence, loitering near an entrance and interfering with equipment are all typical. Behaviours that depend on information the camera cannot see — intent, identity, or anything happening off-frame — are outside what any video system can determine.',
+      'Behaviors that are visible in the camera view and describable in a sentence. Fighting, smoking, vandalism, climbing a fence, loitering near an entrance and interfering with equipment are all typical. Behaviors that depend on information the camera cannot see — intent, identity, or anything happening off-frame — are outside what any video system can determine.',
   },
   {
     question: 'Do I need to write the description in a particular format?',
     answer:
-      'No. The input is ordinary language. Natural-language processing interprets the description into what the system should watch for, so "alert me if people start fighting" and "notify me about physical altercations" resolve to the same monitoring behaviour. Being specific about the location or time window narrows it usefully.',
+      'No. The input is ordinary language. Natural-language processing interprets the description into what the system should watch for, so "alert me if people start fighting" and "notify me about physical altercations" resolve to the same monitoring behavior. Being specific about the location or time window narrows it usefully.',
   },
   {
     question: 'Does it run continuously or only during a patrol round?',
     answer:
-      'It runs continuously on the cameras you activate it for, and notifies in real time when the described behaviour is observed. It also contributes to virtual patrolling: anything it flagged between rounds is logged against the relevant camera in that round\'s report, so the patrol record reflects what happened while nobody was checking.',
+      'It runs continuously on the cameras you activate it for, and notifies in real time when the described behavior is observed. It also contributes to virtual patrolling: anything it flagged between rounds is logged against the relevant camera in that round\'s report, so the patrol record reflects what happened while nobody was checking.',
   },
   {
     question: 'How does a notification arrive?',
     answer:
-      'Through the same queue as every other detection, with severity, site, camera and a timestamp, routed to the contact assigned to that camera. It carries an acknowledgement state and can be marked a false positive, which records the system\'s behaviour on that camera and that description.',
+      'Through the same queue as every other detection, with severity, site, camera and a timestamp, routed to the contact assigned to that camera. It carries an acknowledgment state and can be marked a false positive, which records the system\'s behavior on that camera and that description.',
   },
   {
-    question: 'Can I run more than one behaviour on the same camera?',
+    question: 'Can I run more than one behavior on the same camera?',
     answer:
       'Yes. A camera can carry several descriptions at once — a loading bay might watch for both smoking and vandalism — and each is evaluated independently, so a notification names which description it matched.',
   },
@@ -89,7 +89,7 @@ export default function BehavioralAnomalyDetectionPage() {
           </h1>
           <p className="mt-6 max-w-prose text-body leading-relaxed text-muted-foreground">
             <strong className="font-semibold text-foreground">
-              Describe the behaviour you want watched, in your own words, and Camzify monitors for
+              Describe the behavior you want watched, in your own words, and Camzify monitors for
               it.
             </strong>{' '}
             Type &ldquo;alert me if anyone starts fighting&rdquo; or &ldquo;tell me if someone is
@@ -100,7 +100,7 @@ export default function BehavioralAnomalyDetectionPage() {
           <p className="mt-4 max-w-prose text-body leading-relaxed text-muted-foreground">
             Every other detection model on the platform is built for one job decided in advance.
             This one is defined at the point of use, which means you are not restricted to the
-            behaviours someone anticipated when the catalogue was written.
+            behaviors someone anticipated when the catalog was written.
           </p>
 
           <div className="mt-14">
@@ -139,7 +139,7 @@ export default function BehavioralAnomalyDetectionPage() {
                 <h3 className="mt-6 font-display text-lg font-bold">Interpreting the description</h3>
                 <p className="mt-2 text-muted-foreground">
                   Natural-language processing turns what you typed into what the system should watch
-                  for. Two differently-worded descriptions of the same behaviour resolve to the same
+                  for. Two differently-worded descriptions of the same behavior resolve to the same
                   monitoring, so you do not have to learn a phrasing convention.
                 </p>
 
@@ -149,7 +149,7 @@ export default function BehavioralAnomalyDetectionPage() {
                   <Link href="/ai-features/multi-object-tracking" className="text-primary hover:underline">
                     multi-object tracking
                   </Link>
-                  , so a subject keeps a persistent identity across frames while their behaviour is
+                  , so a subject keeps a persistent identity across frames while their behavior is
                   assessed against the description rather than judged from a single frame.
                 </p>
 
@@ -166,8 +166,8 @@ export default function BehavioralAnomalyDetectionPage() {
             </ScrollReveal>
             <PlaceholderVisual
               type="config-ui"
-              caption="BEHAVIOUR DESCRIPTION"
-              alt="Configuration panel showing a plain-language behaviour description entered against a selected group of cameras"
+              caption="BEHAVIOR DESCRIPTION"
+              alt="Configuration panel showing a plain-language behavior description entered against a selected group of cameras"
             />
           </div>
 
@@ -176,14 +176,14 @@ export default function BehavioralAnomalyDetectionPage() {
               <h2 className="font-display text-2xl font-bold">Why this matters operationally</h2>
               <div className="mt-4 max-w-prose space-y-4 text-muted-foreground">
                 <p>
-                  Every site has behaviours that matter locally and appear on no vendor&rsquo;s
+                  Every site has behaviors that matter locally and appear on no vendor&rsquo;s
                   feature list. Smoking beside a fuel store. People climbing on stacked pallets.
                   Someone propping a fire door. These are obvious to whoever runs the site and
-                  invisible to a fixed model catalogue.
+                  invisible to a fixed model catalog.
                 </p>
                 <p>
                   Historically the only options were to accept the gap or commission a custom model.
-                  Describing the behaviour in a sentence removes that trade-off, and it means the
+                  Describing the behavior in a sentence removes that trade-off, and it means the
                   system can be adjusted by the person who understands the site rather than by the
                   vendor.
                 </p>
@@ -194,14 +194,14 @@ export default function BehavioralAnomalyDetectionPage() {
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
             <PlaceholderVisual
               type="report"
-              caption="BEHAVIOUR ALERT"
-              alt="Notification showing a matched behaviour description with camera, timestamp and acknowledgement state"
+              caption="BEHAVIOR ALERT"
+              alt="Notification showing a matched behavior description with camera, timestamp and acknowledgment state"
             />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">In a patrol round</h2>
                 <p className="mt-4 text-muted-foreground">
-                  Behavioural alerts run continuously rather than only at patrol time, but they feed
+                  Behavioral alerts run continuously rather than only at patrol time, but they feed
                   the same record. Anything flagged between rounds is logged against the relevant
                   camera in the next{' '}
                   <Link href="/virtual-patrolling/patrol-reports" className="text-primary hover:underline">

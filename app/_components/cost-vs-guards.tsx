@@ -42,7 +42,7 @@ export function CostVsGuards() {
                 <p>
                   Most of those paid hours go on the routine round: walking the same route,
                   checking the same doors, confirming the same areas are clear. That is the part
-                  virtual patrolling replaces — not the response, not the judgement.
+                  virtual patrolling replaces — not the response, not the judgment.
                 </p>
               </div>
 

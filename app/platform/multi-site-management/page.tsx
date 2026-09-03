@@ -14,8 +14,8 @@ import { Building2, SlidersHorizontal, BarChart3, Camera } from 'lucide-react';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Multi-Site Video Surveillance | Centralised Management",
-  description: "Camzify multi-site management: centralised console for cameras, alerts, and patrol compliance across all distributed locations.",
+  title: "Multi-Site Video Surveillance | Centralized Management",
+  description: "Camzify multi-site management: centralized console for cameras, alerts, and patrol compliance across all distributed locations.",
   path: "/platform/multi-site-management",
 };
 
@@ -36,7 +36,7 @@ export default function Page() {
       { label: 'Multi-Site Video Surveillance' },
     ]}>
       <FeatureHero
-        eyebrow="Centralised Oversight"
+        eyebrow="Centralized Oversight"
         title="Multi-site video surveillance"
         lede={<><strong className="font-semibold text-foreground">Multi-site management in Camzify provides a single console to oversee cameras, detection alerts, and patrol compliance across all locations.</strong> Each site is a separate entity with its own cameras, sequences, and operators, but the parent account has visibility into everything. This account runs 4 sites with 15 cameras configured and 6 of 9 AI features active, and every dashboard, live view, and notification feed can be filtered by site.</>}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}

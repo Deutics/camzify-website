@@ -28,7 +28,7 @@ const deploymentPhases = [
 ];
 
 const faqs = [
-  { question: 'How many cameras does a typical warehouse need?', answer: 'It depends on the facility layout. Most warehouses use 8-30 cameras covering dock doors, perimeter, high-value areas, and main aisles. Camzify licences per camera, so you only pay for what you monitor.' },
+  { question: 'How many cameras does a typical warehouse need?', answer: 'It depends on the facility layout. Most warehouses use 8-30 cameras covering dock doors, perimeter, high-value areas, and main aisles. Camzify licenses per camera, so you only pay for what you monitor.' },
   { question: 'Can Camzify monitor cold storage areas?', answer: 'Yes. Camzify works with any IP camera feed. If the camera operates in cold storage conditions, the AI processes the feed as normal.' },
   { question: 'Does virtual patrolling replace our overnight security guard?', answer: 'For most warehouses, it replaces the need to add or scale overnight guarding rather than removing an existing team overnight. Many sites run virtual patrols alongside a smaller guard presence, using AI to cover blind spots and off-hours rounds a single guard can\'t physically reach every hour.' },
   { question: 'How fast does a dock-door breach or after-hours entry get flagged?', answer: 'Alerts fire in near real time from the moment a confirmed event is detected — typically within seconds — and route to the assigned contact through the notification queue with a timestamped clip.' },

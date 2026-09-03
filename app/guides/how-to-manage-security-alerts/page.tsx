@@ -11,7 +11,7 @@ import Link from 'next/link';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "How to Manage Security Camera Alerts | Triage & Acknowledgement Guide",
+  title: "How to Manage Security Camera Alerts | Triage & Acknowledgment Guide",
   description: "Work an alert queue without drowning in it: scan by severity, filter to what matters, open the linked video around an event, acknowledge criticals, and tune delivery channels.",
   path: "/guides/how-to-manage-security-alerts",
 };
@@ -21,7 +21,7 @@ export const metadata = generatePageMeta({ ...pageMeta, type: 'article' });
 const steps: HowToStep[] = [
   {
     name: 'Scan the queue rather than reading it',
-    text: 'Card view shows snapshots at a glance and list view is denser, with a coloured edge carrying severity. Scanning images is far faster than reading rows, which matters because the practical failure of alerting is not missing an alert — it is a queue nobody opens because working through it takes too long.',
+    text: 'Card view shows snapshots at a glance and list view is denser, with a colored edge carrying severity. Scanning images is far faster than reading rows, which matters because the practical failure of alerting is not missing an alert — it is a queue nobody opens because working through it takes too long.',
   },
   {
     name: 'Filter to the slice you are responsible for',
@@ -29,11 +29,11 @@ const steps: HowToStep[] = [
   },
   {
     name: 'Open the event and look at the footage around it',
-    text: 'The detail view carries the snapshot, which zooms, along with the metadata and — where backup was recording that camera — the linked video from around the event. That surrounding video is what separates a real judgement from a guess: a single frame shows a person near a door, and thirty seconds either side shows whether they opened it.',
+    text: 'The detail view carries the snapshot, which zooms, along with the metadata and — where backup was recording that camera — the linked video from around the event. That surrounding video is what separates a real judgment from a guess: a single frame shows a person near a door, and thirty seconds either side shows whether they opened it.',
   },
   {
     name: 'Acknowledge criticals and record what you did',
-    text: 'Critical events carry a response band, with queue arrows to step through unacknowledged ones and a place to log your response. Acknowledgement is what converts an alert from something that fired into something a named person handled, which is the part an investigation asks about afterwards.',
+    text: 'Critical events carry a response band, with queue arrows to step through unacknowledged ones and a place to log your response. Acknowledgment is what converts an alert from something that fired into something a named person handled, which is the part an investigation asks about afterwards.',
   },
   {
     name: 'Tune the channels so the right things interrupt people',
@@ -56,7 +56,7 @@ const faqs = [
   },
   {
     question: 'What does acknowledging a critical event actually do?',
-    answer: 'It records that a specific person saw it and what they did about it. Unacknowledged criticals stay visible as outstanding, which is how a shift handover surfaces what was left, and the acknowledgement itself becomes part of the account activity record.',
+    answer: 'It records that a specific person saw it and what they did about it. Unacknowledged criticals stay visible as outstanding, which is how a shift handover surfaces what was left, and the acknowledgment itself becomes part of the account activity record.',
   },
 ];
 

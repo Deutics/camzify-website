@@ -156,7 +156,7 @@ export default function AutomotivePage() {
           <div className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Deployment notes</h2>
-              <p className="mt-4 max-w-prose text-muted-foreground">Automotive dealerships and service centres have large outdoor areas with high-value inventory. Perimeter cameras, yard cameras, and showroom cameras can all be connected to Camzify for automated overnight patrols.</p>
+              <p className="mt-4 max-w-prose text-muted-foreground">Automotive dealerships and service centers have large outdoor areas with high-value inventory. Perimeter cameras, yard cameras, and showroom cameras can all be connected to Camzify for automated overnight patrols.</p>
             </ScrollReveal>
           </div>
 

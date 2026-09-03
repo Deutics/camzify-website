@@ -213,7 +213,7 @@ const partners = group(
     '/partners/become-a-reseller',
     '/partners/for-security-integrators',
     '/partners/for-security-agencies',
-    '/partners/for-monitoring-centres',
+    '/partners/for-monitoring-centers',
     '/partners/for-managed-service-providers',
   ],
   0.6,

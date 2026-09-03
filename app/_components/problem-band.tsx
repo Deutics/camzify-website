@@ -31,7 +31,7 @@ const problems = [
     lead: 'Alerts arrive with nobody attached.',
     body: 'Pixel-based motion floods an inbox with events carrying no context, no owner and no record that anyone acted. Teams stop reading them, or turn sensitivity down until real events are missed too.',
     stat: 'No owner',
-    statLabel: 'no acknowledgement trail',
+    statLabel: 'no acknowledgment trail',
   },
 ];
 

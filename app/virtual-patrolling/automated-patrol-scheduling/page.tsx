@@ -170,7 +170,7 @@ export default function AutomatedSchedulingPage() {
                     <Link href="/platform/notifications-and-alerts" className="text-primary hover:underline">critical notifications</Link>,
                     in the same queue as{' '}
                     <Link href="/ai-features" className="text-primary hover:underline">AI detections</Link> from
-                    continuous monitoring, with the snapshot attached and an acknowledgement expected.
+                    continuous monitoring, with the snapshot attached and an acknowledgment expected.
                   </p>
                 </div>
 

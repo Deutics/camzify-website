@@ -93,7 +93,7 @@ export default function SupportedCamerasPage() {
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">How to check your own cameras</h2>
               <p className="mt-4 max-w-prose text-muted-foreground">
-                We do not publish a model-by-model compatibility list, and you should be sceptical
+                We do not publish a model-by-model compatibility list, and you should be skeptical
                 of vendors who do — those lists go stale the moment a manufacturer ships new
                 firmware, and they imply that unlisted models are unsupported when in practice
                 compatibility is decided by the protocol, not the badge on the housing.

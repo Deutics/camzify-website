@@ -54,8 +54,8 @@ export default function MultiSiteOpsPage() {
 
           <div className="mt-12 grid gap-8 sm:grid-cols-3">
             {[
-              { icon: Building, title: 'Per-site sequences', desc: 'Each location gets its own patrol routes, customised to its layout and risk profile.' },
-              { icon: Globe, title: 'Centralised oversight', desc: 'Operations managers see compliance scores and patrol status for every site in one view.' },
+              { icon: Building, title: 'Per-site sequences', desc: 'Each location gets its own patrol routes, customized to its layout and risk profile.' },
+              { icon: Globe, title: 'Centralized oversight', desc: 'Operations managers see compliance scores and patrol status for every site in one view.' },
               { icon: Users, title: 'Site-level access control', desc: 'Assign operators and guards per site. Permission groups control who sees what.' },
             ].map((item: any, i: number) => {
               const Icon = item?.icon ?? Building;
@@ -78,7 +78,7 @@ export default function MultiSiteOpsPage() {
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
                 <p>Running a separate system at every location means separate logins, separate configurations, and no easy way to tell whether one site's patrol compliance is better or worse than another's without contacting each site individually.</p>
                 <p>A patrol sequence built for one site rarely transfers cleanly to another with a different layout and risk profile. A checklist generic enough to apply everywhere ends up too vague to be useful anywhere, while one built for a single site doesn't scale as more locations come online.</p>
-                <p>Centralising on one console solves both problems at once: each site keeps sequences, checklists, and guards suited to its own layout, while an operations manager can compare compliance across every location from a single dashboard — and new sites come online by allocating capacity, not by standing up a new deployment.</p>
+                <p>Centralizing on one console solves both problems at once: each site keeps sequences, checklists, and guards suited to its own layout, while an operations manager can compare compliance across every location from a single dashboard — and new sites come online by allocating capacity, not by standing up a new deployment.</p>
               </div>
             </ScrollReveal>
           </div>
@@ -88,7 +88,7 @@ export default function MultiSiteOpsPage() {
               <div>
                 <span className="font-mono text-mono-sm uppercase text-primary">Per-Site Setup</span>
                 <h2 className="mt-2 font-display text-2xl font-bold">What varies per site</h2>
-                <p className="mt-4 text-muted-foreground">Centralised oversight doesn't mean every site is configured the same way. Each location keeps its own settings underneath the shared dashboard.</p>
+                <p className="mt-4 text-muted-foreground">Centralized oversight doesn't mean every site is configured the same way. Each location keeps its own settings underneath the shared dashboard.</p>
                 <ul className="mt-4 space-y-3 text-muted-foreground">
                   <li className="flex gap-2">• Patrol sequences and camera checklists are built independently for each site's layout</li>
                   <li className="flex gap-2">• Guard rosters and escalation contacts are assigned per site, not shared across locations</li>

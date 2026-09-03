@@ -7,7 +7,7 @@ import { InteractiveChecklistDemo } from '@/components/motion/interactive-checkl
 /**
  * The interactive demo.
  *
- * Previously a centred heading with the demo card floating alone in a wide empty band,
+ * Previously a centered heading with the demo card floating alone in a wide empty band,
  * which made the most distinctive thing on the page look like an afterthought. Now a
  * two-column layout: the argument on the left, the working demo on the right, with the
  * section's atmosphere glow sitting behind the demo so it reads as the focal point.

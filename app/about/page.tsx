@@ -33,7 +33,7 @@ export default function AboutPage() {
             </ScrollReveal>
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Why we exist</h2>
-              <p className="mt-4 text-muted-foreground">Most security cameras record footage that no one watches. Guards cannot be everywhere, and monitoring centres scale poorly. We believe AI should handle the routine verification — checking the same conditions at the same cameras on the same schedule — so that humans can focus on response, judgment, and the exceptions that genuinely need attention.</p>
+              <p className="mt-4 text-muted-foreground">Most security cameras record footage that no one watches. Guards cannot be everywhere, and monitoring centers scale poorly. We believe AI should handle the routine verification — checking the same conditions at the same cameras on the same schedule — so that humans can focus on response, judgment, and the exceptions that genuinely need attention.</p>
             </ScrollReveal>
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Who writes the guides</h2>

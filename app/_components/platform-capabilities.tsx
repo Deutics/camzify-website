@@ -45,7 +45,7 @@ const layers = [
   {
     icon: ScanEye,
     title: 'AI detection',
-    desc: '22 shipping models on confirmed object tracks — intrusion, tampering, weapons, fire, PPE, behaviour described in plain language.',
+    desc: '22 shipping models on confirmed object tracks — intrusion, tampering, weapons, fire, PPE, behavior described in plain language.',
     href: '/ai-features',
   },
   {
@@ -69,7 +69,7 @@ const layers = [
   {
     icon: BellRing,
     title: 'Notify & manage',
-    desc: 'One alert queue with acknowledgement over email, SMS, WhatsApp and push. Sub-users, permission groups, audit trail, many sites.',
+    desc: 'One alert queue with acknowledgment over email, SMS, WhatsApp and push. Sub-users, permission groups, audit trail, many sites.',
     href: '/platform/notifications-and-alerts',
   },
 ];

@@ -3,14 +3,14 @@ import { Bell, CheckCircle, XCircle, AlertTriangle, Mail, MessageSquare, Smartph
 /**
  * In-body illustrations for feature pages.
  *
- * Replaces the grey PlaceholderVisual boxes — an icon, the word VISUAL, a crimson tag —
+ * Replaces the gray PlaceholderVisual boxes — an icon, the word VISUAL, a crimson tag —
  * that sat three-to-a-page across the virtual patrolling section. Those were honest
  * about being unfinished and made every page look it.
  *
  * Each variant is a small, static, design-system-styled rendering of the thing the
  * surrounding copy describes: a sequence rail, a checklist card, a report row with
  * its before-and-after frames, a guard message, a schedule. They are built from
- * tokens and the site's own synthesised frames, so nothing here is a mock-up of
+ * tokens and the site's own synthesized frames, so nothing here is a mock-up of
  * footage or figures that exist nowhere else. Every one carries the same caption the
  * product screenshots do: illustration, not customer data.
  *

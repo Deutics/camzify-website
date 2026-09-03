@@ -23,7 +23,7 @@ export const metadata = generatePageMeta({ ...pageMeta });
 const deploymentPhases = [
     { title: "Start with the vault and ATM line", body: "Cash-handling rooms, ATM enclosures, server rooms and after-hours entrances are onboarded first, since these carry both the security and the regulatory weight." },
     { title: "Verify closing procedure every night", body: "The end-of-day sequence checks that each secured area is closed and clear, producing an independent record of the closing routine rather than relying on a signed sheet." },
-    { title: "Standardise across the branch network", body: "One approved sequence is applied to every branch through multi-site management, so compliance reporting is comparable across locations rather than branch-specific." },
+    { title: "Standardize across the branch network", body: "One approved sequence is applied to every branch through multi-site management, so compliance reporting is comparable across locations rather than branch-specific." },
 ];
 
 const faqs = [

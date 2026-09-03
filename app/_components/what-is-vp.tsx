@@ -9,7 +9,7 @@ import { ProductShot } from '@/components/content/product-shot';
  * The opening paragraph is written to be extracted whole: it answers "what is virtual
  * patrolling" in one self-contained sentence before elaborating, because this is the
  * passage AI answer engines are most likely to quote from the site. Left-aligned and
- * set to `max-w-prose` — the previous centred treatment made a long definition harder
+ * set to `max-w-prose` — the previous centered treatment made a long definition harder
  * to scan for no gain.
  */
 export function WhatIsVP() {
@@ -34,7 +34,7 @@ export function WhatIsVP() {
                   fails.
                 </p>
                 <p>
-                  It produces the same artefact a physical guard tour produces — a timestamped,
+                  It produces the same artifact a physical guard tour produces — a timestamped,
                   per-checkpoint compliance record — without a person walking the route. The
                   difference is that it runs identically at 03:00 as it does at 15:00, and every
                   round is auditable afterwards.

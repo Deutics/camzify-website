@@ -19,11 +19,11 @@ const pageMeta = {
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
-  { question: 'What is AI suspect search?', answer: 'AI suspect search (also called forensic video search) lets an investigator type a plain-language description — clothing colour, bag type, approximate age — and retrieve every camera appearance that matches, across every indexed camera and time window on the site. It replaces manually scrubbing through hours of footage per camera.' },
+  { question: 'What is AI suspect search?', answer: 'AI suspect search (also called forensic video search) lets an investigator type a plain-language description — clothing color, bag type, approximate age — and retrieve every camera appearance that matches, across every indexed camera and time window on the site. It replaces manually scrubbing through hours of footage per camera.' },
   { question: 'How accurate is the match?', answer: 'Every result is a confirmed object track scored with a confidence value, and results are ranked by match strength. It is a search and shortlist tool for investigators, not an identity-verification system — final confirmation is always a human decision.' },
   { question: 'Does it work across multiple cameras and sites?', answer: 'Yes. Suspect search runs against the appearance index built from every connected camera on a site, and can be scoped to a single site or across a multi-site account. Combine it with the cross-camera journey map to see a matched subject\'s full path.' },
   { question: 'How is this different from typical VMS video search?', answer: 'Most video management systems search by camera and timestamp only, which means an investigator already has to know where and when to look. AI suspect search matches on a plain-language description across every indexed camera and time window at once, so no starting point is needed.' },
-  { question: 'Do I need a photo of the suspect to search?', answer: 'No. A plain-language description is enough — clothing colour, bag type, approximate age, direction of travel. A photo isn\'t required, though richer attribute detail generally narrows results faster.' },
+  { question: 'Do I need a photo of the suspect to search?', answer: 'No. A plain-language description is enough — clothing color, bag type, approximate age, direction of travel. A photo isn\'t required, though richer attribute detail generally narrows results faster.' },
   { question: 'Is this facial recognition?', answer: 'No. AI suspect search matches on confirmed object tracks and structured attributes like clothing and general appearance, not facial biometrics. It is built for retrieval and shortlisting, with final identification always left to a human reviewer.' },
 ];
 
@@ -64,7 +64,7 @@ export default function Page() {
               <h2 className="font-display text-2xl font-bold">Why AI suspect search matters</h2>
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
                 <p>When an incident is reported after the fact, the usual starting point is a camera and an approximate time — and from there, an investigator scrubs through footage frame by frame hoping to spot the right person. On a site with dozens of cameras, that process doesn't scale: every extra camera in the search radius adds hours, and a subject who moved through several areas means repeating the same manual review again and again.</p>
-                <p>Standard video management systems make this worse by design. Search is built around camera and timestamp, which assumes the investigator already knows where and when to look. When the only lead is a description — "a man in a grey jacket with a backpack" — there's no way to query for that directly, so the review still comes down to eyes on footage.</p>
+                <p>Standard video management systems make this worse by design. Search is built around camera and timestamp, which assumes the investigator already knows where and when to look. When the only lead is a description — "a man in a gray jacket with a backpack" — there's no way to query for that directly, so the review still comes down to eyes on footage.</p>
                 <p>AI suspect search removes that bottleneck by indexing every subject's appearance as it happens, so a description becomes a query instead of a starting assumption. What would have been an afternoon of manual review across multiple cameras becomes a search that returns ranked results in seconds.</p>
               </div>
             </ScrollReveal>
@@ -79,12 +79,12 @@ export default function Page() {
                 <h3 className="mt-6 font-display text-lg font-bold">Building the appearance index</h3>
                 <p className="mt-2 text-muted-foreground">
                   Every camera on the site feeds <Link href="/ai-features/multi-object-tracking" className="text-primary hover:underline">multi-object tracking</Link> and <Link href="/ai-features/ai-attribute-extraction" className="text-primary hover:underline">AI attribute extraction</Link>, which
-                  together build a searchable index of every subject and their structured attributes — clothing colour, object type, general appearance. Indexing runs continuously in the background, so there's no separate step to trigger before a search is possible.
+                  together build a searchable index of every subject and their structured attributes — clothing color, object type, general appearance. Indexing runs continuously in the background, so there's no separate step to trigger before a search is possible.
                 </p>
 
                 <h3 className="mt-6 font-display text-lg font-bold">Matching a description</h3>
                 <p className="mt-2 text-muted-foreground">
-                  An investigator types a plain-language description into the search bar — clothing colour, bag type, approximate age. The system matches the description against the index directly, with no need to know which camera or time window to start from.
+                  An investigator types a plain-language description into the search bar — clothing color, bag type, approximate age. The system matches the description against the index directly, with no need to know which camera or time window to start from.
                 </p>
 
                 <h3 className="mt-6 font-display text-lg font-bold">Ranked results</h3>
@@ -106,7 +106,7 @@ export default function Page() {
                 <ul className="mt-4 space-y-3 text-muted-foreground">
                   <li className="flex gap-2">• Date-range scoping, from the last hour to the full retention window</li>
                   <li className="flex gap-2">• Site-level or multi-site account-wide search scope</li>
-                  <li className="flex gap-2">• Attribute filters such as clothing colour, object type, and general appearance</li>
+                  <li className="flex gap-2">• Attribute filters such as clothing color, object type, and general appearance</li>
                   <li className="flex gap-2">• Exportable results for incident reports or law enforcement requests</li>
                   <li className="flex gap-2">• Saved searches for recurring investigation patterns</li>
                 </ul>

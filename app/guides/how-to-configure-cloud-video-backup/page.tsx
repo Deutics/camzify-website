@@ -33,7 +33,7 @@ const steps: HowToStep[] = [
   },
   {
     name: 'Read the storage estimate as an estimate',
-    text: 'The figure shown during configuration is derived from each stream’s bitrate, the recording hours and the retention days. It is a planning number, not a guarantee: bitrate rises with scene activity and falls at night, so real consumption moves around it. Watch actual usage in Plan and Usage for the first full retention cycle, after which it stabilises.',
+    text: 'The figure shown during configuration is derived from each stream’s bitrate, the recording hours and the retention days. It is a planning number, not a guarantee: bitrate rises with scene activity and falls at night, so real consumption moves around it. Watch actual usage in Plan and Usage for the first full retention cycle, after which it stabilizes.',
   },
   {
     name: 'Know how to get footage out before you need it',

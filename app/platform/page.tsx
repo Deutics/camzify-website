@@ -18,7 +18,7 @@ import {
  */
 const pageMeta = {
   title: "AI Video Management Platform | Cloud VMS Modules",
-  description: "The Camzify platform on one login: live streaming, cloud video backup and retention, alerts, analytics, user management, permission groups, licence control and multi-site management — with AI detection and virtual patrolling built in.",
+  description: "The Camzify platform on one login: live streaming, cloud video backup and retention, alerts, analytics, user management, permission groups, license control and multi-site management — with AI detection and virtual patrolling built in.",
   path: "/platform",
 };
 
@@ -46,18 +46,18 @@ const groups = [
     heading: 'Know when something happens',
     blurb: 'Detection turned into something a person can act on, and a record that they did.',
     modules: [
-      { icon: Bell, title: 'Notifications & alerts', href: '/platform/notifications-and-alerts', desc: 'One queue by severity, site, camera or feature; acknowledgement, escalation and linked backup video.', image: '/security-alert-management.jpg' },
+      { icon: Bell, title: 'Notifications & alerts', href: '/platform/notifications-and-alerts', desc: 'One queue by severity, site, camera or feature; acknowledgment, escalation and linked backup video.', image: '/security-alert-management.jpg' },
       { icon: BarChart3, title: 'Analytics & reporting', href: '/platform/analytics-and-reporting', desc: 'Detection trends over time, attribute breakdowns and confidence splits, per site and per feature.', image: '/video-surveillance-analytics-and-reporting.jpg' },
       { icon: Brain, title: 'AI architecture', href: '/platform/ai-architecture', desc: 'Six processing layers from detection to adaptive inference, tuned independently per camera.', image: '/ai-video-analytics-architecture.jpg' },
     ],
   },
   {
     heading: 'Run it across people and sites',
-    blurb: 'Delegation without losing control: who can see what, and how much of the licence they hold.',
+    blurb: 'Delegation without losing control: who can see what, and how much of the license they hold.',
     modules: [
-      { icon: Users, title: 'User management', href: '/platform/user-management', desc: 'Sub-users who can create their own, site-scoped access, quota allocated from your licence and requested back.', image: '/security-system-user-management.jpg' },
+      { icon: Users, title: 'User management', href: '/platform/user-management', desc: 'Sub-users who can create their own, site-scoped access, quota allocated from your license and requested back.', image: '/security-system-user-management.jpg' },
       { icon: Lock, title: 'Permission groups', href: '/platform/permission-groups', desc: 'Page-level access combined with create, read, update and delete rights per resource, one group per user.', image: '/permission-group.jpg' },
-      { icon: Layers, title: 'Licence & instances', href: '/platform/license-and-instance-management', desc: 'What is activated, what is granted to sub-accounts and what remains available, per feature.', image: '/license-and-instance-management.jpg' },
+      { icon: Layers, title: 'License & instances', href: '/platform/license-and-instance-management', desc: 'What is activated, what is granted to sub-accounts and what remains available, per feature.', image: '/license-and-instance-management.jpg' },
       { icon: Globe, title: 'Multi-site management', href: '/platform/multi-site-management', desc: 'Every site set up independently and read from one console, folded together or held separate.', image: '/multi-site-video-surveillance.jpg' },
     ],
   },
@@ -65,8 +65,8 @@ const groups = [
 
 const faqs = [
   { question: 'Is the Camzify platform a cloud VMS or an on-premise one?', answer: 'Cloud. There is no server or NVR to install: cameras stream to the platform, footage is stored in the cloud under a retention window set per camera, and every module is used from a browser. The only on-site software is the optional Camzify Connector, a small application for a Windows, macOS or Linux machine that relays cameras on a private network without port forwarding.' },
-  { question: 'Are all of these modules included, or licensed separately?', answer: 'The platform modules — dashboard, live streaming, backup, notifications, analytics, users, permissions, licence and multi-site — are one product on one login. What is licensed per camera is the AI: each detection feature has a pool of instances in your plan, activating a feature on a camera consumes one, and virtual patrolling instances are counted per camera per sequence. Plan and Usage shows exactly what is activated, granted and still available.' },
-  { question: 'Can one account run several clients or sites separately?', answer: 'Yes. Sites are the unit everything is organised around, and a sub-user can be scoped to their own sites and cameras and nothing else, with a permission group deciding what they can open and change. Licence quota is allocated to them from yours, and a request for more comes back to you to approve. Sub-users can create their own sub-users on the same model, which is what makes it work for security agencies and managed service providers.' },
+  { question: 'Are all of these modules included, or licensed separately?', answer: 'The platform modules — dashboard, live streaming, backup, notifications, analytics, users, permissions, license and multi-site — are one product on one login. What is licensed per camera is the AI: each detection feature has a pool of instances in your plan, activating a feature on a camera consumes one, and virtual patrolling instances are counted per camera per sequence. Plan and Usage shows exactly what is activated, granted and still available.' },
+  { question: 'Can one account run several clients or sites separately?', answer: 'Yes. Sites are the unit everything is organized around, and a sub-user can be scoped to their own sites and cameras and nothing else, with a permission group deciding what they can open and change. License quota is allocated to them from yours, and a request for more comes back to you to approve. Sub-users can create their own sub-users on the same model, which is what makes it work for security agencies and managed service providers.' },
   { question: 'Where is footage stored, and who can reach it?', answer: 'In the cloud, encrypted at rest with AES-256 and in transit over TLS 1.2 or higher, under a per-camera retention window. Access follows the same permission groups as the rest of the platform, so a user who cannot open a camera cannot open its recordings either, and every action on the account is written to an audit trail the account holder can review.' },
   { question: 'Are the screenshots on these pages the real product?', answer: 'Yes. The console screens shown across the platform pages are captured from the application in both its light and dark themes and swap with the theme you are viewing the site in. Figures inside them are interface illustrations with sample sites and cameras rather than customer data, and every one says so in its caption.' },
   { question: 'Does the platform work on a phone?', answer: 'Yes, through the browser already on the phone — live streams, alerts and patrol compliance in a responsive interface with nothing to install, which is what makes it usable by a relief guard on their own device on their first shift. Native iOS and Android apps are in development and listed on the roadmap; the browser interface stays available after they ship.' },
@@ -82,7 +82,7 @@ export default function PlatformPage() {
           <>
             <strong className="font-semibold text-foreground">
               The Camzify platform is an AI-powered cloud video management system: live streaming,
-              cloud backup and retention, alerts, analytics, user and licence management and
+              cloud backup and retention, alerts, analytics, user and license management and
               multi-site control on one login
             </strong>{' '}
             &mdash; with 22 detection models and{' '}
@@ -186,7 +186,7 @@ export default function PlatformPage() {
         <div className="mx-auto max-w-site px-6">
           <div className="grid gap-6 lg:grid-cols-2">
             {[
-              { title: '22 AI detection models', desc: 'Every detection fires on a confirmed object track and lands in the same alert queue — intrusion, tampering, weapons, fire, PPE, and behaviour you describe in plain language.', href: '/ai-features', label: 'AI features' },
+              { title: '22 AI detection models', desc: 'Every detection fires on a confirmed object track and lands in the same alert queue — intrusion, tampering, weapons, fire, PPE, and behavior you describe in plain language.', href: '/ai-features', label: 'AI features' },
               { title: 'Virtual patrolling', desc: 'Scheduled rounds with a checklist per camera, before-and-after evidence on anything fixed, and a compliance report every time. The capability no other cloud VMS has.', href: '/virtual-patrolling', label: 'Virtual patrolling' },
             ].map((c) => (
               <ScrollReveal key={c.href}>

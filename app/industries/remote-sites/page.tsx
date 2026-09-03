@@ -156,7 +156,7 @@ export default function RemoteSitesPage() {
           <div className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Deployment notes</h2>
-              <p className="mt-4 max-w-prose text-muted-foreground">Remote sites require cameras with cellular connectivity or satellite backhaul. Camzify connects via RTSP over VPN or the Camzify Connector, providing centralised monitoring for sites that would otherwise be unmonitored between visits.</p>
+              <p className="mt-4 max-w-prose text-muted-foreground">Remote sites require cameras with cellular connectivity or satellite backhaul. Camzify connects via RTSP over VPN or the Camzify Connector, providing centralized monitoring for sites that would otherwise be unmonitored between visits.</p>
             </ScrollReveal>
           </div>
 

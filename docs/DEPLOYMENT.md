@@ -200,7 +200,7 @@ git push -u origin main
 ### Step 3 — Connect Vercel
 
 1. vercel.com → **Add New → Project → Import Git Repository**
-2. Authorise the Vercel GitHub app for the account, then pick the repository
+2. Authorize the Vercel GitHub app for the account, then pick the repository
 3. Framework preset: **Next.js** (auto-detected). Leave build, output and install commands
    at their defaults — `npm run build` already runs `prisma generate`
 4. Root directory: `./`

@@ -49,7 +49,7 @@ export default function Page() {
                   <li className="flex gap-2">• Visibly brandished firearms in camera view</li>
                   <li className="flex gap-2">• Visible edged weapons in camera view</li>
                   <li className="flex gap-2">• Detections at entrances, lobbies, and public-facing areas</li>
-                  <li className="flex gap-2">• Immediate, prioritised alert routing to the on-site or on-call guard</li>
+                  <li className="flex gap-2">• Immediate, prioritized alert routing to the on-site or on-call guard</li>
                   <li className="flex gap-2">• Repeated detections tied to the same confirmed subject track</li>
                   <li className="flex gap-2">• Detections outside scheduled hours at areas that should see no weapon presence</li>
                 </ul>

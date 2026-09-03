@@ -42,7 +42,7 @@ export const homepageFaqs = [
   {
     question: 'Can I search recorded footage for a specific person?',
     answer:
-      'Yes. AI suspect search takes a plain-language description — clothing colour, bag, approximate age, direction of travel — and returns every matching appearance across indexed cameras and time windows, ranked by confidence. No reference photo is needed. It is not facial recognition: matches are made on confirmed object tracks and appearance attributes, and identification is always a human decision. The cross-camera journey map then shows a matched subject’s full path.',
+      'Yes. AI suspect search takes a plain-language description — clothing color, bag, approximate age, direction of travel — and returns every matching appearance across indexed cameras and time windows, ranked by confidence. No reference photo is needed. It is not facial recognition: matches are made on confirmed object tracks and appearance attributes, and identification is always a human decision. The cross-camera journey map then shows a matched subject’s full path.',
   },
   {
     question: 'Can guards and managers use it on a phone?',
@@ -57,7 +57,7 @@ export const homepageFaqs = [
   {
     question: 'Does virtual patrolling replace security guards?',
     answer:
-      'It replaces the routine patrol round, not the security function. The repetitive walk-and-check that occupies most of a guard shift is what the AI takes over; guards are still needed for physical response, visitor management and judgement calls. Many sites use it to cover hours that were never staffed in the first place, and security agencies sell it alongside their guards as overnight coverage across every client site rather than instead of them.',
+      'It replaces the routine patrol round, not the security function. The repetitive walk-and-check that occupies most of a guard shift is what the AI takes over; guards are still needed for physical response, visitor management and judgment calls. Many sites use it to cover hours that were never staffed in the first place, and security agencies sell it alongside their guards as overnight coverage across every client site rather than instead of them.',
   },
   {
     question: 'How much does Camzify cost?',
@@ -67,7 +67,7 @@ export const homepageFaqs = [
   {
     question: 'How quickly does an alert reach someone?',
     answer:
-      'Alerts fire within seconds of a confirmed detection and route to the contact assigned to that specific camera over email, SMS, WhatsApp or push, carrying the object type, confidence score, timestamp and a snapshot. Each alert has an acknowledgement state, so there is a record of who saw it and when, and unacknowledged high-severity events stay at the top of the queue.',
+      'Alerts fire within seconds of a confirmed detection and route to the contact assigned to that specific camera over email, SMS, WhatsApp or push, carrying the object type, confidence score, timestamp and a snapshot. Each alert has an acknowledgment state, so there is a record of who saw it and when, and unacknowledged high-severity events stay at the top of the queue.',
   },
   {
     question: 'What happens when a checklist item fails during a round?',

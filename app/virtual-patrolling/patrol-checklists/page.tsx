@@ -24,7 +24,7 @@ export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
   { question: 'How many checklist items can one camera have?', answer: 'There is no fixed limit — a camera covering a single gate might carry one item, while a wider-angle loading dock view might carry four or five. Most deployments keep each camera to 2-4 items so a round stays fast to evaluate and easy to review.' },
-  { question: 'Can checklist items be reused across cameras?', answer: 'Yes. A checklist item like "No unauthorised persons in zone" can be applied to any number of cameras that share that requirement, rather than writing it out fresh for every stop in the sequence.' },
+  { question: 'Can checklist items be reused across cameras?', answer: 'Yes. A checklist item like "No unauthorized persons in zone" can be applied to any number of cameras that share that requirement, rather than writing it out fresh for every stop in the sequence.' },
   { question: 'What happens to an item during a manual patrol versus Auto-Patrol?', answer: 'The evaluation logic is identical either way — the same checklist runs whether an operator is stepping through it in real time or the schedule triggers it unattended. The only difference is who (or what) advances the round from camera to camera.' },
   { question: 'Can I change a checklist after a patrol sequence is live?', answer: 'Yes. Checklist items can be added, edited, or removed at any time. Changes apply to the next round onward — past patrol reports keep the checklist that was active when that round ran, so historical records stay accurate.' },
   { question: 'Do checklist items need to match exactly what the camera can see?', answer: 'They should. A checklist item only works if a human reviewer — or the AI evaluating it — can genuinely confirm it from that camera\'s field of view. Items are written per camera specifically so they stay checkable rather than generic.' },
@@ -104,7 +104,7 @@ export default function PatrolChecklistsPage() {
                     'Gate fully closed',
                     'No tailgating observed',
                     'Dock door secured',
-                    'No unauthorised persons in zone',
+                    'No unauthorized persons in zone',
                     'Corridor clear of obstructions',
                     'Access door closed',
                     'Fire exit unblocked',

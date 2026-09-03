@@ -78,7 +78,7 @@ export default function Page() {
                 <h3 className="mt-6 font-display text-lg font-bold">Capturing condition at checkpoints</h3>
                 <p className="mt-2 text-muted-foreground">
                   Cameras positioned at entry and exit points run <Link href="/ai-features/ai-attribute-extraction" className="text-primary hover:underline">AI attribute extraction</Link> against
-                  each vehicle passing through, capturing exterior condition alongside vehicle type and colour.
+                  each vehicle passing through, capturing exterior condition alongside vehicle type and color.
                 </p>
 
                 <h3 className="mt-6 font-display text-lg font-bold">Building a comparable record</h3>

@@ -16,7 +16,7 @@ import { SectionAtmosphere } from '@/components/motion/section-atmosphere';
 const steps = [
   {
     title: 'Connect the cameras you already have',
-    desc: 'An RTSP stream that is reachable online connects directly; cameras on a private network relay through the Camzify Connector with no port forwarding. RTMP and HTTPS streams are supported too. Sites and cameras are grouped as you organise them operationally.',
+    desc: 'An RTSP stream that is reachable online connects directly; cameras on a private network relay through the Camzify Connector with no port forwarding. RTMP and HTTPS streams are supported too. Sites and cameras are grouped as you organize them operationally.',
     shot: '/product-configuration',
     alt: 'Camzify configuration screen showing four sites with per-site camera counts and seven-day event trends',
     label: 'Configuration · Camzify console',
@@ -39,7 +39,7 @@ const steps = [
     title: 'Failures reach the person responsible',
     desc: 'Any non-compliant item notifies the guard assigned to that camera with a message explaining what was found. The completed round is emailed as a PDF with every check, the compliance percentage, and who was notified.',
     shot: '/product-notifications',
-    alt: 'Camzify notifications screen showing a critical acknowledgement banner, severity breakdown and per-event detail',
+    alt: 'Camzify notifications screen showing a critical acknowledgment banner, severity breakdown and per-event detail',
     label: 'Notifications · Camzify console',
   },
 ];

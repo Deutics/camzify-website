@@ -20,7 +20,7 @@ export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
   { question: 'What areas can be monitored?', answer: 'Any zone visible to a connected camera can be marked as restricted — fire lanes, loading docks, reserved or accessible spots, and gated-community driveways. A vehicle parked in a marked zone past a configurable grace period triggers an alert.' },
-  { question: 'How is a vehicle plate captured?', answer: 'When AI attribute extraction is enabled, alerts can include vehicle attributes such as colour and type. Plate-level detail depends on camera angle and resolution at that location.' },
+  { question: 'How is a vehicle plate captured?', answer: 'When AI attribute extraction is enabled, alerts can include vehicle attributes such as color and type. Plate-level detail depends on camera angle and resolution at that location.' },
   { question: 'Does it distinguish a quick stop from illegal parking?', answer: 'Yes. A configurable grace period filters out brief stops for loading or drop-off, so only vehicles that remain in a restricted zone past the threshold trigger an alert.' },
   { question: 'Does it require a specific camera angle?', answer: 'A wide, unobstructed view of the restricted zone gives the most reliable dwell-time tracking. Angled or partially obstructed views still work, but a clear line of sight to the zone boundary reduces the chance of a vehicle being lost from the track mid-dwell.' },
   { question: 'How does this compare to physical parking sensors or barriers?', answer: 'Physical sensors and barriers control access at a single point and require dedicated hardware per space. Illegal parking detection runs on the same cameras already covering the site, monitors an entire zone rather than one spot, and produces a reviewable clip rather than just a binary occupied/unoccupied signal.' },
@@ -48,7 +48,7 @@ export default function Page() {
                 <ul className="mt-4 space-y-3 text-muted-foreground">
                   <li className="flex gap-2">• Vehicles blocking marked fire lanes or emergency access routes</li>
                   <li className="flex gap-2">• Vehicles occupying loading zones or reserved parking beyond a grace period</li>
-                  <li className="flex gap-2">• Unauthorised vehicles in gated or accessible-only spots</li>
+                  <li className="flex gap-2">• Unauthorized vehicles in gated or accessible-only spots</li>
                   <li className="flex gap-2">• A timestamped clip for enforcement or towing requests</li>
                   <li className="flex gap-2">• Vehicles parked in accessible spots without a visible permit</li>
                   <li className="flex gap-2">• Repeated illegal parking in the same restricted zone across multiple visits</li>
@@ -91,7 +91,7 @@ export default function Page() {
                 <h3 className="mt-6 font-display text-lg font-bold">Alert delivery</h3>
                 <p className="mt-2 text-muted-foreground">
                   Every alert includes a clip, dwell time, and — when <Link href="/ai-features/ai-attribute-extraction" className="text-primary hover:underline">AI attribute extraction</Link> is
-                  enabled — vehicle colour and type. Alerts route through the platform's <Link href="/platform/notifications-and-alerts" className="text-primary hover:underline">notification system</Link> to
+                  enabled — vehicle color and type. Alerts route through the platform's <Link href="/platform/notifications-and-alerts" className="text-primary hover:underline">notification system</Link> to
                   the guard or property team responsible for enforcement.
                 </p>
               </div>

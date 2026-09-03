@@ -11,7 +11,7 @@
  *
  * `variant` positions the glow so consecutive sections do not look identical:
  *   left | right | center — where the warm plate sits
- *   none  — grid texture only, for sections that already carry a lot of colour
+ *   none  — grid texture only, for sections that already carry a lot of color
  */
 export function SectionAtmosphere({
   variant = 'right',

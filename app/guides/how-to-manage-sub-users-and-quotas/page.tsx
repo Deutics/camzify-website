@@ -12,7 +12,7 @@ import Link from 'next/link';
  */
 const pageMeta = {
   title: "How to Manage Sub-Users and Quotas | Delegated Access Guide",
-  description: "Build a permission group from page access and CRUD rights, add sub-users, assign sites and cameras, allocate licence quota from what you hold, and handle quota requests.",
+  description: "Build a permission group from page access and CRUD rights, add sub-users, assign sites and cameras, allocate license quota from what you hold, and handle quota requests.",
   path: "/guides/how-to-manage-sub-users-and-quotas",
 };
 
@@ -47,7 +47,7 @@ const faqs = [
     answer: 'Yes, on the same model. They can create users beneath them, assign a permission group, and allocate sites, cameras, feature instances and backup storage from their own unused quota — never more than they hold. Subscription end date and pricing remain parent-admin-only, so a delegated administrator can run their part of the account without touching commercial terms. This is what makes the model work for managed service providers and for landlords with tenants.',
   },
   {
-    question: 'What happens when a sub-user hits a licence limit?',
+    question: 'What happens when a sub-user hits a license limit?',
     answer: 'They see the limit and are offered a quota request rather than a dead end. The request lands with the parent account, which approves it if there is enough unallocated quota or declines it. Nothing is granted automatically.',
   },
   {
@@ -75,12 +75,12 @@ export default function Page() {
           <p className="mt-6 max-w-prose text-body text-muted-foreground">
             <strong className="font-semibold text-foreground">
               Delegated access has two halves: what someone can see and do, and how much of your
-              licence they are allowed to consume.
+              license they are allowed to consume.
             </strong>{' '}
             This guide covers both, and the request flow that handles it when someone runs out. See
             also{' '}
             <Link href="/platform/permission-groups" className="text-primary hover:underline">permission groups</Link> and{' '}
-            <Link href="/platform/license-and-instance-management" className="text-primary hover:underline">licence and instance management</Link>.
+            <Link href="/platform/license-and-instance-management" className="text-primary hover:underline">license and instance management</Link>.
           </p>
 
           <HowToSteps steps={steps} />

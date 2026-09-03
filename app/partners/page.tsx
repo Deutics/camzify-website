@@ -11,7 +11,7 @@ import { Handshake, Shield, Monitor, Server, Users } from 'lucide-react';
  */
 const pageMeta = {
   title: "Partners | Reseller & Integration Partners",
-  description: "Join the Camzify partner program — resellers, security integrators, monitoring centres, and managed service providers.",
+  description: "Join the Camzify partner program — resellers, security integrators, monitoring centers, and managed service providers.",
   path: "/partners",
 };
 
@@ -21,7 +21,7 @@ const partnerTypes = [
   { slug: 'for-security-agencies', title: 'For Security Agencies', icon: Users, desc: 'Sell overnight coverage across every client site, with a report per client — alongside the guards you already provide.' },
   { slug: 'become-a-reseller', title: 'Become a Reseller', icon: Handshake, desc: 'Sell Camzify to your customers with dedicated support and margin.' },
   { slug: 'for-security-integrators', title: 'For Security Integrators', icon: Shield, desc: 'Add virtual patrolling to your installation and maintenance offering.' },
-  { slug: 'for-monitoring-centres', title: 'For Monitoring Centres', icon: Monitor, desc: 'Augment human monitoring with AI-powered patrol automation.' },
+  { slug: 'for-monitoring-centers', title: 'For Monitoring Centers', icon: Monitor, desc: 'Augment human monitoring with AI-powered patrol automation.' },
   { slug: 'for-managed-service-providers', title: 'For Managed Service Providers', icon: Server, desc: 'Offer Camzify as a managed security service to your clients.' },
 ];
 
@@ -32,7 +32,7 @@ export default function PartnersHub() {
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Partners</h1>
           <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            Camzify works with security integrators, resellers, monitoring centres, and MSPs to bring <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</Link> to facilities worldwide.
+            Camzify works with security integrators, resellers, monitoring centers, and MSPs to bring <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</Link> to facilities worldwide.
           </p>
           <div className="mt-14 grid gap-6 sm:grid-cols-2">
             {partnerTypes.map((p, i) => (

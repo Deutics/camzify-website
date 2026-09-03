@@ -47,7 +47,7 @@ const tiers = [
   },
   {
     name: 'Enterprise',
-    desc: 'For organisations with complex multi-tenancy and compliance needs.',
+    desc: 'For organizations with complex multi-tenancy and compliance needs.',
     price: null,
     unit: 'Custom agreement',
     features: ['Unlimited cameras', 'Everything in Professional', 'Custom AI instance allocation', 'Custom retention policies', 'Dedicated account manager', 'SLA guarantees', 'API access', 'On-premise deployment option'],

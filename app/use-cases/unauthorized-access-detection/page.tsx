@@ -23,7 +23,7 @@ export const metadata = generatePageMeta({ ...pageMeta });
 const faqs = [
   { question: "Can I schedule zone detection to activate only after business hours?", answer: "Yes. Zone intrusion detection supports schedule-based activation. You can define different zones and rules for business hours, after-hours, weekends, and holidays." },
   { question: "How does this differ from access control?", answer: "Access control systems manage door locks and badge readers. Camzify adds a visual verification layer — confirming that only authorized activity occurs inside the controlled area, catching tailgating and other bypass methods that badge systems miss." },
-  { question: "Can it distinguish between employees and unauthorized persons?", answer: "When AI attribute extraction is enabled, the system can describe attributes of detected persons — clothing colour, carrying objects, behaviour patterns. Full identity recognition is not a current capability." },
+  { question: "Can it distinguish between employees and unauthorized persons?", answer: "When AI attribute extraction is enabled, the system can describe attributes of detected persons — clothing color, carrying objects, behavior patterns. Full identity recognition is not a current capability." },
 ];
 
 export default function UnauthorizedAccessDetectionPage() {

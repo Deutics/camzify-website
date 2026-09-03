@@ -20,11 +20,11 @@ export const metadata = generatePageMeta({ ...pageMeta });
 const faqs = [
   {
     question: 'Will virtual patrolling replace the guards my agency sells?',
-    answer: 'No, and an agency should be sceptical of anyone claiming it will. What it changes is what a guard is dispatched to. A scheduled round covers the sites and hours you cannot staff, verifies specific conditions at each camera, and escalates to a guard when something needs a person. The guard hours you sell become response hours rather than walking hours — which is the part a client is least willing to cut, because it is the part that actually deals with the problem.',
+    answer: 'No, and an agency should be skeptical of anyone claiming it will. What it changes is what a guard is dispatched to. A scheduled round covers the sites and hours you cannot staff, verifies specific conditions at each camera, and escalates to a guard when something needs a person. The guard hours you sell become response hours rather than walking hours — which is the part a client is least willing to cut, because it is the part that actually deals with the problem.',
   },
   {
     question: 'How does one account cover multiple client sites?',
-    answer: 'Sites are the unit everything is organised around. Each client can be given a sub-user account scoped to their own sites and cameras and nothing else, with a permission group deciding which pages they can open and what they can change. You allocate AI feature instances, patrolling instances and backup storage to each from your own licence, and when a client reaches a limit their request comes to you to approve or decline rather than being granted automatically.',
+    answer: 'Sites are the unit everything is organized around. Each client can be given a sub-user account scoped to their own sites and cameras and nothing else, with a permission group deciding which pages they can open and what they can change. You allocate AI feature instances, patrolling instances and backup storage to each from your own license, and when a client reaches a limit their request comes to you to approve or decline rather than being granted automatically.',
   },
   {
     question: 'Can a client see their own reports without seeing other clients?',
@@ -35,8 +35,8 @@ const faqs = [
     answer: 'Scheduled rounds across every client site at whatever frequency is agreed — every two hours through the night is common — with a compliance report filed after each one. Staffing that as physical patrols across a portfolio of sites is usually impossible at any price a client will pay. The rounds happen whether or not anyone is on shift, and the report is what the client is really buying: evidence the site was checked.',
   },
   {
-    question: 'Does this work for a central monitoring station or alarm receiving centre?',
-    answer: 'Yes, and the argument is slightly different there. A CMS or ARC is already staffed and already watching; the problem is operator load and the ratio of real events to noise. Scheduled rounds handle the routine verification that would otherwise occupy an operator, and detections arrive with the snapshot and the surrounding video attached so an operator can judge quickly. See our monitoring centres page for that side of it.',
+    question: 'Does this work for a central monitoring station or alarm receiving center?',
+    answer: 'Yes, and the argument is slightly different there. A CMS or ARC is already staffed and already watching; the problem is operator load and the ratio of real events to noise. Scheduled rounds handle the routine verification that would otherwise occupy an operator, and detections arrive with the snapshot and the surrounding video attached so an operator can judge quickly. See our monitoring centers page for that side of it.',
   },
   {
     question: 'How is this different from a guard tour system?',
@@ -52,7 +52,7 @@ export default function ForSecurityAgenciesPage() {
     ]}>
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <span className="font-mono text-mono-sm uppercase text-primary">Partner Programme</span>
+          <span className="font-mono text-mono-sm uppercase text-primary">Partner Program</span>
           <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">
             Camzify for security agencies
           </h1>
@@ -115,7 +115,7 @@ export default function ForSecurityAgenciesPage() {
                   {
                     icon: Layers,
                     title: 'One account, every client separated',
-                    desc: 'Each client gets a login scoped to their own sites, with licence quota allocated from yours and requests for more coming back to you to approve.',
+                    desc: 'Each client gets a login scoped to their own sites, with license quota allocated from yours and requests for more coming back to you to approve.',
                   },
                 ].map((item) => (
                   <div key={item.title} className="rounded-xl border border-border bg-card p-6">
@@ -132,15 +132,15 @@ export default function ForSecurityAgenciesPage() {
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">How a multi-client account is structured</h2>
               <p className="mt-4 max-w-prose text-muted-foreground">
-                The account model was built for exactly this shape: an organisation holding licence
+                The account model was built for exactly this shape: an organization holding license
                 capacity and handing portions of it to others, who may in turn do the same.
               </p>
               <ol className="mt-8 max-w-prose space-y-6">
                 {[
-                  ['Sites are the unit', 'Every camera belongs to a site, and access, reporting and alert filtering are all organised around it. One client, one or more sites.'],
+                  ['Sites are the unit', 'Every camera belongs to a site, and access, reporting and alert filtering are all organized around it. One client, one or more sites.'],
                   ['Each client gets a scoped account', 'A sub-user reaches only the sites assigned to them. They see their own cameras, patrol reports and alerts, and nothing belonging to anyone else.'],
                   ['A permission group decides what they can do', 'Page-level access combined with create, read, update and delete rights per resource. A client who should look but not change gets exactly that.'],
-                  ['You allocate licence quota', 'AI feature instances, patrolling instances and backup storage are granted from your own unused allocation — never more than you hold.'],
+                  ['You allocate license quota', 'AI feature instances, patrolling instances and backup storage are granted from your own unused allocation — never more than you hold.'],
                   ['Requests come back to you', 'When a client reaches a limit they submit a quota request rather than hitting a dead end. You approve it if you have capacity, or decline it.'],
                 ].map(([title, desc], i) => (
                   <li key={title} className="flex gap-5">
@@ -186,7 +186,7 @@ export default function ForSecurityAgenciesPage() {
                   },
                   {
                     icon: ShieldAlert,
-                    title: 'Monitoring centre, CMS or ARC',
+                    title: 'Monitoring center, CMS or ARC',
                     desc: 'You are staffed and watching, and the constraint is operator load and noise rather than coverage.',
                   },
                 ].map((item) => (
@@ -199,7 +199,7 @@ export default function ForSecurityAgenciesPage() {
               </div>
               <p className="mt-6 max-w-prose text-muted-foreground">
                 If you run a staffed monitoring operation, the{' '}
-                <Link href="/partners/for-monitoring-centres" className="text-primary hover:underline">monitoring centres</Link>{' '}
+                <Link href="/partners/for-monitoring-centers" className="text-primary hover:underline">monitoring centers</Link>{' '}
                 page covers that angle. If you resell rather than operate, see{' '}
                 <Link href="/partners/become-a-reseller" className="text-primary hover:underline">becoming a reseller</Link>.
               </p>

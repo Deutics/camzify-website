@@ -28,12 +28,12 @@ export default function OnvifAndRtspExplainedPage() {
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">ONVIF and RTSP Explained</h1>
           <AuthorByline className="mt-6" />
-          <p className="mt-6 max-w-prose text-body text-muted-foreground">ONVIF and RTSP are the two most important protocols for connecting IP security cameras to video management and analytics platforms. ONVIF is a standardised interface for camera discovery and configuration. RTSP (Real Time Streaming Protocol) is the protocol for streaming live video from the camera to a receiving system.</p>
+          <p className="mt-6 max-w-prose text-body text-muted-foreground">ONVIF and RTSP are the two most important protocols for connecting IP security cameras to video management and analytics platforms. ONVIF is a standardized interface for camera discovery and configuration. RTSP (Real Time Streaming Protocol) is the protocol for streaming live video from the camera to a receiving system.</p>
 
           <section className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">What is ONVIF?</h2>
-              <div className="mt-4 max-w-prose space-y-4 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `ONVIF (Open Network Video Interface Forum) is a standardised set of protocols that allow IP cameras from different manufacturers to communicate with video management software. An ONVIF-compliant camera exposes a standard API for discovery, configuration, PTZ control, and event handling — regardless of the camera brand.` }} />
+              <div className="mt-4 max-w-prose space-y-4 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `ONVIF (Open Network Video Interface Forum) is a standardized set of protocols that allow IP cameras from different manufacturers to communicate with video management software. An ONVIF-compliant camera exposes a standard API for discovery, configuration, PTZ control, and event handling — regardless of the camera brand.` }} />
             </ScrollReveal>
           </section>
 

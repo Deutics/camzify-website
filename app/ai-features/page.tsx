@@ -28,7 +28,7 @@ const liveDetections = [
   { icon: <Activity className="h-5 w-5" />, title: 'Motion Detection', desc: 'Background-subtraction detection that filters camera noise, lighting shifts, and environmental change.', href: '/ai-features/motion-detection' },
   { icon: <Camera className="h-5 w-5" />, title: 'Camera Tampering Detection', desc: 'Five modes: sudden defocus, physical coverage, rapid scene change, abnormal brightness shift, frozen frames.', href: '/ai-features/camera-tampering-detection' },
   { icon: <Users className="h-5 w-5" />, title: 'Multi-Object Tracking', desc: 'Persistent track identity per subject. Survives brief occlusions and re-entries with clean track histories.', href: '/ai-features/multi-object-tracking' },
-  { icon: <Brain className="h-5 w-5" />, title: 'AI Attribute Extraction', desc: 'A vision-language model reads the scene and attaches structured attributes — clothing, object type, behaviour.', href: '/ai-features/ai-attribute-extraction' },
+  { icon: <Brain className="h-5 w-5" />, title: 'AI Attribute Extraction', desc: 'A vision-language model reads the scene and attaches structured attributes — clothing, object type, behavior.', href: '/ai-features/ai-attribute-extraction' },
   { icon: <UserSearch className="h-5 w-5" />, title: 'AI Suspect Search', desc: 'Describe a person in plain language and retrieve every matching appearance across indexed cameras and time windows.', href: '/ai-features/forensic-video-search' },
   { icon: <Route className="h-5 w-5" />, title: 'Cross-Camera Journey Map', desc: 'One subject, one stitched timeline across every camera on-site — the full path, not isolated clips.', href: '/ai-features/cross-camera-journey-map' },
   { icon: <DoorClosed className="h-5 w-5" />, title: 'Tailgating Detection', desc: 'One badge, one person. Flags a second person entering on a single access credential.', href: '/ai-features/tailgating-detection' },
@@ -48,7 +48,7 @@ const liveDetections = [
 
 const roadmapDetections = [
   { icon: <ClockIcon className="h-5 w-5" />, title: 'Loitering Detection', desc: 'Configurable dwell-time threshold. Brief entries ignored, lingering subjects escalate. In development.', href: '/ai-features/loitering-detection' },
-  { icon: <Eye className="h-5 w-5" />, title: 'Behavioral Anomaly Detection', desc: 'Describe the behaviour to watch for in plain language — fights, smoking, vandalism, trespassing — and it monitors for exactly that.', href: '/ai-features/behavioral-anomaly-detection' },
+  { icon: <Eye className="h-5 w-5" />, title: 'Behavioral Anomaly Detection', desc: 'Describe the behavior to watch for in plain language — fights, smoking, vandalism, trespassing — and it monitors for exactly that.', href: '/ai-features/behavioral-anomaly-detection' },
 ];
 
 export default function DetectionHubPage() {

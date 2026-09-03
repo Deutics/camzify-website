@@ -21,10 +21,10 @@ export const metadata = generatePageMeta({ ...pageMeta, type: 'article' });
 const steps: HowToStep[] = [
   {
     name: 'Create the site first',
-    text: 'A site is a physical location that groups its cameras — a warehouse, a campus, a storefront. Create it with a name, address and an optional contact number before adding anything else. Getting sites right early matters more than it looks: site is the unit that access, reporting and notification filtering are all organised around later, so a fleet dumped into one site is hard to delegate afterwards.',
+    text: 'A site is a physical location that groups its cameras — a warehouse, a campus, a storefront. Create it with a name, address and an optional contact number before adding anything else. Getting sites right early matters more than it looks: site is the unit that access, reporting and notification filtering are all organized around later, so a fleet dumped into one site is hard to delegate afterwards.',
   },
   {
-    name: 'Add the camera and give it a name someone will recognise',
+    name: 'Add the camera and give it a name someone will recognize',
     text: 'Add each camera against its site, name it, and set its resolution. Name it for the place rather than the hardware — "Loading Dock B" tells a guard reading an alert at 2am where to go, and "Cam 14" does not. The name follows the camera into patrol reports and alerts, so it is worth a moment.',
   },
   {
@@ -48,7 +48,7 @@ const faqs = [
   },
   {
     question: 'Can I move a camera to a different site later, or rename it?',
-    answer: 'Yes. A site or camera can be edited after it is created — name, address, contact number, resolution and stream URL. Nothing about the initial setup is permanent, so it is better to get cameras connected and adjust the organisation afterwards than to delay connecting them.',
+    answer: 'Yes. A site or camera can be edited after it is created — name, address, contact number, resolution and stream URL. Nothing about the initial setup is permanent, so it is better to get cameras connected and adjust the organization afterwards than to delay connecting them.',
   },
   {
     question: 'What resolution should I use for AI detection?',

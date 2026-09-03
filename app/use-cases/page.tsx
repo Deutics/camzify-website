@@ -58,7 +58,7 @@ export default function UseCasesHub() {
                       // Only the first card is above the fold. Marking every card in the
                       // grid high priority makes the browser fetch a dozen images eagerly
                       // and compete with the real LCP element, which is the same as
-                      // prioritising nothing.
+                      // prioritizing nothing.
                       priority={i === 0}
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />

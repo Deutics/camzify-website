@@ -28,8 +28,8 @@ const deploymentPhases = [
 ];
 
 const faqs = [
-  { question: "Can I manage multiple properties from one account?", answer: "Yes. Multi-site management is a core platform feature, allowing centralised patrol scheduling, alert routing, and reporting across all managed properties." },
-  { question: "How does Camzify handle different camera systems across different buildings in my portfolio?", answer: "Camzify connects to standard IP camera feeds and RTSP streams regardless of the underlying NVR or DVR brand, so each managed building can run on its own existing hardware while reporting into one centralised dashboard." },
+  { question: "Can I manage multiple properties from one account?", answer: "Yes. Multi-site management is a core platform feature, allowing centralized patrol scheduling, alert routing, and reporting across all managed properties." },
+  { question: "How does Camzify handle different camera systems across different buildings in my portfolio?", answer: "Camzify connects to standard IP camera feeds and RTSP streams regardless of the underlying NVR or DVR brand, so each managed building can run on its own existing hardware while reporting into one centralized dashboard." },
   { question: "Will residents or tenants be notified that AI monitoring is in place?", answer: "That's a policy decision for the property owner or manager, not something Camzify sets for you. Many managers post standard signage the same way they would for any CCTV system, in line with local requirements." },
   { question: "How does Camzify avoid flagging residents going about normal activity?", answer: "Detection rules are scoped to specific zones and schedules, so a resident walking through a lobby during the day doesn't trigger the same rule as someone in a parking garage at 3am. Rules are tuned per property during setup." },
   { question: "Can patrol schedules differ between buildings in the same portfolio?", answer: "Yes. Each managed property runs its own patrol sequence, schedule, and escalation contact, so a downtown high-rise and a suburban garden-style complex can have completely different rules on the same account." },
@@ -163,7 +163,7 @@ export default function PropertyManagementPage() {
           <div className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Deployment notes</h2>
-              <p className="mt-4 max-w-prose text-muted-foreground">Property management companies oversee multiple buildings with varying camera setups. Camzify's multi-site management allows centralised monitoring of all properties from one dashboard.</p>
+              <p className="mt-4 max-w-prose text-muted-foreground">Property management companies oversee multiple buildings with varying camera setups. Camzify's multi-site management allows centralized monitoring of all properties from one dashboard.</p>
             </ScrollReveal>
           </div>
 

@@ -21,7 +21,7 @@ const featured = [
   {
     title: 'Behavioral Anomaly Detection',
     href: '/ai-features/behavioral-anomaly-detection',
-    desc: 'Describe the behaviour you want watched in plain language — fights, smoking, vandalism, trespassing — and it monitors for exactly that.',
+    desc: 'Describe the behavior you want watched in plain language — fights, smoking, vandalism, trespassing — and it monitors for exactly that.',
   },
   {
     title: 'Line Intrusion Detection',
@@ -46,7 +46,7 @@ const featured = [
   {
     title: 'AI Attribute Extraction',
     href: '/ai-features/ai-attribute-extraction',
-    desc: 'A vision-language model reads the scene and attaches structured attributes — clothing colour, object type, behaviour.',
+    desc: 'A vision-language model reads the scene and attaches structured attributes — clothing color, object type, behavior.',
   },
 ];
 
@@ -193,8 +193,8 @@ export function DetectionGrid() {
               <h3 className="font-display text-2xl font-bold">Every detection, one queue</h3>
               <p className="mt-4 max-w-prose text-muted-foreground">
                 Detections do not land in separate tools. They arrive in a single notification
-                queue with severity, site, camera and feature, an acknowledgement state, and the
-                option to mark a false positive so the model's behaviour on that camera is
+                queue with severity, site, camera and feature, an acknowledgment state, and the
+                option to mark a false positive so the model's behavior on that camera is
                 recorded.
               </p>
               <Link
@@ -208,7 +208,7 @@ export function DetectionGrid() {
           <ScrollReveal delay={0.08}>
             <ProductShot
               src="/product-notifications"
-              alt="Camzify notifications screen showing 54 detection events with severity filters, a critical acknowledgement banner, and average time to acknowledge"
+              alt="Camzify notifications screen showing 54 detection events with severity filters, a critical acknowledgment banner, and average time to acknowledge"
               label="Notifications · Camzify console"
             />
           </ScrollReveal>

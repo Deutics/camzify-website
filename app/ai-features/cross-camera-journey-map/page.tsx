@@ -63,7 +63,7 @@ export default function Page() {
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Why cross-camera journey map matters</h2>
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
-                <p>A single camera only ever shows part of the story. Once a subject leaves that camera's frame, reconstructing where they went next means an investigator has to guess which neighbouring camera they might have entered, pull up that feed, scrub to the right moment, and repeat — camera by camera, for as long as the path continues.</p>
+                <p>A single camera only ever shows part of the story. Once a subject leaves that camera's frame, reconstructing where they went next means an investigator has to guess which neighboring camera they might have entered, pull up that feed, scrub to the right moment, and repeat — camera by camera, for as long as the path continues.</p>
                 <p>On a site with more than a handful of cameras, that manual cross-referencing becomes the slowest part of any investigation. Each hand-off between cameras adds a fresh round of searching, and there's no guarantee the investigator picks the right next camera on the first try, or that they catch every appearance along the way.</p>
                 <p>Cross-camera journey map removes the guesswork by linking appearances automatically as they happen, so the full route — not just one camera's slice of it — is available as a single ordered timeline from the start.</p>
               </div>
@@ -138,7 +138,7 @@ export default function Page() {
                 Journey mapping is used for investigation after an event rather than as a live checklist item
                 during a <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrol</Link> round.
                 When a patrol logs a non-compliant camera, a journey map can show what happened at that location
-                immediately before and after, across neighbouring cameras.
+                immediately before and after, across neighboring cameras.
               </p>
             </ScrollReveal>
           </div>

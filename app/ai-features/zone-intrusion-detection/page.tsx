@@ -84,7 +84,7 @@ export default function Page() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Alert delivery</h3>
                 <p className="mt-2 text-muted-foreground">
-                  Each zone can carry its own object-class filter and dwell-time threshold, so a zone can be set to alert instantly on any person, or only after a subject remains inside longer than a set number of seconds. Alerts include the object type, confidence score, and timestamp, and — when <Link href="/ai-features/ai-attribute-extraction" className="text-primary hover:underline">AI attribute extraction</Link> is enabled — structured attributes describing the subject. Alerts route through the <Link href="/platform/notifications-and-alerts" className="text-primary hover:underline">notification queue</Link> with severity and acknowledgement status.
+                  Each zone can carry its own object-class filter and dwell-time threshold, so a zone can be set to alert instantly on any person, or only after a subject remains inside longer than a set number of seconds. Alerts include the object type, confidence score, and timestamp, and — when <Link href="/ai-features/ai-attribute-extraction" className="text-primary hover:underline">AI attribute extraction</Link> is enabled — structured attributes describing the subject. Alerts route through the <Link href="/platform/notifications-and-alerts" className="text-primary hover:underline">notification queue</Link> with severity and acknowledgment status.
                 </p>
               </div>
             </ScrollReveal>

@@ -21,13 +21,13 @@ const pageMeta = {
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const deploymentPhases = [
-    { title: "Standardise one sequence first", body: "A single site is configured and tuned into an approved template — camera order, checklist wording and escalation contacts — before anything is rolled out more widely." },
+    { title: "Standardize one sequence first", body: "A single site is configured and tuned into an approved template — camera order, checklist wording and escalation contacts — before anything is rolled out more widely." },
     { title: "Replicate and delegate", body: "The template is applied across the estate, with permission groups giving each local contact access to their own site while regional managers retain the combined view." },
     { title: "Compare compliance across locations", body: "Because every site runs an identical checklist, round-completion and compliance percentages become directly comparable, which is what surfaces the underperforming location." },
 ];
 
 const faqs = [
-  { question: "Is there a limit to how many sites Camzify can manage?", answer: "No practical limit. The platform is designed for multi-site operations, with centralised management, site-specific patrol configurations, and cross-site analytics." },
+  { question: "Is there a limit to how many sites Camzify can manage?", answer: "No practical limit. The platform is designed for multi-site operations, with centralized management, site-specific patrol configurations, and cross-site analytics." },
   { question: "Can different sites have different patrol schedules?", answer: "Yes. Each site has its own patrol sequences, checklists, schedules, and alert routing — all managed from the central dashboard." },
   { question: "How long does it take to onboard a new site into an existing account?", answer: "Once camera access is confirmed for the new site, zones and a patrol route are typically configured within a few days and added to the existing dashboard alongside your other locations, without disrupting patrols already running elsewhere." },
   { question: "Does detection accuracy vary between sites with different camera hardware?", answer: "Camzify works with any IP camera feed, but zone boundaries and detection sensitivity are tuned per camera during setup, so a site with older or lower-resolution cameras can be configured with thresholds appropriate to that hardware rather than a one-size-fits-all setting." },
@@ -156,7 +156,7 @@ export default function MultipleSitesPage() {
           <div className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Deployment notes</h2>
-              <p className="mt-4 max-w-prose text-muted-foreground">Multi-site operations benefit most from Camzify's centralised dashboard, consistent patrol scheduling, and cross-site reporting. One security team can oversee all locations with site-specific configurations.</p>
+              <p className="mt-4 max-w-prose text-muted-foreground">Multi-site operations benefit most from Camzify's centralized dashboard, consistent patrol scheduling, and cross-site reporting. One security team can oversee all locations with site-specific configurations.</p>
             </ScrollReveal>
           </div>
 

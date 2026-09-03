@@ -52,7 +52,7 @@
     --chart-5: 215 25% 35%;
 
     /*
-     * Signal colours — status semantics, not brand.
+     * Signal colors — status semantics, not brand.
      *   live     = healthy / online / compliant / saving
      *   warn     = roadmap / degraded / needs attention
      *   critical = failure / cost / non-compliant
@@ -70,13 +70,13 @@
      * The brand crimson used as TEXT rather than as a fill.
      *
      * --primary is #A80101, which is correct for button and badge backgrounds where
-     * it carries white text. As a text colour on the dark ground it measures 2.50:1,
+     * it carries white text. As a text color on the dark ground it measures 2.50:1,
      * well under the 4.5 WCAG AA needs — and that affected every crimson link and
      * eyebrow on the site, on the default theme.
      *
      * On the light ground the brand value already measures 7.39, so it is unchanged
      * here; only the dark theme needs lifting. Tailwind maps `text-primary` to this
-     * token while `bg-primary` and `border-primary` keep the true brand colour, so
+     * token while `bg-primary` and `border-primary` keep the true brand color, so
      * fills stay exactly on-brand and only text is adjusted.
      */
     --primary-text: 0 99% 33%;
@@ -110,7 +110,7 @@
     /* Brand crimson lifted to clear WCAG AA as text on the near-black ground. */
     --primary-text: 0 95% 68%;
 
-    /* Signal colours, brightened for the dark surface. */
+    /* Signal colors, brightened for the dark surface. */
     --live: 168 100% 42%;
     --warn: 38 92% 58%;
     --critical: 0 100% 68%;
@@ -143,7 +143,7 @@
 /*
  * Camera tile.
  *
- * The hero tiles show synthesised camera frames — dark IR and low-light scenes in both
+ * The hero tiles show synthesized camera frames — dark IR and low-light scenes in both
  * themes. Text over them was inheriting the page tokens, so in the light theme the
  * labels resolved to near-black foreground and a dark teal `live`, sitting on a dark
  * photograph. Legible on dark, invisible on light.
@@ -152,7 +152,7 @@
  * the page is doing, exactly like a video player. So the tile re-declares the tokens
  * locally at their dark-theme values. Every `text-live`, `text-critical`,
  * `text-foreground` and `text-muted-foreground` inside then resolves against the
- * surface it is actually on, in both themes, with no literal colours in the markup and
+ * surface it is actually on, in both themes, with no literal colors in the markup and
  * no per-theme branching in the component.
  *
  * The scrim is fixed rather than `background/x` for the same reason — a light-theme
@@ -179,17 +179,17 @@
 /*
  * Brand plate.
  *
- * Manufacturer logos are colour marks with black or near-black lettering — Axis, Dahua,
- * Hanwha Vision and Uniview all disappear against the dark theme. Recolouring them is
+ * Manufacturer logos are color marks with black or near-black lettering — Axis, Dahua,
+ * Hanwha Vision and Uniview all disappear against the dark theme. Recoloring them is
  * not an option: altering a trademark is worse than not showing it, and inverting a
  * two-colour mark produces something that is not the logo.
  *
- * So every mark sits on a white plate in both themes. The colours stay exactly as the
+ * So every mark sits on a white plate in both themes. The colors stay exactly as the
  * owner published them, the strip reads consistently light-on-dark and light-on-light,
  * and brands still awaiting artwork put their wordmark on the same plate so the grid
  * does not split into two visual treatments.
  *
- * Literal colours are deliberate here and belong in this layer rather than in JSX: the
+ * Literal colors are deliberate here and belong in this layer rather than in JSX: the
  * plate is white because the logos require white, not because the theme says so.
  */
 .brand-plate {

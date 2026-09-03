@@ -2,19 +2,19 @@
  * Stand-in for a feature page's hero photograph.
  *
  * The brief was placeholders the business can replace later. The old placeholder was a
- * grey box with an icon and the word VISUAL in a crimson tag — honest, but it made
+ * gray box with an icon and the word VISUAL in a crimson tag — honest, but it made
  * every sub-page look unfinished, and a buyer does not distinguish "not yet supplied"
  * from "broken".
  *
  * This renders something presentable in the meantime: a console-framed camera wall
- * built from the site's own synthesised frames, labelled for the page it sits on. It
+ * built from the site's own synthesized frames, labelled for the page it sits on. It
  * reads as product rather than as an empty slot, and the page ships looking finished.
  *
  * TO REPLACE: drop the photograph in public/, run scripts/optimise-images.py, and pass
  * a <SiteImage> as the hero's `visual` instead of this component. `data-replace="hero"`
  * is on the root so the remaining instances can be found with one grep.
  *
- * Frames come from public/cam-*.jpg — synthesised scenes, no third-party copyright,
+ * Frames come from public/cam-*.jpg — synthesized scenes, no third-party copyright,
  * see scripts/assets/camera-frames.html.
  */
 const DEFAULT_FRAMES = [

@@ -12,7 +12,7 @@ import Link from 'next/link';
  */
 const pageMeta = {
   title: "Remote Guarding Cost | Pricing Guide",
-  description: "What does remote guarding cost? Compare virtual monitoring centre rates with on-site guards and automated virtual patrolling.",
+  description: "What does remote guarding cost? Compare virtual monitoring center rates with on-site guards and automated virtual patrolling.",
   path: "/guides/remote-guarding-cost",
 };
 
@@ -20,7 +20,7 @@ export const metadata = generatePageMeta({ ...pageMeta, type: 'article', publish
 
 export default function RemoteGuardingCostPage() {
   return (
-    <PageShell {...pageMeta} schema={[articleSchema({ headline: "Remote Guarding Cost", description: "What does remote guarding cost? Compare virtual monitoring centre rates with on-site guards and automated virtual patrolling.", path: "/guides/remote-guarding-cost", datePublished: '2026-08-31', dateModified: '2026-08-31' }), personSchema()]} breadcrumbs={[
+    <PageShell {...pageMeta} schema={[articleSchema({ headline: "Remote Guarding Cost", description: "What does remote guarding cost? Compare virtual monitoring center rates with on-site guards and automated virtual patrolling.", path: "/guides/remote-guarding-cost", datePublished: '2026-08-31', dateModified: '2026-08-31' }), personSchema()]} breadcrumbs={[
       { label: 'Guides', href: '/guides' },
       { label: 'Remote Guarding Cost' },
     ]}>
@@ -28,7 +28,7 @@ export default function RemoteGuardingCostPage() {
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Remote Guarding Cost</h1>
           <AuthorByline className="mt-6" />
-          <p className="mt-6 max-w-prose text-body text-muted-foreground">Remote guarding cost is the price of having a human operator in a monitoring centre watch your camera feeds and respond to alerts. It sits between on-site guarding (most expensive) and fully automated virtual patrolling (least expensive). Typical remote guarding services charge per camera per month, with rates varying by hours of coverage and response protocol.</p>
+          <p className="mt-6 max-w-prose text-body text-muted-foreground">Remote guarding cost is the price of having a human operator in a monitoring center watch your camera feeds and respond to alerts. It sits between on-site guarding (most expensive) and fully automated virtual patrolling (least expensive). Typical remote guarding services charge per camera per month, with rates varying by hours of coverage and response protocol.</p>
 
           <section className="mt-16">
             <ScrollReveal>

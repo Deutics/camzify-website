@@ -70,19 +70,19 @@ export default function Page() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="VISUAL SIGNATURE MATCHING" alt="Diagram showing a camera feed analysed for flame and smoke visual signatures before a critical alert fires" />
+            <PlaceholderVisual type="diagram" caption="VISUAL SIGNATURE MATCHING" alt="Diagram showing a camera feed analyzed for flame and smoke visual signatures before a critical alert fires" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>
 
                 <h3 className="mt-6 font-display text-lg font-bold">Reading the visual signature</h3>
                 <p className="mt-2 text-muted-foreground">
-                  The model analyses each camera's live feed for the visual signatures of flame and smoke — colour, texture, and motion patterns distinct from ordinary movement in the scene. A confirmed match above the confidence threshold fires an alert immediately.
+                  The model analyzes each camera's live feed for the visual signatures of flame and smoke — color, texture, and motion patterns distinct from ordinary movement in the scene. A confirmed match above the confidence threshold fires an alert immediately.
                 </p>
 
                 <h3 className="mt-6 font-display text-lg font-bold">Filtering false triggers</h3>
                 <p className="mt-2 text-muted-foreground">
-                  Steam, dust, and fog can visually resemble smoke at a glance, so the model is trained to separate their distinct colour, texture, and motion characteristics from an actual smoke or flame event before an alert fires.
+                  Steam, dust, and fog can visually resemble smoke at a glance, so the model is trained to separate their distinct color, texture, and motion characteristics from an actual smoke or flame event before an alert fires.
                 </p>
 
                 <h3 className="mt-6 font-display text-lg font-bold">Critical alert routing</h3>

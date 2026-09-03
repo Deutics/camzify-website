@@ -42,19 +42,19 @@ const modules = [
   {
     title: 'Notifications & alerts',
     href: '/platform/notifications-and-alerts',
-    desc: 'One queue filtered by severity, site, camera or feature, with acknowledgement state, escalation and false-positive marking.',
+    desc: 'One queue filtered by severity, site, camera or feature, with acknowledgment state, escalation and false-positive marking.',
     shot: '/product-notifications',
-    alt: 'Camzify notifications screen with severity filters, acknowledgement queue and average time to acknowledge',
+    alt: 'Camzify notifications screen with severity filters, acknowledgment queue and average time to acknowledge',
   },
   {
     title: 'User management',
     href: '/platform/user-management',
-    desc: 'Sub-users, permission groups with per-module view/edit/delete, site-level access, and AI instance allocation from your licence.',
+    desc: 'Sub-users, permission groups with per-module view/edit/delete, site-level access, and AI instance allocation from your license.',
     shot: '/product-user-management',
     alt: 'Camzify user management screen showing sub-users with permission groups, instance allocation and access controls',
   },
   {
-    title: 'Licence & instances',
+    title: 'License & instances',
     href: '/platform/license-and-instance-management',
     desc: 'What is activated, what is granted to sub-accounts and what remains available — per feature, with quota requests.',
     shot: '/product-license-plan',

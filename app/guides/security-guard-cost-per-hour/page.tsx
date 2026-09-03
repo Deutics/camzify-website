@@ -37,7 +37,7 @@ export default function SecurityGuardCostPerHourPage() {
                 <p>
                   The hourly rates above are the starting point, not the answer. The rate a guarding
                   contractor quotes is a billed rate, not your cost of coverage, and the gap between
-                  the two is where security budgets get missed. Rates also move with local labour
+                  the two is where security budgets get missed. Rates also move with local labor
                   markets and licensing regimes, so treat any published figure — including ours — as
                   indicative and confirm it with two or three quotes in your own market.
                 </p>

@@ -11,9 +11,9 @@ mono treatment is the single most recognisable thing about the design; keep usin
 ## Design tokens
 
 All values are CSS variables in `app/globals.css`, surfaced to Tailwind in
-`tailwind.config.ts`. **Never hardcode a colour.**
+`tailwind.config.ts`. **Never hardcode a color.**
 
-### Colour
+### Color
 
 | Token | Tailwind | Use |
 |---|---|---|
@@ -164,7 +164,7 @@ These are not aspirational — the current code meets them and regressions are b
 - **Decorative icons are `aria-hidden="true"`.** Meaningful ones get a label.
 - **One `h1` per page**, no skipped heading levels.
 - **A skip-to-content link** is the first focusable element (root layout).
-- **Colour is never the only signal** — pair status colour with an icon or text.
+- **Color is never the only signal** — pair status color with an icon or text.
 
 ---
 
@@ -173,7 +173,7 @@ These are not aspirational — the current code meets them and regressions are b
 1. Pick the right folder — `content/` for most work.
 2. Server component by default. Add `'use client'` only if you need state, effects or
    browser APIs, and keep the client boundary as small as possible.
-3. Use design tokens for every colour, size and duration.
+3. Use design tokens for every color, size and duration.
 4. Support both themes. Check light mode explicitly — dark is the default, so light is
    where regressions hide.
 5. Respect `prefers-reduced-motion` if it animates.
@@ -205,4 +205,4 @@ one-off images keep working without special handling.
 
 **`priority` marks the LCP element only.** In a mapped list that means `priority={i === 0}`.
 Marking every card in a grid high priority makes the browser fetch a dozen images eagerly
-in competition with the real LCP element, which is the same as prioritising nothing.
+in competition with the real LCP element, which is the same as prioritizing nothing.

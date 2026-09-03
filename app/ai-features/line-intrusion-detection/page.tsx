@@ -88,7 +88,7 @@ export default function LineIntrusionPage() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Alert delivery</h3>
                 <p className="mt-2 text-muted-foreground">
-                  Each alert includes the object type, confidence score, timestamp, and — when <Link href="/ai-features/ai-attribute-extraction" className="text-primary hover:underline">AI attribute extraction</Link> is enabled — structured attributes like clothing colour and behaviour description. Alerts route through the platform's notification system and appear in the <Link href="/platform/notifications-and-alerts" className="text-primary hover:underline">notification queue</Link> with severity, acknowledgement status, and the option to mark as false positive.
+                  Each alert includes the object type, confidence score, timestamp, and — when <Link href="/ai-features/ai-attribute-extraction" className="text-primary hover:underline">AI attribute extraction</Link> is enabled — structured attributes like clothing color and behavior description. Alerts route through the platform's notification system and appear in the <Link href="/platform/notifications-and-alerts" className="text-primary hover:underline">notification queue</Link> with severity, acknowledgment status, and the option to mark as false positive.
                 </p>
               </div>
             </ScrollReveal>
@@ -163,7 +163,7 @@ export default function LineIntrusionPage() {
                 <h3 className="font-display text-lg font-bold">Use cases</h3>
                 <div className="mt-4 flex flex-wrap justify-center gap-2">
                   <Link href="/use-cases/perimeter-security" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Perimeter Security</Link>
-                  <Link href="/use-cases/unauthorized-access-detection" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Unauthorised Access</Link>
+                  <Link href="/use-cases/unauthorized-access-detection" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Unauthorized Access</Link>
                 </div>
               </div>
             </div>

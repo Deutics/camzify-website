@@ -57,7 +57,7 @@ export default function IncidentInvestigationPage() {
           <div className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">How Camzify handles it</h2>
-              <div className="mt-4 max-w-prose text-muted-foreground" dangerouslySetInnerHTML={{ __html: `Every detection in Camzify is timestamped, tagged with the camera ID, detection type, and confidence score. <a href="/virtual-patrolling" class="text-primary hover:underline">Virtual patrol</a> logs create a structured timeline of what was verified and when. <a href="/ai-features/multi-object-tracking" class="text-primary hover:underline">Multi-object tracking</a> maintains identity across frames, and <a href="/ai-features/ai-attribute-extraction" class="text-primary hover:underline">AI attribute extraction</a> adds structured descriptions — clothing colour, object type, behaviour — to every detection event.` }} />
+              <div className="mt-4 max-w-prose text-muted-foreground" dangerouslySetInnerHTML={{ __html: `Every detection in Camzify is timestamped, tagged with the camera ID, detection type, and confidence score. <a href="/virtual-patrolling" class="text-primary hover:underline">Virtual patrol</a> logs create a structured timeline of what was verified and when. <a href="/ai-features/multi-object-tracking" class="text-primary hover:underline">Multi-object tracking</a> maintains identity across frames, and <a href="/ai-features/ai-attribute-extraction" class="text-primary hover:underline">AI attribute extraction</a> adds structured descriptions — clothing color, object type, behavior — to every detection event.` }} />
             </ScrollReveal>
           </div>
 

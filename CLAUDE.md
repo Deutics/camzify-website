@@ -37,12 +37,12 @@ They share `.next/` and the build strips the dev server's CSS. Use
 
 **4. Never weaken `eslint.ssr.config.mjs`.**
 It is a hand-written hydration-safety lint that runs after every build. If it flags your
-code, fix the code. `new Date()`, `Math.random()`, `window`, and unlocalised
+code, fix the code. `new Date()`, `Math.random()`, `window`, and unlocalized
 `toLocaleString` in render are all real hydration bugs. Use `ClientOnly`, `useMounted`,
 `SafeDate`, `SafeNumber` from `components/system/`, or hoist the value to module scope
 with a comment explaining why it is safe.
 
-**5. Never use literal Tailwind palette colours.**
+**5. Never use literal Tailwind palette colors.**
 No `text-emerald-400`, `bg-red-500`, `text-gray-900`. Use the semantic tokens:
 `primary`, `muted`, `border`, `card`, `foreground`, and the status tokens `live`, `warn`,
 `critical`. Literal palette classes are tuned for one theme and fail contrast in the
@@ -88,8 +88,9 @@ the file the six SEO skills (`keyword-fanout-map`, `seo-content-writer`,
 `onpage-optimizer`, `internal-link-architect`, `ai-visibility-checker`) read, so keeping
 it accurate keeps their output on-brand.
 
-Target search market is the **United States**. Note the open conflict recorded in the
-brief: the copy is written in Commonwealth English while the search target is US.
+Target search market is the **United States**, and the copy is written in **US
+English** (organize, behavior, center, license, gray). Proper nouns keep their own
+spelling. Filenames and identifiers were not respelled; prose was.
 
 ---
 

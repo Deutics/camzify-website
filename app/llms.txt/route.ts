@@ -21,7 +21,7 @@ const buildLlmsTxt = () => `# ${siteConfig.name}
 
 ## What ${siteConfig.name} does
 
-${siteConfig.name} is one platform on one login, in the order it runs: connect existing cameras (ONVIF, RTSP, RTMP, HTTPS); stream them live in a multi-camera wall grouped by site; record to the cloud continuously or on a schedule with retention set per camera; run AI detection on confirmed object tracks; run scheduled virtual patrol rounds with a checklist per camera; assess each patrol stop for safety and security risks; search recorded footage for a person by plain-language description; and deliver every alert to a named person over email, SMS, WhatsApp or push with an acknowledgement trail.
+${siteConfig.name} is one platform on one login, in the order it runs: connect existing cameras (ONVIF, RTSP, RTMP, HTTPS); stream them live in a multi-camera wall grouped by site; record to the cloud continuously or on a schedule with retention set per camera; run AI detection on confirmed object tracks; run scheduled virtual patrol rounds with a checklist per camera; assess each patrol stop for safety and security risks; search recorded footage for a person by plain-language description; and deliver every alert to a named person over email, SMS, WhatsApp or push with an acknowledgment trail.
 
 What distinguishes it from other cloud VMS products is the virtual patrol round: at each camera stop the system checks a defined list of conditions — is the door closed, is the area clear, is the perimeter intact — notifies the assigned guard on a failure, and files a timestamped compliance report with the snapshot behind every result. ${siteConfig.name} is priced and positioned against the cost of manned guarding rather than against other software. It replaces the routine patrol round, not the security function, and security agencies sell it alongside their guards rather than instead of them.
 
@@ -35,7 +35,7 @@ What distinguishes it from other cloud VMS products is the virtual patrol round:
 - **Multi-Object Tracking** — Persistent identity tracking across frames
 - **AI Attribute Extraction** — Structured descriptions of detected subjects using vision-language models
 - **Cross-Camera Journey Map** — Reconstructs a subject's path across multiple cameras
-- **Behavioral Anomaly Detection** — The operator describes a behaviour to watch for in ordinary language ("alert me if anyone starts fighting", "tell me if someone is smoking in the loading bay"); natural-language processing interprets the description, the system monitors subjects appearing in the selected cameras, and raises a notification when that activity is observed. Behaviour is defined at the point of use rather than chosen from a fixed catalogue
+- **Behavioral Anomaly Detection** — The operator describes a behavior to watch for in ordinary language ("alert me if anyone starts fighting", "tell me if someone is smoking in the loading bay"); natural-language processing interprets the description, the system monitors subjects appearing in the selected cameras, and raises a notification when that activity is observed. Behavior is defined at the point of use rather than chosen from a fixed catalog
 - **AI Suspect Search** — Attribute-driven forensic search across recorded video
 - **Tailgating, Weapons, Aggression, PPE, Fire and Smoke, Slip and Fall, Abandoned Object, and Littering Detection**
 - **Illegal Parking, Wrong-Way Vehicle, and Vehicle Damage Detection**
@@ -70,11 +70,11 @@ Recording runs continuously or on a schedule defined per camera, and a schedule 
 
 ## Accounts and access
 
-Each account can create sub-users, who can in turn create their own, allocating sites, cameras, AI feature instances and backup storage only from quota they already hold. A user who reaches a licence limit can submit a quota request to their parent account, which is approved or declined there. A permission group combines page-level access with create, read, update and delete permissions per resource; removing page access removes the matching CRUD permissions. Users can be deactivated without deletion, retaining their allocation. Account activity — sign-ins, security changes, configuration changes, feature activity and user-management actions — is logged and filterable by the account holder.
+Each account can create sub-users, who can in turn create their own, allocating sites, cameras, AI feature instances and backup storage only from quota they already hold. A user who reaches a license limit can submit a quota request to their parent account, which is approved or declined there. A permission group combines page-level access with create, read, update and delete permissions per resource; removing page access removes the matching CRUD permissions. Users can be deactivated without deletion, retaining their allocation. Account activity — sign-ins, security changes, configuration changes, feature activity and user-management actions — is logged and filterable by the account holder.
 
 ## Who it is sold to
 
-Two audiences. End-user organisations — security, facilities and operations managers responsible for one or more sites — and security agencies: guarding companies, remote guarding providers, central monitoring stations and alarm receiving centres that cover many client sites and resell coverage to their own customers. For agencies the account model is multi-tenant: each client is a sub-user scoped to their own sites, with licence quota allocated from the agency's own and quota requests approved by the agency. ${siteConfig.name} does not replace an agency's guards; it covers the routine rounds and escalates to a guard when a person is needed.
+Two audiences. End-user organizations — security, facilities and operations managers responsible for one or more sites — and security agencies: guarding companies, remote guarding providers, central monitoring stations and alarm receiving centers that cover many client sites and resell coverage to their own customers. For agencies the account model is multi-tenant: each client is a sub-user scoped to their own sites, with license quota allocated from the agency's own and quota requests approved by the agency. ${siteConfig.name} does not replace an agency's guards; it covers the routine rounds and escalates to a guard when a person is needed.
 
 ## Pricing
 

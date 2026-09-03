@@ -39,7 +39,7 @@ const faqs = [
   },
   {
     question: 'Where do these alerts arrive?',
-    answer: 'In the same notifications queue as detections from continuous monitoring, marked critical, carrying the snapshot from the camera and expecting an acknowledgement. They are not buried in the patrol report — the report records the round, while a risk that needs somebody now goes out as a notification on the channels that guard is configured for: email, SMS, WhatsApp or push.',
+    answer: 'In the same notifications queue as detections from continuous monitoring, marked critical, carrying the snapshot from the camera and expecting an acknowledgment. They are not buried in the patrol report — the report records the round, while a risk that needs somebody now goes out as a notification on the channels that guard is configured for: email, SMS, WhatsApp or push.',
   },
   {
     question: 'Does this replace continuous AI monitoring?',
@@ -191,7 +191,7 @@ export default function RiskDetectionPage() {
                   {
                     icon: Bell,
                     title: 'The alert reaches a person',
-                    desc: 'Critical notifications go to the guard configured for that camera on email, SMS, WhatsApp or push, and expect an acknowledgement.',
+                    desc: 'Critical notifications go to the guard configured for that camera on email, SMS, WhatsApp or push, and expect an acknowledgment.',
                     href: '/virtual-patrolling/guard-notifications',
                     link: 'Guard notifications',
                   },

@@ -9,9 +9,9 @@ import Link from 'next/link';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Camzify for Monitoring Centres | CMS, ARC and GSOC",
-  description: "Augment human monitoring with AI patrol automation. For central monitoring stations, alarm receiving centres and GSOCs — Camzify handles routine verification so operators focus on verified threats.",
-  path: "/partners/for-monitoring-centres",
+  title: "Camzify for Monitoring Centers | CMS, ARC and GSOC",
+  description: "Augment human monitoring with AI patrol automation. For central monitoring stations, alarm receiving centers and GSOCs — Camzify handles routine verification so operators focus on verified threats.",
+  path: "/partners/for-monitoring-centers",
 };
 
 export const metadata = generatePageMeta({ ...pageMeta });
@@ -20,19 +20,19 @@ export default function ForMonitoringCentresPage() {
   return (
     <PageShell {...pageMeta} breadcrumbs={[
       { label: 'Partners', href: '/partners' },
-      { label: 'For Monitoring Centres' },
+      { label: 'For Monitoring Centers' },
     ]}>
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">For Monitoring Centres</h1>
+          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">For Monitoring Centers</h1>
           <p className="mt-6 max-w-prose text-body text-muted-foreground">
-            For central monitoring stations (CMS), alarm receiving centres (ARC) and global
-            security operations centres (GSOC). If you provide guarding rather than staffed
+            For central monitoring stations (CMS), alarm receiving centers (ARC) and global
+            security operations centers (GSOC). If you provide guarding rather than staffed
             monitoring, see{' '}
             <Link href="/partners/for-security-agencies" className="text-primary hover:underline">Camzify for security agencies</Link>.
           </p>
           <p className="mt-6 max-w-prose text-body text-muted-foreground">
-            For a monitoring centre the constraint is operator attention, not camera count. Camzify's value in an ARC or central station is filtering: scheduled patrol rounds verify the routine conditions automatically and escalate only the checks that fail, so operators spend their time on events that need a human decision rather than on rounds that pass. Every round produces a timestamped compliance record, which gives you an auditable service deliverable to show the end client alongside your existing response reporting.
+            For a monitoring center the constraint is operator attention, not camera count. Camzify's value in an ARC or central station is filtering: scheduled patrol rounds verify the routine conditions automatically and escalate only the checks that fail, so operators spend their time on events that need a human decision rather than on rounds that pass. Every round produces a timestamped compliance record, which gives you an auditable service deliverable to show the end client alongside your existing response reporting.
           </p>
           <div className="mt-12 space-y-8 max-w-prose">
             <ScrollReveal>

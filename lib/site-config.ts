@@ -16,7 +16,7 @@ export const siteConfig = {
    *
    * Deutics Global LLP used to be credited here and in the footer as the engineering
    * arm. It was removed rather than corrected: it is a separate Pakistan-registered
-   * consulting and development company, and naming two organisations behind one
+   * consulting and development company, and naming two organizations behind one
    * product is the same entity-resolution problem as publishing two addresses — a
    * search engine cannot tell which one the reviews, links and citations belong to.
    * The relationship is real and is stated where it is unambiguous: on the author
@@ -33,7 +33,7 @@ export const siteConfig = {
   /** Authenticated product app (external). */
   appUrl: 'https://app.camzify.live/',
 
-  locale: 'en_SG',
+  locale: 'en_US',
   language: 'en',
 
   /**
@@ -95,7 +95,7 @@ export const siteConfig = {
      * A second company he leads. It sits on the Person rather than on the
      * Organization deliberately: Deutics Global LLP is a separate Pakistan-registered
      * consulting and development firm, and crediting it alongside Camzify at the
-     * organisation level made it ambiguous which entity actually operates the
+     * organization level made it ambiguous which entity actually operates the
      * product. As a fact about a person it is unambiguous, and it is the kind of
      * track record that makes a byline worth having.
      */

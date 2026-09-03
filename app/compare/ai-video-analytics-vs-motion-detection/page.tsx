@@ -42,7 +42,7 @@ export default function AiVideoAnalyticsVsMotionDetectionPage() {
                   { label: "Object classification", values: ["Yes — person, vehicle, animal", "No — all pixel changes treated equally"] },
                   { label: "Tracking", values: ["Maintains persistent identity across frames", "No tracking capability"] },
                   { label: "Zone/Line rules", values: ["Direction, schedule, zone-specific rules", "Region-based sensitivity only"] },
-                  { label: "Attribute data", values: ["Clothing, object type, behaviour description", "None"] },
+                  { label: "Attribute data", values: ["Clothing, object type, behavior description", "None"] },
                 ]}
               />
             </ScrollReveal>

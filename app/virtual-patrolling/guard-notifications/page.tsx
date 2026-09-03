@@ -22,7 +22,7 @@ const pageMeta = {
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
-  { question: 'Do I only get notified about things on the checklist?', answer: 'No. An automated round also raises critical notifications for safety and security risks it observes at a stop, even where no checklist item covered them — see risk detection on patrol. Those arrive on the same channels as a failed checklist item and expect the same acknowledgement.' },
+  { question: 'Do I only get notified about things on the checklist?', answer: 'No. An automated round also raises critical notifications for safety and security risks it observes at a stop, even where no checklist item covered them — see risk detection on patrol. Those arrive on the same channels as a failed checklist item and expect the same acknowledgment.' },
   { question: 'Is the notification sent automatically, or does someone have to approve it?', answer: 'It depends which kind of round found the problem. On an automated round it is sent automatically as the round runs, with nobody in the loop — which is the whole point of a round that happens at 3am. On a manual round the operator is already looking at the camera, so the message is offered with the specifics filled in and they choose to send it, skip it, or send it later from the same item.' },
   { question: 'What happens if the assigned guard doesn\'t respond to a notification?', answer: 'If the guard doesn\'t acknowledge the alert within the configured window, it escalates automatically to a backup contact or site supervisor. The failure is never left waiting on a single person\'s availability.' },
   { question: 'Can a camera have more than one guard assigned?', answer: 'Yes. A camera can carry a primary guard who receives the first notification, plus one or more escalation contacts who are only alerted if the primary doesn\'t acknowledge in time.' },
@@ -93,7 +93,7 @@ export default function GuardNotificationsPage() {
                 <div className="space-y-3">
                   {[
                     'Gate left open after delivery — close immediately',
-                    'Unauthorised person in loading zone — investigate now',
+                    'Unauthorized person in loading zone — investigate now',
                     'Fire exit blocked — clear immediately',
                     'Vehicle not in designated bay — reposition',
                     'Dock door left unsecured — confirm and lock',
@@ -130,7 +130,7 @@ export default function GuardNotificationsPage() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <SectionVisual variant="flow" caption="Escalation Chain" steps={['Guard notified', 'No acknowledgement in window', 'Escalates to backup contact', 'Every step logged']} alt="Diagram showing an unacknowledged guard notification escalating from primary guard to backup contact" />
+            <SectionVisual variant="flow" caption="Escalation Chain" steps={['Guard notified', 'No acknowledgment in window', 'Escalates to backup contact', 'Every step logged']} alt="Diagram showing an unacknowledged guard notification escalating from primary guard to backup contact" />
             <ScrollReveal>
               <div>
                 <span className="font-mono text-mono-sm uppercase text-primary">Configuration</span>
@@ -138,7 +138,7 @@ export default function GuardNotificationsPage() {
                 <p className="mt-4 text-muted-foreground">Notifications aren't a single fire-and-forget message. Delivery and escalation are configured per guard, so coverage doesn't depend on one phone being switched on.</p>
                 <ul className="mt-4 space-y-3 text-muted-foreground">
                   <li className="flex gap-2">• Each guard can have multiple channels configured — email, SMS, WhatsApp, and push — in a preferred order</li>
-                  <li className="flex gap-2">• Acknowledgement is required within a configurable window before an alert counts as unactioned</li>
+                  <li className="flex gap-2">• Acknowledgment is required within a configurable window before an alert counts as unactioned</li>
                   <li className="flex gap-2">• Unacknowledged alerts escalate automatically to a backup guard or site supervisor</li>
                   <li className="flex gap-2">• Escalation contacts are set independently of the primary guard, so backup coverage is never assumed</li>
                 </ul>

@@ -63,7 +63,7 @@ const faqs = [
   },
   {
     question: 'How is a manual round different from an automated one?',
-    answer: 'A manual round is walked by a person, camera by camera, with the operator making each judgement. An automated round follows the same sequence on a schedule with AI making the assessment, either from a single frame or from a short window of live video, and files its report without anyone stepping through it. Most sites use both: automated rounds for frequency, manual rounds when a person needs to look properly.',
+    answer: 'A manual round is walked by a person, camera by camera, with the operator making each judgment. An automated round follows the same sequence on a schedule with AI making the assessment, either from a single frame or from a short window of live video, and files its report without anyone stepping through it. Most sites use both: automated rounds for frequency, manual rounds when a person needs to look properly.',
   },
 ];
 

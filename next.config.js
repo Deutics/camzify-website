@@ -22,6 +22,13 @@ const nextConfig = {
         destination: '/ai-features/behavioral-anomaly-detection',
         permanent: true,
       },
+      {
+        // The site moved to US spelling; the slug followed the copy. Permanent so
+        // anything already pointing at the Commonwealth spelling keeps resolving.
+        source: '/partners/for-monitoring-centres',
+        destination: '/partners/for-monitoring-centers',
+        permanent: true,
+      },
     ];
   },
   webpack: (config, { isServer }) => {
