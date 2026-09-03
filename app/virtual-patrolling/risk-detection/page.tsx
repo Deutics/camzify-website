@@ -141,6 +141,14 @@ export default function RiskDetectionPage() {
                 that it reaches a hazardous condition while it is still just a condition, and tells
                 a named person who can deal with it.
               </p>
+              <SectionVisual
+                className="mt-8"
+                variant="flow"
+                caption="Risk window"
+                alt="Flow showing a hazardous condition appearing, the scheduled round reaching it while it is still a condition, the responsible person notified, and the record filed"
+                steps={['Fire door is wedged open', 'Scheduled round reaches the stop', 'Critical alert to the guard', 'Fixed while it is still a condition']}
+              />
+
               <div className="mt-8 rounded-xl border border-warn/30 bg-warn/5 p-6">
                 <p className="max-w-prose text-sm leading-relaxed text-muted-foreground">
                   <strong className="font-semibold text-foreground">What this is not:</strong>{' '}

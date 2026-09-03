@@ -1,5 +1,6 @@
 import { HeroSection } from './_components/hero-section';
 import { TrustBand } from './_components/trust-band';
+import { CustomerLogos } from '@/components/content/customer-logos';
 import { ProblemBand } from './_components/problem-band';
 import { PlatformCapabilities } from './_components/platform-capabilities';
 import { WhatIsVP } from './_components/what-is-vp';
@@ -48,6 +49,8 @@ export default function HomePage() {
       <JsonLd data={pageGraph} />
       <HeroSection />
       <TrustBand />
+      {/* Real customers, supplied by the business. Renders nothing while the list is empty. */}
+      <CustomerLogos />
       <ProblemBand />
       <PlatformCapabilities />
       <WhatIsVP />
