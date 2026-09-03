@@ -141,6 +141,42 @@
 
 /* Patrol sweep animation */
 /*
+ * Camera tile.
+ *
+ * The hero tiles show synthesised camera frames — dark IR and low-light scenes in both
+ * themes. Text over them was inheriting the page tokens, so in the light theme the
+ * labels resolved to near-black foreground and a dark teal `live`, sitting on a dark
+ * photograph. Legible on dark, invisible on light.
+ *
+ * A camera feed is a media surface, not page chrome: it is dark whatever the rest of
+ * the page is doing, exactly like a video player. So the tile re-declares the tokens
+ * locally at their dark-theme values. Every `text-live`, `text-critical`,
+ * `text-foreground` and `text-muted-foreground` inside then resolves against the
+ * surface it is actually on, in both themes, with no literal colours in the markup and
+ * no per-theme branching in the component.
+ *
+ * The scrim is fixed rather than `background/x` for the same reason — a light-theme
+ * scrim was trying to lighten a dark photo to 35% in its middle band and produced
+ * neither a readable backdrop nor a convincing camera frame.
+ */
+.camera-tile {
+  --foreground: 210 25% 97%;
+  --muted-foreground: 213 14% 62%;
+  --live: 168 100% 42%;
+  --warn: 38 92% 58%;
+  --critical: 0 100% 68%;
+}
+
+.camera-tile-scrim {
+  background: linear-gradient(
+    to bottom,
+    hsl(216 22% 4% / 0.86),
+    hsl(216 22% 4% / 0.40),
+    hsl(216 22% 4% / 0.92)
+  );
+}
+
+/*
  * Brand plate.
  *
  * Manufacturer logos are colour marks with black or near-black lettering — Axis, Dahua,

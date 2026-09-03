@@ -113,16 +113,19 @@ export function PatrolSweepHero() {
                   isActive ? 'opacity-95 saturate-110' : isChecked ? 'opacity-70' : 'opacity-35 saturate-75'
                 }`}
               />
-              <div
-                aria-hidden="true"
-                className="absolute inset-0 bg-gradient-to-b from-background/85 via-background/35 to-background/92"
-              />
+              <div aria-hidden="true" className="camera-tile-scrim absolute inset-0" />
 
-              <div className="relative aspect-video p-2 sm:p-3">
+              {/*
+                `camera-tile` re-declares the colour tokens at their dark-surface values
+                for everything inside it. The labels sit on a dark camera frame in both
+                themes, so they must not follow the page theme — in light mode that
+                resolved to near-black text on a dark photograph.
+              */}
+              <div className="camera-tile relative aspect-video p-2 sm:p-3">
                 <div className="flex items-center justify-between">
                   <span
                     className={`font-mono text-[9px] uppercase tracking-wider sm:text-[10px] ${
-                      isFail ? 'text-critical' : isChecked ? 'text-live/80' : 'text-muted-foreground/50'
+                      isFail ? 'text-critical' : isChecked ? 'text-live/90' : 'text-muted-foreground/75'
                     }`}
                   >
                     {cam?.id ?? ''}
@@ -141,8 +144,8 @@ export function PatrolSweepHero() {
                       isFail
                         ? 'text-critical'
                         : isChecked
-                        ? 'text-foreground/70'
-                        : 'text-muted-foreground/30'
+                        ? 'text-foreground/85'
+                        : 'text-muted-foreground/60'
                     }`}
                   >
                     {cam?.loc ?? ''}
@@ -150,7 +153,7 @@ export function PatrolSweepHero() {
                   {isChecked && (
                     <div
                       className={`mt-1 font-mono text-[8px] uppercase tracking-wider sm:text-[9px] ${
-                        isFail ? 'text-critical font-bold' : 'text-live/70'
+                        isFail ? 'text-critical font-bold' : 'text-live/85'
                       }`}
                     >
                       {isFail ? 'NOT COMPLIANT · GUARD NOTIFIED' : 'CHECKED ✓'}
