@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { BrandStrip } from '@/components/content/brand-strip';
+import { LogoMarquee } from '@/components/motion/logo-marquee';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { Wifi, Radio, Globe, ArrowRight } from 'lucide-react';
 
@@ -51,11 +51,25 @@ export function CameraSupport() {
           >
             View supported camera database <ArrowRight className="h-4 w-4" />
           </Link>
+          {/*
+            A marquee here rather than the grid: this is recognition, not reference. The
+            full sixteen with their protocol notes stay on /supported-cameras, where a
+            reader is checking a specific fleet and needs to scan rather than watch.
+          */}
           <div className="mt-14">
             <p className="text-center font-mono text-mono-sm uppercase text-muted-foreground">
               Deployed on cameras from
             </p>
-            <BrandStrip className="mt-6" limit={8} />
+            <LogoMarquee className="mt-6" />
+            <p className="mt-6 text-center text-xs leading-relaxed text-muted-foreground">
+              Brand names and logos are trademarks of their respective owners. Listing a
+              manufacturer states that its ONVIF-conformant cameras interoperate with Camzify;
+              it does not imply partnership or endorsement.{' '}
+              <Link href="/supported-cameras" className="text-primary hover:underline">
+                See all supported manufacturers
+              </Link>
+              .
+            </p>
           </div>
         </div>
       </div>
