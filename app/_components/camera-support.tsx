@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { LogoMarquee } from '@/components/motion/logo-marquee';
+import { cameraBrands } from '@/lib/camera-brands';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { Wifi, Radio, Globe, ArrowRight } from 'lucide-react';
 
@@ -53,7 +54,7 @@ export function CameraSupport() {
           <p className="text-center font-mono text-mono-sm uppercase text-muted-foreground">
             Deployed on cameras from
           </p>
-          <LogoMarquee className="mt-6" />
+          <LogoMarquee items={cameraBrands.filter((b) => b.logo).map((b) => ({ name: b.name, logo: b.logo as string }))} className="mt-6" />
           {/*
             Disclaimer only. The link to the full list lives once, below, as the
             section's closing action — adding one here too put two links to the same

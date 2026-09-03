@@ -153,6 +153,10 @@ const config: Config = {
           from: { transform: 'translateX(0)' },
           to: { transform: 'translateX(-50%)' },
         },
+        'logo-marquee-reverse': {
+          from: { transform: 'translateX(-50%)' },
+          to: { transform: 'translateX(0)' },
+        },
         'hero-scan-sweep': {
           '0%': { transform: 'translateY(-20%)', opacity: '0' },
           '10%': { opacity: '0.6' },
@@ -178,6 +182,7 @@ const config: Config = {
         'hero-glow-drift-b': 'hero-glow-drift-b 19s ease-in-out infinite',
         'hero-scan-sweep': 'hero-scan-sweep 9s cubic-bezier(0.4,0,0.2,1) infinite',
         'logo-marquee': 'logo-marquee 38s linear infinite',
+        'logo-marquee-reverse': 'logo-marquee-reverse 44s linear infinite',
       },
     },
   },
