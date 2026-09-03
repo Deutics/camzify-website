@@ -1,6 +1,7 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
+import { FeatureHero } from '@/components/content/feature-hero';
 import { MultiSiteMockup } from '@/components/mockups/multi-site-mockup';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
@@ -34,13 +35,13 @@ export default function Page() {
       { label: 'Platform', href: '/platform' },
       { label: 'Multi-Site Video Surveillance' },
     ]}>
-      <section className="pb-16">
-        <div className="mx-auto max-w-site px-6">
-          <span className="font-mono text-mono-sm uppercase text-primary">Centralised Oversight</span>
-          <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Multi-Site Video Surveillance</h1>
-
-          <div className="mt-8 grid items-center gap-8 lg:grid-cols-[2fr_3fr]">
-            <p className="text-body text-muted-foreground">Multi-site management in Camzify provides a single console to oversee cameras, detection alerts, and patrol compliance across all locations. Each site is a separate entity with its own cameras, sequences, and operators, but the parent account has visibility into everything. This account runs 4 sites with 15 cameras configured and 6 of 9 AI features active, and every dashboard, live view, and notification feed can be filtered by site.</p>
+      <FeatureHero
+        eyebrow="Centralised Oversight"
+        title="Multi-site video surveillance"
+        lede={<><strong className="font-semibold text-foreground">Multi-site management in Camzify provides a single console to oversee cameras, detection alerts, and patrol compliance across all locations.</strong> Each site is a separate entity with its own cameras, sequences, and operators, but the parent account has visibility into everything. This account runs 4 sites with 15 cameras configured and 6 of 9 AI features active, and every dashboard, live view, and notification feed can be filtered by site.</>}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/partners/for-security-agencies', label: 'For security agencies' }}
+        visual={<div className="overflow-hidden rounded-xl border border-border bg-card">
             <SiteImage
               src="/multi-site-video-surveillance.jpg"
               alt="A laptop showing the Camzify Live Streaming grid with camera feeds grouped across four sites — Warehouse, HQ Campus, Retail Downtown, and Parking Structure B"
@@ -48,15 +49,22 @@ export default function Page() {
               width={1229}
               height={692}
               priority
-              sizes="(max-width: 1024px) 100vw, 60vw"
-            />
-          </div>
+            sizes="(max-width: 1024px) 100vw, 45vw" />
+          </div>}
+      />
+
+      <section className="pb-16">
+        <div className="mx-auto max-w-site px-6">
 
           <div className="mt-12">
             <MultiSiteMockup />
           </div>
 
-          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-16">
+            <span className="font-mono text-mono-sm uppercase text-primary">In practice</span>
+            <h2 className="mt-2 font-display text-2xl font-bold">How sites are managed together</h2>
+          </div>
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { icon: Building2, title: 'Centralized multi-site oversight', desc: 'One console rolls up cameras, events, and compliance from every site — 4 sites and 15 cameras on this account, all visible from a single view.' },
               { icon: SlidersHorizontal, title: 'Per-site independent configuration', desc: 'Each site keeps its own cameras, patrol sequences, and operators, configured separately from every other location on the account.' },

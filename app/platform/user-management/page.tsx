@@ -1,10 +1,11 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { ProductShot } from '@/components/content/product-shot';
 import { UserManagementMockup } from '@/components/mockups/user-management-mockup';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
-import { SiteImage } from '@/components/content/site-image';
 import { ShieldCheck, Cpu, MapPin, UserCog } from 'lucide-react';
 
 /**
@@ -39,29 +40,33 @@ export default function Page() {
       { label: 'Platform', href: '/platform' },
       { label: 'Security System User Management' },
     ]}>
+      <FeatureHero
+        eyebrow="Role-Based, Site-Scoped Access"
+        title="Security system user management"
+        lede={<><strong className="font-semibold text-foreground">User management in Camzify supports sub-users with permission groups — a per-module View, Edit, Delete matrix.</strong> Site-level access control limits which locations a user can see. AI feature instance grants let a parent account allocate detection capacity to child accounts.</>}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/guides/how-to-manage-sub-users-and-quotas', label: 'How to delegate access' }}
+        visual={<ProductShot
+            src="/product-user-management"
+            alt="A laptop showing the Camzify User Management screen with the Create Permission Group modal open, including page-access toggles and a View/Create/Edit/Delete instance permissions matrix"
+            label="User management · Camzify console"
+            priority
+            sizes="(max-width: 1024px) 100vw, 45vw"
+          />}
+      />
+
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <span className="font-mono text-mono-sm uppercase text-primary">Role-Based, Site-Scoped Access</span>
-          <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Security System User Management</h1>
-
-          <div className="mt-8 grid items-center gap-8 lg:grid-cols-[2fr_3fr]">
-            <p className="text-body text-muted-foreground">User management in Camzify supports sub-users with permission groups — a per-module View, Edit, Delete matrix. Site-level access control limits which locations a user can see. AI feature instance grants let a parent account allocate detection capacity to child accounts.</p>
-            <SiteImage
-              src="/security-system-user-management.jpg"
-              alt="A laptop showing the Camzify User Management screen with the Create Permission Group modal open, including page-access toggles and a View/Create/Edit/Delete instance permissions matrix"
-              className="w-full"
-              width={1229}
-              height={692}
-              priority
-              sizes="(max-width: 1024px) 100vw, 60vw"
-            />
-          </div>
 
           <div className="mt-12">
             <UserManagementMockup />
           </div>
 
-          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-16">
+            <span className="font-mono text-mono-sm uppercase text-primary">In practice</span>
+            <h2 className="mt-2 font-display text-2xl font-bold">How access is delegated</h2>
+          </div>
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { icon: ShieldCheck, title: 'Role-based permission groups', desc: 'Site Admin, Guard, Auditor, Surveillance Manager, or a custom group — each defines exactly what a sub-user can view, edit, or delete.' },
               { icon: Cpu, title: 'Per-user instance allocation', desc: 'AI feature instances (Line Intrusion, Tampering, VPS, and more) can be granted to a sub-user straight from the parent account\'s license.' },

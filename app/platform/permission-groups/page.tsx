@@ -1,6 +1,7 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
+import { FeatureHero } from '@/components/content/feature-hero';
 import { PermissionGroupsMockup } from '@/components/mockups/permission-groups-mockup';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
@@ -36,13 +37,13 @@ export default function Page() {
       { label: 'Platform', href: '/platform' },
       { label: 'Permission Groups' },
     ]}>
-      <section className="pb-16">
-        <div className="mx-auto max-w-site px-6">
-          <span className="font-mono text-mono-sm uppercase text-primary">Role-Based Access Control</span>
-          <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Permission Groups</h1>
-
-          <div className="mt-8 grid items-center gap-8 lg:grid-cols-[2fr_3fr]">
-            <p className="text-body text-muted-foreground">Permission groups in Camzify define a per-module access matrix: which of the seven platform pages a role can reach, and View, Create, Edit, and Delete rights across the ten AI-feature instance types. Four ready-made roles — Site Admin, Guard, Auditor, and Surveillance Manager — cover the operational patterns most deployments need. Combined with site-level access control, this creates fine-grained security appropriate for multi-site enterprise deployments.</p>
+      <FeatureHero
+        eyebrow="Role-Based Access Control"
+        title="Permission groups"
+        lede={<><strong className="font-semibold text-foreground">Permission groups in Camzify define a per-module access matrix: which of the seven platform pages a role can reach, and View, Create, Edit, and Delete rights across the ten AI-feature instance types.</strong> Four ready-made roles — Site Admin, Guard, Auditor, and Surveillance Manager — cover the operational patterns most deployments need. Combined with site-level access control, this creates fine-grained security appropriate for multi-site enterprise deployments.</>}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/platform/user-management', label: 'User management' }}
+        visual={<div className="overflow-hidden rounded-xl border border-border bg-card">
             <SiteImage
               src="/permission-group.jpg"
               alt="A laptop showing the Camzify Create Permission Group screen with page-access toggles and a View/Create/Edit/Delete instance permissions matrix"
@@ -50,15 +51,22 @@ export default function Page() {
               width={1229}
               height={692}
               priority
-              sizes="(max-width: 1024px) 100vw, 60vw"
-            />
-          </div>
+            sizes="(max-width: 1024px) 100vw, 45vw" />
+          </div>}
+      />
+
+      <section className="pb-16">
+        <div className="mx-auto max-w-site px-6">
 
           <div className="mt-12">
             <PermissionGroupsMockup />
           </div>
 
-          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-16">
+            <span className="font-mono text-mono-sm uppercase text-primary">In practice</span>
+            <h2 className="mt-2 font-display text-2xl font-bold">How a permission group is built</h2>
+          </div>
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { icon: LayoutList, title: 'Granular page access', desc: 'Each role reaches a defined subset of the 7 platform pages — Guard sees 4, Auditor sees all 7, nothing is all-or-nothing.' },
               { icon: SlidersHorizontal, title: 'View / Create / Edit / Delete', desc: 'Instance permissions are tracked separately across all 10 AI-feature types, so read access and write access never have to travel together.' },

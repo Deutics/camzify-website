@@ -12,13 +12,19 @@ const sites = [
   { code: 'PKB', name: 'Parking Structure B', online: 0, total: 6, down: true },
 ];
 
+/*
+ * Tiles carry the site's own synthesised camera frames (public/cam-*.jpg) rather than
+ * a flat grey box with the word LIVE on it. A live wall whose tiles show nothing read
+ * as a wireframe; the frames make it read as the product. The offline tile stays
+ * frameless on purpose — no signal should look like no signal.
+ */
 const cameraTiles = [
-  { name: 'WH-Bay 5', user: 'Rahul Khanna', res: '720p · 30fps', live: true },
-  { name: 'WH-Dock A', user: 'My Account', res: '1080p · 25fps', live: true },
-  { name: 'WH-Gate 1', user: 'My Account', res: '1080p · 25fps', live: true },
-  { name: 'WH-Interior 1', user: 'My Account', res: '4K · 15fps', live: true },
-  { name: 'HQ-Cafeteria', user: 'Ayesha Malik', res: '720p · 30fps', live: true },
-  { name: 'PKB-Level1', user: 'James Torres', res: '1080p · 25fps', live: false },
+  { name: 'WH-Bay 5', user: 'Rahul Khanna', res: '720p · 30fps', live: true, frame: '/cam-05.jpg' },
+  { name: 'WH-Dock A', user: 'My Account', res: '1080p · 25fps', live: true, frame: '/cam-02.jpg' },
+  { name: 'WH-Gate 1', user: 'My Account', res: '1080p · 25fps', live: true, frame: '/cam-06.jpg' },
+  { name: 'WH-Interior 1', user: 'My Account', res: '4K · 15fps', live: true, frame: '/cam-03.jpg' },
+  { name: 'HQ-Cafeteria', user: 'Ayesha Malik', res: '720p · 30fps', live: true, frame: '/cam-01.jpg' },
+  { name: 'PKB-Level1', user: 'James Torres', res: '1080p · 25fps', live: false, frame: null },
 ];
 
 const aiFilters = [
@@ -136,11 +142,23 @@ export function LiveStreamingMockup() {
               data-cam-tile
               className="cursor-default rounded-lg border border-border bg-background/50 p-2.5 transition-colors hover:border-primary/50"
             >
-              <div className="flex aspect-video items-center justify-center rounded bg-muted/50">
-                {cam.live ? (
-                  <span className="flex items-center gap-1 font-mono text-[9px] uppercase text-live">
-                    <span className="h-1.5 w-1.5 rounded-full bg-live" /> Live
-                  </span>
+              <div className="relative flex aspect-video items-center justify-center overflow-hidden rounded bg-muted/50">
+                {cam.live && cam.frame ? (
+                  <>
+                    <img
+                      src={cam.frame}
+                      alt=""
+                      aria-hidden="true"
+                      width={480}
+                      height={270}
+                      loading="lazy"
+                      className="absolute inset-0 h-full w-full object-cover opacity-90"
+                    />
+                    <div aria-hidden="true" className="camera-tile-scrim absolute inset-0" />
+                    <span className="camera-tile absolute left-1.5 top-1.5 flex items-center gap-1 font-mono text-[9px] uppercase text-live">
+                      <span className="h-1.5 w-1.5 rounded-full bg-live" /> Live
+                    </span>
+                  </>
                 ) : (
                   <span className="font-mono text-[9px] uppercase text-muted-foreground/50">No Signal</span>
                 )}

@@ -1,10 +1,11 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { ProductShot } from '@/components/content/product-shot';
 import { VideoBackupMockup } from '@/components/mockups/video-backup-mockup';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
-import { SiteImage } from '@/components/content/site-image';
 import { HardDrive, Clock, Zap, Info } from 'lucide-react';
 
 /**
@@ -37,29 +38,33 @@ export default function Page() {
       { label: 'Platform', href: '/platform' },
       { label: 'Video Backup & Retention Management' },
     ]}>
+      <FeatureHero
+        eyebrow="Off-Site, Even When The Hardware Isn't"
+        title="Cloud video backup & retention management"
+        lede={<><strong className="font-semibold text-foreground">Footage stays safe in the cloud, even if the on-site hardware doesn't.</strong> Camzify lets you set per-camera retention policies by days or GB cap, with bulk application per site. The system shows projected storage usage, enables playback and multi-camera comparison, and manages storage allocation across sub-accounts — so a broken or stolen NVR never means lost evidence.</>}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/guides/how-to-configure-cloud-video-backup', label: 'How to configure backup' }}
+        visual={<ProductShot
+            src="/product-video-backup"
+            alt="A laptop showing the Camzify Video Backup screen with storage allocation, per-site storage breakdown, and per-camera retention settings"
+            label="Video backup · Camzify console"
+            priority
+            sizes="(max-width: 1024px) 100vw, 45vw"
+          />}
+      />
+
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <span className="font-mono text-mono-sm uppercase text-primary">Off-Site, Even When The Hardware Isn't</span>
-          <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Cloud Video Backup & Retention Management</h1>
-
-          <div className="mt-8 grid items-center gap-8 lg:grid-cols-[2fr_3fr]">
-            <p className="text-body text-muted-foreground">Footage stays safe in the cloud, even if the on-site hardware doesn't. Camzify lets you set per-camera retention policies by days or GB cap, with bulk application per site. The system shows projected storage usage, enables playback and multi-camera comparison, and manages storage allocation across sub-accounts — so a broken or stolen NVR never means lost evidence.</p>
-            <SiteImage
-              src="/cloud-video-backup-and-retention-management.jpg"
-              alt="A laptop showing the Camzify Video Backup screen with storage allocation, per-site storage breakdown, and per-camera retention settings"
-              className="w-full"
-              width={1229}
-              height={692}
-              priority
-              sizes="(max-width: 1024px) 100vw, 60vw"
-            />
-          </div>
 
           <div className="mt-12">
             <VideoBackupMockup />
           </div>
 
-          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-16">
+            <span className="font-mono text-mono-sm uppercase text-primary">In practice</span>
+            <h2 className="mt-2 font-display text-2xl font-bold">How recording and retention are controlled</h2>
+          </div>
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { icon: HardDrive, title: 'Storage transparency', desc: 'Provisioned, used, assigned to child accounts, and remaining are always broken out separately — never one blended number.' },
               { icon: Clock, title: 'Flexible retention modes', desc: 'Set each camera by days, by a GB storage cap, or to record 24/7 — whichever fits how that camera is used.' },

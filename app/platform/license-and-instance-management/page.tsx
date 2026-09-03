@@ -1,10 +1,11 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { ProductShot } from '@/components/content/product-shot';
 import { LicenseMockup } from '@/components/mockups/license-mockup';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
-import { SiteImage } from '@/components/content/site-image';
 import { Layers, HardDrive, Users, RefreshCcw } from 'lucide-react';
 
 /**
@@ -34,29 +35,33 @@ export default function Page() {
       { label: 'Platform', href: '/platform' },
       { label: 'License & Instance Management' },
     ]}>
+      <FeatureHero
+        eyebrow="Plan & Usage"
+        title="License & instance management"
+        lede={<><strong className="font-semibold text-foreground">The Plan & Usage page shows total instances per AI feature, how many are activated by you, how many are granted to sub-users, and how many remain available — plus a separate storage entitlement tracked in terabytes.</strong> Plan terms show start date, expiry, and days remaining. On the current Enterprise Plan, 96 instances are granted across 8 features, with 12 still available and 161 days left on the term.</>}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/pricing', label: 'How licensing is priced' }}
+        visual={<ProductShot
+            src="/product-license-plan"
+            alt="A laptop showing the Camzify Plan & Usage screen with subscription term, instance totals, storage entitlement, and a per-feature allocation table"
+            label="Plan & usage · Camzify console"
+            priority
+            sizes="(max-width: 1024px) 100vw, 45vw"
+          />}
+      />
+
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <span className="font-mono text-mono-sm uppercase text-primary">Plan & Usage</span>
-          <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">License & Instance Management</h1>
-
-          <div className="mt-8 grid items-center gap-8 lg:grid-cols-[2fr_3fr]">
-            <p className="text-body text-muted-foreground">The Plan & Usage page shows total instances per AI feature, how many are activated by you, how many are granted to sub-users, and how many remain available — plus a separate storage entitlement tracked in terabytes. Plan terms show start date, expiry, and days remaining. On the current Enterprise Plan, 96 instances are granted across 8 features, with 12 still available and 161 days left on the term.</p>
-            <SiteImage
-              src="/license-and-instance-management.jpg"
-              alt="A laptop showing the Camzify Plan & Usage screen with subscription term, instance totals, storage entitlement, and a per-feature allocation table"
-              className="w-full"
-              width={1229}
-              height={692}
-              priority
-              sizes="(max-width: 1024px) 100vw, 60vw"
-            />
-          </div>
 
           <div className="mt-12">
             <LicenseMockup />
           </div>
 
-          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-16">
+            <span className="font-mono text-mono-sm uppercase text-primary">In practice</span>
+            <h2 className="mt-2 font-display text-2xl font-bold">What the plan page shows</h2>
+          </div>
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { icon: Layers, title: 'Per-feature instance transparency', desc: 'Total, activated, granted, and available are broken out for every AI feature on the plan — no combined number hiding where the room is.' },
               { icon: HardDrive, title: 'Storage entitlement tracking', desc: 'Video Backup Storage is metered separately in terabytes, currently 13.5 of 18.0 TB activated with 460 GB available.' },
