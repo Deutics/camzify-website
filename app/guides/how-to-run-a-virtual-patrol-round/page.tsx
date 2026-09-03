@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FAQAccordion } from '@/components/content/faq-accordion';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { howToSchema } from '@/lib/seo';
 import Link from 'next/link';
@@ -141,6 +142,17 @@ export default function HowToRunAVirtualPatrolRoundPage() {
                 <Link href="/virtual-patrolling/guard-notifications" className="text-primary hover:underline">how guards are notified</Link>.
               </p>
             </ScrollReveal>
+          </div>
+        </div>
+      </section>
+      <section className="pb-16">
+        <div className="mx-auto max-w-site px-6">
+          <div className="rounded-2xl border border-border bg-card p-8 sm:p-10">
+            <span className="font-mono text-mono-sm uppercase text-primary">FAQ</span>
+            <h2 className="mt-2 font-display text-2xl font-bold">Frequently asked questions</h2>
+            <div className="mt-6">
+              <FAQAccordion items={faqs} />
+            </div>
           </div>
         </div>
       </section>

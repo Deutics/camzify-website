@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FAQAccordion } from '@/components/content/faq-accordion';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
 
@@ -84,6 +85,17 @@ export default function CamzifyConnectorPage() {
                 Once cameras are connected via the Connector, they are fully compatible with all Camzify features including <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</Link>, <Link href="/ai-features" className="text-primary hover:underline">AI detection</Link>, and the <Link href="/platform" className="text-primary hover:underline">platform dashboard</Link>. See the <Link href="/camera-connectivity/rtsp-setup" className="text-primary hover:underline">RTSP setup guide</Link> for detailed connection instructions.
               </p>
             </ScrollReveal>
+          </div>
+        </div>
+      </section>
+      <section className="pb-16">
+        <div className="mx-auto max-w-site px-6">
+          <div className="rounded-2xl border border-border bg-card p-8 sm:p-10">
+            <span className="font-mono text-mono-sm uppercase text-primary">FAQ</span>
+            <h2 className="mt-2 font-display text-2xl font-bold">Frequently asked questions</h2>
+            <div className="mt-6">
+              <FAQAccordion items={faqs} />
+            </div>
           </div>
         </div>
       </section>
