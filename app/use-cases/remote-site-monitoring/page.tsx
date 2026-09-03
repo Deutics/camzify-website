@@ -1,114 +1,93 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { serviceSchema } from '@/lib/seo';
-import { ScrollReveal } from '@/components/motion/scroll-reveal';
-import { PlaceholderVisual } from '@/components/content/placeholder-visual';
-import { FAQAccordion } from '@/components/content/faq-accordion';
+import { UseCasePage, type UseCaseContent } from '@/components/content/use-case-page';
 import Link from 'next/link';
-import { SiteImage } from '@/components/content/site-image';
 
-/**
- * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
- * <head> tags, and by `PageShell` for the on-page structured data. Keeping it in one
- * const is what stops the meta description and the schema drifting apart.
- */
 const pageMeta = {
-  title: "Remote Site Monitoring | Unmanned Site Security",
-  description: "Monitor remote and unmanned sites with automated AI patrols. Camzify provides 24/7 coverage without on-site guards. Book a demo.",
+  title: "Remote Site Monitoring | Unmanned Sites",
+  description: "Remote site monitoring for substations and rural sites: scheduled rounds on the site cameras, camera health as a checklist item, every site on one console.",
   path: "/use-cases/remote-site-monitoring",
 };
 
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
-  { question: "What internet connectivity does a remote site need?", answer: "Camzify connects to cameras via RTSP or the Camzify Connector. The site needs sufficient bandwidth to stream camera feeds — typically 2-4 Mbps per camera for standard resolution. The Camzify Connector can be configured for lower-bandwidth scenarios." },
-  { question: "Can one monitoring team oversee multiple remote sites?", answer: "Yes. Camzify's multi-site management feature allows one team to monitor all remote sites from a single dashboard, with site-specific patrol schedules and alert routing." },
+  { question: 'What connectivity does a remote site need?', answer: 'Enough to carry the camera streams to Camzify. Cameras reachable from the internet connect by RTSP directly; cameras on a local network connect through the Camzify Connector on a machine at the site. We do not publish a bandwidth figure per camera, because it depends on resolution, frame rate and codec; the stream quality is detected when the camera connects.' },
+  { question: 'What happens when the link drops?', answer: 'The round cannot run against cameras it cannot reach, so the failure is logged as a missed round rather than silently skipped, and the next scheduled round runs when the link returns. Camera-side recording, where the camera has it, continues; cloud recording of that camera pauses for the outage.' },
+  { question: 'Can one team watch many remote sites?', answer: 'Yes. Every site sits under one account with its own patrol sequences, schedule and guard roster, and the live wall groups cameras by site with a per-site online count. A site fully offline shows as such rather than as a set of frozen frames. The multi-site page covers the model.' },
+  { question: 'Can it tell a deer from a person?', answer: 'Detections fire on a tracked object of a chosen class. An animal is not classified as a person, so a person rule stays quiet for a deer at the fence, and a vehicle rule stays quiet for both. Motion detection, which responds to any change, is a separate feature used deliberately.' },
+  { question: 'What about equipment faults, not just intruders?', answer: 'Fire and smoke detection runs on the same cameras. A checklist item can ask about a visible condition, a gate closed, a cabinet door shut, a warning light off, judged from the frame at each stop. Automated rounds also raise a critical notification for a safety risk they see that the checklist did not ask about.' },
+  { question: 'Who receives the alert for an unmanned site?', answer: 'Whoever is designated for that camera: a mobile guard, a regional engineer, a monitoring company. Channels are set per alert category and severity per camera per detection, so a site with no one nearby can route everything critical to the people who will drive out.' },
 ];
+
+const content: UseCaseContent = {
+  eyebrow: 'Use case · Unmanned sites',
+  title: 'Remote site monitoring',
+  lede: <>
+    <strong className="font-semibold text-foreground">Remote site monitoring is the surveillance of facilities with no permanent security presence: substations, tower sites, pumping stations, rural depots and distributed infrastructure.</strong>{' '}
+    A guard visiting once a day covers one hour in twenty-four. Camzify runs scheduled rounds on the site&apos;s own cameras, treats camera health as a checklist item, and puts every site on one console with its own schedule and its own person to call.
+  </>,
+  facts: ['Rounds on schedule with nobody on site', 'Camera health checked as an item', 'Every site on one console, own schedule'],
+  image: { src: '/remote-site-monitoring.jpg', alt: 'A remote substation with networked cameras covering the fence line, a vehicle and open ground' },
+  secondary: { href: '/virtual-patrolling/for-multi-site-operations', label: 'Multi-site operations' },
+  problem: {
+    heading: 'One visit a day is twenty-three hours of nothing',
+    paras: [
+      'Remote sites are expensive to staff and slow to reach, so they are visited on a schedule and left alone in between. Theft of cable and equipment, damage, and simple faults like an open gate go unnoticed until the next visit or the next fault report, by which time the cost has compounded.',
+      'The cameras at those sites are usually there already, recording to a box that nobody checks unless something has gone wrong. What they lack is a round that asks the right questions at the right times and a person to tell when the answer is wrong.',
+    ],
+    visual: 'sites',
+    caption: 'Every site on one account, each with its own sequences, schedule and roster. The offline one is shown as offline.',
+    alt: 'A list of sites on one account with their camera counts and online status',
+  },
+  handles: {
+    heading: 'The round drives out so nobody has to',
+    paras: [
+      <>An <Link href="/virtual-patrolling/automated-patrol-scheduling" className="text-primary hover:underline">automated round</Link> visits each of the site&apos;s cameras on schedule and answers the checklist: fence intact, gate closed, no person or vehicle in the compound, equipment area clear, camera unobstructed. Each answer is recorded with the frame. A failed item messages the person designated for that camera, and a risk the AI sees that the checklist did not ask about raises a critical notification.</>,
+      <>Between rounds, <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">zone</Link> and <Link href="/ai-features/line-intrusion-detection" className="text-primary hover:underline">line intrusion</Link> fire on a tracked person or vehicle the moment one appears, and <Link href="/ai-features/camera-tampering-detection" className="text-primary hover:underline">camera tampering detection</Link> catches the site going blind, which at an unmanned site would otherwise be found on the next visit. All of it sits under one account with the rest of the estate, on the <Link href="/platform/multi-site-management" className="text-primary hover:underline">multi-site console</Link>.</>,
+    ],
+    detections: [
+      { href: '/ai-features/zone-intrusion-detection', name: 'Zone intrusion detection', role: 'The compound as a zone, at every hour. A tracked person or vehicle is the event.' },
+      { href: '/ai-features/line-intrusion-detection', name: 'Line intrusion detection', role: 'A directional tripwire on the fence and the access track.' },
+      { href: '/ai-features/camera-tampering-detection', name: 'Camera tampering detection', role: 'A covered, turned or failed camera at a site nobody visits, raised the same day.' },
+      { href: '/ai-features/fire-and-smoke-detection', name: 'Fire and smoke detection', role: 'Flame and smoke signatures at a site where the first person on scene is an hour away.' },
+    ],
+  },
+  round: {
+    heading: 'What a remote-site round checks',
+    label: 'CAM 01 · Substation compound',
+    guard: 'Regional engineer',
+    items: [['Compound gate closed', 'ok'], ['No person or vehicle in compound', 'ok'], ['Fence line intact', 'ok'], ['Camera view unobstructed', 'fail']],
+    caption: 'The compound is in order; the camera itself is not. At an unmanned site the camera is the first thing to check.',
+    paras: [
+      'A remote-site sequence is short, a handful of cameras covering the gate, the fence and the equipment, and its checklist is about the state of the site and the state of the cameras. Camera view unobstructed is on every stop, because a site that has gone blind is a site nobody is watching and nobody knows it.',
+      <>Every site runs its own schedule and its own roster, so the substation on the hill and the depot in town are checked at the times that suit each and reported separately. The <Link href="/virtual-patrolling/for-multi-site-operations" className="text-primary hover:underline">multi-site page</Link> covers how that is set up.</>,
+    ],
+  },
+  limits: {
+    heading: 'What it will not do',
+    paras: [
+      'It will not run without a link to the cameras; an outage is a missed round in the log, not a hidden one. It will not see a corner without a camera, and a remote site often has fewer than it needs. It will not detect an electrical fault, a leak or a temperature that the camera cannot see. And it will not attend; it tells the person designated for that camera, and the drive is theirs.',
+      <>We do not publish bandwidth figures, uptime or detection rates for remote sites. The <Link href="/trust" className="text-primary hover:underline">trust page</Link> sets out why.</>,
+    ],
+  },
+  industries: [
+    { href: '/industries/energy', name: 'Energy' },
+    { href: '/industries/remote-sites', name: 'Remote sites' },
+    { href: '/industries/construction-sites', name: 'Construction sites' },
+    { href: '/industries/waste-management', name: 'Waste management' },
+  ],
+  faqs,
+};
 
 export default function RemoteSiteMonitoringPage() {
   return (
-    <PageShell {...pageMeta} schema={[serviceSchema({ name: "Remote Site Monitoring", description: "Monitor remote and unmanned sites with automated AI patrols. Camzify provides 24/7 coverage without on-site guards. Book a demo.", path: "/use-cases/remote-site-monitoring" })]} faqs={faqs} breadcrumbs={[
+    <PageShell {...pageMeta} faqs={faqs} schema={[serviceSchema({ name: "Remote Site Monitoring", description: pageMeta.description, path: pageMeta.path })]} breadcrumbs={[
       { label: 'Use Cases', href: '/use-cases' },
       { label: 'Remote Site Monitoring' },
     ]}>
-      <section className="pb-16">
-        <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Remote Site Monitoring</h1>
-          <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            Remote site monitoring is the surveillance of facilities that have no permanent on-site security staff — unmanned substations, tower sites, rural facilities, and distributed infrastructure. It requires automated systems that can detect, alert, and verify without human presence.
-          </p>
-
-          <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
-            <ScrollReveal>
-              <div>
-                <h2 className="font-display text-2xl font-bold">Why conventional CCTV fails</h2>
-                <p className="mt-4 max-w-prose text-muted-foreground">Remote sites are expensive to staff and difficult to patrol. A guard visiting once per day cannot provide continuous coverage. Incidents at unmanned sites often go undetected for hours or days, compounding the damage.</p>
-              </div>
-            </ScrollReveal>
-            <SiteImage
-              src="/remote-site-monitoring.jpg" alt="AI-monitored remote substation with a drone and networked cameras tracking a vehicle, deer, and perimeter fence line" className="w-full rounded-xl"
-              width={1229}
-              height={692}
-              priority
-              sizes="(max-width: 1024px) 100vw, 60vw"
-            />
-          </div>
-
-          <div className="mt-16">
-            <ScrollReveal>
-              <h2 className="font-display text-2xl font-bold">How Camzify handles it</h2>
-              <div className="mt-4 max-w-prose text-muted-foreground" dangerouslySetInnerHTML={{ __html: `Camzify provides 24/7 automated monitoring for remote sites through <a href="/virtual-patrolling" class="text-primary hover:underline">virtual patrol</a> rounds that run on a configurable schedule without any on-site presence. <a href="/ai-features/zone-intrusion-detection" class="text-primary hover:underline">Zone intrusion detection</a> and <a href="/ai-features/camera-tampering-detection" class="text-primary hover:underline">camera tampering detection</a> provide real-time alerts to a centralized monitoring team.` }} />
-            </ScrollReveal>
-          </div>
-
-          <div className="mt-16">
-            <ScrollReveal>
-              <h2 className="font-display text-2xl font-bold">What a patrol round looks like</h2>
-              <p className="mt-4 max-w-prose text-muted-foreground">A remote site patrol runs every 30 minutes: perimeter cameras checked for human or vehicle presence, equipment area verified clear, access gates confirmed closed, camera health verified (no tampering or obstruction). All results feed into a centralized dashboard for the operations team.</p>
-            </ScrollReveal>
-          </div>
-
-          <div className="mt-16">
-            <ScrollReveal>
-              <h2 className="font-display text-2xl font-bold">Detections that power this</h2>
-              <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                <Link href="/ai-features/zone-intrusion-detection" className="rounded-lg bg-card p-4 shadow transition-shadow hover:shadow-md">
-                  <span className="font-mono text-xs uppercase tracking-wider text-primary">Live</span>
-                  <p className="mt-1 font-display font-bold">Zone Intrusion Detection</p>
-                </Link>
-                <Link href="/ai-features/camera-tampering-detection" className="rounded-lg bg-card p-4 shadow transition-shadow hover:shadow-md">
-                  <span className="font-mono text-xs uppercase tracking-wider text-primary">Live</span>
-                  <p className="mt-1 font-display font-bold">Camera Tampering Detection</p>
-                </Link>
-                <Link href="/ai-features/line-intrusion-detection" className="rounded-lg bg-card p-4 shadow transition-shadow hover:shadow-md">
-                  <span className="font-mono text-xs uppercase tracking-wider text-primary">Live</span>
-                  <p className="mt-1 font-display font-bold">Line Intrusion Detection</p>
-                </Link>
-                <Link href="/ai-features/motion-detection" className="rounded-lg bg-card p-4 shadow transition-shadow hover:shadow-md">
-                  <span className="font-mono text-xs uppercase tracking-wider text-primary">Live</span>
-                  <p className="mt-1 font-display font-bold">Motion Detection</p>
-                </Link>
-              </div>
-            </ScrollReveal>
-          </div>
-
-          <div className="mt-16">
-            <ScrollReveal>
-              <h2 className="font-display text-2xl font-bold">Industries where this applies</h2>
-              <div className="mt-6 flex flex-wrap gap-3">
-                <Link href="/industries/energy" className="rounded-full bg-card px-4 py-2 text-sm font-medium shadow transition-shadow hover:shadow-md">Energy</Link>
-                <Link href="/industries/remote-sites" className="rounded-full bg-card px-4 py-2 text-sm font-medium shadow transition-shadow hover:shadow-md">Remote Sites</Link>
-                <Link href="/industries/construction-sites" className="rounded-full bg-card px-4 py-2 text-sm font-medium shadow transition-shadow hover:shadow-md">Construction Sites</Link>
-                <Link href="/industries/waste-management" className="rounded-full bg-card px-4 py-2 text-sm font-medium shadow transition-shadow hover:shadow-md">Waste Management</Link>
-              </div>
-            </ScrollReveal>
-          </div>
-
-          <div className="mt-20">
-            <FAQAccordion items={faqs} />
-          </div>
-        </div>
-      </section>
+      <UseCasePage c={content} />
     </PageShell>
   );
 }

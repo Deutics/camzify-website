@@ -73,18 +73,28 @@ function Route() {
   );
 }
 
-function Checklist() {
-  const rows: [string, 'ok' | 'fail' | 'pending'][] = [
-    ['Gate fully closed', 'ok'],
-    ['No tailgating observed', 'ok'],
-    ['Dock door secured', 'fail'],
-    ['Corridor clear of obstructions', 'pending'],
-  ];
+export type ChecklistRow = [string, 'ok' | 'fail' | 'pending'];
+
+const DEFAULT_ROWS: ChecklistRow[] = [
+  ['Gate fully closed', 'ok'],
+  ['No tailgating observed', 'ok'],
+  ['Dock door secured', 'fail'],
+  ['Corridor clear of obstructions', 'pending'],
+];
+
+/*
+ * The checklist takes its rows from the caller so a use-case page can show the round
+ * it is describing rather than a generic loading dock. Defaults keep every existing
+ * call site rendering exactly as before.
+ */
+function Checklist({ rows = DEFAULT_ROWS, label = 'CAM 04 · Loading dock', guard = 'Priya R.' }: { rows?: ChecklistRow[]; label?: string; guard?: string }) {
   return (
     <div>
-      <div className="flex items-center justify-between">
-        <span className="font-mono text-mono-sm uppercase text-muted-foreground">CAM 04 · Loading dock</span>
-        <span className="font-mono text-mono-sm text-muted-foreground">Guard: Priya R.</span>
+      {/* Wrapping, not truncation: a nowrap label still counts its full width toward the
+          grid track's min-content and widened the page at phone width. */}
+      <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
+        <span className="min-w-0 break-words font-mono text-mono-sm uppercase text-muted-foreground">{label}</span>
+        <span className="font-mono text-mono-sm text-muted-foreground">Guard: {guard}</span>
       </div>
       <ul className="mt-4 space-y-2.5">
         {rows.map(([label, state]) => (
@@ -273,6 +283,9 @@ export function SectionVisual({
   caption,
   alt,
   steps,
+  items,
+  label,
+  guard,
   className = '',
 }: {
   variant: SectionVisualVariant;
@@ -280,11 +293,15 @@ export function SectionVisual({
   alt: string;
   /** For the `flow` variant: up to four short step labels. */
   steps?: string[];
+  /** For the `checklist` variant: the rows to show, with the camera label and guard. */
+  items?: ChecklistRow[];
+  label?: string;
+  guard?: string;
   className?: string;
 }) {
   const body =
     variant === 'route' ? <Route /> :
-    variant === 'checklist' ? <Checklist /> :
+    variant === 'checklist' ? <Checklist rows={items} label={label} guard={guard} /> :
     variant === 'report' ? <Report /> :
     variant === 'notification' ? <Notification /> :
     variant === 'schedule' ? <Schedule /> :

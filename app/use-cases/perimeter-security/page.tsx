@@ -1,115 +1,93 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { serviceSchema } from '@/lib/seo';
-import { ScrollReveal } from '@/components/motion/scroll-reveal';
-import { PlaceholderVisual } from '@/components/content/placeholder-visual';
-import { FAQAccordion } from '@/components/content/faq-accordion';
+import { UseCasePage, type UseCaseContent } from '@/components/content/use-case-page';
 import Link from 'next/link';
-import { SiteImage } from '@/components/content/site-image';
 
-/**
- * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
- * <head> tags, and by `PageShell` for the on-page structured data. Keeping it in one
- * const is what stops the meta description and the schema drifting apart.
- */
 const pageMeta = {
-  title: "AI Perimeter Security | Perimeter Intrusion Detection",
-  description: "Camzify turns your existing cameras into an AI perimeter security system — detecting intrusions at fence lines, gates, and boundaries 24/7. Book a demo.",
+  title: "AI Perimeter Security | Intrusion Detection",
+  description: "Perimeter security on the cameras you own: line and zone intrusion on confirmed tracks, a fence-line round with a checklist, guard notified on a failed check.",
   path: "/use-cases/perimeter-security",
 };
 
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
-  { question: "Can Camzify detect perimeter intrusions at night?", answer: "Yes. Camzify works with any IP camera, including those with infrared or thermal imaging. The AI models operate on the video feed regardless of lighting conditions, so perimeter detections function 24/7." },
-  { question: "How quickly does the system alert after a perimeter breach?", answer: "Alerts fire within seconds of a confirmed crossing. The notification reaches the assigned guard via push notification, email, or SMS depending on platform configuration." },
-  { question: "Does it work with existing fence-line cameras?", answer: "Yes. Camzify connects to any ONVIF or RTSP-compatible camera. There is no need to replace hardware — the AI runs on the video stream from cameras you already own." },
+  { question: 'Does perimeter detection work at night?', answer: 'It works on whatever the camera produces. Infrared and thermal cameras produce a usable image in the dark, and the detections run on that image the same as on daylight footage. A camera that shows a black frame at night gives the AI nothing to work with, which is an argument for checking camera health on the round.' },
+  { question: 'Does it fire on animals, shadows or moving branches?', answer: 'Line and zone intrusion fire on a confirmed object track of a class you have chosen, typically person or vehicle, not on pixel change. A branch moving in the wind is not a tracked person. Animals are a class of their own and are not a person, so a fox crossing the tripwire does not raise a person alert. Motion detection, which does respond to pixel change, is a separate feature you would use deliberately.' },
+  { question: 'How is the guard notified after a breach?', answer: 'A line or zone intrusion raises an alert on the channels configured for that category, email, SMS, WhatsApp or push, with the snapshot attached. A failed checklist item on a patrol round messages the guard designated for that camera. We do not publish a delivery time, because it depends on the channel and the network at your end.' },
+  { question: 'Do my existing fence-line cameras work?', answer: 'Any camera that produces an RTSP stream, which covers ONVIF-conformant IP cameras from the major manufacturers, plus RTMP from encoders and HTTPS streams. Cameras on a LAN that cannot be reached from the internet connect through the Camzify Connector. Nothing is replaced.' },
+  { question: 'Do I need both detections and patrol rounds?', answer: 'They do different jobs. Detections watch continuously and fire the moment a tracked object crosses a line or enters a zone. A patrol round checks a condition on a schedule, such as whether the gate is closed and the fence line is clear, and records the answer with a snapshot whether or not anything moved. Most perimeters run both: detections for the event, rounds for the record.' },
+  { question: 'Can the perimeter round run on its own overnight?', answer: 'Yes. An automated round works through every fence-facing camera on the schedule you set, checks each item, watches a scene for a short period where a single frame is not enough, and messages the guard for anything Not Compliant without an operator in the loop. It also raises a critical notification for a safety or security risk it sees that the checklist did not ask about.' },
 ];
+
+const content: UseCaseContent = {
+  eyebrow: 'Use case · Perimeter',
+  title: 'AI perimeter security',
+  lede: <>
+    <strong className="font-semibold text-foreground">Perimeter security is the detection of, and response to, intrusion at the outer boundary of a site: fence lines, gates, loading areas and open ground.</strong>{' '}
+    It is the first layer of a physical security program and the one most often left to a camera nobody is watching. Camzify puts two things on those cameras: detections that fire when a tracked person or vehicle crosses a line or enters a zone, and a scheduled patrol round that checks the fence, the gate and the camera itself and records what it found.
+  </>,
+  facts: ['Line and zone intrusion on confirmed tracks', 'A fence-line round with a checklist', 'Guard messaged on a failed check'],
+  image: { src: '/ai-perimeter-security.jpg', alt: 'Facility perimeter at dusk with networked cameras along the fence line' },
+  secondary: { href: '/ai-features/line-intrusion-detection', label: 'Line intrusion detection' },
+  problem: {
+    heading: 'A recorded breach is not a detected one',
+    paras: [
+      'Conventional CCTV records the perimeter and cannot tell a person climbing the fence from a shadow moving across it. The footage exists, and it is reviewed after the loss is discovered, which makes it evidence rather than security. Pixel-based motion alarms try to close that gap and instead fill the inbox with rain, headlights and foliage until somebody turns them off.',
+      'A guard watching a wall of perimeter cameras has the opposite problem: hours of nothing, then a few seconds that matter, usually during a shift change or at the end of a long night. The breach that gets missed is rarely the one that was hard to see.',
+    ],
+    visual: 'notification',
+    caption: 'A failed check as the guard receives it: the camera, the message, the snapshot, and whether it was acknowledged. Not a motion alarm.',
+    alt: 'A guard notification for a failed checklist item, with the message, the snapshot and an acknowledgement',
+  },
+  handles: {
+    heading: 'Detections for the event, rounds for the record',
+    paras: [
+      <><Link href="/ai-features/line-intrusion-detection" className="text-primary hover:underline">Line intrusion detection</Link> draws a tripwire across the fence line or gate in the camera view, with a direction, and fires when a confirmed object track of a chosen class crosses it. <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">Zone intrusion detection</Link> does the same for an area, the yard inside the fence for example, with hours attached so that presence at 3am is an event and presence at 3pm is not. Both operate on a track the system has followed across frames, which is why a swaying branch does not count.</>,
+      <>Between those events, a <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrol round</Link> visits every fence-facing camera on a schedule and checks a list: is the fence line clear, is the gate closed, is the camera view unobstructed. Each answer is recorded with the frame it was judged against. <Link href="/ai-features/camera-tampering-detection" className="text-primary hover:underline">Camera tampering detection</Link> covers the case where the camera itself is turned, covered or blinded, which on a perimeter is often the first move.</>,
+    ],
+    detections: [
+      { href: '/ai-features/line-intrusion-detection', name: 'Line intrusion detection', role: 'A directional tripwire on the fence line or gate. Fires on a tracked person or vehicle crossing it.' },
+      { href: '/ai-features/zone-intrusion-detection', name: 'Zone intrusion detection', role: 'An area inside the boundary with hours attached. Presence outside those hours is the event.' },
+      { href: '/ai-features/camera-tampering-detection', name: 'Camera tampering detection', role: 'A camera turned, covered or defocused raises an alert before the perimeter goes dark.' },
+      { href: '/ai-features/multi-object-tracking', name: 'Multi-object tracking', role: 'The layer beneath the others: each subject followed across frames so rules fire on a track, not a pixel.' },
+    ],
+  },
+  round: {
+    heading: 'What a perimeter round checks',
+    label: 'CAM 02 · North fence',
+    guard: 'Rahul K.',
+    items: [['Fence line clear', 'ok'], ['Gate closed and latched', 'ok'], ['No person in the yard', 'fail'], ['Camera view unobstructed', 'pending']],
+    caption: 'A fence-line stop with one failed item and one waiting on the guard. Both count against the round’s compliance.',
+    paras: [
+      'A perimeter sequence is the fence-facing cameras in walking order, with a checklist at each. The items are conditions, not events: the fence line is clear, the gate is closed, nothing is parked against the boundary, the camera sees what it should. A round that passes produces a report that says so, with a snapshot per item, which is the record an insurer or an auditor asks for and a camera alone never produces.',
+      <>Run it manually when an operator is on shift, or <Link href="/virtual-patrolling/automated-patrol-scheduling" className="text-primary hover:underline">on a schedule</Link> through the night with nobody in the loop. Frequency, active hours and active days are yours to set; every 30 minutes on the perimeter overnight is a common shape.</>,
+    ],
+  },
+  limits: {
+    heading: 'What it will not do',
+    paras: [
+      'It will not see through a camera that cannot see. Fog, heavy rain and a lens pointed at a floodlight degrade the image, and the detections work on the image. It will not identify who crossed the fence; attribute extraction can describe clothing and what they were carrying, and it is not facial recognition. And it will not stop anyone. It tells the right guard, with the snapshot, and the response is theirs.',
+      <>We do not publish detection rates or alert delivery times, because they depend on your cameras, your lighting and your network. The <Link href="/trust" className="text-primary hover:underline">trust page</Link> sets out that policy.</>,
+    ],
+  },
+  industries: [
+    { href: '/industries/warehouses', name: 'Warehouses' },
+    { href: '/industries/construction-sites', name: 'Construction sites' },
+    { href: '/industries/energy', name: 'Energy' },
+    { href: '/industries/manufacturing', name: 'Manufacturing' },
+  ],
+  faqs,
+};
 
 export default function PerimeterSecurityPage() {
   return (
-    <PageShell {...pageMeta} schema={[serviceSchema({ name: "AI Perimeter Security", description: "Camzify turns your existing cameras into an AI perimeter security system — detecting intrusions at fence lines, gates, and boundaries 24/7. Book a demo.", path: "/use-cases/perimeter-security" })]} faqs={faqs} breadcrumbs={[
+    <PageShell {...pageMeta} faqs={faqs} schema={[serviceSchema({ name: "AI Perimeter Security", description: pageMeta.description, path: pageMeta.path })]} breadcrumbs={[
       { label: 'Use Cases', href: '/use-cases' },
-      { label: 'AI Perimeter Security' },
+      { label: 'Perimeter Security' },
     ]}>
-      <section className="pb-16">
-        <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">AI Perimeter Security</h1>
-          <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            Perimeter security is the practice of detecting and responding to intrusions at the outer boundary of a facility — fence lines, gates, loading areas, and open ground. It is the first layer of any physical security program and the most common failure point when relying solely on manned patrols.
-          </p>
-
-          <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
-            <ScrollReveal>
-              <div>
-                <h2 className="font-display text-2xl font-bold">Why conventional CCTV fails</h2>
-                <p className="mt-4 max-w-prose text-muted-foreground">Conventional CCTV records perimeter footage but cannot distinguish a genuine intrusion from a shadow, animal, or tree branch. Guards monitoring multiple screens miss events during shift changes, fatigue periods, and breaks. The result: breaches detected hours after the fact, if at all.</p>
-              </div>
-            </ScrollReveal>
-            <SiteImage
-              src="/ai-perimeter-security.jpg" alt="AI-monitored facility perimeter at dusk with networked cameras and a drone tracking activity along the fence line" className="w-full rounded-xl"
-              width={1229}
-              height={692}
-              priority
-              sizes="(max-width: 1024px) 100vw, 60vw"
-            />
-          </div>
-
-          <div className="mt-16">
-            <ScrollReveal>
-              <h2 className="font-display text-2xl font-bold">How Camzify handles it</h2>
-              <div className="mt-4 max-w-prose text-muted-foreground" dangerouslySetInnerHTML={{ __html: `Camzify uses <a href="/ai-features/line-intrusion-detection" class="text-primary hover:underline">line intrusion detection</a> and <a href="/ai-features/zone-intrusion-detection" class="text-primary hover:underline">zone intrusion detection</a> to monitor every meter of your perimeter continuously. When a confirmed human or vehicle crosses a defined boundary, the system alerts the assigned guard within seconds through the <a href="/platform/notifications-and-alerts" class="text-primary hover:underline">notification system</a>.` }} />
-            </ScrollReveal>
-          </div>
-
-          <div className="mt-16">
-            <ScrollReveal>
-              <h2 className="font-display text-2xl font-bold">What a patrol round looks like</h2>
-              <p className="mt-4 max-w-prose text-muted-foreground">A typical perimeter patrol sequence in Camzify cycles through every fence-facing camera at 15-minute intervals. At each stop, the AI checks: Is the fence line clear? Has any object crossed the tripwire since the last round? Is the camera view unobstructed? Failed checks generate a timestamped entry in the patrol report and push a notification to the on-duty guard.</p>
-            </ScrollReveal>
-          </div>
-
-          <div className="mt-16">
-            <ScrollReveal>
-              <h2 className="font-display text-2xl font-bold">Detections that power this</h2>
-              <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                <Link href="/ai-features/line-intrusion-detection" className="rounded-lg bg-card p-4 shadow transition-shadow hover:shadow-md">
-                  <span className="font-mono text-xs uppercase tracking-wider text-primary">Live</span>
-                  <p className="mt-1 font-display font-bold">Line Intrusion Detection</p>
-                </Link>
-                <Link href="/ai-features/zone-intrusion-detection" className="rounded-lg bg-card p-4 shadow transition-shadow hover:shadow-md">
-                  <span className="font-mono text-xs uppercase tracking-wider text-primary">Live</span>
-                  <p className="mt-1 font-display font-bold">Zone Intrusion Detection</p>
-                </Link>
-                <Link href="/ai-features/motion-detection" className="rounded-lg bg-card p-4 shadow transition-shadow hover:shadow-md">
-                  <span className="font-mono text-xs uppercase tracking-wider text-primary">Live</span>
-                  <p className="mt-1 font-display font-bold">Motion Detection</p>
-                </Link>
-                <Link href="/ai-features/camera-tampering-detection" className="rounded-lg bg-card p-4 shadow transition-shadow hover:shadow-md">
-                  <span className="font-mono text-xs uppercase tracking-wider text-primary">Live</span>
-                  <p className="mt-1 font-display font-bold">Camera Tampering Detection</p>
-                </Link>
-              </div>
-            </ScrollReveal>
-          </div>
-
-          <div className="mt-16">
-            <ScrollReveal>
-              <h2 className="font-display text-2xl font-bold">Industries where this applies</h2>
-              <div className="mt-6 flex flex-wrap gap-3">
-                <Link href="/industries/warehouses" className="rounded-full bg-card px-4 py-2 text-sm font-medium shadow transition-shadow hover:shadow-md">Warehouses</Link>
-                <Link href="/industries/construction-sites" className="rounded-full bg-card px-4 py-2 text-sm font-medium shadow transition-shadow hover:shadow-md">Construction Sites</Link>
-                <Link href="/industries/energy" className="rounded-full bg-card px-4 py-2 text-sm font-medium shadow transition-shadow hover:shadow-md">Energy</Link>
-                <Link href="/industries/manufacturing" className="rounded-full bg-card px-4 py-2 text-sm font-medium shadow transition-shadow hover:shadow-md">Manufacturing</Link>
-              </div>
-            </ScrollReveal>
-          </div>
-
-          <div className="mt-20">
-            <FAQAccordion items={faqs} />
-          </div>
-        </div>
-      </section>
+      <UseCasePage c={content} />
     </PageShell>
   );
 }

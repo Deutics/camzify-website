@@ -1,115 +1,93 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { serviceSchema } from '@/lib/seo';
-import { ScrollReveal } from '@/components/motion/scroll-reveal';
-import { PlaceholderVisual } from '@/components/content/placeholder-visual';
-import { FAQAccordion } from '@/components/content/faq-accordion';
+import { UseCasePage, type UseCaseContent } from '@/components/content/use-case-page';
 import Link from 'next/link';
-import { SiteImage } from '@/components/content/site-image';
 
-/**
- * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
- * <head> tags, and by `PageShell` for the on-page structured data. Keeping it in one
- * const is what stops the meta description and the schema drifting apart.
- */
 const pageMeta = {
-  title: "Guard Tour Verification | Guard Tour System",
-  description: "Verify guard tour compliance with AI-powered patrol tracking. Camzify confirms whether guards completed their rounds and what they found. Book a demo.",
+  title: "Guard Tour Verification | Proof of Rounds",
+  description: "Guard tour verification that proves the condition, not the tap: a virtual round checks the same points, keeps a frame per item, files a report per round.",
   path: "/use-cases/guard-tour-verification",
 };
 
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
-  { question: "Does this replace guard tour systems like PIPE or Trackforce?", answer: "It can. Camzify verifies the condition at each checkpoint rather than just the guard's physical presence. For many facilities, this provides a more reliable compliance record than NFC-tag-based systems." },
-  { question: "Can guards use the system alongside their physical rounds?", answer: "Yes. Virtual patrols can run independently, verifying the same checkpoints the guard is supposed to check. This provides a cross-reference between the guard's report and the AI assessment." },
-  { question: "What does the compliance report include?", answer: "Each patrol round generates a report showing every checkpoint, the AI assessment (compliant or flagged), the timestamp, and the camera snapshot. Reports are exportable as PDF and stored in the patrol log." },
+  { question: 'Does this replace an NFC or QR guard tour system?', answer: 'It can, and it can also run beside one. A tag system proves a guard reached a checkpoint. A virtual round proves the condition at that checkpoint, door closed, area clear, with the frame it was judged against. If you keep the tag system for the guard’s own record, the virtual round is the independent check on it.' },
+  { question: 'Can it run at the same time as the physical round?', answer: 'Yes. Schedule the virtual round to match the guard’s round, and the report shows what the cameras saw at each point at that time. A guard who reports the dock secured while the round found the door up is a discrepancy that shows itself without anyone comparing notes.' },
+  { question: 'What does the report contain?', answer: 'Every stop in order, every checklist item with its result, the snapshot each result was judged against, the before-and-after frames for anything that failed and was fixed, timestamps, and a compliance percentage. It is filed per round and is not edited afterwards.' },
+  { question: 'What about a guard who is genuinely doing the round?', answer: 'Then the reports agree, and the guard has independent evidence that they did. That is the point for a security agency: proof of service that the client can read, per round, with frames, rather than a sheet of signatures.' },
+  { question: 'Can the client see the reports directly?', answer: 'Through a sub-user login scoped to their sites, yes. A client sees their own patrol reports, their own cameras and their own alerts, and nothing that belongs to another client on the same account. The security agencies page covers that arrangement.' },
+  { question: 'Does the AI verify the guard is present?', answer: 'A checklist item can ask for it ("guard present at the gatehouse"), judged from the frame. Attribute extraction can describe the person seen. It does not identify individuals, so it verifies that someone was there, not who.' },
 ];
+
+const content: UseCaseContent = {
+  eyebrow: 'Use case · Proof of service',
+  title: 'Guard tour verification',
+  lede: <>
+    <strong className="font-semibold text-foreground">Guard tour verification is confirmation that a patrol round was completed, that every point was checked, and that what was found was recorded.</strong>{' '}
+    Tag-based systems prove presence at a checkpoint and nothing about the checkpoint itself. Camzify runs a virtual round over the same points, judges the condition at each from the camera, keeps the frame, and files a report per round that can be set against the guard&apos;s own.
+  </>,
+  facts: ['The condition proven, not the tap', 'A frame per checklist item', 'A report per round, per client'],
+  image: { src: '/guard-tour-verification.jpg', alt: 'A guard reviewing a patrol route on a tablet with checkpoint markers on a campus at night' },
+  secondary: { href: '/compare/virtual-patrolling-vs-guard-tour-systems', label: 'Versus guard tour systems' },
+  problem: {
+    heading: 'A tag proves the guard was there. Not what they saw.',
+    paras: [
+      'A guard tour system asks the guard to scan an NFC tag or a QR code at each checkpoint, and the report says each was scanned at a time. It cannot say whether the door beside the tag was closed, whether the yard was clear, or whether the guard looked up at all. The tag can be tapped on the way past.',
+      'For a security agency that is a real problem: the client is paying for a round and receiving a list of taps. For the client it is worse, because the round that was not done properly is only discovered when something is found broken in the morning.',
+    ],
+    visual: 'report',
+    caption: 'What a virtual round leaves behind: the item, the frame, the result, and the after frame once fixed.',
+    alt: 'A patrol report excerpt with a checklist item, its before and after snapshots and a compliance percentage',
+  },
+  handles: {
+    heading: 'The same points, judged from the camera, with the frame kept',
+    paras: [
+      <>A <Link href="/virtual-patrolling/patrol-sequences" className="text-primary hover:underline">patrol sequence</Link> is built over the same checkpoints as the physical round, one camera stop per point, with a <Link href="/virtual-patrolling/patrol-checklists" className="text-primary hover:underline">checklist</Link> at each that asks what the guard is supposed to check: door closed, area clear, gate locked, fire exit unobstructed. The round judges each item from the frame and keeps that frame, so the report is a set of pictures with verdicts rather than a set of timestamps.</>,
+      <>Run it on the guard&apos;s schedule and the two records line up by time. Run it between the guard&apos;s rounds and it covers the gaps. Either way the <Link href="/virtual-patrolling/patrol-reports" className="text-primary hover:underline">report</Link> is filed per round with a compliance percentage, and a client with a scoped login reads their own without anyone forwarding it.</>,
+    ],
+    detections: [
+      { href: '/ai-features/zone-intrusion-detection', name: 'Zone intrusion detection', role: 'Watches the areas between rounds, so a checkpoint is covered when nobody is at it.' },
+      { href: '/ai-features/camera-tampering-detection', name: 'Camera tampering detection', role: 'A verification camera that has been covered or turned is itself a finding.' },
+      { href: '/ai-features/ai-attribute-extraction', name: 'AI attribute extraction', role: 'Describes the person seen at a checkpoint. Presence, not identity.' },
+      { href: '/ai-features/multi-object-tracking', name: 'Multi-object tracking', role: 'The layer the detections run on, following each subject across frames.' },
+    ],
+  },
+  round: {
+    heading: 'What a verification round checks',
+    label: 'CAM 08 · Checkpoint 4',
+    guard: 'Priya R.',
+    items: [['Plant room door closed', 'ok'], ['Fire exit unobstructed', 'ok'], ['Guard present at checkpoint', 'pending'], ['Corridor clear', 'ok']],
+    caption: 'Checkpoint 4 at 01:15. The condition items passed; whether the guard attended is waiting on the frame review.',
+    paras: [
+      'The verification sequence mirrors the physical round point for point, and each checklist asks the question the guard was meant to answer there. It can also ask whether the guard attended, judged from the frame. The result is two records of the same round, one from the guard and one from the cameras, that either agree or do not.',
+      <>For an agency the report is proof of service that the client can read per round. The <Link href="/partners/for-security-agencies" className="text-primary hover:underline">security agencies</Link> page covers how the account is set up so each client sees only their own.</>,
+    ],
+  },
+  limits: {
+    heading: 'What it will not do',
+    paras: [
+      'It will not identify the guard; it can see that a person was at the checkpoint and describe them, not name them. It will not verify a point with no camera on it, so a round with blind checkpoints keeps them blind. And it will not replace the guard: the round proves the condition, and a person still attends what fails.',
+      <>We do not publish figures on how often rounds are found to have been skipped, because it is not our number to publish. The <Link href="/trust" className="text-primary hover:underline">trust page</Link> sets out the policy.</>,
+    ],
+  },
+  industries: [
+    { href: '/industries/property-management', name: 'Property management' },
+    { href: '/industries/healthcare', name: 'Healthcare' },
+    { href: '/industries/financial-services', name: 'Financial services' },
+    { href: '/industries/warehouses', name: 'Warehouses' },
+  ],
+  faqs,
+};
 
 export default function GuardTourVerificationPage() {
   return (
-    <PageShell {...pageMeta} schema={[serviceSchema({ name: "Guard Tour Verification", description: "Verify guard tour compliance with AI-powered patrol tracking. Camzify confirms whether guards completed their rounds and what they found. Book a demo.", path: "/use-cases/guard-tour-verification" })]} faqs={faqs} breadcrumbs={[
+    <PageShell {...pageMeta} faqs={faqs} schema={[serviceSchema({ name: "Guard Tour Verification", description: pageMeta.description, path: pageMeta.path })]} breadcrumbs={[
       { label: 'Use Cases', href: '/use-cases' },
       { label: 'Guard Tour Verification' },
     ]}>
-      <section className="pb-16">
-        <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Guard Tour Verification</h1>
-          <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            Guard tour verification is the process of confirming that a security guard completed their assigned patrol route, checked every point, and documented what they found. It is the accountability layer that most guard tour systems promise but few deliver reliably.
-          </p>
-
-          <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
-            <ScrollReveal>
-              <div>
-                <h2 className="font-display text-2xl font-bold">Why conventional CCTV fails</h2>
-                <p className="mt-4 max-w-prose text-muted-foreground">Traditional guard tour systems use NFC tags or QR codes that guards scan at each checkpoint. This confirms the guard was physically present, but not that they actually looked at what they were supposed to check. A guard can tap a tag and walk past without verifying anything.</p>
-              </div>
-            </ScrollReveal>
-            <SiteImage
-              src="/guard-tour-verification.jpg" alt="A guard reviewing an AI-verified patrol route on a tablet, with a route map and checkpoint markers overlaid on a campus at night" className="w-full rounded-xl"
-              width={1229}
-              height={692}
-              priority
-              sizes="(max-width: 1024px) 100vw, 60vw"
-            />
-          </div>
-
-          <div className="mt-16">
-            <ScrollReveal>
-              <h2 className="font-display text-2xl font-bold">How Camzify handles it</h2>
-              <div className="mt-4 max-w-prose text-muted-foreground" dangerouslySetInnerHTML={{ __html: `Camzify verifies the condition, not just the presence. <a href="/virtual-patrolling" class="text-primary hover:underline">Virtual patrol</a> rounds check what the camera sees at each point — is the door closed, is the area clear, is the fence line intact — independently of whether a guard is present. This creates a compliance record that is verifiable, timestamped, and audit-ready.` }} />
-            </ScrollReveal>
-          </div>
-
-          <div className="mt-16">
-            <ScrollReveal>
-              <h2 className="font-display text-2xl font-bold">What a patrol round looks like</h2>
-              <p className="mt-4 max-w-prose text-muted-foreground">A guard tour verification patrol runs in parallel with or instead of the physical guard round. Each camera in the patrol sequence checks the same conditions the guard is supposed to verify. Discrepancies between the AI assessment and the guard's report are flagged automatically.</p>
-            </ScrollReveal>
-          </div>
-
-          <div className="mt-16">
-            <ScrollReveal>
-              <h2 className="font-display text-2xl font-bold">Detections that power this</h2>
-              <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                <Link href="/ai-features/zone-intrusion-detection" className="rounded-lg bg-card p-4 shadow transition-shadow hover:shadow-md">
-                  <span className="font-mono text-xs uppercase tracking-wider text-primary">Live</span>
-                  <p className="mt-1 font-display font-bold">Zone Intrusion Detection</p>
-                </Link>
-                <Link href="/ai-features/camera-tampering-detection" className="rounded-lg bg-card p-4 shadow transition-shadow hover:shadow-md">
-                  <span className="font-mono text-xs uppercase tracking-wider text-primary">Live</span>
-                  <p className="mt-1 font-display font-bold">Camera Tampering Detection</p>
-                </Link>
-                <Link href="/ai-features/motion-detection" className="rounded-lg bg-card p-4 shadow transition-shadow hover:shadow-md">
-                  <span className="font-mono text-xs uppercase tracking-wider text-primary">Live</span>
-                  <p className="mt-1 font-display font-bold">Motion Detection</p>
-                </Link>
-                <Link href="/ai-features/multi-object-tracking" className="rounded-lg bg-card p-4 shadow transition-shadow hover:shadow-md">
-                  <span className="font-mono text-xs uppercase tracking-wider text-primary">Live</span>
-                  <p className="mt-1 font-display font-bold">Multi-Object Tracking</p>
-                </Link>
-              </div>
-            </ScrollReveal>
-          </div>
-
-          <div className="mt-16">
-            <ScrollReveal>
-              <h2 className="font-display text-2xl font-bold">Industries where this applies</h2>
-              <div className="mt-6 flex flex-wrap gap-3">
-                <Link href="/industries/property-management" className="rounded-full bg-card px-4 py-2 text-sm font-medium shadow transition-shadow hover:shadow-md">Property Management</Link>
-                <Link href="/industries/healthcare" className="rounded-full bg-card px-4 py-2 text-sm font-medium shadow transition-shadow hover:shadow-md">Healthcare</Link>
-                <Link href="/industries/financial-services" className="rounded-full bg-card px-4 py-2 text-sm font-medium shadow transition-shadow hover:shadow-md">Financial Services</Link>
-                <Link href="/industries/warehouses" className="rounded-full bg-card px-4 py-2 text-sm font-medium shadow transition-shadow hover:shadow-md">Warehouses</Link>
-              </div>
-            </ScrollReveal>
-          </div>
-
-          <div className="mt-20">
-            <FAQAccordion items={faqs} />
-          </div>
-        </div>
-      </section>
+      <UseCasePage c={content} />
     </PageShell>
   );
 }
