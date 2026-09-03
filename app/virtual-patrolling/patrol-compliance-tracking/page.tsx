@@ -70,11 +70,11 @@ export default function ComplianceTrackingPage() {
                 <span className="font-mono text-mono-sm uppercase text-primary">How It's Determined</span>
                 <h2 className="mt-2 font-display text-2xl font-bold">How a round's status is determined</h2>
                 <ol className="mt-6 space-y-4 text-muted-foreground">
-                  <li className="flex gap-3"><span className="font-mono text-primary">01</span> The round completes and every checklist item's result is collected</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">02</span> Compliant items are divided by total items to give the round's compliance percentage</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">03</span> If any item came back Not Compliant, the round is marked Flagged</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">04</span> If the round never executed by its scheduled time, it's marked Overdue instead</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">05</span> The status and percentage are written to the patrol log for that round</li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">01</span><span>The round completes and every checklist item's result is collected</span></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">02</span><span>Compliant items are divided by total items to give the round's compliance percentage</span></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">03</span><span>If any item came back Not Compliant, the round is marked Flagged</span></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">04</span><span>If the round never executed by its scheduled time, it's marked Overdue instead</span></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">05</span><span>The status and percentage are written to the patrol log for that round</span></li>
                 </ol>
               </div>
             </ScrollReveal>

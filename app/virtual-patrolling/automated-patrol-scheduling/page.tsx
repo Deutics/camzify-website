@@ -92,13 +92,13 @@ export default function AutomatedSchedulingPage() {
                 <span className="font-mono text-mono-sm uppercase text-primary">How It Runs</span>
                 <h2 className="mt-2 font-display text-2xl font-bold">What happens during an auto-patrol</h2>
                 <ul className="mt-4 space-y-3 text-muted-foreground">
-                  <li className="flex gap-3"><span className="font-mono text-primary">01</span> Schedule triggers at the configured time</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">02</span> System steps through each camera in the <Link href="/virtual-patrolling/patrol-sequences" className="text-primary hover:underline">patrol sequence</Link></li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">03</span> Each <Link href="/virtual-patrolling/patrol-checklists" className="text-primary hover:underline">checklist item</Link> is auto-evaluated</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">04</span> Non-compliant items notify the assigned guard automatically &mdash; no operator has to approve the message</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">05</span> Safety and security risks spotted at a stop raise a critical notification, whether or not a checklist item covered them</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">06</span> PDF <Link href="/virtual-patrolling/patrol-reports" className="text-primary hover:underline">report</Link> is emailed to designated recipients</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">07</span> Round is logged with <Link href="/virtual-patrolling/patrol-compliance-tracking" className="text-primary hover:underline">compliance percentage</Link></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">01</span><span>Schedule triggers at the configured time</span></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">02</span><span>System steps through each camera in the <Link href="/virtual-patrolling/patrol-sequences" className="text-primary hover:underline">patrol sequence</Link></span></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">03</span><span>Each <Link href="/virtual-patrolling/patrol-checklists" className="text-primary hover:underline">checklist item</Link> is auto-evaluated</span></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">04</span><span>Non-compliant items notify the assigned guard automatically &mdash; no operator has to approve the message</span></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">05</span><span>Safety and security risks spotted at a stop raise a critical notification, whether or not a checklist item covered them</span></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">06</span><span>PDF <Link href="/virtual-patrolling/patrol-reports" className="text-primary hover:underline">report</Link> is emailed to designated recipients</span></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">07</span><span>Round is logged with <Link href="/virtual-patrolling/patrol-compliance-tracking" className="text-primary hover:underline">compliance percentage</Link></span></li>
                 </ul>
               </div>
             </ScrollReveal>

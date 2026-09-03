@@ -128,11 +128,11 @@ export default function MultiSiteOpsPage() {
                 <span className="font-mono text-mono-sm uppercase text-primary">Rollout</span>
                 <h2 className="mt-2 font-display text-2xl font-bold">Rolling out a new site</h2>
                 <ol className="mt-6 space-y-4 text-muted-foreground">
-                  <li className="flex gap-3"><span className="font-mono text-primary">01</span> The new site is added as a sub-account under the parent instance</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">02</span> VPS camera instances are allocated to the site from the parent's licensed capacity</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">03</span> Patrol sequences, checklists, and guard contacts are configured for the site independently</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">04</span> Role-based permissions determine which operators and guards can access the new site</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">05</span> The site appears on the parent dashboard with its own compliance score, alongside every other location</li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">01</span><span>The new site is added as a sub-account under the parent instance</span></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">02</span><span>VPS camera instances are allocated to the site from the parent's licensed capacity</span></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">03</span><span>Patrol sequences, checklists, and guard contacts are configured for the site independently</span></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">04</span><span>Role-based permissions determine which operators and guards can access the new site</span></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">05</span><span>The site appears on the parent dashboard with its own compliance score, alongside every other location</span></li>
                 </ol>
               </div>
             </ScrollReveal>

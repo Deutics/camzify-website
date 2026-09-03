@@ -107,11 +107,11 @@ export default function PatrolSequencesPage() {
                 <span className="font-mono text-mono-sm uppercase text-primary">How It Runs</span>
                 <h2 className="mt-2 font-display text-2xl font-bold">How a patrol sequence executes</h2>
                 <ol className="mt-6 space-y-4 text-muted-foreground">
-                  <li className="flex gap-3"><span className="font-mono text-primary">01</span> The schedule (or a guard starting a manual round) begins the sequence at its first camera stop</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">02</span> Each stop is evaluated in order — its <Link href="/virtual-patrolling/patrol-checklists" className="text-primary hover:underline">checklist</Link> items are checked and the results logged</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">03</span> The sequence advances automatically to the next camera once the current stop is complete</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">04</span> Any Not Compliant item along the way triggers a <Link href="/virtual-patrolling/guard-notifications" className="text-primary hover:underline">guard notification</Link> for that specific stop</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">05</span> The sequence finishes at the final camera and the round is complete</li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">01</span><span>The schedule (or a guard starting a manual round) begins the sequence at its first camera stop</span></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">02</span><span>Each stop is evaluated in order — its <Link href="/virtual-patrolling/patrol-checklists" className="text-primary hover:underline">checklist</Link> items are checked and the results logged</span></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">03</span><span>The sequence advances automatically to the next camera once the current stop is complete</span></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">04</span><span>Any Not Compliant item along the way triggers a <Link href="/virtual-patrolling/guard-notifications" className="text-primary hover:underline">guard notification</Link> for that specific stop</span></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">05</span><span>The sequence finishes at the final camera and the round is complete</span></li>
                 </ol>
               </div>
             </ScrollReveal>

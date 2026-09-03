@@ -130,11 +130,11 @@ export default function PatrolChecklistsPage() {
                 <span className="font-mono text-mono-sm uppercase text-primary">How It Runs</span>
                 <h2 className="mt-2 font-display text-2xl font-bold">How a checklist gets evaluated</h2>
                 <ol className="mt-6 space-y-4 text-muted-foreground">
-                  <li className="flex gap-3"><span className="font-mono text-primary">01</span> The patrol round reaches this camera's stop in the sequence</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">02</span> Every item assigned to that camera is checked against the current view</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">03</span> Each item is marked Compliant or Not Compliant, and a failed item is then resolved as Fixed or Pending — all timestamped</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">04</span> Any Not Compliant item triggers a <Link href="/virtual-patrolling/guard-notifications" className="text-primary hover:underline">guard notification</Link></li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">05</span> Results are written into that round's <Link href="/virtual-patrolling/patrol-reports" className="text-primary hover:underline">patrol report</Link></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">01</span><span>The patrol round reaches this camera's stop in the sequence</span></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">02</span><span>Every item assigned to that camera is checked against the current view</span></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">03</span><span>Each item is marked Compliant or Not Compliant, and a failed item is then resolved as Fixed or Pending — all timestamped</span></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">04</span><span>Any Not Compliant item triggers a <Link href="/virtual-patrolling/guard-notifications" className="text-primary hover:underline">guard notification</Link></span></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">05</span><span>Results are written into that round's <Link href="/virtual-patrolling/patrol-reports" className="text-primary hover:underline">patrol report</Link></span></li>
                 </ol>
               </div>
             </ScrollReveal>

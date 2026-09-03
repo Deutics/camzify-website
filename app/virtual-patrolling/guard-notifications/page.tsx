@@ -118,11 +118,11 @@ export default function GuardNotificationsPage() {
                 <span className="font-mono text-mono-sm uppercase text-primary">How It Flows</span>
                 <h2 className="mt-2 font-display text-2xl font-bold">How notifications flow</h2>
                 <ol className="mt-6 space-y-4 text-muted-foreground">
-                  <li className="flex gap-3"><span className="font-mono text-primary">01</span> Patrol round reaches a camera in the sequence</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">02</span> Checklist item is evaluated — Compliant or Not Compliant</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">03</span> On failure, the system retrieves the guard assigned to that camera</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">04</span> The predefined message for that checklist item is sent to the guard</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">05</span> The notification is logged in the <Link href="/virtual-patrolling/patrol-reports" className="text-primary hover:underline">patrol report</Link></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">01</span><span>Patrol round reaches a camera in the sequence</span></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">02</span><span>Checklist item is evaluated — Compliant or Not Compliant</span></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">03</span><span>On failure, the system retrieves the guard assigned to that camera</span></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">04</span><span>The predefined message for that checklist item is sent to the guard</span></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">05</span><span>The notification is logged in the <Link href="/virtual-patrolling/patrol-reports" className="text-primary hover:underline">patrol report</Link></span></li>
                 </ol>
               </div>
             </ScrollReveal>

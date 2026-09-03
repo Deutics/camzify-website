@@ -107,11 +107,11 @@ export default function PatrolReportsPage() {
                 <span className="font-mono text-mono-sm uppercase text-primary">How It Runs</span>
                 <h2 className="mt-2 font-display text-2xl font-bold">How a patrol report gets generated</h2>
                 <ol className="mt-6 space-y-4 text-muted-foreground">
-                  <li className="flex gap-3"><span className="font-mono text-primary">01</span> The patrol round reaches its final camera stop, whether manual or run on an <Link href="/virtual-patrolling/automated-patrol-scheduling" className="text-primary hover:underline">automated schedule</Link></li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">02</span> Every checklist result from the round is compiled into a single record, each one paired with the snapshot taken at that camera</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">03</span> The record is formatted into a PDF with the sequence name, timestamps, and per-camera results</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">04</span> The report is emailed automatically to configured recipients</li>
-                  <li className="flex gap-3"><span className="font-mono text-primary">05</span> The report is stored in the patrol log, openable as a web report or a PDF, linked to that round's <Link href="/virtual-patrolling/patrol-compliance-tracking" className="text-primary hover:underline">compliance percentage</Link></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">01</span><span>The patrol round reaches its final camera stop, whether manual or run on an <Link href="/virtual-patrolling/automated-patrol-scheduling" className="text-primary hover:underline">automated schedule</Link></span></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">02</span><span>Every checklist result from the round is compiled into a single record, each one paired with the snapshot taken at that camera</span></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">03</span><span>The record is formatted into a PDF with the sequence name, timestamps, and per-camera results</span></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">04</span><span>The report is emailed automatically to configured recipients</span></li>
+                  <li className="flex gap-3"><span className="shrink-0 font-mono text-primary tabular-nums">05</span><span>The report is stored in the patrol log, openable as a web report or a PDF, linked to that round's <Link href="/virtual-patrolling/patrol-compliance-tracking" className="text-primary hover:underline">compliance percentage</Link></span></li>
                 </ol>
               </div>
             </ScrollReveal>
