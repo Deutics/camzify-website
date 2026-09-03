@@ -26,7 +26,7 @@ export const siteConfig = {
 
   tagline: 'Smart Surveillance, Safer Spaces',
   description:
-    'AI-powered virtual patrolling and video analytics platform. Scheduled AI patrol rounds on the cameras you already own.',
+    'AI-powered cloud video management system: live streaming, cloud backup, 22 real-time detections and scheduled virtual patrol rounds on the cameras you already own.',
 
   /** Canonical origin. No trailing slash. */
   url: 'https://camzify.com',

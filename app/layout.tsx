@@ -15,9 +15,9 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-sans', display: 'swa
 const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono', display: 'swap' });
 const jakartaSans = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-display', weight: ['600', '700', '800'], display: 'swap' });
 
-const title = 'Virtual Patrolling & AI Video Surveillance Software';
+const title = 'AI Video Management System & Virtual Patrolling Software';
 const description =
-  'Camzify runs scheduled AI patrol rounds on the cameras you already own — checking every point, flagging failures, notifying the right guard. Book a demo.';
+  'Camzify is an AI-powered cloud video management system for the cameras you already own: live streaming, cloud backup, 22 real-time detections and scheduled virtual patrol rounds with a compliance record. Book a demo.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),

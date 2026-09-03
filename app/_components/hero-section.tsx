@@ -6,6 +6,21 @@ import { PatrolSweepHero } from '@/components/motion/patrol-sweep-hero';
 import { HeroBgAnimation } from '@/components/motion/hero-bg-animation';
 import { motion } from 'framer-motion';
 
+/**
+ * The hero.
+ *
+ * Positioning changed here on purpose. The previous headline — "Patrolled 24/7.
+ * Without the guard." — sold one capability and argued against the buyer the business
+ * has since named as its primary target (security agencies). The product is a cloud
+ * video management system with AI detection and virtual patrolling on top, and that
+ * is what the headline and the definition now say, in that order: category first so
+ * search engines and answer engines can classify it, the patrol differentiator second
+ * so it still stands out from every other cloud VMS.
+ *
+ * The definition sentence is written to be extracted whole: brand, category, the
+ * "cameras you already own" qualifier, and the capability list in one sentence that
+ * survives being quoted with nothing around it.
+ */
 export function HeroSection() {
   return (
     <section className="relative overflow-hidden pt-28 pb-16 sm:pt-36 sm:pb-24">
@@ -21,35 +36,21 @@ export function HeroSection() {
           >
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm">
               <span className="h-2 w-2 animate-pulse-dot rounded-full bg-live" />
-              <span className="font-mono text-mono-sm text-primary uppercase">AI-Powered Virtual Patrolling</span>
+              <span className="font-mono text-mono-sm text-primary uppercase">AI-powered cloud video management</span>
             </div>
 
             <h1 className="mt-6 font-display text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl">
-              Your site. Patrolled 24/7.{' '}
-              <span className="text-primary">Without the guard.</span>
+              Every camera watched. Every site checked.{' '}
+              <span className="text-primary">Around the clock.</span>
             </h1>
 
-            {/*
-              Two sentences, doing two jobs.
-
-              The first is the definition an answer engine extracts: it carries both
-              category terms, opens with the brand, and stands alone when quoted with no
-              surrounding context.
-
-              The second is written for a person. The previous version ended in a feature
-              list — "patrol rounds, real-time detection, live viewing and cloud retention"
-              — which reads like a spec sheet and duplicates the bullets directly below it.
-              Verbs describe what the product actually does instead: checks, catches, tells.
-              The closing clause is the differentiator competitors lack, so it earns the
-              words: anyone can raise an alert, far fewer produce an auditable record.
-            */}
             <p className="mt-6 max-w-xl text-body leading-relaxed text-muted-foreground">
               <strong className="font-semibold text-foreground">
-                Camzify is virtual patrolling and AI video surveillance software
+                Camzify is an AI-powered cloud video management system
               </strong>{' '}
-              for the cameras you already own. It checks every site on schedule, catches
-              what matters in between, and tells the person responsible &mdash; with a record
-              to prove it.
+              for the cameras you already own &mdash; live streaming, cloud backup and 22
+              real-time detections in one console, plus scheduled virtual patrol rounds that
+              check every site and prove it.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -71,10 +72,10 @@ export function HeroSection() {
 
             <ul className="mt-8 grid gap-x-6 gap-y-2.5 text-sm text-muted-foreground sm:grid-cols-2">
               {[
-                'Scheduled AI patrol rounds',
-                '22 detection models, real time',
                 'Live multi-site viewing',
-                'Cloud video backup & retention',
+                'Cloud backup & retention',
+                '22 detection models, real time',
+                'Scheduled AI patrol rounds',
               ].map((f) => (
                 <li key={f} className="flex items-center gap-2.5">
                   <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-live" aria-hidden="true" />

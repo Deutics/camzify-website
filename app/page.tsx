@@ -1,6 +1,7 @@
 import { HeroSection } from './_components/hero-section';
 import { TrustBand } from './_components/trust-band';
 import { ProblemBand } from './_components/problem-band';
+import { PlatformCapabilities } from './_components/platform-capabilities';
 import { WhatIsVP } from './_components/what-is-vp';
 import { ChecklistDemoSection } from './_components/checklist-demo-section';
 import { AutoPatrolSection } from './_components/auto-patrol-section';
@@ -48,6 +49,7 @@ export default function HomePage() {
       <HeroSection />
       <TrustBand />
       <ProblemBand />
+      <PlatformCapabilities />
       <WhatIsVP />
       <ChecklistDemoSection />
       <AutoPatrolSection />

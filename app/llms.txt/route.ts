@@ -17,13 +17,13 @@ import { siteConfig, formattedAddress } from '@/lib/site-config';
  */
 const buildLlmsTxt = () => `# ${siteConfig.name}
 
-> ${siteConfig.name} is an AI video analytics and virtual patrolling platform built by ${siteConfig.legalName}, headquartered in ${siteConfig.address.countryName}. It turns existing security cameras into an active verification system.
+> ${siteConfig.name} is an AI-powered cloud video management system (VMS) built by ${siteConfig.legalName}, headquartered in ${siteConfig.address.countryName}. It runs on the IP cameras a site already owns and combines live streaming, cloud video backup and retention, 22 real-time AI detection models, and scheduled virtual patrol rounds that verify specific conditions at each camera and produce an auditable compliance record.
 
 ## What ${siteConfig.name} does
 
-${siteConfig.name} runs scheduled AI patrol rounds on existing IP cameras. At each camera stop, the system checks a defined list of conditions — is the door closed, is the area clear, is the perimeter intact — and flags failures to the assigned security contact. Every round produces a timestamped compliance report.
+${siteConfig.name} is one platform on one login, in the order it runs: connect existing cameras (ONVIF, RTSP, RTMP, HTTPS); stream them live in a multi-camera wall grouped by site; record to the cloud continuously or on a schedule with retention set per camera; run AI detection on confirmed object tracks; run scheduled virtual patrol rounds with a checklist per camera; assess each patrol stop for safety and security risks; search recorded footage for a person by plain-language description; and deliver every alert to a named person over email, SMS, WhatsApp or push with an acknowledgement trail.
 
-The distinguishing claim: ${siteConfig.name} is priced and positioned against the cost of manned guarding, not against other video management software. The product replaces the routine patrol round, not the security function.
+What distinguishes it from other cloud VMS products is the virtual patrol round: at each camera stop the system checks a defined list of conditions — is the door closed, is the area clear, is the perimeter intact — notifies the assigned guard on a failure, and files a timestamped compliance report with the snapshot behind every result. ${siteConfig.name} is priced and positioned against the cost of manned guarding rather than against other software. It replaces the routine patrol round, not the security function, and security agencies sell it alongside their guards rather than instead of them.
 
 ## Shipping capabilities
 

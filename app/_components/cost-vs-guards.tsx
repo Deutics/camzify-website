@@ -61,7 +61,21 @@ export function CostVsGuards() {
                 </Link>
               </div>
 
-              <p className="mt-8 text-sm text-muted-foreground">
+              {/*
+                This section argues from the end user's side. A guarding company reading
+                it is being told its own model is the cost, so it gets the other door.
+              */}
+              <p className="mt-8 rounded-lg border border-border bg-card/60 p-4 text-sm text-muted-foreground">
+                <strong className="font-semibold text-foreground">Run a security agency?</strong>{' '}
+                For you this is coverage to sell rather than a cost to cut — overnight rounds across
+                every client site, alongside the guards you already provide.{' '}
+                <Link href="/partners/for-security-agencies" className="text-primary hover:underline">
+                  Camzify for security agencies
+                </Link>
+                .
+              </p>
+
+              <p className="mt-6 text-sm text-muted-foreground">
                 Weighing the options?{' '}
                 <Link href="/compare/virtual-patrolling-vs-security-guards" className="text-primary hover:underline">
                   Virtual patrolling vs security guards

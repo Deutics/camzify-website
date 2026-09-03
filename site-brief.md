@@ -43,6 +43,35 @@
 - https://camzify.com/roi-calculator — the highest-intent assist page; 44 inbound links already
 - https://camzify.com/virtual-patrolling — the flagship category page
 
+### Homepage positioning — decided 2026-09-03
+
+**Category first, differentiator second.** The homepage now defines Camzify as an
+*AI-powered cloud video management system* for the cameras a site already owns, with
+virtual patrolling as the capability no other cloud VMS has. Previously it defined the
+product as virtual patrolling only, and the H1 ("Without the guard") argued against the
+security-agency buyer named as primary.
+
+Why category first: every competitor read for this pass leads with the platform and
+lists capabilities before anything else — Verkada ("One platform"), Eagle Eye ("Cloud
+Video Management System (VMS)" as a named section), Actuate (a capability list directly
+under the H1). Search demand and AI-search classification both key on the category term;
+a page that never says "video management" cannot rank for it or be cited as one.
+
+Why the differentiator stays prominent: it is the only thing on the page a Milestone or
+Verkada buyer cannot get elsewhere, and the definition sentence names it.
+
+**Implication for the Milestone / Genetec / Verkada comparison pages:** the honest angle
+is no longer "we are not a VMS" but "a cloud VMS that runs on the cameras you already own
+and adds a verification layer they do not have" — with the on-prem, integration-breadth
+and hardware-ecosystem gaps stated plainly rather than papered over.
+
+**Homepage patterns adopted from competitors (verified on their sites):** capability
+inventory immediately after the problem statement; buyer-question FAQ covering
+deployment model, camera lock-in, storage, security, search and mobile (the questions
+the buyer-guide press asks of every VMS); a segment door for the agency buyer on the
+cost section. **Deliberately not adopted:** customer counts, G2 badges, "trusted by N
+organisations" — nothing on this site may carry a number the business has not verified.
+
 ### Service area
 
 - **Primary location(s):** Singapore (headquarters)
