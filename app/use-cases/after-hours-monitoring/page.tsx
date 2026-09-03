@@ -18,7 +18,7 @@ const faqs = [
   { question: 'Does this replace the night guard?', answer: 'It replaces the routine round, not the security function. Somebody still attends a broken window. What changes is that the walk through the building at 2am, the part that is expensive to staff and easy to skip, happens on schedule whether or not anyone is awake, and the guard is sent to the things that failed rather than walking past the things that did not.' },
   { question: 'What if nobody is on site to respond?', answer: 'Then the notification goes to whoever you designate: a mobile guard, a keyholder, a monitoring company. The round does not need anyone on site to run or to record. Many sites pair after-hours rounds with a security agency or monitoring company that receives the messages; both have their own pages here.' },
   { question: 'Is there a record in the morning?', answer: 'A report per round: every camera stop, every checklist result, the snapshot each was judged against, timestamps and a compliance percentage. A round that passed produces the report too, which is how you show that the building was checked at 23:00, 01:00, 03:00 and 05:00 and found in order.' },
-  { question: 'Does the AI watch between rounds?', answer: 'If detections are enabled on those cameras, yes. Zone intrusion with after-hours rules and line intrusion at entrances fire the moment a tracked person appears, independently of the round schedule. Rounds give you the record; detections give you the event.' },
+  { question: 'Does the AI watch between rounds?', answer: 'If detections are enabled on those cameras, yes. Zone intrusion and line intrusion at entrances fire the moment a tracked person appears, independently of the round schedule, and each carries a notification window per camera so they notify after hours and stay quiet by day. Rounds give you the record; detections give you the event.' },
 ];
 
 const content: UseCaseContent = {
@@ -45,10 +45,10 @@ const content: UseCaseContent = {
     heading: 'The round runs itself. The guard gets the failures.',
     paras: [
       <>An <Link href="/virtual-patrolling/automated-patrol-scheduling" className="text-primary hover:underline">automated patrol round</Link> works through the after-hours sequence at the frequency you set: entrance, corridors, stockroom, dock, plant room, back out to the car park. At each camera it checks the list, doors closed, areas empty, nothing left running, and records the answer with the frame. Where one frame is not enough it watches the scene for a short period before deciding.</>,
-      <>A failed item messages the guard designated for that camera with the snapshot, and the AI raises a critical notification for a <Link href="/virtual-patrolling/risk-detection" className="text-primary hover:underline">risk it sees</Link> that the checklist did not ask about, a blocked exit, smoke, a person where none should be. Between rounds, <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">zone intrusion</Link> with after-hours rules fires on a tracked person the moment they appear.</>,
+      <>A failed item messages the guard designated for that camera with the snapshot, and the AI raises a critical notification for a <Link href="/virtual-patrolling/risk-detection" className="text-primary hover:underline">risk it sees</Link> that the checklist did not ask about, a blocked exit, smoke, a person where none should be. Between rounds, <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">zone intrusion</Link> fires on a tracked person the moment they appear, and its notification window keeps it quiet during the day.</>,
     ],
     detections: [
-      { href: '/ai-features/zone-intrusion-detection', name: 'Zone intrusion detection', role: 'After-hours rules on interior and exterior zones. A tracked person after closing is the event.' },
+      { href: '/ai-features/zone-intrusion-detection', name: 'Zone intrusion detection', role: 'Interior and exterior zones with an after-hours notification window. A tracked person after closing is the event.' },
       { href: '/ai-features/line-intrusion-detection', name: 'Line intrusion detection', role: 'Tripwires at entrances and the fence, with direction, watching between rounds.' },
       { href: '/ai-features/fire-and-smoke-detection', name: 'Fire and smoke detection', role: 'Visual signatures of flame and smoke on any camera. The other thing an empty building has to fear.' },
       { href: '/ai-features/camera-tampering-detection', name: 'Camera tampering detection', role: 'A camera covered or turned in the evening is caught before the night starts.' },
@@ -62,7 +62,7 @@ const content: UseCaseContent = {
     caption: 'The 01:00 round with the stockroom door found open. Guard messaged with the frame; the report will show before and after.',
     paras: [
       'The after-hours sequence is the cameras in the order a guard would walk them, and the checklist at each is the state the building should be in when nobody is there. Entrance locked. Reception empty. Stockroom door closed. Dock doors down. Plant room clear. The round produces a report that says each was true at each time it was checked, with the frame to prove it.',
-      <>Use <Link href="/virtual-patrolling/patrol-checklists" className="text-primary hover:underline">checklists</Link> that describe conditions, not events, so a passing round is meaningful. A camera that sees an empty corridor is evidence; a camera that saw no motion is not.</>,
+      <>Use <Link href="/virtual-patrolling/patrol-checklists" className="text-primary hover:underline">checklists</Link> that describe conditions, not events, so a passing round is meaningful. The first round of the night is usually the <Link href="/use-cases/lock-up-and-closing-checks" className="text-primary hover:underline">closing round</Link>. A camera that sees an empty corridor is evidence; a camera that saw no motion is not.</>,
     ],
   },
   limits: {

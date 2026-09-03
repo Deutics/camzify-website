@@ -129,6 +129,13 @@ const useCases = group(
     '/use-cases/night-security',
     '/use-cases/guard-tour-verification',
     '/use-cases/incident-investigation',
+    '/use-cases/fire-and-smoke-monitoring',
+    '/use-cases/ppe-compliance-monitoring',
+    '/use-cases/workplace-safety-monitoring',
+    '/use-cases/violence-and-weapons-detection',
+    '/use-cases/lock-up-and-closing-checks',
+    '/use-cases/camera-health-monitoring',
+    '/use-cases/occupancy-monitoring',
   ],
   0.7,
   'monthly'

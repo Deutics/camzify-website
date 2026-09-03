@@ -132,7 +132,7 @@ export default function WarehousesPage() {
                 <h2 className="font-display text-2xl font-bold">What to configure for a warehouse site</h2>
                 <p className="mt-4 text-muted-foreground">Most warehouse deployments start with:</p>
                 <ul className="mt-4 space-y-3 text-muted-foreground">
-                  <li className="flex gap-2">• Dock-door zones with schedule-based activation for delivery windows</li>
+                  <li className="flex gap-2">• Dock-door zones with a notification window set around deliveries</li>
                   <li className="flex gap-2">• Perimeter line rules covering fence lines and vehicle gates</li>
                   <li className="flex gap-2">• Restricted zones over high-value storage and hazardous material areas</li>
                   <li className="flex gap-2">• After-hours patrol frequency, typically every 30-60 minutes overnight</li>

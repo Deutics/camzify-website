@@ -103,7 +103,7 @@ export default function Page() {
                 </p>
                 <ul className="mt-4 space-y-3 text-muted-foreground">
                   <li className="flex gap-2">• Entry-zone boundaries drawn directly on the camera view</li>
-                  <li className="flex gap-2">• Schedule-based activation, e.g. business hours vs. after-hours doors</li>
+                  <li className="flex gap-2">• Notification window per camera, e.g. after-hours doors only</li>
                   <li className="flex gap-2">• Sensitivity tuning for closely spaced entrants</li>
                   <li className="flex gap-2">• Optional access control log pairing for badge-vs-headcount alerts</li>
                   <li className="flex gap-2">• Per-camera instance licensing, matching other detection features</li>

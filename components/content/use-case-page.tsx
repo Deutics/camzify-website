@@ -22,7 +22,9 @@ export interface UseCaseContent {
   title: string;
   lede: ReactNode;
   facts: [string, string, string];
-  image: { src: string; alt: string };
+  /** A photo for the hero. When a page has none yet, pass `heroVisual` instead. */
+  image?: { src: string; alt: string };
+  heroVisual?: ReactNode;
   secondary: { href: string; label: string };
   problem: {
     heading: string;
@@ -61,9 +63,13 @@ export function UseCasePage({ c }: { c: UseCaseContent }) {
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={c.secondary}
         visual={
-          <div className="overflow-hidden rounded-xl border border-border bg-card">
-            <SiteImage src={c.image.src} alt={c.image.alt} className="w-full" width={1229} height={692} priority sizes="(max-width: 1024px) 100vw, 45vw" />
-          </div>
+          c.image ? (
+            <div className="overflow-hidden rounded-xl border border-border bg-card">
+              <SiteImage src={c.image.src} alt={c.image.alt} className="w-full" width={1229} height={692} priority sizes="(max-width: 1024px) 100vw, 45vw" />
+            </div>
+          ) : (
+            c.heroVisual
+          )
         }
       />
 

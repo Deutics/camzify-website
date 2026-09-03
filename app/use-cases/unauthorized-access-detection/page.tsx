@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const pageMeta = {
   title: "Unauthorized Access Detection | Zone Rules",
-  description: "Unauthorized access detection behind the badge reader: zones with hours, tailgating at controlled doors, restricted rooms checked on the round with frames.",
+  description: "Unauthorized access detection behind the badge reader: zones notified in set hours, tailgating at controlled doors, restricted rooms checked on the round.",
   path: "/use-cases/unauthorized-access-detection",
 };
 
@@ -14,8 +14,8 @@ export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
   { question: 'How is this different from access control?', answer: 'Access control decides whether a door opens. It knows a badge was presented and nothing about what happened next: how many people walked through, whether the door was propped, whether the person inside the server room is the one whose badge opened it. Camzify watches the space on the far side of the door. Zone rules say who should be there and when; tailgating detection counts people through a controlled entrance; a patrol round checks the room is empty when it should be.' },
-  { question: 'Can zone rules apply only after hours?', answer: 'Yes. A zone carries a schedule. The executive floor corridor can be open all day and a restricted zone from 8pm; a hazardous materials store can be restricted at every hour. Different zones on the same camera can carry different schedules.' },
-  { question: 'Can it tell an employee from an intruder?', answer: 'Not by identity. It works on place and time: a person in a zone during hours when nobody should be there. Attribute extraction can describe the person, clothing color, what they carry, for the guard who attends. Facial recognition is not a capability, and we say that plainly on the attribute extraction page.' },
+  { question: 'Can a zone notify only after hours?', answer: 'Yes. Every detection on a camera carries a notification window, and outside it no notification is generated. The executive floor corridor camera can notify from 8pm only; the hazardous materials store camera can notify at every hour. The detection keeps running either way; the window decides when it tells anyone.' },
+  { question: 'Can it tell an employee from an intruder?', answer: 'Not by identity. It works on place and time: a person in a zone during the hours the camera is set to notify. Attribute extraction can describe the person, clothing color, what they carry, for the guard who attends. Facial recognition is not a capability, and we say that plainly on the attribute extraction page.' },
   { question: 'What does tailgating detection actually see?', answer: 'Two or more people passing through a controlled door on one badge event, or a door held open for someone who did not badge. It fires on the count of tracked people through the entrance, so it needs a camera with a view of the door, not a feed from the badge system.' },
   { question: 'Who is notified, and how?', answer: 'The channels are set per alert category, email, SMS, WhatsApp or push, and the severity can be set per camera for each detection, so a zone alert in the server room can be critical while one in the loading corridor is informational. A failed checklist item on a round messages the guard designated for that camera with the snapshot.' },
   { question: 'Is there a record for the auditor?', answer: 'Two. Every detection is logged with camera, time and snapshot, and every patrol round produces a report with the result of each checklist item and the frame it was judged against. Every action on the account is also written to an audit trail. Nothing in either is typed in afterwards.' },
@@ -28,7 +28,7 @@ const content: UseCaseContent = {
     <strong className="font-semibold text-foreground">Unauthorized access detection is the ability to identify and alert when a person or vehicle enters a restricted, controlled or off-limits area.</strong>{' '}
     It differs from motion detection because it works on defined zones with rules about who should be present and when, and it differs from access control because it watches what happens after the door opens. Camzify runs it on the cameras already covering those doors, rooms and corridors.
   </>,
-  facts: ['Zones with hours, per camera', 'Tailgating counted at controlled doors', 'Restricted rooms checked on the round'],
+  facts: ['A notification window per camera', 'Tailgating counted at controlled doors', 'Restricted rooms checked on the round'],
   image: { src: '/unauthorized-access-detection.jpg', alt: 'Cameras at a facility gate flagging a person and a vehicle at night' },
   secondary: { href: '/ai-features/zone-intrusion-detection', label: 'Zone intrusion detection' },
   problem: {
@@ -45,11 +45,11 @@ const content: UseCaseContent = {
   handles: {
     heading: 'Rules on the space, not on the door',
     paras: [
-      <><Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">Zone intrusion detection</Link> draws the restricted area on the camera view, the server room floor, the cash office, the roof, and attaches the hours during which nobody, or nobody unaccompanied, should be there. A tracked person inside the zone during those hours raises an alert with the snapshot. <Link href="/ai-features/tailgating-detection" className="text-primary hover:underline">Tailgating detection</Link> watches the controlled entrance itself and fires when more than one person passes on a single badge event.</>,
-      <>On top of the detections, a <Link href="/virtual-patrolling" className="text-primary hover:underline">patrol round</Link> checks the restricted rooms on a schedule: door closed, room empty, nothing left propped. It records the answer with a snapshot whether or not a detection fired, which is the evidence that the control was working, not just that it existed.</>,
+      <><Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">Zone intrusion detection</Link> draws the restricted area on the camera view, the server room floor, the cash office, the roof, and the camera carries the notification window during which nobody, or nobody unaccompanied, should be there. A tracked person inside the zone during the window raises an alert with the snapshot. <Link href="/ai-features/tailgating-detection" className="text-primary hover:underline">Tailgating detection</Link> watches the controlled entrance itself and fires when more than one person passes on a single badge event.</>,
+      <>On top of the detections, a <Link href="/virtual-patrolling" className="text-primary hover:underline">patrol round</Link> checks the restricted rooms on a schedule: door closed, room empty, nothing left propped. It records the answer with a snapshot whether or not a detection fired, which is the evidence that the control was working, not just that it existed. Where the concern inside the door is a person rather than a place, <Link href="/use-cases/violence-and-weapons-detection" className="text-primary hover:underline">violence and weapons detection</Link> runs on the same cameras.</>,
     ],
     detections: [
-      { href: '/ai-features/zone-intrusion-detection', name: 'Zone intrusion detection', role: 'The restricted area on the camera view, with the hours it is restricted.' },
+      { href: '/ai-features/zone-intrusion-detection', name: 'Zone intrusion detection', role: 'The restricted area on the camera view, notified during the hours you set.' },
       { href: '/ai-features/tailgating-detection', name: 'Tailgating detection', role: 'Counts tracked people through a controlled door and fires on more than one per badge.' },
       { href: '/ai-features/ai-attribute-extraction', name: 'AI attribute extraction', role: 'Clothing, carried objects and direction of travel for the guard. Not identity.' },
       { href: '/ai-features/multi-object-tracking', name: 'Multi-object tracking', role: 'Follows each person across frames and cameras so zone and count rules fire on a track.' },

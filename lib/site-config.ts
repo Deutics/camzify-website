@@ -230,6 +230,8 @@ export const navItems = [
       { label: 'Theft Prevention', href: '/use-cases/theft-prevention', description: 'Shrinkage and loss reduction' },
       { label: 'Loading Dock Monitoring', href: '/use-cases/loading-dock-monitoring', description: 'Dock and logistics security' },
       { label: 'Remote Site Monitoring', href: '/use-cases/remote-site-monitoring', description: 'Unmanned location oversight' },
+      { label: 'Lock-Up & Closing Checks', href: '/use-cases/lock-up-and-closing-checks', description: 'A closing round from the cameras' },
+      { label: 'Fire & Smoke Monitoring', href: '/use-cases/fire-and-smoke-monitoring', description: 'Visual early warning on any camera' },
     ],
   },
   {

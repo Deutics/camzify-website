@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const pageMeta = {
   title: "Trespassing Detection | AI Camera Alerts",
-  description: "Trespassing detection on existing cameras: a person on a confirmed track where nobody should be, zones with hours, and the guard notified with a snapshot.",
+  description: "Trespassing detection on existing cameras: a person on a confirmed track where nobody should be, notified in the hours you set, with a snapshot to the guard.",
   path: "/use-cases/trespassing-detection",
 };
 
@@ -26,9 +26,9 @@ const content: UseCaseContent = {
   title: 'Trespassing detection',
   lede: <>
     <strong className="font-semibold text-foreground">Trespassing detection is the automated identification of a person entering private or restricted property where and when they should not be.</strong>{' '}
-    It covers exterior perimeters, open grounds, roofs and any area where human presence outside defined hours is itself the security event. Camzify does it on the cameras already installed, with a zone rule per area, hours attached, and a snapshot to the guard when the rule is broken.
+    It covers exterior perimeters, open grounds, roofs and any area where human presence outside defined hours is itself the security event. Camzify does it on the cameras already installed, with a zone per area, a notification window per camera, and a snapshot to the guard when the rule is broken.
   </>,
-  facts: ['A person on a confirmed track, not a moving shadow', 'Zones with hours attached', 'Snapshot to the guard on the event'],
+  facts: ['A person on a confirmed track, not a moving shadow', 'Notified in the hours you set', 'Snapshot to the guard on the event'],
   image: { src: '/trespassing-detection.jpg', alt: 'Perimeter fence at night with a person climbing over, highlighted in a thermal camera view' },
   secondary: { href: '/ai-features/zone-intrusion-detection', label: 'Zone intrusion detection' },
   problem: {
@@ -42,13 +42,13 @@ const content: UseCaseContent = {
     alt: 'A patrol route across four exterior camera stops with a checklist count at each',
   },
   handles: {
-    heading: 'A rule per area, hours attached, a snapshot when it breaks',
+    heading: 'A zone per area, a window per camera, a snapshot when it breaks',
     paras: [
-      <><Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">Zone intrusion detection</Link> puts an area on the camera view and a schedule on the area: nobody in the yard between 8pm and 6am, nobody on the roof at any hour. A tracked person inside the zone during those hours raises an alert with the snapshot. <Link href="/ai-features/line-intrusion-detection" className="text-primary hover:underline">Line intrusion detection</Link> covers the fence itself, a tripwire with a direction so that leaving is not the same event as entering.</>,
+      <><Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">Zone intrusion detection</Link> puts an area on the camera view, and the camera carries a notification window: the yard notifies between 8pm and 6am, the roof at any hour. A tracked person inside the zone raises an alert with the snapshot during the window and nothing outside it. <Link href="/ai-features/line-intrusion-detection" className="text-primary hover:underline">Line intrusion detection</Link> covers the fence itself, a tripwire with a direction so that leaving is not the same event as entering.</>,
       <>Both fire on a track from <Link href="/ai-features/multi-object-tracking" className="text-primary hover:underline">multi-object tracking</Link>, the layer that follows each subject across frames and is the reason a headlight sweep or a bird does not raise a person alert. If the person is still there when the next <Link href="/virtual-patrolling" className="text-primary hover:underline">patrol round</Link> reaches that camera, the checklist item fails as well, and the round writes it into the report with the frame.</>,
     ],
     detections: [
-      { href: '/ai-features/zone-intrusion-detection', name: 'Zone intrusion detection', role: 'An area with hours. A tracked person inside it during those hours is the event.' },
+      { href: '/ai-features/zone-intrusion-detection', name: 'Zone intrusion detection', role: 'An area with a notification window. A tracked person inside it during the window is the event.' },
       { href: '/ai-features/line-intrusion-detection', name: 'Line intrusion detection', role: 'A directional tripwire on the fence, so climbing in and leaving are different events.' },
       { href: '/ai-features/multi-object-tracking', name: 'Multi-object tracking', role: 'Follows each person across frames so rules fire on a track, not on a shadow.' },
       { href: '/ai-features/ai-attribute-extraction', name: 'AI attribute extraction', role: 'Describes clothing and carried objects for the guard on arrival. Not facial recognition.' },

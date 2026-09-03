@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const pageMeta = {
   title: "Vehicle Monitoring | Yards, Gates and Bays",
-  description: "Vehicle monitoring on existing cameras: vehicles tracked as objects at gates, yards and bays, rules with hours, wrong-way and overstay detection. Not plates.",
+  description: "Vehicle monitoring on existing cameras: vehicles tracked as objects at gates, yards and bays, notified in set hours, wrong-way and overstay detection.",
   path: "/use-cases/vehicle-monitoring",
 };
 
@@ -14,7 +14,7 @@ export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
   { question: 'Does Camzify read license plates?', answer: 'No. Vehicles are tracked as objects using multi-object tracking, which follows each vehicle across frames and classifies it. There is no optical character recognition on plates, so it cannot match a vehicle to a registration. It can tell that a vehicle is present, where, for how long, and which way it is moving.' },
-  { question: 'Can day and night carry different rules?', answer: 'Yes. Zone and line rules carry schedules, so the yard gate can allow traffic during shifts and treat any vehicle crossing after them as an event. Patrol sequences have their own active hours and active days on top of that.' },
+  { question: 'Can day and night carry different rules?', answer: 'Yes. Every detection on a camera carries a notification window, so the yard gate camera can stay quiet during shifts and notify on any vehicle crossing after them. Patrol sequences have their own active hours and active days on top of that.' },
   { question: 'What does wrong-way detection actually catch?', answer: 'A tracked vehicle moving against the direction defined for a lane, ramp or gate. It is a safety rule as much as a security one: a truck reversing into a one-way dock lane or a car entering through the exit.' },
   { question: 'Can it flag a vehicle that has been sitting too long?', answer: 'Illegal parking detection covers a vehicle stopped in a defined area beyond the time allowed, a fire lane, a loading bay after the window, a visitor space overnight. The time and the area are yours to set per camera.' },
   { question: 'Does it inspect vehicles for damage?', answer: 'Vehicle damage report assesses visible damage on a vehicle in frame and is built for fleet and rental inspection. It is a per-vehicle check rather than a yard alarm, and it works on what the camera can see.' },
@@ -28,7 +28,7 @@ const content: UseCaseContent = {
     <strong className="font-semibold text-foreground">Vehicle monitoring through video analytics means detecting, tracking and alerting on vehicle presence and movement in defined areas: entry gates, loading bays, yards, parking zones and restricted perimeters.</strong>{' '}
     It is not license plate recognition. Camzify tracks vehicles as objects in the frame, applies rules about where and when they may be and which way they may move, and checks the yard on a patrol round.
   </>,
-  facts: ['Vehicles tracked as objects, not plates', 'Rules with hours at gates, yards and bays', 'Wrong-way and overstay as their own detections'],
+  facts: ['Vehicles tracked as objects, not plates', 'Notified in set hours at gates, yards and bays', 'Wrong-way and overstay as their own detections'],
   image: { src: '/vehicle-monitoring.jpg', alt: 'Aerial view of a logistics yard with trucks, vans and cars tracked across zoned areas' },
   secondary: { href: '/ai-features/multi-object-tracking', label: 'Multi-object tracking' },
   problem: {

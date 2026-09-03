@@ -115,7 +115,7 @@ export default function Page() {
                   <li className="flex gap-2">• Inclusion and exclusion zones, so a tree line or a public pavement is never assessed at all</li>
                   <li className="flex gap-2">• A minimum object size threshold, to ignore movement below the size you care about</li>
                   <li className="flex gap-2">• An object filter, so a camera alerts only on Person, Vehicle or Animal rather than on any motion</li>
-                  <li className="flex gap-2">• Schedule-based activation, e.g. after-hours only</li>
+                  <li className="flex gap-2">• Notification window per camera, e.g. notify after hours only</li>
                 </ul>
                 <p className="mt-4 text-muted-foreground">
                   These stack. A loading yard that alerts all night on foliage usually needs an

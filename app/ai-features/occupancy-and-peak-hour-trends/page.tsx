@@ -102,7 +102,7 @@ export default function Page() {
                 <ul className="mt-4 space-y-3 text-muted-foreground">
                   <li className="flex gap-2">• Zone boundaries for per-area occupancy tracking</li>
                   <li className="flex gap-2">• Reporting windows and comparison periods</li>
-                  <li className="flex gap-2">• Schedule-based activation</li>
+                  <li className="flex gap-2">• Notification window per camera: notifications only in the hours you set</li>
                   <li className="flex gap-2">• Per-camera instance licensing</li>
                 </ul>
               </div>

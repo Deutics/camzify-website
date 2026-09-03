@@ -108,7 +108,7 @@ export default function Page() {
                 <ul className="mt-4 space-y-3 text-muted-foreground">
                   <li className="flex gap-2">• Zone boundaries drawn directly on the camera view</li>
                   <li className="flex gap-2">• Grace period duration, independently set per zone</li>
-                  <li className="flex gap-2">• Schedule-based activation, e.g. enforcement hours only</li>
+                  <li className="flex gap-2">• Notification window per camera, e.g. notify in enforcement hours only</li>
                   <li className="flex gap-2">• Vehicle-class filtering for the alerted zone</li>
                   <li className="flex gap-2">• Per-camera instance licensing</li>
                 </ul>

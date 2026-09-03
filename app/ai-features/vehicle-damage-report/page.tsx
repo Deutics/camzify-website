@@ -106,7 +106,7 @@ export default function Page() {
                 <ul className="mt-4 space-y-3 text-muted-foreground">
                   <li className="flex gap-2">• Checkpoint role — entry, exit, or both</li>
                   <li className="flex gap-2">• Vehicle-class filtering, e.g. passenger vehicles only</li>
-                  <li className="flex gap-2">• Schedule-based activation, e.g. active only during operating hours</li>
+                  <li className="flex gap-2">• Notification window per camera, e.g. notify only in operating hours</li>
                   <li className="flex gap-2">• Record retention window for stored condition clips</li>
                   <li className="flex gap-2">• Per-camera instance licensing</li>
                 </ul>

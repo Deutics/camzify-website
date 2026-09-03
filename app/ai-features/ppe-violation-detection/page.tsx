@@ -107,7 +107,7 @@ export default function Page() {
                 <ul className="mt-4 space-y-3 text-muted-foreground">
                   <li className="flex gap-2">• Required PPE types — hard hat, vest, gloves, glasses, hearing protection</li>
                   <li className="flex gap-2">• Partial vs. full compliance handling, e.g. one missing item vs. several</li>
-                  <li className="flex gap-2">• Schedule-based activation, e.g. shift hours only</li>
+                  <li className="flex gap-2">• Notification window per camera, e.g. notify in shift hours only</li>
                   <li className="flex gap-2">• Per-camera instance licensing</li>
                   <li className="flex gap-2">• Zone-based alert filtering for daily compliance review</li>
                 </ul>

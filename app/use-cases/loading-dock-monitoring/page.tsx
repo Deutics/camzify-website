@@ -14,7 +14,7 @@ export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
   { question: 'Can it tell whether a dock door is open or closed?', answer: 'A checklist item on a patrol round asks exactly that, "dock door closed", and the AI judges it from the frame at each stop; on an automated round it can watch the scene for a short period first. Between rounds, a zone rule across the opening fires on a tracked person or vehicle passing through it when the door should be down.' },
-  { question: 'Can monitoring differ between delivery hours and after hours?', answer: 'Yes. Zone and line rules carry schedules, and patrol sequences have active hours and active days. A dock can run light rules during the delivery window and strict ones outside it, with a separate after-hours sequence that checks every bay is down and every staging area is clear.' },
+  { question: 'Can monitoring differ between delivery hours and after hours?', answer: 'Yes. Every detection on a camera carries a notification window, and patrol sequences have active hours and active days. A dock camera can stay quiet during the delivery window and notify outside it, with a separate after-hours sequence that checks every bay is down and every staging area is clear.' },
   { question: 'Does it read the truck’s number plate?', answer: 'No. Vehicles are tracked as objects: present, moving, at the bay, in the yard. There is no license plate recognition, and we say so on the vehicle monitoring page too. Illegal parking detection covers a vehicle stopped where it should not be for longer than it should.' },
   { question: 'What about forklifts and site vehicles?', answer: 'Wrong-way vehicle detection covers a vehicle moving against the defined direction of a lane, and zone rules can keep pedestrians and vehicles out of each other’s areas. PPE violation detection applies on docks where high-visibility clothing is mandatory. None of these replaces a traffic management plan; they enforce parts of one.' },
   { question: 'Who is notified when a bay is found open at night?', answer: 'The guard designated for that camera, on the configured channel, with the snapshot. On an automated round that happens on its own. The item stays Pending until someone marks it Fixed, which captures the after frame, and both appear in the round’s report.' },
@@ -45,13 +45,13 @@ const content: UseCaseContent = {
     heading: 'Checked against the window, watched between checks',
     paras: [
       <>A <Link href="/virtual-patrolling" className="text-primary hover:underline">patrol round</Link> visits each bay camera on a schedule and answers the list: door down, staging area clear, no vehicle at the bay outside the window, no one in the yard. Each answer is recorded with the frame. On an automated round the AI can watch the scene for a short period, which is how a forklift passing through and a person loading a van are told apart.</>,
-      <>Between rounds, <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">zone intrusion</Link> across the opening, with hours matching the delivery window, fires on a tracked person or vehicle passing through a door that should be down. <Link href="/ai-features/illegal-parking-detection" className="text-primary hover:underline">Illegal parking detection</Link> covers a vehicle stopped at the bay or in the yard longer than it should be, and <Link href="/ai-features/wrong-way-vehicle-detection" className="text-primary hover:underline">wrong-way vehicle detection</Link> a vehicle moving against the lane.</>,
+      <>Between rounds, <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">zone intrusion</Link> across the opening, with a notification window set to the hours outside deliveries, fires on a tracked person or vehicle passing through a door that should be down. <Link href="/ai-features/illegal-parking-detection" className="text-primary hover:underline">Illegal parking detection</Link> covers a vehicle stopped at the bay or in the yard longer than it should be, and <Link href="/ai-features/wrong-way-vehicle-detection" className="text-primary hover:underline">wrong-way vehicle detection</Link> a vehicle moving against the lane.</>,
     ],
     detections: [
       { href: '/ai-features/zone-intrusion-detection', name: 'Zone intrusion detection', role: 'The door opening and the staging area as zones, with the delivery window as their hours.' },
       { href: '/ai-features/illegal-parking-detection', name: 'Illegal parking detection', role: 'A vehicle stopped at the bay or in the yard beyond the time allowed.' },
       { href: '/ai-features/wrong-way-vehicle-detection', name: 'Wrong-way vehicle detection', role: 'A vehicle moving against the defined direction of the dock lane.' },
-      { href: '/ai-features/ppe-violation-detection', name: 'PPE violation detection', role: 'High-visibility clothing on the dock where it is mandatory. A safety check on the same cameras.' },
+      { href: '/ai-features/ppe-violation-detection', name: 'PPE violation detection', role: 'High-visibility clothing on the dock where it is mandatory. A safety check on the same cameras; see PPE compliance monitoring.' },
     ],
   },
   round: {
@@ -62,7 +62,7 @@ const content: UseCaseContent = {
     caption: 'Bay 3 found open after the window, the yard gate waiting on the guard. Both count against the round.',
     paras: [
       'A dock sequence is one stop per bay plus the yard and the gate, and its checklist is the state each should be in at that hour. During the delivery window the items are light; after it, every door should be down, every bay empty, every staging area clear. The after-hours sequence is usually the one that earns its keep.',
-      <>The report per round shows each bay with its frame, and a door found up shows the before and after frames once it has been marked Fixed. The <Link href="/virtual-patrolling/patrol-reports" className="text-primary hover:underline">reports page</Link> shows what one looks like.</>,
+      <>The report per round shows each bay with its frame, and a door found up shows the before and after frames once it has been marked Fixed. The <Link href="/virtual-patrolling/patrol-reports" className="text-primary hover:underline">reports page</Link> shows what one looks like. If the dock is also a hard-hat area, <Link href="/use-cases/ppe-compliance-monitoring" className="text-primary hover:underline">PPE compliance monitoring</Link> runs on the same cameras.</>,
     ],
   },
   limits: {

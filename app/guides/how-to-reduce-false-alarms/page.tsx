@@ -53,8 +53,8 @@ export default function HowToReduceFalseAlarmsPage() {
 
           <section className="mt-16">
             <ScrollReveal>
-              <h2 className="font-display text-2xl font-bold">Schedule-based detection</h2>
-              <div className="mt-4 max-w-prose space-y-4 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `Not every alert is relevant at every time. A person in the parking lot at 2pm is normal; at 2am it is a security event. Schedule-based activation means detections fire only during the hours when they matter, reducing daytime noise while maintaining full overnight <a href="/virtual-patrolling">virtual patrol</a> coverage.` }} />
+              <h2 className="font-display text-2xl font-bold">Notification windows</h2>
+              <div className="mt-4 max-w-prose space-y-4 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `Not every alert is relevant at every time. A person in the parking lot at 2pm is normal; at 2am it is a security event. Every detection on a camera carries a notification window: the detection keeps running, and notifications are generated only during the hours you set, which removes daytime noise while keeping full overnight <a href="/virtual-patrolling">virtual patrol</a> coverage.` }} />
             </ScrollReveal>
           </section>
 

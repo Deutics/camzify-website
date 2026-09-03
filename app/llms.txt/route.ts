@@ -29,7 +29,7 @@ What distinguishes it from other cloud VMS products is the virtual patrol round:
 
 - **Virtual Patrolling** — Automated AI patrol rounds with configurable sequences, per-camera checklists, scheduling, and PDF reports
 - **Line Intrusion Detection** — Virtual tripwire with directional control; fires on confirmed object tracks, not pixel motion
-- **Zone Intrusion Detection** — Restricted-area monitoring with time-based rules
+- **Zone Intrusion Detection** — Restricted-area monitoring with a notification window per camera
 - **Motion Detection** — Object-track-based rather than pixel-based motion alerts
 - **Camera Tampering Detection** — Alerts when a camera is obstructed, moved, or defocused
 - **Multi-Object Tracking** — Persistent identity tracking across frames

@@ -62,7 +62,7 @@ const content: UseCaseContent = {
     caption: 'The compound is in order; the camera itself is not. At an unmanned site the camera is the first thing to check.',
     paras: [
       'A remote-site sequence is short, a handful of cameras covering the gate, the fence and the equipment, and its checklist is about the state of the site and the state of the cameras. Camera view unobstructed is on every stop, because a site that has gone blind is a site nobody is watching and nobody knows it.',
-      <>Every site runs its own schedule and its own roster, so the substation on the hill and the depot in town are checked at the times that suit each and reported separately. The <Link href="/virtual-patrolling/for-multi-site-operations" className="text-primary hover:underline">multi-site page</Link> covers how that is set up.</>,
+      <>Every site runs its own schedule and its own roster, so the substation on the hill and the depot in town are checked at the times that suit each and reported separately. The <Link href="/virtual-patrolling/for-multi-site-operations" className="text-primary hover:underline">multi-site page</Link> covers how that is set up. <Link href="/use-cases/camera-health-monitoring" className="text-primary hover:underline">Camera health monitoring</Link> is the round that matters most at a site nobody visits.</>,
     ],
   },
   limits: {

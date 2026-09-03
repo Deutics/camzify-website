@@ -44,11 +44,11 @@ const content: UseCaseContent = {
   handles: {
     heading: 'The person at the wall is the event',
     paras: [
-      <><Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">Zone intrusion detection</Link> draws the vulnerable areas on each exterior camera, the wall, the forecourt, the ground-floor windows, the equipment yard, the car park, and attaches the hours when nobody should be in them. A tracked person inside a zone during those hours raises an alert with the snapshot. Because it fires on a track rather than on motion, a cat, a headlight sweep or a plastic bag does not.</>,
+      <><Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">Zone intrusion detection</Link> draws the vulnerable areas on each exterior camera, the wall, the forecourt, the ground-floor windows, the equipment yard, the car park, and the camera's notification window is set to the hours when nobody should be in them. A tracked person inside a zone during the window raises an alert with the snapshot; outside it, nothing is sent. Because it fires on a track rather than on motion, a cat, a headlight sweep or a plastic bag does not.</>,
       <>Automated <Link href="/virtual-patrolling/automated-patrol-scheduling" className="text-primary hover:underline">patrol rounds</Link> can watch a scene for a short period before judging, which tells a person walking past from a person who has stopped. The round also checks the exterior on a schedule, no person present, no new damage visible, camera unobstructed, and keeps the frame, which is the timeline when damage is found.</>,
     ],
     detections: [
-      { href: '/ai-features/zone-intrusion-detection', name: 'Zone intrusion detection', role: 'Walls, windows, yards and car parks as zones with off-hours schedules.' },
+      { href: '/ai-features/zone-intrusion-detection', name: 'Zone intrusion detection', role: 'Walls, windows, yards and car parks as zones, notified in the off-hours window.' },
       { href: '/ai-features/line-intrusion-detection', name: 'Line intrusion detection', role: 'A directional line on the property boundary. Entering fires; passing along it does not.' },
       { href: '/ai-features/camera-tampering-detection', name: 'Camera tampering detection', role: 'The camera itself is often the first target. Covered or turned, it raises an alert.' },
       { href: '/ai-features/vehicle-damage-report', name: 'Vehicle damage report', role: 'Visible damage on a vehicle in frame, for fleet and car park inspection.' },

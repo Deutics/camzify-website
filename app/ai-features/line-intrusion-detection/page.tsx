@@ -104,7 +104,7 @@ export default function LineIntrusionPage() {
                 <ul className="mt-4 space-y-3 text-muted-foreground">
                   <li className="flex gap-2">• Directional control — A→B, B→A, or bidirectional</li>
                   <li className="flex gap-2">• Sensitivity adjustment per line</li>
-                  <li className="flex gap-2">• Schedule-based activation, e.g. after-hours only</li>
+                  <li className="flex gap-2">• Notification window per camera, e.g. notify after hours only</li>
                   <li className="flex gap-2">• Object-class filtering, e.g. people and vehicles only</li>
                   <li className="flex gap-2">• Multiple lines per camera, each with independent rules</li>
                 </ul>

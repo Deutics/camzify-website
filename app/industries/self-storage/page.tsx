@@ -126,7 +126,7 @@ export default function SelfStoragePage() {
                 <h2 className="font-display text-2xl font-bold">What to configure for a self-storage site</h2>
                 <p className="mt-4 text-muted-foreground">Most self-storage deployments start with:</p>
                 <ul className="mt-4 space-y-3 text-muted-foreground">
-                  <li className="flex gap-2">• Gate and entry zones with schedule rules tied to posted access hours</li>
+                  <li className="flex gap-2">• Gate and entry zones with a notification window tied to posted access hours</li>
                   <li className="flex gap-2">• Line rules across drive-up aisles and vehicle gates</li>
                   <li className="flex gap-2">• Hallway motion schedules covering interior corridors between buildings</li>
                   <li className="flex gap-2">• After-hours patrol frequency, typically every 30-60 minutes overnight</li>

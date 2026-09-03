@@ -100,7 +100,7 @@ export default function Page() {
                 <ul className="mt-4 space-y-3 text-muted-foreground">
                   <li className="flex gap-2">• Arbitrary polygon shape — not limited to rectangles</li>
                   <li className="flex gap-2">• Dwell-time threshold before an alert fires</li>
-                  <li className="flex gap-2">• Schedule-based activation, e.g. after-hours only</li>
+                  <li className="flex gap-2">• Notification window per camera, e.g. notify after hours only</li>
                   <li className="flex gap-2">• Object-class filtering, e.g. people only, or people and vehicles</li>
                   <li className="flex gap-2">• Multiple zones per camera, each with independent rules</li>
                   <li className="flex gap-2">• Sensitivity adjustment per zone</li>

@@ -7,7 +7,7 @@ import { SectionVisual } from '@/components/content/section-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 import { SiteImage } from '@/components/content/site-image';
-import { Shield, Moon, KeyRound, UserX, Paintbrush, ShoppingBag, Truck, ParkingCircle, Radio, Car, MoonStar, ClipboardCheck, Search } from 'lucide-react';
+import { Shield, Moon, KeyRound, UserX, Paintbrush, ShoppingBag, Truck, ParkingCircle, Radio, Car, MoonStar, ClipboardCheck, Search, DoorClosed, Video, Flame, HeartPulse, HardHat, ShieldAlert, Users } from 'lucide-react';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -15,7 +15,7 @@ import { Shield, Moon, KeyRound, UserX, Paintbrush, ShoppingBag, Truck, ParkingC
  */
 const pageMeta = {
   title: "Security Use Cases | What a Patrol Round Checks",
-  description: "Thirteen security scenarios and what Camzify does in each: the detections that apply, the checklist a round runs, and where it stops.",
+  description: "Twenty security and safety scenarios and what Camzify does in each: the detections that apply, the checklist a round runs, and where it stops.",
   path: "/use-cases",
 };
 
@@ -52,7 +52,7 @@ const groups = [
     items: [
       { title: 'Perimeter security', href: '/use-cases/perimeter-security', icon: Shield, desc: 'Fence lines, gates and open ground, checked every round and watched between rounds.', image: '/ai-perimeter-security.jpg' },
       { title: 'Trespassing detection', href: '/use-cases/trespassing-detection', icon: UserX, desc: 'A person where nobody should be, on a confirmed track rather than a moving shadow.', image: '/trespassing-detection.jpg' },
-      { title: 'Unauthorized access detection', href: '/use-cases/unauthorized-access-detection', icon: KeyRound, desc: 'Zone rules with hours attached, and the tailgating a badge reader never sees.', image: '/unauthorized-access-detection.jpg' },
+      { title: 'Unauthorized access detection', href: '/use-cases/unauthorized-access-detection', icon: KeyRound, desc: 'Zones notified in the hours you set, and the tailgating a badge reader never sees.', image: '/unauthorized-access-detection.jpg' },
       { title: 'After-hours monitoring', href: '/use-cases/after-hours-monitoring', icon: Moon, desc: 'Scheduled rounds through the building when it is empty, with a report each.', image: '/after-hours-security-monitoring.jpg' },
       { title: 'Night security', href: '/use-cases/night-security', icon: MoonStar, desc: 'Overnight rounds that run on the fourth night as reliably as the first.', image: '/night-security.jpg' },
     ],
@@ -62,7 +62,7 @@ const groups = [
     title: 'Protect what is inside',
     desc: 'Stock, vehicles, docks and property: the scenarios where the round verifies a condition, not just a presence.',
     items: [
-      { title: 'Theft prevention', href: '/use-cases/theft-prevention', icon: ShoppingBag, desc: 'Stockrooms, cages and cash areas held to a schedule, with entry outside it flagged.', image: '/ai-theft-detection.jpg' },
+      { title: 'Theft prevention', href: '/use-cases/theft-prevention', icon: ShoppingBag, desc: 'Stockrooms, cages and cash areas notified when they should be empty, with entry flagged.', image: '/ai-theft-detection.jpg' },
       { title: 'Loading dock monitoring', href: '/use-cases/loading-dock-monitoring', icon: Truck, desc: 'Door status, staging areas and vehicles at the bay, checked against the delivery window.', image: '/loading-dock-security.jpg' },
       { title: 'Vandalism prevention', href: '/use-cases/vandalism-prevention', icon: Paintbrush, desc: 'Presence near walls, windows and equipment off-hours, raised while intervention is possible.', image: '/vandalism-prevention.jpg' },
       { title: 'Parking lot surveillance', href: '/use-cases/parking-lot-surveillance', icon: ParkingCircle, desc: 'People after hours, fire lanes, restricted bays and vehicles left where they should not be.', image: '/parking-lot-surveillance.jpg' },
@@ -77,6 +77,20 @@ const groups = [
       { title: 'Guard tour verification', href: '/use-cases/guard-tour-verification', icon: ClipboardCheck, desc: 'Proof of the condition at each checkpoint, not proof that a tag was tapped.', image: '/guard-tour-verification.jpg' },
       { title: 'Remote site monitoring', href: '/use-cases/remote-site-monitoring', icon: Radio, desc: 'Unmanned sites on the same rounds and the same console as staffed ones.', image: '/remote-site-monitoring.jpg' },
       { title: 'Incident investigation', href: '/use-cases/incident-investigation', icon: Search, desc: 'Timestamped detections, patrol snapshots and suspect search to shorten the review.', image: '/incident-investigation.jpg' },
+      { title: 'Lock-up and closing checks', href: '/use-cases/lock-up-and-closing-checks', icon: DoorClosed, desc: 'A closing round that checks doors, shutters and lights from the camera, with a frame per item.', image: '/after-hours-security-monitoring.jpg' },
+      { title: 'Camera health monitoring', href: '/use-cases/camera-health-monitoring', icon: Video, desc: 'Tampering raised as it happens, offline shown as offline, camera view checked on every round.', image: '/remote-site-monitoring.jpg' },
+    ],
+  },
+  {
+    eyebrow: '04',
+    title: 'Keep people safe',
+    desc: 'The same cameras, asked the safety questions: fire, falls, equipment, violence, and how many people are where.',
+    items: [
+      { title: 'Fire and smoke monitoring', href: '/use-cases/fire-and-smoke-monitoring', icon: Flame, desc: 'Visual flame and smoke as an early-warning layer, and fire exits checked on the round.', image: '/ai-perimeter-security.jpg' },
+      { title: 'Workplace safety monitoring', href: '/use-cases/workplace-safety-monitoring', icon: HeartPulse, desc: 'Falls raised live, exits and exclusion zones on the checklist, the site recorded at each time.', image: '/loading-dock-security.jpg' },
+      { title: 'PPE compliance monitoring', href: '/use-cases/ppe-compliance-monitoring', icon: HardHat, desc: 'Hats, vests and gloves checked per person against the policy for each zone.', image: '/vehicle-monitoring.jpg' },
+      { title: 'Violence and weapons detection', href: '/use-cases/violence-and-weapons-detection', icon: ShieldAlert, desc: 'A visible weapon or an altercation raised as critical with a clip, verified by a person.', image: '/unauthorized-access-detection.jpg' },
+      { title: 'Occupancy monitoring', href: '/use-cases/occupancy-monitoring', icon: Users, desc: 'Live counts and peak hours per zone from the tracking that already runs. No counting hardware.', image: '/parking-lot-surveillance.jpg' },
     ],
   },
 ];
@@ -86,7 +100,7 @@ export default function UseCasesHub() {
     <PageShell {...pageMeta} faqs={faqs} schema={[serviceSchema({ name: "Use Cases", description: pageMeta.description, path: "/use-cases" })]} breadcrumbs={[{ label: 'Use Cases' }]}>
       <FeatureHero
         eyebrow="Use cases"
-        title="Thirteen situations, one set of rounds"
+        title="Twenty situations, one set of rounds"
         lede={<>
           <strong className="font-semibold text-foreground">
             A use case is a situation a security manager is responsible for, and the checklist,

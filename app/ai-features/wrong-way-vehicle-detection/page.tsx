@@ -107,7 +107,7 @@ export default function Page() {
                 <ul className="mt-4 space-y-3 text-muted-foreground">
                   <li className="flex gap-2">• Directional orientation set per lane or ramp</li>
                   <li className="flex gap-2">• Sensitivity adjustment per rule</li>
-                  <li className="flex gap-2">• Schedule-based activation, e.g. active only during operating hours</li>
+                  <li className="flex gap-2">• Notification window per camera, e.g. notify only in operating hours</li>
                   <li className="flex gap-2">• Object-class filtering, e.g. vehicles only</li>
                   <li className="flex gap-2">• Per-camera instance licensing</li>
                 </ul>

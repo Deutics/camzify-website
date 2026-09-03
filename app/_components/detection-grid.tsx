@@ -31,7 +31,7 @@ const featured = [
   {
     title: 'Zone Intrusion Detection',
     href: '/ai-features/zone-intrusion-detection',
-    desc: 'Polygonal restricted areas with time-based rules. Any confirmed object entering the zone raises an alert.',
+    desc: 'Polygonal restricted areas with a notification window per camera. Any confirmed object entering the zone raises an alert.',
   },
   {
     title: 'Camera Tampering Detection',

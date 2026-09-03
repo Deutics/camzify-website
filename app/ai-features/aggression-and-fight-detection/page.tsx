@@ -104,7 +104,7 @@ export default function Page() {
                 <ul className="mt-4 space-y-3 text-muted-foreground">
                   <li className="flex gap-2">• Per-camera enablement with critical-severity alerting by default</li>
                   <li className="flex gap-2">• Sensitivity tuning for the sustained-movement threshold</li>
-                  <li className="flex gap-2">• Schedule-based activation for areas with time-limited monitoring needs</li>
+                  <li className="flex gap-2">• Notification window per camera for areas with time-limited monitoring needs</li>
                   <li className="flex gap-2">• Escalation contacts and routing rules per site</li>
                   <li className="flex gap-2">• Per-camera instance licensing, matching other detection features</li>
                 </ul>

@@ -105,7 +105,7 @@ export default function Page() {
                   <li className="flex gap-2">• Dwell-time threshold before an alert fires</li>
                   <li className="flex gap-2">• Object types monitored, e.g. bags, boxes, packages</li>
                   <li className="flex gap-2">• Zone-specific thresholds, e.g. shorter in high-security areas</li>
-                  <li className="flex gap-2">• Schedule-based activation</li>
+                  <li className="flex gap-2">• Notification window per camera: notifications only in the hours you set</li>
                   <li className="flex gap-2">• Per-camera instance licensing</li>
                 </ul>
               </div>

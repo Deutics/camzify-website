@@ -23,7 +23,7 @@ const faqs = [
   { question: 'How long before the baseline is accurate?', answer: 'The baseline improves as more traffic data accumulates for each zone. Early results reflect a smaller sample; accuracy improves over the first few weeks of continuous monitoring as normal patterns become established.' },
   { question: 'Is this a security feature or an operations feature?', answer: 'Both. Security teams use anomalies to flag unusual activity outside expected patterns, while operations teams use the same heatmap data for layout, staffing, and queue-management decisions.' },
   { question: 'Does an anomaly automatically trigger a security response?', answer: 'An anomaly is flagged for review in the notification queue with severity and acknowledgment status, the same as other alert types. Whether it prompts a security response, an operations look, or no action at all depends on the zone and context, which is why it\'s surfaced for a human decision rather than acted on automatically.' },
-  { question: 'Can I exclude a known busy period, like a planned event, from anomaly detection?', answer: 'Schedule-based activation lets a zone\'s anomaly detection be turned off or adjusted for known exceptions, so a planned event or seasonal rush doesn\'t generate a flood of expected-but-flagged anomalies.' },
+  { question: 'Can I exclude a known busy period, like a planned event, from anomaly detection?', answer: 'Each camera carries a notification window, so anomaly notifications can be limited to the hours that matter and a planned event or seasonal rush doesn\'t generate a flood of expected-but-flagged notifications. The detection itself keeps running; the window decides when it tells anyone.' },
   { question: 'How is this different from occupancy and peak hour trends?', answer: 'The two are complementary. Heatmap anomalies flags deviations from a zone\'s established baseline, while occupancy and peak hour trends tracks live counts and historical patterns for staffing and planning decisions. Anomalies answer "does this look unusual"; trends answer "when is this normally busy".' },
 ];
 
@@ -107,7 +107,7 @@ export default function Page() {
                   <li className="flex gap-2">• Zone boundaries marked on the camera view or site map</li>
                   <li className="flex gap-2">• Anomaly sensitivity threshold, configurable per zone</li>
                   <li className="flex gap-2">• Baseline learning period before anomaly flagging goes active</li>
-                  <li className="flex gap-2">• Schedule-based activation, e.g. business hours only</li>
+                  <li className="flex gap-2">• Notification window per camera, e.g. notify in business hours only</li>
                   <li className="flex gap-2">• Per-camera instance licensing</li>
                 </ul>
               </div>

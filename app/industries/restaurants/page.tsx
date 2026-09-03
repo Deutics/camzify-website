@@ -29,7 +29,7 @@ const deploymentPhases = [
 const faqs = [
   { question: "Can Camzify verify that closing procedures were followed?", answer: "Yes. A patrol sequence can check: back door locked, dining area clear, kitchen clean-up area verified, walk-in doors closed. Any failed check alerts the manager on duty." },
   { question: "Can Camzify check our full closing procedure automatically?", answer: "Yes. A patrol sequence can be built around your specific closing checklist — back door locked, dining area clear, walk-in doors closed, storage secured — and it runs the same way every night regardless of who closed." },
-  { question: "Will this flag staff doing normal prep work after hours?", answer: "Detection rules are scoped to specific zones and schedules, so a kitchen zone active only after the posted closing time won't trigger during a late prep shift that's outside those hours. Schedules are set during setup to match your actual hours." },
+  { question: "Will this flag staff doing normal prep work after hours?", answer: "Detections are scoped to zones, and each camera carries a notification window, so a kitchen zone set to notify only after the posted closing time will not notify during a late prep shift inside those hours. Windows are set during setup to match your actual hours." },
   { question: "How fast does a manager get notified if the back door was left unlocked?", answer: "Alerts fire in near real time from the moment a confirmed event is detected and route to the assigned manager through the notification queue with a timestamped clip, typically within seconds." },
   { question: "Does Camzify work with the cameras we already have in the kitchen and dining area?", answer: "In most cases, yes. Camzify works with any IP camera feed, so existing kitchen and dining area cameras can usually be connected without new hardware, provided they support standard IP or RTSP streaming." },
   { question: "How does this compare to relying on staff to self-report a missed closing step?", answer: "Self-reporting depends on someone remembering and admitting a step was missed. Automated patrol checks verify the same points independently every night and create a record either way, which removes the guesswork from closing compliance." },
@@ -126,7 +126,7 @@ export default function RestaurantsPage() {
                 <h2 className="font-display text-2xl font-bold">What to configure for a restaurant site</h2>
                 <p className="mt-4 text-muted-foreground">Most restaurant deployments start with:</p>
                 <ul className="mt-4 space-y-3 text-muted-foreground">
-                  <li className="flex gap-2">• Back-door and delivery entrance zones with schedule-based activation</li>
+                  <li className="flex gap-2">• Back-door and delivery entrance zones with a notification window</li>
                   <li className="flex gap-2">• Walk-in cooler and freezer door checks as part of the closing sequence</li>
                   <li className="flex gap-2">• Dining area and kitchen zones active only after closing time</li>
                   <li className="flex gap-2">• Closing-time patrol sequence triggered on a fixed nightly schedule</li>
