@@ -63,7 +63,7 @@ export function HeroPlaceholder({
           return (
             <div
               key={f.id}
-              className={`relative overflow-hidden rounded-lg border ${
+              className={`camera-tile-frame relative overflow-hidden rounded-lg border ${
                 isActive ? 'border-primary/60' : 'border-border'
               }`}
             >
@@ -79,12 +79,12 @@ export function HeroPlaceholder({
               <div aria-hidden="true" className="camera-tile-scrim absolute inset-0" />
               <div className="camera-tile absolute inset-0 flex flex-col justify-between p-2.5">
                 <div className="flex items-center justify-between">
-                  <span className={`font-mono text-[10px] uppercase tracking-wider ${isActive ? 'text-live' : 'text-muted-foreground'}`}>
+                  <span className={`font-mono text-[10px] uppercase tracking-wider ${isActive ? 'text-live' : 'camera-tile-label'}`}>
                     {f.id}
                   </span>
                   {isActive && <span className="h-1.5 w-1.5 rounded-full bg-live" aria-hidden="true" />}
                 </div>
-                <span className="font-mono text-[9px] uppercase tracking-wider text-foreground/85">{f.loc}</span>
+                <span className="font-mono camera-tile-label text-[9px] uppercase tracking-wider">{f.loc}</span>
               </div>
             </div>
           );

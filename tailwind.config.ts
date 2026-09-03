@@ -81,6 +81,11 @@ const config: Config = {
       opacity: {
         15: '0.15',
         25: '0.25',
+        35: '0.35',
+        45: '0.45',
+        55: '0.55',
+        65: '0.65',
+        85: '0.85',
       },
       /*
        * `text-primary` resolves to the contrast-corrected token while `bg-primary`,

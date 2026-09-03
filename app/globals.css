@@ -165,6 +165,27 @@
   --live: 168 100% 42%;
   --warn: 38 92% 58%;
   --critical: 0 100% 68%;
+  /* Inherited colour too: `color` is inherited as a computed value, so a label whose
+     utility class fails to apply would otherwise take the page's body colour — dark in
+     light mode, on a dark frame. */
+  color: hsl(var(--foreground));
+}
+
+/* Label weights inside a tile. Written as rules rather than `text-foreground/85`
+   style modifiers: the 85 and 65 stops were missing from the Tailwind scale until
+   2026-09, and a modifier that generates no CSS fails silently as dark-on-dark. The
+   stops exist now; these stay because the tile's labels must not depend on it. */
+.camera-tile-label { color: hsl(var(--foreground) / 0.85); }
+.camera-tile-label-dim { color: hsl(var(--foreground) / 0.65); }
+
+/*
+ * The frame under a camera photo. A dimmed frame (the hero fades tiles to 35% until the
+ * sweep reaches them) shows whatever is behind it, and in light mode that is a white
+ * card — the labels then sit on a pale grey wash and disappear. A camera frame is dark
+ * in both themes, so the base is a literal dark surface rather than a theme token.
+ */
+.camera-tile-frame {
+  background: hsl(216 22% 6%);
 }
 
 .camera-tile-scrim {

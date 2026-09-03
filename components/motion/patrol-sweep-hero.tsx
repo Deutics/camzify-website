@@ -90,14 +90,14 @@ export function PatrolSweepHero() {
           return (
             <div
               key={i}
-              className={`relative overflow-hidden rounded-lg border transition-all duration-300 ${
+              className={`camera-tile-frame relative overflow-hidden rounded-lg border transition-all duration-300 ${
                 isFail
-                  ? 'border-critical/60 bg-critical/10'
+                  ? 'border-critical/60'
                   : isActive
-                  ? 'border-primary/60 bg-primary/10'
+                  ? 'border-primary/60'
                   : isChecked
-                  ? 'border-live/30 bg-live/5'
-                  : 'border-border bg-card/50'
+                  ? 'border-live/30'
+                  : 'border-border'
               }`}
             >
               {/* Camera frame + scrim. Dimmed until the sweep reaches this tile, so the
@@ -125,7 +125,7 @@ export function PatrolSweepHero() {
                 <div className="flex items-center justify-between">
                   <span
                     className={`font-mono text-[9px] uppercase tracking-wider sm:text-[10px] ${
-                      isFail ? 'text-critical' : isChecked ? 'text-live/90' : 'text-muted-foreground/75'
+                      isFail ? 'text-critical' : isChecked ? 'text-live/90' : 'camera-tile-label'
                     }`}
                   >
                     {cam?.id ?? ''}
@@ -144,8 +144,8 @@ export function PatrolSweepHero() {
                       isFail
                         ? 'text-critical'
                         : isChecked
-                        ? 'text-foreground/85'
-                        : 'text-muted-foreground/60'
+                        ? 'camera-tile-label'
+                        : 'camera-tile-label-dim'
                     }`}
                   >
                     {cam?.loc ?? ''}
@@ -153,7 +153,7 @@ export function PatrolSweepHero() {
                   {isChecked && (
                     <div
                       className={`mt-1 font-mono text-[8px] uppercase tracking-wider sm:text-[9px] ${
-                        isFail ? 'text-critical font-bold' : 'text-live/85'
+                        isFail ? 'text-critical font-bold' : 'text-live'
                       }`}
                     >
                       {isFail ? 'NOT COMPLIANT · GUARD NOTIFIED' : 'CHECKED ✓'}

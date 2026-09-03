@@ -142,7 +142,7 @@ export function LiveStreamingMockup() {
               data-cam-tile
               className="cursor-default rounded-lg border border-border bg-background/50 p-2.5 transition-colors hover:border-primary/50"
             >
-              <div className="relative flex aspect-video items-center justify-center overflow-hidden rounded bg-muted/50">
+              <div className={`relative flex aspect-video items-center justify-center overflow-hidden rounded ${cam.live && cam.frame ? 'camera-tile-frame' : 'bg-muted/50'}`}>
                 {cam.live && cam.frame ? (
                   <>
                     <img

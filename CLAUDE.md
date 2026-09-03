@@ -136,8 +136,10 @@ rendered result — do not ask the user to look for you.
   nothing is emailed. Do not add a notification step back without asking.
 - **`images.unoptimized: true` in `next.config.js`** is deliberate for the deploy target.
   Images still use `next/image` with explicit `width`/`height` to prevent layout shift.
-- **Opacity stops `15` and `25` are declared in `tailwind.config.ts`.** They are not
-  Tailwind defaults; without them `bg-live/15` silently generates no CSS at all.
+- **Opacity stops `15`, `25`, `35`, `45`, `55`, `65` and `85` are declared in
+  `tailwind.config.ts`.** They are not Tailwind defaults; without them `bg-live/15` or
+  `text-foreground/85` silently generates no CSS at all, and text falls back to the
+  inherited body colour — which is how the hero labels went dark-on-dark in light mode.
 - **`app/opengraph-image.tsx` generates the social card at build time.** Do not add an
   `images` key to `openGraph` in metadata — it would override the generated card.
 - **The homepage has no `export const metadata`.** It inherits the root layout's, which is
