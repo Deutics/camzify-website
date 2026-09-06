@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
@@ -55,7 +56,7 @@ export default function LineIntrusionPage() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="camera-feed" caption="LINE INTRUSION DETECTION" alt="Camera view showing a virtual tripwire line with directional arrows and detected object crossing" />
+            <PhotoFigure src="/feature-line-intrusion-detection-1.jpg" alt="Camera view showing a virtual tripwire line with directional arrows and detected object crossing" caption="Line intrusion detection" priority />
           </div>
 
           <div className="mt-16">
@@ -70,7 +71,7 @@ export default function LineIntrusionPage() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="TRIPWIRE LOGIC" alt="Diagram showing a directional line rule evaluating an object track's trajectory before firing an alert" />
+            <PhotoFigure src="/feature-line-intrusion-detection-2.jpg" alt="Diagram showing a directional line rule evaluating an object track's trajectory before firing an alert" caption="Tripwire logic" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>
@@ -110,11 +111,11 @@ export default function LineIntrusionPage() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="LINE CONFIGURATION" alt="Configuration panel showing a directional line drawn across a camera view with sensitivity and schedule controls" />
+            <PhotoFigure src="/feature-line-intrusion-detection-3.jpg" alt="Configuration panel showing a directional line drawn across a camera view with sensitivity and schedule controls" caption="Line configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="industry" caption="PERIMETER MONITORING" alt="Site map showing multiple line intrusion rules placed across a facility's perimeter fence and vehicle gates" />
+            <PhotoFigure src="/feature-line-intrusion-detection-4.jpg" alt="Site map showing multiple line intrusion rules placed across a facility's perimeter fence and vehicle gates" caption="Perimeter monitoring" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

@@ -30,7 +30,7 @@ const content: UseCaseContent = {
     Most alarm signals are not intrusions, and every dispatch to one costs a driver, a keyholder and credibility. Camzify puts the visual side on the cameras already at the site, with its own detections, alerts and record.
   </>,
   facts: ['Snapshot and live feed at the moment of the alarm', 'Person detections that stay quiet for a cat', 'A record of what the operator saw'],
-  heroVisual: <HeroPlaceholder label="Operator desk · Alarm at site B, rear yard" alt="A console camera wall of four cameras at an alarmed site, the rear-yard camera highlighted" frames={[{ src: '/cam-04.jpg', id: 'SITE B · CAM 02', loc: 'REAR YARD · ALARM ZONE' }, { src: '/cam-06.jpg', id: 'SITE B · CAM 01', loc: 'FRONT GATE' }, { src: '/cam-02.jpg', id: 'SITE B · CAM 04', loc: 'LOADING DOCK' }, { src: '/cam-03.jpg', id: 'SITE B · CAM 09', loc: 'STORE CORRIDOR' }]} active={0} />,
+  heroVisual: <HeroPlaceholder label="Operator desk · Alarm at site B, rear yard" alt="A console camera wall of four cameras at an alarmed site, the rear-yard camera highlighted" frames={[{ src: '/hero-cam-parking-lot-640.webp', id: 'SITE B · CAM 02', loc: 'REAR YARD · ALARM ZONE' }, { src: '/hero-cam-main-gate-640.webp', id: 'SITE B · CAM 01', loc: 'FRONT GATE' }, { src: '/hero-cam-loading-dock-640.webp', id: 'SITE B · CAM 04', loc: 'LOADING DOCK' }, { src: '/hero-cam-server-room-640.webp', id: 'SITE B · CAM 09', loc: 'STORE CORRIDOR' }]} active={0} />,
   secondary: { href: '/partners/for-monitoring-centers', label: 'For monitoring companies' },
   problem: {
     heading: 'A contact closed. Nobody knows why.',

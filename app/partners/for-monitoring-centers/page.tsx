@@ -58,10 +58,10 @@ const faqs = [
 ];
 
 const FRAMES = [
-  { src: '/cam-06.jpg', id: 'AGENCY A · CAM 01', loc: 'CLIENT SITE · MAIN GATE' },
-  { src: '/cam-02.jpg', id: 'AGENCY A · CAM 04', loc: 'CLIENT SITE · LOADING DOCK' },
-  { src: '/cam-03.jpg', id: 'AGENCY B · CAM 02', loc: 'CLIENT SITE · SERVER CORRIDOR' },
-  { src: '/cam-04.jpg', id: 'AGENCY C · CAM 07', loc: 'CLIENT SITE · PARKING LOT' },
+  { src: '/hero-cam-main-gate-640.webp', id: 'AGENCY A · CAM 01', loc: 'CLIENT SITE · MAIN GATE' },
+  { src: '/hero-cam-loading-dock-640.webp', id: 'AGENCY A · CAM 04', loc: 'CLIENT SITE · LOADING DOCK' },
+  { src: '/hero-cam-server-room-640.webp', id: 'AGENCY B · CAM 02', loc: 'CLIENT SITE · SERVER CORRIDOR' },
+  { src: '/hero-cam-parking-lot-640.webp', id: 'AGENCY C · CAM 07', loc: 'CLIENT SITE · PARKING LOT' },
 ];
 
 export default function ForMonitoringCentresPage() {

@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
@@ -56,7 +57,7 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="camera-feed" caption="AI SUSPECT SEARCH" alt="Camera feed with a search query overlay and highlighted matching subject" />
+            <PhotoFigure src="/feature-forensic-video-search-1.jpg" alt="Camera feed with a search query overlay and highlighted matching subject" caption="Ai suspect search" priority />
           </div>
 
           <div className="mt-16">
@@ -71,7 +72,7 @@ export default function Page() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="APPEARANCE INDEX" alt="Diagram showing camera feeds building a searchable appearance index matched against a plain-language description" />
+            <PhotoFigure src="/feature-forensic-video-search-2.jpg" alt="Diagram showing camera feeds building a searchable appearance index matched against a plain-language description" caption="Appearance index" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>
@@ -112,11 +113,11 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="SEARCH CONFIGURATION" alt="Configuration panel showing search scope, date range, and attribute filters for AI suspect search" />
+            <PhotoFigure src="/feature-forensic-video-search-3.jpg" alt="Configuration panel showing search scope, date range, and attribute filters for AI suspect search" caption="Search configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="industry" caption="INVESTIGATION USE" alt="Investigator screen showing AI suspect search results across multiple camera thumbnails ranked by confidence" />
+            <PhotoFigure src="/feature-forensic-video-search-4.jpg" alt="Investigator screen showing AI suspect search results across multiple camera thumbnails ranked by confidence" caption="Investigation use" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

@@ -13,8 +13,9 @@ import { Eye, Camera, CheckCircle, HelpCircle } from 'lucide-react';
  * person in a restricted corridor and can only say "someone is there", while a few
  * seconds of watching sees them walk out and closes it without waking anybody.
  *
- * The frames are the demo's own corridor scene and its cleared counterpart, so nothing
- * here is a mock-up of footage that does not exist elsewhere on the site.
+ * The frames are the business's own corridor stills: one still for the single-frame
+ * case, and four consecutive frames for the watch window, in which the person walks
+ * the length of the corridor and out.
  *
  * The loop is driven from useEffect, never from render — a timer read during render is
  * a hydration mismatch. With prefers-reduced-motion the sequence is not animated at
@@ -52,7 +53,7 @@ export function SceneObservation() {
 
         <div className="relative mt-4 overflow-hidden rounded-lg border border-border">
           <img
-            src="/cam-03.jpg"
+            src="/scene-single-frame-640.webp"
             alt="Corridor camera showing a person mid-corridor"
             width={480}
             height={270}
@@ -83,8 +84,8 @@ export function SceneObservation() {
 
         <div className="relative mt-4 overflow-hidden rounded-lg border border-border">
           <img
-            src={cleared ? '/cam-03-after.jpg' : '/cam-03.jpg'}
-            alt={cleared ? 'The same corridor once it is clear' : 'Corridor camera showing a person mid-corridor'}
+            src={`/scene-watch-0${elapsed + 1}-640.webp`}
+            alt={cleared ? 'The same corridor a few seconds later, the person walking out' : 'Corridor camera showing a person mid-corridor, tracked'}
             width={480}
             height={270}
             className="w-full"

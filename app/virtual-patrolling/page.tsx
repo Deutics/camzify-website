@@ -90,8 +90,8 @@ export default function VirtualPatrollingPage() {
         visual={
           <div className="overflow-hidden rounded-xl border border-border bg-card">
             <SiteImage
-              src="/Virtual-Patrolling-System-1.jpg"
-              alt="A person reviewing the Camzify Virtual Patrolling dashboard on a laptop, showing an active patrol round and camera sequence"
+              src="/vp-overview-main.jpg"
+              alt="The Camzify virtual patrolling screen with an active patrol round and its camera sequence"
               className="w-full"
               width={1000}
               height={563}
@@ -261,8 +261,8 @@ export default function VirtualPatrollingPage() {
             <ScrollReveal delay={0.1}>
               <div className="overflow-hidden rounded-xl border border-border bg-card">
                 <SiteImage
-                  src="/Virtual-Patrolling-System-2.jpg"
-                  alt="Camzify patrol history screen listing completed, flagged, and overdue rounds with a patrol health score across all sites"
+                  src="/vp-overview-compliance-record.jpg"
+                  alt="Patrol history in the console with a patrol health score across all sites"
                   className="w-full"
                   width={1000}
                   height={563}

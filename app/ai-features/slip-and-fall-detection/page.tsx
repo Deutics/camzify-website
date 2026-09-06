@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
@@ -55,7 +56,7 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="camera-feed" caption="SLIP & FALL DETECTION" alt="Camera view of a retail aisle with a fallen person highlighted by a detection bounding box" />
+            <PhotoFigure src="/feature-slip-and-fall-detection-1.jpg" alt="Camera view of a retail aisle with a fallen person highlighted by a detection bounding box" caption="Slip & fall detection" priority />
           </div>
 
           <div className="mt-16">
@@ -70,7 +71,7 @@ export default function Page() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="FALL PATTERN DETECTION" alt="Diagram showing a tracked subject's posture change over time crossing the fall-detection threshold" />
+            <PhotoFigure src="/feature-slip-and-fall-detection-2.jpg" alt="Diagram showing a tracked subject's posture change over time crossing the fall-detection threshold" caption="Fall pattern detection" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>
@@ -110,11 +111,11 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="FALL DETECTION CONFIGURATION" alt="Configuration panel showing sensitivity and priority routing settings for slip and fall detection" />
+            <PhotoFigure src="/feature-slip-and-fall-detection-3.jpg" alt="Configuration panel showing sensitivity and priority routing settings for slip and fall detection" caption="Fall detection configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="industry" caption="FALL RISK MONITORING" alt="Facility map showing camera coverage across aisles, entrances, and walkways for fall detection" />
+            <PhotoFigure src="/feature-slip-and-fall-detection-4.jpg" alt="Facility map showing camera coverage across aisles, entrances, and walkways for fall detection" caption="Fall risk monitoring" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

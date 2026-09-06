@@ -2,6 +2,7 @@ import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { FeatureHero } from '@/components/content/feature-hero';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { HeroPlaceholder } from '@/components/content/hero-placeholder';
 import { SectionVisual } from '@/components/content/section-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
@@ -44,7 +45,7 @@ export default function ComplianceTrackingPage() {
             The dashboard surfaces a single compliance figure across all sites.</>}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/patrol-reports', label: 'Patrol reports' }}
-        visual={<HeroPlaceholder label="Compliance · 4 sites" alt="Camzify console illustrating patrol compliance tracking" />}
+        visual={<PhotoFigure src="/vp-patrol-compliance-tracking-2.jpg" alt="Patrol history in the Camzify console listing rounds with their status and compliance" priority />}
       />
 
       <section className="pb-16">
@@ -100,7 +101,7 @@ export default function ComplianceTrackingPage() {
                 </div>
               </div>
             </ScrollReveal>
-            <SectionVisual variant="compliance" caption="Compliance Dashboard" alt="Patrol compliance dashboard showing completion rates, status breakdown, and compliance trends" />
+            <PhotoFigure src="/vp-patrol-compliance-tracking-3.jpg" alt="A patrol compliance report with its percentage and per-item results" caption="The report a round produces: compliance percentage, every item, and the frames behind them." />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">

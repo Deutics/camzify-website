@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
@@ -56,7 +57,7 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="camera-feed" caption="PPE VIOLATION DETECTION" alt="Camera view of a work floor with a worker missing required PPE highlighted" />
+            <PhotoFigure src="/feature-ppe-violation-detection-1.jpg" alt="Camera view of a work floor with a worker missing required PPE highlighted" caption="Ppe violation detection" priority />
           </div>
 
           <div className="mt-16">
@@ -71,7 +72,7 @@ export default function Page() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="PPE POLICY CHECK" alt="Diagram showing a tracked person checked against a zone's required PPE list before an alert fires" />
+            <PhotoFigure src="/feature-ppe-violation-detection-2.jpg" alt="Diagram showing a tracked person checked against a zone's required PPE list before an alert fires" caption="Ppe policy check" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>
@@ -113,11 +114,11 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="PPE ZONE CONFIGURATION" alt="Configuration panel showing required PPE types assigned to a camera zone" />
+            <PhotoFigure src="/feature-ppe-violation-detection-3.jpg" alt="Configuration panel showing required PPE types assigned to a camera zone" caption="Ppe zone configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="industry" caption="SITE-WIDE PPE COMPLIANCE" alt="Facility map showing different PPE zone policies across a construction site" />
+            <PhotoFigure src="/feature-ppe-violation-detection-4.jpg" alt="Facility map showing different PPE zone policies across a construction site" caption="Site-wide ppe compliance" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

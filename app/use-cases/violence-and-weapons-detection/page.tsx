@@ -30,7 +30,7 @@ const content: UseCaseContent = {
     The point is that the response starts while the event is happening rather than after the footage is reviewed. Camzify runs both detections on the cameras already covering entrances, floors and corridors, and puts the clip in front of a person to verify.
   </>,
   facts: ['Visible weapons and altercations, raised live', 'Critical severity with a clip to verify', 'Not a scanner, not facial recognition'],
-  heroVisual: <HeroPlaceholder label="Personal safety · Entrances and floors" alt="A console camera wall of four cameras covering a main entrance, a retail floor, a corridor and a car park" frames={[{ src: '/cam-06.jpg', id: 'CAM 01', loc: 'MAIN ENTRANCE' }, { src: '/cam-03.jpg', id: 'CAM 09', loc: 'CORRIDOR · LEVEL 2' }, { src: '/cam-02.jpg', id: 'CAM 04', loc: 'BACK OF HOUSE' }, { src: '/cam-04.jpg', id: 'CAM 02', loc: 'CAR PARK' }]} active={0} />,
+  heroVisual: <HeroPlaceholder label="Personal safety · Entrances and floors" alt="A console camera wall of four cameras covering a main entrance, a retail floor, a corridor and a car park" frames={[{ src: '/hero-cam-main-gate-640.webp', id: 'CAM 01', loc: 'MAIN ENTRANCE' }, { src: '/hero-cam-server-room-640.webp', id: 'CAM 09', loc: 'CORRIDOR · LEVEL 2' }, { src: '/hero-cam-loading-dock-640.webp', id: 'CAM 04', loc: 'BACK OF HOUSE' }, { src: '/hero-cam-parking-lot-640.webp', id: 'CAM 02', loc: 'CAR PARK' }]} active={0} />,
   secondary: { href: '/ai-features/weapons-detection', label: 'Weapons detection' },
   problem: {
     heading: 'The footage is reviewed after the ambulance has left',

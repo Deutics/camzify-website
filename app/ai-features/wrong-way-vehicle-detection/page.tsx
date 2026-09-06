@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
@@ -55,7 +56,7 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="camera-feed" caption="WRONG-WAY VEHICLE DETECTION" alt="Camera view of a one-way ramp with a wrong-way vehicle highlighted by a directional detection overlay" />
+            <PhotoFigure src="/feature-wrong-way-vehicle-detection-1.jpg" alt="Camera view of a one-way ramp with a wrong-way vehicle highlighted by a directional detection overlay" caption="Wrong-way vehicle detection" priority />
           </div>
 
           <div className="mt-16">
@@ -70,7 +71,7 @@ export default function Page() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="DIRECTIONAL RULE LOGIC" alt="Diagram showing a vehicle track evaluated against a directional rule before firing a wrong-way alert" />
+            <PhotoFigure src="/feature-wrong-way-vehicle-detection-2.jpg" alt="Diagram showing a vehicle track evaluated against a directional rule before firing a wrong-way alert" caption="Directional rule logic" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>
@@ -113,11 +114,11 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="DIRECTIONAL RULE CONFIGURATION" alt="Configuration panel showing a directional rule drawn across a ramp with sensitivity and schedule controls" />
+            <PhotoFigure src="/feature-wrong-way-vehicle-detection-3.jpg" alt="Configuration panel showing a directional rule drawn across a ramp with sensitivity and schedule controls" caption="Directional rule configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="industry" caption="RAMP & LANE MONITORING" alt="Site map showing directional rules placed across parking garage ramps and one-way site roads" />
+            <PhotoFigure src="/feature-wrong-way-vehicle-detection-4.jpg" alt="Site map showing directional rules placed across parking garage ramps and one-way site roads" caption="Ramp & lane monitoring" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

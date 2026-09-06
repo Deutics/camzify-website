@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
@@ -55,7 +56,7 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="dashboard" caption="HEATMAP ANOMALIES" alt="Site floor plan overlaid with a colour-coded foot traffic heatmap highlighting an anomalous zone" />
+            <PhotoFigure src="/feature-heatmap-anomalies-1.jpg" alt="Site floor plan overlaid with a colour-coded foot traffic heatmap highlighting an anomalous zone" caption="Heatmap anomalies" />
           </div>
 
           <div className="mt-16">
@@ -70,7 +71,7 @@ export default function Page() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="BASELINE VS DEVIATION LOGIC" alt="Diagram showing current zone traffic compared against a learned baseline pattern before an anomaly is flagged" />
+            <PhotoFigure src="/feature-heatmap-anomalies-2.jpg" alt="Diagram showing current zone traffic compared against a learned baseline pattern before an anomaly is flagged" caption="Baseline vs deviation logic" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>
@@ -112,11 +113,11 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="ZONE & SENSITIVITY CONFIGURATION" alt="Configuration panel showing a monitored zone drawn on a site map with an anomaly sensitivity threshold control" />
+            <PhotoFigure src="/feature-heatmap-anomalies-3.jpg" alt="Configuration panel showing a monitored zone drawn on a site map with an anomaly sensitivity threshold control" caption="Zone & sensitivity configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="dashboard" caption="ANOMALY REVIEW" alt="Dashboard view listing flagged heatmap anomalies by zone, time window, and deviation severity" />
+            <PhotoFigure src="/feature-heatmap-anomalies-4.jpg" alt="Dashboard view listing flagged heatmap anomalies by zone, time window, and deviation severity" caption="Anomaly review" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

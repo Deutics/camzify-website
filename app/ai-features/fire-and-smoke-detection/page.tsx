@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
@@ -55,7 +56,7 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="camera-feed" caption="FIRE & SMOKE DETECTION" alt="Camera view of a storage area with visible smoke highlighted by a detection bounding box" />
+            <PhotoFigure src="/feature-fire-and-smoke-detection-1.jpg" alt="Camera view of a storage area with visible smoke highlighted by a detection bounding box" caption="Fire & smoke detection" priority />
           </div>
 
           <div className="mt-16">
@@ -70,7 +71,7 @@ export default function Page() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="VISUAL SIGNATURE MATCHING" alt="Diagram showing a camera feed analyzed for flame and smoke visual signatures before a critical alert fires" />
+            <PhotoFigure src="/feature-fire-and-smoke-detection-2.jpg" alt="Diagram showing a camera feed analyzed for flame and smoke visual signatures before a critical alert fires" caption="Visual signature matching" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>
@@ -109,11 +110,11 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="FIRE & SMOKE CONFIGURATION" alt="Configuration panel showing critical-severity alerting and escalation rules for a camera" />
+            <PhotoFigure src="/feature-fire-and-smoke-detection-3.jpg" alt="Configuration panel showing critical-severity alerting and escalation rules for a camera" caption="Fire & smoke configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="industry" caption="FACILITY-WIDE FIRE MONITORING" alt="Site map showing fire and smoke detection coverage across storage, electrical, and warehouse areas" />
+            <PhotoFigure src="/feature-fire-and-smoke-detection-4.jpg" alt="Site map showing fire and smoke detection coverage across storage, electrical, and warehouse areas" caption="Facility-wide fire monitoring" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

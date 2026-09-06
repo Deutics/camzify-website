@@ -43,7 +43,7 @@ export default function PatrolSequencesPage() {
             predefined escalation messages. The sequence determines the exact path the AI takes during every round.</>}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/patrol-checklists', label: 'Patrol checklists' }}
-        visual={<HeroPlaceholder label="Patrol sequence · Perimeter round" alt="Camzify console illustrating camera patrol sequences" />}
+        visual={<HeroPlaceholder label="Patrol sequence · Perimeter round" alt="A four-camera patrol sequence: main gate, loading dock, parking lot and server corridor" frames={[{ src: '/vp-sequence-cam-main-gate-640.webp', id: 'STOP 01', loc: 'MAIN GATE' }, { src: '/vp-sequence-cam-loading-dock-640.webp', id: 'STOP 02', loc: 'LOADING DOCK' }, { src: '/vp-sequence-cam-parking-lot-640.webp', id: 'STOP 03', loc: 'PARKING LOT' }, { src: '/vp-sequence-cam-server-corridor-640.webp', id: 'STOP 04', loc: 'SERVER CORRIDOR' }]} />}
       />
 
       <section className="pb-16">

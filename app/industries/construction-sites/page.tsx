@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
@@ -104,7 +105,7 @@ export default function ConstructionSitesPage() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="CONSTRUCTION SITE PATROL SEQUENCE" alt="Diagram of a construction site patrol route stepping through the perimeter fence line, equipment yard, and site trailers" />
+            <PhotoFigure src="/industry-construction-sites-3.jpg" alt="Diagram of a construction site patrol route stepping through the perimeter fence line, equipment yard, and site trailers" caption="Construction site patrol sequence" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How Camzify works for construction sites</h2>
@@ -141,11 +142,11 @@ export default function ConstructionSitesPage() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="CONSTRUCTION SITE ZONE SETUP" alt="Configuration panel showing perimeter and equipment yard zones mapped across a construction site camera layout" />
+            <PhotoFigure src="/industry-construction-sites-2.jpg" alt="Configuration panel showing perimeter and equipment yard zones mapped across a construction site camera layout" caption="Construction site zone setup" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="camera-feed" caption="CONSTRUCTION SITE PATROL IN PROGRESS" alt="Camera feed showing an active patrol check along a construction site perimeter fence" />
+            <PhotoFigure src="/industry-construction-sites-1.jpg" alt="Camera feed showing an active patrol check along a construction site perimeter fence" caption="Construction site patrol in progress" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

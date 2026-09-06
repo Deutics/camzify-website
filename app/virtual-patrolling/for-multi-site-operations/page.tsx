@@ -2,6 +2,7 @@ import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { FeatureHero } from '@/components/content/feature-hero';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { HeroPlaceholder } from '@/components/content/hero-placeholder';
 import { SectionVisual } from '@/components/content/section-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
@@ -45,7 +46,7 @@ export default function MultiSiteOpsPage() {
             on one dashboard.</>}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/partners/for-security-agencies', label: 'For security agencies' }}
-        visual={<HeroPlaceholder label="Multi-site · 4 locations" alt="Camzify console illustrating multi-site virtual patrolling" />}
+        visual={<PhotoFigure src="/vp-for-multi-site-operations-1.jpg" alt="The virtual patrolling screen in the Camzify console with sequences and rounds for one site" priority />}
       />
 
       <section className="pb-16">
@@ -97,7 +98,7 @@ export default function MultiSiteOpsPage() {
                 </ul>
               </div>
             </ScrollReveal>
-            <SectionVisual variant="sites" caption="Per-Site Configuration" alt="Configuration screen showing per-site patrol sequences, guard rosters, and permission settings" />
+            <PhotoFigure src="/vp-for-multi-site-operations-2.jpg" alt="Editing a patrol sequence for one site in the console" caption="Each site carries its own sequences, schedule and guard roster on one account." />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
@@ -118,7 +119,7 @@ export default function MultiSiteOpsPage() {
                 </p>
               </div>
             </ScrollReveal>
-            <SectionVisual variant="compliance" caption="Multi-Site Compliance" alt="Multi-site dashboard showing patrol compliance across distributed locations" />
+            <PhotoFigure src="/vp-for-multi-site-operations-3.jpg" alt="Account diagram: the parent account with sites and sub-users beneath it" caption="How a multi-site account is structured: sites and sub-users under one parent." />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">

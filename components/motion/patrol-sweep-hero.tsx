@@ -22,19 +22,21 @@ const FRAME = {
   corridor: '03',
 } as const;
 
+/* Frames are the business's own camera stills (public/hero-cam-*), one per tile, at the
+   640px WebP so twelve tiles cost less than one hero photograph. */
 const cameras = [
-  { id: 'CAM 01', loc: 'MAIN GATE', status: 'checked', frame: FRAME.gate },
-  { id: 'CAM 02', loc: 'PARKING LOT A', status: 'checked', frame: FRAME.parking },
-  { id: 'CAM 03', loc: 'REAR ENTRANCE', status: 'checked', frame: FRAME.gate },
-  { id: 'CAM 04', loc: 'LOADING DOCK', status: 'checked', frame: FRAME.dock },
-  { id: 'CAM 05', loc: 'WAREHOUSE EAST', status: 'checked', frame: FRAME.warehouse },
-  { id: 'CAM 06', loc: 'OFFICE LOBBY', status: 'checked', frame: FRAME.corridor },
-  { id: 'CAM 07', loc: 'SERVER ROOM', status: 'fail', frame: FRAME.corridor },
-  { id: 'CAM 08', loc: 'STAIRWELL B', status: 'checked', frame: FRAME.corridor },
-  { id: 'CAM 09', loc: 'ROOFTOP', status: 'checked', frame: FRAME.perimeter },
-  { id: 'CAM 10', loc: 'STORAGE UNIT', status: 'checked', frame: FRAME.warehouse },
-  { id: 'CAM 11', loc: 'FIRE EXIT C', status: 'checked', frame: FRAME.corridor },
-  { id: 'CAM 12', loc: 'DELIVERY BAY', status: 'checked', frame: FRAME.dock },
+  { id: 'CAM 01', loc: 'MAIN GATE', status: 'checked', frame: 'main-gate' },
+  { id: 'CAM 02', loc: 'PARKING LOT A', status: 'checked', frame: 'parking-lot' },
+  { id: 'CAM 03', loc: 'REAR ENTRANCE', status: 'checked', frame: 'rear-entrance' },
+  { id: 'CAM 04', loc: 'LOADING DOCK', status: 'checked', frame: 'loading-dock' },
+  { id: 'CAM 05', loc: 'WAREHOUSE EAST', status: 'checked', frame: 'warehouse-east' },
+  { id: 'CAM 06', loc: 'OFFICE LOBBY', status: 'checked', frame: 'office-lobby' },
+  { id: 'CAM 07', loc: 'SERVER ROOM', status: 'fail', frame: 'server-room' },
+  { id: 'CAM 08', loc: 'STAIRWELL B', status: 'checked', frame: 'stairwell' },
+  { id: 'CAM 09', loc: 'ROOFTOP', status: 'checked', frame: 'rooftop' },
+  { id: 'CAM 10', loc: 'STORAGE UNIT', status: 'checked', frame: 'storage-unit' },
+  { id: 'CAM 11', loc: 'FIRE EXIT C', status: 'checked', frame: 'fire-exit' },
+  { id: 'CAM 12', loc: 'DELIVERY BAY', status: 'checked', frame: 'delivery-bay' },
 ];
 
 export function PatrolSweepHero() {
@@ -103,7 +105,7 @@ export function PatrolSweepHero() {
               {/* Camera frame + scrim. Dimmed until the sweep reaches this tile, so the
                   grid visibly "wakes up" camera by camera as the round progresses. */}
               <img
-                src={`/cam-${cam.frame}.jpg`}
+                src={`/hero-cam-${cam.frame}-640.webp`}
                 alt=""
                 aria-hidden="true"
                 loading="lazy"

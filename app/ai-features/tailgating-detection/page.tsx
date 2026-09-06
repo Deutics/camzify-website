@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
@@ -55,7 +56,7 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="camera-feed" caption="TAILGATING DETECTION" alt="Camera view of a secure door showing two people entering on one badge scan, with the second person highlighted" />
+            <PhotoFigure src="/feature-tailgating-detection-1.jpg" alt="Camera view of a secure door showing two people entering on one badge scan, with the second person highlighted" caption="Tailgating detection" priority />
           </div>
 
           <div className="mt-16">
@@ -70,7 +71,7 @@ export default function Page() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="HEADCOUNT VS. BADGE EVENT" alt="Diagram showing confirmed head count at a doorway compared against a single badge scan event to flag tailgating" />
+            <PhotoFigure src="/feature-tailgating-detection-2.jpg" alt="Diagram showing confirmed head count at a doorway compared against a single badge scan event to flag tailgating" caption="Headcount vs. badge event" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>
@@ -110,11 +111,11 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="ENTRY-ZONE CONFIGURATION" alt="Configuration panel showing an entry-zone boundary drawn over a doorway camera view with schedule and sensitivity controls" />
+            <PhotoFigure src="/feature-tailgating-detection-3.jpg" alt="Configuration panel showing an entry-zone boundary drawn over a doorway camera view with schedule and sensitivity controls" caption="Entry-zone configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="industry" caption="ACCESS POINT MONITORING" alt="Site diagram showing tailgating detection deployed across multiple secure access points in a facility" />
+            <PhotoFigure src="/feature-tailgating-detection-4.jpg" alt="Site diagram showing tailgating detection deployed across multiple secure access points in a facility" caption="Access point monitoring" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

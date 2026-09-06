@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
@@ -80,7 +81,7 @@ export default function Page() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="BACKGROUND MODEL" alt="Diagram showing background subtraction isolating a moving foreground object from a static modeled background" />
+            <PhotoFigure src="/feature-motion-detection-2.jpg" alt="Diagram showing background subtraction isolating a moving foreground object from a static modeled background" caption="Background model" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>
@@ -125,11 +126,11 @@ export default function Page() {
                 </p>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="MOTION SENSITIVITY" alt="Configuration panel showing motion sensitivity, masked regions, and schedule controls for a camera feed" />
+            <PhotoFigure src="/feature-motion-detection-3.jpg" alt="Configuration panel showing motion sensitivity, masked regions, and schedule controls for a camera feed" caption="Motion sensitivity" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="industry" caption="AFTER-HOURS MONITORING" alt="Facility view showing motion detection masked zones covering entrances and storage areas during closed hours" />
+            <PhotoFigure src="/feature-motion-detection-4.jpg" alt="Facility view showing motion detection masked zones covering entrances and storage areas during closed hours" caption="After-hours monitoring" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

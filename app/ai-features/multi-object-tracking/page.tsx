@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
@@ -51,7 +52,7 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="camera-feed" caption="MULTI-OBJECT TRACKING" alt="Multi-Object Tracking visualization on camera feed" />
+            <PhotoFigure src="/feature-multi-object-tracking-1.jpg" alt="Multi-Object Tracking visualization on camera feed" caption="Multi-object tracking" priority />
           </div>
 
           <div className="mt-16">
@@ -66,7 +67,7 @@ export default function Page() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="TRACK PERSISTENCE" alt="Diagram showing a subject's track ID surviving a brief occlusion behind an obstacle and continuing on re-entry" />
+            <PhotoFigure src="/feature-multi-object-tracking-2.jpg" alt="Diagram showing a subject's track ID surviving a brief occlusion behind an obstacle and continuing on re-entry" caption="Track persistence" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>
@@ -104,11 +105,11 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="TRACKING SETTINGS" alt="Configuration panel showing object-class filters and occlusion-recovery settings for multi-object tracking" />
+            <PhotoFigure src="/feature-multi-object-tracking-3.jpg" alt="Configuration panel showing object-class filters and occlusion-recovery settings for multi-object tracking" caption="Tracking settings" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="industry" caption="FOUNDATIONAL TRACKING LAYER" alt="Site map showing multi-object tracking running across several cameras as the shared layer beneath other detection features" />
+            <PhotoFigure src="/feature-multi-object-tracking-4.jpg" alt="Site map showing multi-object tracking running across several cameras as the shared layer beneath other detection features" caption="Foundational tracking layer" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

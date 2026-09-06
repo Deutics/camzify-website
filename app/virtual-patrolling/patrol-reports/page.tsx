@@ -2,6 +2,7 @@ import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { FeatureHero } from '@/components/content/feature-hero';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { HeroPlaceholder } from '@/components/content/hero-placeholder';
 import { SectionVisual } from '@/components/content/section-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
@@ -48,7 +49,7 @@ export default function PatrolReportsPage() {
             where each round opens as a web report or a PDF.</>}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/patrol-compliance-tracking', label: 'Compliance tracking' }}
-        visual={<HeroPlaceholder label="Patrol history · Perimeter round" alt="Camzify console illustrating security patrol reports" />}
+        visual={<PhotoFigure src="/vp-patrol-reports-1.jpg" alt="A patrol compliance report in the Camzify console with the checklist results and snapshots" priority />}
       />
 
       <section className="pb-16">
@@ -81,7 +82,7 @@ export default function PatrolReportsPage() {
                 ))}
               </ul>
             </div>
-            <SectionVisual variant="report" caption="Patrol Report Pdf" alt="Sample patrol report PDF showing camera checks, compliance scores, and audit trail" />
+            <PhotoFigure src="/vp-patrol-reports-3.jpg" alt="Report settings in the console: distribution and retention of round reports" caption="Report settings: who receives each round's PDF and how reports are retained." />
           </div>
 
           <div className="mt-16">

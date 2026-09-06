@@ -30,7 +30,7 @@ const content: UseCaseContent = {
     It usually rests on the closing manager&apos;s memory and a phone call from the car. Camzify runs a closing round on the cameras, judges each item from the frame, messages the keyholder for anything wrong, and files the report the next morning starts with.
   </>,
   facts: ['A closing round, manual or scheduled', 'A frame per item, not a tick', 'Keyholder messaged for anything wrong'],
-  heroVisual: <HeroPlaceholder label="Closing round · 22:10, all stops" alt="A console camera wall of four cameras covering a shopfront shutter, a back door, a stockroom and a car park at closing time" frames={[{ src: '/cam-06.jpg', id: 'CAM 01', loc: 'FRONT SHUTTER' }, { src: '/cam-02.jpg', id: 'CAM 04', loc: 'BACK DOOR' }, { src: '/cam-03.jpg', id: 'CAM 09', loc: 'STOCKROOM' }, { src: '/cam-04.jpg', id: 'CAM 02', loc: 'CAR PARK' }]} active={0} />,
+  heroVisual: <HeroPlaceholder label="Closing round · 22:10, all stops" alt="A console camera wall of four cameras covering a shopfront shutter, a back door, a stockroom and a car park at closing time" frames={[{ src: '/hero-cam-main-gate-640.webp', id: 'CAM 01', loc: 'FRONT SHUTTER' }, { src: '/hero-cam-loading-dock-640.webp', id: 'CAM 04', loc: 'BACK DOOR' }, { src: '/hero-cam-server-room-640.webp', id: 'CAM 09', loc: 'STOCKROOM' }, { src: '/hero-cam-parking-lot-640.webp', id: 'CAM 02', loc: 'CAR PARK' }]} active={0} />,
   secondary: { href: '/virtual-patrolling/patrol-checklists', label: 'How checklists work' },
   problem: {
     heading: 'Did I lock the back door?',

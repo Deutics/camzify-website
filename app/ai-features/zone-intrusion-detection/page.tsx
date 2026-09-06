@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
@@ -52,7 +53,7 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="camera-feed" caption="ZONE INTRUSION DETECTION" alt="Zone Intrusion Detection visualization on camera feed" />
+            <PhotoFigure src="/feature-zone-intrusion-detection-1.jpg" alt="Zone Intrusion Detection visualization on camera feed" caption="Zone intrusion detection" priority />
           </div>
 
           <div className="mt-16">
@@ -67,7 +68,7 @@ export default function Page() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="ZONE ENTRY LOGIC" alt="Diagram showing a confirmed object track entering a polygonal restricted zone and triggering an alert" />
+            <PhotoFigure src="/feature-zone-intrusion-detection-2.jpg" alt="Diagram showing a confirmed object track entering a polygonal restricted zone and triggering an alert" caption="Zone entry logic" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>
@@ -107,11 +108,11 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="ZONE CONFIGURATION" alt="Configuration panel showing a polygonal zone drawn over a restricted area with dwell-time and schedule controls" />
+            <PhotoFigure src="/feature-zone-intrusion-detection-3.jpg" alt="Configuration panel showing a polygonal zone drawn over a restricted area with dwell-time and schedule controls" caption="Zone configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="industry" caption="RESTRICTED AREA MONITORING" alt="Facility map showing multiple zone intrusion rules placed over restricted rooms and hazardous areas" />
+            <PhotoFigure src="/feature-zone-intrusion-detection-4.jpg" alt="Facility map showing multiple zone intrusion rules placed over restricted rooms and hazardous areas" caption="Restricted area monitoring" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

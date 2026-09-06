@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
@@ -54,7 +55,7 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="dashboard" caption="OCCUPANCY & PEAK HOUR TRENDS" alt="Dashboard chart showing occupancy counts across a day with a highlighted peak-hour window" />
+            <PhotoFigure src="/feature-occupancy-and-peak-hour-trends-1.jpg" alt="Dashboard chart showing occupancy counts across a day with a highlighted peak-hour window" caption="Occupancy & peak hour trends" />
           </div>
 
           <div className="mt-16">
@@ -69,7 +70,7 @@ export default function Page() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="OCCUPANCY AGGREGATION" alt="Diagram showing live subject counts from multiple cameras aggregating into a site-wide occupancy trend" />
+            <PhotoFigure src="/feature-occupancy-and-peak-hour-trends-2.jpg" alt="Diagram showing live subject counts from multiple cameras aggregating into a site-wide occupancy trend" caption="Occupancy aggregation" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>
@@ -107,11 +108,11 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="OCCUPANCY ZONE SETUP" alt="Configuration panel showing occupancy tracking zones marked across a site floor plan" />
+            <PhotoFigure src="/feature-occupancy-and-peak-hour-trends-3.jpg" alt="Configuration panel showing occupancy tracking zones marked across a site floor plan" caption="Occupancy zone setup" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="dashboard" caption="PEAK HOUR COMPARISON" alt="Dashboard comparing occupancy trends across multiple zones and sites over a week" />
+            <PhotoFigure src="/feature-occupancy-and-peak-hour-trends-4.jpg" alt="Dashboard comparing occupancy trends across multiple zones and sites over a week" caption="Peak hour comparison" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

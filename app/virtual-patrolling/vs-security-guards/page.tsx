@@ -2,6 +2,7 @@ import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { FeatureHero } from '@/components/content/feature-hero';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { HeroPlaceholder } from '@/components/content/hero-placeholder';
 import { SectionVisual } from '@/components/content/section-visual';
 import { ComparisonTable } from '@/components/content/comparison-table';
@@ -59,7 +60,7 @@ export default function VsSecurityGuardsPage() {
             including where guards still win.</>}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/roi-calculator', label: 'Run your own numbers' }}
-        visual={<HeroPlaceholder label="Blended model · Perimeter round" alt="Camzify console illustrating virtual patrolling vs security guards" />}
+        visual={<PhotoFigure src="/vp-vs-security-guards.jpg" alt="A security officer at a patrol car alongside an AI camera network, the blended model of guards and virtual rounds" priority />}
       />
 
       <section className="pb-16">

@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
@@ -55,7 +56,7 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="camera-feed" caption="ILLEGAL PARKING DETECTION" alt="Camera view of a fire lane with an illegally parked vehicle highlighted by a detection bounding box" />
+            <PhotoFigure src="/feature-illegal-parking-detection-1.jpg" alt="Camera view of a fire lane with an illegally parked vehicle highlighted by a detection bounding box" caption="Illegal parking detection" priority />
           </div>
 
           <div className="mt-16">
@@ -70,7 +71,7 @@ export default function Page() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="DWELL TIMER LOGIC" alt="Diagram showing a vehicle track entering a restricted zone and a dwell timer counting toward the grace period threshold" />
+            <PhotoFigure src="/feature-illegal-parking-detection-2.jpg" alt="Diagram showing a vehicle track entering a restricted zone and a dwell timer counting toward the grace period threshold" caption="Dwell timer logic" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>
@@ -114,11 +115,11 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="ZONE & GRACE PERIOD CONFIGURATION" alt="Configuration panel showing a restricted parking zone drawn on a camera view with a grace period slider" />
+            <PhotoFigure src="/feature-illegal-parking-detection-3.jpg" alt="Configuration panel showing a restricted parking zone drawn on a camera view with a grace period slider" caption="Zone & grace period configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="industry" caption="PARKING ENFORCEMENT" alt="Site map showing multiple restricted parking zones monitored across a property's fire lanes and loading docks" />
+            <PhotoFigure src="/feature-illegal-parking-detection-4.jpg" alt="Site map showing multiple restricted parking zones monitored across a property's fire lanes and loading docks" caption="Parking enforcement" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

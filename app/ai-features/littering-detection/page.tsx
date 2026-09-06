@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
@@ -54,7 +55,7 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="camera-feed" caption="LITTERING DETECTION" alt="Camera view of an outdoor area with a littering event highlighted by a detection bounding box" />
+            <PhotoFigure src="/feature-littering-detection-1.jpg" alt="Camera view of an outdoor area with a littering event highlighted by a detection bounding box" caption="Littering detection" priority />
           </div>
 
           <div className="mt-16">
@@ -69,7 +70,7 @@ export default function Page() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="DISCARD EVENT LOGIC" alt="Diagram showing an object separating from a tracked subject and remaining outside a marked bin zone" />
+            <PhotoFigure src="/feature-littering-detection-2.jpg" alt="Diagram showing an object separating from a tracked subject and remaining outside a marked bin zone" caption="Discard event logic" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>
@@ -107,11 +108,11 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="BIN ZONE SETUP" alt="Configuration panel showing designated bin zones marked on a camera view of an outdoor plaza" />
+            <PhotoFigure src="/feature-littering-detection-3.jpg" alt="Configuration panel showing designated bin zones marked on a camera view of an outdoor plaza" caption="Bin zone setup" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="industry" caption="HOTSPOT TRACKING" alt="Site map highlighting recurring littering hotspot locations aggregated from multiple detection events" />
+            <PhotoFigure src="/feature-littering-detection-4.jpg" alt="Site map highlighting recurring littering hotspot locations aggregated from multiple detection events" caption="Hotspot tracking" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

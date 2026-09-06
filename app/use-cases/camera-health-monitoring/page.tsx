@@ -30,7 +30,7 @@ const content: UseCaseContent = {
     A camera that has gone blind is quiet, which is why it is usually found weeks later, when the footage is needed and is not there. Camzify raises tampering the moment it is confirmed, shows offline cameras and sites as such, and checks every camera&apos;s view as an item on the patrol round.
   </>,
   facts: ['Tampering in five modes, raised live', 'Offline shown as offline, not as a stale frame', 'Camera view checked on every round'],
-  heroVisual: <HeroPlaceholder label="Estate view · One camera reporting a fault" alt="A console camera wall of four cameras from different sites, one of them highlighted for a tampering condition" frames={[{ src: '/cam-06.jpg', id: 'SITE A · CAM 01', loc: 'MAIN GATE' }, { src: '/cam-02.jpg', id: 'SITE A · CAM 04', loc: 'LOADING DOCK' }, { src: '/cam-04.jpg', id: 'SITE B · CAM 02', loc: 'PARKING LOT A' }, { src: '/cam-03.jpg', id: 'SITE C · CAM 09', loc: 'SERVER CORRIDOR' }]} active={3} />,
+  heroVisual: <HeroPlaceholder label="Estate view · One camera reporting a fault" alt="A console camera wall of four cameras from different sites, one of them highlighted for a tampering condition" frames={[{ src: '/hero-cam-main-gate-640.webp', id: 'SITE A · CAM 01', loc: 'MAIN GATE' }, { src: '/hero-cam-loading-dock-640.webp', id: 'SITE A · CAM 04', loc: 'LOADING DOCK' }, { src: '/hero-cam-parking-lot-640.webp', id: 'SITE B · CAM 02', loc: 'PARKING LOT A' }, { src: '/hero-cam-server-room-640.webp', id: 'SITE C · CAM 09', loc: 'SERVER CORRIDOR' }]} active={3} />,
   secondary: { href: '/ai-features/camera-tampering-detection', label: 'Camera tampering detection' },
   problem: {
     heading: 'A blind camera is a quiet camera',

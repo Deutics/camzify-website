@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
@@ -56,7 +57,7 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="patrol-route" caption="CROSS-CAMERA JOURNEY MAP" alt="Site map showing a single subject's path connected across multiple camera coverage zones" />
+            <PhotoFigure src="/feature-cross-camera-journey-map-1.jpg" alt="Site map showing a single subject's path connected across multiple camera coverage zones" caption="Cross-camera journey map" />
           </div>
 
           <div className="mt-16">
@@ -71,7 +72,7 @@ export default function Page() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="PATH RECONSTRUCTION" alt="Diagram showing tracked appearances from separate cameras linked into a single ordered subject timeline" />
+            <PhotoFigure src="/feature-cross-camera-journey-map-2.jpg" alt="Diagram showing tracked appearances from separate cameras linked into a single ordered subject timeline" caption="Path reconstruction" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>
@@ -111,11 +112,11 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="JOURNEY MAP CONFIGURATION" alt="Configuration panel showing route view options, confidence threshold, and export settings for a journey map" />
+            <PhotoFigure src="/feature-cross-camera-journey-map-3.jpg" alt="Configuration panel showing route view options, confidence threshold, and export settings for a journey map" caption="Journey map configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="industry" caption="ROUTE RECONSTRUCTION" alt="Site map view showing a reconstructed subject route spanning several buildings and camera zones" />
+            <PhotoFigure src="/feature-cross-camera-journey-map-4.jpg" alt="Site map view showing a reconstructed subject route spanning several buildings and camera zones" caption="Route reconstruction" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

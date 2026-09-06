@@ -2,6 +2,7 @@ import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { FeatureHero } from '@/components/content/feature-hero';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { HeroPlaceholder } from '@/components/content/hero-placeholder';
 import { SectionVisual } from '@/components/content/section-visual';
 import { SceneObservation } from '@/components/motion/scene-observation';
@@ -48,7 +49,7 @@ export default function AutomatedSchedulingPage() {
             unattended. The system handles every round, from the first camera to the final report.</>}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/risk-detection', label: 'Risk detection on patrol' }}
-        visual={<HeroPlaceholder label="Auto-Patrol · Perimeter round" alt="Camzify console illustrating automated patrol scheduling" />}
+        visual={<PhotoFigure src="/vp-automated-patrol-scheduling-1.jpg" alt="Auto-Patrol settings in the Camzify console: scene observation, schedule frequency, active hours and active days" priority />}
       />
 
       <section className="pb-16">
@@ -102,7 +103,7 @@ export default function AutomatedSchedulingPage() {
                 </ul>
               </div>
             </ScrollReveal>
-            <SectionVisual variant="schedule" caption="Schedule Configuration" alt="Auto-patrol scheduling interface showing frequency, active hours, and day selection" />
+            <PhotoFigure src="/vp-automated-patrol-scheduling-2.jpg" alt="The Auto-Patrol panel with its schedule and reporting options" caption="Auto-Patrol settings as they appear in the console: frequency, active hours, active days and reporting." />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">

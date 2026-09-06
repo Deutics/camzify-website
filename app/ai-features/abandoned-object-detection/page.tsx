@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
@@ -55,7 +56,7 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="camera-feed" caption="ABANDONED OBJECT DETECTION" alt="Camera view of a lobby with an unattended bag highlighted by a detection bounding box" />
+            <PhotoFigure src="/feature-abandoned-object-detection-1.jpg" alt="Camera view of a lobby with an unattended bag highlighted by a detection bounding box" caption="Abandoned object detection" priority />
           </div>
 
           <div className="mt-16">
@@ -70,7 +71,7 @@ export default function Page() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="CARRIER-OBJECT ASSOCIATION" alt="Diagram showing an object separating from its carrier and a dwell timer counting toward an alert threshold" />
+            <PhotoFigure src="/feature-abandoned-object-detection-2.jpg" alt="Diagram showing an object separating from its carrier and a dwell timer counting toward an alert threshold" caption="Carrier-object association" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>
@@ -110,11 +111,11 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="DWELL-TIME CONFIGURATION" alt="Configuration panel showing dwell-time threshold and monitored object types for a camera zone" />
+            <PhotoFigure src="/feature-abandoned-object-detection-3.jpg" alt="Configuration panel showing dwell-time threshold and monitored object types for a camera zone" caption="Dwell-time configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="industry" caption="PUBLIC SPACE MONITORING" alt="Facility map showing abandoned object detection coverage across lobbies and entrances" />
+            <PhotoFigure src="/feature-abandoned-object-detection-4.jpg" alt="Facility map showing abandoned object detection coverage across lobbies and entrances" caption="Public space monitoring" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

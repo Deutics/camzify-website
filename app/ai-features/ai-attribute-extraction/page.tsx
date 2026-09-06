@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
@@ -51,7 +52,7 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="camera-feed" caption="AI ATTRIBUTE EXTRACTION" alt="AI Attribute Extraction visualization on camera feed" />
+            <PhotoFigure src="/feature-ai-attribute-extraction-1.jpg" alt="AI Attribute Extraction visualization on camera feed" caption="Ai attribute extraction" priority />
           </div>
 
           <div className="mt-16">
@@ -66,7 +67,7 @@ export default function Page() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="ATTRIBUTE PIPELINE" alt="Diagram showing a vision-language model reading a detection frame and generating structured attribute fields" />
+            <PhotoFigure src="/feature-ai-attribute-extraction-2.jpg" alt="Diagram showing a vision-language model reading a detection frame and generating structured attribute fields" caption="Attribute pipeline" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>
@@ -104,11 +105,11 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="ATTRIBUTE SETTINGS" alt="Configuration panel showing attribute categories and retention settings for AI attribute extraction" />
+            <PhotoFigure src="/feature-ai-attribute-extraction-3.jpg" alt="Configuration panel showing attribute categories and retention settings for AI attribute extraction" caption="Attribute settings" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="industry" caption="RICHER ALERT CONTEXT" alt="Notification queue showing alerts enriched with structured clothing and behavior attributes" />
+            <PhotoFigure src="/feature-ai-attribute-extraction-4.jpg" alt="Notification queue showing alerts enriched with structured clothing and behavior attributes" caption="Richer alert context" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

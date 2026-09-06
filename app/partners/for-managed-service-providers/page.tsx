@@ -52,10 +52,10 @@ const faqs = [
 ];
 
 const FRAMES = [
-  { src: '/cam-06.jpg', id: 'CLIENT A · CAM 01', loc: 'WAREHOUSE · MAIN GATE' },
-  { src: '/cam-03.jpg', id: 'CLIENT B · CAM 02', loc: 'OFFICE · SERVER CORRIDOR' },
-  { src: '/cam-02.jpg', id: 'CLIENT C · CAM 04', loc: 'DEPOT · LOADING DOCK' },
-  { src: '/cam-04.jpg', id: 'CLIENT D · CAM 07', loc: 'RETAIL · PARKING LOT' },
+  { src: '/hero-cam-main-gate-640.webp', id: 'CLIENT A · CAM 01', loc: 'WAREHOUSE · MAIN GATE' },
+  { src: '/hero-cam-server-room-640.webp', id: 'CLIENT B · CAM 02', loc: 'OFFICE · SERVER CORRIDOR' },
+  { src: '/hero-cam-loading-dock-640.webp', id: 'CLIENT C · CAM 04', loc: 'DEPOT · LOADING DOCK' },
+  { src: '/hero-cam-parking-lot-640.webp', id: 'CLIENT D · CAM 07', loc: 'RETAIL · PARKING LOT' },
 ];
 
 export default function ForManagedServiceProvidersPage() {

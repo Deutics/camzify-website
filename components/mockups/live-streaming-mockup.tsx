@@ -19,11 +19,11 @@ const sites = [
  * frameless on purpose — no signal should look like no signal.
  */
 const cameraTiles = [
-  { name: 'WH-Bay 5', user: 'Rahul Khanna', res: '720p · 30fps', live: true, frame: '/cam-05.jpg' },
-  { name: 'WH-Dock A', user: 'My Account', res: '1080p · 25fps', live: true, frame: '/cam-02.jpg' },
-  { name: 'WH-Gate 1', user: 'My Account', res: '1080p · 25fps', live: true, frame: '/cam-06.jpg' },
-  { name: 'WH-Interior 1', user: 'My Account', res: '4K · 15fps', live: true, frame: '/cam-03.jpg' },
-  { name: 'HQ-Cafeteria', user: 'Ayesha Malik', res: '720p · 30fps', live: true, frame: '/cam-01.jpg' },
+  { name: 'WH-Bay 5', user: 'Rahul Khanna', res: '720p · 30fps', live: true, frame: '/hero-cam-delivery-bay-640.webp' },
+  { name: 'WH-Dock A', user: 'My Account', res: '1080p · 25fps', live: true, frame: '/hero-cam-loading-dock-640.webp' },
+  { name: 'WH-Gate 1', user: 'My Account', res: '1080p · 25fps', live: true, frame: '/hero-cam-main-gate-640.webp' },
+  { name: 'WH-Interior 1', user: 'My Account', res: '4K · 15fps', live: true, frame: '/hero-cam-server-room-640.webp' },
+  { name: 'HQ-Cafeteria', user: 'Ayesha Malik', res: '720p · 30fps', live: true, frame: '/hero-cam-warehouse-east-640.webp' },
   { name: 'PKB-Level1', user: 'James Torres', res: '1080p · 25fps', live: false, frame: null },
 ];
 

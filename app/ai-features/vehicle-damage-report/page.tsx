@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
@@ -55,7 +56,7 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="camera-feed" caption="VEHICLE DAMAGE REPORT" alt="Camera view of a vehicle at an entry point with a highlighted area of exterior damage" />
+            <PhotoFigure src="/feature-vehicle-damage-report-1.jpg" alt="Camera view of a vehicle at an entry point with a highlighted area of exterior damage" caption="Vehicle damage report" priority />
           </div>
 
           <div className="mt-16">
@@ -70,7 +71,7 @@ export default function Page() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="CONDITION RECORD LOGIC" alt="Diagram showing entry and exit condition records for the same vehicle being compared to identify a damage change" />
+            <PhotoFigure src="/feature-vehicle-damage-report-2.jpg" alt="Diagram showing entry and exit condition records for the same vehicle being compared to identify a damage change" caption="Condition record logic" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>
@@ -112,11 +113,11 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="CHECKPOINT CONFIGURATION" alt="Configuration panel showing an entry checkpoint camera assigned to capture vehicle condition records" />
+            <PhotoFigure src="/feature-vehicle-damage-report-3.jpg" alt="Configuration panel showing an entry checkpoint camera assigned to capture vehicle condition records" caption="Checkpoint configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="industry" caption="VEHICLE CHECKPOINTS" alt="Site map showing entry and exit checkpoint cameras positioned to capture vehicle condition records" />
+            <PhotoFigure src="/feature-vehicle-damage-report-4.jpg" alt="Site map showing entry and exit checkpoint cameras positioned to capture vehicle condition records" caption="Vehicle checkpoints" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
@@ -55,7 +56,7 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="camera-feed" caption="AGGRESSION & FIGHT DETECTION" alt="Camera view highlighting two subjects engaged in a physical altercation with a confidence score" />
+            <PhotoFigure src="/feature-aggression-and-fight-detection-1.jpg" alt="Camera view highlighting two subjects engaged in a physical altercation with a confidence score" caption="Aggression & fight detection" priority />
           </div>
 
           <div className="mt-16">
@@ -70,7 +71,7 @@ export default function Page() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="ALTERCATION PATTERN DETECTION" alt="Diagram showing relative motion and proximity between tracked subjects evaluated against an aggression threshold" />
+            <PhotoFigure src="/feature-aggression-and-fight-detection-2.jpg" alt="Diagram showing relative motion and proximity between tracked subjects evaluated against an aggression threshold" caption="Altercation pattern detection" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>
@@ -110,11 +111,11 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="ALERT SENSITIVITY CONFIGURATION" alt="Configuration panel showing sensitivity threshold and escalation routing for aggression and fight detection" />
+            <PhotoFigure src="/feature-aggression-and-fight-detection-3.jpg" alt="Configuration panel showing sensitivity threshold and escalation routing for aggression and fight detection" caption="Alert sensitivity configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="industry" caption="REAL-TIME INCIDENT RESPONSE" alt="Security dashboard showing a critical-severity aggression detection alert with clip and escalation status" />
+            <PhotoFigure src="/feature-aggression-and-fight-detection-4.jpg" alt="Security dashboard showing a critical-severity aggression detection alert with clip and escalation status" caption="Real-time incident response" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

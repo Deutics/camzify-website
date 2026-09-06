@@ -30,7 +30,7 @@ const content: UseCaseContent = {
     A safety officer sees a fraction of the floor for a fraction of the shift. Camzify checks each confirmed person against the policy set for that camera or zone, produces a clip per violation, and can add the check to the patrol round so the site is recorded as compliant at each time.
   </>,
   facts: ['Hats, vests and gloves against a per-zone policy', 'A clip and confidence score per violation', 'Compliance recorded on the round'],
-  heroVisual: <HeroPlaceholder label="Safety · PPE policy by zone" alt="A console camera wall of four cameras covering a loading bay, a warehouse aisle, a yard gate and a plant room, each labelled with its PPE zone" frames={[{ src: '/cam-02.jpg', id: 'CAM 04', loc: 'LOADING BAY · HAT + VEST' }, { src: '/cam-04.jpg', id: 'CAM 02', loc: 'YARD · HAT + VEST' }, { src: '/cam-03.jpg', id: 'CAM 09', loc: 'PLANT ROOM · HAT + GLOVES' }, { src: '/cam-06.jpg', id: 'CAM 01', loc: 'GATE · VEST' }]} active={0} />,
+  heroVisual: <HeroPlaceholder label="Safety · PPE policy by zone" alt="A console camera wall of four cameras covering a loading bay, a warehouse aisle, a yard gate and a plant room, each labelled with its PPE zone" frames={[{ src: '/hero-cam-loading-dock-640.webp', id: 'CAM 04', loc: 'LOADING BAY · HAT + VEST' }, { src: '/hero-cam-parking-lot-640.webp', id: 'CAM 02', loc: 'YARD · HAT + VEST' }, { src: '/hero-cam-server-room-640.webp', id: 'CAM 09', loc: 'PLANT ROOM · HAT + GLOVES' }, { src: '/hero-cam-main-gate-640.webp', id: 'CAM 01', loc: 'GATE · VEST' }]} active={0} />,
   secondary: { href: '/ai-features/ppe-violation-detection', label: 'PPE violation detection' },
   problem: {
     heading: 'The policy is on the wall. Compliance is not.',

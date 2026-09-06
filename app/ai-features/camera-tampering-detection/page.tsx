@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
@@ -51,7 +52,7 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="camera-feed" caption="CAMERA TAMPERING DETECTION" alt="Camera Tampering Detection visualization on camera feed" />
+            <PhotoFigure src="/feature-camera-tampering-detection-1.jpg" alt="Camera Tampering Detection visualization on camera feed" caption="Camera tampering detection" priority />
           </div>
 
           <div className="mt-16">
@@ -66,7 +67,7 @@ export default function Page() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="TAMPER SIGNATURE LOGIC" alt="Diagram showing five independent tamper-detection signatures evaluated against a live camera feed" />
+            <PhotoFigure src="/feature-camera-tampering-detection-2.jpg" alt="Diagram showing five independent tamper-detection signatures evaluated against a live camera feed" caption="Tamper signature logic" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>
@@ -105,11 +106,11 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="TAMPER MODE SETTINGS" alt="Configuration panel showing five tamper detection modes with individual sensitivity and enable controls" />
+            <PhotoFigure src="/feature-camera-tampering-detection-3.jpg" alt="Configuration panel showing five tamper detection modes with individual sensitivity and enable controls" caption="Tamper mode settings" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="industry" caption="TAMPER-RESISTANT COVERAGE" alt="Site map highlighting cameras covering high-value and unmanned areas with tampering detection enabled" />
+            <PhotoFigure src="/feature-camera-tampering-detection-4.jpg" alt="Site map highlighting cameras covering high-value and unmanned areas with tampering detection enabled" caption="Tamper-resistant coverage" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

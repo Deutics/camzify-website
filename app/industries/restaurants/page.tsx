@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
@@ -62,7 +63,6 @@ export default function RestaurantsPage() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="industry" caption="RESTAURANTS" alt="Security monitoring in a restaurants environment" />
           </div>
 
           <div className="mt-16">
@@ -74,6 +74,7 @@ export default function RestaurantsPage() {
                 <p>Continuous AI monitoring turns the closing routine into an automated checklist: the same points get checked on the same schedule every night regardless of who closed, with a logged result and an immediate alert to the manager on duty if something was missed.</p>
               </div>
             </ScrollReveal>
+            <PhotoFigure src="/ai-security-for-restaurants.jpg" alt="A restaurant kitchen and dining floor under AI camera monitoring" priority />
           </div>
 
           <div className="mt-16">
@@ -97,7 +98,7 @@ export default function RestaurantsPage() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="RESTAURANT PATROL SEQUENCE" alt="Diagram of a restaurant closing patrol route stepping through the back door, dining area, kitchen, and walk-in coolers" />
+            <PhotoFigure src="/industry-restaurants-3.jpg" alt="Diagram of a restaurant closing patrol route stepping through the back door, dining area, kitchen, and walk-in coolers" caption="Restaurant patrol sequence" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How Camzify works for restaurants</h2>
@@ -134,11 +135,11 @@ export default function RestaurantsPage() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="RESTAURANT ZONE SETUP" alt="Configuration panel showing back-door and walk-in cooler zones mapped across a restaurant camera layout" />
+            <PhotoFigure src="/industry-restaurants-2.jpg" alt="Configuration panel showing back-door and walk-in cooler zones mapped across a restaurant camera layout" caption="Restaurant zone setup" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="camera-feed" caption="RESTAURANT PATROL IN PROGRESS" alt="Camera feed showing an active patrol check at a restaurant back entrance" />
+            <PhotoFigure src="/industry-restaurants-1.jpg" alt="Camera feed showing an active patrol check at a restaurant back entrance" caption="Restaurant patrol in progress" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

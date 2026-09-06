@@ -18,10 +18,10 @@
  * see scripts/assets/camera-frames.html.
  */
 const DEFAULT_FRAMES = [
-  { src: '/cam-06.jpg', id: 'CAM 01', loc: 'MAIN GATE' },
-  { src: '/cam-02.jpg', id: 'CAM 04', loc: 'LOADING DOCK' },
-  { src: '/cam-03.jpg', id: 'CAM 09', loc: 'SERVER CORRIDOR' },
-  { src: '/cam-04.jpg', id: 'CAM 02', loc: 'PARKING LOT A' },
+  { src: '/hero-cam-main-gate-640.webp', id: 'CAM 01', loc: 'MAIN GATE' },
+  { src: '/hero-cam-loading-dock-640.webp', id: 'CAM 04', loc: 'LOADING DOCK' },
+  { src: '/hero-cam-server-room-640.webp', id: 'CAM 09', loc: 'SERVER CORRIDOR' },
+  { src: '/hero-cam-parking-lot-640.webp', id: 'CAM 02', loc: 'PARKING LOT A' },
 ];
 
 export function HeroPlaceholder({

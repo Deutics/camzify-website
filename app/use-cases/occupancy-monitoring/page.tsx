@@ -30,7 +30,7 @@ const content: UseCaseContent = {
     It answers when a place is busiest and where, which decides staffing, cleaning and restocking windows and space planning. Camzify counts confirmed tracks per camera or zone, keeps the trend, and flags a pattern that departs from the usual one.
   </>,
   facts: ['Counts from confirmed tracks, per zone', 'Peak hours per zone and per site', 'No counting hardware'],
-  heroVisual: <HeroPlaceholder label="Occupancy · Four zones, live" alt="A console camera wall of four cameras covering an entrance, a corridor, a back-of-house area and a car park, each labelled as a counted zone" frames={[{ src: '/cam-06.jpg', id: 'ZONE A · ENTRANCE', loc: 'LIVE COUNT' }, { src: '/cam-03.jpg', id: 'ZONE B · CORRIDOR', loc: 'LIVE COUNT' }, { src: '/cam-02.jpg', id: 'ZONE C · BACK OF HOUSE', loc: 'LIVE COUNT' }, { src: '/cam-04.jpg', id: 'ZONE D · CAR PARK', loc: 'LIVE COUNT' }]} active={0} />,
+  heroVisual: <HeroPlaceholder label="Occupancy · Four zones, live" alt="A console camera wall of four cameras covering an entrance, a corridor, a back-of-house area and a car park, each labelled as a counted zone" frames={[{ src: '/hero-cam-main-gate-640.webp', id: 'ZONE A · ENTRANCE', loc: 'LIVE COUNT' }, { src: '/hero-cam-server-room-640.webp', id: 'ZONE B · CORRIDOR', loc: 'LIVE COUNT' }, { src: '/hero-cam-loading-dock-640.webp', id: 'ZONE C · BACK OF HOUSE', loc: 'LIVE COUNT' }, { src: '/hero-cam-parking-lot-640.webp', id: 'ZONE D · CAR PARK', loc: 'LIVE COUNT' }]} active={0} />,
   secondary: { href: '/ai-features/occupancy-and-peak-hour-trends', label: 'Occupancy and peak hour trends' },
   problem: {
     heading: 'Staffing is planned from a guess',

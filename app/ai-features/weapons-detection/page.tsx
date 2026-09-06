@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
@@ -55,7 +56,7 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="camera-feed" caption="WEAPONS DETECTION" alt="Camera view with a detected weapon highlighted by a bounding box and confidence score" />
+            <PhotoFigure src="/feature-weapons-detection-1.jpg" alt="Camera view with a detected weapon highlighted by a bounding box and confidence score" caption="Weapons detection" priority />
           </div>
 
           <div className="mt-16">
@@ -70,7 +71,7 @@ export default function Page() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="WEAPON CLASSIFICATION" alt="Diagram showing a confirmed object track evaluated against trained weapon classes with a confidence threshold" />
+            <PhotoFigure src="/feature-weapons-detection-2.jpg" alt="Diagram showing a confirmed object track evaluated against trained weapon classes with a confidence threshold" caption="Weapon classification" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>
@@ -110,11 +111,11 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="ALERT ROUTING CONFIGURATION" alt="Configuration panel showing critical-severity alert routing and escalation contacts for weapons detection" />
+            <PhotoFigure src="/feature-weapons-detection-3.jpg" alt="Configuration panel showing critical-severity alert routing and escalation contacts for weapons detection" caption="Alert routing configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="industry" caption="CRITICAL ALERT RESPONSE" alt="Security dashboard showing a critical-severity weapons detection alert with clip, confidence score, and escalation status" />
+            <PhotoFigure src="/feature-weapons-detection-4.jpg" alt="Security dashboard showing a critical-severity weapons detection alert with clip, confidence score, and escalation status" caption="Critical alert response" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

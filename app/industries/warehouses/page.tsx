@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
@@ -103,7 +104,7 @@ export default function WarehousesPage() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="WAREHOUSE PATROL SEQUENCE" alt="Diagram of a warehouse patrol route stepping through dock doors, perimeter, and storage zones" />
+            <PhotoFigure src="/industry-warehouses-3.jpg" alt="Diagram of a warehouse patrol route stepping through dock doors, perimeter, and storage zones" caption="Warehouse patrol sequence" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How Camzify works for warehouses</h2>
@@ -140,11 +141,11 @@ export default function WarehousesPage() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="WAREHOUSE ZONE SETUP" alt="Configuration panel showing dock-door and perimeter zones mapped across a warehouse camera layout" />
+            <PhotoFigure src="/industry-warehouses-2.jpg" alt="Configuration panel showing dock-door and perimeter zones mapped across a warehouse camera layout" caption="Warehouse zone setup" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="camera-feed" caption="WAREHOUSE PATROL IN PROGRESS" alt="Camera feed showing an active patrol check at a warehouse loading dock" />
+            <PhotoFigure src="/industry-warehouses-1.jpg" alt="Camera feed showing an active patrol check at a warehouse loading dock" caption="Warehouse patrol in progress" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

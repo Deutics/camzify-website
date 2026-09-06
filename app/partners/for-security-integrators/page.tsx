@@ -53,10 +53,10 @@ const faqs = [
 ];
 
 const FRAMES = [
-  { src: '/cam-06.jpg', id: 'CAM 01 · RTSP', loc: 'VIA CONNECTOR · MAIN GATE' },
-  { src: '/cam-02.jpg', id: 'CAM 04 · RTSP', loc: 'VIA CONNECTOR · LOADING DOCK' },
-  { src: '/cam-03.jpg', id: 'CAM 09 · RTMP', loc: 'ENCODER · SERVER CORRIDOR' },
-  { src: '/cam-04.jpg', id: 'CAM 02 · HTTPS', loc: 'HLS · PARKING LOT A' },
+  { src: '/hero-cam-main-gate-640.webp', id: 'CAM 01 · RTSP', loc: 'VIA CONNECTOR · MAIN GATE' },
+  { src: '/hero-cam-loading-dock-640.webp', id: 'CAM 04 · RTSP', loc: 'VIA CONNECTOR · LOADING DOCK' },
+  { src: '/hero-cam-server-room-640.webp', id: 'CAM 09 · RTMP', loc: 'ENCODER · SERVER CORRIDOR' },
+  { src: '/hero-cam-parking-lot-640.webp', id: 'CAM 02 · HTTPS', loc: 'HLS · PARKING LOT A' },
 ];
 
 export default function ForSecurityIntegratorsPage() {

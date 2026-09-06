@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
@@ -104,7 +105,7 @@ export default function RetailPage() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="RETAIL PATROL SEQUENCE" alt="Diagram of a retail patrol route stepping through the stockroom, back door, and sales floor" />
+            <PhotoFigure src="/industry-retail-3.jpg" alt="Diagram of a retail patrol route stepping through the stockroom, back door, and sales floor" caption="Retail patrol sequence" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How Camzify works for retail</h2>
@@ -141,11 +142,11 @@ export default function RetailPage() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="RETAIL ZONE SETUP" alt="Configuration panel showing stockroom and back-door zones mapped across a retail store camera layout" />
+            <PhotoFigure src="/industry-retail-2.jpg" alt="Configuration panel showing stockroom and back-door zones mapped across a retail store camera layout" caption="Retail zone setup" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="camera-feed" caption="RETAIL PATROL IN PROGRESS" alt="Camera feed showing an active patrol check at a retail store back door" />
+            <PhotoFigure src="/industry-retail-1.jpg" alt="Camera feed showing an active patrol check at a retail store back door" caption="Retail patrol in progress" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

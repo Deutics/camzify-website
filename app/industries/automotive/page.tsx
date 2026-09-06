@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
@@ -62,7 +63,6 @@ export default function AutomotivePage() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="industry" caption="AUTOMOTIVE" alt="Security monitoring in a automotive environment" />
           </div>
 
           <div className="mt-16">
@@ -74,6 +74,7 @@ export default function AutomotivePage() {
                 <p>Continuous AI monitoring closes that gap by checking every yard row, entrance, and bay door on a repeating schedule, day and night, and raising an alert the moment something falls outside the expected pattern — without needing a person physically present at every stop.</p>
               </div>
             </ScrollReveal>
+            <PhotoFigure src="/ai-security-for-automotive.jpg" alt="A vehicle storage yard and showroom under AI camera monitoring" priority />
           </div>
 
           <div className="mt-16">
@@ -97,7 +98,7 @@ export default function AutomotivePage() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="AUTOMOTIVE PATROL SEQUENCE" alt="Diagram of an automotive patrol route stepping through the vehicle yard, showroom, and service bays" />
+            <PhotoFigure src="/industry-automotive-3.jpg" alt="Diagram of an automotive patrol route stepping through the vehicle yard, showroom, and service bays" caption="Automotive patrol sequence" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How Camzify works for automotive</h2>
@@ -134,11 +135,11 @@ export default function AutomotivePage() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="AUTOMOTIVE ZONE SETUP" alt="Configuration panel showing vehicle yard and service bay zones mapped across an automotive camera layout" />
+            <PhotoFigure src="/industry-automotive-2.jpg" alt="Configuration panel showing vehicle yard and service bay zones mapped across an automotive camera layout" caption="Automotive zone setup" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="camera-feed" caption="AUTOMOTIVE PATROL IN PROGRESS" alt="Camera feed showing an active patrol check at an automotive dealership vehicle yard" />
+            <PhotoFigure src="/industry-automotive-1.jpg" alt="Camera feed showing an active patrol check at an automotive dealership vehicle yard" caption="Automotive patrol in progress" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

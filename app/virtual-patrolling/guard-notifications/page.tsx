@@ -2,6 +2,7 @@ import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { FeatureHero } from '@/components/content/feature-hero';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { HeroPlaceholder } from '@/components/content/hero-placeholder';
 import { SectionVisual } from '@/components/content/section-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
@@ -46,7 +47,7 @@ export default function GuardNotificationsPage() {
             Each notification carries a predefined message explaining what was found and what action is expected.</>}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/platform/notifications-and-alerts', label: 'The alert queue' }}
-        visual={<HeroPlaceholder label="Guard notifications · Priya R." alt="Camzify console illustrating guard notifications" />}
+        visual={<PhotoFigure src="/vp-guard-notifications-1.jpg" alt="An event detail in the Camzify console showing the camera snapshot behind a failed check and the guard message sent" priority />}
       />
 
       <section className="pb-16">
@@ -108,7 +109,7 @@ export default function GuardNotificationsPage() {
               </div>
             </ScrollReveal>
             <ScrollReveal delay={0.06}>
-              <SectionVisual variant="notification" caption="Notification Log" alt="Log of guard notifications showing predefined messages sent for failed checklist items" />
+              <PhotoFigure src="/vp-guard-notifications-3.jpg" alt="The notifications screen listing alerts with their camera, severity and acknowledgement state" caption="The notifications queue: every message sent, to whom, and whether it was acknowledged." />
             </ScrollReveal>
           </div>
 

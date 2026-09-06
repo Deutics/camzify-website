@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
@@ -104,7 +105,7 @@ export default function ManufacturingPage() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="MANUFACTURING PATROL SEQUENCE" alt="Diagram of a manufacturing patrol route stepping through machinery zones, perimeter fencing, and materials storage" />
+            <PhotoFigure src="/industry-manufacturing-3.jpg" alt="Diagram of a manufacturing patrol route stepping through machinery zones, perimeter fencing, and materials storage" caption="Manufacturing patrol sequence" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How Camzify works for manufacturing</h2>
@@ -141,11 +142,11 @@ export default function ManufacturingPage() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="MANUFACTURING ZONE SETUP" alt="Configuration panel showing machinery and perimeter zones mapped across a manufacturing camera layout" />
+            <PhotoFigure src="/industry-manufacturing-2.jpg" alt="Configuration panel showing machinery and perimeter zones mapped across a manufacturing camera layout" caption="Manufacturing zone setup" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="camera-feed" caption="MANUFACTURING PATROL IN PROGRESS" alt="Camera feed showing an active patrol check at a manufacturing plant perimeter" />
+            <PhotoFigure src="/industry-manufacturing-1.jpg" alt="Camera feed showing an active patrol check at a manufacturing plant perimeter" caption="Manufacturing patrol in progress" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

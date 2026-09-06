@@ -30,7 +30,7 @@ const content: UseCaseContent = {
     Camzify raises the event when it happens, with a clip, and checks the conditions on a patrol round so the site is recorded as safe, or not, at each time. The cameras are the ones already installed for security.
   </>,
   facts: ['Falls raised in real time with a clip', 'Exits and exclusion zones on the checklist', 'The site recorded at each round'],
-  heroVisual: <HeroPlaceholder label="Safety · Floor, exits and zones" alt="A console camera wall of four cameras covering a warehouse aisle, a fire exit, a machine exclusion zone and a loading bay" frames={[{ src: '/cam-04.jpg', id: 'CAM 02', loc: 'AISLE C · WALKWAY' }, { src: '/cam-03.jpg', id: 'CAM 09', loc: 'FIRE EXIT · EAST' }, { src: '/cam-06.jpg', id: 'CAM 01', loc: 'PRESS LINE · EXCLUSION ZONE' }, { src: '/cam-02.jpg', id: 'CAM 04', loc: 'LOADING BAY' }]} active={0} />,
+  heroVisual: <HeroPlaceholder label="Safety · Floor, exits and zones" alt="A console camera wall of four cameras covering a warehouse aisle, a fire exit, a machine exclusion zone and a loading bay" frames={[{ src: '/hero-cam-parking-lot-640.webp', id: 'CAM 02', loc: 'AISLE C · WALKWAY' }, { src: '/hero-cam-server-room-640.webp', id: 'CAM 09', loc: 'FIRE EXIT · EAST' }, { src: '/hero-cam-main-gate-640.webp', id: 'CAM 01', loc: 'PRESS LINE · EXCLUSION ZONE' }, { src: '/hero-cam-loading-dock-640.webp', id: 'CAM 04', loc: 'LOADING BAY' }]} active={0} />,
   secondary: { href: '/ai-features/slip-and-fall-detection', label: 'Slip and fall detection' },
   problem: {
     heading: 'The injury is found by the next person past',

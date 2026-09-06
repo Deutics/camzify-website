@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import Link from 'next/link';
@@ -38,7 +39,7 @@ export default function Page() {
 
           <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
             <ScrollReveal>
-              <PlaceholderVisual type="camera-feed" caption="LOITERING DETECTION" alt="Loitering Detection visualization on camera feed" />
+              <PhotoFigure src="/feature-loitering-detection-1.jpg" alt="Loitering Detection visualization on camera feed" caption="Loitering detection" priority />
             </ScrollReveal>
             <ScrollReveal delay={0.06}>
               <div>
