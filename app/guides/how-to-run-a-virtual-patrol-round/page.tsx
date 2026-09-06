@@ -12,7 +12,7 @@ import Link from 'next/link';
  */
 const pageMeta = {
   title: "How to Run a Virtual Patrol Round",
-  description: "A walkthrough of a manual virtual patrol round: judging each checklist item against the live view, messaging the guard on a failure, resolving it as fixed or pending, and reading the compliance report.",
+  description: "Run a manual patrol round: open the sequence, judge each item, message the guard on a failure, resolve or hold as pending, close the round, read the report.",
   path: "/guides/how-to-run-a-virtual-patrol-round",
 };
 

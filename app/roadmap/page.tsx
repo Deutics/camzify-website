@@ -13,7 +13,7 @@ import { Clock, Brain, Smartphone } from 'lucide-react';
  */
 const pageMeta = {
   title: "Product Roadmap | Upcoming Features",
-  description: "See what is coming next for Camzify, loitering detection and native mobile apps, and what has already shipped. A transparent roadmap with no feature marketed before it exists.",
+  description: "What Camzify is building next and what shipped recently, marked honestly: mobile apps and loitering detection in development, nothing planned called current.",
   path: "/roadmap",
 };
 

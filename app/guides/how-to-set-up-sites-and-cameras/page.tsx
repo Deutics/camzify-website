@@ -13,7 +13,7 @@ import Link from 'next/link';
  */
 const pageMeta = {
   title: "How to Add Sites and Cameras | Setup Guide",
-  description: "Create a site, add IP cameras over RTSP or HTTPS, install the Camzify Connector for cameras on a local network, and confirm the stream is flowing before you rely on it.",
+  description: "Add a site, connect cameras over RTSP, RTMP or HTTPS, use the Connector for LAN cameras, check stream quality, assign cameras to a sequence.",
   path: "/guides/how-to-set-up-sites-and-cameras",
 };
 

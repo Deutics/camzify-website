@@ -11,7 +11,7 @@ import Link from 'next/link';
  */
 const pageMeta = {
   title: "HTTPS Camera Setup | Connect HLS and WebRTC Streams",
-  description: "HTTPS is one of Camzify's three camera connection types. It covers both HLS (.m3u8) and WebRTC (WHEP/WHIP) streams, how to choose between them and connect either.",
+  description: "Connect web-delivered streams over HTTPS: HLS playlists and WebRTC streams, added by address, no Connector needed, then recording, detections and rounds.",
   path: "/camera-connectivity/https-setup",
 };
 

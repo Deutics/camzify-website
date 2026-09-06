@@ -36,7 +36,7 @@ export default function SecurityGuardCostPerHourPage() {
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Security guard cost per hour</h1>
           <AuthorByline className="mt-6" />
-          <p className="mt-6 max-w-prose text-body text-muted-foreground">Security guard cost per hour varies by region, level of training, and contract terms. In Singapore, unarmed security guards typically cost SGD 8-15 per hour. In the US, rates range from USD 15-35 per hour. The true cost of guard coverage goes far beyond the hourly rate, it includes overtime, benefits, training, supervision, and the 4.5 FTE required for genuine 24/7 coverage.</p>
+          <p className="mt-6 max-w-prose text-body text-muted-foreground">Security guard cost per hour varies by region, level of training, and contract terms. In Singapore, unarmed security guards typically cost a range that varies by market. In the US, rates range from a range that varies by market. The true cost of guard coverage goes far beyond the hourly rate, it includes overtime, benefits, training, supervision, and the 4.5 FTE required for genuine 24/7 coverage.</p>
 
           <section className="mt-16">
             <ScrollReveal>
@@ -100,7 +100,7 @@ export default function SecurityGuardCostPerHourPage() {
           <section className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">The true cost of 24/7 coverage</h2>
-              <div className="mt-4 max-w-prose space-y-4 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `24/7 guard coverage requires 4.5 full-time equivalents (FTEs) per post when accounting for shifts, breaks, sick leave, holidays, and relief coverage. A single post at SGD 12/hour costs approximately SGD 105,120/year — not SGD 105,120 × 1, but × 4.5 to maintain continuous coverage. Many buyers underestimate this multiplier.` }} />
+              <div className="mt-4 max-w-prose space-y-4 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `Around-the-clock coverage of one post takes several full-time people once shifts, breaks, sick leave, holidays and relief are counted, commonly four to five. The annual cost of a staffed post is therefore the hourly rate times the hours in a year times that multiplier, not one salary. Many buyers underestimate the multiplier; the ROI calculator applies it to your own rate.` }} />
             </ScrollReveal>
           </section>
 

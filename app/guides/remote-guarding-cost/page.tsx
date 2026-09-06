@@ -41,7 +41,7 @@ export default function RemoteGuardingCostPage() {
           <section className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">How remote guarding is priced</h2>
-              <div className="mt-4 max-w-prose space-y-4 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `Remote guarding services typically charge SGD 50-200 per camera per month for after-hours monitoring. 24/7 coverage costs more. The service includes human operators who review alerts and follow a response protocol — calling on-site contacts, dispatching guards, or contacting police.` }} />
+              <div className="mt-4 max-w-prose space-y-4 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `Remote guarding services are usually priced per camera per month, with the rate depending on the hours covered, the response included and whether cameras are bundled. We will not quote a market range, because the spread is wide and unsourced figures do not help you negotiate. The service includes human operators who review alerts and follow a response protocol — calling on-site contacts, dispatching guards, or contacting police.` }} />
             </ScrollReveal>
           </section>
 

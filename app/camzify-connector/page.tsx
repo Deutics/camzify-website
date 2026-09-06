@@ -11,7 +11,7 @@ import Link from 'next/link';
  */
 const pageMeta = {
   title: "Camzify Connector | RTSP Relay Software",
-  description: "The Camzify Connector relays local RTSP cameras and their PTZ controls to Camzify from a Windows, macOS or Linux machine, no port forwarding or static IP required.",
+  description: "The Camzify Connector relays cameras on a local network to the cloud from a Windows, macOS or Linux PC, with no port forwarding and PTZ passthrough.",
   path: "/camzify-connector",
 };
 

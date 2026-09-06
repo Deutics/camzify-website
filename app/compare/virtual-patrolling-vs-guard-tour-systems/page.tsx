@@ -12,7 +12,7 @@ import Link from 'next/link';
  */
 const pageMeta = {
   title: "Virtual Patrolling vs Guard Tour Systems",
-  description: "Compare Camzify virtual patrolling with traditional guard tour systems like PIPE and Trackforce. Understand the difference between presence verification and condition verification.",
+  description: "Guard tour systems prove a guard reached a checkpoint. Virtual patrolling proves the condition there, with a frame per item. How the two run together.",
   path: "/compare/virtual-patrolling-vs-guard-tour-systems",
 };
 

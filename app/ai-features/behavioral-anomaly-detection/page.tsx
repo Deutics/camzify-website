@@ -20,7 +20,7 @@ import Link from 'next/link';
 const pageMeta = {
   title: "Behavioral Anomaly Detection | Watch For This",
   description:
-    'Describe the behavior you want watched in plain language — fights, smoking, vandalism, trespassing — and Camzify monitors for it continuously and notifies you when it happens.',
+    "Describe the behavior you want watched in plain language and Camzify monitors the cameras you choose for it. No rule syntax, no zones to draw.",
   path: '/ai-features/behavioral-anomaly-detection',
 };
 

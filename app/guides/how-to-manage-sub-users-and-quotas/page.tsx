@@ -13,7 +13,7 @@ import Link from 'next/link';
  */
 const pageMeta = {
   title: "How to Manage Sub-Users and Quotas",
-  description: "Build a permission group from page access and CRUD rights, add sub-users, assign sites and cameras, allocate license quota from what you hold, and handle quota requests.",
+  description: "Create sub-users, scope them to sites, allocate cameras, AI instances and storage from your quota, approve requests, suspend without deleting.",
   path: "/guides/how-to-manage-sub-users-and-quotas",
 };
 

@@ -13,7 +13,7 @@ import Link from 'next/link';
  */
 const pageMeta = {
   title: "How to Configure Cloud Video Backup",
-  description: "Choose which cameras record, pick continuous or scheduled recording, set retention per camera, read the storage estimate honestly, and export a clip when you need it.",
+  description: "Set continuous or scheduled recording per camera, retention by days or storage cap, apply presets across a site, check the storage projection.",
   path: "/guides/how-to-configure-cloud-video-backup",
 };
 

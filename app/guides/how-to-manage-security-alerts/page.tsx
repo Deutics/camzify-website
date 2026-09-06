@@ -13,7 +13,7 @@ import Link from 'next/link';
  */
 const pageMeta = {
   title: "How to Manage Security Camera Alerts",
-  description: "Work an alert queue without drowning in it: scan by severity, filter to what matters, open the linked video around an event, acknowledge criticals, and tune delivery channels.",
+  description: "Work the alert queue: filter by severity, site and camera, acknowledge, escalate, mark false positives, set channels per category. Step by step.",
   path: "/guides/how-to-manage-security-alerts",
 };
 

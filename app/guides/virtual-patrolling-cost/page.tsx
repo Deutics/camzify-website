@@ -48,7 +48,7 @@ export default function VirtualPatrollingCostPage() {
           <section className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Cost comparison with manned guarding</h2>
-              <div className="mt-4 max-w-prose space-y-4 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `A single security guard at SGD 12/hour costs approximately SGD 105,120/year for 24/7 coverage (4.5 FTE including relief). Virtual patrolling with 20 cameras costs a fraction of that annually, while providing more consistent coverage with a verified audit trail. Use the <a href="/roi-calculator">ROI calculator</a> to model your specific scenario.` }} />
+              <div className="mt-4 max-w-prose space-y-4 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `Around-the-clock coverage of one post takes several people once shifts, breaks, leave and relief are counted, so the annual cost of a staffed post is a multiple of one hourly rate. A scheduled camera round covers the same stops at whatever frequency you set and is priced per camera, with a report per round. We do not publish rates or estimate yours. Use the <a href="/roi-calculator">ROI calculator</a> to model your specific scenario.` }} />
             </ScrollReveal>
           </section>
 

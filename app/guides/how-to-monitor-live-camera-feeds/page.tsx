@@ -13,7 +13,7 @@ import Link from 'next/link';
  */
 const pageMeta = {
   title: "How to Monitor Live Camera Feeds",
-  description: "Set up a live camera wall: choose a grid layout, save camera sets for a shift, filter a growing fleet by site, and open a single stream full screen with PTZ control.",
+  description: "Set up a live camera wall: group by site, filter by user or AI feature, choose low latency or high stability, run slideshow mode. Step by step.",
   path: "/guides/how-to-monitor-live-camera-feeds",
 };
 
