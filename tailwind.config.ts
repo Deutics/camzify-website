@@ -130,6 +130,10 @@ const config: Config = {
           from: { opacity: '1' },
           to: { opacity: '0' },
         },
+        'pulse-cta': {
+          '0%, 100%': { boxShadow: '0 0 0 0 hsl(var(--primary) / 0.45)' },
+          '60%': { boxShadow: '0 0 0 12px hsl(var(--primary) / 0)' },
+        },
         'patrol-sweep': {
           '0%': { transform: 'translateX(-100%)' },
           '100%': { transform: 'translateX(400%)' },
@@ -175,6 +179,7 @@ const config: Config = {
         slow: 'var(--duration-slow)',
       },
       animation: {
+        'pulse-cta': 'pulse-cta 1.8s ease-out infinite',
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         'fade-in': 'fade-in 0.4s ease-out',

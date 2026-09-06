@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowRight, Play } from 'lucide-react';
+import { ArrowRight, Calculator, MousePointerClick } from 'lucide-react';
 import { PatrolSweepHero } from '@/components/motion/patrol-sweep-hero';
 import { HeroBgAnimation } from '@/components/motion/hero-bg-animation';
 import { motion } from 'framer-motion';
@@ -61,14 +61,34 @@ export function HeroSection() {
                 Book a Demo
                 <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link
-                href="/virtual-patrolling"
+              <a
+                href="#patrol-demo"
                 className="inline-flex items-center gap-2 rounded-lg border border-border px-7 py-3.5 text-sm font-semibold transition-all duration-fast hover:bg-accent hover:border-primary/30"
               >
-                <Play className="h-4 w-4" />
-                See a patrol run
+                <MousePointerClick className="h-4 w-4" aria-hidden="true" />
+                Try the interactive demo
+              </a>
+              <Link
+                href="/roi-calculator"
+                className="inline-flex items-center gap-2 rounded text-sm font-semibold text-primary transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                <Calculator className="h-4 w-4" aria-hidden="true" />
+                Calculate your ROI
               </Link>
             </div>
+
+            {/*
+              The partner strip. The lead files say most readers run a guarding company,
+              a monitoring company or an installation business; they should not have to
+              scroll to the cost section to find their door.
+            */}
+            <p className="mt-6 max-w-xl text-sm text-muted-foreground">
+              Run a security agency, a monitoring company or an installation business?{' '}
+              <a href="#partners" className="font-semibold text-primary hover:underline">
+                See how partners sell it
+              </a>
+              .
+            </p>
 
             <ul className="mt-8 grid gap-x-6 gap-y-2.5 text-sm text-muted-foreground sm:grid-cols-2">
               {[

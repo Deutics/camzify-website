@@ -141,6 +141,18 @@ export const navItems = [
     ],
   },
   {
+    label: 'Solutions',
+    href: '/partners',
+    children: [
+      { label: 'For Security Agencies', href: '/partners/for-security-agencies', description: 'Sell overnight coverage you cannot staff' },
+      { label: 'For Monitoring Companies', href: '/partners/for-monitoring-centers', description: 'Run rounds for the agencies you monitor for' },
+      { label: 'For CCTV & Alarm Installers', href: '/partners/for-security-integrators', description: 'A monthly service on cameras you install' },
+      { label: 'For Managed Service Providers', href: '/partners/for-managed-service-providers', description: 'One account, a login per customer' },
+      { label: 'Become a Reseller', href: '/partners/become-a-reseller', description: 'Software only, quote-based pricing' },
+      { label: 'ROI Calculator', href: '/roi-calculator', description: 'Your guard cost, or your partner revenue' },
+    ],
+  },
+  {
     label: 'Platform',
     href: '/platform',
     children: [
@@ -294,8 +306,6 @@ export const navItems = [
       { label: 'FAQs', href: '/faqs', description: 'Common questions answered' },
       { label: 'Blog', href: '/blog', description: 'Latest insights and updates' },
       { label: 'Roadmap', href: '/roadmap', description: 'What we are building next' },
-      { label: 'For Security Agencies', href: '/partners/for-security-agencies', description: 'Add virtual patrolling to a guarding offer' },
-      { label: 'For Monitoring Companies', href: '/partners/for-monitoring-centers', description: 'Run rounds for the agencies you monitor for' },
     ],
   },
 ] as const;

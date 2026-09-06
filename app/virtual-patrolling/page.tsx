@@ -2,6 +2,7 @@ import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import { InteractiveChecklistDemo } from '@/components/motion/interactive-checklist-demo';
+import { DemoFrame } from '@/components/motion/demo-frame';
 import { ComparisonTable } from '@/components/content/comparison-table';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { SectionAtmosphere } from '@/components/motion/section-atmosphere';
@@ -127,7 +128,9 @@ export default function VirtualPatrollingPage() {
               </div>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
-              <InteractiveChecklistDemo />
+              <DemoFrame>
+                <InteractiveChecklistDemo />
+              </DemoFrame>
             </ScrollReveal>
           </div>
         </div>

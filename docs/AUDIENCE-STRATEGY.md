@@ -45,9 +45,10 @@ saves by not hiring guards is telling them their business is the problem.
 4. **The argument is revenue.** "Sell overnight coverage you cannot staff" and "install
    once, bill monthly". An agency-side revenue calculator beside the end-customer
    savings calculator.
-5. **Pricing has to say something.** Publish what drives a quote and the entry floor the
-   business has stated internally, or accept that ten-person companies will not book a
-   demo to learn a price. Business decision.
+5. **Pricing stays behind contact.** Decided 2026-09-07: no prices, no "from" figures, no
+   placeholder rates anywhere on the site. The ROI calculator computes the reader's own
+   guard cost or partner revenue and contains no Camzify cost; every result ends in a
+   request for a quote.
 6. **Germany is a third of the list.** A six-to-eight-page German pilot of the partner
    track with hreflang is the cheapest test of whether that 30% converts.
 7. **Outreach needs landing pages.** One short page per segment, one CTA, the owner's
@@ -64,8 +65,7 @@ monitoring); alarm verification use case; owner guides (how to sell virtual patr
 to a client, what a client proposal contains, a sample client report); agency revenue
 calculator.
 
-**Phase 2 (decisions):** pricing disclosure; German pilot with euro pricing if any
-pricing is shown; country pages for US, UK and Germany naming local terms (ARC, NSL,
+**Phase 2 (decisions):** German pilot of the partner track; country pages for US, UK and Germany naming local terms (ARC, NSL,
 Werkschutz) and the compliance posture honestly.
 
 **Phase 3 (after first conversions):** further languages only if German moves; case
@@ -73,7 +73,7 @@ studies only when a partner agrees to be named; a partner area only if partners 
 
 ## Decisions for the business
 
-1. Pricing disclosure: entry floor and quote drivers, or fully quote-based.
+1. ~~Pricing disclosure~~ Decided: fully quote-based, no prices on the site.
 2. German: fund the pilot, or measure the drop on English pages first.
 3. Partner terms: state a standard margin or tier if one exists; otherwise the pages stay
    as they are.

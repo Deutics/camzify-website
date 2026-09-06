@@ -3,6 +3,7 @@ import { ArrowRight } from 'lucide-react';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { SectionAtmosphere } from '@/components/motion/section-atmosphere';
 import { InteractiveChecklistDemo } from '@/components/motion/interactive-checklist-demo';
+import { DemoFrame } from '@/components/motion/demo-frame';
 
 /**
  * The interactive demo.
@@ -14,19 +15,19 @@ import { InteractiveChecklistDemo } from '@/components/motion/interactive-checkl
  */
 export function ChecklistDemoSection() {
   return (
-    <section className="relative overflow-hidden bg-muted/20 py-20 sm:py-24">
+    <section id="patrol-demo" className="relative scroll-mt-24 overflow-hidden bg-muted/20 py-20 sm:py-24">
       <SectionAtmosphere variant="right" />
 
       <div className="relative z-10 mx-auto max-w-site px-6">
         <div className="grid items-center gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
           <ScrollReveal>
             <div>
-              <span className="font-mono text-mono-sm uppercase text-primary">Try it yourself</span>
+              <span className="inline-flex items-center gap-2 font-mono text-mono-sm uppercase text-primary"><span className="h-2 w-2 animate-pulse-dot rounded-full bg-live" aria-hidden="true" />Interactive demo · not a screenshot</span>
               <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">
                 Run a patrol round in 20 seconds
               </h2>
               <p className="mt-5 max-w-prose text-body leading-relaxed text-muted-foreground">
-                This is the actual loop. Step through three cameras and mark each checklist item.
+                The card on the right is a working demo: click it. Step through three cameras and mark each checklist item.
                 Fail one and you will be asked whether to message the guard — and then the round
                 will not let you move on until the item is either fixed and re-checked or held as
                 pending with a reason.
@@ -69,7 +70,9 @@ export function ChecklistDemoSection() {
                     'radial-gradient(circle, hsl(var(--primary)/0.18) 0%, transparent 65%)',
                 }}
               />
-              <InteractiveChecklistDemo />
+              <DemoFrame>
+                <InteractiveChecklistDemo />
+              </DemoFrame>
             </div>
           </ScrollReveal>
         </div>

@@ -5,6 +5,7 @@ import { FeatureHero } from '@/components/content/feature-hero';
 import { HeroPlaceholder } from '@/components/content/hero-placeholder';
 import { SectionVisual } from '@/components/content/section-visual';
 import { InteractiveChecklistDemo } from '@/components/motion/interactive-checklist-demo';
+import { DemoFrame } from '@/components/motion/demo-frame';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 import { ClipboardCheck, ListChecks, UserCheck, ShieldCheck, ArrowRight } from 'lucide-react';
@@ -89,7 +90,9 @@ export default function PatrolChecklistsPage() {
               <p className="mt-2 text-muted-foreground">Click through three cameras and see how checklist items work in a real patrol round.</p>
             </ScrollReveal>
             <div className="mt-8">
-              <InteractiveChecklistDemo />
+              <DemoFrame>
+                <InteractiveChecklistDemo />
+              </DemoFrame>
             </div>
           </div>
 

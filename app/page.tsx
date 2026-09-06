@@ -5,6 +5,7 @@ import { ProblemBand } from './_components/problem-band';
 import { PlatformCapabilities } from './_components/platform-capabilities';
 import { WhatIsVP } from './_components/what-is-vp';
 import { ChecklistDemoSection } from './_components/checklist-demo-section';
+import { PartnerDoor } from './_components/partner-door';
 import { AutoPatrolSection } from './_components/auto-patrol-section';
 import { HowItWorks } from './_components/how-it-works';
 import { DetectionGrid } from './_components/detection-grid';
@@ -51,6 +52,7 @@ export default function HomePage() {
       <TrustBand />
       {/* Real customers, supplied by the business. Renders nothing while the list is empty. */}
       <CustomerLogos />
+      <PartnerDoor />
       <ProblemBand />
       <PlatformCapabilities />
       <WhatIsVP />
