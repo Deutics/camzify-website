@@ -199,7 +199,11 @@ export default function ForSecurityAgenciesPage() {
                 ))}
               </div>
               <p className="mt-6 max-w-prose text-muted-foreground">
-                If you run a staffed monitoring operation, or a monitoring company runs it for
+                If you sell mobile patrols today, the{' '}
+                <Link href="/compare/virtual-patrolling-vs-mobile-patrols" className="text-primary hover:underline">mobile patrols comparison</Link>{' '}
+                sets the two side by side, and the{' '}
+                <Link href="/guides/how-to-sell-virtual-patrolling-to-clients" className="text-primary hover:underline">selling guide</Link>{' '}
+                covers the client conversation. If you run a staffed monitoring operation, or a monitoring company runs it for
                 you and notifies your guards, the{' '}
                 <Link href="/partners/for-monitoring-centers" className="text-primary hover:underline">monitoring companies</Link>{' '}
                 page covers that angle, including who holds the account in that arrangement. If you resell rather than operate, see{' '}

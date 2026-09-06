@@ -18,7 +18,7 @@ import { Cable, Server, Users, FileCheck2, Camera, KeyRound, HardDrive } from 'l
  * claimed because none exists.
  */
 const pageMeta = {
-  title: "For Security Integrators | Cloud VMS Add-On",
+  title: "For CCTV & Alarm Installers | Monthly Service",
   description: "Attach virtual patrolling to camera systems you already install. RTSP, RTMP or HTTPS, a Connector for LAN cameras, nothing replaced, a clean hand-over.",
   path: "/partners/for-security-integrators",
 };
@@ -63,14 +63,14 @@ export default function ForSecurityIntegratorsPage() {
   return (
     <PageShell {...pageMeta} faqs={faqs} breadcrumbs={[
       { label: 'Partners', href: '/partners' },
-      { label: 'For Security Integrators' },
+      { label: 'For CCTV & Alarm Installers' },
     ]}>
       <FeatureHero
-        eyebrow="Security integrators"
-        title="Camzify for security integrators"
+        eyebrow="CCTV and alarm installers · integrators"
+        title="Camzify for CCTV and alarm installers"
         lede={<>
           <strong className="font-semibold text-foreground">
-            Integrators are usually the reason a site&apos;s cameras exist in the first place.
+            Installers are usually the reason a site&apos;s cameras exist in the first place.
           </strong>{' '}
           Camzify attaches to the systems you have already installed, including ones several
           years old, over RTSP, RTMP or HTTPS. Nothing you specified is displaced: the recorder
@@ -182,7 +182,9 @@ export default function ForSecurityIntegratorsPage() {
                 <Link href="/trust" className="text-primary hover:underline">trust page</Link>.
                 If you also operate monitoring for your customers, the{' '}
                 <Link href="/partners/for-managed-service-providers" className="text-primary hover:underline">managed service providers</Link>{' '}
-                page covers holding accounts on their behalf.
+                page covers holding accounts on their behalf, and the{' '}
+                <Link href="/guides/how-to-sell-virtual-patrolling-to-clients" className="text-primary hover:underline">selling guide</Link>{' '}
+                covers the conversation with a customer who has never heard the term.
               </p>
             </ScrollReveal>
           </div>

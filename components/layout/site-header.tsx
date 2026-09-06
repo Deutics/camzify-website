@@ -295,7 +295,7 @@ export function SiteHeader() {
 
           <Link
             href="/book-a-demo"
-            className="hidden items-center whitespace-nowrap rounded-lg bg-primary px-4 py-2 text-[13px] font-semibold text-primary-foreground transition-all duration-fast hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:inline-flex"
+            className="hidden items-center whitespace-nowrap rounded-lg bg-primary px-3 py-2 text-[13px] font-semibold text-primary-foreground xl:px-4 transition-all duration-fast hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:inline-flex"
           >
             Book a Demo
           </Link>

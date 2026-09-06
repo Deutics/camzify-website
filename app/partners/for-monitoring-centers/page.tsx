@@ -256,7 +256,11 @@ export default function ForMonitoringCentresPage() {
                 it applies to partner conversations as much as to marketing. If you run guarding
                 rather than monitoring, the{' '}
                 <Link href="/partners/for-security-agencies" className="text-primary hover:underline">security agencies</Link>{' '}
-                page is written for you; if you hold accounts for customers as part of a wider IT
+                page is written for you. If you receive alarms, the{' '}
+                <Link href="/use-cases/alarm-verification" className="text-primary hover:underline">alarm verification</Link>{' '}
+                use case and the{' '}
+                <Link href="/guides/adding-remote-patrols-to-alarm-monitoring" className="text-primary hover:underline">alarm monitoring guide</Link>{' '}
+                are the two pages to read next; if you hold accounts for customers as part of a wider IT
                 service, see{' '}
                 <Link href="/partners/for-managed-service-providers" className="text-primary hover:underline">managed service providers</Link>.
               </p>

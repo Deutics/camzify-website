@@ -35,6 +35,9 @@ const items = [
   { slug: 'how-to-reduce-false-alarms', title: 'How to Reduce False Alarms from Security Cameras' },
   { slug: 'onvif-and-rtsp-explained', title: 'ONVIF and RTSP Explained' },
   { slug: 'guard-tour-systems-explained', title: 'Guard Tour Systems Explained' },
+  { slug: 'how-to-sell-virtual-patrolling-to-clients', title: 'How to Sell Virtual Patrolling to Your Clients' },
+  { slug: 'what-goes-in-a-remote-patrol-proposal', title: 'What Goes in a Remote Patrol Proposal' },
+  { slug: 'adding-remote-patrols-to-alarm-monitoring', title: 'Adding Remote Patrols to Alarm Monitoring' },
   { slug: 'security-audit-checklist', title: 'Security Audit Checklist' },
   { slug: 'video-retention-requirements', title: 'Video Retention Requirements' },
 ];

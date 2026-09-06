@@ -2,6 +2,7 @@ import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import { ROICalculator } from './_components/roi-calculator';
+import Link from 'next/link';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -9,7 +10,7 @@ import { ROICalculator } from './_components/roi-calculator';
  */
 const pageMeta = {
   title: "ROI Calculator | Guard Cost and Agency Revenue",
-  description: "Two calculators, your numbers only. Site operators see what routine guard rounds cost today; security agencies and monitoring companies see the recurring revenue remote patrols would earn.",
+  description: "Two calculators, your numbers only: what routine guard rounds cost a site operator today, and what remote patrols would earn an agency at its own price.",
   path: "/roi-calculator",
 };
 
@@ -39,7 +40,21 @@ export default function ROIPage() {
           <div className="mt-12">
             <ROICalculator />
           </div>
-          <div className="mt-16 rounded-2xl border border-border bg-card p-8 sm:p-10">
+          <div className="mt-16 grid gap-6 lg:grid-cols-2">
+            <div className="rounded-xl border border-border bg-card p-6">
+              <h2 className="font-display text-lg font-bold">Reading the site figures</h2>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                The guard cost is hours times rate times sites; the <Link href="/guides/security-guard-cost-per-hour" className="text-primary hover:underline">guard cost guide</Link> gives typical ranges by region. The rounds figure is how many recorded checks a schedule would run instead, each with a <Link href="/virtual-patrolling/patrol-reports" className="text-primary hover:underline">report</Link>. What it replaces is the routine walk, not the response; the <Link href="/virtual-patrolling/vs-security-guards" className="text-primary hover:underline">guards comparison</Link> covers where a person is still needed.
+              </p>
+            </div>
+            <div className="rounded-xl border border-border bg-card p-6">
+              <h2 className="font-display text-lg font-bold">Reading the agency figures</h2>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                Revenue is client sites times your price. Camzify is quoted for the camera count, so your margin is the difference. <Link href="/partners/for-security-agencies" className="text-primary hover:underline">Security agencies</Link>, <Link href="/partners/for-monitoring-centers" className="text-primary hover:underline">monitoring companies</Link> and <Link href="/partners/for-security-integrators" className="text-primary hover:underline">installers</Link> each have a page on the model, the <Link href="/compare/virtual-patrolling-vs-mobile-patrols" className="text-primary hover:underline">mobile patrols comparison</Link> covers the client conversation, and the <Link href="/guides/what-goes-in-a-remote-patrol-proposal" className="text-primary hover:underline">proposal guide</Link> covers the document.
+              </p>
+            </div>
+          </div>
+          <div className="mt-10 rounded-2xl border border-border bg-card p-8 sm:p-10">
             <span className="font-mono text-mono-sm uppercase text-primary">FAQ</span>
             <h2 className="mt-2 font-display text-2xl font-bold">Frequently asked questions</h2>
             <div className="mt-6"><FAQAccordion items={faqs} /></div>

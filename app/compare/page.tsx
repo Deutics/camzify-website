@@ -19,6 +19,7 @@ export const metadata = generatePageMeta({ ...pageMeta });
 
 const items = [
   { href: '/virtual-patrolling/vs-security-guards', title: 'Virtual Patrolling vs Security Guards' },
+  { href: '/compare/virtual-patrolling-vs-mobile-patrols', title: 'Virtual Patrolling vs Mobile Patrols' },
   { href: '/compare/virtual-patrolling-vs-guard-tour-systems', title: 'Virtual Patrolling vs Guard Tour Systems' },
   { href: '/compare/camzify-vs-traditional-vms', title: 'Camzify vs Traditional VMS' },
   { href: '/compare/ai-video-analytics-vs-motion-detection', title: 'AI Video Analytics vs Motion Detection' },

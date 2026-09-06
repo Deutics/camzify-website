@@ -7,7 +7,7 @@ import { SectionVisual } from '@/components/content/section-visual';
 import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 import { SiteImage } from '@/components/content/site-image';
-import { Shield, Moon, KeyRound, UserX, Paintbrush, ShoppingBag, Truck, ParkingCircle, Radio, Car, MoonStar, ClipboardCheck, Search, DoorClosed, Video, Flame, HeartPulse, HardHat, ShieldAlert, Users } from 'lucide-react';
+import { Shield, Moon, KeyRound, UserX, Paintbrush, ShoppingBag, Truck, ParkingCircle, Radio, Car, MoonStar, ClipboardCheck, Search, DoorClosed, Video, Flame, HeartPulse, HardHat, ShieldAlert, Users, BellRing } from 'lucide-react';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -15,7 +15,7 @@ import { Shield, Moon, KeyRound, UserX, Paintbrush, ShoppingBag, Truck, ParkingC
  */
 const pageMeta = {
   title: "Security Use Cases | What a Patrol Round Checks",
-  description: "Twenty security and safety scenarios and what Camzify does in each: the detections that apply, the checklist a round runs, and where it stops.",
+  description: "Twenty-one security and safety scenarios and what Camzify does in each: the detections that apply, the checklist a round runs, and where it stops.",
   path: "/use-cases",
 };
 
@@ -78,6 +78,7 @@ const groups = [
       { title: 'Remote site monitoring', href: '/use-cases/remote-site-monitoring', icon: Radio, desc: 'Unmanned sites on the same rounds and the same console as staffed ones.', image: '/remote-site-monitoring.jpg' },
       { title: 'Incident investigation', href: '/use-cases/incident-investigation', icon: Search, desc: 'Timestamped detections, patrol snapshots and suspect search to shorten the review.', image: '/incident-investigation.jpg' },
       { title: 'Lock-up and closing checks', href: '/use-cases/lock-up-and-closing-checks', icon: DoorClosed, desc: 'A closing round that checks doors, shutters and lights from the camera, with a frame per item.', image: '/after-hours-security-monitoring.jpg' },
+      { title: 'Alarm verification', href: '/use-cases/alarm-verification', icon: BellRing, desc: 'The camera view and a snapshot on the operator\'s desk at the moment the alarm comes in.', image: '/unauthorized-access-detection.jpg' },
       { title: 'Camera health monitoring', href: '/use-cases/camera-health-monitoring', icon: Video, desc: 'Tampering raised as it happens, offline shown as offline, camera view checked on every round.', image: '/remote-site-monitoring.jpg' },
     ],
   },
@@ -100,7 +101,7 @@ export default function UseCasesHub() {
     <PageShell {...pageMeta} faqs={faqs} schema={[serviceSchema({ name: "Use Cases", description: pageMeta.description, path: "/use-cases" })]} breadcrumbs={[{ label: 'Use Cases' }]}>
       <FeatureHero
         eyebrow="Use cases"
-        title="Twenty situations, one set of rounds"
+        title="Twenty-one situations, one set of rounds"
         lede={<>
           <strong className="font-semibold text-foreground">
             A use case is a situation a security manager is responsible for, and the checklist,

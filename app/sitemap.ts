@@ -135,6 +135,7 @@ const useCases = group(
     '/use-cases/violence-and-weapons-detection',
     '/use-cases/lock-up-and-closing-checks',
     '/use-cases/camera-health-monitoring',
+    '/use-cases/alarm-verification',
     '/use-cases/occupancy-monitoring',
   ],
   0.7,
@@ -168,6 +169,7 @@ const industries = group(
 const compare = group(
   [
     '/compare/virtual-patrolling-vs-guard-tour-systems',
+    '/compare/virtual-patrolling-vs-mobile-patrols',
     '/compare/camzify-vs-traditional-vms',
     '/compare/ai-video-analytics-vs-motion-detection',
     '/compare/cloud-vms-vs-on-premise',
@@ -194,6 +196,9 @@ const guides = group(
     '/guides/how-to-reduce-false-alarms',
     '/guides/onvif-and-rtsp-explained',
     '/guides/guard-tour-systems-explained',
+    '/guides/how-to-sell-virtual-patrolling-to-clients',
+    '/guides/what-goes-in-a-remote-patrol-proposal',
+    '/guides/adding-remote-patrols-to-alarm-monitoring',
     '/guides/security-audit-checklist',
     '/guides/video-retention-requirements',
   ],
