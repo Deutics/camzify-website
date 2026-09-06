@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { ComparisonTable } from '@/components/content/comparison-table';
 import Link from 'next/link';
@@ -10,7 +11,7 @@ import Link from 'next/link';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Virtual Patrolling vs Guard Tour Systems | Comparison",
+  title: "Virtual Patrolling vs Guard Tour Systems",
   description: "Compare Camzify virtual patrolling with traditional guard tour systems like PIPE and Trackforce. Understand the difference between presence verification and condition verification.",
   path: "/compare/virtual-patrolling-vs-guard-tour-systems",
 };
@@ -19,17 +20,24 @@ export const metadata = generatePageMeta({ ...pageMeta });
 
 const sides = 'Virtual Patrolling vs Guard Tour Systems'.split(' vs ');
 
+const faqs = [
+  { question: 'Do I have to choose one?', answer: "No. Many sites keep the tag system for the guard's own accountability and add the virtual round for the condition at each point. The two records line up by time." },
+  { question: 'What does each record contain?', answer: 'A guard tour record: checkpoint ID and time. A virtual round record: each item, its result, the frame it was judged against, before and after frames on fixes, and a compliance percentage.' },
+  { question: 'Which works without a guard on site?', answer: 'The virtual round. It runs on schedule with nobody in the loop and messages the guard designated for a camera when a check fails.' },
+  { question: 'How are they priced?', answer: "A guard tour system is priced per device and per guard; Camzify is priced per camera and quoted. Neither figure is on this page; the ROI calculator works the reader's side." },
+];
+
 export default function VirtualPatrollingVsGuardTourSystemsPage() {
   return (
-    <PageShell {...pageMeta} breadcrumbs={[
+    <PageShell {...pageMeta} faqs={faqs} breadcrumbs={[
       { label: 'Compare', href: '/compare' },
       { label: 'Virtual Patrolling vs Guard Tour Systems' },
     ]}>
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Virtual Patrolling vs Guard Tour Systems</h1>
+          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Virtual patrolling vs guard tour systems</h1>
           <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            An honest comparison of virtual patrolling vs guard tour systems across the dimensions that matter most to security decision-makers. Both approaches have strengths — this table helps you decide which fits your facility.
+            An honest comparison of virtual patrolling vs guard tour systems across the dimensions that matter most to security decision-makers. Both approaches have strengths, this table helps you decide which fits your facility.
           </p>
 
           <div className="mt-12">
@@ -61,6 +69,7 @@ export default function VirtualPatrollingVsGuardTourSystemsPage() {
           </div>
         </div>
       </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

@@ -1,11 +1,11 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { FeatureHero } from '@/components/content/feature-hero';
 import { PhotoFigure } from '@/components/content/photo-figure';
 import { HeroPlaceholder } from '@/components/content/hero-placeholder';
 import { SectionVisual } from '@/components/content/section-visual';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 import { Bell, User, MessageSquare, ArrowRight, AlertTriangle, Phone } from 'lucide-react';
 
@@ -57,7 +57,7 @@ export default function GuardNotificationsPage() {
           <div className="mt-12 grid gap-8 sm:grid-cols-3">
             {[
               { icon: User, title: 'Named guard per camera', desc: 'Every camera in the patrol sequence has an assigned guard with contact details. No ambiguity about who is responsible.' },
-              { icon: MessageSquare, title: 'Predefined messages', desc: 'Each checklist item has a pre-written escalation message. "Gate left open after delivery — close immediately."' },
+              { icon: MessageSquare, title: 'Predefined messages', desc: 'Each checklist item has a pre-written escalation message. "Gate left open after delivery, close immediately."' },
               { icon: AlertTriangle, title: 'Instant delivery', desc: 'Notifications are sent the moment a failure is logged. The guard knows what happened and where before anyone else.' },
             ].map((item: any, i: number) => {
               const Icon = item?.icon ?? Bell;
@@ -147,13 +147,7 @@ export default function GuardNotificationsPage() {
             </ScrollReveal>
           </div>
 
-          <div className="mt-16 rounded-2xl border border-border bg-card p-8 sm:p-10">
-            <span className="font-mono text-mono-sm uppercase text-primary">FAQ</span>
-            <h2 className="mt-2 font-display text-2xl font-bold">Frequently asked questions</h2>
-            <div className="mt-6">
-              <FAQAccordion items={faqs} />
-            </div>
-          </div>
+          <FaqSection items={faqs} inline />
 
           <div className="mt-16">
             <h2 className="font-display text-2xl font-bold">Related</h2>

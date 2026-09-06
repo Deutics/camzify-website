@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
 import { ArrowLeftRight } from 'lucide-react';
@@ -26,9 +27,16 @@ const items = [
   { href: '/compare/cloud-vms-vs-on-premise', title: 'Cloud VMS vs On-Premise VMS' },
 ];
 
+const faqs = [
+  { question: 'Are these comparisons independent?', answer: 'No, and we do not pretend so. Each page names what the alternative does well and what Camzify does not do, which is the only way a comparison written by a vendor earns any trust.' },
+  { question: 'Why is there no pricing comparison?', answer: "Because we do not publish our prices and will not characterise other vendors'. Ask for a quote and compare it against what routine rounds cost you today." },
+  { question: 'Which comparison should I read first?', answer: 'If you employ guards or sell guarding, virtual patrolling versus security guards or versus mobile patrols. If you are choosing software, cloud versus on-premise.' },
+  { question: 'Can I see the product rather than a table?', answer: 'Yes. The interactive demonstration on the virtual patrolling page runs a manual round end to end, and a demo runs one on your own cameras.' },
+];
+
 export default function CompareHub() {
   return (
-    <PageShell {...pageMeta} breadcrumbs={[{ label: 'Compare' }]}>
+    <PageShell {...pageMeta} faqs={faqs} breadcrumbs={[{ label: 'Compare' }]}>
       <section className="pb-20">
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Comparisons</h1>
@@ -50,6 +58,7 @@ export default function CompareHub() {
           </div>
         </div>
       </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

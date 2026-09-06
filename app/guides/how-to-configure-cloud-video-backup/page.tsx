@@ -1,6 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
-import { FAQAccordion } from '@/components/content/faq-accordion';
+import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { HowToSteps, HowToNote, type HowToStep } from '@/components/content/how-to-steps';
 import { howToSchema } from '@/lib/seo';
@@ -12,7 +12,7 @@ import Link from 'next/link';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "How to Configure Cloud Video Backup | Retention & Storage Guide",
+  title: "How to Configure Cloud Video Backup",
   description: "Choose which cameras record, pick continuous or scheduled recording, set retention per camera, read the storage estimate honestly, and export a clip when you need it.",
   path: "/guides/how-to-configure-cloud-video-backup",
 };
@@ -45,11 +45,11 @@ const steps: HowToStep[] = [
 const faqs = [
   {
     question: 'How much cloud storage will my cameras actually use?',
-    answer: 'It scales with bitrate, hours recorded and retention days, so the three levers are resolution, recording schedule and how long you keep footage. The estimate shown during configuration multiplies those out, but treat it as a planning figure — scene activity moves bitrate around, so a busy forecourt overshoots and a still corridor undershoots. Usage settles into a steady state after the first full retention cycle, because from then on old footage is deleted at the same rate new footage arrives.',
+    answer: 'It scales with bitrate, hours recorded and retention days, so the three levers are resolution, recording schedule and how long you keep footage. The estimate shown during configuration multiplies those out, but treat it as a planning figure, scene activity moves bitrate around, so a busy forecourt overshoots and a still corridor undershoots. Usage settles into a steady state after the first full retention cycle, because from then on old footage is deleted at the same rate new footage arrives.',
   },
   {
     question: 'Which saves more, shorter retention or scheduled recording?',
-    answer: 'Scheduled recording, usually, because it cuts hours rather than days and most sites have long predictable stretches with nothing to record. Halving the recording window roughly halves that camera’s storage. Shortening retention helps too, but it is the lever that costs you evidence — an incident discovered three weeks later is only recoverable if retention covers it.',
+    answer: 'Scheduled recording, usually, because it cuts hours rather than days and most sites have long predictable stretches with nothing to record. Halving the recording window roughly halves that camera’s storage. Shortening retention helps too, but it is the lever that costs you evidence, an incident discovered three weeks later is only recoverable if retention covers it.',
   },
   {
     question: 'What happens to footage if I delete a camera?',
@@ -104,17 +104,8 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <section className="pb-16">
-        <div className="mx-auto max-w-site px-6">
-          <div className="rounded-2xl border border-border bg-card p-8 sm:p-10">
-            <span className="font-mono text-mono-sm uppercase text-primary">FAQ</span>
-            <h2 className="mt-2 font-display text-2xl font-bold">Frequently asked questions</h2>
-            <div className="mt-6">
-              <FAQAccordion items={faqs} />
-            </div>
-          </div>
-        </div>
-      </section>
+
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

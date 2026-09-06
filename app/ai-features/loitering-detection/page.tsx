@@ -1,10 +1,11 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
+import { FeatureHero } from '@/components/content/feature-hero';
 import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import Link from 'next/link';
-import { RoadmapBadge } from '@/components/content/roadmap-badge';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -12,37 +13,44 @@ import { RoadmapBadge } from '@/components/content/roadmap-badge';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Loitering Detection | AI Loitering Detection Software",
+  title: "Loitering Detection | In Development",
   description: "Loitering detection is in development at Camzify. Configurable dwell-time thresholds will distinguish brief visits from lingering subjects.",
   path: "/ai-features/loitering-detection",
 };
 
 export const metadata = generatePageMeta({ ...pageMeta });
 
+const faqs = [
+  { question: 'Is loitering detection available today?', answer: 'No. It is in development and marked as such on the roadmap. The page describes what it will do and does not claim it as a current capability.' },
+  { question: 'What will it detect?', answer: 'A tracked person remaining inside a defined zone beyond a dwell time you set, which is different from presence: a person walking through does not qualify, a person waiting does.' },
+  { question: 'What can I use for that scenario now?', answer: 'Zone intrusion detection with a notification window, and automated patrol rounds with scene observation, which watch a scene for a short period rather than judging one frame. The risk detection page covers the round side.' },
+  { question: 'Will it need new cameras or licences?', answer: 'It will run on the same cameras and be licensed per camera instance like every other detection. We will not publish a date until it ships.' },
+];
+
 export default function Page() {
   return (
-    <PageShell {...pageMeta} breadcrumbs={[
+    <PageShell {...pageMeta} faqs={faqs} breadcrumbs={[
       { label: 'AI Features', href: '/ai-features' },
       { label: 'Loitering Detection' },
     ]}>
+      <FeatureHero
+        eyebrow="In development · AI detection"
+        title="Loitering detection"
+        lede={<><strong className="font-semibold text-foreground">Loitering detection is an in-development feature that will detect subjects who remain in a defined area beyond a configurable dwell-time threshold.</strong> Brief entries will be ignored; lingering subjects will escalate an alert. Until this feature ships, zone intrusion detection covers many of the same scenarios by alerting on any entry into a restricted zone.</>}
+        facts={['On the roadmap, not yet in production', 'Dwell time in a zone, not just presence', 'Will run on the same cameras and account']}
+        primary={{ href: '/roadmap', label: 'See the roadmap' }}
+        secondary={{ href: '/ai-features', label: 'Detections available today' }}
+        visual={<PhotoFigure src="/feature-loitering-detection-1.jpg" alt="A person waiting in a lit street at night, the scene a loitering rule would watch" priority />}
+      />
+
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <RoadmapBadge className="mb-4" />
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Loitering Detection</h1>
-          <p className="mt-6 max-w-2xl text-body text-muted-foreground">Loitering detection is an in-development feature that will detect subjects who remain in a defined area beyond a configurable dwell-time threshold. Brief entries will be ignored; lingering subjects will escalate an alert. Until this feature ships, zone intrusion detection covers many of the same scenarios by alerting on any entry into a restricted zone.</p>
-          
-          <div className="mt-6 rounded-xl border border-warn/30 bg-warn/5 p-6">
+          <div className="rounded-xl border border-warn/30 bg-warn/5 p-6">
             <p className="text-sm text-warn">
               This feature is on the roadmap and not yet available in production. For current detection capabilities, see our <Link href="/ai-features" className="text-warn underline">live detection features</Link>.
             </p>
           </div>
-
-          <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
-            <ScrollReveal>
-              <PhotoFigure src="/feature-loitering-detection-1.jpg" alt="Loitering Detection visualization on camera feed" caption="Loitering detection" priority />
-            </ScrollReveal>
-            <ScrollReveal delay={0.06}>
-              <div>
+          <div className="mt-12 max-w-prose">
                 <h2 className="font-display text-2xl font-bold">In a patrol round</h2>
                 <p className="mt-4 text-muted-foreground">
                   During a <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrol</Link> round,
@@ -50,8 +58,6 @@ export default function Page() {
                   and are logged in the patrol report.
                 </p>
               </div>
-            </ScrollReveal>
-          </div>
 
           <div className="mt-16">
             <h2 className="font-display text-2xl font-bold">Related</h2>
@@ -66,6 +72,7 @@ export default function Page() {
           </div>
         </div>
       </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

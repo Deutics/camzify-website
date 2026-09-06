@@ -1,11 +1,12 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { FaqSection } from '@/components/content/faq-section';
 import { PhotoFigure } from '@/components/content/photo-figure';
 import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 import { SiteImage } from '@/components/content/site-image';
 
@@ -16,7 +17,7 @@ import { SiteImage } from '@/components/content/site-image';
  */
 const pageMeta = {
   title: "AI Security for Retail | Video Surveillance",
-  description: "Camzify provides AI-powered virtual patrolling and video analytics for retail — automated patrols, real-time alerts, and compliance reports.",
+  description: "Camzify provides AI-powered virtual patrolling and video analytics for retail, automated patrols, real-time alerts, and compliance reports.",
   path: "/industries/retail",
 };
 
@@ -34,27 +35,35 @@ const faqs = [
   { question: 'How long does it take to get a retail store live on Camzify?', answer: 'Most stores connect their existing cameras through the Camzify Connector or a direct RTSP feed, so there\'s no new hardware to install. Once the feeds are connected, zones and patrol schedules for the stockroom, back door, and sales floor are typically configured within a few days.' },
   { question: 'Will Camzify flag every customer walking past a stockroom camera?', answer: 'No. Detections are scoped to defined zones and time windows rather than the whole camera view, so a stockroom zone only triggers when someone enters it, and it can be scheduled to stay quiet during hours when staff are expected to be there. This keeps alert volume focused on genuine deviations instead of routine foot traffic.' },
   { question: 'Does Camzify store or identify customers in a way that raises privacy concerns?', answer: 'Camzify processes video from cameras you already operate and does not perform facial recognition or build customer identity profiles. Footage and alert clips are retained and access-controlled according to your account settings, and detections are based on presence, zones, and movement rather than personal identity.' },
-  { question: 'How does Camzify compare to adding more loss prevention staff?', answer: 'A loss prevention hire covers one location during scheduled hours. Camzify runs the same zone checks continuously, across every connected store, without shift gaps or vacation coverage — and it\'s typically far cheaper per location than adding headcount. Many retailers use it to extend a smaller loss prevention team\'s reach rather than replace it outright.' },
+  { question: 'How does Camzify compare to adding more loss prevention staff?', answer: 'A loss prevention hire covers one location during scheduled hours. Camzify runs the same zone checks continuously, across every connected store, without shift gaps or vacation coverage, and it\'s typically far cheaper per location than adding headcount. Many retailers use it to extend a smaller loss prevention team\'s reach rather than replace it outright.' },
 ];
 
 export default function RetailPage() {
   return (
-    <PageShell {...pageMeta} schema={[serviceSchema({ name: "AI Security for Retail", description: "Camzify provides AI-powered virtual patrolling and video analytics for retail — automated patrols, real-time alerts, and compliance reports.", path: "/industries/retail", audience: "Retail" })]} faqs={faqs} breadcrumbs={[
+    <PageShell {...pageMeta} schema={[serviceSchema({ name: "AI Security for Retail", description: "Camzify provides AI-powered virtual patrolling and video analytics for retail, automated patrols, real-time alerts, and compliance reports.", path: "/industries/retail", audience: "Retail" })]} faqs={faqs} breadcrumbs={[
       { label: 'Industries', href: '/industries' },
       { label: 'Retail' },
     ]}>
+      <FeatureHero
+        eyebrow="Industry · retail"
+        title="AI security for retail"
+        lede={<><strong className="font-semibold text-foreground">Retail environments face security challenges that cameras alone cannot solve and manned guards cannot cover consistently.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.</>}
+        facts={['Stockrooms and back-of-house areas left unchecked during…', 'Back doors propped open for deliveries and never re-secured', 'Fitting rooms and blind aisles with inconsistent camera coverage']}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}
+        visual={<SiteImage
+              src="/ai-security-for-retail.jpg" alt="AI-monitored retail store showing bounding boxes tracking shoppers and bags on the sales floor, with mall and checkout scenes" className="w-full rounded-xl"
+              width={1600}
+              height={900}
+              sizes="(max-width: 1024px) 100vw, 60vw"
+            priority />}
+      />
+
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">AI Security for Retail</h1>
-          <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            Retail environments face security challenges that cameras alone cannot solve and manned guards cannot cover consistently. Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.
-          </p>
-
-          <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
-            <ScrollReveal>
-              <div>
-                <h2 className="font-display text-2xl font-bold">Common retail security gaps Camzify closes:</h2>
-                <ul className="mt-4 space-y-3 text-muted-foreground">
+          <div>
+            <h2 className="font-display text-2xl font-bold">Common retail security gaps Camzify closes:</h2>
+            <ul className="mt-4 grid gap-3 text-muted-foreground sm:grid-cols-2">
                   <li className="flex gap-2">• Stockrooms and back-of-house areas left unchecked during busy floor hours</li>
                   <li className="flex gap-2">• Back doors propped open for deliveries and never re-secured</li>
                   <li className="flex gap-2">• Fitting rooms and blind aisles with inconsistent camera coverage</li>
@@ -62,15 +71,6 @@ export default function RetailPage() {
                   <li className="flex gap-2">• Multi-location chains with no centralized view of every store's status</li>
                   <li className="flex gap-2">• Loss prevention relying on manual video review after the fact</li>
                 </ul>
-              </div>
-            </ScrollReveal>
-            <SiteImage
-              src="/ai-security-for-retail.jpg" alt="AI-monitored retail store showing bounding boxes tracking shoppers and bags on the sales floor, with mall and checkout scenes" className="w-full rounded-xl"
-              width={1600}
-              height={900}
-              priority
-              sizes="(max-width: 1024px) 100vw, 60vw"
-            />
           </div>
 
           <div className="mt-16">
@@ -78,8 +78,8 @@ export default function RetailPage() {
               <h2 className="font-display text-2xl font-bold">Why retail needs continuous AI monitoring</h2>
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
                 <p>A store's exposure isn't limited to trading hours. Deliveries arrive before opening, staff cycle in and out of the stockroom all day, and the building sits empty overnight with a back door, fire exit, and loading area that no one is watching. A manager doing a closing walkthrough checks the sales floor, not every blind corner.</p>
-                <p>Standard CCTV records all of it, but nobody is reviewing hours of footage in real time — the recording only becomes useful after a loss has already happened, when it's too late to intervene. And a single loss prevention staffer, even a good one, can't be in the stockroom, at the back door, and on the sales floor at the same moment.</p>
-                <p>Virtual patrolling closes that gap by running scheduled AI checks across every camera zone continuously — sales floor, stockroom, back door, and loading area — flagging deviations the instant they happen and logging every check, so gaps in coverage stop being invisible.</p>
+                <p>Standard CCTV records all of it, but nobody is reviewing hours of footage in real time, the recording only becomes useful after a loss has already happened, when it's too late to intervene. And a single loss prevention staffer, even a good one, can't be in the stockroom, at the back door, and on the sales floor at the same moment.</p>
+                <p>Virtual patrolling closes that gap by running scheduled AI checks across every camera zone continuously, sales floor, stockroom, back door, and loading area, flagging deviations the instant they happen and logging every check, so gaps in coverage stop being invisible.</p>
               </div>
             </ScrollReveal>
           </div>
@@ -112,7 +112,7 @@ export default function RetailPage() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Building the patrol route</h3>
                 <p className="mt-2 text-muted-foreground">
-                  A patrol sequence is set up once, ordering every camera stop — stockroom, back door, fitting room corridor, sales floor — into a single route that runs on a configurable schedule.
+                  A patrol sequence is set up once, ordering every camera stop, stockroom, back door, fitting room corridor, sales floor, into a single route that runs on a configurable schedule.
                 </p>
 
                 <h3 className="mt-6 font-display text-lg font-bold">Checking each stop</h3>
@@ -210,14 +210,7 @@ export default function RetailPage() {
         </div>
       </section>
 
-      <section className="bg-muted/30 py-16 sm:py-20">
-        <div className="mx-auto max-w-site px-6 text-center">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">Frequently asked questions</h2>
-          <div className="mx-auto mt-8 max-w-3xl text-left">
-            <FAQAccordion items={faqs} />
-          </div>
-        </div>
-      </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

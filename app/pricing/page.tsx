@@ -1,7 +1,7 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 import { Check, ArrowRight, Shield, Camera, HardDrive } from 'lucide-react';
 
@@ -58,7 +58,7 @@ const tiers = [
 ];
 
 const faqs = [
-  { question: 'How does per-camera pricing work?', answer: 'You pay per camera per month. Each camera in your account counts toward your tier limit. AI detection features and virtual patrolling are included — there is no separate charge per feature.' },
+  { question: 'How does per-camera pricing work?', answer: 'You pay per camera per month. Each camera in your account counts toward your tier limit. AI detection features and virtual patrolling are included, there is no separate charge per feature.' },
   { question: 'What is instance licensing?', answer: 'Each AI detection feature (line intrusion, zone intrusion, etc.) runs as an instance on a camera. Your plan includes a set number of instances per feature. A parent account can allocate instances to sub-accounts for multi-site deployments.' },
   { question: 'How does Camzify compare to hiring a guard?', answer: 'A single security guard costs $15–$30 per hour depending on region. Three shifts for 24/7 coverage means $105,000+ per year per site. Camzify patrols every camera on your site for a fraction of that cost. Use our ROI calculator for exact figures.' },
   { question: 'Is there a free trial?', answer: 'Yes. The free trial lets you connect your own cameras and run patrol rounds with no credit card required. You get full access to virtual patrolling and core detection features.' },
@@ -74,7 +74,7 @@ export default function PricingPage() {
             <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Pricing</h1>
             <p className="mt-6 text-body text-muted-foreground">
               Virtual patrolling is priced per camera per month. Compare against what you currently
-              pay for manned guarding — not against other software. The <Link href="/roi-calculator" className="text-primary hover:underline">ROI calculator</Link> shows
+              pay for manned guarding, not against other software. The <Link href="/roi-calculator" className="text-primary hover:underline">ROI calculator</Link> shows
               the exact savings for your site.
             </p>
           </div>
@@ -159,7 +159,7 @@ export default function PricingPage() {
             <p className="mt-4 text-xs text-muted-foreground">
               Guard cost estimates are based on published industry averages and vary by region and
               contract terms. Camzify is licensed per camera per month, so the comparable figure
-              depends on your camera count rather than headcount — the{' '}
+              depends on your camera count rather than headcount, the{' '}
               <Link href="/roi-calculator" className="text-primary hover:underline">ROI calculator</Link> models
               it against your own site, and a demo returns an exact quote.
             </p>
@@ -172,7 +172,7 @@ export default function PricingPage() {
               <p className="mt-4 max-w-2xl text-muted-foreground">
                 Your plan includes a set number of AI feature instances. An instance is one detection
                 feature running on one camera. The License Plan page in your account shows: total instances,
-                activated by you, granted to sub-users, and available — per feature.
+                activated by you, granted to sub-users, and available, per feature.
               </p>
               <p className="mt-4 max-w-2xl text-muted-foreground">
                 For multi-site deployments, a parent account allocates instances to child accounts.
@@ -183,13 +183,7 @@ export default function PricingPage() {
             </ScrollReveal>
           </section>
 
-          {/* FAQ */}
-          <section className="mt-20">
-            <h2 className="font-display text-2xl font-bold">Pricing FAQ</h2>
-            <div className="mt-8 max-w-3xl">
-              <FAQAccordion items={faqs} />
-            </div>
-          </section>
+          <FaqSection items={faqs} inline heading="Pricing, answered" />
         </div>
       </section>
     </PageShell>

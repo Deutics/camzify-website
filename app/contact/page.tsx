@@ -11,7 +11,7 @@ import Link from 'next/link';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Contact Us",
+  title: "Contact Camzify | Quotes, Demos and Support",
   description: "Get in touch with the Camzify team. Reach us by email, phone, or submit a message through our contact form.",
   path: "/contact",
 };

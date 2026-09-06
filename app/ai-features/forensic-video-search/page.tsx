@@ -1,9 +1,10 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { FaqSection } from '@/components/content/faq-section';
 import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 
 /**
@@ -20,11 +21,11 @@ const pageMeta = {
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
-  { question: 'What is AI suspect search?', answer: 'AI suspect search (also called forensic video search) lets an investigator type a plain-language description — clothing color, bag type, approximate age — and retrieve every camera appearance that matches, across every indexed camera and time window on the site. It replaces manually scrubbing through hours of footage per camera.' },
-  { question: 'How accurate is the match?', answer: 'Every result is a confirmed object track scored with a confidence value, and results are ranked by match strength. It is a search and shortlist tool for investigators, not an identity-verification system — final confirmation is always a human decision.' },
+  { question: 'What is AI suspect search?', answer: 'AI suspect search (also called forensic video search) lets an investigator type a plain-language description, clothing color, bag type, approximate age, and retrieve every camera appearance that matches, across every indexed camera and time window on the site. It replaces manually scrubbing through hours of footage per camera.' },
+  { question: 'How accurate is the match?', answer: 'Every result is a confirmed object track scored with a confidence value, and results are ranked by match strength. It is a search and shortlist tool for investigators, not an identity-verification system, final confirmation is always a human decision.' },
   { question: 'Does it work across multiple cameras and sites?', answer: 'Yes. Suspect search runs against the appearance index built from every connected camera on a site, and can be scoped to a single site or across a multi-site account. Combine it with the cross-camera journey map to see a matched subject\'s full path.' },
   { question: 'How is this different from typical VMS video search?', answer: 'Most video management systems search by camera and timestamp only, which means an investigator already has to know where and when to look. AI suspect search matches on a plain-language description across every indexed camera and time window at once, so no starting point is needed.' },
-  { question: 'Do I need a photo of the suspect to search?', answer: 'No. A plain-language description is enough — clothing color, bag type, approximate age, direction of travel. A photo isn\'t required, though richer attribute detail generally narrows results faster.' },
+  { question: 'Do I need a photo of the suspect to search?', answer: 'No. A plain-language description is enough, clothing color, bag type, approximate age, direction of travel. A photo isn\'t required, though richer attribute detail generally narrows results faster.' },
   { question: 'Is this facial recognition?', answer: 'No. AI suspect search matches on confirmed object tracks and structured attributes like clothing and general appearance, not facial biometrics. It is built for retrieval and shortlisting, with final identification always left to a human reviewer.' },
 ];
 
@@ -34,20 +35,23 @@ export default function Page() {
       { label: 'AI Features', href: '/ai-features' },
       { label: 'AI Suspect Search' },
     ]}>
+      <FeatureHero
+        eyebrow="AI detection · AI suspect search"
+        title="AI suspect search"
+        lede={<><strong className="font-semibold text-foreground">AI suspect search builds a per-camera appearance index and lets investigators describe a person
+            in plain language — no photo required — to retrieve every matching appearance across indexed
+            cameras and time windows.</strong> What used to take hours of manual footage review takes seconds.</>}
+        facts={['A person matching a plain-language description across every…', 'Every timestamped appearance of that match, ranked by confidence', 'Matches across a single site or a full multi-site account']}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/ai-features', label: 'All 22 detections' }}
+        visual={<PhotoFigure src="/feature-forensic-video-search-1.jpg" alt="Camera feed with a search query overlay and highlighted matching subject" caption="Ai suspect search" priority />}
+      />
+
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">AI Suspect Search</h1>
-          <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            AI suspect search builds a per-camera appearance index and lets investigators describe a person
-            in plain language — no photo required — to retrieve every matching appearance across indexed
-            cameras and time windows. What used to take hours of manual footage review takes seconds.
-          </p>
-
-          <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
-            <ScrollReveal>
-              <div>
-                <h2 className="font-display text-2xl font-bold">This capability finds:</h2>
-                <ul className="mt-4 space-y-3 text-muted-foreground">
+          <div>
+            <h2 className="font-display text-2xl font-bold">This capability finds:</h2>
+            <ul className="mt-4 grid gap-3 text-muted-foreground sm:grid-cols-2">
                   <li className="flex gap-2">• A person matching a plain-language description across every camera on-site</li>
                   <li className="flex gap-2">• Every timestamped appearance of that match, ranked by confidence</li>
                   <li className="flex gap-2">• Matches across a single site or a full multi-site account</li>
@@ -55,17 +59,14 @@ export default function Page() {
                   <li className="flex gap-2">• Matches without a reference photo, sketch, or facial recognition template</li>
                   <li className="flex gap-2">• Historical appearances going back through the full retention window</li>
                 </ul>
-              </div>
-            </ScrollReveal>
-            <PhotoFigure src="/feature-forensic-video-search-1.jpg" alt="Camera feed with a search query overlay and highlighted matching subject" caption="Ai suspect search" priority />
           </div>
 
           <div className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Why AI suspect search matters</h2>
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
-                <p>When an incident is reported after the fact, the usual starting point is a camera and an approximate time — and from there, an investigator scrubs through footage frame by frame hoping to spot the right person. On a site with dozens of cameras, that process doesn't scale: every extra camera in the search radius adds hours, and a subject who moved through several areas means repeating the same manual review again and again.</p>
-                <p>Standard video management systems make this worse by design. Search is built around camera and timestamp, which assumes the investigator already knows where and when to look. When the only lead is a description — "a man in a gray jacket with a backpack" — there's no way to query for that directly, so the review still comes down to eyes on footage.</p>
+                <p>When an incident is reported after the fact, the usual starting point is a camera and an approximate time, and from there, an investigator scrubs through footage frame by frame hoping to spot the right person. On a site with dozens of cameras, that process doesn't scale: every extra camera in the search radius adds hours, and a subject who moved through several areas means repeating the same manual review again and again.</p>
+                <p>Standard video management systems make this worse by design. Search is built around camera and timestamp, which assumes the investigator already knows where and when to look. When the only lead is a description, "a man in a gray jacket with a backpack", there's no way to query for that directly, so the review still comes down to eyes on footage.</p>
                 <p>AI suspect search removes that bottleneck by indexing every subject's appearance as it happens, so a description becomes a query instead of a starting assumption. What would have been an afternoon of manual review across multiple cameras becomes a search that returns ranked results in seconds.</p>
               </div>
             </ScrollReveal>
@@ -85,7 +86,7 @@ export default function Page() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Matching a description</h3>
                 <p className="mt-2 text-muted-foreground">
-                  An investigator types a plain-language description into the search bar — clothing color, bag type, approximate age. The system matches the description against the index directly, with no need to know which camera or time window to start from.
+                  An investigator types a plain-language description into the search bar, clothing color, bag type, approximate age. The system matches the description against the index directly, with no need to know which camera or time window to start from.
                 </p>
 
                 <h3 className="mt-6 font-display text-lg font-bold">Ranked results</h3>
@@ -101,7 +102,7 @@ export default function Page() {
               <div>
                 <h2 className="font-display text-2xl font-bold">Configuration</h2>
                 <p className="mt-4 text-muted-foreground">
-                  No manual setup is required per camera — indexing runs automatically wherever AI attribute
+                  No manual setup is required per camera, indexing runs automatically wherever AI attribute
                   extraction is enabled. Search can be configured with:
                 </p>
                 <ul className="mt-4 space-y-3 text-muted-foreground">
@@ -177,14 +178,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="bg-muted/30 py-16 sm:py-20">
-        <div className="mx-auto max-w-site px-6 text-center">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">Frequently asked questions</h2>
-          <div className="mx-auto mt-8 max-w-3xl text-left">
-            <FAQAccordion items={faqs} />
-          </div>
-        </div>
-      </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

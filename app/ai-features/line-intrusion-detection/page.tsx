@@ -1,9 +1,10 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { FaqSection } from '@/components/content/faq-section';
 import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 
 /**
@@ -12,7 +13,7 @@ import Link from 'next/link';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Line Intrusion Detection | Virtual Tripwire Camera Software",
+  title: "Line Intrusion Detection | Virtual Tripwire",
   description: "Camzify line intrusion detection places a virtual tripwire across any area with directional control. Fires on confirmed object tracks, not pixel motion.",
   path: "/ai-features/line-intrusion-detection",
 };
@@ -20,9 +21,9 @@ const pageMeta = {
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
-  { question: 'What is line intrusion detection?', answer: 'Line intrusion detection, also called line crossing detection or virtual tripwire, is an AI capability that triggers an alert when a tracked object crosses a defined line in the camera view. Unlike pixel-based motion detection, it operates on confirmed object tracks — meaning shadows, lighting changes, and camera noise do not trigger false alarms.' },
-  { question: 'Can I set the crossing direction?', answer: 'Yes. Each line can be configured for directional control — left-to-right, right-to-left, or both directions. This is essential for scenarios like one-way gates, loading dock entrances, or perimeter fences where you only care about inbound crossings.' },
-  { question: 'How is this different from motion detection?', answer: 'Motion detection responds to pixel changes in the frame. Line intrusion detection responds to a confirmed object track crossing a specific line. The difference is precision — motion detection catches everything including irrelevant movement; line intrusion catches only what matters.' },
+  { question: 'What is line intrusion detection?', answer: 'Line intrusion detection, also called line crossing detection or virtual tripwire, is an AI capability that triggers an alert when a tracked object crosses a defined line in the camera view. Unlike pixel-based motion detection, it operates on confirmed object tracks, meaning shadows, lighting changes, and camera noise do not trigger false alarms.' },
+  { question: 'Can I set the crossing direction?', answer: 'Yes. Each line can be configured for directional control, left-to-right, right-to-left, or both directions. This is essential for scenarios like one-way gates, loading dock entrances, or perimeter fences where you only care about inbound crossings.' },
+  { question: 'How is this different from motion detection?', answer: 'Motion detection responds to pixel changes in the frame. Line intrusion detection responds to a confirmed object track crossing a specific line. The difference is precision, motion detection catches everything including irrelevant movement; line intrusion catches only what matters.' },
   { question: 'How many lines can I draw on one camera?', answer: 'A single camera can support multiple lines, each with its own direction, sensitivity, and schedule. A wide-angle view of a fence line, for example, can carry separate lines for a vehicle gate and a pedestrian gap without needing a second camera.' },
   { question: 'Will it fire on animals or blowing debris?', answer: 'The underlying object tracker is trained to distinguish people, vehicles, and other confirmed object classes from environmental movement like blowing leaves, rain, or small animals. Object classes to alert on can also be restricted per line, so a perimeter line can be set to ignore anything that isn\'t a person or vehicle.' },
   { question: 'Does line intrusion detection work at night?', answer: 'Detection quality at night depends on the camera\'s own low-light or infrared performance rather than the detection model itself. Any camera feed with enough visibility for a human reviewer to identify a person or vehicle is enough for the tracker to build a confirmed object track.' },
@@ -34,37 +35,37 @@ export default function LineIntrusionPage() {
       { label: 'AI Features', href: '/ai-features' },
       { label: 'Line Intrusion Detection' },
     ]}>
+      <FeatureHero
+        eyebrow="AI detection · Line intrusion detection"
+        title="Line intrusion detection"
+        lede={<><strong className="font-semibold text-foreground">Line intrusion detection is a virtual tripwire placed across any area in the camera view, with
+            directional control.</strong> It fires when a confirmed object track crosses the line — not when a shadow
+            moves or a light flickers. This is the foundation of perimeter security in Camzify.</>}
+        facts={['People crossing a perimeter fence line', 'Vehicles entering a restricted loading zone', 'Directional crossings at one-way gates or turnstiles']}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/ai-features', label: 'All 22 detections' }}
+        visual={<PhotoFigure src="/feature-line-intrusion-detection-1.jpg" alt="Camera view showing a virtual tripwire line with directional arrows and detected object crossing" caption="Line intrusion detection" priority />}
+      />
+
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Line Intrusion Detection</h1>
-          <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            Line intrusion detection is a virtual tripwire placed across any area in the camera view, with
-            directional control. It fires when a confirmed object track crosses the line — not when a shadow
-            moves or a light flickers. This is the foundation of perimeter security in Camzify.
-          </p>
-
-          <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
-            <ScrollReveal>
-              <div>
-                <h2 className="font-display text-2xl font-bold">This capability detects and alerts on:</h2>
-                <ul className="mt-4 space-y-3 text-muted-foreground">
+          <div>
+            <h2 className="font-display text-2xl font-bold">This capability detects and alerts on:</h2>
+            <ul className="mt-4 grid gap-3 text-muted-foreground sm:grid-cols-2">
                   <li className="flex gap-2">• People crossing a perimeter fence line</li>
                   <li className="flex gap-2">• Vehicles entering a restricted loading zone</li>
                   <li className="flex gap-2">• Directional crossings at one-way gates or turnstiles</li>
                   <li className="flex gap-2">• After-hours movement across secured boundaries</li>
                   <li className="flex gap-2">• Repeated crossings at the same line within a short window</li>
                 </ul>
-              </div>
-            </ScrollReveal>
-            <PhotoFigure src="/feature-line-intrusion-detection-1.jpg" alt="Camera view showing a virtual tripwire line with directional arrows and detected object crossing" caption="Line intrusion detection" priority />
           </div>
 
           <div className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Why line intrusion detection matters</h2>
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
-                <p>A perimeter fence or boundary line only works as a deterrent if someone — or something — is watching it continuously. A guard on a walking patrol covers a boundary for a few minutes every hour at best; the rest of the time, the line is unmonitored.</p>
-                <p>Fixed motion sensors and basic pixel-change alarms fill some of that gap, but they trigger on anything that moves in frame — a delivery truck passing on the street outside a fence, a tree branch in the wind, a cat crossing the yard. Security teams either drown in false alerts or tune sensitivity down until real crossings get missed too.</p>
+                <p>A perimeter fence or boundary line only works as a deterrent if someone, or something, is watching it continuously. A guard on a walking patrol covers a boundary for a few minutes every hour at best; the rest of the time, the line is unmonitored.</p>
+                <p>Fixed motion sensors and basic pixel-change alarms fill some of that gap, but they trigger on anything that moves in frame, a delivery truck passing on the street outside a fence, a tree branch in the wind, a cat crossing the yard. Security teams either drown in false alerts or tune sensitivity down until real crossings get missed too.</p>
                 <p>Line intrusion detection solves both problems at once: it watches the boundary every second of every day, and it only fires when a confirmed person or vehicle track actually crosses the line in the direction that matters.</p>
               </div>
             </ScrollReveal>
@@ -89,7 +90,7 @@ export default function LineIntrusionPage() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Alert delivery</h3>
                 <p className="mt-2 text-muted-foreground">
-                  Each alert includes the object type, confidence score, timestamp, and — when <Link href="/ai-features/ai-attribute-extraction" className="text-primary hover:underline">AI attribute extraction</Link> is enabled — structured attributes like clothing color and behavior description. Alerts route through the platform's notification system and appear in the <Link href="/platform/notifications-and-alerts" className="text-primary hover:underline">notification queue</Link> with severity, acknowledgment status, and the option to mark as false positive.
+                  Each alert includes the object type, confidence score, timestamp, and, when <Link href="/ai-features/ai-attribute-extraction" className="text-primary hover:underline">AI attribute extraction</Link> is enabled — structured attributes like clothing color and behavior description. Alerts route through the platform's notification system and appear in the <Link href="/platform/notifications-and-alerts" className="text-primary hover:underline">notification queue</Link> with severity, acknowledgment status, and the option to mark as false positive.
                 </p>
               </div>
             </ScrollReveal>
@@ -103,7 +104,7 @@ export default function LineIntrusionPage() {
                   Lines are drawn directly on the camera view in the configuration panel. Each line supports:
                 </p>
                 <ul className="mt-4 space-y-3 text-muted-foreground">
-                  <li className="flex gap-2">• Directional control — A→B, B→A, or bidirectional</li>
+                  <li className="flex gap-2">• Directional control. A→B, B→A, or bidirectional</li>
                   <li className="flex gap-2">• Sensitivity adjustment per line</li>
                   <li className="flex gap-2">• Notification window per camera, e.g. notify after hours only</li>
                   <li className="flex gap-2">• Object-class filtering, e.g. people and vehicles only</li>
@@ -172,14 +173,7 @@ export default function LineIntrusionPage() {
         </div>
       </section>
 
-      <section className="bg-muted/30 py-16 sm:py-20">
-        <div className="mx-auto max-w-site px-6 text-center">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">Frequently asked questions</h2>
-          <div className="mx-auto mt-8 max-w-3xl text-left">
-            <FAQAccordion items={faqs} />
-          </div>
-        </div>
-      </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

@@ -8,7 +8,7 @@ import Link from 'next/link';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Sitemap",
+  title: "Sitemap | Every Page on Camzify",
   description: "Complete list of all pages on the Camzify website.",
   path: "/sitemap-page",
 };

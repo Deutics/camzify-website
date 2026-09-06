@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { articleSchema, personSchema } from '@/lib/seo';
 import { AuthorByline } from '@/components/content/author-byline';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
@@ -18,17 +19,24 @@ const pageMeta = {
 
 export const metadata = generatePageMeta({ ...pageMeta, type: 'article', publishedTime: '2026-08-31', modifiedTime: '2026-08-31' });
 
+const faqs = [
+  { question: 'How long should I keep footage?', answer: 'As long as the rule that applies to you says, and no longer than you need. Requirements vary by country, sector and contract. Camzify sets retention per camera, by days or by a storage cap, so a cash office and a car park can carry different policies.' },
+  { question: 'What happens when retention runs out?', answer: 'Footage past its window is deleted, and a camera on a storage cap rolls the oldest footage off as new footage arrives. The camera keeps recording either way.' },
+  { question: 'Can I keep an incident beyond the window?', answer: 'Export it within the window. Footage is available for playback and export from cloud backup while it is retained; detection events and patrol reports are kept with the account.' },
+  { question: 'Where is footage stored and who can reach it?', answer: "In the cloud, encrypted in transit and at rest, under the account's permission groups. Every access is in the audit trail. The security and compliance page states the current posture, including which frameworks are in progress and not yet held." },
+];
+
 export default function VideoRetentionRequirementsPage() {
   return (
-    <PageShell {...pageMeta} schema={[articleSchema({ headline: "Video Retention Requirements", description: "How long should you retain security camera footage? Legal requirements, industry standards, and storage planning for video surveillance.", path: "/guides/video-retention-requirements", datePublished: '2026-08-31', dateModified: '2026-08-31' }), personSchema()]} breadcrumbs={[
+    <PageShell {...pageMeta} faqs={faqs} schema={[articleSchema({ headline: "Video Retention Requirements", description: "How long should you retain security camera footage? Legal requirements, industry standards, and storage planning for video surveillance.", path: "/guides/video-retention-requirements", datePublished: '2026-08-31', dateModified: '2026-08-31' }), personSchema()]} breadcrumbs={[
       { label: 'Guides', href: '/guides' },
       { label: 'Video Retention Requirements' },
     ]}>
       <article className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Video Retention Requirements</h1>
+          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Video retention requirements</h1>
           <AuthorByline className="mt-6" />
-          <p className="mt-6 max-w-prose text-body text-muted-foreground">Video retention requirements define how long security camera footage must be stored before it can be deleted. Requirements vary by jurisdiction, industry, and insurance policy. Getting retention wrong — too short and you lose evidence; too long and storage costs escalate.</p>
+          <p className="mt-6 max-w-prose text-body text-muted-foreground">Video retention requirements define how long security camera footage must be stored before it can be deleted. Requirements vary by jurisdiction, industry, and insurance policy. Getting retention wrong, too short and you lose evidence; too long and storage costs escalate.</p>
 
           <section className="mt-16">
             <ScrollReveal>
@@ -38,7 +46,7 @@ export default function VideoRetentionRequirementsPage() {
                   There is no single legal retention period you can look up and apply. Surveillance
                   retention is governed by a mix of data-protection law, sector regulation, local
                   licensing conditions and your own insurer's requirements, and those interact
-                  differently at every site — which is why the industry figures further down this
+                  differently at every site, which is why the industry figures further down this
                   page are norms to calibrate against, not a compliance answer.
                 </p>
                 <p>
@@ -74,8 +82,8 @@ export default function VideoRetentionRequirementsPage() {
                   In practice most commercial sites settle between roughly one and three months, set
                   by whichever of these bites first: how long an incident typically takes to surface,
                   what your insurer or sector regulator requires, and what your storage budget
-                  supports. Sites subject to specific licensing conditions — gaming, banking, some
-                  transport and healthcare settings — are frequently required to hold footage longer,
+                  supports. Sites subject to specific licensing conditions, gaming, banking, some
+                  transport and healthcare settings, are frequently required to hold footage longer,
                   and those conditions override the general rule.
                 </p>
                 <p>
@@ -124,6 +132,7 @@ export default function VideoRetentionRequirementsPage() {
           </section>
         </div>
       </article>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

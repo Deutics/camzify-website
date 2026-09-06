@@ -36,7 +36,7 @@ export function IndustrySelector() {
               Built for operations that never close
             </h2>
             <p className="mt-4 mx-auto max-w-2xl text-body text-muted-foreground">
-              From warehouse perimeters to hospital corridors — Camzify patrols any environment
+              From warehouse perimeters to hospital corridors. Camzify patrols any environment
               where cameras are already installed.
             </p>
           </div>

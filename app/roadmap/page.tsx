@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { RoadmapBadge } from '@/components/content/roadmap-badge';
 import Link from 'next/link';
@@ -12,27 +13,34 @@ import { Clock, Brain, Smartphone } from 'lucide-react';
  */
 const pageMeta = {
   title: "Product Roadmap | Upcoming Features",
-  description: "See what is coming next for Camzify — loitering detection and native mobile apps — and what has already shipped. A transparent roadmap with no feature marketed before it exists.",
+  description: "See what is coming next for Camzify, loitering detection and native mobile apps, and what has already shipped. A transparent roadmap with no feature marketed before it exists.",
   path: "/roadmap",
 };
 
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const roadmapItems = [
-  { title: 'Loitering Detection', href: '/ai-features/loitering-detection', icon: Clock, status: 'In Development', desc: 'Detect when a person or vehicle remains in a defined area beyond a configured dwell time. This addresses a common security gap — someone lingering near a fence line, ATM, or restricted entrance.' },
-  { title: 'Camzify Mobile Apps', href: '/platform/mobile-access', icon: Smartphone, status: 'In Development', desc: 'Native iOS and Android apps for live streams, push alerts and patrol reviews on the go. Not yet released — mobile access today is the responsive browser interface, which will remain available after the apps ship.' },
+  { title: 'Loitering Detection', href: '/ai-features/loitering-detection', icon: Clock, status: 'In Development', desc: 'Detect when a person or vehicle remains in a defined area beyond a configured dwell time. This addresses a common security gap, someone lingering near a fence line, ATM, or restricted entrance.' },
+  { title: 'Camzify Mobile Apps', href: '/platform/mobile-access', icon: Smartphone, status: 'In Development', desc: 'Native iOS and Android apps for live streams, push alerts and patrol reviews on the go. Not yet released, mobile access today is the responsive browser interface, which will remain available after the apps ship.' },
   // Forensic video search used to sit here as "Planned". It shipped as AI Suspect
   // Search (/ai-features/forensic-video-search) and is counted among the 22 live
   // models, so listing it as future work contradicted the feature page, the detection
   // grid and /llms.txt at once.
 ];
 
+const faqs = [
+  { question: 'How do I know what is shipping and what is planned?', answer: 'Every feature page carries its status. Anything in development is marked as such on its page, in the navigation and here, and the site does not describe planned capabilities as current ones.' },
+  { question: 'When will the mobile apps ship?', answer: "They are in development. We do not publish dates, because a date on a website becomes a promise on a contract. Mobile access today runs in the phone's browser with nothing to install." },
+  { question: 'Can I ask for a feature?', answer: 'Yes, through the contact page. Requests that recur from several customers are what moves an item onto this page.' },
+  { question: 'Why was forensic video search removed from the roadmap?', answer: 'Because it shipped as AI suspect search: a plain-language description returns matching appearances across cameras, without facial recognition. It has its own feature page now.' },
+];
+
 export default function RoadmapPage() {
   return (
-    <PageShell {...pageMeta} breadcrumbs={[{ label: 'Roadmap' }]}>
+    <PageShell {...pageMeta} faqs={faqs} breadcrumbs={[{ label: 'Roadmap' }]}>
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Product Roadmap</h1>
+          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Product roadmap</h1>
           <p className="mt-6 max-w-2xl text-body text-muted-foreground">
             Transparency about what is coming, what is not, and where we are in the process. These features are not yet available in production. They appear here because we believe a public roadmap builds more trust than a hidden one.
           </p>
@@ -59,6 +67,7 @@ export default function RoadmapPage() {
           </div>
         </div>
       </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

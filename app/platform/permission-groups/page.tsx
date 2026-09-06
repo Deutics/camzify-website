@@ -1,9 +1,9 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { FeatureHero } from '@/components/content/feature-hero';
 import { PermissionGroupsMockup } from '@/components/mockups/permission-groups-mockup';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 import { SiteImage } from '@/components/content/site-image';
 import { LayoutList, SlidersHorizontal, Users, Zap } from 'lucide-react';
@@ -25,7 +25,7 @@ const faqs = [
   { question: 'What is the difference between page-level access and CRUD permissions?', answer: 'A permission group carries both. Page-level access decides which pages a user can open at all. CRUD permissions decide what they can do to each resource, such as sites, cameras and AI features, at the level of create, read, update and delete. The two combine into the single group you assign to a user.' },
   { question: 'What happens to CRUD permissions if I turn off a page for a group?', answer: 'They go with it. Turning off a page removes the CRUD permissions for that page too, so there is no state where a user holds edit rights over something they cannot reach. That prevents the most common misconfiguration in role-based access: rights that survive on paper after the route to them has been closed.' },
   { question: 'Can permission groups be customized beyond the four built-in roles?', answer: 'The four built-in groups, Site Admin, Guard, Auditor and Surveillance Manager, cover the common operational patterns out of the box, and each can be assigned freely to as many users as needed. For access needs outside those four templates, your account team can help scope a custom group to the exact page and instance permissions your deployment requires.' },
-  { question: "What happens to a user's access if their group's permissions change?", answer: "A user's effective access always reflects their group's current configuration, not a snapshot from when they were assigned. If Auditor's page access were changed, every user in the Auditor group would see that change take effect immediately on their next page load — there's no per-user override to reconcile." },
+  { question: "What happens to a user's access if their group's permissions change?", answer: "A user's effective access always reflects their group's current configuration, not a snapshot from when they were assigned. If Auditor's page access were changed, every user in the Auditor group would see that change take effect immediately on their next page load, there's no per-user override to reconcile." },
   { question: 'Does page access override instance permissions, or is it the other way around?', answer: 'They\'re independent and both apply. Page access controls which sections a user can navigate to at all. A Guard, for instance, has no route into Configuration or Plan & Usage. Instance permissions then control what they can do with the AI-feature instances on the pages they can reach, which is why a Guard can open Live Streaming but still can\'t create or edit anything there.' },
   { question: 'Can one user belong to more than one permission group?', answer: 'No. Each user is assigned exactly one permission group at a time, which keeps the effective access for any given account unambiguous. Moving a user to a different group replaces their previous access rather than adding to it.' },
   { question: "What's the difference between View and Create rights on an instance type?", answer: 'View rights let a user see an existing instance and its data, meaning footage, detection events and configuration, without being able to change anything. Create rights let a user stand up a new instance of that AI feature type. A group can have full view access with zero create rights, which is exactly the Auditor pattern: see everything, change nothing.' },
@@ -93,7 +93,7 @@ export default function Page() {
                 <h2 className="mt-2 font-display text-2xl font-bold">Guard vs. Auditor, in practice</h2>
                 <p className="mt-4 text-muted-foreground">
                   Guard and Auditor sit at opposite ends of the same access model. A Guard reaches only 4 of the 7
-                  pages — Dashboard, Live Streaming, Virtual Patrolling, and Notifications — the pages needed to
+                  pages, Dashboard, Live Streaming, Virtual Patrolling, and Notifications, the pages needed to
                   watch cameras and respond in the moment. Instance permissions are almost nonexistent: View on
                   just 1 of 10 instance types, and zero Create, Edit, or Delete rights anywhere.
                 </p>
@@ -127,13 +127,7 @@ export default function Page() {
             </ScrollReveal>
           </div>
 
-          <div className="mt-16 rounded-2xl border border-border bg-card p-8 sm:p-10">
-            <span className="font-mono text-mono-sm uppercase text-primary">FAQ</span>
-            <h2 className="mt-2 font-display text-2xl font-bold">Frequently asked questions</h2>
-            <div className="mt-6">
-              <FAQAccordion items={faqs} />
-            </div>
-          </div>
+          <FaqSection items={faqs} inline />
 
           <div className="mt-16">
             <h2 className="font-display text-2xl font-bold">Related</h2>

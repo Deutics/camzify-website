@@ -23,9 +23,7 @@ export default function BookDemoPage() {
         <div className="mx-auto max-w-site px-6">
           <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr]">
             <div>
-              <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">
-                Book a Demo
-              </h1>
+              <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Book a demo</h1>
               <p className="mt-6 text-body text-muted-foreground">
                 See a live patrol run on real cameras. We will walk through the full workflow —
                 connecting cameras, building a patrol sequence, running a round, and reviewing
@@ -38,7 +36,7 @@ export default function BookDemoPage() {
                   { icon: Clock, text: '15 minutes, no slides, just the live product' },
                   { icon: Camera, text: 'See a patrol round run across real cameras' },
                   { icon: Shield, text: 'Custom quote based on your sites and camera count' },
-                  { icon: CheckCircle, text: 'No commitment — try the free trial first if you prefer' },
+                  { icon: CheckCircle, text: 'No commitment, try the free trial first if you prefer' },
                 ].map((item: any, i: number) => {
                   const Icon = item?.icon ?? CheckCircle;
                   return (

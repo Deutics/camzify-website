@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { ComparisonTable } from '@/components/content/comparison-table';
 import Link from 'next/link';
@@ -19,17 +20,24 @@ export const metadata = generatePageMeta({ ...pageMeta });
 
 const sides = 'Camzify vs Traditional VMS'.split(' vs ');
 
+const faqs = [
+  { question: 'What does a traditional VMS do that Camzify does not?', answer: 'Deep integration with on-premise recorders, access control panels and building systems is where a traditional VMS is strongest. Camzify is cloud-first and runs on the camera streams; it does not replace an NVR and does not integrate with alarm panels.' },
+  { question: 'What does Camzify do that a traditional VMS does not?', answer: 'Virtual patrolling: scheduled rounds with a checklist per camera, a guard notified on failure and a report per round. Most VMS products record and alert; none runs the round.' },
+  { question: 'Can I keep my NVR?', answer: 'Yes. Camzify takes a stream from the camera and records to the cloud on its own schedule; the recorder keeps doing what it does.' },
+  { question: 'Which is right for several sites?', answer: 'Cloud, in most cases: one console, sites and sub-users under one account, and no server per site. The cloud versus on-premise comparison covers the exceptions.' },
+];
+
 export default function CamzifyVsTraditionalVmsPage() {
   return (
-    <PageShell {...pageMeta} breadcrumbs={[
+    <PageShell {...pageMeta} faqs={faqs} breadcrumbs={[
       { label: 'Compare', href: '/compare' },
       { label: 'Camzify vs Traditional VMS' },
     ]}>
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Camzify vs Traditional VMS</h1>
+          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Camzify vs traditional VMS</h1>
           <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            An honest comparison of camzify vs traditional vms across the dimensions that matter most to security decision-makers. Both approaches have strengths — this table helps you decide which fits your facility.
+            An honest comparison of camzify vs traditional vms across the dimensions that matter most to security decision-makers. Both approaches have strengths, this table helps you decide which fits your facility.
           </p>
 
           <div className="mt-12">
@@ -61,6 +69,7 @@ export default function CamzifyVsTraditionalVmsPage() {
           </div>
         </div>
       </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

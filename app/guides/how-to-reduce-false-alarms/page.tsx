@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { articleSchema, personSchema } from '@/lib/seo';
 import { AuthorByline } from '@/components/content/author-byline';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
@@ -18,17 +19,24 @@ const pageMeta = {
 
 export const metadata = generatePageMeta({ ...pageMeta, type: 'article', publishedTime: '2026-08-31', modifiedTime: '2026-08-31' });
 
+const faqs = [
+  { question: 'Why do motion alarms produce so many false alerts?', answer: 'Because motion is pixel change, and a perimeter at night is full of it: rain, headlights, foliage, shadows. Detections that fire on a confirmed object track of a chosen class, a person or a vehicle, ignore all of that by construction.' },
+  { question: 'What is a notification window?', answer: 'The hours during which a detection on a camera generates notifications. The detection runs regardless; outside the window it stays quiet. A yard camera set to notify only after closing does not raise an alert for the delivery at 3pm.' },
+  { question: 'How do zones and lines reduce noise?', answer: 'By putting the rule where the risk is. A zone drawn over the cage rather than the whole stockroom, a line on the fence with a direction, a class filter of person rather than any object. Each removes a category of alert that was never useful.' },
+  { question: 'What about alerts that are real but not urgent?', answer: 'Severity is set per camera for each detection, so a routine event is logged and a critical one reaches a person on the configured channels. The notifications page covers triage and acknowledgement.' },
+];
+
 export default function HowToReduceFalseAlarmsPage() {
   return (
-    <PageShell {...pageMeta} schema={[articleSchema({ headline: "How to Reduce False Alarms", description: "Reduce false alarms from security cameras with AI detection, proper zone configuration, and object-based tracking. Practical steps.", path: "/guides/how-to-reduce-false-alarms", datePublished: '2026-08-31', dateModified: '2026-08-31' }), personSchema()]} breadcrumbs={[
+    <PageShell {...pageMeta} faqs={faqs} schema={[articleSchema({ headline: "How to Reduce False Alarms", description: "Reduce false alarms from security cameras with AI detection, proper zone configuration, and object-based tracking. Practical steps.", path: "/guides/how-to-reduce-false-alarms", datePublished: '2026-08-31', dateModified: '2026-08-31' }), personSchema()]} breadcrumbs={[
       { label: 'Guides', href: '/guides' },
       { label: 'How to Reduce False Alarms from Security Cameras' },
     ]}>
       <article className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">How to Reduce False Alarms from Security Cameras</h1>
+          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">How to reduce false alarms from security cameras</h1>
           <AuthorByline className="mt-6" />
-          <p className="mt-6 max-w-prose text-body text-muted-foreground">False alarms in video surveillance are alerts triggered by non-threatening events — shadows, animals, weather, lighting changes, or camera vibration. They are the primary failure mode of security camera systems, causing operators to ignore genuine alerts and undermining the value of the entire deployment.</p>
+          <p className="mt-6 max-w-prose text-body text-muted-foreground">False alarms in video surveillance are alerts triggered by non-threatening events, shadows, animals, weather, lighting changes, or camera vibration. They are the primary failure mode of security camera systems, causing operators to ignore genuine alerts and undermining the value of the entire deployment.</p>
 
           <section className="mt-16">
             <ScrollReveal>
@@ -79,6 +87,7 @@ export default function HowToReduceFalseAlarmsPage() {
           </section>
         </div>
       </article>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

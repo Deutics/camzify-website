@@ -1,6 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
-import { FAQAccordion } from '@/components/content/faq-accordion';
+import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
 
@@ -11,7 +11,7 @@ import Link from 'next/link';
  */
 const pageMeta = {
   title: "HTTPS Camera Setup | Connect HLS and WebRTC Streams",
-  description: "HTTPS is one of Camzify's three camera connection types. It covers both HLS (.m3u8) and WebRTC (WHEP/WHIP) streams — how to choose between them and connect either.",
+  description: "HTTPS is one of Camzify's three camera connection types. It covers both HLS (.m3u8) and WebRTC (WHEP/WHIP) streams, how to choose between them and connect either.",
   path: "/camera-connectivity/https-setup",
 };
 
@@ -20,7 +20,7 @@ export const metadata = generatePageMeta({ ...pageMeta });
 const faqs = [
   {
     question: 'How many ways can cameras connect to Camzify?',
-    answer: 'Three. A camera is added over RTSP, RTMP, or HTTPS. RTSP covers most IP cameras and NVRs, RTMP covers encoders and appliances that push a stream out, and HTTPS covers streams delivered over the web — both HLS and WebRTC are added under it.',
+    answer: 'Three. A camera is added over RTSP, RTMP, or HTTPS. RTSP covers most IP cameras and NVRs, RTMP covers encoders and appliances that push a stream out, and HTTPS covers streams delivered over the web, both HLS and WebRTC are added under it.',
   },
   {
     question: 'Why are HLS and WebRTC grouped under HTTPS?',
@@ -63,7 +63,7 @@ export default function HttpsSetupPage() {
     ]}>
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">HTTPS Camera Setup</h1>
+          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">HTTPS camera setup</h1>
           <p className="mt-6 max-w-prose text-body text-muted-foreground">
             <strong className="font-semibold text-foreground">
               HTTPS is one of Camzify&rsquo;s three camera connection types, alongside{' '}
@@ -137,17 +137,8 @@ export default function HttpsSetupPage() {
           </div>
         </div>
       </section>
-      <section className="pb-16">
-        <div className="mx-auto max-w-site px-6">
-          <div className="rounded-2xl border border-border bg-card p-8 sm:p-10">
-            <span className="font-mono text-mono-sm uppercase text-primary">FAQ</span>
-            <h2 className="mt-2 font-display text-2xl font-bold">Frequently asked questions</h2>
-            <div className="mt-6">
-              <FAQAccordion items={faqs} />
-            </div>
-          </div>
-        </div>
-      </section>
+
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

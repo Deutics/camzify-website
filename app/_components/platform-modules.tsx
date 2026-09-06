@@ -21,7 +21,7 @@ const modules = [
   {
     title: 'Dashboard',
     href: '/platform/dashboard',
-    desc: 'Cameras online, unacknowledged criticals, alert volume, patrol compliance and retention coverage — with sub-user sites folded in or held separate.',
+    desc: 'Cameras online, unacknowledged criticals, alert volume, patrol compliance and retention coverage, with sub-user sites folded in or held separate.',
     shot: '/product-dashboard',
     alt: 'Camzify dashboard showing cameras live, critical events open, alerts today, patrol compliance, a live detection events chart and per-site health',
   },
@@ -56,7 +56,7 @@ const modules = [
   {
     title: 'License & instances',
     href: '/platform/license-and-instance-management',
-    desc: 'What is activated, what is granted to sub-accounts and what remains available — per feature, with quota requests.',
+    desc: 'What is activated, what is granted to sub-accounts and what remains available, per feature, with quota requests.',
     shot: '/product-license-plan',
     alt: 'Camzify plan and usage screen showing subscription term, instance totals and a per-feature allocation table',
   },

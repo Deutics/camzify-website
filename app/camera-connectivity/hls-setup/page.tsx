@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 
 /**
@@ -15,15 +16,22 @@ const pageMeta = {
 
 export const metadata = generatePageMeta({ ...pageMeta });
 
+const faqs = [
+  { question: 'Where does HLS fit in Camzify?', answer: 'Under the HTTPS connection type, alongside WebRTC. If a camera or a service already publishes an HLS playlist on the web, that address is what you add.' },
+  { question: 'Does HLS add delay?', answer: 'HLS delivers video in segments, so it carries more latency than RTSP or WebRTC. For a scheduled patrol round that judges a frame at each stop it is fine; for watching a live event closely, WebRTC or RTSP is the better route.' },
+  { question: 'Do I need the Connector for HLS?', answer: 'No. HLS streams are reached over HTTPS from the internet, so no relay is involved. The Connector is for RTSP cameras on a local network.' },
+  { question: 'Can detections and rounds run on an HLS stream?', answer: 'Yes. Once connected it is a camera like any other: recording, detections, checklist items and rounds all apply.' },
+];
+
 export default function HlsSetupPage() {
   return (
-    <PageShell {...pageMeta} breadcrumbs={[
+    <PageShell {...pageMeta} faqs={faqs} breadcrumbs={[
       { label: 'Camera Connectivity', href: '/camera-connectivity' },
       { label: 'HLS Camera Setup' },
     ]}>
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">HLS Camera Setup</h1>
+          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">HLS camera setup</h1>
           <p className="mt-6 max-w-2xl text-body text-muted-foreground">
             Follow these steps to connect your camera to Camzify using HLS. HLS is one of the two
             stream formats handled by the <a href="/camera-connectivity/https-setup" className="text-primary hover:underline">HTTPS connection type</a>;
@@ -69,6 +77,7 @@ export default function HlsSetupPage() {
           </ol>
         </div>
       </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

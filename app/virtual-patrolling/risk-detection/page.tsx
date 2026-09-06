@@ -1,6 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
-import { FAQAccordion } from '@/components/content/faq-accordion';
+import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { FeatureHero } from '@/components/content/feature-hero';
 import { HeroPlaceholder } from '@/components/content/hero-placeholder';
@@ -28,19 +28,19 @@ const faqs = [
   },
   {
     question: 'How is this different from a patrol checklist?',
-    answer: 'A checklist answers the questions somebody wrote down. Risk detection answers the question nobody thought to write down. Both run on the same round: each camera is checked against its checklist, and the same stop is also assessed for risks in its own right, so a blocked exit is flagged whether or not "exit clear" was ever added as an item. The two are complementary — the checklist is what proves a specific control was verified, and risk detection is what covers the gap between controls.',
+    answer: 'A checklist answers the questions somebody wrote down. Risk detection answers the question nobody thought to write down. Both run on the same round: each camera is checked against its checklist, and the same stop is also assessed for risks in its own right, so a blocked exit is flagged whether or not "exit clear" was ever added as an item. The two are complementary, the checklist is what proves a specific control was verified, and risk detection is what covers the gap between controls.',
   },
   {
     question: 'Does Camzify predict incidents before they happen?',
-    answer: 'No, and be wary of any vendor claiming it does. What it does is narrower and more useful: it observes conditions that are present now and would take time to become an incident, and tells someone while there is still time to act. A propped door is not a prediction — it is a fact about the site right now, and the value is that a person hears about it tonight rather than reading about it in an incident report next week.',
+    answer: 'No, and be wary of any vendor claiming it does. What it does is narrower and more useful: it observes conditions that are present now and would take time to become an incident, and tells someone while there is still time to act. A propped door is not a prediction, it is a fact about the site right now, and the value is that a person hears about it tonight rather than reading about it in an incident report next week.',
   },
   {
     question: 'What kinds of risk does it flag?',
-    answer: 'The categories align with the detection models the platform runs — fire and smoke, abandoned or unattended objects, people in restricted areas, PPE not being worn where it is required, aggression, obstruction and camera tampering among others. See the AI features index for the full set. What a given round flags depends on which features are active on that camera.',
+    answer: 'The categories align with the detection models the platform runs, fire and smoke, abandoned or unattended objects, people in restricted areas, PPE not being worn where it is required, aggression, obstruction and camera tampering among others. See the AI features index for the full set. What a given round flags depends on which features are active on that camera.',
   },
   {
     question: 'Where do these alerts arrive?',
-    answer: 'In the same notifications queue as detections from continuous monitoring, marked critical, carrying the snapshot from the camera and expecting an acknowledgment. They are not buried in the patrol report — the report records the round, while a risk that needs somebody now goes out as a notification on the channels that guard is configured for: email, SMS, WhatsApp or push.',
+    answer: 'In the same notifications queue as detections from continuous monitoring, marked critical, carrying the snapshot from the camera and expecting an acknowledgment. They are not buried in the patrol report, the report records the round, while a risk that needs somebody now goes out as a notification on the channels that guard is configured for: email, SMS, WhatsApp or push.',
   },
   {
     question: 'Does this replace continuous AI monitoring?',
@@ -229,17 +229,8 @@ export default function RiskDetectionPage() {
           </div>
         </div>
       </section>
-      <section className="pb-16">
-        <div className="mx-auto max-w-site px-6">
-          <div className="rounded-2xl border border-border bg-card p-8 sm:p-10">
-            <span className="font-mono text-mono-sm uppercase text-primary">FAQ</span>
-            <h2 className="mt-2 font-display text-2xl font-bold">Frequently asked questions</h2>
-            <div className="mt-6">
-              <FAQAccordion items={faqs} />
-            </div>
-          </div>
-        </div>
-      </section>
+
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

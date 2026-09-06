@@ -1,7 +1,7 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import { FeatureHero } from '@/components/content/feature-hero';
 import { ProductShot } from '@/components/content/product-shot';
 import { SectionVisual } from '@/components/content/section-visual';
@@ -65,11 +65,11 @@ const groups = [
 
 const faqs = [
   { question: 'Is the Camzify platform a cloud VMS or an on-premise one?', answer: 'Cloud. There is no server or NVR to install: cameras stream to the platform, footage is stored in the cloud under a retention window set per camera, and every module is used from a browser. The only on-site software is the optional Camzify Connector, a small application for a Windows, macOS or Linux machine that relays cameras on a private network without port forwarding.' },
-  { question: 'Are all of these modules included, or licensed separately?', answer: 'The platform modules — dashboard, live streaming, backup, notifications, analytics, users, permissions, license and multi-site — are one product on one login. What is licensed per camera is the AI: each detection feature has a pool of instances in your plan, activating a feature on a camera consumes one, and virtual patrolling instances are counted per camera per sequence. Plan and Usage shows exactly what is activated, granted and still available.' },
+  { question: 'Are all of these modules included, or licensed separately?', answer: 'The platform modules, dashboard, live streaming, backup, notifications, analytics, users, permissions, license and multi-site, are one product on one login. What is licensed per camera is the AI: each detection feature has a pool of instances in your plan, activating a feature on a camera consumes one, and virtual patrolling instances are counted per camera per sequence. Plan and Usage shows exactly what is activated, granted and still available.' },
   { question: 'Can one account run several clients or sites separately?', answer: 'Yes. Sites are the unit everything is organized around, and a sub-user can be scoped to their own sites and cameras and nothing else, with a permission group deciding what they can open and change. License quota is allocated to them from yours, and a request for more comes back to you to approve. Sub-users can create their own sub-users on the same model, which is what makes it work for security agencies and managed service providers.' },
   { question: 'Where is footage stored, and who can reach it?', answer: 'In the cloud, encrypted at rest with AES-256 and in transit over TLS 1.2 or higher, under a per-camera retention window. Access follows the same permission groups as the rest of the platform, so a user who cannot open a camera cannot open its recordings either, and every action on the account is written to an audit trail the account holder can review.' },
   { question: 'Are the screenshots on these pages the real product?', answer: 'Yes. The console screens shown across the platform pages are captured from the application in both its light and dark themes and swap with the theme you are viewing the site in. Figures inside them are interface illustrations with sample sites and cameras rather than customer data, and every one says so in its caption.' },
-  { question: 'Does the platform work on a phone?', answer: 'Yes, through the browser already on the phone — live streams, alerts and patrol compliance in a responsive interface with nothing to install, which is what makes it usable by a relief guard on their own device on their first shift. Native iOS and Android apps are in development and listed on the roadmap; the browser interface stays available after they ship.' },
+  { question: 'Does the platform work on a phone?', answer: 'Yes, through the browser already on the phone, live streams, alerts and patrol compliance in a responsive interface with nothing to install, which is what makes it usable by a relief guard on their own device on their first shift. Native iOS and Android apps are in development and listed on the roadmap; the browser interface stays available after they ship.' },
 ];
 
 export default function PlatformPage() {
@@ -186,7 +186,7 @@ export default function PlatformPage() {
         <div className="mx-auto max-w-site px-6">
           <div className="grid gap-6 lg:grid-cols-2">
             {[
-              { title: '22 AI detection models', desc: 'Every detection fires on a confirmed object track and lands in the same alert queue — intrusion, tampering, weapons, fire, PPE, and behavior you describe in plain language.', href: '/ai-features', label: 'AI features' },
+              { title: '22 AI detection models', desc: 'Every detection fires on a confirmed object track and lands in the same alert queue, intrusion, tampering, weapons, fire, PPE, and behavior you describe in plain language.', href: '/ai-features', label: 'AI features' },
               { title: 'Virtual patrolling', desc: 'Scheduled rounds with a checklist per camera, before-and-after evidence on anything fixed, and a compliance report every time. The capability no other cloud VMS has.', href: '/virtual-patrolling', label: 'Virtual patrolling' },
             ].map((c) => (
               <ScrollReveal key={c.href}>
@@ -203,15 +203,7 @@ export default function PlatformPage() {
 
       <section className="border-t border-border bg-muted/20 py-20 sm:py-24">
         <div className="mx-auto max-w-site px-6">
-          <ScrollReveal>
-            <div className="max-w-3xl">
-              <span className="font-mono text-mono-sm uppercase text-primary">Common questions</span>
-              <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">The platform, answered</h2>
-            </div>
-          </ScrollReveal>
-          <ScrollReveal delay={0.08}>
-            <div className="mt-10 max-w-3xl"><FAQAccordion items={faqs} /></div>
-          </ScrollReveal>
+          <FaqSection items={faqs} inline className="!mt-0" eyebrow="Common questions" heading="The platform, answered" />
         </div>
       </section>
     </PageShell>

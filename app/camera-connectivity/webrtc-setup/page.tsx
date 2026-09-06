@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 
 /**
@@ -15,15 +16,22 @@ const pageMeta = {
 
 export const metadata = generatePageMeta({ ...pageMeta });
 
+const faqs = [
+  { question: 'Where does WebRTC fit in Camzify?', answer: 'Under the HTTPS connection type, alongside HLS. It is the low-latency option for web-delivered streams.' },
+  { question: 'Is WebRTC lower latency than HLS?', answer: 'Yes. WebRTC is built for near-real-time delivery, which suits watching a live event; HLS is segmented and lags. Both are fine for scheduled rounds.' },
+  { question: 'Do I need the Connector for WebRTC?', answer: 'No. WebRTC streams are reached over HTTPS. The Connector is for RTSP cameras on a local network.' },
+  { question: 'Can I mix connection types on one site?', answer: 'Yes. A site can carry RTSP cameras through the Connector, an RTMP encoder and an HTTPS stream side by side; each camera picks its route when it is added.' },
+];
+
 export default function WebrtcSetupPage() {
   return (
-    <PageShell {...pageMeta} breadcrumbs={[
+    <PageShell {...pageMeta} faqs={faqs} breadcrumbs={[
       { label: 'Camera Connectivity', href: '/camera-connectivity' },
       { label: 'WebRTC Camera Setup' },
     ]}>
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">WebRTC Camera Setup</h1>
+          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">WebRTC camera setup</h1>
           <p className="mt-6 max-w-2xl text-body text-muted-foreground">
             Follow these steps to connect your camera to Camzify using WebRTC. WebRTC is one of the two stream formats handled by the <a href="/camera-connectivity/https-setup" className="text-primary hover:underline">HTTPS connection type</a>; <a href="/camera-connectivity/hls-setup" className="text-primary hover:underline">HLS</a> is the other.
           </p>
@@ -67,6 +75,7 @@ export default function WebrtcSetupPage() {
           </ol>
         </div>
       </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

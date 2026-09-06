@@ -1,9 +1,10 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { FaqSection } from '@/components/content/faq-section';
 import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 
 /**
@@ -12,7 +13,7 @@ import Link from 'next/link';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Vehicle Damage Report | AI Vehicle Condition Camera Software",
+  title: "Vehicle Damage Report From Camera Frames",
   description: "Camzify vehicle damage report documents dents and scratches on vehicles entering or leaving a site, timestamped and logged automatically.",
   path: "/ai-features/vehicle-damage-report",
 };
@@ -20,10 +21,10 @@ const pageMeta = {
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
-  { question: 'When is a vehicle checked for damage?', answer: 'A vehicle is checked as it passes through a configured entry or exit point on-site, so a condition record is captured automatically at hand-off — for example when a rental, fleet, or valet vehicle enters or leaves.' },
+  { question: 'When is a vehicle checked for damage?', answer: 'A vehicle is checked as it passes through a configured entry or exit point on-site, so a condition record is captured automatically at hand-off, for example when a rental, fleet, or valet vehicle enters or leaves.' },
   { question: 'What counts as documented damage?', answer: 'The system flags visible dents, scratches, and other exterior condition changes captured in the camera view, with a timestamped clip attached to the vehicle\'s entry or exit event for later comparison.' },
   { question: 'Can I compare a vehicle\'s condition between two visits?', answer: 'Yes. Because each entry and exit produces a timestamped record, two records for the same vehicle can be compared side by side to establish whether damage occurred during the time it was on-site.' },
-  { question: 'Does it identify who caused the damage?', answer: 'No. The system documents a timestamped condition record at entry and exit — it doesn\'t determine fault or liability. That record is meant to support a human review or dispute process, not replace it.' },
+  { question: 'Does it identify who caused the damage?', answer: 'No. The system documents a timestamped condition record at entry and exit, it doesn\'t determine fault or liability. That record is meant to support a human review or dispute process, not replace it.' },
   { question: 'How accurate is automated damage detection compared to a manual inspection?', answer: 'It reliably flags visible exterior condition changes captured in the camera view, but it isn\'t a substitute for a close-up manual inspection. It works best as a consistent record layer that captures condition at every pass, something a manual check at a busy checkpoint often misses.' },
   { question: 'Can I retrieve a damage record for a specific vehicle later?', answer: 'Yes. Records are retrievable through the platform\'s analytics and reporting module and can be pulled up by checkpoint and time range when a dispute or claim needs supporting footage.' },
 ];
@@ -34,19 +35,22 @@ export default function Page() {
       { label: 'AI Features', href: '/ai-features' },
       { label: 'Vehicle Damage Report' },
     ]}>
+      <FeatureHero
+        eyebrow="AI detection · Vehicle damage report"
+        title="Vehicle damage report"
+        lede={<><strong className="font-semibold text-foreground">A dent, a scratch, documented.</strong> Vehicle damage report captures the exterior condition of vehicles
+            as they enter or leave a site, timestamped and logged automatically for later comparison.</>}
+        facts={['Visible dents and scratches on vehicles at entry or exit points', 'A timestamped condition record attached to each vehicle event', 'Side-by-side comparison between entry and exit records for…']}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/ai-features', label: 'All 22 detections' }}
+        visual={<PhotoFigure src="/feature-vehicle-damage-report-1.jpg" alt="Camera view of a vehicle at an entry point with a highlighted area of exterior damage" caption="Vehicle damage report" priority />}
+      />
+
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Vehicle Damage Report</h1>
-          <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            A dent, a scratch, documented. Vehicle damage report captures the exterior condition of vehicles
-            as they enter or leave a site, timestamped and logged automatically for later comparison.
-          </p>
-
-          <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
-            <ScrollReveal>
-              <div>
-                <h2 className="font-display text-2xl font-bold">This capability detects and alerts on:</h2>
-                <ul className="mt-4 space-y-3 text-muted-foreground">
+          <div>
+            <h2 className="font-display text-2xl font-bold">This capability detects and alerts on:</h2>
+            <ul className="mt-4 grid gap-3 text-muted-foreground sm:grid-cols-2">
                   <li className="flex gap-2">• Visible dents and scratches on vehicles at entry or exit points</li>
                   <li className="flex gap-2">• A timestamped condition record attached to each vehicle event</li>
                   <li className="flex gap-2">• Side-by-side comparison between entry and exit records for the same vehicle</li>
@@ -54,9 +58,6 @@ export default function Page() {
                   <li className="flex gap-2">• Condition records retrievable per vehicle for insurance or liability review</li>
                   <li className="flex gap-2">• Coverage across multiple checkpoints for fleet or rental operations</li>
                 </ul>
-              </div>
-            </ScrollReveal>
-            <PhotoFigure src="/feature-vehicle-damage-report-1.jpg" alt="Camera view of a vehicle at an entry point with a highlighted area of exterior damage" caption="Vehicle damage report" priority />
           </div>
 
           <div className="mt-16">
@@ -64,7 +65,7 @@ export default function Page() {
               <h2 className="font-display text-2xl font-bold">Why vehicle damage report matters</h2>
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
                 <p>Vehicle condition disputes almost always come down to a "he said, she said" problem. A rental customer says the scratch was already there; a fleet driver says the dent happened somewhere else; a valet guest says the car was fine when they handed it over. Without a record from the moment of hand-off, there's no way to settle it other than taking someone's word for it.</p>
-                <p>A manual walk-around inspection can catch this, but it depends on a person doing it consistently, every single time, at every entry and exit — and writing down what they saw in a way that holds up later. On a busy site with dozens of vehicles moving through checkpoints a day, that consistency breaks down fast.</p>
+                <p>A manual walk-around inspection can catch this, but it depends on a person doing it consistently, every single time, at every entry and exit, and writing down what they saw in a way that holds up later. On a busy site with dozens of vehicles moving through checkpoints a day, that consistency breaks down fast.</p>
                 <p>An automated condition record removes the dependency on someone remembering to check and write it down. Every vehicle that passes a configured checkpoint gets a timestamped clip, whether it's the first vehicle of the day or the fiftieth.</p>
               </div>
             </ScrollReveal>
@@ -84,8 +85,8 @@ export default function Page() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Building a comparable record</h3>
                 <p className="mt-2 text-muted-foreground">
-                  Each pass produces a timestamped record with a clip. Two records for the same vehicle — one
-                  at entry, one at exit — can be compared to identify condition changes that occurred while it was on-site.
+                  Each pass produces a timestamped record with a clip. Two records for the same vehicle, one
+                  at entry, one at exit, can be compared to identify condition changes that occurred while it was on-site.
                 </p>
 
                 <h3 className="mt-6 font-display text-lg font-bold">Where reports get used</h3>
@@ -105,7 +106,7 @@ export default function Page() {
                   Entry and exit cameras are configured as vehicle checkpoints. Each checkpoint supports:
                 </p>
                 <ul className="mt-4 space-y-3 text-muted-foreground">
-                  <li className="flex gap-2">• Checkpoint role — entry, exit, or both</li>
+                  <li className="flex gap-2">• Checkpoint role, entry, exit, or both</li>
                   <li className="flex gap-2">• Vehicle-class filtering, e.g. passenger vehicles only</li>
                   <li className="flex gap-2">• Notification window per camera, e.g. notify only in operating hours</li>
                   <li className="flex gap-2">• Record retention window for stored condition clips</li>
@@ -175,14 +176,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="bg-muted/30 py-16 sm:py-20">
-        <div className="mx-auto max-w-site px-6 text-center">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">Frequently asked questions</h2>
-          <div className="mx-auto mt-8 max-w-3xl text-left">
-            <FAQAccordion items={faqs} />
-          </div>
-        </div>
-      </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

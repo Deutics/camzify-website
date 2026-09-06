@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { articleSchema, personSchema } from '@/lib/seo';
 import { AuthorByline } from '@/components/content/author-byline';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
@@ -12,21 +13,28 @@ import Link from 'next/link';
  */
 const pageMeta = {
   title: "Security Audit Checklist | Site Security Assessment",
-  description: "A practical security audit checklist for evaluating your facility\\'s physical security posture — cameras, access control, lighting, procedures, and monitoring.",
+  description: "A practical security audit checklist for evaluating your facility\\'s physical security posture, cameras, access control, lighting, procedures, and monitoring.",
   path: "/guides/security-audit-checklist",
 };
 
 export const metadata = generatePageMeta({ ...pageMeta, type: 'article', publishedTime: '2026-08-31', modifiedTime: '2026-08-31' });
 
+const faqs = [
+  { question: 'How often should the checklist be run?', answer: 'Formally, on the cadence your insurer or regulator expects. In practice, the items that fail between audits, doors, exits, camera views, are exactly the ones a scheduled patrol round can check every night with a frame per item.' },
+  { question: 'Can a virtual patrol round replace part of the audit?', answer: 'It can produce the evidence for the physical-controls part: every round is a report with the result and the frame for each item. The policy and process items still need a person with a clipboard.' },
+  { question: 'What should I check about the cameras themselves?', answer: 'That each one can see what it was installed to see. Camera health monitoring covers tampering, drift and obstruction, and a checklist item on every round, camera view unobstructed, catches the slow failures.' },
+  { question: 'Where do the results go?', answer: 'Into the patrol report per round and the audit trail on the account. Reports export as PDF, which is the format most auditors ask for.' },
+];
+
 export default function SecurityAuditChecklistPage() {
   return (
-    <PageShell {...pageMeta} schema={[articleSchema({ headline: "Security Audit Checklist", description: "A practical security audit checklist for evaluating your facility\\'s physical security posture — cameras, access control, lighting, procedures, and monitoring.", path: "/guides/security-audit-checklist", datePublished: '2026-08-31', dateModified: '2026-08-31' }), personSchema()]} breadcrumbs={[
+    <PageShell {...pageMeta} faqs={faqs} schema={[articleSchema({ headline: "Security Audit Checklist", description: "A practical security audit checklist for evaluating your facility\\'s physical security posture, cameras, access control, lighting, procedures, and monitoring.", path: "/guides/security-audit-checklist", datePublished: '2026-08-31', dateModified: '2026-08-31' }), personSchema()]} breadcrumbs={[
       { label: 'Guides', href: '/guides' },
       { label: 'Security Audit Checklist' },
     ]}>
       <article className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Security Audit Checklist</h1>
+          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Security audit checklist</h1>
           <AuthorByline className="mt-6" />
           <p className="mt-6 max-w-prose text-body text-muted-foreground">A security audit checklist is a structured assessment tool for evaluating the physical security posture of a facility. It covers camera coverage, access control, lighting, perimeter integrity, monitoring procedures, and incident response capabilities. Regular audits identify gaps before they become incidents.</p>
 
@@ -79,6 +87,7 @@ export default function SecurityAuditChecklistPage() {
           </section>
         </div>
       </article>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

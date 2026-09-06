@@ -1,9 +1,9 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { articleSchema, personSchema } from '@/lib/seo';
 import { AuthorByline } from '@/components/content/author-byline';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import { SectionVisual } from '@/components/content/section-visual';
 import Link from 'next/link';
 
@@ -104,11 +104,7 @@ export default function AddingRemotePatrolsToAlarmMonitoringPage() {
             </ScrollReveal>
           </section>
 
-          <section className="mt-16 rounded-2xl border border-border bg-card p-8 sm:p-10">
-            <span className="font-mono text-mono-sm uppercase text-primary">FAQ</span>
-            <h2 className="mt-2 font-display text-2xl font-bold">Frequently asked questions</h2>
-            <div className="mt-6"><FAQAccordion items={faqs} /></div>
-          </section>
+          <FaqSection items={faqs} inline />
 
           <section className="mt-12 rounded-xl bg-card p-8 shadow">
             <h2 className="font-display text-xl font-bold">Related</h2>

@@ -1,6 +1,5 @@
 import Link from 'next/link';
-import { FAQAccordion } from '@/components/content/faq-accordion';
-import { ScrollReveal } from '@/components/motion/scroll-reveal';
+import { FaqSection } from '@/components/content/faq-section';
 
 /**
  * Homepage FAQ.
@@ -90,31 +89,7 @@ export function HomepageFaq() {
   return (
     <section className="border-t border-border bg-muted/20 py-20 sm:py-28">
       <div className="mx-auto max-w-site px-6">
-        <ScrollReveal>
-          <div className="max-w-3xl">
-            <span className="font-mono text-mono-sm uppercase text-primary">Common questions</span>
-            <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">
-              What buyers ask before a demo
-            </h2>
-            <p className="mt-5 max-w-prose text-body text-muted-foreground">
-              If your question is not here, the{' '}
-              <Link href="/faqs" className="text-primary hover:underline">
-                full FAQ
-              </Link>{' '}
-              goes further, and{' '}
-              <Link href="/contact" className="text-primary hover:underline">
-                contact
-              </Link>{' '}
-              reaches a person.
-            </p>
-          </div>
-        </ScrollReveal>
-
-        <ScrollReveal delay={0.08}>
-          <div className="mx-auto mt-12 max-w-3xl">
-            <FAQAccordion items={homepageFaqs} />
-          </div>
-        </ScrollReveal>
+        <FaqSection items={homepageFaqs} inline className="!mt-0" eyebrow="Common questions" heading="What buyers ask before a demo" lede={<>If your question is not here, the{' '} <Link href="/faqs" className="text-primary hover:underline"> full FAQ </Link>{' '} goes further, and{' '} <Link href="/contact" className="text-primary hover:underline"> contact </Link>{' '} reaches a person.</>} />
       </div>
     </section>
   );

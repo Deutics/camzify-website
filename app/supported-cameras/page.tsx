@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
 import { BrandStrip } from '@/components/content/brand-strip';
@@ -11,22 +12,29 @@ import { cameraBrands } from '@/lib/camera-brands';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Supported Cameras | ONVIF Compatible IP Camera Brands",
-  description: "Camzify works with any ONVIF or RTSP-compatible IP camera — Axis, Hikvision, Dahua, Hanwha, Bosch and more. What ONVIF means, and how to check your own cameras.",
+  title: "Supported Cameras | ONVIF and RTSP Brands",
+  description: "Camzify works with any ONVIF or RTSP-compatible IP camera. Axis, Hikvision, Dahua, Hanwha, Bosch and more. What ONVIF means, and how to check your own cameras.",
   path: "/supported-cameras",
 };
 
 export const metadata = generatePageMeta({ ...pageMeta });
 
 
+const faqs = [
+  { question: 'My brand is not on the list. Will my cameras work?', answer: 'Very likely, if they produce an RTSP stream, which almost every IP camera made in the last decade does. The list names manufacturers whose ONVIF-conformant cameras are known to interoperate; it is not an exclusive list.' },
+  { question: 'Do cameras need to be reachable from the internet?', answer: 'No. Cameras on a local network connect through the Camzify Connector on a PC inside that network, with no port forwarding.' },
+  { question: 'Does listing a brand mean a partnership?', answer: "No. Brand names and logos are their owners' trademarks. Listing states that the manufacturer's ONVIF-conformant cameras interoperate with Camzify and implies no partnership or endorsement." },
+  { question: 'What about encoders and web streams?', answer: 'Encoders push RTMP to a private ingest address; web-delivered streams connect over HTTPS as HLS or WebRTC. The camera connectivity pages cover each route.' },
+];
+
 export default function SupportedCamerasPage() {
   return (
-    <PageShell {...pageMeta} breadcrumbs={[{ label: 'Supported Cameras' }]}>
+    <PageShell {...pageMeta} faqs={faqs} breadcrumbs={[{ label: 'Supported Cameras' }]}>
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Cameras We Support</h1>
+          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Cameras we support</h1>
           <p className="mt-6 max-w-prose text-body text-muted-foreground">
-            Camzify connects to any IP camera that supports ONVIF or RTSP — which covers effectively every IP camera made in the last decade, whoever made it. A camera is added over one of three connection types: RTSP, RTMP or HTTPS. Compatibility is decided by the protocol rather than the brand, so if your camera exposes an RTSP stream it will work with Camzify and the <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</Link> system.
+            Camzify connects to any IP camera that supports ONVIF or RTSP, which covers effectively every IP camera made in the last decade, whoever made it. A camera is added over one of three connection types: RTSP, RTMP or HTTPS. Compatibility is decided by the protocol rather than the brand, so if your camera exposes an RTSP stream it will work with Camzify and the <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</Link> system.
           </p>
           <p className="mt-4 text-muted-foreground">
             New to camera protocols? Read <Link href="/guides/onvif-and-rtsp-explained" className="text-primary hover:underline">ONVIF and RTSP explained</Link> for a plain-language guide.
@@ -48,7 +56,7 @@ export default function SupportedCamerasPage() {
                 <p>
                   This is why compatibility is a property of the protocol rather than the badge on
                   the housing. Camzify does not maintain per-model drivers; it speaks ONVIF and
-                  RTSP, so a camera supporting either works — including models released after this
+                  RTSP, so a camera supporting either works, including models released after this
                   page was written, and brands not listed below.
                 </p>
                 <p>
@@ -71,7 +79,7 @@ export default function SupportedCamerasPage() {
               </div>
               <p className="mt-4 max-w-prose text-muted-foreground">
                 These come up most often in deployments. The list is a recognition aid for buyers
-                who search by brand — it is not a compatibility matrix, and a manufacturer&rsquo;s
+                who search by brand, it is not a compatibility matrix, and a manufacturer&rsquo;s
                 absence from it says nothing about whether its cameras work.
               </p>
               <BrandStrip className="mt-8" showNotes />
@@ -84,7 +92,7 @@ export default function SupportedCamerasPage() {
               <div className="mt-6 grid gap-4 sm:grid-cols-3">
                 <Link href="/camera-connectivity/rtsp-setup" className="rounded-lg bg-card p-5 shadow transition-shadow hover:shadow-md"><span className="font-display font-bold">RTSP</span><p className="mt-1 text-sm text-muted-foreground">Most common. Direct stream from camera.</p></Link>
                 <Link href="/camera-connectivity/rtmp-setup" className="rounded-lg bg-card p-5 shadow transition-shadow hover:shadow-md"><span className="font-display font-bold">RTMP</span><p className="mt-1 text-sm text-muted-foreground">Encoder-based push streaming.</p></Link>
-                <Link href="/camera-connectivity/https-setup" className="rounded-lg bg-card p-5 shadow transition-shadow hover:shadow-md"><span className="font-display font-bold">HTTPS</span><p className="mt-1 text-sm text-muted-foreground">Web-delivered streams — HLS (.m3u8) and WebRTC (WHEP/WHIP).</p></Link>
+                <Link href="/camera-connectivity/https-setup" className="rounded-lg bg-card p-5 shadow transition-shadow hover:shadow-md"><span className="font-display font-bold">HTTPS</span><p className="mt-1 text-sm text-muted-foreground">Web-delivered streams. HLS (.m3u8) and WebRTC (WHEP/WHIP).</p></Link>
               </div>
             </ScrollReveal>
           </div>
@@ -94,7 +102,7 @@ export default function SupportedCamerasPage() {
               <h2 className="font-display text-2xl font-bold">How to check your own cameras</h2>
               <p className="mt-4 max-w-prose text-muted-foreground">
                 We do not publish a model-by-model compatibility list, and you should be skeptical
-                of vendors who do — those lists go stale the moment a manufacturer ships new
+                of vendors who do, those lists go stale the moment a manufacturer ships new
                 firmware, and they imply that unlisted models are unsupported when in practice
                 compatibility is decided by the protocol, not the badge on the housing.
               </p>
@@ -134,6 +142,7 @@ export default function SupportedCamerasPage() {
           </div>
         </div>
       </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

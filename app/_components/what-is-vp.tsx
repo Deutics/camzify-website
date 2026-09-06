@@ -34,8 +34,8 @@ export function WhatIsVP() {
                   fails.
                 </p>
                 <p>
-                  It produces the same artifact a physical guard tour produces — a timestamped,
-                  per-checkpoint compliance record — without a person walking the route. The
+                  It produces the same artifact a physical guard tour produces, a timestamped,
+                  per-checkpoint compliance record, without a person walking the route. The
                   difference is that it runs identically at 03:00 as it does at 15:00, and every
                   round is auditable afterwards.
                 </p>

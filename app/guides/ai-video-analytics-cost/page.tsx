@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { articleSchema, personSchema } from '@/lib/seo';
 import { AuthorByline } from '@/components/content/author-byline';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
@@ -18,15 +19,22 @@ const pageMeta = {
 
 export const metadata = generatePageMeta({ ...pageMeta, type: 'article', publishedTime: '2026-08-31', modifiedTime: '2026-08-31' });
 
+const faqs = [
+  { question: 'How is AI video analytics usually priced?', answer: 'Most vendors price per camera per month, per detection or per bundle, sometimes with a platform fee. Camzify licenses AI features per camera instance on top of an account that includes the platform modules; the rate is quoted, not published.' },
+  { question: 'Do all cameras need every detection?', answer: 'No, and paying for that is the most common waste. A perimeter camera needs line and zone intrusion; a stockroom camera needs zone intrusion with a notification window; a dock camera may need illegal parking and PPE. Licensing per camera instance means each camera carries only what it uses.' },
+  { question: 'Is there a hidden hardware cost?', answer: 'Not with a cloud platform running on your existing cameras. On-premise analytics often need a GPU server per site; a cloud service carries that centrally. The one on-site component Camzify may need is a PC running the Connector.' },
+  { question: 'How do I get a figure for my site?', answer: 'Ask for a quote with the camera count and the detections you want per camera. The pricing page explains the model; the ROI calculator shows what the routine rounds cost you today.' },
+];
+
 export default function AiVideoAnalyticsCostPage() {
   return (
-    <PageShell {...pageMeta} schema={[articleSchema({ headline: "AI Video Analytics Cost", description: "What does AI video analytics cost? Per-camera pricing models, cloud vs on-premise, and how to evaluate ROI for your security budget.", path: "/guides/ai-video-analytics-cost", datePublished: '2026-08-31', dateModified: '2026-08-31' }), personSchema()]} breadcrumbs={[
+    <PageShell {...pageMeta} faqs={faqs} schema={[articleSchema({ headline: "AI Video Analytics Cost", description: "What does AI video analytics cost? Per-camera pricing models, cloud vs on-premise, and how to evaluate ROI for your security budget.", path: "/guides/ai-video-analytics-cost", datePublished: '2026-08-31', dateModified: '2026-08-31' }), personSchema()]} breadcrumbs={[
       { label: 'Guides', href: '/guides' },
       { label: 'AI Video Analytics Cost' },
     ]}>
       <article className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">AI Video Analytics Cost</h1>
+          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">AI video analytics cost</h1>
           <AuthorByline className="mt-6" />
           <p className="mt-6 max-w-prose text-body text-muted-foreground">AI video analytics cost is the price of adding automated detection, classification, and alerting capabilities to your existing camera infrastructure. Pricing models vary: per-camera subscriptions, per-channel licenses, or hardware-bundled solutions. Cloud-based analytics like Camzify typically offer the lowest entry cost with subscription pricing.</p>
 
@@ -72,6 +80,7 @@ export default function AiVideoAnalyticsCostPage() {
           </section>
         </div>
       </article>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

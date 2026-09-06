@@ -1,6 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
-import { FAQAccordion } from '@/components/content/faq-accordion';
+import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
 
@@ -11,7 +11,7 @@ import Link from 'next/link';
  */
 const pageMeta = {
   title: "Camzify Connector | RTSP Relay Software",
-  description: "The Camzify Connector relays local RTSP cameras and their PTZ controls to Camzify from a Windows, macOS or Linux machine — no port forwarding or static IP required.",
+  description: "The Camzify Connector relays local RTSP cameras and their PTZ controls to Camzify from a Windows, macOS or Linux machine, no port forwarding or static IP required.",
   path: "/camzify-connector",
 };
 
@@ -24,7 +24,7 @@ const faqs = [
   },
   {
     question: 'What operating system does the Connector run on?',
-    answer: 'Windows, macOS or Linux. It installs on any machine that can see the cameras on the local network and reach the internet at the same time — often an existing office PC or a small server already on site, rather than new hardware.',
+    answer: 'Windows, macOS or Linux. It installs on any machine that can see the cameras on the local network and reach the internet at the same time, often an existing office PC or a small server already on site, rather than new hardware.',
   },
   {
     question: 'Does PTZ control work through the Connector?',
@@ -43,14 +43,14 @@ export default function CamzifyConnectorPage() {
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Camzify Connector</h1>
           <p className="mt-6 max-w-prose text-body text-muted-foreground">
-            The Camzify Connector is a lightweight software application installed on a PC or server on the same local network as your cameras. It relays RTSP streams — and the pan, tilt and zoom controls that go with them — securely to the Camzify cloud, without requiring port forwarding, static IP addresses, or firewall changes. It runs on Windows, macOS or Linux.
+            The Camzify Connector is a lightweight software application installed on a PC or server on the same local network as your cameras. It relays RTSP streams, and the pan, tilt and zoom controls that go with them, securely to the Camzify cloud, without requiring port forwarding, static IP addresses, or firewall changes. It runs on Windows, macOS or Linux.
           </p>
 
           <div className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Why you need it</h2>
               <p className="mt-4 max-w-prose text-muted-foreground">
-                Most IP cameras are installed on local networks behind NAT routers. They are not directly accessible from the internet — which is good for security, but makes cloud connectivity a challenge. The Connector solves this by establishing an outbound connection from inside the network, tunnelling the camera feeds securely to Camzify.
+                Most IP cameras are installed on local networks behind NAT routers. They are not directly accessible from the internet, which is good for security, but makes cloud connectivity a challenge. The Connector solves this by establishing an outbound connection from inside the network, tunnelling the camera feeds securely to Camzify.
               </p>
             </ScrollReveal>
           </div>
@@ -98,17 +98,7 @@ export default function CamzifyConnectorPage() {
         </div>
       </section>
 
-      <section className="pb-16">
-        <div className="mx-auto max-w-site px-6">
-          <div className="rounded-2xl border border-border bg-card p-8 sm:p-10">
-            <span className="font-mono text-mono-sm uppercase text-primary">FAQ</span>
-            <h2 className="mt-2 font-display text-2xl font-bold">Frequently asked questions</h2>
-            <div className="mt-6">
-              <FAQAccordion items={faqs} />
-            </div>
-          </div>
-        </div>
-      </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

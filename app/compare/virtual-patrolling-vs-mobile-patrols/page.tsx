@@ -1,8 +1,8 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { ComparisonTable } from '@/components/content/comparison-table';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import { SectionVisual } from '@/components/content/section-visual';
 import Link from 'next/link';
 
@@ -124,15 +124,7 @@ export default function VsMobilePatrolsPage() {
         </div>
       </section>
 
-      <section className="pb-16">
-        <div className="mx-auto max-w-site px-6">
-          <div className="rounded-2xl border border-border bg-card p-8 sm:p-10">
-            <span className="font-mono text-mono-sm uppercase text-primary">FAQ</span>
-            <h2 className="mt-2 font-display text-2xl font-bold">Frequently asked questions</h2>
-            <div className="mt-6"><FAQAccordion items={faqs} /></div>
-          </div>
-        </div>
-      </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

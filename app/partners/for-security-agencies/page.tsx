@@ -1,6 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
-import { FAQAccordion } from '@/components/content/faq-accordion';
+import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
 import { Building2, Users, FileText, Clock, ShieldAlert, Layers } from 'lucide-react';
@@ -21,7 +21,7 @@ export const metadata = generatePageMeta({ ...pageMeta });
 const faqs = [
   {
     question: 'Will virtual patrolling replace the guards my agency sells?',
-    answer: 'No, and an agency should be skeptical of anyone claiming it will. What it changes is what a guard is dispatched to. A scheduled round covers the sites and hours you cannot staff, verifies specific conditions at each camera, and escalates to a guard when something needs a person. The guard hours you sell become response hours rather than walking hours — which is the part a client is least willing to cut, because it is the part that actually deals with the problem.',
+    answer: 'No, and an agency should be skeptical of anyone claiming it will. What it changes is what a guard is dispatched to. A scheduled round covers the sites and hours you cannot staff, verifies specific conditions at each camera, and escalates to a guard when something needs a person. The guard hours you sell become response hours rather than walking hours, which is the part a client is least willing to cut, because it is the part that actually deals with the problem.',
   },
   {
     question: 'How does one account cover multiple client sites?',
@@ -33,7 +33,7 @@ const faqs = [
   },
   {
     question: 'What can an agency sell overnight that it cannot staff?',
-    answer: 'Scheduled rounds across every client site at whatever frequency is agreed — every two hours through the night is common — with a compliance report filed after each one. Staffing that as physical patrols across a portfolio of sites is usually impossible at any price a client will pay. The rounds happen whether or not anyone is on shift, and the report is what the client is really buying: evidence the site was checked.',
+    answer: 'Scheduled rounds across every client site at whatever frequency is agreed, every two hours through the night is common, with a compliance report filed after each one. Staffing that as physical patrols across a portfolio of sites is usually impossible at any price a client will pay. The rounds happen whether or not anyone is on shift, and the report is what the client is really buying: evidence the site was checked.',
   },
   {
     question: 'Does this work for a central monitoring station or alarm receiving center?',
@@ -41,7 +41,7 @@ const faqs = [
   },
   {
     question: 'How is this different from a guard tour system?',
-    answer: 'A guard tour system proves a guard reached a checkpoint — an NFC tag or a QR code was scanned. It says nothing about what was there. A virtual round checks a defined condition at each camera and stores the frame it was judged against, so the record shows the gate was actually closed rather than that somebody stood next to it. For an agency defending a claim, that difference is the whole point.',
+    answer: 'A guard tour system proves a guard reached a checkpoint, an NFC tag or a QR code was scanned. It says nothing about what was there. A virtual round checks a defined condition at each camera and stores the frame it was judged against, so the record shows the gate was actually closed rather than that somebody stood next to it. For an agency defending a claim, that difference is the whole point.',
   },
 ];
 
@@ -54,9 +54,7 @@ export default function ForSecurityAgenciesPage() {
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
           <span className="font-mono text-mono-sm uppercase text-primary">Partner Program</span>
-          <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">
-            Camzify for security agencies
-          </h1>
+          <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Camzify for security agencies</h1>
           <p className="mt-6 max-w-prose text-body text-muted-foreground">
             <strong className="font-semibold text-foreground">
               A guarding company can only sell as many hours as it can staff.
@@ -106,7 +104,7 @@ export default function ForSecurityAgenciesPage() {
                   {
                     icon: FileText,
                     title: 'Evidence the client can hold',
-                    desc: 'Each round produces a report naming every camera, every check, the result and the frame it was judged against — for the client, their insurer, or a dispute.',
+                    desc: 'Each round produces a report naming every camera, every check, the result and the frame it was judged against, for the client, their insurer, or a dispute.',
                   },
                   {
                     icon: ShieldAlert,
@@ -235,17 +233,8 @@ export default function ForSecurityAgenciesPage() {
           </div>
         </div>
       </section>
-      <section className="pb-16">
-        <div className="mx-auto max-w-site px-6">
-          <div className="rounded-2xl border border-border bg-card p-8 sm:p-10">
-            <span className="font-mono text-mono-sm uppercase text-primary">FAQ</span>
-            <h2 className="mt-2 font-display text-2xl font-bold">Frequently asked questions</h2>
-            <div className="mt-6">
-              <FAQAccordion items={faqs} />
-            </div>
-          </div>
-        </div>
-      </section>
+
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

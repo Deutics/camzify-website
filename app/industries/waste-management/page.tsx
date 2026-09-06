@@ -1,10 +1,11 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { FaqSection } from '@/components/content/faq-section';
 import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 
 /**
@@ -13,8 +14,8 @@ import Link from 'next/link';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "AI Security for Waste Management | Video Surveillance",
-  description: "Camzify provides AI-powered virtual patrolling and video analytics for waste management — automated patrols, real-time alerts, and compliance reports.",
+  title: "AI Security for Waste Management",
+  description: "Camzify provides AI-powered virtual patrolling and video analytics for waste management, automated patrols, real-time alerts, and compliance reports.",
   path: "/industries/waste-management",
 };
 
@@ -27,32 +28,35 @@ const deploymentPhases = [
 ];
 
 const faqs = [
-  { question: "Can Camzify detect illegal dumping?", answer: "Camzify detects vehicle and person presence in zones that should be empty. If someone enters the site after hours with a vehicle, the system alerts immediately — providing the evidence needed for enforcement." },
+  { question: "Can Camzify detect illegal dumping?", answer: "Camzify detects vehicle and person presence in zones that should be empty. If someone enters the site after hours with a vehicle, the system alerts immediately, providing the evidence needed for enforcement." },
   { question: 'How long does setup take for a waste management or transfer station site?', answer: 'Existing cameras connect through the Camzify Connector or a direct RTSP feed, so no new camera hardware is required in most cases. Perimeter, gate, and yard zones are typically mapped and scheduled within a few days of connecting the feeds.' },
   { question: 'Will Camzify flag every truck that comes through during the day?', answer: 'No. Zones and schedules are configured around expected activity, so a gate or transfer area active during business hours can run different rules than the same zone overnight. Detections focus on activity outside those expected windows rather than routine daytime traffic.' },
-  { question: 'Can the alerts and footage be used as evidence for enforcement action?', answer: 'Yes. Every confirmed detection is logged with a timestamped snapshot or clip and recorded in the patrol report, giving you a documented record of when and where an unauthorized vehicle or person was on site — useful for reporting illegal dumping or trespassing to the relevant authority.' },
+  { question: 'Can the alerts and footage be used as evidence for enforcement action?', answer: 'Yes. Every confirmed detection is logged with a timestamped snapshot or clip and recorded in the patrol report, giving you a documented record of when and where an unauthorized vehicle or person was on site, useful for reporting illegal dumping or trespassing to the relevant authority.' },
   { question: 'How does Camzify handle sites with large, open yards and limited lighting?', answer: 'Camzify works with whatever camera feeds you already have covering the yard, gates, and perimeter. Detection zones and line rules are configured to the actual camera views, and patrol frequency can be increased for lower-visibility periods such as overnight or early-morning hours.' },
-  { question: 'Is Camzify a realistic alternative to hiring a site guard for after-hours coverage?', answer: 'For most waste management and transfer sites, yes. A guard covers the property for one shift at a time. Camzify runs the same perimeter and zone checks continuously, across the entire site, at a lower ongoing cost — and many operators use it specifically to cover the overnight and weekend hours a guard schedule doesn\'t reach.' },
+  { question: 'Is Camzify a realistic alternative to hiring a site guard for after-hours coverage?', answer: 'For most waste management and transfer sites, yes. A guard covers the property for one shift at a time. Camzify runs the same perimeter and zone checks continuously, across the entire site, at a lower ongoing cost, and many operators use it specifically to cover the overnight and weekend hours a guard schedule doesn\'t reach.' },
 ];
 
 export default function WasteManagementPage() {
   return (
-    <PageShell {...pageMeta} schema={[serviceSchema({ name: "AI Security for Waste Management", description: "Camzify provides AI-powered virtual patrolling and video analytics for waste management — automated patrols, real-time alerts, and compliance reports.", path: "/industries/waste-management", audience: "Waste Management" })]} faqs={faqs} breadcrumbs={[
+    <PageShell {...pageMeta} schema={[serviceSchema({ name: "AI Security for Waste Management", description: "Camzify provides AI-powered virtual patrolling and video analytics for waste management, automated patrols, real-time alerts, and compliance reports.", path: "/industries/waste-management", audience: "Waste Management" })]} faqs={faqs} breadcrumbs={[
       { label: 'Industries', href: '/industries' },
       { label: 'Waste Management' },
     ]}>
+      <FeatureHero
+        eyebrow="Industry · waste management"
+        title="AI security for waste management"
+        lede={<><strong className="font-semibold text-foreground">Waste management sites face security challenges that cameras alone cannot solve and manned guards cannot cover consistently.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.</>}
+        facts={['Illegal dumping after hours going undetected until the next…', 'Perimeter fence lines with no continuous coverage across…', 'Unauthorized vehicles entering through unmanned or unstaffed…']}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}
+        visual={<PlaceholderVisual type="industry" caption="WASTE MANAGEMENT" alt="Security monitoring in a waste management environment" />}
+      />
+
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">AI Security for Waste Management</h1>
-          <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            Waste management sites face security challenges that cameras alone cannot solve and manned guards cannot cover consistently. Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.
-          </p>
-
-          <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
-            <ScrollReveal>
-              <div>
-                <h2 className="font-display text-2xl font-bold">Common waste management security gaps Camzify closes:</h2>
-                <ul className="mt-4 space-y-3 text-muted-foreground">
+          <div>
+            <h2 className="font-display text-2xl font-bold">Common waste management security gaps Camzify closes:</h2>
+            <ul className="mt-4 grid gap-3 text-muted-foreground sm:grid-cols-2">
                   <li className="flex gap-2">• Illegal dumping after hours going undetected until the next business day</li>
                   <li className="flex gap-2">• Perimeter fence lines with no continuous coverage across large, open sites</li>
                   <li className="flex gap-2">• Unauthorized vehicles entering through unmanned or unstaffed gates</li>
@@ -60,9 +64,6 @@ export default function WasteManagementPage() {
                   <li className="flex gap-2">• Camera outages in exposed, remote yard locations going unnoticed</li>
                   <li className="flex gap-2">• No audit trail proving perimeter checks actually happened</li>
                 </ul>
-              </div>
-            </ScrollReveal>
-            <PlaceholderVisual type="industry" caption="WASTE MANAGEMENT" alt="Security monitoring in a waste management environment" />
           </div>
 
           <div className="mt-16">
@@ -104,7 +105,7 @@ export default function WasteManagementPage() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Building the patrol route</h3>
                 <p className="mt-2 text-muted-foreground">
-                  A patrol sequence is set up once, ordering every camera stop — perimeter fence line, vehicle gates, transfer area, material stockpiles — into a single route that runs on a configurable schedule.
+                  A patrol sequence is set up once, ordering every camera stop, perimeter fence line, vehicle gates, transfer area, material stockpiles, into a single route that runs on a configurable schedule.
                 </p>
 
                 <h3 className="mt-6 font-display text-lg font-bold">Checking each stop</h3>
@@ -202,14 +203,7 @@ export default function WasteManagementPage() {
         </div>
       </section>
 
-      <section className="bg-muted/30 py-16 sm:py-20">
-        <div className="mx-auto max-w-site px-6 text-center">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">Frequently asked questions</h2>
-          <div className="mx-auto mt-8 max-w-3xl text-left">
-            <FAQAccordion items={faqs} />
-          </div>
-        </div>
-      </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

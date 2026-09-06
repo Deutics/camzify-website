@@ -1,10 +1,10 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { FeatureHero } from '@/components/content/feature-hero';
 import { HeroPlaceholder } from '@/components/content/hero-placeholder';
 import { SectionVisual } from '@/components/content/section-visual';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 import { Camera, Route, FileCheck2, ShieldCheck, Users, BookOpen, MessageSquare } from 'lucide-react';
 
@@ -182,17 +182,7 @@ export default function BecomeAResellerPage() {
         </div>
       </section>
 
-      <section className="pb-16">
-        <div className="mx-auto max-w-site px-6">
-          <div className="rounded-2xl border border-border bg-card p-8 sm:p-10">
-            <span className="font-mono text-mono-sm uppercase text-primary">FAQ</span>
-            <h2 className="mt-2 font-display text-2xl font-bold">Frequently asked questions</h2>
-            <div className="mt-6">
-              <FAQAccordion items={faqs} />
-            </div>
-          </div>
-        </div>
-      </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

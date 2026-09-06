@@ -1,9 +1,10 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { FaqSection } from '@/components/content/faq-section';
 import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 
 /**
@@ -12,7 +13,7 @@ import Link from 'next/link';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Abandoned Object Detection | AI Unattended Bag Detection Software",
+  title: "Abandoned Object Detection | Unattended Bags",
   description: "Camzify abandoned object detection flags unattended bags and packages the moment they\\'re left behind and remain unclaimed.",
   path: "/ai-features/abandoned-object-detection",
 };
@@ -20,12 +21,12 @@ const pageMeta = {
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
-  { question: 'How long does an object need to sit before it\'s flagged?', answer: 'The system tracks the moment an object separates from the person who was carrying it and starts a configurable dwell timer. If the object remains unclaimed past that threshold, an alert fires — filtering out items briefly set down and immediately picked back up.' },
+  { question: 'How long does an object need to sit before it\'s flagged?', answer: 'The system tracks the moment an object separates from the person who was carrying it and starts a configurable dwell timer. If the object remains unclaimed past that threshold, an alert fires, filtering out items briefly set down and immediately picked back up.' },
   { question: 'Does it work in crowded areas?', answer: 'The model relies on multi-object tracking to associate an object with the person who dropped it, which holds up in moderately busy areas. Very dense crowds can reduce tracking confidence, and confidence scores are included on every alert so a reviewer can judge reliability.' },
   { question: 'What counts as an abandoned object?', answer: 'Bags, boxes, and packages that separate from their carrier and remain stationary and unclaimed past the configured dwell time. The threshold and object types monitored are configurable per site.' },
   { question: 'Does it distinguish a deliberate drop-off, like a delivery, from a security concern?', answer: 'The base detection flags anything that separates from its carrier and stays unclaimed past the dwell threshold. Zones with expected drop-off activity, such as a loading dock or a designated parcel area, can be configured with a longer threshold or excluded from monitoring so routine deliveries don\'t generate alerts.' },
   { question: 'How is the dwell-time threshold chosen for a site?', answer: 'It\'s set per camera or zone based on how sensitive that area needs to be. Security teams commonly use a shorter threshold in high-security zones like transit platforms or government checkpoints, and a longer one in general public areas like a lobby or waiting room.' },
-  { question: 'How is this different from general motion or zone intrusion detection?', answer: 'Motion and zone intrusion detection respond to people or objects moving through or into an area. Abandoned object detection specifically tracks the association between a person and the object they were carrying, and times how long that object stays unclaimed once separated — a different mechanism aimed at a different problem.' },
+  { question: 'How is this different from general motion or zone intrusion detection?', answer: 'Motion and zone intrusion detection respond to people or objects moving through or into an area. Abandoned object detection specifically tracks the association between a person and the object they were carrying, and times how long that object stays unclaimed once separated, a different mechanism aimed at a different problem.' },
 ];
 
 export default function Page() {
@@ -34,19 +35,22 @@ export default function Page() {
       { label: 'AI Features', href: '/ai-features' },
       { label: 'Abandoned Object Detection' },
     ]}>
+      <FeatureHero
+        eyebrow="AI detection · Abandoned object detection"
+        title="Abandoned object detection"
+        lede={<><strong className="font-semibold text-foreground">A bag left behind? We notice.</strong> Abandoned object detection flags unattended bags and packages the
+            moment they separate from their carrier and stay unclaimed past a configurable dwell time.</>}
+        facts={['Bags or packages separated from the person who was carrying them', 'Objects remaining unclaimed past a configurable dwell-time…', 'Unattended items in lobbies, entrances, and public waiting areas']}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/ai-features', label: 'All 22 detections' }}
+        visual={<PhotoFigure src="/feature-abandoned-object-detection-1.jpg" alt="Camera view of a lobby with an unattended bag highlighted by a detection bounding box" caption="Abandoned object detection" priority />}
+      />
+
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Abandoned Object Detection</h1>
-          <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            A bag left behind? We notice. Abandoned object detection flags unattended bags and packages the
-            moment they separate from their carrier and stay unclaimed past a configurable dwell time.
-          </p>
-
-          <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
-            <ScrollReveal>
-              <div>
-                <h2 className="font-display text-2xl font-bold">This capability detects and alerts on:</h2>
-                <ul className="mt-4 space-y-3 text-muted-foreground">
+          <div>
+            <h2 className="font-display text-2xl font-bold">This capability detects and alerts on:</h2>
+            <ul className="mt-4 grid gap-3 text-muted-foreground sm:grid-cols-2">
                   <li className="flex gap-2">• Bags or packages separated from the person who was carrying them</li>
                   <li className="flex gap-2">• Objects remaining unclaimed past a configurable dwell-time threshold</li>
                   <li className="flex gap-2">• Unattended items in lobbies, entrances, and public waiting areas</li>
@@ -54,9 +58,6 @@ export default function Page() {
                   <li className="flex gap-2">• Repeated abandonment activity at the same location over time</li>
                   <li className="flex gap-2">• A timestamped clip showing exactly when and where the item was left</li>
                 </ul>
-              </div>
-            </ScrollReveal>
-            <PhotoFigure src="/feature-abandoned-object-detection-1.jpg" alt="Camera view of a lobby with an unattended bag highlighted by a detection bounding box" caption="Abandoned object detection" priority />
           </div>
 
           <div className="mt-16">
@@ -64,8 +65,8 @@ export default function Page() {
               <h2 className="font-display text-2xl font-bold">Why abandoned object detection matters</h2>
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
                 <p>An unattended bag in a busy lobby, station, or waiting area is a genuine security concern, but it's also easy to miss. Guards watching a floor in person can't track every bag in a crowded space continuously, and a package that's been sitting alone for several minutes doesn't stand out visually unless someone is specifically looking for it.</p>
-                <p>The legacy fallback is a staff member or bystander noticing and reporting it, or a security operator spotting it while reviewing footage after the fact across dozens of camera feeds. Both depend on someone happening to pay attention to the right frame at the right time — which does not scale as the number of cameras and the size of the space grows.</p>
-                <p>Continuous AI monitoring solves this by tracking the association between a person and what they're carrying automatically, the moment it starts a dwell timer as soon as separation happens. The alert fires when the object crosses the configured threshold — no one has to have been watching that exact spot for it to be caught.</p>
+                <p>The legacy fallback is a staff member or bystander noticing and reporting it, or a security operator spotting it while reviewing footage after the fact across dozens of camera feeds. Both depend on someone happening to pay attention to the right frame at the right time, which does not scale as the number of cameras and the size of the space grows.</p>
+                <p>Continuous AI monitoring solves this by tracking the association between a person and what they're carrying automatically, the moment it starts a dwell timer as soon as separation happens. The alert fires when the object crosses the configured threshold, no one has to have been watching that exact spot for it to be caught.</p>
               </div>
             </ScrollReveal>
           </div>
@@ -173,14 +174,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="bg-muted/30 py-16 sm:py-20">
-        <div className="mx-auto max-w-site px-6 text-center">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">Frequently asked questions</h2>
-          <div className="mx-auto mt-8 max-w-3xl text-left">
-            <FAQAccordion items={faqs} />
-          </div>
-        </div>
-      </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

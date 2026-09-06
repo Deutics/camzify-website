@@ -1,12 +1,12 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { FeatureHero } from '@/components/content/feature-hero';
 import { PhotoFigure } from '@/components/content/photo-figure';
 import { HeroPlaceholder } from '@/components/content/hero-placeholder';
 import { SectionVisual } from '@/components/content/section-visual';
 import { SceneObservation } from '@/components/motion/scene-observation';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 import { Calendar, Clock, Repeat, ArrowRight, ShieldAlert } from 'lucide-react';
 
@@ -24,7 +24,7 @@ const pageMeta = {
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
-  { question: 'Does an automated round only check the items on the checklist?', answer: 'No. It works through the checklist, and it also assesses each stop for safety and security risks in its own right, raising a critical notification for anything it finds even where no checklist item covered it. A checklist can only ask what somebody thought to ask when the sequence was written, and the useful things a round finds are often not on it — a blocked exit, an unattended bag, smoke, somebody in a place they should not be.' },
+  { question: 'Does an automated round only check the items on the checklist?', answer: 'No. It works through the checklist, and it also assesses each stop for safety and security risks in its own right, raising a critical notification for anything it finds even where no checklist item covered it. A checklist can only ask what somebody thought to ask when the sequence was written, and the useful things a round finds are often not on it, a blocked exit, an unattended bag, smoke, somebody in a place they should not be.' },
   { question: 'Does a failed item notify the guard without anyone approving it?', answer: 'On an automated round, yes. The notification goes to the guard assigned to that camera as the round runs, with no operator in the loop. That is the point of running it at 3am. On a manual round the operator is already looking at the camera, so the message is offered rather than sent automatically, and they can send it, skip it, or send it later from the same item.' },
   { question: 'What is scene observation in automated patrolling?', answer: 'It lets an automated round judge a camera from a short window of live video, one to three seconds, instead of a single still frame. A frame tells you someone is in a corridor; a few seconds tell you whether they walked through or stayed. Single frame is faster and right for static checks like a gate or a roller door; watching is worth the extra seconds anywhere people are involved, because it is what stops a round waking a guard over somebody walking past a camera.' },
   { question: 'Does an automated round feel different from a guard walking the site?', answer: 'It covers the same sequence with the same checks at the same times, and unlike a physical round it happens at 3am on the fourth night as reliably as the first. What it does not do is intervene. It observes, judges, notifies the responsible guard and files the record, so a person is dispatched to the things that need a person rather than to everything.' },
@@ -202,13 +202,7 @@ export default function AutomatedSchedulingPage() {
             </ScrollReveal>
           </div>
 
-          <div className="mt-16 rounded-2xl border border-border bg-card p-8 sm:p-10">
-            <span className="font-mono text-mono-sm uppercase text-primary">FAQ</span>
-            <h2 className="mt-2 font-display text-2xl font-bold">Frequently asked questions</h2>
-            <div className="mt-6">
-              <FAQAccordion items={faqs} />
-            </div>
-          </div>
+          <FaqSection items={faqs} inline />
 
           <div className="mt-16">
             <h2 className="font-display text-2xl font-bold">Related</h2>

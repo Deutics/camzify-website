@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
@@ -37,9 +38,16 @@ const items = [
   { slug: 'multiple-sites', name: 'Multiple Sites', icon: MapPin },
 ];
 
+const faqs = [
+  { question: 'Does the product differ by industry?', answer: 'No. The same account, cameras and detections serve every industry. What differs is the configuration: which detections on which cameras, what the checklist asks at each stop, and who is notified.' },
+  { question: 'My industry is not listed. Is it a fit?', answer: 'If the site has cameras and hours when nobody is watching them, yes. The use-case pages start from the situation rather than the sector and may be the better door.' },
+  { question: 'Are the deployment notes on these pages from real customers?', answer: 'They describe what a first deployment typically involves; they are not case studies, because we do not publish customer names or figures without permission and none has been given yet.' },
+  { question: 'Where do I start?', answer: 'Book a demo on your own cameras. A live round on a real site says more than any industry page.' },
+];
+
 export default function IndustriesHub() {
   return (
-    <PageShell {...pageMeta} schema={[serviceSchema({ name: "Industries", description: "Camzify provides AI-powered virtual patrolling and video analytics for warehouses, retail, manufacturing, construction, healthcare, and more.", path: "/industries" })]} breadcrumbs={[{ label: 'Industries' }]}>
+    <PageShell {...pageMeta} faqs={faqs} schema={[serviceSchema({ name: "Industries", description: "Camzify provides AI-powered virtual patrolling and video analytics for warehouses, retail, manufacturing, construction, healthcare, and more.", path: "/industries" })]} breadcrumbs={[{ label: 'Industries' }]}>
       <section className="pb-20">
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Industries</h1>
@@ -59,6 +67,7 @@ export default function IndustriesHub() {
           </div>
         </div>
       </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

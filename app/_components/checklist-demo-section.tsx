@@ -28,7 +28,7 @@ export function ChecklistDemoSection() {
               </h2>
               <p className="mt-5 max-w-prose text-body leading-relaxed text-muted-foreground">
                 The card on the right is a working demo: click it. Step through three cameras and mark each checklist item.
-                Fail one and you will be asked whether to message the guard — and then the round
+                Fail one and you will be asked whether to message the guard, and then the round
                 will not let you move on until the item is either fixed and re-checked or held as
                 pending with a reason.
               </p>

@@ -1,10 +1,11 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { FaqSection } from '@/components/content/faq-section';
 import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 
 /**
@@ -14,7 +15,7 @@ import Link from 'next/link';
  */
 const pageMeta = {
   title: "AI Security for Self-Storage | Video Surveillance",
-  description: "Camzify provides AI-powered virtual patrolling and video analytics for self-storage — automated patrols, real-time alerts, and compliance reports.",
+  description: "Camzify provides AI-powered virtual patrolling and video analytics for self-storage, automated patrols, real-time alerts, and compliance reports.",
   path: "/industries/self-storage",
 };
 
@@ -27,32 +28,35 @@ const deploymentPhases = [
 ];
 
 const faqs = [
-  { question: "Does Camzify replace the need for an on-site guard?", answer: "For many self-storage facilities, yes. Automated patrols provide more consistent coverage than a single guard. The cost comparison is significant — see the ROI calculator." },
+  { question: "Does Camzify replace the need for an on-site guard?", answer: "For many self-storage facilities, yes. Automated patrols provide more consistent coverage than a single guard. The cost comparison is significant, see the ROI calculator." },
   { question: 'How does Camzify handle a site spread across multiple buildings and drive-up aisles?', answer: 'Every connected camera, regardless of building or aisle, is added to a single patrol route with its own zone and schedule rules. A facility with a front office, several storage buildings, and an open drive-up area runs as one coordinated round instead of separate, disconnected feeds.' },
-  { question: 'Will Camzify alert on every tenant driving through the gate?', answer: 'No. Gate and perimeter rules are scoped to specific conditions — such as entry outside the facility\'s posted access hours, or a vehicle without a matching access event — rather than flagging routine tenant traffic during normal hours.' },
+  { question: 'Will Camzify alert on every tenant driving through the gate?', answer: 'No. Gate and perimeter rules are scoped to specific conditions, such as entry outside the facility\'s posted access hours, or a vehicle without a matching access event — rather than flagging routine tenant traffic during normal hours.' },
   { question: 'Does Camzify keep a record we can hand to law enforcement after a break-in?', answer: 'Yes. Every alert is logged with a timestamped snapshot or clip, and the patrol report shows exactly which zones were checked and when. That record can be pulled and shared as evidence to support a police report or insurance claim.' },
-  { question: 'How quickly is a gate breach or unit tampering flagged overnight?', answer: 'Alerts fire in near real time from the moment a confirmed event is detected — typically within seconds — and route to the on-call contact with a timestamped clip, rather than waiting for someone to review footage the next morning.' },
+  { question: 'How quickly is a gate breach or unit tampering flagged overnight?', answer: 'Alerts fire in near real time from the moment a confirmed event is detected, typically within seconds, and route to the on-call contact with a timestamped clip, rather than waiting for someone to review footage the next morning.' },
   { question: 'Is Camzify cheaper than staffing overnight security at a self-storage facility?', answer: 'For most sites, yes. A single overnight guard covers one facility for one shift. Camzify runs continuous automated checks across every camera on the property at a fraction of the cost, and scales across multiple facilities without adding headcount for each one.' },
 ];
 
 export default function SelfStoragePage() {
   return (
-    <PageShell {...pageMeta} schema={[serviceSchema({ name: "AI Security for Self-Storage", description: "Camzify provides AI-powered virtual patrolling and video analytics for self-storage — automated patrols, real-time alerts, and compliance reports.", path: "/industries/self-storage", audience: "Self Storage" })]} faqs={faqs} breadcrumbs={[
+    <PageShell {...pageMeta} schema={[serviceSchema({ name: "AI Security for Self-Storage", description: "Camzify provides AI-powered virtual patrolling and video analytics for self-storage, automated patrols, real-time alerts, and compliance reports.", path: "/industries/self-storage", audience: "Self Storage" })]} faqs={faqs} breadcrumbs={[
       { label: 'Industries', href: '/industries' },
       { label: 'Self-Storage' },
     ]}>
+      <FeatureHero
+        eyebrow="Industry · self-storage"
+        title="AI security for self-storage"
+        lede={<><strong className="font-semibold text-foreground">Self-storage facilities face security challenges that cameras alone cannot solve and manned guards cannot cover consistently.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.</>}
+        facts={['Unmanned office hours leaving hallways and gate access…', 'Gate codes shared or tailgated by vehicles that never checked in', "Unit break-ins that go unnoticed until the tenant's next visit"]}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}
+        visual={<PlaceholderVisual type="industry" caption="SELF-STORAGE" alt="Security monitoring in a self-storage environment" />}
+      />
+
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">AI Security for Self-Storage</h1>
-          <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            Self-storage facilities face security challenges that cameras alone cannot solve and manned guards cannot cover consistently. Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.
-          </p>
-
-          <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
-            <ScrollReveal>
-              <div>
-                <h2 className="font-display text-2xl font-bold">Common self-storage security gaps Camzify closes:</h2>
-                <ul className="mt-4 space-y-3 text-muted-foreground">
+          <div>
+            <h2 className="font-display text-2xl font-bold">Common self-storage security gaps Camzify closes:</h2>
+            <ul className="mt-4 grid gap-3 text-muted-foreground sm:grid-cols-2">
                   <li className="flex gap-2">• Unmanned office hours leaving hallways and gate access unwatched most of the day</li>
                   <li className="flex gap-2">• Gate codes shared or tailgated by vehicles that never checked in</li>
                   <li className="flex gap-2">• Unit break-ins that go unnoticed until the tenant's next visit</li>
@@ -60,9 +64,6 @@ export default function SelfStoragePage() {
                   <li className="flex gap-2">• Camera outages in remote drive-up aisles going unnoticed for days</li>
                   <li className="flex gap-2">• No audit trail proving a patrol actually happened</li>
                 </ul>
-              </div>
-            </ScrollReveal>
-            <PlaceholderVisual type="industry" caption="SELF-STORAGE" alt="Security monitoring in a self-storage environment" />
           </div>
 
           <div className="mt-16">
@@ -70,7 +71,7 @@ export default function SelfStoragePage() {
               <h2 className="font-display text-2xl font-bold">Why self-storage needs continuous AI monitoring</h2>
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
                 <p>Most self-storage facilities are unmanned outside a short window of office hours, yet tenants can access units around the clock. That leaves gates, drive-up aisles, and hallways running unsupervised for the majority of every day, on a site that's often spread across several acres and multiple buildings.</p>
-                <p>A gate code or keycard controls entry, but it doesn't stop tailgating, and it doesn't tell anyone if a unit door has been forced open in an aisle no one walks past until the next scheduled visit. Plain CCTV records the aisle either way — it just doesn't tell anyone in time to matter.</p>
+                <p>A gate code or keycard controls entry, but it doesn't stop tailgating, and it doesn't tell anyone if a unit door has been forced open in an aisle no one walks past until the next scheduled visit. Plain CCTV records the aisle either way, it just doesn't tell anyone in time to matter.</p>
                 <p>Virtual patrolling covers the gap by running scheduled AI checks across every gate, aisle, and perimeter camera on the property, flagging tailgating, forced entry, and camera tampering as they happen instead of during the next manual walkthrough.</p>
               </div>
             </ScrollReveal>
@@ -104,7 +105,7 @@ export default function SelfStoragePage() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Building the patrol route</h3>
                 <p className="mt-2 text-muted-foreground">
-                  A patrol sequence is set up once, ordering every camera stop — entry gate, drive-up aisles, interior hallways, perimeter fence line — into a single route that runs on a configurable schedule.
+                  A patrol sequence is set up once, ordering every camera stop, entry gate, drive-up aisles, interior hallways, perimeter fence line, into a single route that runs on a configurable schedule.
                 </p>
 
                 <h3 className="mt-6 font-display text-lg font-bold">Checking each stop</h3>
@@ -202,14 +203,7 @@ export default function SelfStoragePage() {
         </div>
       </section>
 
-      <section className="bg-muted/30 py-16 sm:py-20">
-        <div className="mx-auto max-w-site px-6 text-center">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">Frequently asked questions</h2>
-          <div className="mx-auto mt-8 max-w-3xl text-left">
-            <FAQAccordion items={faqs} />
-          </div>
-        </div>
-      </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

@@ -1,7 +1,7 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import { FeatureHero } from '@/components/content/feature-hero';
 import { HeroPlaceholder } from '@/components/content/hero-placeholder';
 import { SectionVisual, type SectionVisualVariant } from '@/components/content/section-visual';
@@ -40,8 +40,8 @@ type Step = {
 
 const steps: Step[] = [
   { icon: Wifi, name: 'Connect your cameras', text: 'Any IP camera connects over one of three connection types: RTSP, RTMP or HTTPS. An internet-reachable RTSP stream connects directly; cameras on a private network relay through the Camzify Connector with no port forwarding. Stream quality is auto-detected on connect.', image: '/vp-how-it-works-step-1.jpg', imageAlt: 'The camera configuration screen with cameras added by RTSP, RTMP and HTTPS' },
-  { icon: Route, name: 'Build a patrol sequence', text: 'Define an ordered list of cameras that forms the route. Each sequence is a physical path through the site — main gate, loading dock, server corridor, perimeter — and a site can run several at once.', image: '/vp-how-it-works-step-2.jpg', imageAlt: 'A patrol sequence being built: cameras in order with a checklist per stop' },
-  { icon: ClipboardCheck, name: 'Assign checklists and guards', text: 'For each camera in the sequence, write the checklist items it is judged against — "Gate fully closed", "No obstruction in view" — and name the guard responsible, with the message they receive if an item fails.', visual: 'checklist' as const, image: '/vp-how-it-works-step-3.jpg', imageAlt: 'Checklist items and the guard to notify assigned to a camera stop' },
+  { icon: Route, name: 'Build a patrol sequence', text: 'Define an ordered list of cameras that forms the route. Each sequence is a physical path through the site, main gate, loading dock, server corridor, perimeter, and a site can run several at once.', image: '/vp-how-it-works-step-2.jpg', imageAlt: 'A patrol sequence being built: cameras in order with a checklist per stop' },
+  { icon: ClipboardCheck, name: 'Assign checklists and guards', text: 'For each camera in the sequence, write the checklist items it is judged against, "Gate fully closed", "No obstruction in view", and name the guard responsible, with the message they receive if an item fails.', visual: 'checklist' as const, image: '/vp-how-it-works-step-3.jpg', imageAlt: 'Checklist items and the guard to notify assigned to a camera stop' },
   { icon: Calendar, name: 'Schedule it, or start it by hand', text: 'Auto-Patrol runs on a frequency, active hours and active days in the site\'s timezone. A manual round can be started at any time. Either way the round follows the same sequence and checks the same items.', visual: 'schedule' as const, image: '/vp-how-it-works-step-4.jpg', imageAlt: 'Auto-Patrol settings: scene observation, frequency, active hours and days' },
   { icon: Cpu, name: 'The AI runs the round', text: 'The system steps through every camera, judges each item from a single frame or a short window of live video, records its reasoning, notifies the assigned guard on any failure, and flags safety or security risks it sees even where no item asked.', visual: 'notification' as const, image: '/vp-how-it-works-step-5.jpg', imageAlt: 'A round in progress: the AI judging a checklist item against the live frame' },
   { icon: FileText, name: 'Report and log', text: 'A compliance report is filed with every check, the snapshot behind each result, before and after frames on anything fixed, and an overall percentage. The round is logged as Completed, Flagged or Overdue in a history you can filter by sequence, site or status.', visual: 'report' as const, image: '/vp-how-it-works-step-6.jpg', imageAlt: 'The patrol history and the report filed for a completed round' },
@@ -51,7 +51,7 @@ const faqs = [
   { question: 'How long does it take to set up virtual patrolling?', answer: 'It depends on how many cameras and checklist items are involved, but the six steps above are designed to be worked through in a single sitting for a typical site. Connecting cameras is usually the fastest step; writing checklists per camera tends to take the longest, because that is where you decide what actually matters at each stop.' },
   { question: 'Do the six steps have to be done in order?', answer: 'Cameras need to be connected before they can be added to a patrol sequence, and a sequence needs to exist before checklists and guards can be assigned to it. Beyond that dependency, later steps like scheduling can be revisited and adjusted at any time.' },
   { question: 'What happens if a step is skipped, like assigning a guard?', answer: 'A camera without an assigned guard can still be included in a patrol sequence and checked, but there is nobody to notify if an item comes back Not Compliant. Assign a guard to every camera before relying on a sequence for real coverage.' },
-  { question: 'Do I need technical staff to set this up?', answer: 'No. Connecting a camera is a matter of entering its stream details, and the rest — building sequences, writing checklist items, assigning guards, scheduling rounds — is done through the same configuration screens without coding or networking expertise.' },
+  { question: 'Do I need technical staff to set this up?', answer: 'No. Connecting a camera is a matter of entering its stream details, and the rest, building sequences, writing checklist items, assigning guards, scheduling rounds, is done through the same configuration screens without coding or networking expertise.' },
   { question: 'Can I change something after a patrol sequence is live?', answer: 'Yes. Cameras, checklist items, guard assignments and the schedule can all be edited at any time. Changes take effect from the next round onward, so a live sequence never has to be torn down to be adjusted.' },
   { question: 'What is the difference between a manual round and an automated one?', answer: 'A manual round is walked by an operator, camera by camera, making each judgment against the live view. An automated round follows the same sequence on a schedule with the AI making the assessment, recording its reasoning, notifying guards on its own and filing the report without anyone present. Most sites use automated rounds for frequency and manual rounds when a person needs to look properly.' },
 ];
@@ -128,15 +128,7 @@ export default function HowItWorksPage() {
 
       <section className="border-t border-border bg-muted/20 py-20 sm:py-24">
         <div className="mx-auto max-w-site px-6">
-          <ScrollReveal>
-            <div className="max-w-3xl">
-              <span className="font-mono text-mono-sm uppercase text-primary">Common questions</span>
-              <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">Setting it up, answered</h2>
-            </div>
-          </ScrollReveal>
-          <ScrollReveal delay={0.08}>
-            <div className="mt-10 max-w-3xl"><FAQAccordion items={faqs} /></div>
-          </ScrollReveal>
+          <FaqSection items={faqs} inline className="!mt-0" eyebrow="Common questions" heading="Setting it up, answered" />
         </div>
       </section>
 

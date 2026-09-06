@@ -1,11 +1,12 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { FaqSection } from '@/components/content/faq-section';
 import { PhotoFigure } from '@/components/content/photo-figure';
 import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 
 /**
@@ -15,7 +16,7 @@ import Link from 'next/link';
  */
 const pageMeta = {
   title: "AI Security for Energy | Video Surveillance",
-  description: "Camzify provides AI-powered virtual patrolling and video analytics for energy — automated patrols, real-time alerts, and compliance reports.",
+  description: "Camzify provides AI-powered virtual patrolling and video analytics for energy, automated patrols, real-time alerts, and compliance reports.",
   path: "/industries/energy",
 };
 
@@ -28,32 +29,35 @@ const deploymentPhases = [
 ];
 
 const faqs = [
-  { question: "Does Camzify work in extreme weather conditions?", answer: "Camzify processes the camera feed — so performance depends on camera hardware resilience. If the camera maintains a stable video feed, the AI analysis continues regardless of environmental conditions." },
+  { question: "Does Camzify work in extreme weather conditions?", answer: "Camzify processes the camera feed, so performance depends on camera hardware resilience. If the camera maintains a stable video feed, the AI analysis continues regardless of environmental conditions." },
   { question: "How does Camzify connect to cameras at remote or unmanned sites?", answer: "Camzify connects to any camera streaming RTSP or HLS, including feeds delivered over VPN or 4G/5G cellular links, which covers most substation, solar, and wind farm installations. The Camzify Connector can also relay feeds from LAN-only cameras that do not expose a stream directly." },
   { question: "Will wildlife or vegetation movement trigger false alerts at rural sites?", answer: "Detection is scoped to defined zones and object types rather than raw motion, which reduces false triggers from wildlife, blowing vegetation, or shifting shadows common at rural and open-terrain sites. Zone shape and sensitivity are adjustable per camera during setup." },
   { question: "Does Camzify support the audit trails required for critical infrastructure sites?", answer: "Every patrol round logs a timestamped result for each camera stop, including failed checks and the alert raised, producing a consistent record that can be pulled for internal review or compliance reporting on unmanned or lightly staffed sites." },
-  { question: "Does this replace scheduled maintenance visits to remote sites?", answer: "No — Camzify does not replace physical maintenance or inspection visits, but it closes the security gap between them. A site that is only visited every few days or weeks still gets continuous automated checks in between, with an alert raised the moment something changes rather than waiting for the next scheduled trip." },
+  { question: "Does this replace scheduled maintenance visits to remote sites?", answer: "No. Camzify does not replace physical maintenance or inspection visits, but it closes the security gap between them. A site that is only visited every few days or weeks still gets continuous automated checks in between, with an alert raised the moment something changes rather than waiting for the next scheduled trip." },
   { question: "What happens if a remote site loses internet connectivity?", answer: "If a camera feed drops, Camzify flags that camera as unreachable rather than silently skipping its patrol check, so the gap in coverage is visible in the patrol report instead of going unnoticed until the connection is restored." },
 ];
 
 export default function EnergyPage() {
   return (
-    <PageShell {...pageMeta} schema={[serviceSchema({ name: "AI Security for Energy", description: "Camzify provides AI-powered virtual patrolling and video analytics for energy — automated patrols, real-time alerts, and compliance reports.", path: "/industries/energy", audience: "Energy" })]} faqs={faqs} breadcrumbs={[
+    <PageShell {...pageMeta} schema={[serviceSchema({ name: "AI Security for Energy", description: "Camzify provides AI-powered virtual patrolling and video analytics for energy, automated patrols, real-time alerts, and compliance reports.", path: "/industries/energy", audience: "Energy" })]} faqs={faqs} breadcrumbs={[
       { label: 'Industries', href: '/industries' },
       { label: 'Energy' },
     ]}>
+      <FeatureHero
+        eyebrow="Industry · energy"
+        title="AI security for energy"
+        lede={<><strong className="font-semibold text-foreground">Energy facilities face security challenges that cameras alone cannot solve and manned guards cannot cover consistently.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.</>}
+        facts={['Unmanned substations sitting without any on-site presence…', 'Solar and wind farm perimeters spanning acres with no…', 'Remote sites relying on infrequent, scheduled maintenance…']}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}
+        visual={<PhotoFigure src="/ai-security-for-energy.jpg" alt="A solar and wind energy site with its perimeter under AI camera monitoring" priority />}
+      />
+
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">AI Security for Energy</h1>
-          <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            Energy facilities face security challenges that cameras alone cannot solve and manned guards cannot cover consistently. Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.
-          </p>
-
-          <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
-            <ScrollReveal>
-              <div>
-                <h2 className="font-display text-2xl font-bold">Common energy security gaps Camzify closes:</h2>
-                <ul className="mt-4 space-y-3 text-muted-foreground">
+          <div>
+            <h2 className="font-display text-2xl font-bold">Common energy security gaps Camzify closes:</h2>
+            <ul className="mt-4 grid gap-3 text-muted-foreground sm:grid-cols-2">
                   <li className="flex gap-2">• Unmanned substations sitting without any on-site presence for days</li>
                   <li className="flex gap-2">• Solar and wind farm perimeters spanning acres with no continuous coverage</li>
                   <li className="flex gap-2">• Remote sites relying on infrequent, scheduled maintenance visits as the only check</li>
@@ -61,17 +65,15 @@ export default function EnergyPage() {
                   <li className="flex gap-2">• Camera outages at remote sites not noticed until the next scheduled visit</li>
                   <li className="flex gap-2">• No audit trail proving a remote site was checked between visits</li>
                 </ul>
-              </div>
-            </ScrollReveal>
           </div>
 
           <div className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Why energy sites need continuous AI monitoring</h2>
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
-                <p>Substations, solar farms, wind farms, and oil and gas installations are frequently unmanned by design, sitting hours from the nearest staffed office and visited only on a maintenance schedule that might run days or weeks apart. There is no guard walking a round at these sites — the fence line and equipment compounds go effectively unwatched between visits.</p>
+                <p>Substations, solar farms, wind farms, and oil and gas installations are frequently unmanned by design, sitting hours from the nearest staffed office and visited only on a maintenance schedule that might run days or weeks apart. There is no guard walking a round at these sites, the fence line and equipment compounds go effectively unwatched between visits.</p>
                 <p>That distance is exactly what makes these sites attractive targets for copper theft, equipment tampering, and trespass, and by the time a scheduled visit uncovers a breach, whatever happened is long over and any evidence has degraded.</p>
-                <p>Continuous AI monitoring closes the gap between physical visits by checking the perimeter, equipment yards, and camera health on a repeating schedule regardless of how remote the site is, and raising an alert the moment a fence line is crossed or a camera stops reporting — turning an infrequent visit-based model into a monitored one.</p>
+                <p>Continuous AI monitoring closes the gap between physical visits by checking the perimeter, equipment yards, and camera health on a repeating schedule regardless of how remote the site is, and raising an alert the moment a fence line is crossed or a camera stops reporting, turning an infrequent visit-based model into a monitored one.</p>
               </div>
             </ScrollReveal>
             <PhotoFigure src="/ai-security-for-energy.jpg" alt="A solar and wind energy site with its perimeter under AI camera monitoring" priority />
@@ -105,7 +107,7 @@ export default function EnergyPage() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Building the patrol route</h3>
                 <p className="mt-2 text-muted-foreground">
-                  A patrol sequence is set up once, ordering every camera stop — substation fencing, transformer yards, solar or wind farm perimeters, access gates — into a single route that runs on a configurable schedule regardless of how remote the site is.
+                  A patrol sequence is set up once, ordering every camera stop, substation fencing, transformer yards, solar or wind farm perimeters, access gates, into a single route that runs on a configurable schedule regardless of how remote the site is.
                 </p>
 
                 <h3 className="mt-6 font-display text-lg font-bold">Checking each stop</h3>
@@ -115,7 +117,7 @@ export default function EnergyPage() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Routing the alert</h3>
                 <p className="mt-2 text-muted-foreground">
-                  A failed check — including a camera flagged by <Link href="/ai-features/camera-tampering-detection" className="text-primary hover:underline">camera tampering detection</Link> — creates an actionable alert with a snapshot and timestamp, routed to the assigned operations contact and logged in that round's patrol report.
+                  A failed check, including a camera flagged by <Link href="/ai-features/camera-tampering-detection" className="text-primary hover:underline">camera tampering detection</Link> — creates an actionable alert with a snapshot and timestamp, routed to the assigned operations contact and logged in that round's patrol report.
                 </p>
               </div>
             </ScrollReveal>
@@ -157,7 +159,7 @@ export default function EnergyPage() {
           <div className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Deployment notes</h2>
-              <p className="mt-4 max-w-prose text-muted-foreground">Energy facilities include substations, solar farms, wind farms, and oil and gas installations — often unmanned and in remote locations. Camzify connects via RTSP over VPN or 4G-connected cameras.</p>
+              <p className="mt-4 max-w-prose text-muted-foreground">Energy facilities include substations, solar farms, wind farms, and oil and gas installations, often unmanned and in remote locations. Camzify connects via RTSP over VPN or 4G-connected cameras.</p>
             </ScrollReveal>
           </div>
 
@@ -203,14 +205,7 @@ export default function EnergyPage() {
         </div>
       </section>
 
-      <section className="bg-muted/30 py-16 sm:py-20">
-        <div className="mx-auto max-w-site px-6 text-center">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">Frequently asked questions</h2>
-          <div className="mx-auto mt-8 max-w-3xl text-left">
-            <FAQAccordion items={faqs} />
-          </div>
-        </div>
-      </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

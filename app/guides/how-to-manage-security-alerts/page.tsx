@@ -1,6 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
-import { FAQAccordion } from '@/components/content/faq-accordion';
+import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { HowToSteps, HowToNote, type HowToStep } from '@/components/content/how-to-steps';
 import { howToSchema } from '@/lib/seo';
@@ -12,7 +12,7 @@ import Link from 'next/link';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "How to Manage Security Camera Alerts | Triage & Acknowledgment Guide",
+  title: "How to Manage Security Camera Alerts",
   description: "Work an alert queue without drowning in it: scan by severity, filter to what matters, open the linked video around an event, acknowledge criticals, and tune delivery channels.",
   path: "/guides/how-to-manage-security-alerts",
 };
@@ -22,7 +22,7 @@ export const metadata = generatePageMeta({ ...pageMeta, type: 'article' });
 const steps: HowToStep[] = [
   {
     name: 'Scan the queue rather than reading it',
-    text: 'Card view shows snapshots at a glance and list view is denser, with a colored edge carrying severity. Scanning images is far faster than reading rows, which matters because the practical failure of alerting is not missing an alert — it is a queue nobody opens because working through it takes too long.',
+    text: 'Card view shows snapshots at a glance and list view is denser, with a colored edge carrying severity. Scanning images is far faster than reading rows, which matters because the practical failure of alerting is not missing an alert, it is a queue nobody opens because working through it takes too long.',
   },
   {
     name: 'Filter to the slice you are responsible for',
@@ -30,7 +30,7 @@ const steps: HowToStep[] = [
   },
   {
     name: 'Open the event and look at the footage around it',
-    text: 'The detail view carries the snapshot, which zooms, along with the metadata and — where backup was recording that camera — the linked video from around the event. That surrounding video is what separates a real judgment from a guess: a single frame shows a person near a door, and thirty seconds either side shows whether they opened it.',
+    text: 'The detail view carries the snapshot, which zooms, along with the metadata and, where backup was recording that camera, the linked video from around the event. That surrounding video is what separates a real judgment from a guess: a single frame shows a person near a door, and thirty seconds either side shows whether they opened it.',
   },
   {
     name: 'Acknowledge criticals and record what you did',
@@ -45,7 +45,7 @@ const steps: HowToStep[] = [
 const faqs = [
   {
     question: 'How do I stop alert fatigue without missing real events?',
-    answer: 'Tune severity per camera rather than per feature, so an event on a sensitive camera interrupts someone and the same event on a low-stakes camera goes to the queue instead of a phone. Then reduce what generates alerts at source — exclusion zones over the things that move and do not matter, a minimum object size, and an object filter restricting alerts to people or vehicles. Channel settings decide who gets interrupted; detection tuning decides how often there is anything to be interrupted by.',
+    answer: 'Tune severity per camera rather than per feature, so an event on a sensitive camera interrupts someone and the same event on a low-stakes camera goes to the queue instead of a phone. Then reduce what generates alerts at source, exclusion zones over the things that move and do not matter, a minimum object size, and an object filter restricting alerts to people or vehicles. Channel settings decide who gets interrupted; detection tuning decides how often there is anything to be interrupted by.',
   },
   {
     question: 'Which channels can alerts be delivered on?',
@@ -104,17 +104,8 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <section className="pb-16">
-        <div className="mx-auto max-w-site px-6">
-          <div className="rounded-2xl border border-border bg-card p-8 sm:p-10">
-            <span className="font-mono text-mono-sm uppercase text-primary">FAQ</span>
-            <h2 className="mt-2 font-display text-2xl font-bold">Frequently asked questions</h2>
-            <div className="mt-6">
-              <FAQAccordion items={faqs} />
-            </div>
-          </div>
-        </div>
-      </section>
+
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

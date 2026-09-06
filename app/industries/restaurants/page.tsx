@@ -1,11 +1,12 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { FaqSection } from '@/components/content/faq-section';
 import { PhotoFigure } from '@/components/content/photo-figure';
 import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 
 /**
@@ -15,7 +16,7 @@ import Link from 'next/link';
  */
 const pageMeta = {
   title: "AI Security for Restaurants | Video Surveillance",
-  description: "Camzify provides AI-powered virtual patrolling and video analytics for restaurants — automated patrols, real-time alerts, and compliance reports.",
+  description: "Camzify provides AI-powered virtual patrolling and video analytics for restaurants, automated patrols, real-time alerts, and compliance reports.",
   path: "/industries/restaurants",
 };
 
@@ -29,7 +30,7 @@ const deploymentPhases = [
 
 const faqs = [
   { question: "Can Camzify verify that closing procedures were followed?", answer: "Yes. A patrol sequence can check: back door locked, dining area clear, kitchen clean-up area verified, walk-in doors closed. Any failed check alerts the manager on duty." },
-  { question: "Can Camzify check our full closing procedure automatically?", answer: "Yes. A patrol sequence can be built around your specific closing checklist — back door locked, dining area clear, walk-in doors closed, storage secured — and it runs the same way every night regardless of who closed." },
+  { question: "Can Camzify check our full closing procedure automatically?", answer: "Yes. A patrol sequence can be built around your specific closing checklist, back door locked, dining area clear, walk-in doors closed, storage secured, and it runs the same way every night regardless of who closed." },
   { question: "Will this flag staff doing normal prep work after hours?", answer: "Detections are scoped to zones, and each camera carries a notification window, so a kitchen zone set to notify only after the posted closing time will not notify during a late prep shift inside those hours. Windows are set during setup to match your actual hours." },
   { question: "How fast does a manager get notified if the back door was left unlocked?", answer: "Alerts fire in near real time from the moment a confirmed event is detected and route to the assigned manager through the notification queue with a timestamped clip, typically within seconds." },
   { question: "Does Camzify work with the cameras we already have in the kitchen and dining area?", answer: "In most cases, yes. Camzify works with any IP camera feed, so existing kitchen and dining area cameras can usually be connected without new hardware, provided they support standard IP or RTSP streaming." },
@@ -38,22 +39,25 @@ const faqs = [
 
 export default function RestaurantsPage() {
   return (
-    <PageShell {...pageMeta} schema={[serviceSchema({ name: "AI Security for Restaurants", description: "Camzify provides AI-powered virtual patrolling and video analytics for restaurants — automated patrols, real-time alerts, and compliance reports.", path: "/industries/restaurants", audience: "Restaurants" })]} faqs={faqs} breadcrumbs={[
+    <PageShell {...pageMeta} schema={[serviceSchema({ name: "AI Security for Restaurants", description: "Camzify provides AI-powered virtual patrolling and video analytics for restaurants, automated patrols, real-time alerts, and compliance reports.", path: "/industries/restaurants", audience: "Restaurants" })]} faqs={faqs} breadcrumbs={[
       { label: 'Industries', href: '/industries' },
       { label: 'Restaurants' },
     ]}>
+      <FeatureHero
+        eyebrow="Industry · restaurants"
+        title="AI security for restaurants"
+        lede={<><strong className="font-semibold text-foreground">Restaurants face security challenges that cameras alone cannot solve and manned guards cannot cover consistently.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.</>}
+        facts={['Back doors and delivery entrances left unmonitored between…', 'Closing procedures relying on whoever locks up that night to…', 'Walk-in cooler and freezer doors left ajar overnight']}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}
+        visual={<PhotoFigure src="/ai-security-for-restaurants.jpg" alt="A restaurant kitchen and dining floor under AI camera monitoring" priority />}
+      />
+
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">AI Security for Restaurants</h1>
-          <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            Restaurants face security challenges that cameras alone cannot solve and manned guards cannot cover consistently. Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.
-          </p>
-
-          <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
-            <ScrollReveal>
-              <div>
-                <h2 className="font-display text-2xl font-bold">Common restaurant security gaps Camzify closes:</h2>
-                <ul className="mt-4 space-y-3 text-muted-foreground">
+          <div>
+            <h2 className="font-display text-2xl font-bold">Common restaurant security gaps Camzify closes:</h2>
+            <ul className="mt-4 grid gap-3 text-muted-foreground sm:grid-cols-2">
                   <li className="flex gap-2">• Back doors and delivery entrances left unmonitored between deliveries</li>
                   <li className="flex gap-2">• Closing procedures relying on whoever locks up that night to remember every step</li>
                   <li className="flex gap-2">• Walk-in cooler and freezer doors left ajar overnight</li>
@@ -61,16 +65,14 @@ export default function RestaurantsPage() {
                   <li className="flex gap-2">• Camera outages going unnoticed until the next shift</li>
                   <li className="flex gap-2">• No record proving closing checks were actually completed</li>
                 </ul>
-              </div>
-            </ScrollReveal>
           </div>
 
           <div className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Why restaurants need continuous AI monitoring</h2>
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
-                <p>Restaurants run on a tight closing routine — locking the back door, clearing the dining room, verifying the walk-in coolers, securing storage — and that routine is only as reliable as whoever is doing it on a given night. A rushed close after a long shift means steps get skipped, and nobody finds out until there's a problem the next morning.</p>
-                <p>Standard CCTV records the close happening but doesn't verify anything — footage only gets reviewed after spoiled inventory, a break-in, or a loss is already discovered. By then, the walk-in door had been open all night, or the back entrance was unlocked for hours.</p>
+                <p>Restaurants run on a tight closing routine, locking the back door, clearing the dining room, verifying the walk-in coolers, securing storage, and that routine is only as reliable as whoever is doing it on a given night. A rushed close after a long shift means steps get skipped, and nobody finds out until there's a problem the next morning.</p>
+                <p>Standard CCTV records the close happening but doesn't verify anything, footage only gets reviewed after spoiled inventory, a break-in, or a loss is already discovered. By then, the walk-in door had been open all night, or the back entrance was unlocked for hours.</p>
                 <p>Continuous AI monitoring turns the closing routine into an automated checklist: the same points get checked on the same schedule every night regardless of who closed, with a logged result and an immediate alert to the manager on duty if something was missed.</p>
               </div>
             </ScrollReveal>
@@ -105,7 +107,7 @@ export default function RestaurantsPage() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Building the patrol route</h3>
                 <p className="mt-2 text-muted-foreground">
-                  A patrol sequence is set up once, ordering every camera stop — back door, dining area, kitchen, walk-in coolers, storage — into a closing-time route that runs automatically after hours.
+                  A patrol sequence is set up once, ordering every camera stop, back door, dining area, kitchen, walk-in coolers, storage, into a closing-time route that runs automatically after hours.
                 </p>
 
                 <h3 className="mt-6 font-display text-lg font-bold">Checking each stop</h3>
@@ -203,14 +205,7 @@ export default function RestaurantsPage() {
         </div>
       </section>
 
-      <section className="bg-muted/30 py-16 sm:py-20">
-        <div className="mx-auto max-w-site px-6 text-center">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">Frequently asked questions</h2>
-          <div className="mx-auto mt-8 max-w-3xl text-left">
-            <FAQAccordion items={faqs} />
-          </div>
-        </div>
-      </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

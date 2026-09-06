@@ -1,9 +1,10 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { FaqSection } from '@/components/content/faq-section';
 import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 
 /**
@@ -12,7 +13,7 @@ import Link from 'next/link';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Cross-Camera Journey Map | AI Path Reconstruction Software",
+  title: "Cross-Camera Journey Map | Path Reconstruction",
   description: "Camzify cross-camera journey map stitches one subject\\'s path across every camera on-site into a single timeline, built from confirmed object tracks.",
   path: "/ai-features/cross-camera-journey-map",
 };
@@ -21,7 +22,7 @@ export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
   { question: 'What is a cross-camera journey map?', answer: 'It reconstructs one subject\'s full path across a site by stitching together their appearances across every camera that captured them, in order, into a single timeline — instead of an investigator manually cross-referencing footage from each camera separately.' },
-  { question: 'How do you know it\'s the same person across cameras?', answer: 'The system matches confirmed object tracks and structured attributes from AI attribute extraction — clothing, general appearance, timing — across camera boundaries. Results are shown with confidence scores so an investigator can verify each hop in the path.' },
+  { question: 'How do you know it\'s the same person across cameras?', answer: 'The system matches confirmed object tracks and structured attributes from AI attribute extraction, clothing, general appearance, timing, across camera boundaries. Results are shown with confidence scores so an investigator can verify each hop in the path.' },
   { question: 'Can I start a journey map from a search?', answer: 'Yes. Run an AI suspect search first to find a subject, then build the journey map from that match to see every camera they crossed, in sequence, with timestamps.' },
   { question: 'What happens when a subject leaves camera coverage entirely?', answer: 'The timeline shows the last confirmed appearance and the gap in coverage rather than guessing at a path. If the subject reappears on a camera later, that appearance is linked back in as a new hop, with the coverage gap visible between them.' },
   { question: 'Does the journey map work across separate buildings or sites?', answer: 'It works across every camera within the scope it\'s run against, which can be a single building, a full site, or a multi-site account where camera coverage is connected. Journeys are not inferred across sites with no camera continuity between them.' },
@@ -34,20 +35,23 @@ export default function Page() {
       { label: 'AI Features', href: '/ai-features' },
       { label: 'Cross-Camera Journey Map' },
     ]}>
+      <FeatureHero
+        eyebrow="AI detection · Cross-Camera journey map"
+        title="Cross-Camera journey map"
+        lede={<><strong className="font-semibold text-foreground">One person, every camera, one timeline.</strong> Cross-camera journey map stitches a subject's path across
+            every camera on-site into a single reconstructed route — replacing hours of manually cross-referencing
+            footage from camera to camera.</>}
+        facts={['A single stitched timeline of one subject across every…', 'Ordered, timestamped hand-offs between cameras with…', 'A route map view showing where a subject entered, moved, and…']}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/ai-features', label: 'All 22 detections' }}
+        visual={<PhotoFigure src="/feature-cross-camera-journey-map-1.jpg" alt="Site map showing a single subject's path connected across multiple camera coverage zones" caption="Cross-camera journey map" priority />}
+      />
+
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Cross-Camera Journey Map</h1>
-          <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            One person, every camera, one timeline. Cross-camera journey map stitches a subject's path across
-            every camera on-site into a single reconstructed route — replacing hours of manually cross-referencing
-            footage from camera to camera.
-          </p>
-
-          <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
-            <ScrollReveal>
-              <div>
-                <h2 className="font-display text-2xl font-bold">This capability builds:</h2>
-                <ul className="mt-4 space-y-3 text-muted-foreground">
+          <div>
+            <h2 className="font-display text-2xl font-bold">This capability builds:</h2>
+            <ul className="mt-4 grid gap-3 text-muted-foreground sm:grid-cols-2">
                   <li className="flex gap-2">• A single stitched timeline of one subject across every camera that saw them</li>
                   <li className="flex gap-2">• Ordered, timestamped hand-offs between cameras with confidence scores</li>
                   <li className="flex gap-2">• A route map view showing where a subject entered, moved, and exited</li>
@@ -55,18 +59,15 @@ export default function Page() {
                   <li className="flex gap-2">• A record of coverage gaps where the subject left camera view entirely</li>
                   <li className="flex gap-2">• An exportable route for incident reports or law enforcement handoff</li>
                 </ul>
-              </div>
-            </ScrollReveal>
-            <PhotoFigure src="/feature-cross-camera-journey-map-1.jpg" alt="Site map showing a single subject's path connected across multiple camera coverage zones" caption="Cross-camera journey map" />
           </div>
 
           <div className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Why cross-camera journey map matters</h2>
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
-                <p>A single camera only ever shows part of the story. Once a subject leaves that camera's frame, reconstructing where they went next means an investigator has to guess which neighboring camera they might have entered, pull up that feed, scrub to the right moment, and repeat — camera by camera, for as long as the path continues.</p>
+                <p>A single camera only ever shows part of the story. Once a subject leaves that camera's frame, reconstructing where they went next means an investigator has to guess which neighboring camera they might have entered, pull up that feed, scrub to the right moment, and repeat, camera by camera, for as long as the path continues.</p>
                 <p>On a site with more than a handful of cameras, that manual cross-referencing becomes the slowest part of any investigation. Each hand-off between cameras adds a fresh round of searching, and there's no guarantee the investigator picks the right next camera on the first try, or that they catch every appearance along the way.</p>
-                <p>Cross-camera journey map removes the guesswork by linking appearances automatically as they happen, so the full route — not just one camera's slice of it — is available as a single ordered timeline from the start.</p>
+                <p>Cross-camera journey map removes the guesswork by linking appearances automatically as they happen, so the full route, not just one camera's slice of it, is available as a single ordered timeline from the start.</p>
               </div>
             </ScrollReveal>
           </div>
@@ -84,7 +85,7 @@ export default function Page() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Building the timeline</h3>
                 <p className="mt-2 text-muted-foreground">
-                  Linked appearances are ordered into a single path — camera, timestamp, direction of travel — rendered on a site map or as a chronological list of clips. Coverage gaps, where the subject wasn't visible on any camera, are shown rather than filled in with a guess.
+                  Linked appearances are ordered into a single path, camera, timestamp, direction of travel, rendered on a site map or as a chronological list of clips. Coverage gaps, where the subject wasn't visible on any camera, are shown rather than filled in with a guess.
                 </p>
 
                 <h3 className="mt-6 font-display text-lg font-bold">Starting from a search</h3>
@@ -175,14 +176,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="bg-muted/30 py-16 sm:py-20">
-        <div className="mx-auto max-w-site px-6 text-center">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">Frequently asked questions</h2>
-          <div className="mx-auto mt-8 max-w-3xl text-left">
-            <FAQAccordion items={faqs} />
-          </div>
-        </div>
-      </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

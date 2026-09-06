@@ -1,10 +1,10 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { FeatureHero } from '@/components/content/feature-hero';
 import { ProductShot } from '@/components/content/product-shot';
 import { LicenseMockup } from '@/components/mockups/license-mockup';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 import { Layers, HardDrive, Users, RefreshCcw } from 'lucide-react';
 
@@ -23,9 +23,9 @@ export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
   { question: "What's the difference between \"granted to sub-users\" and \"activated by you\"?", answer: 'Both draw from the same pool of licensed instances. \"Activated by you\" counts instances you\'ve stood up on your own account. \"Granted to sub-users\" counts instances you\'ve allocated out of your plan to a sub-user\'s account instead — on the Enterprise Plan that\'s 73 activated by you and 11 granted out, against 96 total.' },
-  { question: 'What happens when a feature shows FULLY USED?', answer: "It means every instance of that feature type has been activated and none remain available — Camera Tampering Instances, for example, sit at 8 activated out of 8 total. The feature keeps running normally for existing instances; you just can't stand up a new one until you request more or free one up." },
-  { question: 'Can unused instances from one feature be reallocated to another?', answer: "No — instance allocations are per feature type, so the 5 available Stream Instances can't be converted into Line Intrusion Instances directly. Expanding a specific feature, like Virtual Patrolling System Instances which is fully granted, goes through the request-more flow rather than a reallocation between features." },
-  { question: 'How is storage entitlement separate from instance count?', answer: 'Video Backup Storage is tracked as its own pool — 18.0 TB total, 13.5 TB activated, 4.0 TB granted to sub-users, 460 GB available — independent of how many AI-feature instances are on the plan. A plan can have headroom on instances while storage is nearly full, or the reverse, and each is monitored on its own.' },
+  { question: 'What happens when a feature shows FULLY USED?', answer: "It means every instance of that feature type has been activated and none remain available. Camera Tampering Instances, for example, sit at 8 activated out of 8 total. The feature keeps running normally for existing instances; you just can't stand up a new one until you request more or free one up." },
+  { question: 'Can unused instances from one feature be reallocated to another?', answer: "No, instance allocations are per feature type, so the 5 available Stream Instances can't be converted into Line Intrusion Instances directly. Expanding a specific feature, like Virtual Patrolling System Instances which is fully granted, goes through the request-more flow rather than a reallocation between features." },
+  { question: 'How is storage entitlement separate from instance count?', answer: 'Video Backup Storage is tracked as its own pool, 18.0 TB total, 13.5 TB activated, 4.0 TB granted to sub-users, 460 GB available, independent of how many AI-feature instances are on the plan. A plan can have headroom on instances while storage is nearly full, or the reverse, and each is monitored on its own.' },
   { question: 'What happens when the subscription term ends?', answer: "The Enterprise Plan on this account started November 28, 2024 and expires December 29, 2026, and renews through your account manager rather than an automatic charge. As the expiry date approaches, the days-remaining figure on this page is the fastest way to check how much runway is left before renewal needs to happen." },
 ];
 
@@ -63,7 +63,7 @@ export default function Page() {
           </div>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { icon: Layers, title: 'Per-feature instance transparency', desc: 'Total, activated, granted, and available are broken out for every AI feature on the plan — no combined number hiding where the room is.' },
+              { icon: Layers, title: 'Per-feature instance transparency', desc: 'Total, activated, granted, and available are broken out for every AI feature on the plan, no combined number hiding where the room is.' },
               { icon: HardDrive, title: 'Storage entitlement tracking', desc: 'Video Backup Storage is metered separately in terabytes, currently 13.5 of 18.0 TB activated with 460 GB available.' },
               { icon: Users, title: 'Sub-user allocation from the same pool', desc: 'Instances granted to sub-users draw from the same 96-instance plan total, keeping one account-wide source of truth.' },
               { icon: RefreshCcw, title: 'Request-more when you hit the ceiling', desc: 'A feature that\'s fully granted or fully used, like Virtual Patrolling or Camera Tampering, surfaces a clear request-more path instead of a dead end.' },
@@ -89,12 +89,12 @@ export default function Page() {
                 <p className="mt-4 text-muted-foreground">
                   Every feature on the plan is broken into the same three buckets. Activated means you've stood up
                   an instance and it's running. Granted means you've allocated an instance out to a sub-user's
-                  account instead of using it yourself. Available is what's left of the total — neither activated
-                  nor granted — and it's the number that tells you how much room you actually have.
+                  account instead of using it yourself. Available is what's left of the total, neither activated
+                  nor granted, and it's the number that tells you how much room you actually have.
                 </p>
                 <p className="mt-4 text-muted-foreground">
                   That distinction matters most at the edges. Virtual Patrolling System Instances shows 9 total,
-                  0 activated, 9 granted, 0 available — every instance is already out with sub-users, so
+                  0 activated, 9 granted, 0 available, every instance is already out with sub-users, so
                   expanding your own usage there means requesting more, not reclaiming anything. Camera Tampering
                   Instances is fully used the other way: 8 of 8 activated directly, none available.
                 </p>
@@ -122,13 +122,7 @@ export default function Page() {
             </ScrollReveal>
           </div>
 
-          <div className="mt-16 rounded-2xl border border-border bg-card p-8 sm:p-10">
-            <span className="font-mono text-mono-sm uppercase text-primary">FAQ</span>
-            <h2 className="mt-2 font-display text-2xl font-bold">Frequently asked questions</h2>
-            <div className="mt-6">
-              <FAQAccordion items={faqs} />
-            </div>
-          </div>
+          <FaqSection items={faqs} inline />
 
           <div className="mt-16">
             <h2 className="font-display text-2xl font-bold">Related</h2>

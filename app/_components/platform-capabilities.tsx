@@ -45,7 +45,7 @@ const layers = [
   {
     icon: ScanEye,
     title: 'AI detection',
-    desc: '22 shipping models on confirmed object tracks — intrusion, tampering, weapons, fire, PPE, behavior described in plain language.',
+    desc: '22 shipping models on confirmed object tracks, intrusion, tampering, weapons, fire, PPE, behavior described in plain language.',
     href: '/ai-features',
   },
   {

@@ -1,9 +1,10 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { FaqSection } from '@/components/content/faq-section';
 import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 
 /**
@@ -12,7 +13,7 @@ import Link from 'next/link';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Zone Intrusion Detection | AI Zone Intrusion Detection Software",
+  title: "Zone Intrusion Detection | Restricted Areas",
   description: "Camzify zone intrusion detection defines restricted polygonal zones. Any confirmed object entering triggers an alert regardless of entry direction.",
   path: "/ai-features/zone-intrusion-detection",
 };
@@ -34,16 +35,21 @@ export default function Page() {
       { label: 'AI Features', href: '/ai-features' },
       { label: 'Zone Intrusion Detection' },
     ]}>
+      <FeatureHero
+        eyebrow="AI detection · Zone intrusion detection"
+        title="Zone intrusion detection"
+        lede={<><strong className="font-semibold text-foreground">Zone intrusion detection defines polygonal restricted zones in the camera view.</strong> Any confirmed object track entering the zone triggers an alert, regardless of how or from which direction the object entered the frame. This is ideal for restricted areas, server rooms, and hazardous zones.</>}
+        facts={['Anyone entering a restricted server room or electrical closet', 'A forklift or vehicle entering a pedestrian-only zone', 'Personnel present in a hazardous or chemical storage area']}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/ai-features', label: 'All 22 detections' }}
+        visual={<PhotoFigure src="/feature-zone-intrusion-detection-1.jpg" alt="Zone Intrusion Detection visualization on camera feed" caption="Zone intrusion detection" priority />}
+      />
+
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Zone Intrusion Detection</h1>
-          <p className="mt-6 max-w-2xl text-body text-muted-foreground">Zone intrusion detection defines polygonal restricted zones in the camera view. Any confirmed object track entering the zone triggers an alert, regardless of how or from which direction the object entered the frame. This is ideal for restricted areas, server rooms, and hazardous zones.</p>
-
-          <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
-            <ScrollReveal>
-              <div>
-                <h2 className="font-display text-2xl font-bold">This capability detects and alerts on:</h2>
-                <ul className="mt-4 space-y-3 text-muted-foreground">
+          <div>
+            <h2 className="font-display text-2xl font-bold">This capability detects and alerts on:</h2>
+            <ul className="mt-4 grid gap-3 text-muted-foreground sm:grid-cols-2">
                   <li className="flex gap-2">• Anyone entering a restricted server room or electrical closet</li>
                   <li className="flex gap-2">• A forklift or vehicle entering a pedestrian-only zone</li>
                   <li className="flex gap-2">• Personnel present in a hazardous or chemical storage area</li>
@@ -51,16 +57,13 @@ export default function Page() {
                   <li className="flex gap-2">• Repeated entries into the same zone within a short window</li>
                   <li className="flex gap-2">• A subject lingering inside a zone past a configured dwell time</li>
                 </ul>
-              </div>
-            </ScrollReveal>
-            <PhotoFigure src="/feature-zone-intrusion-detection-1.jpg" alt="Zone Intrusion Detection visualization on camera feed" caption="Zone intrusion detection" priority />
           </div>
 
           <div className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Why zone intrusion detection matters</h2>
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
-                <p>Some areas aren't bounded by a single crossing point — a server room, a chemical storage cage, or a rooftop mechanical area has an interior that needs to stay empty of unauthorized people at all times, no matter which door, hatch, or gap someone comes through.</p>
+                <p>Some areas aren't bounded by a single crossing point, a server room, a chemical storage cage, or a rooftop mechanical area has an interior that needs to stay empty of unauthorized people at all times, no matter which door, hatch, or gap someone comes through.</p>
                 <p>A line rule only catches one crossing point at a time; an irregular boundary with several possible entry points needs multiple coordinated lines and still leaves gaps at corners. Guards checking a restricted area on a walking round see it for seconds out of every hour, and a fixed door alarm misses anyone who gets in through a service hatch, a dropped ceiling panel, or a window.</p>
                 <p>Zone intrusion detection replaces all of that with a single polygon drawn over the area a camera can see. Entry is entry, regardless of the path taken to get there, and the alert fires the moment a confirmed object track is inside the boundary.</p>
               </div>
@@ -75,7 +78,7 @@ export default function Page() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Defining the zone</h3>
                 <p className="mt-2 text-muted-foreground">
-                  An operator draws an arbitrary polygon directly over the camera view in the configuration panel — not just a rectangle, but any shape that matches the physical boundary of the restricted area, including irregular rooms, cages, or partial views around obstructions.
+                  An operator draws an arbitrary polygon directly over the camera view in the configuration panel, not just a rectangle, but any shape that matches the physical boundary of the restricted area, including irregular rooms, cages, or partial views around obstructions.
                 </p>
 
                 <h3 className="mt-6 font-display text-lg font-bold">Detecting entry</h3>
@@ -85,7 +88,7 @@ export default function Page() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Alert delivery</h3>
                 <p className="mt-2 text-muted-foreground">
-                  Each zone can carry its own object-class filter and dwell-time threshold, so a zone can be set to alert instantly on any person, or only after a subject remains inside longer than a set number of seconds. Alerts include the object type, confidence score, and timestamp, and — when <Link href="/ai-features/ai-attribute-extraction" className="text-primary hover:underline">AI attribute extraction</Link> is enabled — structured attributes describing the subject. Alerts route through the <Link href="/platform/notifications-and-alerts" className="text-primary hover:underline">notification queue</Link> with severity and acknowledgment status.
+                  Each zone can carry its own object-class filter and dwell-time threshold, so a zone can be set to alert instantly on any person, or only after a subject remains inside longer than a set number of seconds. Alerts include the object type, confidence score, and timestamp, and, when <Link href="/ai-features/ai-attribute-extraction" className="text-primary hover:underline">AI attribute extraction</Link> is enabled — structured attributes describing the subject. Alerts route through the <Link href="/platform/notifications-and-alerts" className="text-primary hover:underline">notification queue</Link> with severity and acknowledgment status.
                 </p>
               </div>
             </ScrollReveal>
@@ -99,7 +102,7 @@ export default function Page() {
                   Zones are drawn as polygons directly on the camera view in the configuration panel. Each zone supports:
                 </p>
                 <ul className="mt-4 space-y-3 text-muted-foreground">
-                  <li className="flex gap-2">• Arbitrary polygon shape — not limited to rectangles</li>
+                  <li className="flex gap-2">• Arbitrary polygon shape, not limited to rectangles</li>
                   <li className="flex gap-2">• Dwell-time threshold before an alert fires</li>
                   <li className="flex gap-2">• Notification window per camera, e.g. notify after hours only</li>
                   <li className="flex gap-2">• Object-class filtering, e.g. people only, or people and vehicles</li>
@@ -155,14 +158,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="bg-muted/30 py-16 sm:py-20">
-        <div className="mx-auto max-w-site px-6 text-center">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">Frequently asked questions</h2>
-          <div className="mx-auto mt-8 max-w-3xl text-left">
-            <FAQAccordion items={faqs} />
-          </div>
-        </div>
-      </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

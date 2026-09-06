@@ -1,9 +1,10 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { FaqSection } from '@/components/content/faq-section';
 import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 
 /**
@@ -12,7 +13,7 @@ import Link from 'next/link';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Aggression & Fight Detection | AI Violence Detection Software",
+  title: "Aggression & Fight Detection on Cameras",
   description: "Camzify aggression and fight detection flags physical altercations the moment they start, routing an alert to security before someone reviews the footage.",
   path: "/ai-features/aggression-and-fight-detection",
 };
@@ -20,12 +21,12 @@ const pageMeta = {
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
-  { question: 'What triggers an aggression or fight alert?', answer: 'The model watches for rapid, aggressive body movement between two or more people consistent with a physical altercation — pushing, striking, grappling — and fires an alert the moment that pattern is confirmed, rather than waiting for someone to review footage after the fact.' },
+  { question: 'What triggers an aggression or fight alert?', answer: 'The model watches for rapid, aggressive body movement between two or more people consistent with a physical altercation, pushing, striking, grappling, and fires an alert the moment that pattern is confirmed, rather than waiting for someone to review footage after the fact.' },
   { question: 'Does it distinguish horseplay from a real fight?', answer: 'The model is tuned for sustained, aggressive multi-person movement rather than brief contact, which reduces false positives from normal physical activity. Every alert includes a clip so a human reviewer can confirm before dispatching a response.' },
   { question: 'How quickly does security get notified?', answer: 'Alerts route through the notification system in near real time from the moment the pattern is confirmed, with severity and escalation rules configurable per site so the right guard or team is notified immediately.' },
-  { question: 'Does it work in crowded scenes with lots of movement?', answer: 'The model evaluates relative motion and proximity between individually tracked subjects rather than reacting to overall scene activity, so a busy but non-aggressive crowd — a queue, a concourse at peak hours — doesn\'t trigger a false alert on its own.' },
+  { question: 'Does it work in crowded scenes with lots of movement?', answer: 'The model evaluates relative motion and proximity between individually tracked subjects rather than reacting to overall scene activity, so a busy but non-aggressive crowd, a queue, a concourse at peak hours, doesn\'t trigger a false alert on its own.' },
   { question: 'How does this compare to weapons detection?', answer: 'Weapons detection identifies a visible weapon in frame; aggression and fight detection identifies a physical altercation pattern between people, with or without a weapon present. The two are complementary and are often enabled together, since a fight can escalate to involve a weapon or vice versa.' },
-  { question: 'What camera setup does it need?', answer: 'It works on the same camera feeds used for other detection features, with no special hardware required. A view with a reasonably clear line of sight to the monitored area — entrances, common areas, queues — gives the model enough to track relative motion between individuals accurately.' },
+  { question: 'What camera setup does it need?', answer: 'It works on the same camera feeds used for other detection features, with no special hardware required. A view with a reasonably clear line of sight to the monitored area, entrances, common areas, queues, gives the model enough to track relative motion between individuals accurately.' },
 ];
 
 export default function Page() {
@@ -34,19 +35,22 @@ export default function Page() {
       { label: 'AI Features', href: '/ai-features' },
       { label: 'Aggression & Fight Detection' },
     ]}>
+      <FeatureHero
+        eyebrow="AI detection · Aggression & fight detection"
+        title="Aggression & fight detection"
+        lede={<><strong className="font-semibold text-foreground">A fight breaks out, security knows first.</strong> Aggression and fight detection flags physical altercations
+            the moment they start, so a response can begin in real time instead of after footage is reviewed.</>}
+        facts={['Rapid, aggressive multi-person body movement consistent with…', 'Sustained pushing, striking, or grappling between confirmed…', 'Escalating confrontations in queues, entrances, and common areas']}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/ai-features', label: 'All 22 detections' }}
+        visual={<PhotoFigure src="/feature-aggression-and-fight-detection-1.jpg" alt="Camera view highlighting two subjects engaged in a physical altercation with a confidence score" caption="Aggression & fight detection" priority />}
+      />
+
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Aggression & Fight Detection</h1>
-          <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            A fight breaks out, security knows first. Aggression and fight detection flags physical altercations
-            the moment they start, so a response can begin in real time instead of after footage is reviewed.
-          </p>
-
-          <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
-            <ScrollReveal>
-              <div>
-                <h2 className="font-display text-2xl font-bold">This capability detects and alerts on:</h2>
-                <ul className="mt-4 space-y-3 text-muted-foreground">
+          <div>
+            <h2 className="font-display text-2xl font-bold">This capability detects and alerts on:</h2>
+            <ul className="mt-4 grid gap-3 text-muted-foreground sm:grid-cols-2">
                   <li className="flex gap-2">• Rapid, aggressive multi-person body movement consistent with a physical altercation</li>
                   <li className="flex gap-2">• Sustained pushing, striking, or grappling between confirmed subjects</li>
                   <li className="flex gap-2">• Escalating confrontations in queues, entrances, and common areas</li>
@@ -54,18 +58,15 @@ export default function Page() {
                   <li className="flex gap-2">• Altercations involving three or more people in the same tracked event</li>
                   <li className="flex gap-2">• Repeated aggressive incidents at the same location within a short window</li>
                 </ul>
-              </div>
-            </ScrollReveal>
-            <PhotoFigure src="/feature-aggression-and-fight-detection-1.jpg" alt="Camera view highlighting two subjects engaged in a physical altercation with a confidence score" caption="Aggression & fight detection" priority />
           </div>
 
           <div className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Why aggression and fight detection matters</h2>
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
-                <p>A physical altercation can go from first shove to serious injury in seconds — far faster than a guard on patrol or watching a bank of monitors is likely to notice, intervene, or even know it's happening at all. By the time someone reports it or a supervisor reviews the footage afterward, the incident is already over and the only value left is documentation.</p>
+                <p>A physical altercation can go from first shove to serious injury in seconds, far faster than a guard on patrol or watching a bank of monitors is likely to notice, intervene, or even know it's happening at all. By the time someone reports it or a supervisor reviews the footage afterward, the incident is already over and the only value left is documentation.</p>
                 <p>Relying on people nearby to call for help has the same gap: bystanders often hesitate, and staff aren't always positioned to see the moment it starts. Fixed motion alarms don't help either, since a fight looks like ordinary movement to a system that can't distinguish aggressive contact from a crowd milling around.</p>
-                <p>Aggression and fight detection watches for the specific motion pattern of a physical altercation — rapid, sustained, aggressive movement between tracked individuals — and fires the alert while the incident is still unfolding, giving security the chance to respond in real time rather than reconstruct events afterward.</p>
+                <p>Aggression and fight detection watches for the specific motion pattern of a physical altercation, rapid, sustained, aggressive movement between tracked individuals, and fires the alert while the incident is still unfolding, giving security the chance to respond in real time rather than reconstruct events afterward.</p>
               </div>
             </ScrollReveal>
           </div>
@@ -173,14 +174,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="bg-muted/30 py-16 sm:py-20">
-        <div className="mx-auto max-w-site px-6 text-center">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">Frequently asked questions</h2>
-          <div className="mx-auto mt-8 max-w-3xl text-left">
-            <FAQAccordion items={faqs} />
-          </div>
-        </div>
-      </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

@@ -1,9 +1,10 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { FaqSection } from '@/components/content/faq-section';
 import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 
 /**
@@ -12,7 +13,7 @@ import Link from 'next/link';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Illegal Parking Detection | AI Parking Enforcement Camera Software",
+  title: "Illegal Parking Detection | Camera Enforcement",
   description: "Camzify illegal parking detection flags vehicles blocking fire lanes, loading zones, or reserved spots instantly, with a timestamped clip.",
   path: "/ai-features/illegal-parking-detection",
 };
@@ -20,7 +21,7 @@ const pageMeta = {
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
-  { question: 'What areas can be monitored?', answer: 'Any zone visible to a connected camera can be marked as restricted — fire lanes, loading docks, reserved or accessible spots, and gated-community driveways. A vehicle parked in a marked zone past a configurable grace period triggers an alert.' },
+  { question: 'What areas can be monitored?', answer: 'Any zone visible to a connected camera can be marked as restricted, fire lanes, loading docks, reserved or accessible spots, and gated-community driveways. A vehicle parked in a marked zone past a configurable grace period triggers an alert.' },
   { question: 'How is a vehicle plate captured?', answer: 'When AI attribute extraction is enabled, alerts can include vehicle attributes such as color and type. Plate-level detail depends on camera angle and resolution at that location.' },
   { question: 'Does it distinguish a quick stop from illegal parking?', answer: 'Yes. A configurable grace period filters out brief stops for loading or drop-off, so only vehicles that remain in a restricted zone past the threshold trigger an alert.' },
   { question: 'Does it require a specific camera angle?', answer: 'A wide, unobstructed view of the restricted zone gives the most reliable dwell-time tracking. Angled or partially obstructed views still work, but a clear line of sight to the zone boundary reduces the chance of a vehicle being lost from the track mid-dwell.' },
@@ -34,19 +35,22 @@ export default function Page() {
       { label: 'AI Features', href: '/ai-features' },
       { label: 'Illegal Parking Detection' },
     ]}>
+      <FeatureHero
+        eyebrow="AI detection · Illegal parking detection"
+        title="Illegal parking detection"
+        lede={<><strong className="font-semibold text-foreground">Parked where it shouldn't be? Flagged instantly.</strong> Illegal parking detection watches fire lanes,
+            loading zones, and reserved spots, and alerts the moment a vehicle overstays a restricted area.</>}
+        facts={['Vehicles blocking marked fire lanes or emergency access routes', 'Vehicles occupying loading zones or reserved parking beyond…', 'Unauthorized vehicles in gated or accessible-only spots']}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/ai-features', label: 'All 22 detections' }}
+        visual={<PhotoFigure src="/feature-illegal-parking-detection-1.jpg" alt="Camera view of a fire lane with an illegally parked vehicle highlighted by a detection bounding box" caption="Illegal parking detection" priority />}
+      />
+
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Illegal Parking Detection</h1>
-          <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            Parked where it shouldn't be? Flagged instantly. Illegal parking detection watches fire lanes,
-            loading zones, and reserved spots, and alerts the moment a vehicle overstays a restricted area.
-          </p>
-
-          <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
-            <ScrollReveal>
-              <div>
-                <h2 className="font-display text-2xl font-bold">This capability detects and alerts on:</h2>
-                <ul className="mt-4 space-y-3 text-muted-foreground">
+          <div>
+            <h2 className="font-display text-2xl font-bold">This capability detects and alerts on:</h2>
+            <ul className="mt-4 grid gap-3 text-muted-foreground sm:grid-cols-2">
                   <li className="flex gap-2">• Vehicles blocking marked fire lanes or emergency access routes</li>
                   <li className="flex gap-2">• Vehicles occupying loading zones or reserved parking beyond a grace period</li>
                   <li className="flex gap-2">• Unauthorized vehicles in gated or accessible-only spots</li>
@@ -54,17 +58,14 @@ export default function Page() {
                   <li className="flex gap-2">• Vehicles parked in accessible spots without a visible permit</li>
                   <li className="flex gap-2">• Repeated illegal parking in the same restricted zone across multiple visits</li>
                 </ul>
-              </div>
-            </ScrollReveal>
-            <PhotoFigure src="/feature-illegal-parking-detection-1.jpg" alt="Camera view of a fire lane with an illegally parked vehicle highlighted by a detection bounding box" caption="Illegal parking detection" priority />
           </div>
 
           <div className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Why illegal parking detection matters</h2>
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
-                <p>A fire lane or loading zone is only as clear as the last person who checked it. On a site covered by walking patrols or occasional drive-throughs, a vehicle can block emergency access or a delivery bay for hours before anyone notices — and by the time it's noticed, the disruption has already happened.</p>
-                <p>Manual enforcement also runs into a consistency problem. A guard who has to remember which spots are reserved, which zones allow a short grace period, and which don't, will apply the rule differently shift to shift. Signage helps, but signage doesn't stop a vehicle from parking illegally — it only sets the expectation that someone is watching.</p>
+                <p>A fire lane or loading zone is only as clear as the last person who checked it. On a site covered by walking patrols or occasional drive-throughs, a vehicle can block emergency access or a delivery bay for hours before anyone notices, and by the time it's noticed, the disruption has already happened.</p>
+                <p>Manual enforcement also runs into a consistency problem. A guard who has to remember which spots are reserved, which zones allow a short grace period, and which don't, will apply the rule differently shift to shift. Signage helps, but signage doesn't stop a vehicle from parking illegally, it only sets the expectation that someone is watching.</p>
                 <p>Continuous AI monitoring closes that gap. Every restricted zone is watched every minute the camera is live, the grace period is applied identically every time, and enforcement or property staff get a timestamped clip instead of a verbal report written after the fact.</p>
               </div>
             </ScrollReveal>
@@ -78,7 +79,7 @@ export default function Page() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Marking restricted zones</h3>
                 <p className="mt-2 text-muted-foreground">
-                  Restricted zones are marked on the camera view — a fire lane, a loading dock, a reserved or
+                  Restricted zones are marked on the camera view, a fire lane, a loading dock, a reserved or
                   accessible spot, a gated driveway. Any area a camera can see can be defined as restricted.
                 </p>
 
@@ -91,7 +92,7 @@ export default function Page() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Alert delivery</h3>
                 <p className="mt-2 text-muted-foreground">
-                  Every alert includes a clip, dwell time, and — when <Link href="/ai-features/ai-attribute-extraction" className="text-primary hover:underline">AI attribute extraction</Link> is
+                  Every alert includes a clip, dwell time, and, when <Link href="/ai-features/ai-attribute-extraction" className="text-primary hover:underline">AI attribute extraction</Link> is
                   enabled — vehicle color and type. Alerts route through the platform's <Link href="/platform/notifications-and-alerts" className="text-primary hover:underline">notification system</Link> to
                   the guard or property team responsible for enforcement.
                 </p>
@@ -177,14 +178,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="bg-muted/30 py-16 sm:py-20">
-        <div className="mx-auto max-w-site px-6 text-center">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">Frequently asked questions</h2>
-          <div className="mx-auto mt-8 max-w-3xl text-left">
-            <FAQAccordion items={faqs} />
-          </div>
-        </div>
-      </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

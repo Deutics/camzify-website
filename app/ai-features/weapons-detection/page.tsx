@@ -1,9 +1,10 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { FaqSection } from '@/components/content/faq-section';
 import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 
 /**
@@ -12,7 +13,7 @@ import Link from 'next/link';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Weapons Detection | AI Weapon Detection Camera Software",
+  title: "Weapons Detection on Cameras | Visible Only",
   description: "Camzify weapons detection flags visible weapons in camera view the moment they appear, routing an alert before a threat escalates.",
   path: "/ai-features/weapons-detection",
 };
@@ -20,11 +21,11 @@ const pageMeta = {
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
-  { question: 'What does weapons detection actually detect?', answer: 'The model flags visibly brandished weapons — firearms and edged weapons — in the camera frame. It is a visual detection model, not a metal detector or X-ray system, and works on any camera with a clear enough view of the object.' },
+  { question: 'What does weapons detection actually detect?', answer: 'The model flags visibly brandished weapons, firearms and edged weapons, in the camera frame. It is a visual detection model, not a metal detector or X-ray system, and works on any camera with a clear enough view of the object.' },
   { question: 'How fast is the alert?', answer: 'Detection and alert routing happen in near real time from the moment a weapon becomes visible in frame, so the assigned guard or security team is notified within seconds, not after someone reviews footage later.' },
   { question: 'Does it produce false positives on similar-looking objects?', answer: 'The model is trained specifically to reduce false positives on visually similar objects like phones or tools, and every alert includes a confidence score and clip so a human can verify before escalating further.' },
-  { question: 'Can it detect a concealed weapon?', answer: 'No. Weapons detection identifies weapons that are visibly brandished in the camera frame — it is a visual model, not a concealed-weapons scanner. A firearm or blade kept out of camera view, such as holstered or in a bag, will not trigger a detection.' },
-  { question: 'How complex is setup for a new site?', answer: 'Setup follows the same pattern as other detection features — enable the capability per camera, and default critical-severity alerting applies immediately. No additional hardware, calibration, or per-camera training is required beyond a clear enough view of the monitored area.' },
+  { question: 'Can it detect a concealed weapon?', answer: 'No. Weapons detection identifies weapons that are visibly brandished in the camera frame, it is a visual model, not a concealed-weapons scanner. A firearm or blade kept out of camera view, such as holstered or in a bag, will not trigger a detection.' },
+  { question: 'How complex is setup for a new site?', answer: 'Setup follows the same pattern as other detection features, enable the capability per camera, and default critical-severity alerting applies immediately. No additional hardware, calibration, or per-camera training is required beyond a clear enough view of the monitored area.' },
   { question: 'How is this different from a metal-detector or checkpoint system?', answer: 'A metal detector or checkpoint screens people as they pass through a fixed point and requires that point to be staffed and enforced. Weapons detection works continuously across any monitored camera view, including areas with no physical checkpoint at all, and doesn\'t require anyone to walk through a designated screening line.' },
 ];
 
@@ -34,19 +35,22 @@ export default function Page() {
       { label: 'AI Features', href: '/ai-features' },
       { label: 'Weapons Detection' },
     ]}>
+      <FeatureHero
+        eyebrow="AI detection · Weapons detection"
+        title="Weapons detection"
+        lede={<><strong className="font-semibold text-foreground">Spot a threat before it escalates.</strong> Weapons detection flags visible firearms and edged weapons the
+            moment they enter frame, so the response starts before an incident develops rather than after.</>}
+        facts={['Visibly brandished firearms in camera view', 'Visible edged weapons in camera view', 'Detections at entrances, lobbies, and public-facing areas']}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/ai-features', label: 'All 22 detections' }}
+        visual={<PhotoFigure src="/feature-weapons-detection-1.jpg" alt="Camera view with a detected weapon highlighted by a bounding box and confidence score" caption="Weapons detection" priority />}
+      />
+
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Weapons Detection</h1>
-          <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            Spot a threat before it escalates. Weapons detection flags visible firearms and edged weapons the
-            moment they enter frame, so the response starts before an incident develops rather than after.
-          </p>
-
-          <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
-            <ScrollReveal>
-              <div>
-                <h2 className="font-display text-2xl font-bold">This capability detects and alerts on:</h2>
-                <ul className="mt-4 space-y-3 text-muted-foreground">
+          <div>
+            <h2 className="font-display text-2xl font-bold">This capability detects and alerts on:</h2>
+            <ul className="mt-4 grid gap-3 text-muted-foreground sm:grid-cols-2">
                   <li className="flex gap-2">• Visibly brandished firearms in camera view</li>
                   <li className="flex gap-2">• Visible edged weapons in camera view</li>
                   <li className="flex gap-2">• Detections at entrances, lobbies, and public-facing areas</li>
@@ -54,16 +58,13 @@ export default function Page() {
                   <li className="flex gap-2">• Repeated detections tied to the same confirmed subject track</li>
                   <li className="flex gap-2">• Detections outside scheduled hours at areas that should see no weapon presence</li>
                 </ul>
-              </div>
-            </ScrollReveal>
-            <PhotoFigure src="/feature-weapons-detection-1.jpg" alt="Camera view with a detected weapon highlighted by a bounding box and confidence score" caption="Weapons detection" priority />
           </div>
 
           <div className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Why weapons detection matters</h2>
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
-                <p>A weapon becoming visible on camera is one of the narrowest windows security has to respond before a threat escalates further. A guard watching one monitor among dozens can easily miss that moment, and footage reviewed after the fact only confirms what already happened — it can't change the outcome.</p>
+                <p>A weapon becoming visible on camera is one of the narrowest windows security has to respond before a threat escalates further. A guard watching one monitor among dozens can easily miss that moment, and footage reviewed after the fact only confirms what already happened, it can't change the outcome.</p>
                 <p>Manual monitoring simply can't hold continuous attention on every camera at once, and staffing enough people to watch every feed live isn't realistic for most sites. The result is a gap between the moment a weapon appears and the moment anyone notices, which is exactly the window where a fast response matters most.</p>
                 <p>Weapons detection closes that gap by watching every enabled camera continuously and firing the moment a weapon is confirmed in frame, so the alert reaches a guard in seconds rather than depending on someone happening to be looking at the right screen at the right time.</p>
               </div>
@@ -173,14 +174,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="bg-muted/30 py-16 sm:py-20">
-        <div className="mx-auto max-w-site px-6 text-center">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">Frequently asked questions</h2>
-          <div className="mx-auto mt-8 max-w-3xl text-left">
-            <FAQAccordion items={faqs} />
-          </div>
-        </div>
-      </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

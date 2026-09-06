@@ -29,11 +29,11 @@ export default function AboutPage() {
           <div className="mt-16 space-y-12 max-w-prose">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">What we do</h2>
-              <p className="mt-4 text-muted-foreground">We build software that makes security cameras useful beyond recording. Our virtual patrolling system runs automated rounds on existing cameras — checking doors, verifying perimeters, confirming zones are clear — and delivers a structured compliance report. Every patrol round is timestamped, verifiable, and audit-ready.</p>
+              <p className="mt-4 text-muted-foreground">We build software that makes security cameras useful beyond recording. Our virtual patrolling system runs automated rounds on existing cameras, checking doors, verifying perimeters, confirming zones are clear, and delivers a structured compliance report. Every patrol round is timestamped, verifiable, and audit-ready.</p>
             </ScrollReveal>
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Why we exist</h2>
-              <p className="mt-4 text-muted-foreground">Most security cameras record footage that no one watches. Guards cannot be everywhere, and monitoring centers scale poorly. We believe AI should handle the routine verification — checking the same conditions at the same cameras on the same schedule — so that humans can focus on response, judgment, and the exceptions that genuinely need attention.</p>
+              <p className="mt-4 text-muted-foreground">Most security cameras record footage that no one watches. Guards cannot be everywhere, and monitoring centers scale poorly. We believe AI should handle the routine verification, checking the same conditions at the same cameras on the same schedule, so that humans can focus on response, judgment, and the exceptions that genuinely need attention.</p>
             </ScrollReveal>
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Who writes the guides</h2>

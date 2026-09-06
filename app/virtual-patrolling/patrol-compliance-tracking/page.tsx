@@ -1,11 +1,11 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { FeatureHero } from '@/components/content/feature-hero';
 import { PhotoFigure } from '@/components/content/photo-figure';
 import { HeroPlaceholder } from '@/components/content/hero-placeholder';
 import { SectionVisual } from '@/components/content/section-visual';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 import { BarChart3, TrendingUp, ArrowRight } from 'lucide-react';
 
@@ -23,7 +23,7 @@ const pageMeta = {
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
-  { question: 'What counts as an Overdue round?', answer: 'Overdue means a scheduled round never ran at all — it\'s distinct from Flagged, which means the round did run but at least one checklist item came back Not Compliant. Keeping the two separate makes it obvious whether the problem is a missed patrol or a real failure on site.' },
+  { question: 'What counts as an Overdue round?', answer: 'Overdue means a scheduled round never ran at all, it\'s distinct from Flagged, which means the round did run but at least one checklist item came back Not Compliant. Keeping the two separate makes it obvious whether the problem is a missed patrol or a real failure on site.' },
   { question: 'Can I export compliance data for a specific date range?', answer: 'Yes. Reports can be exported for any custom date range and filtered by site or patrol sequence, so a monthly compliance review doesn\'t require pulling every round the system has ever logged.' },
   { question: 'How is the compliance percentage calculated?', answer: 'It\'s the proportion of compliant checklist items out of the total items checked, calculated per round and rolled up into an aggregate figure across sequences and sites.' },
   { question: 'Can I get alerted when compliance drops below a certain level?', answer: 'Yes. Alert thresholds can be set so that a compliance percentage falling below a chosen level flags on the dashboard, rather than only being visible if someone happens to check the report.' },
@@ -57,9 +57,9 @@ export default function ComplianceTrackingPage() {
               <span className="font-mono text-mono-sm uppercase text-primary">Why It Matters</span>
               <h2 className="mt-2 font-display text-2xl font-bold">Why compliance tracking matters</h2>
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
-                <p>A scheduled patrol that silently fails to run leaves no obvious signal. Nobody gets an alert when a round simply doesn't happen — the gap only surfaces later, if someone notices footage was never reviewed or an incident report comes up with nothing to reference.</p>
+                <p>A scheduled patrol that silently fails to run leaves no obvious signal. Nobody gets an alert when a round simply doesn't happen, the gap only surfaces later, if someone notices footage was never reviewed or an incident report comes up with nothing to reference.</p>
                 <p>Tracking compliance by memory or a paper sign-off sheet doesn't scale once there are multiple sequences, shifts, and sites involved, and it can't distinguish a round that happened and found something wrong from one that never happened at all.</p>
-                <p>Logging every round's status and compliance percentage against a timestamp turns patrol activity into a number that can be tracked over time — per site, per sequence, or across the whole operation — so a slipping trend shows up on the dashboard well before it becomes an incident.</p>
+                <p>Logging every round's status and compliance percentage against a timestamp turns patrol activity into a number that can be tracked over time, per site, per sequence, or across the whole operation, so a slipping trend shows up on the dashboard well before it becomes an incident.</p>
               </div>
             </ScrollReveal>
           </div>
@@ -121,13 +121,7 @@ export default function ComplianceTrackingPage() {
             </ScrollReveal>
           </div>
 
-          <div className="mt-16 rounded-2xl border border-border bg-card p-8 sm:p-10">
-            <span className="font-mono text-mono-sm uppercase text-primary">FAQ</span>
-            <h2 className="mt-2 font-display text-2xl font-bold">Frequently asked questions</h2>
-            <div className="mt-6">
-              <FAQAccordion items={faqs} />
-            </div>
-          </div>
+          <FaqSection items={faqs} inline />
 
           <div className="mt-16">
             <h2 className="font-display text-2xl font-bold">Related</h2>

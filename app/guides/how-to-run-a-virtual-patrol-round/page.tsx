@@ -1,6 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
-import { FAQAccordion } from '@/components/content/faq-accordion';
+import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { howToSchema } from '@/lib/seo';
 import Link from 'next/link';
@@ -11,7 +11,7 @@ import Link from 'next/link';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "How to Run a Virtual Patrol Round | Step-by-Step Guide",
+  title: "How to Run a Virtual Patrol Round",
   description: "A walkthrough of a manual virtual patrol round: judging each checklist item against the live view, messaging the guard on a failure, resolving it as fixed or pending, and reading the compliance report.",
   path: "/guides/how-to-run-a-virtual-patrol-round",
 };
@@ -33,11 +33,11 @@ const steps = [
   },
   {
     name: 'Decide whether to message the guard',
-    text: 'Marking an item Not Compliant captures the snapshot and offers a pre-written message to the guard for that camera — for example that a gate was found open and needs securing. Send it and the guard is notified immediately with the specifics; decline and the failure is still recorded, and the guard can be notified later from the same item.',
+    text: 'Marking an item Not Compliant captures the snapshot and offers a pre-written message to the guard for that camera, for example that a gate was found open and needs securing. Send it and the guard is notified immediately with the specifics; decline and the failure is still recorded, and the guard can be notified later from the same item.',
   },
   {
     name: 'Resolve the item: fixed, or pending with a reason',
-    text: 'A failed item cannot be left failing. Either it is dealt with and re-checked, at which point a second snapshot is captured and the item is marked Fixed and verified, or it is held as Pending with a written reason — a contractor blocking a camera view, a part on order. The round will not close until every item has one of those answers.',
+    text: 'A failed item cannot be left failing. Either it is dealt with and re-checked, at which point a second snapshot is captured and the item is marked Fixed and verified, or it is held as Pending with a written reason, a contractor blocking a camera view, a part on order. The round will not close until every item has one of those answers.',
   },
   {
     name: 'Close the round and read the report',
@@ -84,9 +84,7 @@ export default function HowToRunAVirtualPatrolRoundPage() {
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
           <span className="font-mono text-mono-sm uppercase text-primary">Guide</span>
-          <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">
-            How to run a virtual patrol round
-          </h1>
+          <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">How to run a virtual patrol round</h1>
           <p className="mt-6 max-w-prose text-body text-muted-foreground">
             <strong className="font-semibold text-foreground">
               A virtual patrol round is a walk through a defined sequence of cameras, checking a
@@ -145,17 +143,8 @@ export default function HowToRunAVirtualPatrolRoundPage() {
           </div>
         </div>
       </section>
-      <section className="pb-16">
-        <div className="mx-auto max-w-site px-6">
-          <div className="rounded-2xl border border-border bg-card p-8 sm:p-10">
-            <span className="font-mono text-mono-sm uppercase text-primary">FAQ</span>
-            <h2 className="mt-2 font-display text-2xl font-bold">Frequently asked questions</h2>
-            <div className="mt-6">
-              <FAQAccordion items={faqs} />
-            </div>
-          </div>
-        </div>
-      </section>
+
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

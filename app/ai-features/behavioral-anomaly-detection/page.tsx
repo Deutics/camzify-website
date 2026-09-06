@@ -1,8 +1,10 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { PhotoFigure } from '@/components/content/photo-figure';
+import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 
 /**
@@ -16,7 +18,7 @@ import Link from 'next/link';
  * own words instead of picking from a catalog — so the old slug redirects here.
  */
 const pageMeta = {
-  title: 'Behavioral Anomaly Detection | Describe What to Watch For',
+  title: "Behavioral Anomaly Detection | Watch For This",
   description:
     'Describe the behavior you want watched in plain language — fights, smoking, vandalism, trespassing — and Camzify monitors for it continuously and notifies you when it happens.',
   path: '/ai-features/behavioral-anomaly-detection',
@@ -81,22 +83,18 @@ export default function BehavioralAnomalyDetectionPage() {
         { label: 'Behavioral Anomaly Detection' },
       ]}
     >
+      <FeatureHero
+        eyebrow="Now shipping · AI detection"
+        title="Behavioral anomaly detection"
+        lede={<><strong className="font-semibold text-foreground"> Describe the behavior you want watched, in your own words, and Camzify monitors for it. </strong>{' '} Type &ldquo;alert me if anyone starts fighting&rdquo; or &ldquo;tell me if someone is smoking in the loading bay&rdquo;. Natural-language processing interprets what you have asked for, the system watches the people appearing in the cameras you selected, and a notification is raised when that activity is observed.</>}
+        facts={['Describe the behavior in plain language', 'No rule syntax, no zones to draw', 'Watches the cameras you pick for it']}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/ai-features', label: 'All 22 detections' }}
+        visual={<PhotoFigure src="/feature-behavioral-anomaly-detection-1.jpg" alt="People moving through a public space with an AI overlay tracing behavior patterns" priority />}
+      />
+
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <span className="font-mono text-mono-sm uppercase text-live">Now shipping</span>
-          <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">
-            Behavioral Anomaly Detection
-          </h1>
-          <p className="mt-6 max-w-prose text-body leading-relaxed text-muted-foreground">
-            <strong className="font-semibold text-foreground">
-              Describe the behavior you want watched, in your own words, and Camzify monitors for
-              it.
-            </strong>{' '}
-            Type &ldquo;alert me if anyone starts fighting&rdquo; or &ldquo;tell me if someone is
-            smoking in the loading bay&rdquo;. Natural-language processing interprets what you have
-            asked for, the system watches the people appearing in the cameras you selected, and a
-            notification is raised when that activity is observed.
-          </p>
           <p className="mt-4 max-w-prose text-body leading-relaxed text-muted-foreground">
             Every other detection model on the platform is built for one job decided in advance.
             This one is defined at the point of use, which means you are not restricted to the
@@ -264,14 +262,7 @@ export default function BehavioralAnomalyDetectionPage() {
         </div>
       </section>
 
-      <section className="bg-muted/30 py-16 sm:py-20">
-        <div className="mx-auto max-w-site px-6 text-center">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">Frequently asked questions</h2>
-          <div className="mx-auto mt-8 max-w-3xl text-left">
-            <FAQAccordion items={faqs} />
-          </div>
-        </div>
-      </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

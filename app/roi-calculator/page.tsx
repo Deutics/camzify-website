@@ -1,6 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
-import { FAQAccordion } from '@/components/content/faq-accordion';
+import { FaqSection } from '@/components/content/faq-section';
 import { ROICalculator } from './_components/roi-calculator';
 import Link from 'next/link';
 
@@ -54,11 +54,8 @@ export default function ROIPage() {
               </p>
             </div>
           </div>
-          <div className="mt-10 rounded-2xl border border-border bg-card p-8 sm:p-10">
-            <span className="font-mono text-mono-sm uppercase text-primary">FAQ</span>
-            <h2 className="mt-2 font-display text-2xl font-bold">Frequently asked questions</h2>
-            <div className="mt-6"><FAQAccordion items={faqs} /></div>
-          </div>
+
+          <FaqSection items={faqs} inline />
         </div>
       </section>
     </PageShell>

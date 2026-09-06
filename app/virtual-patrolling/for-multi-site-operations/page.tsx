@@ -1,11 +1,11 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { FeatureHero } from '@/components/content/feature-hero';
 import { PhotoFigure } from '@/components/content/photo-figure';
 import { HeroPlaceholder } from '@/components/content/hero-placeholder';
 import { SectionVisual } from '@/components/content/section-visual';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 import { Building, Globe, Users, ArrowRight } from 'lucide-react';
 
@@ -23,11 +23,11 @@ const pageMeta = {
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
-  { question: 'Do all sites need to run the same patrol sequences?', answer: 'No. Each site configures its own patrol sequences and checklists, suited to its own layout and risk profile — a warehouse and a retail location don\'t need to look the same on the patrol schedule.' },
+  { question: 'Do all sites need to run the same patrol sequences?', answer: 'No. Each site configures its own patrol sequences and checklists, suited to its own layout and risk profile, a warehouse and a retail location don\'t need to look the same on the patrol schedule.' },
   { question: 'How does licensing work when adding a new site?', answer: 'Camzify uses instance-based licensing. The parent account holds the total licensed capacity and allocates VPS camera instances to each new site, so scaling to another location means allocating instances rather than buying a separate system.' },
   { question: 'Can an operator at one site see another site\'s cameras?', answer: 'Only if they\'re granted access. Role-based permission groups control which sites, cameras, and sequences a given operator or guard can see or manage.' },
   { question: 'Is compliance tracked separately per site or combined?', answer: 'Both. Each site\'s compliance score is visible on its own, and the parent dashboard also rolls every site up into a single aggregate figure for the whole operation.' },
-  { question: 'How long does it take to bring a new site online?', answer: 'It depends on the number of cameras and sequences involved, but the process itself is consistent regardless of size — allocate instances, configure sequences and guards, then set permissions for who can access the new site.' },
+  { question: 'How long does it take to bring a new site online?', answer: 'It depends on the number of cameras and sequences involved, but the process itself is consistent regardless of size, allocate instances, configure sequences and guards, then set permissions for who can access the new site.' },
 ];
 
 /** Agencies are the multi-site buyer with the sharpest version of this problem. */
@@ -79,7 +79,7 @@ export default function MultiSiteOpsPage() {
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
                 <p>Running a separate system at every location means separate logins, separate configurations, and no easy way to tell whether one site's patrol compliance is better or worse than another's without contacting each site individually.</p>
                 <p>A patrol sequence built for one site rarely transfers cleanly to another with a different layout and risk profile. A checklist generic enough to apply everywhere ends up too vague to be useful anywhere, while one built for a single site doesn't scale as more locations come online.</p>
-                <p>Centralizing on one console solves both problems at once: each site keeps sequences, checklists, and guards suited to its own layout, while an operations manager can compare compliance across every location from a single dashboard — and new sites come online by allocating capacity, not by standing up a new deployment.</p>
+                <p>Centralizing on one console solves both problems at once: each site keeps sequences, checklists, and guards suited to its own layout, while an operations manager can compare compliance across every location from a single dashboard, and new sites come online by allocating capacity, not by standing up a new deployment.</p>
               </div>
             </ScrollReveal>
           </div>
@@ -113,7 +113,7 @@ export default function MultiSiteOpsPage() {
                   buying separate systems.
                 </p>
                 <p className="mt-4 text-muted-foreground">
-                  Each sub-account manages its own patrol sequences, guard contacts, and schedules — while the
+                  Each sub-account manages its own patrol sequences, guard contacts, and schedules, while the
                   parent account retains visibility into compliance across all sites through the{' '}
                   <Link href="/platform/multi-site-management" className="text-primary hover:underline">multi-site management</Link> module.
                 </p>
@@ -139,13 +139,7 @@ export default function MultiSiteOpsPage() {
             </ScrollReveal>
           </div>
 
-          <div className="mt-16 rounded-2xl border border-border bg-card p-8 sm:p-10">
-            <span className="font-mono text-mono-sm uppercase text-primary">FAQ</span>
-            <h2 className="mt-2 font-display text-2xl font-bold">Frequently asked questions</h2>
-            <div className="mt-6">
-              <FAQAccordion items={faqs} />
-            </div>
-          </div>
+          <FaqSection items={faqs} inline />
 
           <div className="mt-16">
             <h2 className="font-display text-2xl font-bold">Related</h2>

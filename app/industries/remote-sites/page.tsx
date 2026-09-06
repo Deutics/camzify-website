@@ -1,10 +1,11 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { FaqSection } from '@/components/content/faq-section';
 import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 
 /**
@@ -14,7 +15,7 @@ import Link from 'next/link';
  */
 const pageMeta = {
   title: "AI Security for Remote Sites | Video Surveillance",
-  description: "Camzify provides AI-powered virtual patrolling and video analytics for remote sites — automated patrols, real-time alerts, and compliance reports.",
+  description: "Camzify provides AI-powered virtual patrolling and video analytics for remote sites, automated patrols, real-time alerts, and compliance reports.",
   path: "/industries/remote-sites",
 };
 
@@ -31,28 +32,31 @@ const faqs = [
   { question: "Does Camzify work with satellite internet connections?", answer: "Yes. The Camzify Connector adjusts patrol frequency and stream quality to match available bandwidth, which makes it workable over satellite links where connectivity is limited or intermittent." },
   { question: "What happens if a remote site loses connectivity entirely?", answer: "Patrol checks for that site pause until the connection is restored, and the outage itself is logged. Camera Tampering Detection flags a feed that goes dark so the gap shows up in the patrol report rather than going unnoticed." },
   { question: "Can one dispatcher monitor alerts from multiple remote sites?", answer: "Yes. Alerts from every configured site route into one notification queue, so a single dispatcher or field team can handle escalations across a distributed portfolio of unmanned locations." },
-  { question: "How does virtual patrolling compare to a scheduled drive-by check?", answer: "A drive-by check covers one moment a day at best. Virtual patrolling runs scheduled checks continuously between visits, catching issues — a fence breach, a downed camera, an unauthorized vehicle — hours or days before the next physical visit would." },
+  { question: "How does virtual patrolling compare to a scheduled drive-by check?", answer: "A drive-by check covers one moment a day at best. Virtual patrolling runs scheduled checks continuously between visits, catching issues, a fence breach, a downed camera, an unauthorized vehicle, hours or days before the next physical visit would." },
   { question: "Can solar-powered cameras at off-grid sites work with Camzify?", answer: "Yes, as long as the camera outputs a standard IP stream. Camzify doesn't control the camera's power source, so solar-powered or battery-backed setups work the same way as any other IP camera feed." },
 ];
 
 export default function RemoteSitesPage() {
   return (
-    <PageShell {...pageMeta} schema={[serviceSchema({ name: "AI Security for Remote Sites", description: "Camzify provides AI-powered virtual patrolling and video analytics for remote sites — automated patrols, real-time alerts, and compliance reports.", path: "/industries/remote-sites", audience: "Remote Sites" })]} faqs={faqs} breadcrumbs={[
+    <PageShell {...pageMeta} schema={[serviceSchema({ name: "AI Security for Remote Sites", description: "Camzify provides AI-powered virtual patrolling and video analytics for remote sites, automated patrols, real-time alerts, and compliance reports.", path: "/industries/remote-sites", audience: "Remote Sites" })]} faqs={faqs} breadcrumbs={[
       { label: 'Industries', href: '/industries' },
       { label: 'Remote Sites' },
     ]}>
+      <FeatureHero
+        eyebrow="Industry · remote sites"
+        title="AI security for remote sites"
+        lede={<><strong className="font-semibold text-foreground">Remote sites face security challenges that cameras alone cannot solve and manned guards cannot cover consistently.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.</>}
+        facts={['Unmanned substations, pump stations, or towers sitting…', 'Perimeter fence lines with no continuous coverage far from…', 'Equipment and material theft going undetected until the next…']}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}
+        visual={<PlaceholderVisual type="industry" caption="REMOTE SITES" alt="Security monitoring in a remote sites environment" />}
+      />
+
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">AI Security for Remote Sites</h1>
-          <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            Remote sites face security challenges that cameras alone cannot solve and manned guards cannot cover consistently. Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.
-          </p>
-
-          <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
-            <ScrollReveal>
-              <div>
-                <h2 className="font-display text-2xl font-bold">Common remote site security gaps Camzify closes:</h2>
-                <ul className="mt-4 space-y-3 text-muted-foreground">
+          <div>
+            <h2 className="font-display text-2xl font-bold">Common remote site security gaps Camzify closes:</h2>
+            <ul className="mt-4 grid gap-3 text-muted-foreground sm:grid-cols-2">
                   <li className="flex gap-2">• Unmanned substations, pump stations, or towers sitting unchecked between maintenance visits</li>
                   <li className="flex gap-2">• Perimeter fence lines with no continuous coverage far from any staffed location</li>
                   <li className="flex gap-2">• Equipment and material theft going undetected until the next scheduled visit</li>
@@ -60,18 +64,15 @@ export default function RemoteSitesPage() {
                   <li className="flex gap-2">• Camera outages at isolated sites going unnoticed for days</li>
                   <li className="flex gap-2">• No audit trail proving a site was actually checked between visits</li>
                 </ul>
-              </div>
-            </ScrollReveal>
-            <PlaceholderVisual type="industry" caption="REMOTE SITES" alt="Security monitoring in a remote sites environment" />
           </div>
 
           <div className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Why remote sites need continuous AI monitoring</h2>
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
-                <p>Remote sites — substations, cell towers, pipeline stations, construction laydown yards, solar and wind installations — are, by definition, far from anywhere a guard can be stationed cost-effectively. A maintenance crew or roaming patrol might visit once a day, once a week, or less; everything that happens between visits goes unwitnessed.</p>
-                <p>Manned guarding doesn't scale to this kind of geography — driving a guard to a remote substation for a nightly check costs far more than the asset being protected is worth in most cases, and even then, one drive-by a night still leaves the rest of the day uncovered.</p>
-                <p>Virtual patrolling replaces the physical drive with scheduled AI rounds that run on whatever connectivity the site has — cellular, satellite, or a site-to-site link — checking the fence line, the equipment yard, and the access gate on a fixed schedule and flagging anything that doesn't match, without anyone needing to be there.</p>
+                <p>Remote sites, substations, cell towers, pipeline stations, construction laydown yards, solar and wind installations, are, by definition, far from anywhere a guard can be stationed cost-effectively. A maintenance crew or roaming patrol might visit once a day, once a week, or less; everything that happens between visits goes unwitnessed.</p>
+                <p>Manned guarding doesn't scale to this kind of geography, driving a guard to a remote substation for a nightly check costs far more than the asset being protected is worth in most cases, and even then, one drive-by a night still leaves the rest of the day uncovered.</p>
+                <p>Virtual patrolling replaces the physical drive with scheduled AI rounds that run on whatever connectivity the site has, cellular, satellite, or a site-to-site link, checking the fence line, the equipment yard, and the access gate on a fixed schedule and flagging anything that doesn't match, without anyone needing to be there.</p>
               </div>
             </ScrollReveal>
           </div>
@@ -104,7 +105,7 @@ export default function RemoteSitesPage() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Building the patrol route</h3>
                 <p className="mt-2 text-muted-foreground">
-                  A patrol sequence is set up once per site, ordering every camera stop — perimeter fence, equipment yard, access gate — into a route that runs on a schedule suited to the site's connectivity and risk profile.
+                  A patrol sequence is set up once per site, ordering every camera stop, perimeter fence, equipment yard, access gate, into a route that runs on a schedule suited to the site's connectivity and risk profile.
                 </p>
 
                 <h3 className="mt-6 font-display text-lg font-bold">Checking each stop</h3>
@@ -202,14 +203,7 @@ export default function RemoteSitesPage() {
         </div>
       </section>
 
-      <section className="bg-muted/30 py-16 sm:py-20">
-        <div className="mx-auto max-w-site px-6 text-center">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">Frequently asked questions</h2>
-          <div className="mx-auto mt-8 max-w-3xl text-left">
-            <FAQAccordion items={faqs} />
-          </div>
-        </div>
-      </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }
