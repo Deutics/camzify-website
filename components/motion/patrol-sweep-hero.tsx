@@ -9,7 +9,8 @@ import { CheckCircle2, XCircle, Radio, ScanSearch, FileCheck2 } from 'lucide-rea
  *
  * Each stop plays in two phases, because that is how a round works and the viewer
  * should be able to see it: the frame settles and the system looks at it (a scan
- * band passes over the picture, the item being checked is named), then the verdict
+ * band passes slowly over the picture in the live colour, a soft wash with a
+ * defined leading edge rather than a bright stripe, and the item being checked is named), then the verdict
  * lands and holds long enough to read. Six stops, then a short "round complete"
  * beat with the tally, then it starts again. Hovering or focusing the panel pauses
  * it, so a reader can study a frame.
@@ -37,7 +38,7 @@ const STOPS: Stop[] = [
   { id: 'CAM 03', loc: 'Rear entrance', src: '/hero-cam-rear-entrance-960.webp', thumb: '/hero-cam-rear-entrance-640.webp', item: 'Rear door closed', ok: false },
 ];
 
-const LOOK_MS = 2200; // the system looks at the frame
+const LOOK_MS = 3200; // the system looks at the frame: a slow pass, not a flash
 const HOLD_MS = 3600; // the verdict holds
 const STEP_MS = LOOK_MS + HOLD_MS;
 const SUMMARY_MS = 2600; // "round complete" between loops
@@ -127,10 +128,10 @@ export function PatrolSweepHero() {
         {phase === 'look' && !reduceMotion && (
           <motion.div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-x-0 h-16 bg-gradient-to-b from-transparent via-primary/25 to-transparent"
-            initial={{ top: '-16%' }}
+            className="pointer-events-none absolute inset-x-0 h-28 bg-gradient-to-b from-transparent via-live/15 to-live/35"
+            initial={{ top: '-30%' }}
             animate={{ top: '100%' }}
-            transition={{ duration: LOOK_MS / 1000, ease: 'easeInOut' }}
+            transition={{ duration: LOOK_MS / 1000, ease: [0.45, 0, 0.55, 1] }}
           />
         )}
 
