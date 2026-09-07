@@ -22,6 +22,10 @@ import { Check, Radio } from 'lucide-react';
  * frame stays lit and only the verdict marks fade out and return, so the end of a round
  * never snaps the wall back to dark. Marks fade rather than mount, for the same reason.
  *
+ * `contain: inline-size` on the figure keeps its intrinsic width at zero, so a long
+ * footer line (the round-complete summary is the longest) cannot widen the hero's grid
+ * column and shove the panel sideways; the panel always takes the width the column gives.
+ *
  * SSR safety: timers run in effects only; the server renders the first stop in its
  * "looking" state. Under reduced motion the wall holds on the finished round.
  */
@@ -93,7 +97,7 @@ export function PatrolSweepHero() {
 
   return (
     <figure
-      className="console-panel corner-ticks w-full min-w-0 max-w-full overflow-hidden"
+      className="console-panel corner-ticks w-full min-w-0 max-w-full overflow-hidden [contain:inline-size]"
       role="img"
       aria-label={label}
       onMouseEnter={() => setPaused(true)}
