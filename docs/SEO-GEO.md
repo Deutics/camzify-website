@@ -21,7 +21,7 @@ claims must be verifiable enough for a model to be willing to attribute them.
 | Page schema | `components/layout/page-shell.tsx` | Emits WebPage + FAQPage + any extra nodes |
 | Social card | `app/opengraph-image.tsx` | Generated 1200×630 PNG at build time |
 | Crawl directives | `app/robots.ts` | Explicit allowlist for 19 AI crawlers |
-| Index | `app/sitemap.ts` | All 121 routes, priority by silo |
+| Index | `app/sitemap.ts` | All 150 routes, priority by silo |
 | LLM briefing | `app/llms.txt/route.ts` | Plain-text summary written for AI crawlers |
 
 ---
@@ -166,6 +166,33 @@ update `/llms.txt` in the same change.
 
 ---
 
+## Keyword research
+
+The map lives in [`docs/seo/`](seo/README.md): `01-keyword-map.csv` (the file the
+`seo-content-writer` skill reads), the same map as a dashboard, and a coverage sheet that
+names the page carrying each term today. It was pulled from DataForSEO for the United
+States in English on 2026-09-07.
+
+What it settled:
+
+- **Buyers do not search "virtual patrolling"** (10 a month). They search **cloud VMS**
+  and **video management software** (590 to 1,300), **virtual guard** (480), **remote
+  video monitoring** (260), **remote guarding** (110 to 320) and **guard tour system**
+  (720). "Intelligent video analytics" (12,100) is a definition query and has a guide.
+- **Titles carry the searched phrase; H1s say it in sentence case.** Seven pages were
+  retitled on that principle and four pillar-type pages added (`/virtual-guard`,
+  `/cloud-video-surveillance`, the analytics guide, `/use-cases/remote-video-monitoring`).
+  Before retitling anything else, check the coverage sheet.
+- **Hardware-intent terms stay as support only.** "Fire detection camera" and
+  "construction site security cameras" carry the most volume, but the searcher wants a
+  camera and Camzify sells none. A title may name the cameras a site already has; it
+  must never imply we supply them.
+- **Difficulty, AI search volume, live SERPs and fan-out questions are missing** because
+  the DataForSEO account ran out of credit mid-run. The columns read "no data" rather
+  than an estimate. Re-run `keyword-fanout-map` once it is funded.
+
+---
+
 ## Internal linking
 
 The site is a hub-and-spoke graph. Each silo has a hub page linking to every spoke, and
@@ -201,3 +228,9 @@ for m in re.findall(r'<script type=\"application/ld\+json\">(.*?)</script>', h, 
 
 Validate externally with Google's Rich Results Test and Schema.org validator before
 shipping a new schema type.
+
+The per-page gates the site is held to, over the probe build's HTML: rendered title 62
+characters or fewer (50 in source), description between 70 and 158, exactly one H1, at
+least three H2s, the title's first phrase present in the H1 or the first 200 words, one
+`FAQPage` node, no dead internal links, and no em-dashes beyond the odd one. A page that
+fails any of these is not done.

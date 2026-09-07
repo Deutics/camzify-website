@@ -7,7 +7,7 @@ wrong here and expensive to get wrong. Full detail lives in [`docs/`](docs/).
 
 ## What this project is
 
-A 121-page statically prerendered Next.js 14 marketing site whose entire purpose is
+A 150-page statically prerendered Next.js 14 marketing site whose entire purpose is
 discoverability — organic search, AI answer engines (ChatGPT, Claude, Perplexity, Google
 AI Overviews), and conversion to demo requests. There is no application, no auth, no
 authenticated area. Treat every change as a change to a publication.
@@ -76,6 +76,8 @@ lib/
   seo.ts                All schema.org builders
   page-utils.tsx        generatePageMeta — every page's <head> metadata
 docs/                   The documentation set. Keep it current
+  seo/                  Keyword map and coverage sheet (2026-09-07), read by the SEO skills
+  design/               Design handoffs that are not part of the site (console sign-in)
 ```
 
 ---
@@ -99,14 +101,18 @@ spelling. Filenames and identifiers were not respelled; prose was.
 Do not freehand it. `docs/ADDING-PAGES.md` has a copy-paste template per category and the
 five-step checklist (create → wire nav → wire sitemap → cross-link → verify). Every page
 must have: a `pageMeta` const, `generatePageMeta`, a `PageShell` with `{...pageMeta}`,
-breadcrumbs, at least one FAQ block, and inbound links from at least two existing pages.
+breadcrumbs, a `FaqSection` fed the same array as `PageShell`'s `faqs`, and inbound links
+from at least two existing pages. Titles are 50 source characters or fewer and
+descriptions 150 or fewer; the site name is appended at render. Top-level category
+pillars (`/virtual-guard`, `/cloud-video-surveillance`) go in the sitemap's `pillars`
+group.
 
 ---
 
 ## Running it
 
 `npm install && npm run dev` — that is all. **No database and no `.env` are required** to
-run or build the site; all 121 pages are static and `prisma generate` needs no live
+run or build the site; all 150 pages are static and `prisma generate` needs no live
 connection. Only the four `/api/*` form endpoints need `.env`. Do not stall trying to
 provision a database you do not need.
 
@@ -178,6 +184,15 @@ financial services, multiple sites, self-storage) still use `PlaceholderVisual`.
 Guides carry a named byline: Muhammad Talha, from `siteConfig.author`. The visible
 byline, the author page and the `Person` node in `lib/seo.ts` all read from that one
 object, so never restate the name, role or credential anywhere else.
+
+## Things that are switched on for launch and must be switched off by hand
+
+- **The maintenance notice.** `components/system/maintenance-notice.tsx`, mounted in
+  `app/layout.tsx` after the footer. Remove the mount when the site leaves maintenance.
+- **Legal pages are drafts.** Privacy, terms, cookies and accessibility each carry a
+  "last reviewed" date and are awaiting counsel. Do not describe them as reviewed.
+- **`/free-trial` describes a self-serve trial nobody has confirmed exists.** Retire it or
+  confirm the offer before pointing traffic at it.
 
 ## Known gaps worth flagging, not silently fixing
 

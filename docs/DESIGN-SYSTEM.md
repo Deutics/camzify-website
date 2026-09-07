@@ -37,10 +37,15 @@ Use `text-live`, `bg-warn/15`, `border-critical/30`. **Never** `text-emerald-400
 contrast in the other. Verified contrast: light 5.40 / 5.66 / 5.56, dark 10.58 / 10.40 /
 6.55, all clearing WCAG AA.
 
-> **Gotcha:** opacity stops `15` and `25` are declared explicitly in `tailwind.config.ts`
-> because they are not Tailwind defaults. If you use a stop outside the default scale
-> (0, 5, 10, 20, 25, 30, 40, 50, 60, 70, 75, 80, 90, 95, 100 — plus our 15), add it there
-> or the class generates no CSS at all and the element renders transparent.
+> **Gotcha:** opacity stops `15`, `25`, `35`, `45`, `55`, `65` and `85` are declared
+> explicitly in `tailwind.config.ts` because they are not Tailwind defaults. A stop that
+> is not declared generates no CSS at all, and the element silently inherits its parent's
+> colour, which is how the hero's camera labels once went dark-on-dark in light mode.
+> Add a new stop there before using it.
+
+**Text over photographs** uses the `.camera-tile` scope in `globals.css`, which pins
+`color` to the foreground token and provides `.camera-tile-label` and
+`.camera-tile-dim`, so a label over a camera frame stays legible in both themes.
 
 ### Typography
 
@@ -101,7 +106,15 @@ rather than nothing — see `components/motion/patrol-sweep-hero.tsx`.
 
 | Component | Use |
 |---|---|
-| `FAQAccordion` | FAQ list. Pass the **same array** to `PageShell`'s `faqs` prop. Answers stay in the DOM when collapsed. |
+| `FaqSection` | **The one FAQ treatment.** `items`, optional `heading`/`eyebrow`/`lede`, `inline` for a card inside another section. Pass the **same array** to `PageShell`'s `faqs` prop. Wraps `FAQAccordion`; answers stay in the DOM when collapsed. |
+| `FeatureHero` | The hero on every feature, industry, use-case, platform, VP and pillar page: `eyebrow`, sentence-case `title`, `lede`, `visual`, `primary`/`secondary` CTAs, up to three `facts`. |
+| `UseCasePage` | Renders a `UseCaseContent` object; all 22 use-case pages go through it. |
+| `SectionVisual` | Static design-system renderings of product concepts: `route`, `checklist` (`items`, `label`, `guard`), `report`, `notification`, `schedule`, `compliance`, `sites`, `flow` (`steps`). |
+| `PhotoFigure` | A framed `SiteImage` with caption for the business's photographs. |
+| `ProductShot` | A console screenshot that swaps light/dark with the theme; pass the base path without suffix. |
+| `SiteImage` | Responsive WebP `<picture>` from `lib/image-manifest.ts`. Use it instead of `next/image` for photographs. |
+| `HeroPlaceholder` / `PlaceholderVisual` | Stand-ins until a photograph exists. Nine industries and the newest use cases still use them. |
+| `AuthorByline` | Guide byline from `siteConfig.author`. |
 | `DeploymentPlan` | Three-phase "what a first deployment looks like" block (industry pages). |
 | `ComparisonTable` | Feature-by-feature comparison rows. |
 | `FeatureCard`, `DetectionCard` | Grid cards. `DetectionCard` takes a `live \| warn \| critical` status. |
@@ -112,7 +125,17 @@ rather than nothing — see `components/motion/patrol-sweep-hero.tsx`.
 ### `motion/`
 
 `ScrollReveal` (the standard section reveal — wrap most sections in it),
-`HeroBgAnimation`, `PatrolSweepHero`, `InteractiveChecklistDemo`, `CounterAnimation`.
+`HeroBgAnimation`, `InteractiveChecklistDemo`, `CounterAnimation`, `SceneObservation`.
+
+`PatrolSweepHero` is the homepage hero: one real camera frame at a time, a slow scan
+pass in the `live` colour while the system "looks" (3.2s), then the verdict (3.6s), a
+slide to the next frame, and a "round complete" card after the sixth. The six items
+were checked against the photographs; do not change a verdict without looking at the
+frame. It pauses on hover and holds on one frame under reduced motion.
+
+`DemoFrame` wraps `InteractiveChecklistDemo` with an "Interactive demo · click to run"
+badge and a start overlay that is hidden with `inert` after the first click, so the demo
+reads as something to operate rather than a picture.
 
 ### `mockups/`
 
@@ -135,6 +158,11 @@ avoid it.
 | `FormWrapper` | Handles submit, loading, error and success for the lead forms. |
 | `ThemeProvider` / `ThemeToggle` | `next-themes`. Default is dark. |
 | `ChunkLoadErrorHandler` | **Do not remove.** Works around a known ChunkLoadError race. |
+| `MaintenanceNotice` | The dismissible corner card mounted in `app/layout.tsx` while the site is in maintenance. Dismissal is a `sessionStorage` key listed in the cookie policy. Remove the mount, not the component, when the site leaves maintenance. |
+
+Also in `layout/`: `NewsletterForm`, the only thing that posts to `/api/newsletter`, and
+`SiteLogo`, which swaps the light and dark wordmarks by theme class. The homepage's
+`PartnerDoor` (`app/_components/`) is the three-audience section with the ROI panel.
 
 ### `ui/`
 

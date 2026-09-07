@@ -14,7 +14,7 @@ which is the same as not existing.
 |---|---|---|
 | 1 | Create the route with the category template | `app/<silo>/<slug>/page.tsx` |
 | 2 | Add it to the navigation | `lib/site-config.ts` → `navItems` |
-| 3 | Add it to the sitemap | `app/sitemap.ts` → the matching group |
+| 3 | Add it to the sitemap | `app/sitemap.ts` → the matching group (`core`, `conversion`, `legal`, `hubs`, `pillars`, `virtualPatrolling`, `platform`, `aiFeatures`, `useCases`, `industries`, `compare`, `guides`, `connectivity`, `partners`, `company`) |
 | 4 | Link to it from **at least two** existing pages | the relevant hub + a sibling |
 | 5 | Verify | `tsc` → build → SSR lint → check the rendered `<head>` |
 
@@ -32,7 +32,7 @@ Every `page.tsx` follows this skeleton regardless of category:
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
-import { FAQAccordion } from '@/components/content/faq-accordion';
+import { FaqSection } from '@/components/content/faq-section';
 import Link from 'next/link';
 
 /**
@@ -58,6 +58,7 @@ export default function ExamplePage() {
       { label: 'This Page' },
     ]}>
       {/* sections */}
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }
@@ -68,9 +69,19 @@ export default function ExamplePage() {
 - `pageMeta.path` must exactly match the folder path. It drives the canonical URL, the
   `og:url`, and every schema `@id`. A mismatch silently produces a wrong canonical.
 - `faqs` is passed to `PageShell`, **not** to a separate schema block. `PageShell` emits
-  the `FAQPage` node from the same array `FAQAccordion` renders, so the structured data
+  the `FAQPage` node from the same array `FaqSection` renders, so the structured data
   and the visible answers cannot drift apart. Google penalizes FAQ schema that does not
-  match visible content.
+  match visible content. `FaqSection` is the only FAQ treatment on the site; pass
+  `inline` to render it as a card inside another section, and `heading`/`eyebrow` to
+  rename it (hubs use "…, answered").
+- `title` is 50 source characters or fewer and carries the phrase people actually search
+  (see `docs/seo/`); the site name is appended at render and the result must stay under
+  62. `description` is 150 characters or fewer and leads with the answer. Count them;
+  estimates run long.
+- Heroes on feature, industry, use-case, platform and pillar pages are `FeatureHero`
+  with a sentence-case title, a bold definition sentence in the lede, up to three short
+  `facts`, and a `PhotoFigure` or `ProductShot` visual (or `PlaceholderVisual` when no
+  photograph exists yet).
 - Exactly one `<h1>`, matching the primary keyword. Section headings are `<h2>`,
   sub-points `<h3>`. Never skip a level for styling — use classes.
 - `PageShell` renders the closing CTA band automatically. Pass `showCTA={false}` only on
@@ -140,8 +151,26 @@ phases, each naming real equipment, zones and schedules for that vertical.
 
 ### Use case — `/use-cases/<slug>`
 
-Same shape as Industry, but `serviceSchema` **without** `audience` (a use case is a
-scenario, not an audience). Sitemap group `useCases`.
+Use cases do not carry their own JSX. Export a `UseCaseContent` object and render it
+with `UseCasePage` from `components/content/use-case-page.tsx`; copy
+`app/use-cases/remote-site-monitoring/page.tsx`. The object holds the hero (`image` or
+`heroVisual`), the problem section with a `SectionVisual` variant, the four detections
+the page leans on, the round checklist (`items`, `label`, `guard`), the limits, the
+industries and the FAQs, so every use case has the same shape and the renderer changes
+once. `serviceSchema` **without** `audience` (a use case is a scenario, not an
+audience). Sitemap group `useCases`; add the card to the hub and the footer count.
+
+---
+
+### Category pillar — `/<slug>` at the top level
+
+One page per name the market uses for what Camzify sells: `/virtual-guard` and
+`/cloud-video-surveillance` exist; add another only when the keyword map in `docs/seo/`
+shows a term family with no page. `FeatureHero`, a definition sentence in bold, sections
+that say where the alternative wins, a `ComparisonTable`, a limits section, four
+"read next" cards, `FaqSection`. `serviceSchema` without `audience`. Sitemap group
+`pillars`; nav under the nearest menu (Virtual Patrolling or Platform); the footer's
+Product column; the key-pages list in `app/llms.txt/route.ts`.
 
 ---
 
@@ -248,9 +277,20 @@ The `steps` array must match the visible numbered steps on the page, one for one
 
 ### Partner — `/partners/<slug>`
 
-Channel pages. Describe how partnering works structurally. **Do not publish margins,
-discount tiers or commercial terms** — those are negotiated per partner and are not
-public.
+Channel pages, and since 2026-09-06 also customer pages: security agencies and
+monitoring companies buy the product and resell the service. Describe how the account
+model works structurally. **Do not publish margins, discount tiers or commercial terms**;
+there is no certified-installer program, partner portal or white-label, and the pages
+say so. Sitemap group `partners`; nav under "Solutions".
+
+---
+
+### Legal — `/privacy-policy`, `/terms-of-service`, `/cookie-policy`, `/accessibility`
+
+`showCTA={false}`, a "last reviewed" date constant at the top, `FaqSection` at the
+bottom, sitemap group `legal`. They are drafts until counsel has read them; change the
+date when the text changes. The cookie policy lists every browser-storage key the site
+sets; adding one means editing that table first.
 
 ---
 

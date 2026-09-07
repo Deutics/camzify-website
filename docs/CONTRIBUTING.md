@@ -64,7 +64,7 @@ Use the templates and checklist in [`ADDING-PAGES.md`](ADDING-PAGES.md). The sho
 
 - Edit `pageMeta` — never `export const metadata` by hand.
 - Keep the `faqs` array passed to `PageShell` identical to the one rendered by
-  `FAQAccordion`.
+  `FaqSection`.
 - Update `dateModified` on guides you materially edit.
 - Never publish an unverified number, price, certification or case study. See
   [`SEO-GEO.md`](SEO-GEO.md) § Honesty rules.
@@ -136,3 +136,7 @@ cut:
 - [ ] Checked in both light and dark themes
 - [ ] Keyboard reachable, visible focus ring
 - [ ] No unverified claims, prices, or certifications introduced
+- [ ] Title 50 source characters or fewer, description 150 or fewer, counted not guessed
+- [ ] FAQs rendered with `FaqSection` from the same array passed to `PageShell`
+- [ ] Any new photograph went through `scripts/optimise-images.py` and is used via `SiteImage`
+- [ ] A schedule on an AI feature is described as a notification window, never as when detection runs

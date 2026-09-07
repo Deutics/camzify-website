@@ -58,12 +58,18 @@ saves by not hiring guards is telling them their business is the problem.
 
 ## Roadmap
 
-**Phase 1 (no decisions needed):** "Solutions for" nav; homepage segment door; retitle
+**Phase 1 (done 2026-09-06):** "Solutions for" nav; homepage segment door; retitle
 the integrator page for CCTV and alarm installers (URL unchanged); three outreach
 landing pages; two comparison pages (vs mobile patrols, adding remote patrols to alarm
 monitoring); alarm verification use case; owner guides (how to sell virtual patrolling
 to a client, what a client proposal contains, a sample client report); agency revenue
-calculator.
+calculator. Done, with the sample client report folded into the reports page rather
+than a separate download.
+
+**Phase 1b (done 2026-09-07):** keyword map against real US search volume
+(`docs/seo/`); seven pages retitled toward the phrases buyers search; four pages added
+for the term families that had none (virtual guard, cloud video surveillance,
+intelligent video analytics, remote video monitoring).
 
 **Phase 2 (decisions):** German pilot of the partner track; country pages for US, UK and Germany naming local terms (ARC, NSL,
 Werkschutz) and the compliance posture honestly.
