@@ -33,18 +33,34 @@ export function NewsletterForm({ className = '' }: { className?: string }) {
     return (
       <p className={`flex items-start gap-2 text-sm text-muted-foreground ${className}`} role="status">
         <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-live" aria-hidden="true" />
-        You are on the list. The next brief goes out when there is something worth your time, not on a calendar, and one click takes you off it.
+        You are in. The first brief arrives when there is something worth your time, not on a calendar, and one click takes you off the list.
       </p>
     );
   }
 
   return (
-    <form onSubmit={submit} className={className} aria-label="Subscribe to updates">
-      <p className="font-display text-base font-bold">The patrol brief</p>
-      <label htmlFor="footer-email" className="mt-1 block max-w-md text-sm text-muted-foreground">
-        A short email when we publish a guide worth your time or ship something that changes how a round runs. Written by the people who build the product, with no sales sequence behind it.
-      </label>
-      <div className="mt-2 flex max-w-md gap-2">
+    <form onSubmit={submit} className={`rounded-xl border border-border bg-background/60 p-5 ${className}`} aria-label="Subscribe to the patrol brief">
+      <span className="font-mono text-mono-sm uppercase tracking-wider text-primary">The patrol brief</span>
+      <p className="mt-2 font-display text-lg font-bold leading-snug tracking-tight">
+        Run better rounds. Sell them with confidence.
+      </p>
+      <p className="mt-2 max-w-md text-sm text-muted-foreground">
+        A short brief from the people who build Camzify, sent only when there is something worth your time.
+      </p>
+      <ul className="mt-3 max-w-md space-y-1.5 text-sm text-muted-foreground">
+        {[
+          'Checklists and round designs you can copy into your own sites',
+          'How agencies and monitoring companies price and pitch remote patrols',
+          'What changed in the console, and why, before you notice it',
+        ].map((item) => (
+          <li key={item} className="flex gap-2.5">
+            <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-live" />
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+      <label htmlFor="footer-email" className="sr-only">Work email</label>
+      <div className="mt-4 flex max-w-md gap-2">
         <input
           id="footer-email"
           type="email"
@@ -61,7 +77,7 @@ export function NewsletterForm({ className = '' }: { className?: string }) {
           disabled={state === 'sending'}
           className="inline-flex shrink-0 items-center gap-1.5 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90 disabled:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
-          {state === 'sending' ? 'Sending…' : 'Subscribe'}
+          {state === 'sending' ? 'Sending…' : 'Get the brief'}
           <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </button>
       </div>
@@ -69,7 +85,7 @@ export function NewsletterForm({ className = '' }: { className?: string }) {
         {state === 'error' ? (
           <span className="text-critical">That did not go through. Check the address and try again, or email us directly.</span>
         ) : (
-          <>One click to leave, any time. Your address is stored to send the brief and for nothing else; see the <Link href="/privacy-policy" className="text-primary hover:underline">privacy policy</Link>.</>
+          <>No sales sequence, no sharing, one click to leave. Your address is used for the brief and nothing else; see the <Link href="/privacy-policy" className="text-primary hover:underline">privacy policy</Link>.</>
         )}
       </p>
     </form>
