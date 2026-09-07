@@ -16,7 +16,7 @@ export const siteConfig = {
    *
    * Deutics Global LLP used to be credited here and in the footer as the engineering
    * arm. It was removed rather than corrected: it is a separate Pakistan-registered
-   * consulting and development company, and naming two organisations behind one
+   * consulting and development company, and naming two organizations behind one
    * product is the same entity-resolution problem as publishing two addresses — a
    * search engine cannot tell which one the reviews, links and citations belong to.
    * The relationship is real and is stated where it is unambiguous: on the author
@@ -33,7 +33,7 @@ export const siteConfig = {
   /** Authenticated product app (external). */
   appUrl: 'https://app.camzify.live/',
 
-  locale: 'en_SG',
+  locale: 'en_US',
   language: 'en',
 
   /**
@@ -95,7 +95,7 @@ export const siteConfig = {
      * A second company he leads. It sits on the Person rather than on the
      * Organization deliberately: Deutics Global LLP is a separate Pakistan-registered
      * consulting and development firm, and crediting it alongside Camzify at the
-     * organisation level made it ambiguous which entity actually operates the
+     * organization level made it ambiguous which entity actually operates the
      * product. As a fact about a person it is unambiguous, and it is the kind of
      * track record that makes a byline worth having.
      */
@@ -137,7 +137,20 @@ export const navItems = [
       { label: 'Risk Detection', href: '/virtual-patrolling/risk-detection', description: 'Hazards flagged beyond the checklist' },
       { label: 'Compliance Tracking', href: '/virtual-patrolling/patrol-compliance-tracking', description: 'Rounds completed vs scheduled' },
       { label: 'vs Security Guards', href: '/virtual-patrolling/vs-security-guards', description: 'Compare AI patrols to manned guarding' },
+      { label: 'Virtual Guard', href: '/virtual-guard', description: 'The service model, in the market\'s words' },
       { label: 'Multi-Site Operations', href: '/virtual-patrolling/for-multi-site-operations', description: 'Patrol across distributed locations' },
+    ],
+  },
+  {
+    label: 'Solutions',
+    href: '/partners',
+    children: [
+      { label: 'For Security Agencies', href: '/partners/for-security-agencies', description: 'Sell overnight coverage you cannot staff' },
+      { label: 'For Monitoring Companies', href: '/partners/for-monitoring-centers', description: 'Run rounds for the agencies you monitor for' },
+      { label: 'For CCTV & Alarm Installers', href: '/partners/for-security-integrators', description: 'A monthly service on cameras you install' },
+      { label: 'For Managed Service Providers', href: '/partners/for-managed-service-providers', description: 'One account, a login per customer' },
+      { label: 'Become a Reseller', href: '/partners/become-a-reseller', description: 'Software only, quote-based pricing' },
+      { label: 'ROI Calculator', href: '/roi-calculator', description: 'Your guard cost, or your partner revenue' },
     ],
   },
   {
@@ -145,6 +158,7 @@ export const navItems = [
     href: '/platform',
     children: [
       { label: 'Overview', href: '/platform', description: 'Unified video management platform' },
+      { label: 'Cloud Video Surveillance', href: '/cloud-video-surveillance', description: 'Cloud VMS, no recorder on site' },
       { label: 'Dashboard', href: '/platform/dashboard', description: 'Real-time operations overview' },
       { label: 'Live Streaming', href: '/platform/live-streaming', description: 'Multi-camera live view' },
       { label: 'Video Backup', href: '/platform/video-backup-and-retention', description: 'Retention and playback management' },
@@ -230,6 +244,9 @@ export const navItems = [
       { label: 'Theft Prevention', href: '/use-cases/theft-prevention', description: 'Shrinkage and loss reduction' },
       { label: 'Loading Dock Monitoring', href: '/use-cases/loading-dock-monitoring', description: 'Dock and logistics security' },
       { label: 'Remote Site Monitoring', href: '/use-cases/remote-site-monitoring', description: 'Unmanned location oversight' },
+      { label: 'Remote Video Monitoring', href: '/use-cases/remote-video-monitoring', description: 'Rounds and detections from a monitoring room' },
+      { label: 'Lock-Up & Closing Checks', href: '/use-cases/lock-up-and-closing-checks', description: 'A closing round from the cameras' },
+      { label: 'Fire & Smoke Monitoring', href: '/use-cases/fire-and-smoke-monitoring', description: 'Visual early warning on any camera' },
     ],
   },
   {
@@ -292,7 +309,6 @@ export const navItems = [
       { label: 'FAQs', href: '/faqs', description: 'Common questions answered' },
       { label: 'Blog', href: '/blog', description: 'Latest insights and updates' },
       { label: 'Roadmap', href: '/roadmap', description: 'What we are building next' },
-      { label: 'For Security Agencies', href: '/partners/for-security-agencies', description: 'Add virtual patrolling to a guarding offer' },
     ],
   },
 ] as const;

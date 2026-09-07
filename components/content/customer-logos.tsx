@@ -5,7 +5,7 @@ import { LogoMarquee } from '@/components/motion/logo-marquee';
  *
  * Populated 2026-09-03 from artwork supplied by the business. It stayed empty until
  * then on purpose: a logo strip is the strongest trust claim a B2B page makes, and
- * inventing one would have contradicted /trust on the element a buyer scrutinises
+ * inventing one would have contradicted /trust on the element a buyer scrutinizes
  * hardest.
  *
  * Rendered as a rolling strip, the same device as the camera-brand strip further down

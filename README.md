@@ -116,7 +116,7 @@ or `export const dynamic`), and that is a bug worth fixing.
 
 - **Next.js 14, App Router, TypeScript, Tailwind.** 121 pages, all statically prerendered at build time. Only the four `/api/*` routes are dynamic.
 - **No CMS.** Page copy lives as TypeScript objects inside each `page.tsx`. Editing content means editing React.
-- **Content is organised into silos** — `ai-features`, `industries`, `use-cases`, `guides`, `platform`, `virtual-patrolling`, `compare`, `partners`, `camera-connectivity` — each a hub page plus spokes, densely cross-linked.
+- **Content is organized into silos** — `ai-features`, `industries`, `use-cases`, `guides`, `platform`, `virtual-patrolling`, `compare`, `partners`, `camera-connectivity` — each a hub page plus spokes, densely cross-linked.
 - **The database only captures leads.** Four write-only tables behind four API routes. Nothing is read back by the site, and **no notification is sent** — someone must check the tables.
 - **`lib/site-config.ts` is the single source of truth** for company identity, address, phone, email and canonical URL. Never hardcode those anywhere else.
 - **`lib/seo.ts` generates all structured data.** Every page emits one schema.org `@graph` that links back to shared Organization and WebSite nodes.
@@ -161,4 +161,4 @@ Read these in order. If you only read one, read **Adding Pages**.
 - **No test suite.** There is no unit, integration or E2E testing. The de facto gates are `tsc --noEmit`, the production build, and `eslint.ssr.config.mjs`.
 - **Awaiting real content from the business:** customer case studies for the 16 industry pages, verified operating statistics for `/trust`, and public pricing if rate-card figures are ever to be indexed. Placeholder blocks have been replaced with honest substitute content rather than left visible — see `docs/SEO-GEO.md` § Honesty rules.
 - **`/api/newsletter` has no UI.** The endpoint and table exist; nothing on the site posts to it.
-- **`public/` is 134MB** — seven industry hero images are 9–10MB PNGs served unoptimised as LCP elements. Compressing these is the single largest available performance win.
+- **`public/` is 134MB** — seven industry hero images are 9–10MB PNGs served unoptimized as LCP elements. Compressing these is the single largest available performance win.

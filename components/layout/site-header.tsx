@@ -96,7 +96,7 @@ export function SiteHeader() {
         scrolled ? 'bg-background/90 shadow-md backdrop-blur-xl py-2' : 'bg-transparent py-4'
       }`}
     >
-      <div className="mx-auto flex max-w-site items-center justify-between px-6">
+      <div className="mx-auto flex max-w-site items-center justify-between px-4 xl:px-6">
         <Link
           href="/"
           className="flex flex-shrink-0 items-center rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
@@ -126,7 +126,7 @@ export function SiteHeader() {
                 <div className="flex items-center">
                   <Link
                     href={href}
-                    className={`whitespace-nowrap rounded-md px-2 py-2 text-[13px] font-medium transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
+                    className={`whitespace-nowrap rounded-md px-1.5 py-2 text-[13px] font-medium xl:px-2 transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
                       isActivePath(href) ? 'text-primary' : 'text-foreground/80'
                     }`}
                     aria-current={pathname === href ? 'page' : undefined}
@@ -287,7 +287,7 @@ export function SiteHeader() {
             href={siteConfig.appUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden items-center gap-1.5 whitespace-nowrap rounded-lg border border-border px-3.5 py-2 text-[13px] font-semibold transition-colors duration-fast hover:border-primary/40 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:inline-flex"
+            className="hidden items-center gap-1.5 whitespace-nowrap rounded-lg border border-border px-3.5 py-2 text-[13px] font-semibold xl:inline-flex transition-colors duration-fast hover:border-primary/40 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
             Sign in
             <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
@@ -295,7 +295,7 @@ export function SiteHeader() {
 
           <Link
             href="/book-a-demo"
-            className="hidden items-center whitespace-nowrap rounded-lg bg-primary px-4 py-2 text-[13px] font-semibold text-primary-foreground transition-all duration-fast hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:inline-flex"
+            className="hidden items-center whitespace-nowrap rounded-lg bg-primary px-3 py-2 text-[13px] font-semibold text-primary-foreground xl:px-4 transition-all duration-fast hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:inline-flex"
           >
             Book a Demo
           </Link>

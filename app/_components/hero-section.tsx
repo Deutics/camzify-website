@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowRight, Play } from 'lucide-react';
+import { ArrowRight, Calculator, MousePointerClick } from 'lucide-react';
 import { PatrolSweepHero } from '@/components/motion/patrol-sweep-hero';
 import { HeroBgAnimation } from '@/components/motion/hero-bg-animation';
 import { motion } from 'framer-motion';
@@ -27,7 +27,7 @@ export function HeroSection() {
       <HeroBgAnimation />
 
       <div className="relative z-10 mx-auto max-w-site px-6">
-        <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
+        <div className="grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14">
           {/* Left: Copy */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -36,53 +36,53 @@ export function HeroSection() {
           >
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm">
               <span className="h-2 w-2 animate-pulse-dot rounded-full bg-live" />
-              <span className="font-mono text-mono-sm text-primary uppercase">AI-powered cloud video management</span>
+              <span className="font-mono text-mono-sm text-primary uppercase">Cloud VMS with virtual patrolling</span>
             </div>
 
-            <h1 className="mt-6 font-display text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl">
-              Every camera watched. Every site checked.{' '}
-              <span className="text-primary">Around the clock.</span>
+            <h1 className="mt-6 font-display text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-[3.4rem]">
+              Every camera watched.
+              <span className="block text-primary">Every site checked.</span>
             </h1>
 
-            <p className="mt-6 max-w-xl text-body leading-relaxed text-muted-foreground">
+            <p className="mt-5 max-w-lg text-body leading-relaxed text-muted-foreground">
               <strong className="font-semibold text-foreground">
-                Camzify is an AI-powered cloud video management system
+                Camzify is an AI-powered cloud video management system for the cameras you already own.
               </strong>{' '}
-              for the cameras you already own &mdash; live streaming, cloud backup and 22
-              real-time detections in one console, plus scheduled virtual patrol rounds that
-              check every site and prove it.
+              Scheduled patrol rounds check every site on a checklist, message the guard when
+              something fails, and file a report with the frame behind every result.
             </p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-4">
+            <div className="mt-7 flex flex-wrap items-center gap-3">
               <Link
                 href="/book-a-demo"
-                className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-all duration-fast hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-all duration-fast hover:bg-primary/90 hover:shadow-xl hover:-translate-y-0.5"
               >
-                Book a Demo
-                <ArrowRight className="h-4 w-4" />
+                Book a demo
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
-              <Link
-                href="/virtual-patrolling"
-                className="inline-flex items-center gap-2 rounded-lg border border-border px-7 py-3.5 text-sm font-semibold transition-all duration-fast hover:bg-accent hover:border-primary/30"
+              <a
+                href="#patrol-demo"
+                className="inline-flex items-center gap-2 rounded-lg border border-border px-6 py-3 text-sm font-semibold transition-all duration-fast hover:bg-accent hover:border-primary/30"
               >
-                <Play className="h-4 w-4" />
-                See a patrol run
-              </Link>
+                <MousePointerClick className="h-4 w-4" aria-hidden="true" />
+                Try the interactive demo
+              </a>
             </div>
 
-            <ul className="mt-8 grid gap-x-6 gap-y-2.5 text-sm text-muted-foreground sm:grid-cols-2">
-              {[
-                'Live multi-site viewing',
-                'Cloud backup & retention',
-                '22 detection models, real time',
-                'Scheduled AI patrol rounds',
-              ].map((f) => (
-                <li key={f} className="flex items-center gap-2.5">
-                  <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-live" aria-hidden="true" />
-                  {f}
-                </li>
-              ))}
-            </ul>
+            {/*
+              One line for the two other doors. The lead files say most readers run a
+              guarding, monitoring or installation business; the calculator is what
+              that reader opens first.
+            */}
+            <p className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
+              <Link href="/roi-calculator" className="inline-flex items-center gap-1.5 font-semibold text-primary hover:underline">
+                <Calculator className="h-4 w-4" aria-hidden="true" /> Calculate your ROI
+              </Link>
+              <span aria-hidden="true" className="hidden sm:inline">·</span>
+              <a href="#partners" className="hover:underline">
+                Security agency, monitoring company or installer? <span className="font-semibold text-primary">See how partners sell it</span>
+              </a>
+            </p>
           </motion.div>
 
           {/* Right: Patrol Sweep Animation */}

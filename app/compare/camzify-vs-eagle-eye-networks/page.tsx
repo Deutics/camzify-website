@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { ComparisonTable } from '@/components/content/comparison-table';
 import Link from 'next/link';
@@ -19,9 +20,16 @@ export const metadata = generatePageMeta({ ...pageMeta });
 
 const sides = 'Camzify vs Eagle Eye Networks'.split(' vs ');
 
+const faqs = [
+  { question: 'Is this comparison fair to Eagle Eye Networks?', answer: 'It describes both as their own pages describe them, and it names what Camzify does not do. Where a feature depends on configuration or tier we say so rather than score it.' },
+  { question: 'What is the single biggest difference?', answer: 'Virtual patrolling. Camzify runs scheduled rounds with a checklist per camera and a report each; that capability is what the comparison turns on.' },
+  { question: 'Can I move cameras between platforms?', answer: "Cameras that stream RTSP, RTMP or HTTPS connect to Camzify without replacement. What does not move is the footage archive, which stays under the old platform's retention." },
+  { question: 'How do prices compare?', answer: 'We do not publish ours and will not characterise theirs. Ask for a quote with your camera count and compare it against what routine rounds cost you today.' },
+];
+
 export default function CamzifyVsEagleEyeNetworksPage() {
   return (
-    <PageShell {...pageMeta} breadcrumbs={[
+    <PageShell {...pageMeta} faqs={faqs} breadcrumbs={[
       { label: 'Compare', href: '/compare' },
       { label: 'Camzify vs Eagle Eye Networks' },
     ]}>
@@ -29,7 +37,7 @@ export default function CamzifyVsEagleEyeNetworksPage() {
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Camzify vs Eagle Eye Networks</h1>
           <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            An honest comparison of camzify vs eagle eye networks across the dimensions that matter most to security decision-makers. Both approaches have strengths — this table helps you decide which fits your facility.
+            An honest comparison of camzify vs eagle eye networks across the dimensions that matter most to security decision-makers. Both approaches have strengths, this table helps you decide which fits your facility.
           </p>
 
           <div className="mt-12">
@@ -61,6 +69,7 @@ export default function CamzifyVsEagleEyeNetworksPage() {
           </div>
         </div>
       </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

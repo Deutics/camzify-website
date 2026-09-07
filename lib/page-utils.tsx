@@ -29,10 +29,12 @@ export function generatePageMeta({
   noIndex?: boolean;
 }): Metadata {
   const url = absoluteUrl(path);
-  // `image` is only set when a page supplies its own card. Left undefined, the root
-  // app/opengraph-image.tsx convention supplies a correctly-sized 1200×630 card —
-  // setting `images` unconditionally here would override that everywhere.
-  const ogImage = image ? absoluteUrl(image) : undefined;
+  // The root app/opengraph-image.tsx card is only attached to the root segment's own
+  // metadata. A page that exports its own `metadata` (every page but the homepage)
+  // replaces the openGraph object and loses the card, so social shares and AI answer
+  // engines saw no image on 130 of 131 pages. Fall back to the generated card
+  // explicitly; a page can still supply its own.
+  const ogImage = absoluteUrl(image ?? '/opengraph-image');
 
   return {
     title,
@@ -45,7 +47,7 @@ export function generatePageMeta({
       siteName: siteConfig.name,
       locale: siteConfig.locale,
       type,
-      ...(ogImage ? { images: [{ url: ogImage, width: 1200, height: 630, alt: title }] } : {}),
+      images: [{ url: ogImage, width: 1200, height: 630, alt: title }],
       ...(publishedTime ? { publishedTime } : {}),
       ...(modifiedTime ? { modifiedTime } : {}),
     },
@@ -53,7 +55,7 @@ export function generatePageMeta({
       card: 'summary_large_image',
       title,
       description,
-      ...(ogImage ? { images: [ogImage] } : {}),
+      images: [ogImage],
     },
     robots: noIndex
       ? { index: false, follow: false }

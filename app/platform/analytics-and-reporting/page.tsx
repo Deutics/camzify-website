@@ -1,9 +1,9 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { FeatureHero } from '@/components/content/feature-hero';
 import { AnalyticsMockup } from '@/components/mockups/analytics-mockup';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 import { SiteImage } from '@/components/content/site-image';
 import { TrendingUp, Gauge, FileDown, Layers } from 'lucide-react';
@@ -22,11 +22,11 @@ const pageMeta = {
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
-  { question: 'What does "at capacity" mean for an AI feature?', answer: 'It means every licensed camera instance for that feature is actively running — active instances equal the licensed total, like Zone Intrusion at 7/7 or Camera Tampering at 15/15. Adding coverage on more cameras for that feature means licensing additional instances.' },
+  { question: 'What does "at capacity" mean for an AI feature?', answer: 'It means every licensed camera instance for that feature is actively running, active instances equal the licensed total, like Zone Intrusion at 7/7 or Camera Tampering at 15/15. Adding coverage on more cameras for that feature means licensing additional instances.' },
   { question: 'How often do trend percentages update?', answer: 'The trend shown is the current rolling 7-day event count compared against the 7 days before it, so the percentage moves as each day rolls out of the window and a new day rolls in.' },
-  { question: 'Can reports be scheduled, or are they on-demand only?', answer: 'Every breakdown on this screen is exportable on demand — pull it whenever you need it for a shift handoff, a client update, or an audit trail, rather than waiting on a fixed delivery schedule.' },
+  { question: 'Can reports be scheduled, or are they on-demand only?', answer: 'Every breakdown on this screen is exportable on demand, pull it whenever you need it for a shift handoff, a client update, or an audit trail, rather than waiting on a fixed delivery schedule.' },
   { question: 'Can analytics be filtered to one site?', answer: 'Yes. Detection breakdowns can be scoped down to a single site, in addition to slicing by feature, object type, and severity, so a multi-site account isn\'t stuck reading one combined total.' },
-  { question: 'Is there a way to compare period-over-period beyond 7 days?', answer: 'The live breakdown here is built around a rolling 7-day window, which is the fastest way to catch a feature drifting toward — or already at — capacity. For a longer comparison, export the data for each period and compare them directly.' },
+  { question: 'Is there a way to compare period-over-period beyond 7 days?', answer: 'The live breakdown here is built around a rolling 7-day window, which is the fastest way to catch a feature drifting toward, or already at, capacity. For a longer comparison, export the data for each period and compare them directly.' },
 ];
 
 export default function Page() {
@@ -92,12 +92,12 @@ export default function Page() {
                 <p className="mt-4 text-muted-foreground">
                   A raw event count doesn't tell you whether a feature is behaving normally or drifting. Camera Tampering
                   sitting at 228 events with a flat week-over-week trend reads very differently from Heatmap Anomalies
-                  jumping 50% — one is steady state, the other is worth a closer look, and the 7-day comparison is what
+                  jumping 50%, one is steady state, the other is worth a closer look, and the 7-day comparison is what
                   makes that visible at a glance instead of buried in a raw log.
                 </p>
                 <p className="mt-4 text-muted-foreground">
                   Capacity utilization matters just as much. A feature running at 7/7 or 15/15 active instances has no
-                  room left to cover another camera without licensing more — catching that before a rollout stalls is
+                  room left to cover another camera without licensing more, catching that before a rollout stalls is
                   easier than discovering it mid-deployment. This module integrates with{' '}
                   <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</Link>, so
                   detection trends, patrol results, and platform status all feed into the same operational picture.
@@ -126,13 +126,7 @@ export default function Page() {
             </ScrollReveal>
           </div>
 
-          <div className="mt-16 rounded-2xl border border-border bg-card p-8 sm:p-10">
-            <span className="font-mono text-mono-sm uppercase text-primary">FAQ</span>
-            <h2 className="mt-2 font-display text-2xl font-bold">Frequently asked questions</h2>
-            <div className="mt-6">
-              <FAQAccordion items={faqs} />
-            </div>
-          </div>
+          <FaqSection items={faqs} inline />
 
           <div className="mt-16">
             <h2 className="font-display text-2xl font-bold">Related</h2>

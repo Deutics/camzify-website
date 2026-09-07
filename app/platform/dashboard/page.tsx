@@ -1,10 +1,10 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { FeatureHero } from '@/components/content/feature-hero';
 import { ProductShot } from '@/components/content/product-shot';
 import { DashboardMockup } from '@/components/mockups/dashboard-mockup';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 import { Building2, ShieldAlert, ClipboardList, HardDrive } from 'lucide-react';
 
@@ -22,11 +22,11 @@ const pageMeta = {
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
-  { question: 'What refresh rates does the dashboard support?', answer: 'The live views (detection events, alert feed) can be set to refresh every 1, 2, 5, 10, 15, or 30 seconds, or every 1 minute — whatever balance of freshness and readability fits how closely you\'re watching it at the time.' },
+  { question: 'What refresh rates does the dashboard support?', answer: 'The live views (detection events, alert feed) can be set to refresh every 1, 2, 5, 10, 15, or 30 seconds, or every 1 minute, whatever balance of freshness and readability fits how closely you\'re watching it at the time.' },
   { question: 'Can I see data for sub-accounts, or only my own?', answer: 'The Operations Overview toggles between "This Account" and "All Sub-Users Combined," so an account owner can view their own sites in isolation or roll every sub-user\'s sites into one combined picture.' },
   { question: 'What counts toward Retention Coverage?', answer: 'It\'s the number of cameras whose recorded footage currently meets the retention period configured for that camera. A camera drops out of coverage if its actual stored history falls short of its target — usually from a storage cap being reached sooner than expected.' },
   { question: 'How is Patrol Compliance calculated on the dashboard?', answer: 'It\'s the share of scheduled and manual patrol rounds completed today, out of the total scheduled for today across all patrol sequences — the same figure that appears on the Virtual Patrolling page, surfaced here for a quick operational check.' },
-  { question: 'Does acknowledging an alert here affect Notifications elsewhere?', answer: 'Yes. Acknowledgement state is shared — acknowledging a critical event from the dashboard\'s queue marks it acknowledged in the Notifications feed too, and vice versa.' },
+  { question: 'Does acknowledging an alert here affect Notifications elsewhere?', answer: 'Yes. Acknowledgment state is shared, acknowledging a critical event from the dashboard\'s queue marks it acknowledged in the Notifications feed too, and vice versa.' },
 ];
 
 export default function Page() {
@@ -38,7 +38,7 @@ export default function Page() {
       <FeatureHero
         eyebrow="Central Operations Screen"
         title="Video surveillance dashboard"
-        lede={<><strong className="font-semibold text-foreground">The Camzify dashboard is the first screen every operator sees: cameras online with uptime percentage, AI alerts across all detection models, patrol compliance, retention coverage, and a critical-event acknowledgement queue.</strong> It combines your own sites with sub-user sites in one combined view when you need it, and refreshes live from every 1 second to every 1 minute.</>}
+        lede={<><strong className="font-semibold text-foreground">The Camzify dashboard is the first screen every operator sees: cameras online with uptime percentage, AI alerts across all detection models, patrol compliance, retention coverage, and a critical-event acknowledgment queue.</strong> It combines your own sites with sub-user sites in one combined view when you need it, and refreshes live from every 1 second to every 1 minute.</>}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/platform/live-streaming', label: 'Live streaming' }}
         visual={<ProductShot
@@ -63,7 +63,7 @@ export default function Page() {
           </div>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { icon: Building2, title: 'Site Health at a glance', desc: 'Cameras online, alerts today, and retention status per site — Warehouse, HQ Campus, Retail, Parking, whatever you run.' },
+              { icon: Building2, title: 'Site Health at a glance', desc: 'Cameras online, alerts today, and retention status per site. Warehouse, HQ Campus, Retail, Parking, whatever you run.' },
               { icon: ShieldAlert, title: 'Critical queue up front', desc: 'Unacknowledged high-severity detections sit at the top, oldest first, with one-click acknowledge and review.' },
               { icon: ClipboardList, title: 'Patrol status, live', desc: 'Auto-Patrol and manual round counts side by side, with compliance percentage for each, updating as rounds complete.' },
               { icon: HardDrive, title: 'Retention coverage', desc: 'Cameras whose footage currently meets their configured retention target, flagged the moment one falls short.' },
@@ -93,8 +93,8 @@ export default function Page() {
                   to see whether last night's rounds ran, or which camera just flagged something.
                 </p>
                 <p className="mt-4 text-muted-foreground">
-                  The detection-events panel breaks activity down per AI model, so a spike in one feature — say, camera
-                  tampering across a site — is visible immediately rather than buried in a single combined alert count.
+                  The detection-events panel breaks activity down per AI model, so a spike in one feature, say, camera
+                  tampering across a site, is visible immediately rather than buried in a single combined alert count.
                 </p>
               </div>
             </ScrollReveal>
@@ -121,13 +121,7 @@ export default function Page() {
             </ScrollReveal>
           </div>
 
-          <div className="mt-16 rounded-2xl border border-border bg-card p-8 sm:p-10">
-            <span className="font-mono text-mono-sm uppercase text-primary">FAQ</span>
-            <h2 className="mt-2 font-display text-2xl font-bold">Frequently asked questions</h2>
-            <div className="mt-6">
-              <FAQAccordion items={faqs} />
-            </div>
-          </div>
+          <FaqSection items={faqs} inline />
 
           <div className="mt-16">
             <h2 className="font-display text-2xl font-bold">Related</h2>

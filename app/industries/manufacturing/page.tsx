@@ -1,10 +1,12 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { FaqSection } from '@/components/content/faq-section';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 import { SiteImage } from '@/components/content/site-image';
 
@@ -15,7 +17,7 @@ import { SiteImage } from '@/components/content/site-image';
  */
 const pageMeta = {
   title: "AI Security for Manufacturing | Video Surveillance",
-  description: "Camzify provides AI-powered virtual patrolling and video analytics for manufacturing — automated patrols, real-time alerts, and compliance reports.",
+  description: "Camzify provides AI-powered virtual patrolling and video analytics for manufacturing, automated patrols, real-time alerts, and compliance reports.",
   path: "/industries/manufacturing",
 };
 
@@ -32,28 +34,36 @@ const faqs = [
   { question: "Can I schedule patrols around shift changes?", answer: "Yes. Patrol schedules support configurable active hours and can be aligned with shift patterns." },
   { question: "How quickly can Camzify be deployed across a large factory floor?", answer: "Setup time depends on camera count and site layout, but zones and patrol routes for a single facility are typically configured within a few days once camera access is confirmed. Multi-building sites are usually rolled out one production area at a time." },
   { question: "How does Camzify handle false alerts from machinery movement, steam, or dust?", answer: "Zone boundaries and detection sensitivity are tuned per camera during setup, so areas with constant machinery motion, steam, or airborne particulate can be scoped or thresholded differently than a quiet perimeter fence line. This keeps alerts focused on genuine intrusions rather than routine plant activity." },
-  { question: "Can Camzify integrate with our existing access control system?", answer: "Camzify works from your camera feeds independently of access control, so it can run as a standalone verification layer even where badge or keycard systems are already in place. Specific integration options depend on your setup — talk to the Camzify team about your access control platform." },
+  { question: "Can Camzify integrate with our existing access control system?", answer: "Camzify works from your camera feeds independently of access control, so it can run as a standalone verification layer even where badge or keycard systems are already in place. Specific integration options depend on your setup, talk to the Camzify team about your access control platform." },
   { question: "How does virtual patrolling compare to a roaming guard on a large industrial site?", answer: "A guard walking a large plant can only cover a fraction of the site each hour and checks each zone briefly. Virtual patrolling checks every configured camera on a fixed schedule with a timestamped record of each round, and is typically run alongside a smaller guard presence to cover the perimeter and restricted zones a single roaming guard can't reach continuously." },
 ];
 
 export default function ManufacturingPage() {
   return (
-    <PageShell {...pageMeta} schema={[serviceSchema({ name: "AI Security for Manufacturing", description: "Camzify provides AI-powered virtual patrolling and video analytics for manufacturing — automated patrols, real-time alerts, and compliance reports.", path: "/industries/manufacturing", audience: "Manufacturing" })]} faqs={faqs} breadcrumbs={[
+    <PageShell {...pageMeta} schema={[serviceSchema({ name: "AI Security for Manufacturing", description: "Camzify provides AI-powered virtual patrolling and video analytics for manufacturing, automated patrols, real-time alerts, and compliance reports.", path: "/industries/manufacturing", audience: "Manufacturing" })]} faqs={faqs} breadcrumbs={[
       { label: 'Industries', href: '/industries' },
       { label: 'Manufacturing' },
     ]}>
+      <FeatureHero
+        eyebrow="Industry · manufacturing"
+        title="AI security for manufacturing"
+        lede={<><strong className="font-semibold text-foreground">Manufacturing facilities face security challenges that cameras alone cannot solve and manned guards cannot cover consistently.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.</>}
+        facts={['Restricted machinery zones accessed after shift with no one…', 'Perimeter fence lines and outdoor yards without continuous…', 'Raw materials and finished goods storage relying on a single…']}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}
+        visual={<SiteImage
+              src="/ai-security-for-manufacturing.jpg" alt="AI-monitored manufacturing floor showing a bounding box around a package on a conveyor line, with workers, machinery, and a production worker in PPE" className="w-full rounded-xl"
+              width={1600}
+              height={900}
+              sizes="(max-width: 1024px) 100vw, 60vw"
+            priority />}
+      />
+
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">AI Security for Manufacturing</h1>
-          <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            Manufacturing facilities face security challenges that cameras alone cannot solve and manned guards cannot cover consistently. Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.
-          </p>
-
-          <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
-            <ScrollReveal>
-              <div>
-                <h2 className="font-display text-2xl font-bold">Common manufacturing security gaps Camzify closes:</h2>
-                <ul className="mt-4 space-y-3 text-muted-foreground">
+          <div>
+            <h2 className="font-display text-2xl font-bold">Common manufacturing security gaps Camzify closes:</h2>
+            <ul className="mt-4 grid gap-3 text-muted-foreground sm:grid-cols-2">
                   <li className="flex gap-2">• Restricted machinery zones accessed after shift with no one watching</li>
                   <li className="flex gap-2">• Perimeter fence lines and outdoor yards without continuous overnight coverage</li>
                   <li className="flex gap-2">• Raw materials and finished goods storage relying on a single nightly pass</li>
@@ -61,24 +71,15 @@ export default function ManufacturingPage() {
                   <li className="flex gap-2">• Camera tampering or outages on critical zones going unnoticed for hours</li>
                   <li className="flex gap-2">• No audit trail proving perimeter and zone checks actually happened</li>
                 </ul>
-              </div>
-            </ScrollReveal>
-            <SiteImage
-              src="/ai-security-for-manufacturing.jpg" alt="AI-monitored manufacturing floor showing a bounding box around a package on a conveyor line, with workers, machinery, and a production worker in PPE" className="w-full rounded-xl"
-              width={1600}
-              height={900}
-              priority
-              sizes="(max-width: 1024px) 100vw, 60vw"
-            />
           </div>
 
           <div className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Why manufacturing needs continuous AI monitoring</h2>
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
-                <p>Manufacturing sites combine large indoor floor areas with outdoor yards, loading docks, and perimeter fencing, often spread across multiple buildings and shifts. Restricted machinery zones, raw materials, and finished goods storage all carry real risk, but coverage tends to be thinnest exactly when the plant is least staffed — between shifts and overnight.</p>
+                <p>Manufacturing sites combine large indoor floor areas with outdoor yards, loading docks, and perimeter fencing, often spread across multiple buildings and shifts. Restricted machinery zones, raw materials, and finished goods storage all carry real risk, but coverage tends to be thinnest exactly when the plant is least staffed, between shifts and overnight.</p>
                 <p>A guard patrol across a large industrial footprint covers only a fraction of the site in any given pass, and static CCTV records the yard and loading areas without anyone reviewing the footage until something is already missing or damaged.</p>
-                <p>Continuous AI monitoring runs a fixed patrol route across every camera on the site — indoor and outdoor — on a defined schedule, flagging a fence line breach, an unauthorized zone entry, or a camera going dark the moment it happens rather than at the next scheduled walk-through.</p>
+                <p>Continuous AI monitoring runs a fixed patrol route across every camera on the site, indoor and outdoor, on a defined schedule, flagging a fence line breach, an unauthorized zone entry, or a camera going dark the moment it happens rather than at the next scheduled walk-through.</p>
               </div>
             </ScrollReveal>
           </div>
@@ -104,14 +105,14 @@ export default function ManufacturingPage() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="MANUFACTURING PATROL SEQUENCE" alt="Diagram of a manufacturing patrol route stepping through machinery zones, perimeter fencing, and materials storage" />
+            <PhotoFigure src="/industry-manufacturing-3.jpg" alt="Diagram of a manufacturing patrol route stepping through machinery zones, perimeter fencing, and materials storage" caption="Manufacturing patrol sequence" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How Camzify works for manufacturing</h2>
 
                 <h3 className="mt-6 font-display text-lg font-bold">Building the patrol route</h3>
                 <p className="mt-2 text-muted-foreground">
-                  A patrol sequence is set up once, ordering every camera stop — restricted machinery zones, perimeter fence lines, raw materials storage, loading areas — into a single route that runs on a configurable schedule.
+                  A patrol sequence is set up once, ordering every camera stop, restricted machinery zones, perimeter fence lines, raw materials storage, loading areas, into a single route that runs on a configurable schedule.
                 </p>
 
                 <h3 className="mt-6 font-display text-lg font-bold">Checking each stop</h3>
@@ -141,11 +142,11 @@ export default function ManufacturingPage() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="MANUFACTURING ZONE SETUP" alt="Configuration panel showing machinery and perimeter zones mapped across a manufacturing camera layout" />
+            <PhotoFigure src="/industry-manufacturing-2.jpg" alt="Configuration panel showing machinery and perimeter zones mapped across a manufacturing camera layout" caption="Manufacturing zone setup" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="camera-feed" caption="MANUFACTURING PATROL IN PROGRESS" alt="Camera feed showing an active patrol check at a manufacturing plant perimeter" />
+            <PhotoFigure src="/industry-manufacturing-1.jpg" alt="Camera feed showing an active patrol check at a manufacturing plant perimeter" caption="Manufacturing patrol in progress" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>
@@ -209,14 +210,7 @@ export default function ManufacturingPage() {
         </div>
       </section>
 
-      <section className="bg-muted/30 py-16 sm:py-20">
-        <div className="mx-auto max-w-site px-6 text-center">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">Frequently asked questions</h2>
-          <div className="mx-auto mt-8 max-w-3xl text-left">
-            <FAQAccordion items={faqs} />
-          </div>
-        </div>
-      </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

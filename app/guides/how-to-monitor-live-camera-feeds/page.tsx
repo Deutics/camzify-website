@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { HowToSteps, HowToNote, type HowToStep } from '@/components/content/how-to-steps';
 import { howToSchema } from '@/lib/seo';
@@ -11,8 +12,8 @@ import Link from 'next/link';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "How to Monitor Live Camera Feeds | Multi-Camera View Guide",
-  description: "Set up a live camera wall: choose a grid layout, save camera sets for a shift, filter a growing fleet by site, and open a single stream full screen with PTZ control.",
+  title: "How to Monitor Live Camera Feeds",
+  description: "Set up a live camera wall: group by site, filter by user or AI feature, choose low latency or high stability, run slideshow mode. Step by step.",
   path: "/guides/how-to-monitor-live-camera-feeds",
 };
 
@@ -25,11 +26,11 @@ const steps: HowToStep[] = [
   },
   {
     name: 'Save camera sets for the way shifts actually run',
-    text: 'Group the cameras that get watched together into a set — "Night shift — perimeter", "Loading hours — docks" — and mark one as the default so it loads when live streaming opens. A set is for watching; it is not the same thing as a patrol sequence, which is an ordered list of stops with checklists attached.',
+    text: 'Group the cameras that get watched together into a set, "Night shift, perimeter", "Loading hours, docks", and mark one as the default so it loads when live streaming opens. A set is for watching; it is not the same thing as a patrol sequence, which is an ordered list of stops with checklists attached.',
   },
   {
     name: 'Filter rather than scroll once the fleet grows',
-    text: 'Narrow the wall by site or camera name. This is the difference between a system that stays usable at 200 cameras and one that does not — the wall stops being something you scan and becomes something you query.',
+    text: 'Narrow the wall by site or camera name. This is the difference between a system that stays usable at 200 cameras and one that does not, the wall stops being something you scan and becomes something you query.',
   },
   {
     name: 'Open a single stream when something needs a proper look',
@@ -48,7 +49,7 @@ const faqs = [
   },
   {
     question: 'What happens when a camera goes offline?',
-    answer: 'The tile shows an explicit offline state rather than a blank or frozen frame. That distinction matters more than it sounds — a silently black tile on a monitoring wall reads as a dark scene, and a camera can be down for days before anyone notices.',
+    answer: 'The tile shows an explicit offline state rather than a blank or frozen frame. That distinction matters more than it sounds, a silently black tile on a monitoring wall reads as a dark scene, and a camera can be down for days before anyone notices.',
   },
   {
     question: 'Can I control PTZ cameras from the live view?',
@@ -99,6 +100,8 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

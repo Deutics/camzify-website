@@ -16,7 +16,7 @@
  *   2. Set `logo` to '/brands/<slug>.svg'.
  *   3. Nothing else. Marks render on a white plate in both themes, so a dark-on-
  *      transparent logo needs no variant and no inversion — see brand-strip.tsx for
- *      why recolouring a trademark is not on the table.
+ *      why recoloring a trademark is not on the table.
  *   4. Brands with no artwork keep rendering as wordmarks, so a partial set is fine.
  *
  * ARTWORK PROVENANCE

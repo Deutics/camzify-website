@@ -1,8 +1,10 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { FaqSection } from '@/components/content/faq-section';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 
 /**
@@ -11,7 +13,7 @@ import Link from 'next/link';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "PPE Violation Detection | AI Safety Compliance Camera Software",
+  title: "PPE Violation Detection | Hats, Vests, Gloves",
   description: "Camzify PPE violation detection automatically flags missing helmets, vests, or gloves against your site\\'s required safety gear policy.",
   path: "/ai-features/ppe-violation-detection",
 };
@@ -19,10 +21,10 @@ const pageMeta = {
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
-  { question: 'What PPE types can be detected?', answer: 'The model checks for commonly required personal protective equipment — hard hats, high-visibility vests, and gloves — against the policy configured for each zone or camera. Required PPE types can differ by area, for example a warehouse floor versus an office space within the same site.' },
+  { question: 'What PPE types can be detected?', answer: 'The model checks for commonly required personal protective equipment, hard hats, high-visibility vests, and gloves, against the policy configured for each zone or camera. Required PPE types can differ by area, for example a warehouse floor versus an office space within the same site.' },
   { question: 'Can requirements differ by zone?', answer: 'Yes. PPE requirements are configured per camera or zone, so a loading dock can require hard hats and vests while an adjacent office area requires none, without separate cameras or hardware.' },
   { question: 'Does this replace a safety officer?', answer: 'No. It is a continuous compliance check that flags violations for a safety officer or supervisor to act on, producing a timestamped record for audits and incident reviews rather than replacing human safety oversight.' },
-  { question: 'How accurate is detection, and what about false positives?', answer: 'Every alert includes a confidence score and a timestamped clip of the moment the missing item was identified, so a reviewer can confirm at a glance before acting. Partial occlusion — a hard hat briefly out of frame, for instance — is weighed against the confirmed track rather than a single frame, which keeps momentary visibility gaps from generating a flood of alerts.' },
+  { question: 'How accurate is detection, and what about false positives?', answer: 'Every alert includes a confidence score and a timestamped clip of the moment the missing item was identified, so a reviewer can confirm at a glance before acting. Partial occlusion, a hard hat briefly out of frame, for instance, is weighed against the confirmed track rather than a single frame, which keeps momentary visibility gaps from generating a flood of alerts.' },
   { question: 'How long does it take to set up PPE requirements for a new site?', answer: 'Configuration is zone-based rather than hardware-based: required PPE types are set per camera or zone in the configuration panel, so a new site is a matter of defining zones and policies rather than installing dedicated sensors.' },
   { question: 'Does this need special cameras or hardware?', answer: 'No. PPE violation detection runs on the same camera feeds already used for other Camzify detections, so a site does not need dedicated PPE-scanning hardware at entrances or checkpoints.' },
 ];
@@ -33,20 +35,23 @@ export default function Page() {
       { label: 'AI Features', href: '/ai-features' },
       { label: 'PPE Violation Detection' },
     ]}>
+      <FeatureHero
+        eyebrow="AI detection · PPE violation detection"
+        title="PPE violation detection"
+        lede={<><strong className="font-semibold text-foreground">Safety gear, verified automatically.</strong> PPE violation detection checks every confirmed person in frame
+            against the required personal protective equipment for that zone, flagging missing helmets, vests,
+            or gloves the moment they're spotted.</>}
+        facts={['Missing hard hats in zones where head protection is required', 'Missing high-visibility vests on active work floors', 'Missing gloves in zones handling hazardous materials or…']}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/ai-features', label: 'All 22 detections' }}
+        visual={<PhotoFigure src="/feature-ppe-violation-detection-1.jpg" alt="Camera view of a work floor with a worker missing required PPE highlighted" caption="Ppe violation detection" priority />}
+      />
+
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">PPE Violation Detection</h1>
-          <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            Safety gear, verified automatically. PPE violation detection checks every confirmed person in frame
-            against the required personal protective equipment for that zone, flagging missing helmets, vests,
-            or gloves the moment they're spotted.
-          </p>
-
-          <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
-            <ScrollReveal>
-              <div>
-                <h2 className="font-display text-2xl font-bold">This capability detects and alerts on:</h2>
-                <ul className="mt-4 space-y-3 text-muted-foreground">
+          <div>
+            <h2 className="font-display text-2xl font-bold">This capability detects and alerts on:</h2>
+            <ul className="mt-4 grid gap-3 text-muted-foreground sm:grid-cols-2">
                   <li className="flex gap-2">• Missing hard hats in zones where head protection is required</li>
                   <li className="flex gap-2">• Missing high-visibility vests on active work floors</li>
                   <li className="flex gap-2">• Missing gloves in zones handling hazardous materials or equipment</li>
@@ -54,9 +59,6 @@ export default function Page() {
                   <li className="flex gap-2">• Partial compliance, such as a vest present but a hard hat missing</li>
                   <li className="flex gap-2">• A timestamped compliance record per zone for safety audits</li>
                 </ul>
-              </div>
-            </ScrollReveal>
-            <PlaceholderVisual type="camera-feed" caption="PPE VIOLATION DETECTION" alt="Camera view of a work floor with a worker missing required PPE highlighted" />
           </div>
 
           <div className="mt-16">
@@ -64,14 +66,14 @@ export default function Page() {
               <h2 className="font-display text-2xl font-bold">Why PPE violation detection matters</h2>
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
                 <p>Most sites enforce PPE policy through a supervisor walking the floor, a badge-in checklist, or a spot check at shift start. All three share the same gap: they only capture compliance at the moment someone is looking. A worker who removes a hard hat five minutes after a walkthrough, or who never puts one on between checks, goes unrecorded until an incident forces the question.</p>
-                <p>Spot checks also change behaviour in ways that make the data unreliable. Workers who know a supervisor is due tend to be compliant when it counts and lapse the rest of the shift — the classic problem with any periodic, human-driven check on a continuous risk. On a large site with multiple entry points and rotating crews, it is not realistic for a safety officer to be everywhere at once anyway.</p>
-                <p>Continuous AI monitoring closes that gap by checking every confirmed person against zone policy for as long as the camera is running, not just when someone happens to walk past. That turns PPE compliance from a periodic snapshot into a continuous record — and gives the safety officer a queue of confirmed violations to act on instead of a floor to patrol.</p>
+                <p>Spot checks also change behavior in ways that make the data unreliable. Workers who know a supervisor is due tend to be compliant when it counts and lapse the rest of the shift, the classic problem with any periodic, human-driven check on a continuous risk. On a large site with multiple entry points and rotating crews, it is not realistic for a safety officer to be everywhere at once anyway.</p>
+                <p>Continuous AI monitoring closes that gap by checking every confirmed person against zone policy for as long as the camera is running, not just when someone happens to walk past. That turns PPE compliance from a periodic snapshot into a continuous record, and gives the safety officer a queue of confirmed violations to act on instead of a floor to patrol.</p>
               </div>
             </ScrollReveal>
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="PPE POLICY CHECK" alt="Diagram showing a tracked person checked against a zone's required PPE list before an alert fires" />
+            <PhotoFigure src="/feature-ppe-violation-detection-2.jpg" alt="Diagram showing a tracked person checked against a zone's required PPE list before an alert fires" caption="Ppe policy check" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>
@@ -105,19 +107,19 @@ export default function Page() {
                   PPE requirements are set per zone or camera in the configuration panel. Each zone supports:
                 </p>
                 <ul className="mt-4 space-y-3 text-muted-foreground">
-                  <li className="flex gap-2">• Required PPE types — hard hat, vest, gloves, glasses, hearing protection</li>
+                  <li className="flex gap-2">• Required PPE types, hard hat, vest, gloves, glasses, hearing protection</li>
                   <li className="flex gap-2">• Partial vs. full compliance handling, e.g. one missing item vs. several</li>
-                  <li className="flex gap-2">• Schedule-based activation, e.g. shift hours only</li>
+                  <li className="flex gap-2">• Notification window per camera, e.g. notify in shift hours only</li>
                   <li className="flex gap-2">• Per-camera instance licensing</li>
                   <li className="flex gap-2">• Zone-based alert filtering for daily compliance review</li>
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="PPE ZONE CONFIGURATION" alt="Configuration panel showing required PPE types assigned to a camera zone" />
+            <PhotoFigure src="/feature-ppe-violation-detection-3.jpg" alt="Configuration panel showing required PPE types assigned to a camera zone" caption="Ppe zone configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="industry" caption="SITE-WIDE PPE COMPLIANCE" alt="Facility map showing different PPE zone policies across a construction site" />
+            <PhotoFigure src="/feature-ppe-violation-detection-4.jpg" alt="Facility map showing different PPE zone policies across a construction site" caption="Site-wide ppe compliance" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>
@@ -126,7 +128,7 @@ export default function Page() {
                   <li className="flex gap-2">• A warehouse forklift lane where a missing high-visibility vest triggers an immediate alert</li>
                   <li className="flex gap-2">• A chemical handling area where missing gloves are flagged regardless of time of day</li>
                   <li className="flex gap-2">• A manufacturing floor where hearing protection is required near heavy machinery</li>
-                  <li className="flex gap-2">• A loading dock where partial compliance — vest present, hard hat missing — is logged separately from full non-compliance</li>
+                  <li className="flex gap-2">• A loading dock where partial compliance, vest present, hard hat missing, is logged separately from full non-compliance</li>
                   <li className="flex gap-2">• A multi-zone facility where office areas carry no PPE requirement while the adjacent production floor requires full gear</li>
                 </ul>
               </div>
@@ -175,14 +177,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="bg-muted/30 py-16 sm:py-20">
-        <div className="mx-auto max-w-site px-6 text-center">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">Frequently asked questions</h2>
-          <div className="mx-auto mt-8 max-w-3xl text-left">
-            <FAQAccordion items={faqs} />
-          </div>
-        </div>
-      </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

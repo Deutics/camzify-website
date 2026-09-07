@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
 import { BookOpen } from 'lucide-react';
@@ -21,6 +22,7 @@ export const metadata = generatePageMeta({ ...pageMeta });
 /** Guides carry a named byline; the index says so once rather than repeating it per card. */
 const items = [
   { slug: 'what-is-virtual-patrolling', title: 'What Is Virtual Patrolling?' },
+  { slug: 'what-is-intelligent-video-analytics', title: 'What Is Intelligent Video Analytics?' },
   { slug: 'how-to-run-a-virtual-patrol-round', title: 'How to Run a Virtual Patrol Round' },
   { slug: 'how-to-set-up-sites-and-cameras', title: 'How to Add Sites and Cameras' },
   { slug: 'how-to-monitor-live-camera-feeds', title: 'How to Monitor Live Camera Feeds' },
@@ -35,13 +37,23 @@ const items = [
   { slug: 'how-to-reduce-false-alarms', title: 'How to Reduce False Alarms from Security Cameras' },
   { slug: 'onvif-and-rtsp-explained', title: 'ONVIF and RTSP Explained' },
   { slug: 'guard-tour-systems-explained', title: 'Guard Tour Systems Explained' },
+  { slug: 'how-to-sell-virtual-patrolling-to-clients', title: 'How to Sell Virtual Patrolling to Your Clients' },
+  { slug: 'what-goes-in-a-remote-patrol-proposal', title: 'What Goes in a Remote Patrol Proposal' },
+  { slug: 'adding-remote-patrols-to-alarm-monitoring', title: 'Adding Remote Patrols to Alarm Monitoring' },
   { slug: 'security-audit-checklist', title: 'Security Audit Checklist' },
   { slug: 'video-retention-requirements', title: 'Video Retention Requirements' },
 ];
 
+const faqs = [
+  { question: 'Who are the guides written for?', answer: 'Two readers: the person configuring the console, who gets step-by-step guides with a HowTo schema, and the owner or manager deciding whether and how to buy, who gets the explainers, the cost guides and the owner guides for partners.' },
+  { question: 'Are the how-to guides based on the real product?', answer: 'Yes. Each was written by running the steps in the console, and the screenshots on the product pages are the real screens. Where a step differs by plan we say so.' },
+  { question: 'Why do the cost guides not give a price?', answer: "Because we do not publish rates. They give the reader's side of the sum and the ranges that exist in the market, and the ROI calculator turns your own numbers into a figure a quote is measured against." },
+  { question: 'Who writes them?', answer: "Muhammad Talha, Camzify's product manager and CTO, with nine years in computer vision and automated surveillance. Each guide carries the byline." },
+];
+
 export default function GuidesHub() {
   return (
-    <PageShell {...pageMeta} breadcrumbs={[{ label: 'Guides' }]}>
+    <PageShell {...pageMeta} faqs={faqs} breadcrumbs={[{ label: 'Guides' }]}>
       <section className="pb-20">
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Guides</h1>
@@ -65,6 +77,7 @@ export default function GuidesHub() {
           </div>
         </div>
       </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

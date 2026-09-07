@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { FeatureCard } from '@/components/content/feature-card';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import {
@@ -15,7 +16,7 @@ import Link from 'next/link';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "AI Detection Features | Video Analytics Suite",
+  title: "Intelligent Video Analytics | AI Detection Features",
   description: "20 live AI detection features. Intrusion, tailgating, weapons, PPE, fire and smoke, slip and fall, vehicle and parking, occupancy analytics, and more.",
   path: "/ai-features",
 };
@@ -28,9 +29,9 @@ const liveDetections = [
   { icon: <Activity className="h-5 w-5" />, title: 'Motion Detection', desc: 'Background-subtraction detection that filters camera noise, lighting shifts, and environmental change.', href: '/ai-features/motion-detection' },
   { icon: <Camera className="h-5 w-5" />, title: 'Camera Tampering Detection', desc: 'Five modes: sudden defocus, physical coverage, rapid scene change, abnormal brightness shift, frozen frames.', href: '/ai-features/camera-tampering-detection' },
   { icon: <Users className="h-5 w-5" />, title: 'Multi-Object Tracking', desc: 'Persistent track identity per subject. Survives brief occlusions and re-entries with clean track histories.', href: '/ai-features/multi-object-tracking' },
-  { icon: <Brain className="h-5 w-5" />, title: 'AI Attribute Extraction', desc: 'A vision-language model reads the scene and attaches structured attributes — clothing, object type, behaviour.', href: '/ai-features/ai-attribute-extraction' },
+  { icon: <Brain className="h-5 w-5" />, title: 'AI Attribute Extraction', desc: 'A vision-language model reads the scene and attaches structured attributes, clothing, object type, behavior.', href: '/ai-features/ai-attribute-extraction' },
   { icon: <UserSearch className="h-5 w-5" />, title: 'AI Suspect Search', desc: 'Describe a person in plain language and retrieve every matching appearance across indexed cameras and time windows.', href: '/ai-features/forensic-video-search' },
-  { icon: <Route className="h-5 w-5" />, title: 'Cross-Camera Journey Map', desc: 'One subject, one stitched timeline across every camera on-site — the full path, not isolated clips.', href: '/ai-features/cross-camera-journey-map' },
+  { icon: <Route className="h-5 w-5" />, title: 'Cross-Camera Journey Map', desc: 'One subject, one stitched timeline across every camera on-site, the full path, not isolated clips.', href: '/ai-features/cross-camera-journey-map' },
   { icon: <DoorClosed className="h-5 w-5" />, title: 'Tailgating Detection', desc: 'One badge, one person. Flags a second person entering on a single access credential.', href: '/ai-features/tailgating-detection' },
   { icon: <ShieldAlert className="h-5 w-5" />, title: 'Weapons Detection', desc: 'Visible weapons flagged the moment they enter frame, before a threat escalates.', href: '/ai-features/weapons-detection' },
   { icon: <Swords className="h-5 w-5" />, title: 'Aggression & Fight Detection', desc: 'Physical altercations flagged the moment they start, not after someone reviews the footage.', href: '/ai-features/aggression-and-fight-detection' },
@@ -48,19 +49,26 @@ const liveDetections = [
 
 const roadmapDetections = [
   { icon: <ClockIcon className="h-5 w-5" />, title: 'Loitering Detection', desc: 'Configurable dwell-time threshold. Brief entries ignored, lingering subjects escalate. In development.', href: '/ai-features/loitering-detection' },
-  { icon: <Eye className="h-5 w-5" />, title: 'Behavioral Anomaly Detection', desc: 'Describe the behaviour to watch for in plain language — fights, smoking, vandalism, trespassing — and it monitors for exactly that.', href: '/ai-features/behavioral-anomaly-detection' },
+  { icon: <Eye className="h-5 w-5" />, title: 'Behavioral Anomaly Detection', desc: 'Describe the behavior to watch for in plain language, fights, smoking, vandalism, trespassing, and it monitors for exactly that.', href: '/ai-features/behavioral-anomaly-detection' },
+];
+
+const faqs = [
+  { question: 'Do I have to license every detection?', answer: 'No. AI features are licensed per camera instance, so each camera carries only the detections it uses. Most sites start with intrusion, zones and camera tampering and add by camera.' },
+  { question: 'What do all the detections have in common?', answer: 'They fire on confirmed object tracks from multi-object tracking, not on pixel change, and every alert carries a snapshot or clip, a confidence score, and a notification window per camera. None of them identifies people.' },
+  { question: 'Which detections are not yet available?', answer: 'Loitering detection is in development and is marked as such on its page and on the roadmap. Everything else on this page ships today.' },
+  { question: 'How do detections relate to patrol rounds?', answer: 'A round checks conditions on a schedule; detections watch continuously between rounds. On an automated round the AI also raises a critical notification for a risk it sees that the checklist did not ask about.' },
 ];
 
 export default function DetectionHubPage() {
   return (
-    <PageShell {...pageMeta} breadcrumbs={[{ label: 'AI Features' }]}>
+    <PageShell {...pageMeta} faqs={faqs} breadcrumbs={[{ label: 'AI Features' }]}>
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">AI Detection Features</h1>
+          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Intelligent video analytics, feature by feature</h1>
           <p className="mt-6 max-w-2xl text-body text-muted-foreground">
             Camzify ships 20 AI detection features that run on your existing cameras. Each fires on confirmed
-            object tracks — not shadows, not lighting shifts, not camera noise. Every detection integrates
-            directly into <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrol</Link> rounds.
+            object tracks, not shadows, not lighting shifts, not camera noise. Every detection integrates
+            directly into <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrol</Link> rounds. New to the field? Start with <Link href="/guides/what-is-intelligent-video-analytics" className="text-primary hover:underline">what intelligent video analytics is</Link>.
           </p>
 
           <div className="mt-12">
@@ -87,6 +95,7 @@ export default function DetectionHubPage() {
           </div>
         </div>
       </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

@@ -1,10 +1,10 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { FeatureHero } from '@/components/content/feature-hero';
 import { ProductShot } from '@/components/content/product-shot';
 import { LiveStreamingMockup } from '@/components/mockups/live-streaming-mockup';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 import { LayoutGrid, Gauge, AlertOctagon, Filter } from 'lucide-react';
 
@@ -23,12 +23,12 @@ export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
   { question: 'How do I set up a live camera wall?', answer: 'Choose a grid size, group the cameras watched together into a saved camera set, mark one set as default so it loads first, and filter by site once the fleet grows. The step-by-step version is at /guides/how-to-monitor-live-camera-feeds.' },
-  { question: 'What is the difference between a camera set and a patrol sequence?', answer: 'A camera set is a saved group of cameras for monitoring — you pick the cameras, save the set, and one set can be your default view when live streaming opens. A patrol sequence is an ordered list of camera stops with a checklist at each one, used for manual or automated patrol rounds. Same cameras, different purpose: a set is for watching, a sequence is for verifying.' },
-  { question: 'How many cameras can I view at once?', answer: 'The grid paginates rather than cramming every camera onto one screen — a 30-camera account might show 8-9 per page across several pages, so each stream stays legible. Slideshow mode cycles through pages automatically if you\'d rather not click through manually.' },
-  { question: 'What\'s the difference between Low Latency and High Stability?', answer: 'Low Latency favors the freshest possible frame, which suits active monitoring where a second or two matters. High Stability buffers slightly more to smooth over network jitter, which suits a wall display or a site with a less reliable connection — same stream, different tradeoff.' },
+  { question: 'What is the difference between a camera set and a patrol sequence?', answer: 'A camera set is a saved group of cameras for monitoring, you pick the cameras, save the set, and one set can be your default view when live streaming opens. A patrol sequence is an ordered list of camera stops with a checklist at each one, used for manual or automated patrol rounds. Same cameras, different purpose: a set is for watching, a sequence is for verifying.' },
+  { question: 'How many cameras can I view at once?', answer: 'The grid paginates rather than cramming every camera onto one screen, a 30-camera account might show 8-9 per page across several pages, so each stream stays legible. Slideshow mode cycles through pages automatically if you\'d rather not click through manually.' },
+  { question: 'What\'s the difference between Low Latency and High Stability?', answer: 'Low Latency favors the freshest possible frame, which suits active monitoring where a second or two matters. High Stability buffers slightly more to smooth over network jitter, which suits a wall display or a site with a less reliable connection, same stream, different tradeoff.' },
   { question: 'What happens when a whole site goes offline?', answer: 'Every camera at that site shows a no-signal state and the site is flagged in the site strip and with a banner at the top of the grid, so it\'s obvious at a glance that the gap is a connectivity issue at one location rather than several unrelated camera failures.' },
-  { question: 'Can I filter the grid by AI feature instead of by site?', answer: 'Yes. Filtering by AI feature (e.g. Weapons Detection) shows only the cameras that feature is actively running on — useful when you want to check coverage for one detection type rather than browse by location.' },
-  { question: 'Can sub-users see cameras I haven\'t assigned to them?', answer: 'No. The "All Users" filter only shows cameras a given sub-user has been granted access to through their permission group — the live grid respects the same access boundaries as the rest of the platform.' },
+  { question: 'Can I filter the grid by AI feature instead of by site?', answer: 'Yes. Filtering by AI feature (e.g. Weapons Detection) shows only the cameras that feature is actively running on, useful when you want to check coverage for one detection type rather than browse by location.' },
+  { question: 'Can sub-users see cameras I haven\'t assigned to them?', answer: 'No. The "All Users" filter only shows cameras a given sub-user has been granted access to through their permission group, the live grid respects the same access boundaries as the rest of the platform.' },
 ];
 
 export default function Page() {
@@ -67,7 +67,7 @@ export default function Page() {
             {[
               { icon: LayoutGrid, title: 'Grouped by site', desc: 'Cameras stay organized by location, with a per-site online count always visible in the grid strip.' },
               { icon: Gauge, title: 'Two playback modes', desc: 'Low Latency for active monitoring, High Stability for a steadier feed on a busier network.' },
-              { icon: AlertOctagon, title: 'Clear no-signal states', desc: 'A dropped camera or a fully offline site shows as no-signal immediately — never a frozen last frame.' },
+              { icon: AlertOctagon, title: 'Clear no-signal states', desc: 'A dropped camera or a fully offline site shows as no-signal immediately, never a frozen last frame.' },
               { icon: Filter, title: 'Filter by feature or user', desc: 'Narrow the grid to cameras running a specific AI feature, or to what a given sub-user can see.' },
             ].map((item, i) => {
               const Icon = item.icon;
@@ -119,13 +119,7 @@ export default function Page() {
             </ScrollReveal>
           </div>
 
-          <div className="mt-16 rounded-2xl border border-border bg-card p-8 sm:p-10">
-            <span className="font-mono text-mono-sm uppercase text-primary">FAQ</span>
-            <h2 className="mt-2 font-display text-2xl font-bold">Frequently asked questions</h2>
-            <div className="mt-6">
-              <FAQAccordion items={faqs} />
-            </div>
-          </div>
+          <FaqSection items={faqs} inline />
 
           <div className="mt-16">
             <h2 className="font-display text-2xl font-bold">Related</h2>

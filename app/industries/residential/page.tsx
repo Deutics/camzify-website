@@ -1,10 +1,11 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { FaqSection } from '@/components/content/faq-section';
 import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 
 /**
@@ -14,7 +15,7 @@ import Link from 'next/link';
  */
 const pageMeta = {
   title: "AI Security for Residential | Video Surveillance",
-  description: "Camzify provides AI-powered virtual patrolling and video analytics for residential — automated patrols, real-time alerts, and compliance reports.",
+  description: "Camzify provides AI-powered virtual patrolling and video analytics for residential, automated patrols, real-time alerts, and compliance reports.",
   path: "/industries/residential",
 };
 
@@ -29,7 +30,7 @@ const deploymentPhases = [
 const faqs = [
   { question: "Is Camzify suitable for a small residential community?", answer: "Yes. Pricing is per camera, so small communities with 4-10 cameras pay only for what they use. The ROI is strongest when compared to the cost of a nightly guard." },
   { question: "Will residents know they're being monitored by AI instead of a guard?", answer: "That's up to the HOA or property manager to communicate, the same way any CCTV or guard patrol would typically be disclosed. Camzify doesn't change what's visible to residents, just how the existing cameras are checked." },
-  { question: "Can Camzify tell the difference between a resident and a visitor?", answer: "Camzify doesn't identify individuals. It detects activity in a defined zone at a defined time — for example, anyone present at the pool after closing — regardless of who they are, which is what a guard's round would check for too." },
+  { question: "Can Camzify tell the difference between a resident and a visitor?", answer: "Camzify doesn't identify individuals. It detects activity in a defined zone at a defined time, for example, anyone present at the pool after closing, regardless of who they are, which is what a guard's round would check for too." },
   { question: "How quickly does someone get notified if the gate is left open?", answer: "Alerts fire in near real time from the moment a confirmed event is detected and route to the assigned contact through the notification queue with a timestamped clip, typically within seconds." },
   { question: "Does this replace our community's guard service entirely?", answer: "For most communities, it reduces reliance on guards for routine overnight rounds rather than eliminating a guard presence outright. Many communities run virtual patrols alongside a smaller guard team to cover blind spots and off-hours checks a single guard can't reach every hour." },
   { question: "Can different areas of the community have different rules?", answer: "Yes. Zones, schedules, and detection rules are configured per camera, so an entry gate active around the clock and a pool area active only outside posted hours can run entirely different rules on the same account." },
@@ -37,22 +38,25 @@ const faqs = [
 
 export default function ResidentialPage() {
   return (
-    <PageShell {...pageMeta} schema={[serviceSchema({ name: "AI Security for Residential", description: "Camzify provides AI-powered virtual patrolling and video analytics for residential — automated patrols, real-time alerts, and compliance reports.", path: "/industries/residential", audience: "Residential" })]} faqs={faqs} breadcrumbs={[
+    <PageShell {...pageMeta} schema={[serviceSchema({ name: "AI Security for Residential", description: "Camzify provides AI-powered virtual patrolling and video analytics for residential, automated patrols, real-time alerts, and compliance reports.", path: "/industries/residential", audience: "Residential" })]} faqs={faqs} breadcrumbs={[
       { label: 'Industries', href: '/industries' },
       { label: 'Residential' },
     ]}>
+      <FeatureHero
+        eyebrow="Industry · residential"
+        title="AI security for residential"
+        lede={<><strong className="font-semibold text-foreground">Residential communities face security challenges that cameras alone cannot solve and manned guards cannot cover consistently.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.</>}
+        facts={['Gated entry points left unwatched between staffed shifts', 'Pool and amenity areas used after posted closing hours', 'Visitor and delivery vehicles left unverified against…']}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}
+        visual={<PlaceholderVisual type="industry" caption="RESIDENTIAL" alt="Security monitoring in a residential environment" />}
+      />
+
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">AI Security for Residential</h1>
-          <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            Residential communities face security challenges that cameras alone cannot solve and manned guards cannot cover consistently. Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.
-          </p>
-
-          <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
-            <ScrollReveal>
-              <div>
-                <h2 className="font-display text-2xl font-bold">Common residential security gaps Camzify closes:</h2>
-                <ul className="mt-4 space-y-3 text-muted-foreground">
+          <div>
+            <h2 className="font-display text-2xl font-bold">Common residential security gaps Camzify closes:</h2>
+            <ul className="mt-4 grid gap-3 text-muted-foreground sm:grid-cols-2">
                   <li className="flex gap-2">• Gated entry points left unwatched between staffed shifts</li>
                   <li className="flex gap-2">• Pool and amenity areas used after posted closing hours</li>
                   <li className="flex gap-2">• Visitor and delivery vehicles left unverified against resident lists</li>
@@ -60,18 +64,15 @@ export default function ResidentialPage() {
                   <li className="flex gap-2">• Camera outages going unnoticed until a resident reports a problem</li>
                   <li className="flex gap-2">• No record proving common areas were actually checked overnight</li>
                 </ul>
-              </div>
-            </ScrollReveal>
-            <PlaceholderVisual type="industry" caption="RESIDENTIAL" alt="Security monitoring in a residential environment" />
           </div>
 
           <div className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Why residential communities need continuous AI monitoring</h2>
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
-                <p>Residential communities and gated developments cover a lot of ground — entry gates, perimeter walls, parking areas, pools, and clubhouses — and most rely on a single guard or a nightly patrol to check all of it. One person walking a large property can realistically reach each point once or twice a shift, leaving long stretches where nothing is actually being watched.</p>
-                <p>Standard CCTV records the footage but doesn't act on it — if something happens at the back gate at 3am, nobody knows until a resident notices or a review happens after the fact. For a community, that gap shows up directly in resident complaints and trust in the property's security.</p>
-                <p>Continuous AI monitoring closes that gap by running the same checks a guard would make — gate status, pool area clear, parking lot activity — on a fixed schedule around the clock, so every point gets checked far more often than a single patrol could manage, with a timestamped record of every round.</p>
+                <p>Residential communities and gated developments cover a lot of ground, entry gates, perimeter walls, parking areas, pools, and clubhouses, and most rely on a single guard or a nightly patrol to check all of it. One person walking a large property can realistically reach each point once or twice a shift, leaving long stretches where nothing is actually being watched.</p>
+                <p>Standard CCTV records the footage but doesn't act on it, if something happens at the back gate at 3am, nobody knows until a resident notices or a review happens after the fact. For a community, that gap shows up directly in resident complaints and trust in the property's security.</p>
+                <p>Continuous AI monitoring closes that gap by running the same checks a guard would make, gate status, pool area clear, parking lot activity, on a fixed schedule around the clock, so every point gets checked far more often than a single patrol could manage, with a timestamped record of every round.</p>
               </div>
             </ScrollReveal>
           </div>
@@ -104,7 +105,7 @@ export default function ResidentialPage() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Building the patrol route</h3>
                 <p className="mt-2 text-muted-foreground">
-                  A patrol sequence is set up once for the community, ordering every camera stop — entry gates, perimeter walls, pool area, parking, common spaces — into a route that runs on a schedule matched to community quiet hours.
+                  A patrol sequence is set up once for the community, ordering every camera stop, entry gates, perimeter walls, pool area, parking, common spaces, into a route that runs on a schedule matched to community quiet hours.
                 </p>
 
                 <h3 className="mt-6 font-display text-lg font-bold">Checking each stop</h3>
@@ -114,7 +115,7 @@ export default function ResidentialPage() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Routing the alert</h3>
                 <p className="mt-2 text-muted-foreground">
-                  A failed check creates an actionable alert with a snapshot and timestamp, routed to the community's assigned contact — property manager, HOA board, or on-call guard — and logged in that round's patrol report.
+                  A failed check creates an actionable alert with a snapshot and timestamp, routed to the community's assigned contact, property manager, HOA board, or on-call guard, and logged in that round's patrol report.
                 </p>
               </div>
             </ScrollReveal>
@@ -202,14 +203,7 @@ export default function ResidentialPage() {
         </div>
       </section>
 
-      <section className="bg-muted/30 py-16 sm:py-20">
-        <div className="mx-auto max-w-site px-6 text-center">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">Frequently asked questions</h2>
-          <div className="mx-auto mt-8 max-w-3xl text-left">
-            <FAQAccordion items={faqs} />
-          </div>
-        </div>
-      </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

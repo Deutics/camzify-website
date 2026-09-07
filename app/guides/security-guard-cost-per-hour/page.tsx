@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { articleSchema, personSchema } from '@/lib/seo';
 import { AuthorByline } from '@/components/content/author-byline';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
@@ -18,17 +19,24 @@ const pageMeta = {
 
 export const metadata = generatePageMeta({ ...pageMeta, type: 'article', publishedTime: '2026-08-31', modifiedTime: '2026-08-31' });
 
+const faqs = [
+  { question: 'Why does the guide give ranges rather than a rate?', answer: 'Because the rate depends on the market, the licence requirements, the shift and the contract. A range by region is honest; a single number would not survive contact with your own quotes.' },
+  { question: 'What does a staffed post really cost?', answer: "More than one guard's hourly rate. Covering a post around the clock, with leave, sickness and breaks, takes several people, and the loaded cost includes supervision, insurance and equipment. The guide walks through the multiplier." },
+  { question: 'Does virtual patrolling replace the guard?', answer: 'It replaces the routine round, not the response. The comparison that matters is the cost of the hours spent walking rounds against the cost of a scheduled camera round per site; the person who attends what fails stays.' },
+  { question: 'Where do I put my own numbers in?', answer: 'The ROI calculator. Hours per week, hourly rate and sites are sliders with your figures in them, and the result is your current annual cost on routine rounds.' },
+];
+
 export default function SecurityGuardCostPerHourPage() {
   return (
-    <PageShell {...pageMeta} schema={[articleSchema({ headline: "Security Guard Cost Per Hour", description: "What does a security guard cost per hour? Rates by region, total cost of 24/7 coverage, and how to calculate your annual guard spend.", path: "/guides/security-guard-cost-per-hour", datePublished: '2026-08-31', dateModified: '2026-08-31' }), personSchema()]} breadcrumbs={[
+    <PageShell {...pageMeta} faqs={faqs} schema={[articleSchema({ headline: "Security Guard Cost Per Hour", description: "What does a security guard cost per hour? Rates by region, total cost of 24/7 coverage, and how to calculate your annual guard spend.", path: "/guides/security-guard-cost-per-hour", datePublished: '2026-08-31', dateModified: '2026-08-31' }), personSchema()]} breadcrumbs={[
       { label: 'Guides', href: '/guides' },
       { label: 'Security Guard Cost Per Hour' },
     ]}>
       <article className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Security Guard Cost Per Hour</h1>
+          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Security guard cost per hour</h1>
           <AuthorByline className="mt-6" />
-          <p className="mt-6 max-w-prose text-body text-muted-foreground">Security guard cost per hour varies by region, level of training, and contract terms. In Singapore, unarmed security guards typically cost SGD 8-15 per hour. In the US, rates range from USD 15-35 per hour. The true cost of guard coverage goes far beyond the hourly rate — it includes overtime, benefits, training, supervision, and the 4.5 FTE required for genuine 24/7 coverage.</p>
+          <p className="mt-6 max-w-prose text-body text-muted-foreground">Security guard cost per hour varies by region, level of training and contract terms, and no single figure holds across markets, which is why this guide explains the arithmetic rather than quoting a rate. The true cost of guard coverage goes far beyond the hourly rate: it includes overtime, benefits, training, supervision, and the several full-time people needed for genuine round-the-clock coverage.</p>
 
           <section className="mt-16">
             <ScrollReveal>
@@ -37,8 +45,8 @@ export default function SecurityGuardCostPerHourPage() {
                 <p>
                   The hourly rates above are the starting point, not the answer. The rate a guarding
                   contractor quotes is a billed rate, not your cost of coverage, and the gap between
-                  the two is where security budgets get missed. Rates also move with local labour
-                  markets and licensing regimes, so treat any published figure — including ours — as
+                  the two is where security budgets get missed. Rates also move with local labor
+                  markets and licensing regimes, so treat any published figure, including ours, as
                   indicative and confirm it with two or three quotes in your own market.
                 </p>
                 <p>
@@ -81,7 +89,7 @@ export default function SecurityGuardCostPerHourPage() {
                   Rates vary widely by country, by licensing regime and by whether the officer is
                   armed, so confirm your own market with two or three contractor quotes before
                   building a business case. What does not vary is the structure of the calculation
-                  above — and that the routine patrol round, the part{' '}
+                  above, and that the routine patrol round, the part{' '}
                   <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a>{' '}
                   replaces, is the largest single consumer of those paid hours.
                 </p>
@@ -92,7 +100,7 @@ export default function SecurityGuardCostPerHourPage() {
           <section className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">The true cost of 24/7 coverage</h2>
-              <div className="mt-4 max-w-prose space-y-4 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `24/7 guard coverage requires 4.5 full-time equivalents (FTEs) per post when accounting for shifts, breaks, sick leave, holidays, and relief coverage. A single post at SGD 12/hour costs approximately SGD 105,120/year — not SGD 105,120 × 1, but × 4.5 to maintain continuous coverage. Many buyers underestimate this multiplier.` }} />
+              <div className="mt-4 max-w-prose space-y-4 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `Around-the-clock coverage of one post takes several full-time people once shifts, breaks, sick leave, holidays and relief are counted, commonly four to five. The annual cost of a staffed post is therefore the hourly rate times the hours in a year times that multiplier, not one salary. Many buyers underestimate the multiplier; the ROI calculator applies it to your own rate.` }} />
             </ScrollReveal>
           </section>
 
@@ -124,6 +132,7 @@ export default function SecurityGuardCostPerHourPage() {
           </section>
         </div>
       </article>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

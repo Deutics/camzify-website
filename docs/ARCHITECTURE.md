@@ -141,7 +141,7 @@ is an established convention here — match it in code you touch.
 
 ## Design tokens
 
-All colour, spacing, radius, shadow and timing values are CSS variables in
+All color, spacing, radius, shadow and timing values are CSS variables in
 `app/globals.css`, surfaced to Tailwind through `tailwind.config.ts`. Full reference in
 [`DESIGN-SYSTEM.md`](DESIGN-SYSTEM.md).
 
@@ -167,7 +167,7 @@ npm start         # serve the production build
   `next/image` with explicit dimensions to prevent layout shift.
 - `eslint.ignoreDuringBuilds: true` — but `typescript.ignoreBuildErrors: false`, so type
   errors *do* fail the build.
-- The webpack block only customises chunk filenames. The standalone-mode Abacus client
+- The webpack block only customizes chunk filenames. The standalone-mode Abacus client
   error reporter that used to live here was removed with the rest of the integration.
 
 Deploy target is Vercel-compatible. `.vercelignore` excludes env files and build info.

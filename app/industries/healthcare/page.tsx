@@ -1,10 +1,11 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { FaqSection } from '@/components/content/faq-section';
 import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 import { SiteImage } from '@/components/content/site-image';
 
@@ -15,7 +16,7 @@ import { SiteImage } from '@/components/content/site-image';
  */
 const pageMeta = {
   title: "AI Security for Healthcare | Video Surveillance",
-  description: "Camzify provides AI-powered virtual patrolling and video analytics for healthcare — automated patrols, real-time alerts, and compliance reports.",
+  description: "Camzify provides AI-powered virtual patrolling and video analytics for healthcare, automated patrols, real-time alerts, and compliance reports.",
   path: "/industries/healthcare",
 };
 
@@ -28,7 +29,7 @@ const deploymentPhases = [
 ];
 
 const faqs = [
-  { question: "Does Camzify comply with HIPAA or patient privacy regulations?", answer: "Camzify monitors facility security zones — doors, corridors, perimeters — not patient care areas. Configuration should exclude areas where patient privacy applies. Consult your compliance team for facility-specific guidance." },
+  { question: "Does Camzify comply with HIPAA or patient privacy regulations?", answer: "Camzify monitors facility security zones, doors, corridors, perimeters, not patient care areas. Configuration should exclude areas where patient privacy applies. Consult your compliance team for facility-specific guidance." },
   { question: "Can it monitor emergency exits?", answer: "Yes. Zone detection at emergency exit areas can alert when doors are used outside of emergency situations, or when the exit path is obstructed." },
   { question: "How does Camzify avoid monitoring patient care areas?", answer: "Zones are drawn per camera during setup, so coverage can be scoped to entrances, corridors, pharmacy storage, and perimeters while excluding bedside or clinical care areas entirely. If a camera has any view into a patient care area, your team decides how or whether that feed is included before it goes live." },
   { question: "How accurate is detection in busy corridors with high foot traffic?", answer: "Zone and motion sensitivity are tuned per camera, so high-traffic corridors during shift changes or visiting hours can run different thresholds than a quiet overnight ward. Multi-Object Tracking helps the system follow individual movement through a crowd rather than treating normal traffic as a blanket trigger." },
@@ -38,22 +39,30 @@ const faqs = [
 
 export default function HealthcarePage() {
   return (
-    <PageShell {...pageMeta} schema={[serviceSchema({ name: "AI Security for Healthcare", description: "Camzify provides AI-powered virtual patrolling and video analytics for healthcare — automated patrols, real-time alerts, and compliance reports.", path: "/industries/healthcare", audience: "Healthcare" })]} faqs={faqs} breadcrumbs={[
+    <PageShell {...pageMeta} schema={[serviceSchema({ name: "AI Security for Healthcare", description: "Camzify provides AI-powered virtual patrolling and video analytics for healthcare, automated patrols, real-time alerts, and compliance reports.", path: "/industries/healthcare", audience: "Healthcare" })]} faqs={faqs} breadcrumbs={[
       { label: 'Industries', href: '/industries' },
       { label: 'Healthcare' },
     ]}>
+      <FeatureHero
+        eyebrow="Industry · healthcare"
+        title="AI security for healthcare"
+        lede={<><strong className="font-semibold text-foreground">Healthcare facilities face security challenges that cameras alone cannot solve and manned guards cannot cover consistently.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.</>}
+        facts={['Pharmacy and medication storage rooms with no continuous…', 'Ward corridors and restricted wings relying on infrequent…', 'Emergency exits used or blocked without anyone noticing in…']}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}
+        visual={<SiteImage
+              src="/ai-security-for-healthcare.jpg" alt="AI-monitored hospital corridor showing bounding boxes around staff and equipment, with an emergency entrance and clinical team scenes" className="w-full rounded-xl"
+              width={1600}
+              height={900}
+              sizes="(max-width: 1024px) 100vw, 60vw"
+            priority />}
+      />
+
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">AI Security for Healthcare</h1>
-          <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            Healthcare facilities face security challenges that cameras alone cannot solve and manned guards cannot cover consistently. Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.
-          </p>
-
-          <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
-            <ScrollReveal>
-              <div>
-                <h2 className="font-display text-2xl font-bold">Common healthcare security gaps Camzify closes:</h2>
-                <ul className="mt-4 space-y-3 text-muted-foreground">
+          <div>
+            <h2 className="font-display text-2xl font-bold">Common healthcare security gaps Camzify closes:</h2>
+            <ul className="mt-4 grid gap-3 text-muted-foreground sm:grid-cols-2">
                   <li className="flex gap-2">• Pharmacy and medication storage rooms with no continuous after-hours check</li>
                   <li className="flex gap-2">• Ward corridors and restricted wings relying on infrequent guard rounds</li>
                   <li className="flex gap-2">• Emergency exits used or blocked without anyone noticing in real time</li>
@@ -61,15 +70,6 @@ export default function HealthcarePage() {
                   <li className="flex gap-2">• Camera outages on security zones going unnoticed for hours</li>
                   <li className="flex gap-2">• No timestamped record proving a security check actually happened</li>
                 </ul>
-              </div>
-            </ScrollReveal>
-            <SiteImage
-              src="/ai-security-for-healthcare.jpg" alt="AI-monitored hospital corridor showing bounding boxes around staff and equipment, with an emergency entrance and clinical team scenes" className="w-full rounded-xl"
-              width={1600}
-              height={900}
-              priority
-              sizes="(max-width: 1024px) 100vw, 60vw"
-            />
           </div>
 
           <div className="mt-16">
@@ -77,8 +77,8 @@ export default function HealthcarePage() {
               <h2 className="font-display text-2xl font-bold">Why healthcare needs continuous AI monitoring</h2>
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
                 <p>Hospitals and clinics run around the clock, but security staff and clinical staff both thin out overnight, leaving pharmacy storage, restricted wings, equipment rooms, and emergency exits with far less oversight during the hours they're most exposed. A guard covering a large campus can only be in one place at a time.</p>
-                <p>Plain CCTV records every corridor and storage room but nobody reviews the footage until after an incident is reported, and healthcare facilities also carry patient privacy considerations that make blanket monitoring the wrong approach — security coverage needs to be scoped precisely to facility zones, not clinical care areas.</p>
-                <p>Continuous AI monitoring solves both problems at once: it checks only the zones you define, on a fixed schedule, and flags a failure the moment it happens rather than after the fact — giving security teams a documented, privacy-scoped patrol record without adding headcount.</p>
+                <p>Plain CCTV records every corridor and storage room but nobody reviews the footage until after an incident is reported, and healthcare facilities also carry patient privacy considerations that make blanket monitoring the wrong approach, security coverage needs to be scoped precisely to facility zones, not clinical care areas.</p>
+                <p>Continuous AI monitoring solves both problems at once: it checks only the zones you define, on a fixed schedule, and flags a failure the moment it happens rather than after the fact, giving security teams a documented, privacy-scoped patrol record without adding headcount.</p>
               </div>
             </ScrollReveal>
           </div>
@@ -111,7 +111,7 @@ export default function HealthcarePage() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Building the patrol route</h3>
                 <p className="mt-2 text-muted-foreground">
-                  A patrol sequence is set up once, ordering every camera stop — pharmacy storage, restricted wings, equipment rooms, emergency exits — into a single route that runs on a configurable schedule.
+                  A patrol sequence is set up once, ordering every camera stop, pharmacy storage, restricted wings, equipment rooms, emergency exits, into a single route that runs on a configurable schedule.
                 </p>
 
                 <h3 className="mt-6 font-display text-lg font-bold">Checking each stop</h3>
@@ -163,7 +163,7 @@ export default function HealthcarePage() {
           <div className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Deployment notes</h2>
-              <p className="mt-4 max-w-prose text-muted-foreground">Healthcare facilities have extensive camera infrastructure and strict regulatory requirements. Camzify operates on the video feed without storing patient data. Zone detection is configured to monitor restricted areas — pharmacies, server rooms, restricted wards — without affecting clinical areas.</p>
+              <p className="mt-4 max-w-prose text-muted-foreground">Healthcare facilities have extensive camera infrastructure and strict regulatory requirements. Camzify operates on the video feed without storing patient data. Zone detection is configured to monitor restricted areas, pharmacies, server rooms, restricted wards, without affecting clinical areas.</p>
             </ScrollReveal>
           </div>
 
@@ -209,14 +209,7 @@ export default function HealthcarePage() {
         </div>
       </section>
 
-      <section className="bg-muted/30 py-16 sm:py-20">
-        <div className="mx-auto max-w-site px-6 text-center">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">Frequently asked questions</h2>
-          <div className="mx-auto mt-8 max-w-3xl text-left">
-            <FAQAccordion items={faqs} />
-          </div>
-        </div>
-      </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

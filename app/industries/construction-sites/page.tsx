@@ -1,10 +1,12 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { FaqSection } from '@/components/content/faq-section';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 import { SiteImage } from '@/components/content/site-image';
 
@@ -14,8 +16,8 @@ import { SiteImage } from '@/components/content/site-image';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "AI Security for Construction Sites | Video Surveillance",
-  description: "Camzify provides AI-powered virtual patrolling and video analytics for construction sites — automated patrols, real-time alerts, and compliance reports.",
+  title: "Construction Site Security Cameras, Watched by AI",
+  description: "Camzify turns the security cameras already on a construction site into patrol rounds: overnight checks, alerts to the guard and a report per round.",
   path: "/industries/construction-sites",
 };
 
@@ -38,22 +40,30 @@ const faqs = [
 
 export default function ConstructionSitesPage() {
   return (
-    <PageShell {...pageMeta} schema={[serviceSchema({ name: "AI Security for Construction Sites", description: "Camzify provides AI-powered virtual patrolling and video analytics for construction sites — automated patrols, real-time alerts, and compliance reports.", path: "/industries/construction-sites", audience: "Construction Sites" })]} faqs={faqs} breadcrumbs={[
+    <PageShell {...pageMeta} schema={[serviceSchema({ name: "Construction Site Security Cameras, Watched by AI", description: "Camzify turns the security cameras already on a construction site into patrol rounds: overnight checks, alerts to the guard and a report per round.", path: "/industries/construction-sites", audience: "Construction Sites" })]} faqs={faqs} breadcrumbs={[
       { label: 'Industries', href: '/industries' },
       { label: 'Construction Sites' },
     ]}>
+      <FeatureHero
+        eyebrow="Industry · construction sites"
+        title="Construction site security cameras, watched by AI"
+        lede={<><strong className="font-semibold text-foreground">Construction sites face security challenges that cameras alone cannot solve and manned guards cannot cover consistently.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.</>}
+        facts={['Open perimeters where temporary fencing panels can be moved…', 'Equipment and material storage areas relying on a single…', 'Site trailers and tool cribs left unmonitored overnight']}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}
+        visual={<SiteImage
+              src="/ai-security-for-construction-sites.jpg" alt="AI-monitored construction site showing bounding boxes around workers, equipment, and material storage, with drone views of the site" className="w-full rounded-xl"
+              width={1600}
+              height={900}
+              sizes="(max-width: 1024px) 100vw, 60vw"
+            priority />}
+      />
+
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">AI Security for Construction Sites</h1>
-          <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            Construction sites face security challenges that cameras alone cannot solve and manned guards cannot cover consistently. Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.
-          </p>
-
-          <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
-            <ScrollReveal>
-              <div>
-                <h2 className="font-display text-2xl font-bold">Common construction site security gaps Camzify closes:</h2>
-                <ul className="mt-4 space-y-3 text-muted-foreground">
+          <div>
+            <h2 className="font-display text-2xl font-bold">Common construction site security gaps Camzify closes:</h2>
+            <ul className="mt-4 grid gap-3 text-muted-foreground sm:grid-cols-2">
                   <li className="flex gap-2">• Open perimeters where temporary fencing panels can be moved or breached</li>
                   <li className="flex gap-2">• Equipment and material storage areas relying on a single closing check</li>
                   <li className="flex gap-2">• Site trailers and tool cribs left unmonitored overnight</li>
@@ -61,24 +71,15 @@ export default function ConstructionSitesPage() {
                   <li className="flex gap-2">• No audit trail proving a night patrol actually happened</li>
                   <li className="flex gap-2">• Scrap metal and copper wiring theft going undetected until morning</li>
                 </ul>
-              </div>
-            </ScrollReveal>
-            <SiteImage
-              src="/ai-security-for-construction-sites.jpg" alt="AI-monitored construction site showing bounding boxes around workers, equipment, and material storage, with drone views of the site" className="w-full rounded-xl"
-              width={1600}
-              height={900}
-              priority
-              sizes="(max-width: 1024px) 100vw, 60vw"
-            />
           </div>
 
           <div className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Why construction sites need continuous AI monitoring</h2>
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
-                <p>A construction site sits unoccupied for far more hours than it is worked — evenings, weekends, and the gaps between shifts — while holding materials, machinery, and copper wiring that are attractive and easy to move for anyone who gets past the fence line. A site is rarely staffed overnight at all, and where it is, one person cannot watch a laydown yard, a trailer row, and a full perimeter at the same time.</p>
+                <p>A construction site sits unoccupied for far more hours than it is worked, evenings, weekends, and the gaps between shifts, while holding materials, machinery, and copper wiring that are attractive and easy to move for anyone who gets past the fence line. A site is rarely staffed overnight at all, and where it is, one person cannot watch a laydown yard, a trailer row, and a full perimeter at the same time.</p>
                 <p>The layout itself keeps changing too. Fencing, storage areas, and camera positions shift week to week as the build progresses, which makes a fixed guard route or a "review the footage later" approach to CCTV fall behind the site almost as soon as it is set.</p>
-                <p>Continuous AI monitoring adapts with the site — zones and patrol stops are redrawn as cameras move — and checks the full perimeter and yard on a repeating schedule, flagging a breach or a moved fence panel the moment it happens instead of the next time someone reviews the recording.</p>
+                <p>Continuous AI monitoring adapts with the site, zones and patrol stops are redrawn as cameras move, and checks the full perimeter and yard on a repeating schedule, flagging a breach or a moved fence panel the moment it happens instead of the next time someone reviews the recording.</p>
               </div>
             </ScrollReveal>
           </div>
@@ -104,14 +105,14 @@ export default function ConstructionSitesPage() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="CONSTRUCTION SITE PATROL SEQUENCE" alt="Diagram of a construction site patrol route stepping through the perimeter fence line, equipment yard, and site trailers" />
+            <PhotoFigure src="/industry-construction-sites-3.jpg" alt="Diagram of a construction site patrol route stepping through the perimeter fence line, equipment yard, and site trailers" caption="Construction site patrol sequence" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How Camzify works for construction sites</h2>
 
                 <h3 className="mt-6 font-display text-lg font-bold">Building the patrol route</h3>
                 <p className="mt-2 text-muted-foreground">
-                  A patrol sequence is set up once, ordering every camera stop — perimeter fence lines, the equipment yard, material laydown areas, site trailers — into a single route that runs on a configurable schedule and can be re-ordered as the site layout changes.
+                  A patrol sequence is set up once, ordering every camera stop, perimeter fence lines, the equipment yard, material laydown areas, site trailers, into a single route that runs on a configurable schedule and can be re-ordered as the site layout changes.
                 </p>
 
                 <h3 className="mt-6 font-display text-lg font-bold">Checking each stop</h3>
@@ -141,11 +142,11 @@ export default function ConstructionSitesPage() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="CONSTRUCTION SITE ZONE SETUP" alt="Configuration panel showing perimeter and equipment yard zones mapped across a construction site camera layout" />
+            <PhotoFigure src="/industry-construction-sites-2.jpg" alt="Configuration panel showing perimeter and equipment yard zones mapped across a construction site camera layout" caption="Construction site zone setup" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="camera-feed" caption="CONSTRUCTION SITE PATROL IN PROGRESS" alt="Camera feed showing an active patrol check along a construction site perimeter fence" />
+            <PhotoFigure src="/industry-construction-sites-1.jpg" alt="Camera feed showing an active patrol check along a construction site perimeter fence" caption="Construction site patrol in progress" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>
@@ -163,7 +164,7 @@ export default function ConstructionSitesPage() {
           <div className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Deployment notes</h2>
-              <p className="mt-4 max-w-prose text-muted-foreground">Construction sites require temporary camera deployments — often solar-powered units with 4G/5G connectivity. Camzify connects via RTSP or HLS to these temporary cameras and can be reconfigured as the site evolves.</p>
+              <p className="mt-4 max-w-prose text-muted-foreground">Construction sites require temporary camera deployments, often solar-powered units with 4G/5G connectivity. Camzify connects via RTSP or HLS to these temporary cameras and can be reconfigured as the site evolves.</p>
             </ScrollReveal>
           </div>
 
@@ -209,14 +210,7 @@ export default function ConstructionSitesPage() {
         </div>
       </section>
 
-      <section className="bg-muted/30 py-16 sm:py-20">
-        <div className="mx-auto max-w-site px-6 text-center">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">Frequently asked questions</h2>
-          <div className="mx-auto mt-8 max-w-3xl text-left">
-            <FAQAccordion items={faqs} />
-          </div>
-        </div>
-      </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

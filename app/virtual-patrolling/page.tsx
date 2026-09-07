@@ -1,7 +1,8 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
-import { FAQAccordion } from '@/components/content/faq-accordion';
+import { FaqSection } from '@/components/content/faq-section';
 import { InteractiveChecklistDemo } from '@/components/motion/interactive-checklist-demo';
+import { DemoFrame } from '@/components/motion/demo-frame';
 import { ComparisonTable } from '@/components/content/comparison-table';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { SectionAtmosphere } from '@/components/motion/section-atmosphere';
@@ -18,8 +19,8 @@ import {
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Virtual Patrolling System | Automated AI Security Patrols",
-  description: "A virtual patrolling system runs scheduled AI patrol rounds across your cameras, checking a defined checklist at each point, notifying the assigned guard on failure, and filing a compliance report with the evidence attached.",
+  title: "Virtual Patrolling System | AI Security Patrols",
+  description: "Scheduled AI patrol rounds on your cameras: a checklist at each stop, the guard notified on failure, and a compliance report with the evidence attached.",
   path: "/virtual-patrolling",
 };
 
@@ -44,23 +45,23 @@ const comparisonRows = [
  * array to the shell, so the flagship page carried no FAQPage schema at all.
  */
 const faqs = [
-  { question: 'What is virtual patrolling?', answer: 'Virtual patrolling is the practice of running scheduled, AI-driven patrol rounds across your existing cameras. The system follows a defined camera sequence, checks a per-camera compliance checklist, flags failures, notifies the assigned guard, and generates a timestamped report with the snapshot behind every result — all without a human operator walking the route.' },
-  { question: 'How is virtual patrolling different from a guard tour system?', answer: 'Guard tour systems verify that a physical guard visited a checkpoint — typically via NFC tags or QR codes — and say nothing about what was there. Virtual patrolling checks a defined condition at each camera and stores the frame it was judged against, so the record shows the gate was actually closed rather than that somebody stood next to it.' },
-  { question: 'Does virtual patrolling replace security guards?', answer: 'It replaces the routine patrol round — the repetitive walk-and-check that occupies most of a guard\'s shift. Guards are still needed for physical response, and security agencies sell virtual patrolling alongside their guards as overnight coverage across every client site rather than instead of them.' },
-  { question: 'What happens when a checklist item fails?', answer: 'The item is marked Not Compliant and the snapshot is kept. On an automated round the guard assigned to that camera is notified immediately with a predefined message; on a manual round the operator is offered it. The item then has to be resolved before the round can close — fixed and re-checked, capturing a second frame, or held as Pending with a written reason, which counts against the compliance score.' },
-  { question: 'Can patrols run automatically?', answer: 'Yes. Auto-Patrol runs on a configured schedule — you set the frequency, active hours and active days in the site\'s own timezone. The system steps through each camera in the sequence, evaluates every checklist item from a single frame or a short window of live video, notifies guards on failure, and files the report without an operator present.' },
-  { question: 'What is in the patrol report?', answer: 'Each camera checked, every checklist item with its result, the snapshot the item was judged against, before and after frames on anything fixed during the round, the written reason on anything pending, the guard notified on any failure, and an overall compliance percentage. Reports open as a web report or a PDF. The snapshots are what make it usable as proof — a reviewer months later sees what the camera showed rather than taking the result on trust.' },
-  { question: 'Does virtual patrolling only check what is on the checklist?', answer: 'A manual round does — the operator answers the items in front of them. An automated round also assesses each camera for safety and security risks in its own right and raises a critical notification for anything it finds, even where no item covered it. A checklist can only ask what somebody thought to ask when it was written, and the condition that causes an incident is often not on it.' },
+  { question: 'What is virtual patrolling?', answer: 'Virtual patrolling is the practice of running scheduled, AI-driven patrol rounds across your existing cameras. The system follows a defined camera sequence, checks a per-camera compliance checklist, flags failures, notifies the assigned guard, and generates a timestamped report with the snapshot behind every result, all without a human operator walking the route.' },
+  { question: 'How is virtual patrolling different from a guard tour system?', answer: 'Guard tour systems verify that a physical guard visited a checkpoint, typically via NFC tags or QR codes, and say nothing about what was there. Virtual patrolling checks a defined condition at each camera and stores the frame it was judged against, so the record shows the gate was actually closed rather than that somebody stood next to it.' },
+  { question: 'Does virtual patrolling replace security guards?', answer: 'It replaces the routine patrol round, the repetitive walk-and-check that occupies most of a guard\'s shift. Guards are still needed for physical response, and security agencies sell virtual patrolling alongside their guards as overnight coverage across every client site rather than instead of them.' },
+  { question: 'What happens when a checklist item fails?', answer: 'The item is marked Not Compliant and the snapshot is kept. On an automated round the guard assigned to that camera is notified immediately with a predefined message; on a manual round the operator is offered it. The item then has to be resolved before the round can close, fixed and re-checked, capturing a second frame, or held as Pending with a written reason, which counts against the compliance score.' },
+  { question: 'Can patrols run automatically?', answer: 'Yes. Auto-Patrol runs on a configured schedule, you set the frequency, active hours and active days in the site\'s own timezone. The system steps through each camera in the sequence, evaluates every checklist item from a single frame or a short window of live video, notifies guards on failure, and files the report without an operator present.' },
+  { question: 'What is in the patrol report?', answer: 'Each camera checked, every checklist item with its result, the snapshot the item was judged against, before and after frames on anything fixed during the round, the written reason on anything pending, the guard notified on any failure, and an overall compliance percentage. Reports open as a web report or a PDF. The snapshots are what make it usable as proof, a reviewer months later sees what the camera showed rather than taking the result on trust.' },
+  { question: 'Does virtual patrolling only check what is on the checklist?', answer: 'A manual round does, the operator answers the items in front of them. An automated round also assesses each camera for safety and security risks in its own right and raises a critical notification for anything it finds, even where no item covered it. A checklist can only ask what somebody thought to ask when it was written, and the condition that causes an incident is often not on it.' },
   { question: 'Which cameras work with virtual patrolling?', answer: 'Any IP camera that supports ONVIF or RTSP, which covers effectively every IP camera made in the last decade, plus RTMP and HTTPS (HLS or WebRTC) streams. Cameras are added over one of three connection types, stream quality is auto-detected on connect, and no proprietary hardware is required.' },
 ];
 
 const anatomy = [
   { icon: Route, title: 'Patrol sequence', desc: 'An ordered list of cameras defining the route the round follows across the site.', href: '/virtual-patrolling/patrol-sequences' },
   { icon: Camera, title: 'Camera stop', desc: 'At each camera in the sequence the system pauses and evaluates that camera\'s checklist.', href: '/virtual-patrolling/how-it-works' },
-  { icon: ClipboardCheck, title: 'Checklist evaluation', desc: 'Each item is marked Compliant or Not Compliant — gate closed, zone clear, access secured.', href: '/virtual-patrolling/patrol-checklists' },
+  { icon: ClipboardCheck, title: 'Checklist evaluation', desc: 'Each item is marked Compliant or Not Compliant, gate closed, zone clear, access secured.', href: '/virtual-patrolling/patrol-checklists' },
   { icon: Bell, title: 'Guard notification', desc: 'A failed item notifies the guard assigned to that camera, with a message written for that item.', href: '/virtual-patrolling/guard-notifications' },
   { icon: ShieldAlert, title: 'Risk detection', desc: 'Automated rounds also flag safety and security risks in frame, even where no item asked.', href: '/virtual-patrolling/risk-detection' },
-  { icon: FileText, title: 'Compliance report', desc: 'Every camera, every item, every result — with the snapshot behind each check.', href: '/virtual-patrolling/patrol-reports' },
+  { icon: FileText, title: 'Compliance report', desc: 'Every camera, every item, every result, with the snapshot behind each check.', href: '/virtual-patrolling/patrol-reports' },
   { icon: BarChart3, title: 'Patrol log', desc: 'Every round logged as Completed, Flagged or Overdue, with a compliance percentage.', href: '/virtual-patrolling/patrol-compliance-tracking' },
   { icon: Calendar, title: 'Schedule', desc: 'Frequency, active hours and active days, in the site\'s own timezone.', href: '/virtual-patrolling/automated-patrol-scheduling' },
 ];
@@ -79,8 +80,9 @@ export default function VirtualPatrollingPage() {
             </strong>{' '}
             &mdash; following a defined route, checking a per-camera checklist at each stop,
             notifying the guard responsible when something fails, and filing a timestamped
-            compliance report with the frame behind every result. The same record a physical
-            guard tour produces, without a person walking it, and identical at 03:00 and 15:00.
+            compliance report with the frame behind every result. Some buyers call it a virtual
+            guard. It produces the same record a physical guard tour does, without a person
+            walking it, and identical at 03:00 and 15:00.
           </>
         }
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
@@ -89,8 +91,8 @@ export default function VirtualPatrollingPage() {
         visual={
           <div className="overflow-hidden rounded-xl border border-border bg-card">
             <SiteImage
-              src="/Virtual-Patrolling-System-1.jpg"
-              alt="A person reviewing the Camzify Virtual Patrolling dashboard on a laptop, showing an active patrol round and camera sequence"
+              src="/vp-overview-main.jpg"
+              alt="The Camzify virtual patrolling screen with an active patrol round and its camera sequence"
               className="w-full"
               width={1000}
               height={563}
@@ -127,7 +129,9 @@ export default function VirtualPatrollingPage() {
               </div>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
-              <InteractiveChecklistDemo />
+              <DemoFrame>
+                <InteractiveChecklistDemo />
+              </DemoFrame>
             </ScrollReveal>
           </div>
         </div>
@@ -182,7 +186,7 @@ export default function VirtualPatrollingPage() {
               <span className="font-mono text-mono-sm uppercase text-primary">Two ways to run it</span>
               <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">Manual round, or Auto-Patrol</h2>
               <p className="mt-5 max-w-prose text-body text-muted-foreground">
-                Same sequence, same checklists, same report. The difference is who makes each judgement and when the round happens.
+                Same sequence, same checklists, same report. The difference is who makes each judgment and when the round happens.
               </p>
             </div>
           </ScrollReveal>
@@ -258,8 +262,8 @@ export default function VirtualPatrollingPage() {
             <ScrollReveal delay={0.1}>
               <div className="overflow-hidden rounded-xl border border-border bg-card">
                 <SiteImage
-                  src="/Virtual-Patrolling-System-2.jpg"
-                  alt="Camzify patrol history screen listing completed, flagged, and overdue rounds with a patrol health score across all sites"
+                  src="/vp-overview-compliance-record.jpg"
+                  alt="Patrol history in the console with a patrol health score across all sites"
                   className="w-full"
                   width={1000}
                   height={563}
@@ -279,7 +283,7 @@ export default function VirtualPatrollingPage() {
               <span className="font-mono text-mono-sm uppercase text-primary">How it compares</span>
               <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">Against a guard tour and against plain CCTV</h2>
               <p className="mt-5 max-w-prose text-body text-muted-foreground">
-                Guard-tour figures are order-of-magnitude industry estimates; Camzify is quoted per camera.
+                Guard-tour figures are order-of-magnitude industry estimates; Camzify is quoted per camera. If the term you know is <Link href="/virtual-guard" className="text-primary hover:underline">virtual guard</Link>, that page defines it.
               </p>
             </div>
           </ScrollReveal>
@@ -326,17 +330,7 @@ export default function VirtualPatrollingPage() {
       {/* FAQ */}
       <section className="border-t border-border bg-muted/20 py-20 sm:py-24">
         <div className="mx-auto max-w-site px-6">
-          <ScrollReveal>
-            <div className="max-w-3xl">
-              <span className="font-mono text-mono-sm uppercase text-primary">Common questions</span>
-              <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">Virtual patrolling, answered</h2>
-            </div>
-          </ScrollReveal>
-          <ScrollReveal delay={0.08}>
-            <div className="mt-10 max-w-3xl">
-              <FAQAccordion items={faqs} />
-            </div>
-          </ScrollReveal>
+          <FaqSection items={faqs} inline className="!mt-0" eyebrow="Common questions" heading="Virtual patrolling, answered" />
         </div>
       </section>
     </PageShell>

@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 
 /**
@@ -15,15 +16,22 @@ const pageMeta = {
 
 export const metadata = generatePageMeta({ ...pageMeta });
 
+const faqs = [
+  { question: 'When is RTMP the right choice?', answer: 'When the source is an encoder or a streaming appliance that pushes video rather than a camera that serves it. Camzify generates a private ingest address with a server URL and a stream key for it.' },
+  { question: 'Is the stream key sensitive?', answer: 'Yes. Anyone with it can push video into that camera slot. Keep it out of shared documents and rotate it from the console if it leaks.' },
+  { question: 'Does RTMP work through a firewall?', answer: "The encoder pushes outward on the RTMP port to Camzify's ingest address, so no inbound port needs opening on your side. Outbound access to that address is all that is required." },
+  { question: 'Can I use RTMP for an ordinary IP camera?', answer: 'Only if something on site converts its RTSP stream and pushes it, which is what an encoder does. For an ordinary IP camera the RTSP route, direct or through the Connector, is simpler.' },
+];
+
 export default function RtmpSetupPage() {
   return (
-    <PageShell {...pageMeta} breadcrumbs={[
+    <PageShell {...pageMeta} faqs={faqs} breadcrumbs={[
       { label: 'Camera Connectivity', href: '/camera-connectivity' },
       { label: 'RTMP Camera Setup' },
     ]}>
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">RTMP Camera Setup</h1>
+          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">RTMP camera setup</h1>
           <p className="mt-6 max-w-2xl text-body text-muted-foreground">
             Follow these steps to connect your camera to Camzify using RTMP.
           </p>
@@ -67,6 +75,7 @@ export default function RtmpSetupPage() {
           </ol>
         </div>
       </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

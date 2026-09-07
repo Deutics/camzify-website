@@ -56,7 +56,7 @@ export function AutoPatrolSection() {
                 {[
                   [Clock, 'On a schedule', 'Frequency, active hours and active days, in the site’s own timezone.'],
                   [Eye, 'With context', 'Judge each stop on a single frame, or on a few seconds of live video.'],
-                  [ShieldAlert, 'With judgement', 'Flags safety and security risks it sees, even where no checklist item asked.'],
+                  [ShieldAlert, 'With judgment', 'Flags safety and security risks it sees, even where no checklist item asked.'],
                   [FileText, 'With its reasoning shown', 'Each answer is recorded with why — “the metal gate appears to be closed” — not just a tick.'],
                 ].map(([Icon, title, desc]) => {
                   const I = Icon as typeof Clock;

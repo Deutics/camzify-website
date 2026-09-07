@@ -1,8 +1,10 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { FaqSection } from '@/components/content/faq-section';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 
 /**
@@ -19,11 +21,11 @@ const pageMeta = {
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
-  { question: 'What is a heatmap anomaly?', answer: 'The system builds a baseline foot traffic pattern for each monitored area over time. An anomaly is a deviation from that baseline — unusual congestion, an empty zone that\'s normally busy, or unexpected activity in a low-traffic area — flagged for review rather than a single fixed rule.' },
+  { question: 'What is a heatmap anomaly?', answer: 'The system builds a baseline foot traffic pattern for each monitored area over time. An anomaly is a deviation from that baseline, unusual congestion, an empty zone that\'s normally busy, or unexpected activity in a low-traffic area — flagged for review rather than a single fixed rule.' },
   { question: 'How long before the baseline is accurate?', answer: 'The baseline improves as more traffic data accumulates for each zone. Early results reflect a smaller sample; accuracy improves over the first few weeks of continuous monitoring as normal patterns become established.' },
   { question: 'Is this a security feature or an operations feature?', answer: 'Both. Security teams use anomalies to flag unusual activity outside expected patterns, while operations teams use the same heatmap data for layout, staffing, and queue-management decisions.' },
-  { question: 'Does an anomaly automatically trigger a security response?', answer: 'An anomaly is flagged for review in the notification queue with severity and acknowledgement status, the same as other alert types. Whether it prompts a security response, an operations look, or no action at all depends on the zone and context, which is why it\'s surfaced for a human decision rather than acted on automatically.' },
-  { question: 'Can I exclude a known busy period, like a planned event, from anomaly detection?', answer: 'Schedule-based activation lets a zone\'s anomaly detection be turned off or adjusted for known exceptions, so a planned event or seasonal rush doesn\'t generate a flood of expected-but-flagged anomalies.' },
+  { question: 'Does an anomaly automatically trigger a security response?', answer: 'An anomaly is flagged for review in the notification queue with severity and acknowledgment status, the same as other alert types. Whether it prompts a security response, an operations look, or no action at all depends on the zone and context, which is why it\'s surfaced for a human decision rather than acted on automatically.' },
+  { question: 'Can I exclude a known busy period, like a planned event, from anomaly detection?', answer: 'Each camera carries a notification window, so anomaly notifications can be limited to the hours that matter and a planned event or seasonal rush doesn\'t generate a flood of expected-but-flagged notifications. The detection itself keeps running; the window decides when it tells anyone.' },
   { question: 'How is this different from occupancy and peak hour trends?', answer: 'The two are complementary. Heatmap anomalies flags deviations from a zone\'s established baseline, while occupancy and peak hour trends tracks live counts and historical patterns for staffing and planning decisions. Anomalies answer "does this look unusual"; trends answer "when is this normally busy".' },
 ];
 
@@ -33,19 +35,22 @@ export default function Page() {
       { label: 'AI Features', href: '/ai-features' },
       { label: 'Heatmap Anomalies' },
     ]}>
+      <FeatureHero
+        eyebrow="AI detection · Heatmap anomalies"
+        title="Heatmap anomalies"
+        lede={<><strong className="font-semibold text-foreground">See where people really go.</strong> Heatmap anomalies maps foot traffic across a site and flags patterns
+            that deviate from the established baseline — unusual congestion, empty zones, or unexpected activity.</>}
+        facts={['Foot traffic congestion above the normal pattern for a zone', 'Activity in a normally low-traffic area outside expected hours', 'A monitored area sitting unusually empty during typically…']}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/ai-features', label: 'All 22 detections' }}
+        visual={<PhotoFigure src="/feature-heatmap-anomalies-1.jpg" alt="Site floor plan overlaid with a colour-coded foot traffic heatmap highlighting an anomalous zone" caption="Heatmap anomalies" priority />}
+      />
+
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Heatmap Anomalies</h1>
-          <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            See where people really go. Heatmap anomalies maps foot traffic across a site and flags patterns
-            that deviate from the established baseline — unusual congestion, empty zones, or unexpected activity.
-          </p>
-
-          <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
-            <ScrollReveal>
-              <div>
-                <h2 className="font-display text-2xl font-bold">This capability detects and alerts on:</h2>
-                <ul className="mt-4 space-y-3 text-muted-foreground">
+          <div>
+            <h2 className="font-display text-2xl font-bold">This capability detects and alerts on:</h2>
+            <ul className="mt-4 grid gap-3 text-muted-foreground sm:grid-cols-2">
                   <li className="flex gap-2">• Foot traffic congestion above the normal pattern for a zone</li>
                   <li className="flex gap-2">• Activity in a normally low-traffic area outside expected hours</li>
                   <li className="flex gap-2">• A monitored area sitting unusually empty during typically busy hours</li>
@@ -53,24 +58,21 @@ export default function Page() {
                   <li className="flex gap-2">• Zone-to-zone comparison to spot where traffic is shifting on a site</li>
                   <li className="flex gap-2">• Anomaly history reviewable alongside other site events</li>
                 </ul>
-              </div>
-            </ScrollReveal>
-            <PlaceholderVisual type="dashboard" caption="HEATMAP ANOMALIES" alt="Site floor plan overlaid with a colour-coded foot traffic heatmap highlighting an anomalous zone" />
           </div>
 
           <div className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Why heatmap anomalies matters</h2>
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
-                <p>Most foot traffic on a site is unremarkable — people moving through as expected, at roughly the volume you'd expect for the time of day. The interesting moments are the exceptions: a corridor that's suddenly congested, a normally busy lobby that's gone quiet, a back area with activity at an hour when nobody should be there. Those exceptions are easy to miss without something actively watching for them.</p>
-                <p>A single fixed rule — "alert if more than N people are in this zone" — doesn't capture what "unusual" actually means for a given area, because normal varies by zone, by hour, and by day of week. A number that's alarming in a back corridor at 2am is completely ordinary in a lobby at lunchtime.</p>
+                <p>Most foot traffic on a site is unremarkable, people moving through as expected, at roughly the volume you'd expect for the time of day. The interesting moments are the exceptions: a corridor that's suddenly congested, a normally busy lobby that's gone quiet, a back area with activity at an hour when nobody should be there. Those exceptions are easy to miss without something actively watching for them.</p>
+                <p>A single fixed rule, "alert if more than N people are in this zone", doesn't capture what "unusual" actually means for a given area, because normal varies by zone, by hour, and by day of week. A number that's alarming in a back corridor at 2am is completely ordinary in a lobby at lunchtime.</p>
                 <p>Heatmap anomalies solves this by comparing current traffic against a baseline built specifically for each zone, rather than a single threshold applied everywhere. That's what lets it flag a real deviation instead of either missing it or flooding the queue with false alerts.</p>
               </div>
             </ScrollReveal>
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="BASELINE VS DEVIATION LOGIC" alt="Diagram showing current zone traffic compared against a learned baseline pattern before an anomaly is flagged" />
+            <PhotoFigure src="/feature-heatmap-anomalies-2.jpg" alt="Diagram showing current zone traffic compared against a learned baseline pattern before an anomaly is flagged" caption="Baseline vs deviation logic" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>
@@ -84,7 +86,7 @@ export default function Page() {
                 <h3 className="mt-6 font-display text-lg font-bold">Detecting a deviation</h3>
                 <p className="mt-2 text-muted-foreground">
                   Current traffic is continuously compared against that baseline. A deviation beyond the
-                  configured threshold — in either direction — flags an anomaly with the affected zone and time window.
+                  configured threshold, in either direction, flags an anomaly with the affected zone and time window.
                 </p>
 
                 <h3 className="mt-6 font-display text-lg font-bold">Where the data feeds</h3>
@@ -107,16 +109,16 @@ export default function Page() {
                   <li className="flex gap-2">• Zone boundaries marked on the camera view or site map</li>
                   <li className="flex gap-2">• Anomaly sensitivity threshold, configurable per zone</li>
                   <li className="flex gap-2">• Baseline learning period before anomaly flagging goes active</li>
-                  <li className="flex gap-2">• Schedule-based activation, e.g. business hours only</li>
+                  <li className="flex gap-2">• Notification window per camera, e.g. notify in business hours only</li>
                   <li className="flex gap-2">• Per-camera instance licensing</li>
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="ZONE & SENSITIVITY CONFIGURATION" alt="Configuration panel showing a monitored zone drawn on a site map with an anomaly sensitivity threshold control" />
+            <PhotoFigure src="/feature-heatmap-anomalies-3.jpg" alt="Configuration panel showing a monitored zone drawn on a site map with an anomaly sensitivity threshold control" caption="Zone & sensitivity configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="dashboard" caption="ANOMALY REVIEW" alt="Dashboard view listing flagged heatmap anomalies by zone, time window, and deviation severity" />
+            <PhotoFigure src="/feature-heatmap-anomalies-4.jpg" alt="Dashboard view listing flagged heatmap anomalies by zone, time window, and deviation severity" caption="Anomaly review" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>
@@ -174,14 +176,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="bg-muted/30 py-16 sm:py-20">
-        <div className="mx-auto max-w-site px-6 text-center">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">Frequently asked questions</h2>
-          <div className="mx-auto mt-8 max-w-3xl text-left">
-            <FAQAccordion items={faqs} />
-          </div>
-        </div>
-      </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

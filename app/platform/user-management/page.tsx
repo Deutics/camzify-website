@@ -1,10 +1,10 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { FeatureHero } from '@/components/content/feature-hero';
 import { ProductShot } from '@/components/content/product-shot';
 import { UserManagementMockup } from '@/components/mockups/user-management-mockup';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 import { ShieldCheck, Cpu, MapPin, UserCog } from 'lucide-react';
 
@@ -22,9 +22,9 @@ const pageMeta = {
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
-  { question: 'How do I set up delegated access for a team?', answer: 'Build a permission group first, then add the user against it, assign their sites and cameras, and allocate licence quota from what you hold. The walkthrough is at /guides/how-to-manage-sub-users-and-quotas.' },
-  { question: 'Can a sub-user create their own sub-users?', answer: 'Yes, on the same model as the parent account. A sub-user can create users beneath them, assign a permission group, and allocate sites, cameras, feature instances and backup storage out of their own unused quota — never more than they hold. Subscription end date and pricing stay parent-admin-only, so a delegated administrator can run their part of the account without touching commercial terms.' },
-  { question: 'What happens when a sub-user runs out of licensed instances?', answer: 'They see the limit and are offered a quota request form rather than a dead end. The request arrives in the parent account under User Management, where it can be approved — if there is enough unallocated quota to cover it — or declined. Nothing is granted automatically, so the parent account keeps control of what has been handed out.' },
+  { question: 'How do I set up delegated access for a team?', answer: 'Build a permission group first, then add the user against it, assign their sites and cameras, and allocate license quota from what you hold. The walkthrough is at /guides/how-to-manage-sub-users-and-quotas.' },
+  { question: 'Can a sub-user create their own sub-users?', answer: 'Yes, on the same model as the parent account. A sub-user can create users beneath them, assign a permission group, and allocate sites, cameras, feature instances and backup storage out of their own unused quota, never more than they hold. Subscription end date and pricing stay parent-admin-only, so a delegated administrator can run their part of the account without touching commercial terms.' },
+  { question: 'What happens when a sub-user runs out of licensed instances?', answer: 'They see the limit and are offered a quota request form rather than a dead end. The request arrives in the parent account under User Management, where it can be approved, if there is enough unallocated quota to cover it, or declined. Nothing is granted automatically, so the parent account keeps control of what has been handed out.' },
   { question: 'Can I suspend a sub-user without deleting them?', answer: 'Yes. Deactivating a user blocks sign-in while keeping their allocation and data reserved, so a contractor between shifts or a member of staff on leave can be restored later without rebuilding their access. Deleting is the separate, permanent action.' },
   { question: 'How do I reset a sub-user\'s password?', answer: 'From that user\'s menu in User Management, either set a password directly or generate a strong random one. It does not require the user to start a reset from their own end, which matters for shift staff who need access restored while they are on site.' },
   { question: 'What happens to a disabled sub-user\'s allocated AI instances?', answer: 'They typically return to the parent account\'s available pool once the sub-user is disabled, freeing that detection capacity to be reassigned elsewhere rather than sitting unused against an inactive account.' },
@@ -68,9 +68,9 @@ export default function Page() {
           </div>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { icon: ShieldCheck, title: 'Role-based permission groups', desc: 'Site Admin, Guard, Auditor, Surveillance Manager, or a custom group — each defines exactly what a sub-user can view, edit, or delete.' },
+              { icon: ShieldCheck, title: 'Role-based permission groups', desc: 'Site Admin, Guard, Auditor, Surveillance Manager, or a custom group, each defines exactly what a sub-user can view, edit, or delete.' },
               { icon: Cpu, title: 'Per-user instance allocation', desc: 'AI feature instances (Line Intrusion, Tampering, VPS, and more) can be granted to a sub-user straight from the parent account\'s license.' },
-              { icon: MapPin, title: 'Multi-site scoping', desc: 'Each sub-user is scoped to one site, several, or all sites — visibility never has to be all-or-nothing.' },
+              { icon: MapPin, title: 'Multi-site scoping', desc: 'Each sub-user is scoped to one site, several, or all sites, visibility never has to be all-or-nothing.' },
               { icon: UserCog, title: 'Invite / disable lifecycle', desc: 'Sub-users move cleanly through Invited, Active, and Disabled states without losing their configured role or site scope.' },
             ].map((item, i) => {
               const Icon = item.icon;
@@ -97,8 +97,8 @@ export default function Page() {
                   all feed into the same console.
                 </p>
                 <p className="mt-4 text-muted-foreground">
-                  The detailed permission matrix — the exact View, Edit, and Delete grants each of the four
-                  built-in groups carries per module — lives on its own page. See{' '}
+                  The detailed permission matrix, the exact View, Edit, and Delete grants each of the four
+                  built-in groups carries per module, lives on its own page. See{' '}
                   <Link href="/platform/permission-groups" className="text-primary hover:underline">Permission Groups</Link> for
                   the full breakdown, or <Link href="/platform/license-and-instance-management" className="text-primary hover:underline">License & Instance Management</Link> for
                   how AI detection capacity is licensed and allocated in the first place.
@@ -126,13 +126,7 @@ export default function Page() {
             </ScrollReveal>
           </div>
 
-          <div className="mt-16 rounded-2xl border border-border bg-card p-8 sm:p-10">
-            <span className="font-mono text-mono-sm uppercase text-primary">FAQ</span>
-            <h2 className="mt-2 font-display text-2xl font-bold">Frequently asked questions</h2>
-            <div className="mt-6">
-              <FAQAccordion items={faqs} />
-            </div>
-          </div>
+          <FaqSection items={faqs} inline />
 
           <div className="mt-16">
             <h2 className="font-display text-2xl font-bold">Related</h2>

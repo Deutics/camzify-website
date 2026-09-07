@@ -69,7 +69,7 @@ export default function ExamplePage() {
   `og:url`, and every schema `@id`. A mismatch silently produces a wrong canonical.
 - `faqs` is passed to `PageShell`, **not** to a separate schema block. `PageShell` emits
   the `FAQPage` node from the same array `FAQAccordion` renders, so the structured data
-  and the visible answers cannot drift apart. Google penalises FAQ schema that does not
+  and the visible answers cannot drift apart. Google penalizes FAQ schema that does not
   match visible content.
 - Exactly one `<h1>`, matching the primary keyword. Section headings are `<h2>`,
   sub-points `<h3>`. Never skip a level for styling — use classes.

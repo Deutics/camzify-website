@@ -1,10 +1,11 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { FaqSection } from '@/components/content/faq-section';
 import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 
 /**
@@ -14,21 +15,21 @@ import Link from 'next/link';
  */
 const pageMeta = {
   title: "AI Security for Multiple Sites | Video Surveillance",
-  description: "Camzify provides AI-powered virtual patrolling and video analytics for multiple sites — automated patrols, real-time alerts, and compliance reports.",
+  description: "Camzify provides AI-powered virtual patrolling and video analytics for multiple sites, automated patrols, real-time alerts, and compliance reports.",
   path: "/industries/multiple-sites",
 };
 
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const deploymentPhases = [
-    { title: "Standardise one sequence first", body: "A single site is configured and tuned into an approved template — camera order, checklist wording and escalation contacts — before anything is rolled out more widely." },
+    { title: "Standardize one sequence first", body: "A single site is configured and tuned into an approved template — camera order, checklist wording and escalation contacts — before anything is rolled out more widely." },
     { title: "Replicate and delegate", body: "The template is applied across the estate, with permission groups giving each local contact access to their own site while regional managers retain the combined view." },
     { title: "Compare compliance across locations", body: "Because every site runs an identical checklist, round-completion and compliance percentages become directly comparable, which is what surfaces the underperforming location." },
 ];
 
 const faqs = [
-  { question: "Is there a limit to how many sites Camzify can manage?", answer: "No practical limit. The platform is designed for multi-site operations, with centralised management, site-specific patrol configurations, and cross-site analytics." },
-  { question: "Can different sites have different patrol schedules?", answer: "Yes. Each site has its own patrol sequences, checklists, schedules, and alert routing — all managed from the central dashboard." },
+  { question: "Is there a limit to how many sites Camzify can manage?", answer: "No practical limit. The platform is designed for multi-site operations, with centralized management, site-specific patrol configurations, and cross-site analytics." },
+  { question: "Can different sites have different patrol schedules?", answer: "Yes. Each site has its own patrol sequences, checklists, schedules, and alert routing, all managed from the central dashboard." },
   { question: "How long does it take to onboard a new site into an existing account?", answer: "Once camera access is confirmed for the new site, zones and a patrol route are typically configured within a few days and added to the existing dashboard alongside your other locations, without disrupting patrols already running elsewhere." },
   { question: "Does detection accuracy vary between sites with different camera hardware?", answer: "Camzify works with any IP camera feed, but zone boundaries and detection sensitivity are tuned per camera during setup, so a site with older or lower-resolution cameras can be configured with thresholds appropriate to that hardware rather than a one-size-fits-all setting." },
   { question: "Can reporting be split out per site for local compliance or franchise requirements?", answer: "Yes. Patrol reports and compliance records are generated per site, so a franchise or regional operator can produce a location-specific report while still having a consolidated view across the full portfolio." },
@@ -37,22 +38,25 @@ const faqs = [
 
 export default function MultipleSitesPage() {
   return (
-    <PageShell {...pageMeta} schema={[serviceSchema({ name: "AI Security for Multiple Sites", description: "Camzify provides AI-powered virtual patrolling and video analytics for multiple sites — automated patrols, real-time alerts, and compliance reports.", path: "/industries/multiple-sites", audience: "Multiple Sites" })]} faqs={faqs} breadcrumbs={[
+    <PageShell {...pageMeta} schema={[serviceSchema({ name: "AI Security for Multiple Sites", description: "Camzify provides AI-powered virtual patrolling and video analytics for multiple sites, automated patrols, real-time alerts, and compliance reports.", path: "/industries/multiple-sites", audience: "Multiple Sites" })]} faqs={faqs} breadcrumbs={[
       { label: 'Industries', href: '/industries' },
       { label: 'Multiple Sites' },
     ]}>
+      <FeatureHero
+        eyebrow="Industry · multiple sites"
+        title="AI security for multiple sites"
+        lede={<><strong className="font-semibold text-foreground">Multi-site operators face security challenges that cameras alone cannot solve and manned guards cannot cover consistently.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.</>}
+        facts={['Inconsistent patrol coverage across locations run by…', 'No centralized visibility into which sites had checks…', 'Camera outages at remote sites going unnoticed for days']}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}
+        visual={<PlaceholderVisual type="industry" caption="MULTIPLE SITES" alt="Security monitoring in a multiple sites environment" />}
+      />
+
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">AI Security for Multiple Sites</h1>
-          <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            Multi-site operators face security challenges that cameras alone cannot solve and manned guards cannot cover consistently. Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.
-          </p>
-
-          <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
-            <ScrollReveal>
-              <div>
-                <h2 className="font-display text-2xl font-bold">Common multi-site security gaps Camzify closes:</h2>
-                <ul className="mt-4 space-y-3 text-muted-foreground">
+          <div>
+            <h2 className="font-display text-2xl font-bold">Common multi-site security gaps Camzify closes:</h2>
+            <ul className="mt-4 grid gap-3 text-muted-foreground sm:grid-cols-2">
                   <li className="flex gap-2">• Inconsistent patrol coverage across locations run by different local teams</li>
                   <li className="flex gap-2">• No centralized visibility into which sites had checks completed overnight</li>
                   <li className="flex gap-2">• Camera outages at remote sites going unnoticed for days</li>
@@ -60,9 +64,6 @@ export default function MultipleSitesPage() {
                   <li className="flex gap-2">• No standardized audit trail across the portfolio</li>
                   <li className="flex gap-2">• Difficulty scaling guarding coverage as new sites are added</li>
                 </ul>
-              </div>
-            </ScrollReveal>
-            <PlaceholderVisual type="industry" caption="MULTIPLE SITES" alt="Security monitoring in a multiple sites environment" />
           </div>
 
           <div className="mt-16">
@@ -71,7 +72,7 @@ export default function MultipleSitesPage() {
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
                 <p>Running security across many locations usually means stitching together separate guarding contracts, inconsistent camera systems, and local teams who each handle checks their own way. What counts as a completed patrol at one site may be a quick glance at another.</p>
                 <p>A regional security manager reviewing that patchwork after the fact has no easy way to tell which sites are actually being checked consistently and which are relying on assumption. A camera going offline at a remote location can go unnoticed for days if no one is specifically watching for it.</p>
-                <p>Continuous AI monitoring standardizes the patrol itself — the same scheduled checks, the same reporting format, and the same alert routing logic applied across every site from one dashboard — so gaps show up immediately instead of being discovered during an incident review.</p>
+                <p>Continuous AI monitoring standardizes the patrol itself, the same scheduled checks, the same reporting format, and the same alert routing logic applied across every site from one dashboard, so gaps show up immediately instead of being discovered during an incident review.</p>
               </div>
             </ScrollReveal>
           </div>
@@ -104,7 +105,7 @@ export default function MultipleSitesPage() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Building the patrol route</h3>
                 <p className="mt-2 text-muted-foreground">
-                  A patrol sequence is set up once per site, ordering every camera stop for that location into a route that runs on a configurable schedule — with every site's routes visible from the same central dashboard.
+                  A patrol sequence is set up once per site, ordering every camera stop for that location into a route that runs on a configurable schedule, with every site's routes visible from the same central dashboard.
                 </p>
 
                 <h3 className="mt-6 font-display text-lg font-bold">Checking each stop</h3>
@@ -156,7 +157,7 @@ export default function MultipleSitesPage() {
           <div className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Deployment notes</h2>
-              <p className="mt-4 max-w-prose text-muted-foreground">Multi-site operations benefit most from Camzify's centralised dashboard, consistent patrol scheduling, and cross-site reporting. One security team can oversee all locations with site-specific configurations.</p>
+              <p className="mt-4 max-w-prose text-muted-foreground">Multi-site operations benefit most from Camzify's centralized dashboard, consistent patrol scheduling, and cross-site reporting. One security team can oversee all locations with site-specific configurations.</p>
             </ScrollReveal>
           </div>
 
@@ -202,14 +203,7 @@ export default function MultipleSitesPage() {
         </div>
       </section>
 
-      <section className="bg-muted/30 py-16 sm:py-20">
-        <div className="mx-auto max-w-site px-6 text-center">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">Frequently asked questions</h2>
-          <div className="mx-auto mt-8 max-w-3xl text-left">
-            <FAQAccordion items={faqs} />
-          </div>
-        </div>
-      </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

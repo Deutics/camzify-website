@@ -19,7 +19,7 @@
 - **Entity note:** Deutics Global LLP is a **separate** Pakistan-registered consulting and
   development firm led by the same person. It was previously credited on this site as
   Camzify's legal entity and in the footer as its engineering arm; both were wrong and
-  have been removed. Naming two organisations behind one product is the same
+  have been removed. Naming two organizations behind one product is the same
   entity-resolution failure as publishing two addresses — a search engine cannot tell
   which entity the links, reviews and citations belong to. The relationship is stated
   only on `/about/muhammad-talha`, as a fact about a person, where it is unambiguous
@@ -33,10 +33,10 @@
 
 1. **Virtual Patrolling** — the flagship. Automated AI patrol rounds with configurable sequences, per-camera checklists, scheduling, guard notifications, compliance tracking and PDF reports.
 2. **AI detection features** (23 pages) — line and zone intrusion, motion, camera tampering, multi-object tracking, AI attribute extraction, cross-camera journey map, AI suspect search, tailgating, weapons, aggression, PPE, fire and smoke, slip and fall, abandoned object, littering, illegal parking, wrong-way vehicle, vehicle damage, heatmap anomalies, occupancy trends.
-3. **Platform** (12 pages) — dashboard, live streaming, video backup and retention, notifications and alerts, analytics and reporting, user management, permission groups, licence and instance management, multi-site management, mobile access, AI architecture.
+3. **Platform** (12 pages) — dashboard, live streaming, video backup and retention, notifications and alerts, analytics and reporting, user management, permission groups, license and instance management, multi-site management, mobile access, AI architecture.
 4. **Camera connectivity** — ONVIF/RTSP/RTMP/HLS/WebRTC ingest plus the Camzify Connector for local networks without port forwarding.
 
-**Money pages** (internal links should be prioritised towards these):
+**Money pages** (internal links should be prioritized towards these):
 - https://camzify.com/book-a-demo — the primary conversion target
 - https://camzify.com/free-trial
 - https://camzify.com/pricing
@@ -70,7 +70,7 @@ inventory immediately after the problem statement; buyer-question FAQ covering
 deployment model, camera lock-in, storage, security, search and mobile (the questions
 the buyer-guide press asks of every VMS); a segment door for the agency buyer on the
 cost section. **Deliberately not adopted:** customer counts, G2 badges, "trusted by N
-organisations" — nothing on this site may carry a number the business has not verified.
+organizations" — nothing on this site may carry a number the business has not verified.
 
 ### Service area
 
@@ -82,25 +82,26 @@ organisations" — nothing on this site may carry a number the business has not 
 > These last two are load-bearing. Wrong values return wrong search volumes in
 > every skill, with no error message.
 
-> ### ⚠️ Open conflict: US search target vs Commonwealth copy
+> ### Resolved: US spelling is the house style (2026-09-03)
 >
-> The target search market is the US, but the site is written in Commonwealth English
-> and declares `locale: en_SG`. This is a real keyword-matching problem, not a style
-> preference. Affected terms, with live counts in the copy:
+> The target search market is the US, so the copy is written in US English and the
+> site declares `locale: en_US`. This was a keyword-matching decision, not a style
+> preference: US searchers type "monitoring center", "behavior", "license" and
+> "organization", and a Commonwealth-spelled page matches none of them exactly.
 >
-> | Site uses | US searchers use | Occurrences | Impact |
-> |---|---|---|---|
-> | monitoring centre(s) | monitoring center(s) | 29 | **High** — also the URL `/partners/for-monitoring-centres` |
-> | behaviour | behavior | 18 | **High** — the route is already `/ai-features/behavioral-analytics`, so copy and slug disagree today |
-> | analyse / analysed | analyze / analyzed | 16 | Medium |
-> | colour | color | 23 | Low — mostly attribute-extraction copy |
-> | organisation, licence, prioritise, recognise | organization, license, prioritize, recognize | 6 | Low |
+> What that means when writing or editing copy:
 >
-> **Recommended:** switch body copy to US spelling for the high-impact terms only, set
-> `locale` to `en_US`, and leave the `/partners/for-monitoring-centres` URL alone unless
-> redirects are configured — changing a live URL without a 301 costs more than the
-> spelling gains. Decide this before running `keyword-fanout-map`, because the keyword
-> map will be built around whichever variant is chosen.
+> - -ize, -yze, -or, -er, single-l: organize, analyze, behavior, center, canceled,
+>   license (noun and verb), catalog, gray, program, judgment, acknowledgment.
+> - Proper nouns keep their own spelling. Customer and product names are never
+>   respelled ("Carros Centre" stays).
+> - Slugs follow the copy. `/partners/for-monitoring-centres` moved to
+>   `/partners/for-monitoring-centers` with a permanent redirect in `next.config.js`;
+>   do the same if another Commonwealth-spelled slug turns up.
+> - Filenames and identifiers were left alone (`scripts/optimise-images.py`,
+>   `eslint.ssr.config.mjs` messages). Prose only.
+>
+> Run `keyword-fanout-map` against US variants.
 
 ### Competitors
 
@@ -147,7 +148,7 @@ Researched 2026-09-03 by reading the sites themselves. This matters because the 
 has named security agencies as its primary target, and the answer splits cleanly in two.
 
 **The big VMS names do not sell to guarding companies as a buyer.** Milestone, Genetec,
-Verkada and Eagle Eye all address (a) end-user organisations by industry — retail,
+Verkada and Eagle Eye all address (a) end-user organizations by industry — retail,
 education, healthcare, manufacturing, government, hotels, logistics — and (b) a channel of
 **installers, resellers, distributors, integrators and A&E consultants**. That channel is
 people who *fit* systems, not people who *run monitoring as a service*. Eagle Eye's site
@@ -176,7 +177,7 @@ Beyond the supplied list, the same segment is served by Becklar (explicit white-
    and Verkada still capture end-user search, but an agency evaluating Camzify is not
    comparing it to a VMS.
 4. **There is a vocabulary gap.** The segment searches in its own words and the site does
-   not use them: "central monitoring station" (0 pages), "alarm receiving centre" (0),
+   not use them: "central monitoring station" (0 pages), "alarm receiving center" (0),
    "GSOC" (0), "security agency" / "guarding company" (0), "white label" (1 passing
    mention). "Remote guarding" appears on 4. Whatever is decided about positioning, these
    are the terms the buyer types.
@@ -188,7 +189,7 @@ group, because the site's whole argument is category-level):
 - Guard tour systems (NFC/QR checkpoint verification)
 - Traditional VMS and on-premise NVR systems
 - Basic pixel-based motion detection
-- Remote guarding / monitoring centres
+- Remote guarding / monitoring centers
 
 ### Goals
 
@@ -250,7 +251,7 @@ the homepage Auto-Patrol section and `/llms.txt`.
 >
 > Under the **EU AI Act**, emotion recognition in the workplace is a prohibited practice,
 > and inferring characteristics such as gender from biometric data is restricted
-> biometric categorisation. In the **US**, Illinois BIPA and comparable state laws create
+> biometric categorization. In the **US**, Illinois BIPA and comparable state laws create
 > exposure around biometric identifiers, with a private right of action in Illinois.
 >
 > This is why neither field appears anywhere in the marketing copy. Marketing them would
@@ -310,8 +311,14 @@ Plain. Technical. Unhyped.
 
 ### The reader
 
+- **WHO THE LEADS ACTUALLY ARE (from the business's outreach lead files, 35 files, analyzed 2026-09-05; aggregates only, no individuals recorded):** 12,794 companies, 16,398 people. By primary NACE code: **56% guarding companies (80.1)**, **34% security-systems installers, i.e. CCTV, alarm and access-control installers (80.2)**, ~5% electrical/installation contractors, <1% investigation. By country: **US 35%, Germany 30%, UK 14%**, France 4%, Italy 2.5%, Hungary 2%, then NL/ES/FI/SE/BE/IE/AT around 1% each; roughly 60% of the list is in Europe and about 45% is in non-English-speaking countries. By size: **87% have 1–50 staff** (guarding: half are 11–50; installers: half are 1–10); only 4% are over 200. Of the people with a job title, **71% are the owner, CEO, MD or Geschäftsführer**; 4% are operations, control-room or security managers. What they sell today, from their own descriptions: guarding companies mention mobile patrols (15%), manned guarding (9%), CCTV (8%) and alarm monitoring (4%); installers mention CCTV (53%), access control (31%), fire (17%) and monitoring (17%). **0% mention remote or virtual guarding**, so the category has to be introduced, not assumed. Implications: the buyer is an owner-operator of a small security business, not a corporate security manager; the pitch is revenue and margin, not cost-cutting; the comparison set is mobile patrols and alarm monitoring, not enterprise VMS; and the partner track (agencies, installers, monitoring companies) is the primary track, not a secondary one. See `docs/AUDIENCE-STRATEGY.md`.
 - **PRIMARY TARGET, stated by the business 2026-09-02: security agencies.** Guarding companies that cover many client sites and would use Camzify to deliver monitoring across all of them. This is a reseller-shaped buyer, not an end user: they care about coverage per guard-hour, per-client separation, and what they can show their own customers. **See the positioning conflict flagged at the end of this section.**
-- **Who is reading (end-user segment):** A security manager, facilities manager, or operations director responsible for one or more physical sites. They already own cameras. They are evaluating whether to cut, supplement or justify guarding spend. Secondary reader: security integrators, MSPs and monitoring centres evaluating a channel partnership.
+- **SECOND STATED SEGMENT, from the business 2026-09-03: monitoring companies.** Companies that work *behind* security agencies: they run the monitoring on the agency's behalf and notify the agency's guards when needed (CMS, ARC, GSOC shapes). Three-party relationship — end client owns the site, agency holds the contract and the guards, monitoring company operates the console. What they care about: operator load, being able to notify the agency's guard from the round, per-agency separation, and a per-round report the agency can show its client. Page: `/partners/for-monitoring-centers`. Not a reseller pitch — they are the account holder.
+- **Legal pages (privacy policy, terms of service, cookie policy, accessibility) were written 2026-09-07 from what the site actually does** (four forms stored in a database, no analytics or advertising scripts, a theme preference and two session flags in browser storage, Singapore governing law). They are drafts for counsel to review before the site leaves maintenance; the cookie policy lists every browser-storage item and must be updated before any analytics tool is added.
+- **Pricing disclosure, decided by the business 2026-09-07: no prices on the website, ever, including "from" figures and placeholder rates.** The site's job is to make the reader contact us for a quote. The ROI calculator therefore contains no Camzify cost; it computes the reader's own guard cost or partner revenue and hands the other half to a quote.
+- **AI-feature schedule semantics, stated by the business 2026-09-04:** the schedule on an AI feature is a *notification window*. The detection runs regardless; notifications are generated only inside the window and none outside it. Never write it as "schedule-based activation" or "zones with hours" (the detection is not switched off). House phrasing: "a notification window per camera", "notified in the hours you set".
+- **Partner facts confirmed by the business 2026-09-03:** Camzify sells no hardware. There is no certified installer program, no partner portal, no white-label option and no published partner margin; partner terms are agreed in conversation. A suspended sub-user keeps its sites, recordings and reports and can be reinstated. The five `/partners/*` pages state these; if any changes, change the page and this line together.
+- **Who is reading (end-user segment):** A security manager, facilities manager, or operations director responsible for one or more physical sites. They already own cameras. They are evaluating whether to cut, supplement or justify guarding spend. Secondary reader: security integrators, MSPs and monitoring centers evaluating a channel partnership.
 - **Reading level:** Professional/technical B2B. Comfortable with RTSP, ONVIF, NVR, false-positive rates. Does not need jargon explained, but does need claims substantiated.
 - **What they are afraid of:** Paying for patrol rounds that are not actually happening. An incident occurring in an unwatched window and being asked afterwards why nobody saw it. Alert fatigue from a system that cries wolf. Buying software that turns out not to work with the cameras already installed. Being sold an AI product that is a demo, not a shipping capability.
 - **What would make them trust this business:** Specificity and admitted limits. The site already earns trust by publishing what it does *not* claim, by marking roadmap features as roadmap, and by refusing to publish numbers it cannot verify. That posture is the differentiator — protect it.
@@ -336,7 +343,7 @@ Plain. Technical. Unhyped.
 | "replaces the routine patrol round, not the security function" | "replaces your security guards" (unqualified) |
 | "timestamped", "auditable", "compliance record" | Invented customer counts, uptime %, response times |
 | Name the capability, not the category | "AI-powered" as a modifier — say what it actually does |
-| Operational, procedural language | Military/combat framing: "threat neutralised", "war room", "mission-critical", "defend your perimeter" |
+| Operational, procedural language | Military/combat framing: "threat neutralized", "war room", "mission-critical", "defend your perimeter" |
 | "virtual patrolling", "the patrol report", "line intrusion detection" | "solution" and "platform" as standalone nouns |
 | Plain verbs | revolutionary, cutting-edge, game-changing, seamless, unlock, leverage, elevate, robust, best-in-class |
 
@@ -345,7 +352,7 @@ Plain. Technical. Unhyped.
 - **Person:** First person plural for the company ("we build", "we do not claim"); second person for the reader ("your site", "the cameras you already own"). Feature and guide pages are largely impersonal and descriptive.
 - **Contractions:** Rare. The copy consistently prefers expanded forms — "cannot", "does not", "is not". Match this.
 - **Humour:** None. Not one joke across 121 pages. Do not introduce any.
-- **Sentence length:** Medium, varied. Frequent em-dash asides. Paragraphs run 2–4 sentences. Opening sentences are definitional and self-contained.
+- **Sentence length:** Medium, varied. Em-dash asides sparingly (2026-09-03: cut from ~100 to ~20 across the revamped pages; a dash-heavy page reads as machine-written). Prefer a full stop, a colon or a comma. Paragraphs run 2–4 sentences. Opening sentences are definitional and self-contained.
 - **Anything structural to always do or never do:** Answer in the first two sentences, then expand. Write sentences that survive being quoted out of context. Never open with a preamble or a rhetorical question. Never use a heading that does not describe what follows.
 
 ### Words from the business's own mouth

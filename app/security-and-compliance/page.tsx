@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
 
@@ -16,12 +17,19 @@ const pageMeta = {
 
 export const metadata = generatePageMeta({ ...pageMeta });
 
+const faqs = [
+  { question: 'Is Camzify SOC 2 or ISO 27001 certified?', answer: 'Not yet. Both are in progress, as are PDPA and GDPR alignment. This page states the current posture and will change when a certificate is held, not before.' },
+  { question: 'How is video protected in transit and at rest?', answer: 'Streams are carried over TLS 1.2 or higher and footage at rest is encrypted with AES-256. Access is role-based through permission groups, and every action on the account is logged.' },
+  { question: "Who can see a client's footage on a multi-tenant account?", answer: "Only logins scoped to that client's sites. A sub-user sees its own cameras, alerts and reports; the parent account sees everything under it. The audit trail records who opened what." },
+  { question: 'Does the AI identify people?', answer: 'No. Attribute extraction describes clothing, carried objects and direction of travel; nothing on the platform recognises faces or names anyone, and we say so on every page where it could be assumed.' },
+];
+
 export default function SecurityCompliancePage() {
   return (
-    <PageShell {...pageMeta} breadcrumbs={[{ label: 'Security & Compliance' }]}>
+    <PageShell {...pageMeta} faqs={faqs} breadcrumbs={[{ label: 'Security & Compliance' }]}>
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Security & Compliance</h1>
+          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Security & compliance</h1>
           <p className="mt-6 max-w-prose text-body text-muted-foreground">
             Security is foundational to a <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</Link> platform. This page documents our security practices, data protection measures, and compliance posture. Where we have not yet obtained a certification, we state that plainly.
           </p>
@@ -82,6 +90,7 @@ export default function SecurityCompliancePage() {
           </div>
         </div>
       </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

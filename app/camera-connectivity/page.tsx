@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
 import { Radio, Upload, Globe } from 'lucide-react';
@@ -29,12 +30,19 @@ const protocols = [
   { slug: 'https-setup', title: 'HTTPS', icon: Globe, desc: 'Streams delivered over the web. Covers both HLS (.m3u8) and WebRTC (WHEP/WHIP).' },
 ];
 
+const faqs = [
+  { question: 'How many ways can a camera connect?', answer: 'Three: RTSP, RTMP and HTTPS. HTTPS covers both HLS and WebRTC streams. RTSP has two routes, direct for a stream reachable from the internet or through the Camzify Connector for cameras on a local network.' },
+  { question: 'Which route should I use?', answer: 'RTSP through the Connector for most IP cameras on a site network, RTSP direct for a stream already published to the internet, RTMP for encoders, HTTPS for web-delivered streams. Each guide covers one route.' },
+  { question: 'Do I need to open ports?', answer: 'Not for the Connector, which relays outward, nor for RTMP, which pushes outward. Only a directly reachable RTSP stream needs the camera exposed, which is why the Connector exists.' },
+  { question: 'What happens after a camera connects?', answer: 'Stream quality is detected automatically, and the camera is available for recording, detections, checklist items and patrol rounds like any other.' },
+];
+
 export default function CameraConnectivityHub() {
   return (
-    <PageShell {...pageMeta} breadcrumbs={[{ label: 'Camera Connectivity' }]}>
+    <PageShell {...pageMeta} faqs={faqs} breadcrumbs={[{ label: 'Camera Connectivity' }]}>
       <section className="pb-20">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Camera Connectivity</h1>
+          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Camera connectivity</h1>
           <p className="mt-6 max-w-2xl text-body text-muted-foreground">
             <strong className="font-semibold text-foreground">A camera connects to Camzify in one of three ways: RTSP, RTMP or HTTPS.</strong> Camzify uses the cameras you already own, with no proprietary hardware required. Choose your connection type below for step-by-step setup instructions, then start running <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrol</a> rounds within minutes.
           </p>
@@ -55,6 +63,7 @@ export default function CameraConnectivityHub() {
           </div>
         </div>
       </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

@@ -15,7 +15,7 @@ const guides = [
   },
   {
     title: 'How to Reduce False Alarms',
-    desc: 'Why legacy motion detection floods your team with noise — and how object-tracking fixes it.',
+    desc: 'Why legacy motion detection floods your team with noise, and how object-tracking fixes it.',
     href: '/guides/how-to-reduce-false-alarms',
   },
 ];

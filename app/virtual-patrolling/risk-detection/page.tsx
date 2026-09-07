@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { FeatureHero } from '@/components/content/feature-hero';
 import { HeroPlaceholder } from '@/components/content/hero-placeholder';
@@ -13,8 +14,8 @@ import { ShieldAlert, Bell, Eye, ClipboardCheck } from 'lucide-react';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "AI Risk Detection on Patrol | Proactive Security Alerts",
-  description: "An automated patrol round flags safety and security risks it sees at each camera — a blocked exit, an unattended object, smoke — and raises a critical alert even where no checklist item asked about it.",
+  title: "AI Risk Detection on Patrol | Critical Alerts",
+  description: "Automated rounds flag safety and security risks at each camera, such as a blocked exit or smoke, and raise a critical alert where no checklist item asked.",
   path: "/virtual-patrolling/risk-detection",
 };
 
@@ -27,19 +28,19 @@ const faqs = [
   },
   {
     question: 'How is this different from a patrol checklist?',
-    answer: 'A checklist answers the questions somebody wrote down. Risk detection answers the question nobody thought to write down. Both run on the same round: each camera is checked against its checklist, and the same stop is also assessed for risks in its own right, so a blocked exit is flagged whether or not "exit clear" was ever added as an item. The two are complementary — the checklist is what proves a specific control was verified, and risk detection is what covers the gap between controls.',
+    answer: 'A checklist answers the questions somebody wrote down. Risk detection answers the question nobody thought to write down. Both run on the same round: each camera is checked against its checklist, and the same stop is also assessed for risks in its own right, so a blocked exit is flagged whether or not "exit clear" was ever added as an item. The two are complementary, the checklist is what proves a specific control was verified, and risk detection is what covers the gap between controls.',
   },
   {
     question: 'Does Camzify predict incidents before they happen?',
-    answer: 'No, and be wary of any vendor claiming it does. What it does is narrower and more useful: it observes conditions that are present now and would take time to become an incident, and tells someone while there is still time to act. A propped door is not a prediction — it is a fact about the site right now, and the value is that a person hears about it tonight rather than reading about it in an incident report next week.',
+    answer: 'No, and be wary of any vendor claiming it does. What it does is narrower and more useful: it observes conditions that are present now and would take time to become an incident, and tells someone while there is still time to act. A propped door is not a prediction, it is a fact about the site right now, and the value is that a person hears about it tonight rather than reading about it in an incident report next week.',
   },
   {
     question: 'What kinds of risk does it flag?',
-    answer: 'The categories align with the detection models the platform runs — fire and smoke, abandoned or unattended objects, people in restricted areas, PPE not being worn where it is required, aggression, obstruction and camera tampering among others. See the AI features index for the full set. What a given round flags depends on which features are active on that camera.',
+    answer: 'The categories align with the detection models the platform runs, fire and smoke, abandoned or unattended objects, people in restricted areas, PPE not being worn where it is required, aggression, obstruction and camera tampering among others. See the AI features index for the full set. What a given round flags depends on which features are active on that camera.',
   },
   {
     question: 'Where do these alerts arrive?',
-    answer: 'In the same notifications queue as detections from continuous monitoring, marked critical, carrying the snapshot from the camera and expecting an acknowledgement. They are not buried in the patrol report — the report records the round, while a risk that needs somebody now goes out as a notification on the channels that guard is configured for: email, SMS, WhatsApp or push.',
+    answer: 'In the same notifications queue as detections from continuous monitoring, marked critical, carrying the snapshot from the camera and expecting an acknowledgment. They are not buried in the patrol report, the report records the round, while a risk that needs somebody now goes out as a notification on the channels that guard is configured for: email, SMS, WhatsApp or push.',
   },
   {
     question: 'Does this replace continuous AI monitoring?',
@@ -191,7 +192,7 @@ export default function RiskDetectionPage() {
                   {
                     icon: Bell,
                     title: 'The alert reaches a person',
-                    desc: 'Critical notifications go to the guard configured for that camera on email, SMS, WhatsApp or push, and expect an acknowledgement.',
+                    desc: 'Critical notifications go to the guard configured for that camera on email, SMS, WhatsApp or push, and expect an acknowledgment.',
                     href: '/virtual-patrolling/guard-notifications',
                     link: 'Guard notifications',
                   },
@@ -228,6 +229,8 @@ export default function RiskDetectionPage() {
           </div>
         </div>
       </section>
+
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

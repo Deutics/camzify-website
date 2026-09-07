@@ -1,10 +1,12 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { FaqSection } from '@/components/content/faq-section';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 import { SiteImage } from '@/components/content/site-image';
 
@@ -14,8 +16,8 @@ import { SiteImage } from '@/components/content/site-image';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "AI Security for Warehouses | Video Surveillance",
-  description: "Camzify provides AI-powered virtual patrolling and video analytics for warehouses — automated patrols, real-time alerts, and compliance reports.",
+  title: "Warehouse Security Cameras, Patrolled by AI",
+  description: "Camzify runs patrol rounds on the security cameras a warehouse already has: dock doors, perimeter and cages checked overnight, the guard notified.",
   path: "/industries/warehouses",
 };
 
@@ -28,56 +30,55 @@ const deploymentPhases = [
 ];
 
 const faqs = [
-  { question: 'How many cameras does a typical warehouse need?', answer: 'It depends on the facility layout. Most warehouses use 8-30 cameras covering dock doors, perimeter, high-value areas, and main aisles. Camzify licences per camera, so you only pay for what you monitor.' },
+  { question: 'How many cameras does a typical warehouse need?', answer: 'It depends on the facility layout. Most warehouses use 8-30 cameras covering dock doors, perimeter, high-value areas, and main aisles. Camzify licenses per camera, so you only pay for what you monitor.' },
   { question: 'Can Camzify monitor cold storage areas?', answer: 'Yes. Camzify works with any IP camera feed. If the camera operates in cold storage conditions, the AI processes the feed as normal.' },
   { question: 'Does virtual patrolling replace our overnight security guard?', answer: 'For most warehouses, it replaces the need to add or scale overnight guarding rather than removing an existing team overnight. Many sites run virtual patrols alongside a smaller guard presence, using AI to cover blind spots and off-hours rounds a single guard can\'t physically reach every hour.' },
-  { question: 'How fast does a dock-door breach or after-hours entry get flagged?', answer: 'Alerts fire in near real time from the moment a confirmed event is detected — typically within seconds — and route to the assigned contact through the notification queue with a timestamped clip.' },
+  { question: 'How fast does a dock-door breach or after-hours entry get flagged?', answer: 'Alerts fire in near real time from the moment a confirmed event is detected, typically within seconds, and route to the assigned contact through the notification queue with a timestamped clip.' },
   { question: 'Can different zones of the warehouse have different patrol schedules?', answer: 'Yes. Patrol sequences, checklists, and detection schedules are configured per camera or zone, so a loading dock active during business hours and a fenced yard active only overnight can run entirely different rules on the same account.' },
   { question: 'What happens if a camera goes offline or is tampered with mid-shift?', answer: 'Camera Tampering Detection flags defocus, physical coverage, scene changes, and frozen feeds as they happen, and the affected camera is marked non-compliant in the patrol report until the feed is restored.' },
 ];
 
 export default function WarehousesPage() {
   return (
-    <PageShell {...pageMeta} schema={[serviceSchema({ name: "AI Security for Warehouses", description: "Camzify provides AI-powered virtual patrolling and video analytics for warehouses — automated patrols, real-time alerts, and compliance reports.", path: "/industries/warehouses", audience: "Warehouses" })]} faqs={faqs} breadcrumbs={[
+    <PageShell {...pageMeta} schema={[serviceSchema({ name: "Warehouse Security Cameras, Patrolled by AI", description: "Camzify runs patrol rounds on the security cameras a warehouse already has: dock doors, perimeter and cages checked overnight, the guard notified.", path: "/industries/warehouses", audience: "Warehouses" })]} faqs={faqs} breadcrumbs={[
       { label: 'Industries', href: '/industries' },
       { label: 'Warehouses' },
     ]}>
+      <FeatureHero
+        eyebrow="Industry · warehouses"
+        title="Warehouse security cameras, patrolled by AI"
+        lede={<><strong className="font-semibold text-foreground">Warehouses face security challenges that cameras alone cannot solve and manned guards cannot cover consistently.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.</>}
+        facts={['Dock doors left unmonitored between scheduled deliveries', 'Perimeter fence lines with no continuous overnight coverage', 'High-value storage areas relying on a single nightly guard pass']}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}
+        visual={<SiteImage
+              src="/ai-security-for-warehouses.jpg" alt="AI-monitored warehouse showing bounding boxes around a forklift, worker, and pallets, with aerial and interior storage rack views" className="w-full rounded-xl"
+              width={1600}
+              height={900}
+              sizes="(max-width: 1024px) 100vw, 60vw"
+            priority />}
+      />
+
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">AI Security for Warehouses</h1>
-          <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            Warehouses face security challenges that cameras alone cannot solve and manned guards cannot cover consistently. Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.
-          </p>
-
-          <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
-            <ScrollReveal>
-              <div>
-                <h2 className="font-display text-2xl font-bold">Common warehouse security gaps Camzify closes:</h2>
-                <ul className="mt-4 space-y-3 text-muted-foreground">
+          <div>
+            <h2 className="font-display text-2xl font-bold">Common warehouse security gaps Camzify closes:</h2>
+            <ul className="mt-4 grid gap-3 text-muted-foreground sm:grid-cols-2">
                   <li className="flex gap-2">• Dock doors left unmonitored between scheduled deliveries</li>
                   <li className="flex gap-2">• Perimeter fence lines with no continuous overnight coverage</li>
                   <li className="flex gap-2">• High-value storage areas relying on a single nightly guard pass</li>
                   <li className="flex gap-2">• Camera outages or tampering going unnoticed for hours</li>
                   <li className="flex gap-2">• No audit trail proving a patrol actually happened</li>
                 </ul>
-              </div>
-            </ScrollReveal>
-            <SiteImage
-              src="/ai-security-for-warehouses.jpg" alt="AI-monitored warehouse showing bounding boxes around a forklift, worker, and pallets, with aerial and interior storage rack views" className="w-full rounded-xl"
-              width={1600}
-              height={900}
-              priority
-              sizes="(max-width: 1024px) 100vw, 60vw"
-            />
           </div>
 
           <div className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Why warehouses need continuous AI monitoring</h2>
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
-                <p>A typical warehouse runs far longer than its staffed hours — trucks arrive before dawn, shifts end well after dark, and the building itself sits empty or lightly staffed for large stretches of every 24-hour cycle. A single guard walking a round covers the whole site for a few minutes an hour at best; the rest of the time, dock doors, fence lines, and storage areas are effectively unwatched.</p>
+                <p>A typical warehouse runs far longer than its staffed hours, trucks arrive before dawn, shifts end well after dark, and the building itself sits empty or lightly staffed for large stretches of every 24-hour cycle. A single guard walking a round covers the whole site for a few minutes an hour at best; the rest of the time, dock doors, fence lines, and storage areas are effectively unwatched.</p>
                 <p>Traditional CCTV records everything and reviews nothing until an incident is already reported. By the time someone pulls the footage after a theft or a damaged shipment, the window to actually respond has closed.</p>
-                <p>Virtual patrolling replaces that gap with scheduled AI rounds that check every camera stop on a defined route, log the result, and notify the right person the moment something fails — producing the same audit trail a physical guard tour would, without needing a guard walking it.</p>
+                <p>Virtual patrolling replaces that gap with scheduled AI rounds that check every camera stop on a defined route, log the result, and notify the right person the moment something fails, producing the same audit trail a physical guard tour would, without needing a guard walking it.</p>
               </div>
             </ScrollReveal>
           </div>
@@ -103,14 +104,14 @@ export default function WarehousesPage() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="WAREHOUSE PATROL SEQUENCE" alt="Diagram of a warehouse patrol route stepping through dock doors, perimeter, and storage zones" />
+            <PhotoFigure src="/industry-warehouses-3.jpg" alt="Diagram of a warehouse patrol route stepping through dock doors, perimeter, and storage zones" caption="Warehouse patrol sequence" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How Camzify works for warehouses</h2>
 
                 <h3 className="mt-6 font-display text-lg font-bold">Building the patrol route</h3>
                 <p className="mt-2 text-muted-foreground">
-                  A patrol sequence is set up once, ordering every camera stop — dock doors, perimeter fence lines, high-value storage, main aisles — into a single route that runs on a configurable schedule.
+                  A patrol sequence is set up once, ordering every camera stop, dock doors, perimeter fence lines, high-value storage, main aisles, into a single route that runs on a configurable schedule.
                 </p>
 
                 <h3 className="mt-6 font-display text-lg font-bold">Checking each stop</h3>
@@ -132,7 +133,7 @@ export default function WarehousesPage() {
                 <h2 className="font-display text-2xl font-bold">What to configure for a warehouse site</h2>
                 <p className="mt-4 text-muted-foreground">Most warehouse deployments start with:</p>
                 <ul className="mt-4 space-y-3 text-muted-foreground">
-                  <li className="flex gap-2">• Dock-door zones with schedule-based activation for delivery windows</li>
+                  <li className="flex gap-2">• Dock-door zones with a notification window set around deliveries</li>
                   <li className="flex gap-2">• Perimeter line rules covering fence lines and vehicle gates</li>
                   <li className="flex gap-2">• Restricted zones over high-value storage and hazardous material areas</li>
                   <li className="flex gap-2">• After-hours patrol frequency, typically every 30-60 minutes overnight</li>
@@ -140,11 +141,11 @@ export default function WarehousesPage() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="WAREHOUSE ZONE SETUP" alt="Configuration panel showing dock-door and perimeter zones mapped across a warehouse camera layout" />
+            <PhotoFigure src="/industry-warehouses-2.jpg" alt="Configuration panel showing dock-door and perimeter zones mapped across a warehouse camera layout" caption="Warehouse zone setup" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="camera-feed" caption="WAREHOUSE PATROL IN PROGRESS" alt="Camera feed showing an active patrol check at a warehouse loading dock" />
+            <PhotoFigure src="/industry-warehouses-1.jpg" alt="Camera feed showing an active patrol check at a warehouse loading dock" caption="Warehouse patrol in progress" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>
@@ -208,14 +209,7 @@ export default function WarehousesPage() {
         </div>
       </section>
 
-      <section className="bg-muted/30 py-16 sm:py-20">
-        <div className="mx-auto max-w-site px-6 text-center">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">Frequently asked questions</h2>
-          <div className="mx-auto mt-8 max-w-3xl text-left">
-            <FAQAccordion items={faqs} />
-          </div>
-        </div>
-      </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

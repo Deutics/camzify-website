@@ -21,7 +21,7 @@ const { name, role, credential, email, linkedin, slug, alsoLeads } = siteConfig.
 
 const pageMeta = {
   title: `${name} | Product Manager and CTO at ${siteConfig.name}`,
-  description: `${name} is ${role} at ${siteConfig.name}. ${credential}, and the author of the ${siteConfig.name} guides on virtual patrolling, AI video analytics and camera connectivity.`,
+  description: `${name} is ${role} at ${siteConfig.name}. ${credential}, and the author of the guides on this site.`,
   path: `/about/${slug}`,
 };
 
@@ -118,7 +118,7 @@ export default function AuthorPage() {
               <div className="mt-6 grid gap-4 sm:grid-cols-2">
                 {[
                   ['Computer vision in production', 'Detection models running on cameras that were never installed with analytics in mind — poor angles, mixed lighting, whatever the site already had.'],
-                  ['Automated surveillance workflows', 'Turning detections into something an operator can act on: patrol rounds, checklists, acknowledgement and an audit trail.'],
+                  ['Automated surveillance workflows', 'Turning detections into something an operator can act on: patrol rounds, checklists, acknowledgment and an audit trail.'],
                   ['Camera interoperability', 'ONVIF and RTSP in practice, and relaying streams from networks that were never meant to be reachable.'],
                   ['False alarm reduction', 'The problem that decides whether a detection system gets used or switched off after a fortnight.'],
                 ].map(([title, desc]) => (
@@ -158,7 +158,7 @@ export default function AuthorPage() {
               <p className="mt-4 max-w-prose text-muted-foreground">
                 For anything about the product, a deployment or something on this site that looks
                 wrong, <a href={`mailto:${email}`} className="text-primary hover:underline">{email}</a>{' '}
-                reaches him directly. For sales and general enquiries use the{' '}
+                reaches him directly. For sales and general inquiries use the{' '}
                 <Link href="/contact" className="text-primary hover:underline">contact page</Link>, and for a
                 walkthrough of the platform, <Link href="/book-a-demo" className="text-primary hover:underline">book a demo</Link>.
               </p>

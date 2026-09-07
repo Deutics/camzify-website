@@ -7,7 +7,7 @@ import { useDeferredGsap, revealTrigger } from '@/hooks/use-deferred-gsap';
 
 const statTiles = [
   { label: 'Cameras Live', value: 49, of: 61, sub: '80% uptime · 4 sites', icon: Camera },
-  { label: 'Critical Open', value: 19, sub: 'awaiting acknowledgement', icon: AlertTriangle, tone: 'critical' as const },
+  { label: 'Critical Open', value: 19, sub: 'awaiting acknowledgment', icon: AlertTriangle, tone: 'critical' as const },
   { label: 'Alerts Today', value: 527, sub: 'across all sites', icon: Activity },
   { label: 'Patrol Compliance', value: 75, suffix: '%', sub: '18/24 rounds today', icon: ShieldCheck },
   { label: 'Retention Coverage', value: 50, of: 61, sub: '11 cameras below target', icon: Database },

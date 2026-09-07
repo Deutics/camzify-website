@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
 
@@ -16,9 +17,16 @@ const pageMeta = {
 
 export const metadata = generatePageMeta({ ...pageMeta });
 
+const faqs = [
+  { question: 'Which certifications does Camzify hold?', answer: 'None yet. PDPA, GDPR alignment, SOC 2 Type II and ISO 27001 are in progress and are not held, and every page that mentions them says so. A page that named them as current would be lying to you.' },
+  { question: 'What figures do you refuse to publish?', answer: 'Customer counts, cameras connected, patrol volumes, uptime percentages, response times, detection rates and false-alarm rates. Each depends on conditions we cannot verify for your site, so we describe what the product does instead.' },
+  { question: 'What can you state as fact?', answer: 'How the product works, what it does not do, that we have been serving customers for three years, and who builds it. The company details on every page come from one source so they cannot disagree with each other.' },
+  { question: 'How is customer footage handled?', answer: "Encrypted in transit and at rest, retained per camera under the policy you set, reachable only through the account's permission groups, with every access in the audit trail. The security and compliance page has the detail." },
+];
+
 export default function TrustPage() {
   return (
-    <PageShell {...pageMeta} breadcrumbs={[{ label: 'Trust' }]}>
+    <PageShell {...pageMeta} faqs={faqs} breadcrumbs={[{ label: 'Trust' }]}>
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Trust</h1>
@@ -55,13 +63,13 @@ export default function TrustPage() {
                 We do not publish customer counts, cameras-connected totals, patrol-round volumes,
                 uptime percentages or average response times on this site. Not because they are
                 unflattering, but because we have not put them through a verification process we
-                would be willing to defend — and a security vendor quoting an unverifiable
+                would be willing to defend, and a security vendor quoting an unverifiable
                 reliability figure is exactly the thing this page exists to avoid.
               </p>
               <p className="mt-4 text-muted-foreground">
                 What we will do instead: during an evaluation we will show you the real numbers for
-                your own deployment — rounds completed against rounds scheduled, per-camera
-                compliance, and alert volumes — from the same{' '}
+                your own deployment, rounds completed against rounds scheduled, per-camera
+                compliance, and alert volumes, from the same{' '}
                 <Link href="/platform/analytics-and-reporting" className="text-primary hover:underline">analytics and reporting</Link>{' '}
                 surface your team would use in production. Those are numbers you can audit yourself
                 rather than take on trust.
@@ -74,6 +82,7 @@ export default function TrustPage() {
           </div>
         </div>
       </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

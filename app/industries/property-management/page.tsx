@@ -1,10 +1,11 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { FaqSection } from '@/components/content/faq-section';
 import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 import { SiteImage } from '@/components/content/site-image';
 
@@ -14,8 +15,8 @@ import { SiteImage } from '@/components/content/site-image';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "AI Security for Property Management | Video Surveillance",
-  description: "Camzify provides AI-powered virtual patrolling and video analytics for property management — automated patrols, real-time alerts, and compliance reports.",
+  title: "AI Security for Property Management",
+  description: "Camzify provides AI-powered virtual patrolling and video analytics for property management, automated patrols, real-time alerts, and compliance reports.",
   path: "/industries/property-management",
 };
 
@@ -28,8 +29,8 @@ const deploymentPhases = [
 ];
 
 const faqs = [
-  { question: "Can I manage multiple properties from one account?", answer: "Yes. Multi-site management is a core platform feature, allowing centralised patrol scheduling, alert routing, and reporting across all managed properties." },
-  { question: "How does Camzify handle different camera systems across different buildings in my portfolio?", answer: "Camzify connects to standard IP camera feeds and RTSP streams regardless of the underlying NVR or DVR brand, so each managed building can run on its own existing hardware while reporting into one centralised dashboard." },
+  { question: "Can I manage multiple properties from one account?", answer: "Yes. Multi-site management is a core platform feature, allowing centralized patrol scheduling, alert routing, and reporting across all managed properties." },
+  { question: "How does Camzify handle different camera systems across different buildings in my portfolio?", answer: "Camzify connects to standard IP camera feeds and RTSP streams regardless of the underlying NVR or DVR brand, so each managed building can run on its own existing hardware while reporting into one centralized dashboard." },
   { question: "Will residents or tenants be notified that AI monitoring is in place?", answer: "That's a policy decision for the property owner or manager, not something Camzify sets for you. Many managers post standard signage the same way they would for any CCTV system, in line with local requirements." },
   { question: "How does Camzify avoid flagging residents going about normal activity?", answer: "Detection rules are scoped to specific zones and schedules, so a resident walking through a lobby during the day doesn't trigger the same rule as someone in a parking garage at 3am. Rules are tuned per property during setup." },
   { question: "Can patrol schedules differ between buildings in the same portfolio?", answer: "Yes. Each managed property runs its own patrol sequence, schedule, and escalation contact, so a downtown high-rise and a suburban garden-style complex can have completely different rules on the same account." },
@@ -38,22 +39,30 @@ const faqs = [
 
 export default function PropertyManagementPage() {
   return (
-    <PageShell {...pageMeta} schema={[serviceSchema({ name: "AI Security for Property Management", description: "Camzify provides AI-powered virtual patrolling and video analytics for property management — automated patrols, real-time alerts, and compliance reports.", path: "/industries/property-management", audience: "Property Management" })]} faqs={faqs} breadcrumbs={[
+    <PageShell {...pageMeta} schema={[serviceSchema({ name: "AI Security for Property Management", description: "Camzify provides AI-powered virtual patrolling and video analytics for property management, automated patrols, real-time alerts, and compliance reports.", path: "/industries/property-management", audience: "Property Management" })]} faqs={faqs} breadcrumbs={[
       { label: 'Industries', href: '/industries' },
       { label: 'Property Management' },
     ]}>
+      <FeatureHero
+        eyebrow="Industry · property management"
+        title="AI security for property management"
+        lede={<><strong className="font-semibold text-foreground">Property management companies face security challenges that cameras alone cannot solve and manned guards cannot cover consistently.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.</>}
+        facts={['Common areas and hallways monitored only during staffed…', 'Parking garages and structures with no continuous overnight…', 'Rooftop and mechanical access points left unverified between…']}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}
+        visual={<SiteImage
+              src="/ai-security-for-property-management.jpg" alt="AI-monitored residential property showing bounding boxes around a security guard, visitors, and a delivery vehicle, with aerial views of the grounds" className="w-full rounded-xl"
+              width={1600}
+              height={900}
+              sizes="(max-width: 1024px) 100vw, 60vw"
+            priority />}
+      />
+
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">AI Security for Property Management</h1>
-          <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            Property management companies face security challenges that cameras alone cannot solve and manned guards cannot cover consistently. Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.
-          </p>
-
-          <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
-            <ScrollReveal>
-              <div>
-                <h2 className="font-display text-2xl font-bold">Common property management security gaps Camzify closes:</h2>
-                <ul className="mt-4 space-y-3 text-muted-foreground">
+          <div>
+            <h2 className="font-display text-2xl font-bold">Common property management security gaps Camzify closes:</h2>
+            <ul className="mt-4 grid gap-3 text-muted-foreground sm:grid-cols-2">
                   <li className="flex gap-2">• Common areas and hallways monitored only during staffed business hours</li>
                   <li className="flex gap-2">• Parking garages and structures with no continuous overnight coverage</li>
                   <li className="flex gap-2">• Rooftop and mechanical access points left unverified between site visits</li>
@@ -61,24 +70,15 @@ export default function PropertyManagementPage() {
                   <li className="flex gap-2">• Camera outages across a multi-property portfolio going unnoticed for days</li>
                   <li className="flex gap-2">• No consolidated audit trail showing which buildings were actually checked</li>
                 </ul>
-              </div>
-            </ScrollReveal>
-            <SiteImage
-              src="/ai-security-for-property-management.jpg" alt="AI-monitored residential property showing bounding boxes around a security guard, visitors, and a delivery vehicle, with aerial views of the grounds" className="w-full rounded-xl"
-              width={1600}
-              height={900}
-              priority
-              sizes="(max-width: 1024px) 100vw, 60vw"
-            />
           </div>
 
           <div className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Why property management needs continuous AI monitoring</h2>
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
-                <p>Property managers are typically responsible for a portfolio of buildings, not just one — a mix of residential, mixed-use, or commercial addresses spread across a city, each with its own common areas, parking structures, and access points. A single property manager or on-site super can walk one building's halls a few times a shift; the rest of the portfolio sits unchecked for hours or days between visits.</p>
+                <p>Property managers are typically responsible for a portfolio of buildings, not just one, a mix of residential, mixed-use, or commercial addresses spread across a city, each with its own common areas, parking structures, and access points. A single property manager or on-site super can walk one building's halls a few times a shift; the rest of the portfolio sits unchecked for hours or days between visits.</p>
                 <p>Plain CCTV compounds the problem: footage from a dozen buildings sits on a dozen separate systems, reviewed only after a resident complaint or an incident report already lands on the manager's desk. By then, whatever happened in the stairwell, garage, or amenity space is long over.</p>
-                <p>Virtual patrolling gives every managed property the same scheduled AI rounds a large staffed team would run, without needing a person physically present at each site. Every building gets checked on its own schedule, every result is logged, and alerts route to whoever's actually on call for that property — no portfolio-wide blind spots.</p>
+                <p>Virtual patrolling gives every managed property the same scheduled AI rounds a large staffed team would run, without needing a person physically present at each site. Every building gets checked on its own schedule, every result is logged, and alerts route to whoever's actually on call for that property, no portfolio-wide blind spots.</p>
               </div>
             </ScrollReveal>
           </div>
@@ -111,7 +111,7 @@ export default function PropertyManagementPage() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Building the patrol route</h3>
                 <p className="mt-2 text-muted-foreground">
-                  A patrol sequence is set up once per property, ordering every camera stop — lobby, hallways, parking structure, rooftop access, amenity spaces — into a route that runs on a configurable schedule, with each managed building running its own independent route.
+                  A patrol sequence is set up once per property, ordering every camera stop, lobby, hallways, parking structure, rooftop access, amenity spaces, into a route that runs on a configurable schedule, with each managed building running its own independent route.
                 </p>
 
                 <h3 className="mt-6 font-display text-lg font-bold">Checking each stop</h3>
@@ -163,7 +163,7 @@ export default function PropertyManagementPage() {
           <div className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Deployment notes</h2>
-              <p className="mt-4 max-w-prose text-muted-foreground">Property management companies oversee multiple buildings with varying camera setups. Camzify's multi-site management allows centralised monitoring of all properties from one dashboard.</p>
+              <p className="mt-4 max-w-prose text-muted-foreground">Property management companies oversee multiple buildings with varying camera setups. Camzify's multi-site management allows centralized monitoring of all properties from one dashboard.</p>
             </ScrollReveal>
           </div>
 
@@ -209,14 +209,7 @@ export default function PropertyManagementPage() {
         </div>
       </section>
 
-      <section className="bg-muted/30 py-16 sm:py-20">
-        <div className="mx-auto max-w-site px-6 text-center">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">Frequently asked questions</h2>
-          <div className="mx-auto mt-8 max-w-3xl text-left">
-            <FAQAccordion items={faqs} />
-          </div>
-        </div>
-      </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

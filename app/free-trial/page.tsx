@@ -11,7 +11,7 @@ import Link from 'next/link';
  */
 const pageMeta = {
   title: "Free Trial | Try Camzify Virtual Patrolling",
-  description: "Try Camzify free — connect your cameras, build patrol sequences, and run rounds with no credit card required.",
+  description: "Try Camzify free, connect your cameras, build patrol sequences, and run rounds with no credit card required.",
   path: "/free-trial",
 };
 
@@ -24,7 +24,7 @@ export default function FreeTrialPage() {
         <div className="mx-auto max-w-site px-6">
           <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr]">
             <div>
-              <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Start Your Free Trial</h1>
+              <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Start your free trial</h1>
               <p className="mt-6 text-body text-muted-foreground">
                 Connect your own cameras and try <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</Link> with
                 no credit card required. Build patrol sequences, run rounds, and see the compliance reports.

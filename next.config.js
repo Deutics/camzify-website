@@ -22,6 +22,21 @@ const nextConfig = {
         destination: '/ai-features/behavioral-anomaly-detection',
         permanent: true,
       },
+      {
+        // The site moved to US spelling; the slug followed the copy. Permanent so
+        // anything already pointing at the Commonwealth spelling keeps resolving.
+        source: '/partners/for-monitoring-centres',
+        destination: '/partners/for-monitoring-centers',
+        permanent: true,
+      },
+      {
+        // Two pages targeted "virtual patrolling vs security guards". The /compare one
+        // was 230 words with no FAQ; the virtual-patrolling one is the full argument.
+        // One URL per query, so the thin one redirects to the deep one.
+        source: '/compare/virtual-patrolling-vs-security-guards',
+        destination: '/virtual-patrolling/vs-security-guards',
+        permanent: true,
+      },
     ];
   },
   webpack: (config, { isServer }) => {

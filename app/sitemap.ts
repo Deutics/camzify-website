@@ -30,6 +30,9 @@ const conversion = group(
   'monthly'
 );
 
+// Legal and policy pages: indexed, rarely changed, never the point of a search.
+const legal = group(['/privacy-policy', '/terms-of-service', '/cookie-policy', '/accessibility'], 0.3, 'yearly');
+
 // Tier 2 — silo hubs. These carry the internal-link equity to their children.
 const hubs = group(
   [
@@ -47,6 +50,9 @@ const hubs = group(
   0.9,
   'weekly'
 );
+
+// Category pillars: the market's names for what the site sells, one page each.
+const pillars = group(['/virtual-guard', '/cloud-video-surveillance'], 0.8, 'weekly');
 
 // Tier 3 — the flagship cluster. Highest-intent commercial content after the hubs.
 const virtualPatrolling = group(
@@ -125,10 +131,19 @@ const useCases = group(
     '/use-cases/loading-dock-monitoring',
     '/use-cases/parking-lot-surveillance',
     '/use-cases/remote-site-monitoring',
+    '/use-cases/remote-video-monitoring',
     '/use-cases/vehicle-monitoring',
     '/use-cases/night-security',
     '/use-cases/guard-tour-verification',
     '/use-cases/incident-investigation',
+    '/use-cases/fire-and-smoke-monitoring',
+    '/use-cases/ppe-compliance-monitoring',
+    '/use-cases/workplace-safety-monitoring',
+    '/use-cases/violence-and-weapons-detection',
+    '/use-cases/lock-up-and-closing-checks',
+    '/use-cases/camera-health-monitoring',
+    '/use-cases/alarm-verification',
+    '/use-cases/occupancy-monitoring',
   ],
   0.7,
   'monthly'
@@ -160,8 +175,8 @@ const industries = group(
 // Comparison pages punch above their weight on bottom-funnel queries.
 const compare = group(
   [
-    '/compare/virtual-patrolling-vs-security-guards',
     '/compare/virtual-patrolling-vs-guard-tour-systems',
+    '/compare/virtual-patrolling-vs-mobile-patrols',
     '/compare/camzify-vs-traditional-vms',
     '/compare/ai-video-analytics-vs-motion-detection',
     '/compare/cloud-vms-vs-on-premise',
@@ -174,6 +189,7 @@ const compare = group(
 const guides = group(
   [
     '/guides/what-is-virtual-patrolling',
+    '/guides/what-is-intelligent-video-analytics',
     '/guides/how-to-run-a-virtual-patrol-round',
     '/guides/how-to-set-up-sites-and-cameras',
     '/guides/how-to-monitor-live-camera-feeds',
@@ -188,6 +204,9 @@ const guides = group(
     '/guides/how-to-reduce-false-alarms',
     '/guides/onvif-and-rtsp-explained',
     '/guides/guard-tour-systems-explained',
+    '/guides/how-to-sell-virtual-patrolling-to-clients',
+    '/guides/what-goes-in-a-remote-patrol-proposal',
+    '/guides/adding-remote-patrols-to-alarm-monitoring',
     '/guides/security-audit-checklist',
     '/guides/video-retention-requirements',
   ],
@@ -213,7 +232,7 @@ const partners = group(
     '/partners/become-a-reseller',
     '/partners/for-security-integrators',
     '/partners/for-security-agencies',
-    '/partners/for-monitoring-centres',
+    '/partners/for-monitoring-centers',
     '/partners/for-managed-service-providers',
   ],
   0.6,
@@ -230,7 +249,9 @@ const company = group(
 const allEntries: Entry[] = [
   ...core,
   ...conversion,
+  ...legal,
   ...hubs,
+  ...pillars,
   ...virtualPatrolling,
   ...platform,
   ...aiFeatures,

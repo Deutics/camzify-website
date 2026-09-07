@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { articleSchema, personSchema } from '@/lib/seo';
 import { AuthorByline } from '@/components/content/author-byline';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
@@ -12,21 +13,28 @@ import Link from 'next/link';
  */
 const pageMeta = {
   title: "How to Choose Video Analytics Software | Buyer Guide",
-  description: "A practical guide to evaluating AI video analytics software — what to look for, what to avoid, and how to make the right decision for your facility.",
+  description: "A practical guide to evaluating AI video analytics software, what to look for, what to avoid, and how to make the right decision for your facility.",
   path: "/guides/how-to-choose-video-analytics-software",
 };
 
 export const metadata = generatePageMeta({ ...pageMeta, type: 'article', publishedTime: '2026-08-31', modifiedTime: '2026-08-31' });
 
+const faqs = [
+  { question: 'What should I test before buying?', answer: 'Three things on your own cameras: whether a detection fires on a tracked object rather than pixel motion, whether the notification reaches the right person with the frame attached, and whether the record afterwards would satisfy an insurer. Book a demo on real cameras rather than watching a reel.' },
+  { question: 'Cloud or on-premise?', answer: 'Cloud if you have several sites, no appetite for a server per site, or want footage that survives a stolen recorder. On-premise if a site has no usable connectivity. The cloud versus on-premise comparison sets out the trade-offs honestly.' },
+  { question: 'How many detections do I actually need?', answer: 'Fewer than the catalogue. Most sites start with intrusion on the perimeter, zones on the areas that should be empty, and camera tampering everywhere, then add by camera. Licensing per camera instance rewards that discipline.' },
+  { question: 'What should I be sceptical of?', answer: 'Detection rates quoted without your cameras, response times quoted without your network, and certifications named without a certificate. Camzify publishes none of those figures and says so on the trust page.' },
+];
+
 export default function HowToChooseVideoAnalyticsSoftwarePage() {
   return (
-    <PageShell {...pageMeta} schema={[articleSchema({ headline: "How to Choose Video Analytics Software", description: "A practical guide to evaluating AI video analytics software — what to look for, what to avoid, and how to make the right decision for your facility.", path: "/guides/how-to-choose-video-analytics-software", datePublished: '2026-08-31', dateModified: '2026-08-31' }), personSchema()]} breadcrumbs={[
+    <PageShell {...pageMeta} faqs={faqs} schema={[articleSchema({ headline: "How to Choose Video Analytics Software", description: "A practical guide to evaluating AI video analytics software, what to look for, what to avoid, and how to make the right decision for your facility.", path: "/guides/how-to-choose-video-analytics-software", datePublished: '2026-08-31', dateModified: '2026-08-31' }), personSchema()]} breadcrumbs={[
       { label: 'Guides', href: '/guides' },
       { label: 'How to Choose Video Analytics Software' },
     ]}>
       <article className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">How to Choose Video Analytics Software</h1>
+          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">How to choose video analytics software</h1>
           <AuthorByline className="mt-6" />
           <p className="mt-6 max-w-prose text-body text-muted-foreground">Choosing video analytics software requires evaluating detection accuracy, camera compatibility, deployment model, total cost of ownership, and the specific capabilities your security program needs. This guide provides a practical framework for making that decision.</p>
 
@@ -40,7 +48,7 @@ export default function HowToChooseVideoAnalyticsSoftwarePage() {
           <section className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Detection accuracy and false alarm rate</h2>
-              <div className="mt-4 max-w-prose space-y-4 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `Ask every vendor: what is your false alarm rate for the detections I need? Request a proof of concept on your own cameras. False alarms are the primary reason video analytics deployments fail — if the system alerts too often on irrelevant events, operators stop paying attention. Camzify uses object-track-based detection rather than pixel-based motion to minimise false positives.` }} />
+              <div className="mt-4 max-w-prose space-y-4 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `Ask every vendor: what is your false alarm rate for the detections I need? Request a proof of concept on your own cameras. False alarms are the primary reason video analytics deployments fail — if the system alerts too often on irrelevant events, operators stop paying attention. Camzify uses object-track-based detection rather than pixel-based motion to minimize false positives.` }} />
             </ScrollReveal>
           </section>
 
@@ -68,9 +76,10 @@ export default function HowToChooseVideoAnalyticsSoftwarePage() {
           <section className="mt-20 rounded-xl bg-card p-8 shadow">
             <h2 className="font-display text-xl font-bold">Related guides</h2>
             <div className="mt-4 flex flex-wrap gap-3">
-              <Link href="/guides/ai-video-analytics-cost" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">Ai Video Analytics Cost</Link>
-              <Link href="/guides/how-to-reduce-false-alarms" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">How To Reduce False Alarms</Link>
-              <Link href="/guides/onvif-and-rtsp-explained" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">Onvif And Rtsp Explained</Link>
+              <Link href="/guides/what-is-intelligent-video-analytics" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">What Is Intelligent Video Analytics?</Link>
+              <Link href="/guides/ai-video-analytics-cost" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">AI Video Analytics Cost</Link>
+              <Link href="/guides/how-to-reduce-false-alarms" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">How to Reduce False Alarms</Link>
+              <Link href="/guides/onvif-and-rtsp-explained" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">ONVIF and RTSP Explained</Link>
             </div>
             <div className="mt-6 flex flex-wrap gap-4">
               <Link href="/pricing" className="rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white shadow transition-colors hover:bg-primary/90">View pricing</Link>
@@ -79,6 +88,7 @@ export default function HowToChooseVideoAnalyticsSoftwarePage() {
           </section>
         </div>
       </article>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

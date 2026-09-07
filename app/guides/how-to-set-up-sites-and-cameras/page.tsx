@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { HowToSteps, HowToNote, type HowToStep } from '@/components/content/how-to-steps';
 import { howToSchema } from '@/lib/seo';
@@ -12,7 +13,7 @@ import Link from 'next/link';
  */
 const pageMeta = {
   title: "How to Add Sites and Cameras | Setup Guide",
-  description: "Create a site, add IP cameras over RTSP or HTTPS, install the Camzify Connector for cameras on a local network, and confirm the stream is flowing before you rely on it.",
+  description: "Add a site, connect cameras over RTSP, RTMP or HTTPS, use the Connector for LAN cameras, check stream quality, assign cameras to a sequence.",
   path: "/guides/how-to-set-up-sites-and-cameras",
 };
 
@@ -21,11 +22,11 @@ export const metadata = generatePageMeta({ ...pageMeta, type: 'article' });
 const steps: HowToStep[] = [
   {
     name: 'Create the site first',
-    text: 'A site is a physical location that groups its cameras — a warehouse, a campus, a storefront. Create it with a name, address and an optional contact number before adding anything else. Getting sites right early matters more than it looks: site is the unit that access, reporting and notification filtering are all organised around later, so a fleet dumped into one site is hard to delegate afterwards.',
+    text: 'A site is a physical location that groups its cameras, a warehouse, a campus, a storefront. Create it with a name, address and an optional contact number before adding anything else. Getting sites right early matters more than it looks: site is the unit that access, reporting and notification filtering are all organized around later, so a fleet dumped into one site is hard to delegate afterwards.',
   },
   {
-    name: 'Add the camera and give it a name someone will recognise',
-    text: 'Add each camera against its site, name it, and set its resolution. Name it for the place rather than the hardware — "Loading Dock B" tells a guard reading an alert at 2am where to go, and "Cam 14" does not. The name follows the camera into patrol reports and alerts, so it is worth a moment.',
+    name: 'Add the camera and give it a name someone will recognize',
+    text: 'Add each camera against its site, name it, and set its resolution. Name it for the place rather than the hardware, "Loading Dock B" tells a guard reading an alert at 2am where to go, and "Cam 14" does not. The name follows the camera into patrol reports and alerts, so it is worth a moment.',
   },
   {
     name: 'Choose the stream type',
@@ -44,19 +45,19 @@ const steps: HowToStep[] = [
 const faqs = [
   {
     question: 'Do I need a static IP to connect my cameras?',
-    answer: 'No. A static IP or an existing public route lets an RTSP stream be pulled directly, which is the simplest case. Everything else goes through the Camzify Connector, which connects outward from inside your network — no port forwarding, no inbound firewall rule, and no static IP.',
+    answer: 'No. A static IP or an existing public route lets an RTSP stream be pulled directly, which is the simplest case. Everything else goes through the Camzify Connector, which connects outward from inside your network, no port forwarding, no inbound firewall rule, and no static IP.',
   },
   {
     question: 'Can I move a camera to a different site later, or rename it?',
-    answer: 'Yes. A site or camera can be edited after it is created — name, address, contact number, resolution and stream URL. Nothing about the initial setup is permanent, so it is better to get cameras connected and adjust the organisation afterwards than to delay connecting them.',
+    answer: 'Yes. A site or camera can be edited after it is created, name, address, contact number, resolution and stream URL. Nothing about the initial setup is permanent, so it is better to get cameras connected and adjust the organization afterwards than to delay connecting them.',
   },
   {
     question: 'What resolution should I use for AI detection?',
-    answer: 'Framing and lighting matter more than pixel count. The practical test is whether a person reviewing the feed can identify a person or vehicle at the distance you care about — if they can, the detection models have enough to work with. A 4K camera pointed at a wide car park can be worse than a 1080p camera framed on the entrance.',
+    answer: 'Framing and lighting matter more than pixel count. The practical test is whether a person reviewing the feed can identify a person or vehicle at the distance you care about, if they can, the detection models have enough to work with. A 4K camera pointed at a wide car park can be worse than a 1080p camera framed on the entrance.',
   },
   {
     question: 'How many cameras can one Connector handle?',
-    answer: 'It depends on the machine and the upload bandwidth available, since each camera consumes roughly 2 to 4 Mbps at standard resolution. Plan the bandwidth first — that is the constraint that bites, not the software.',
+    answer: 'It depends on the machine and the upload bandwidth available, since each camera consumes roughly 2 to 4 Mbps at standard resolution. Plan the bandwidth first, that is the constraint that bites, not the software.',
   },
 ];
 
@@ -104,6 +105,8 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

@@ -1,8 +1,10 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { FaqSection } from '@/components/content/faq-section';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 
 /**
@@ -11,7 +13,7 @@ import Link from 'next/link';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Slip & Fall Detection | AI Fall Detection Camera Software",
+  title: "Slip & Fall Detection on Security Cameras",
   description: "Camzify slip and fall detection flags falls in real time and routes an alert to the nearest guard, before it becomes an unresolved liability claim.",
   path: "/ai-features/slip-and-fall-detection",
 };
@@ -33,19 +35,22 @@ export default function Page() {
       { label: 'AI Features', href: '/ai-features' },
       { label: 'Slip & Fall Detection' },
     ]}>
+      <FeatureHero
+        eyebrow="AI detection · Slip & fall detection"
+        title="Slip & fall detection"
+        lede={<><strong className="font-semibold text-foreground">A fall happens, help gets notified fast.</strong> Slip and fall detection flags falls in real time and routes
+            an alert to the nearest guard — before an incident goes unnoticed and becomes an unresolved claim.</>}
+        facts={['Rapid, uncontrolled posture changes consistent with a fall', 'A person remaining on the ground after a fall event', 'Falls in aisles, entrances, and walkways during business hours']}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/ai-features', label: 'All 22 detections' }}
+        visual={<PhotoFigure src="/feature-slip-and-fall-detection-1.jpg" alt="Camera view of a retail aisle with a fallen person highlighted by a detection bounding box" caption="Slip & fall detection" priority />}
+      />
+
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Slip & Fall Detection</h1>
-          <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            A fall happens, help gets notified fast. Slip and fall detection flags falls in real time and routes
-            an alert to the nearest guard — before an incident goes unnoticed and becomes an unresolved claim.
-          </p>
-
-          <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
-            <ScrollReveal>
-              <div>
-                <h2 className="font-display text-2xl font-bold">This capability detects and alerts on:</h2>
-                <ul className="mt-4 space-y-3 text-muted-foreground">
+          <div>
+            <h2 className="font-display text-2xl font-bold">This capability detects and alerts on:</h2>
+            <ul className="mt-4 grid gap-3 text-muted-foreground sm:grid-cols-2">
                   <li className="flex gap-2">• Rapid, uncontrolled posture changes consistent with a fall</li>
                   <li className="flex gap-2">• A person remaining on the ground after a fall event</li>
                   <li className="flex gap-2">• Falls in aisles, entrances, and walkways during business hours</li>
@@ -53,24 +58,21 @@ export default function Page() {
                   <li className="flex gap-2">• A fallen individual who doesn't get back up within a short window</li>
                   <li className="flex gap-2">• Immediate alert routing to the nearest available guard</li>
                 </ul>
-              </div>
-            </ScrollReveal>
-            <PlaceholderVisual type="camera-feed" caption="SLIP & FALL DETECTION" alt="Camera view of a retail aisle with a fallen person highlighted by a detection bounding box" />
           </div>
 
           <div className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Why slip and fall detection matters</h2>
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
-                <p>Falls tend to happen when no one is looking directly at the spot where it occurs — an aisle with no other customers nearby, a hallway between patrol rounds, an entrance during a quiet stretch. The gap between the fall and someone noticing is exactly the time when a minor injury can become a serious one, and it's the hardest part of the incident to control with staffing alone.</p>
-                <p>The usual backstop is the person themselves calling for help, or a passerby happening to notice. Both are unpredictable — someone who is injured, disoriented, or elderly may not be able to call out, and low-traffic areas or off-hours periods can go long stretches without anyone walking through at all. A scheduled patrol round covers a location for a moment every so often, not continuously.</p>
-                <p>Continuous AI monitoring removes the dependency on a witness being present. The moment a tracked subject's posture matches a fall pattern, an alert reaches the nearest guard directly, cutting the time between the event and a response — and producing a timestamped record of exactly what happened, independent of whether anyone saw it live.</p>
+                <p>Falls tend to happen when no one is looking directly at the spot where it occurs, an aisle with no other customers nearby, a hallway between patrol rounds, an entrance during a quiet stretch. The gap between the fall and someone noticing is exactly the time when a minor injury can become a serious one, and it's the hardest part of the incident to control with staffing alone.</p>
+                <p>The usual backstop is the person themselves calling for help, or a passerby happening to notice. Both are unpredictable, someone who is injured, disoriented, or elderly may not be able to call out, and low-traffic areas or off-hours periods can go long stretches without anyone walking through at all. A scheduled patrol round covers a location for a moment every so often, not continuously.</p>
+                <p>Continuous AI monitoring removes the dependency on a witness being present. The moment a tracked subject's posture matches a fall pattern, an alert reaches the nearest guard directly, cutting the time between the event and a response, and producing a timestamped record of exactly what happened, independent of whether anyone saw it live.</p>
               </div>
             </ScrollReveal>
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="FALL PATTERN DETECTION" alt="Diagram showing a tracked subject's posture change over time crossing the fall-detection threshold" />
+            <PhotoFigure src="/feature-slip-and-fall-detection-2.jpg" alt="Diagram showing a tracked subject's posture change over time crossing the fall-detection threshold" caption="Fall pattern detection" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>
@@ -110,11 +112,11 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="FALL DETECTION CONFIGURATION" alt="Configuration panel showing sensitivity and priority routing settings for slip and fall detection" />
+            <PhotoFigure src="/feature-slip-and-fall-detection-3.jpg" alt="Configuration panel showing sensitivity and priority routing settings for slip and fall detection" caption="Fall detection configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="industry" caption="FALL RISK MONITORING" alt="Facility map showing camera coverage across aisles, entrances, and walkways for fall detection" />
+            <PhotoFigure src="/feature-slip-and-fall-detection-4.jpg" alt="Facility map showing camera coverage across aisles, entrances, and walkways for fall detection" caption="Fall risk monitoring" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>
@@ -172,14 +174,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="bg-muted/30 py-16 sm:py-20">
-        <div className="mx-auto max-w-site px-6 text-center">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">Frequently asked questions</h2>
-          <div className="mx-auto mt-8 max-w-3xl text-left">
-            <FAQAccordion items={faqs} />
-          </div>
-        </div>
-      </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

@@ -19,7 +19,7 @@ const useCases = [
   {
     title: 'After-hours monitoring',
     href: '/use-cases/after-hours-monitoring',
-    desc: 'The hours nobody is rostered — patrolled on a schedule you set, with a report each morning.',
+    desc: 'The hours nobody is rostered, patrolled on a schedule you set, with a report each morning.',
   },
   {
     title: 'Guard tour verification',

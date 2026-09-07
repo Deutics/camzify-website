@@ -1,8 +1,10 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { FaqSection } from '@/components/content/faq-section';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 
 /**
@@ -11,7 +13,7 @@ import Link from 'next/link';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Fire & Smoke Detection | AI Visual Fire Detection Software",
+  title: "Fire & Smoke Detection on Security Cameras",
   description: "Camzify fire and smoke detection spots visual smoke and flame directly from camera feeds, often before a heat sensor would trigger.",
   path: "/ai-features/fire-and-smoke-detection",
 };
@@ -33,19 +35,22 @@ export default function Page() {
       { label: 'AI Features', href: '/ai-features' },
       { label: 'Fire & Smoke Detection' },
     ]}>
+      <FeatureHero
+        eyebrow="AI detection · Fire & smoke detection"
+        title="Fire & smoke detection"
+        lede={<><strong className="font-semibold text-foreground">Catch smoke before it's a fire.</strong> Fire and smoke detection watches live camera feeds for visible flame
+            and smoke, often flagging an event before it reaches a fixed heat or particle sensor.</>}
+        facts={["Visible flame anywhere in the camera's field of view", 'Visible smoke developing in storage, electrical, or…', 'Early-stage events in large or open spaces before a fixed…']}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/ai-features', label: 'All 22 detections' }}
+        visual={<PhotoFigure src="/feature-fire-and-smoke-detection-1.jpg" alt="Camera view of a storage area with visible smoke highlighted by a detection bounding box" caption="Fire & smoke detection" priority />}
+      />
+
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Fire & Smoke Detection</h1>
-          <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            Catch smoke before it's a fire. Fire and smoke detection watches live camera feeds for visible flame
-            and smoke, often flagging an event before it reaches a fixed heat or particle sensor.
-          </p>
-
-          <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
-            <ScrollReveal>
-              <div>
-                <h2 className="font-display text-2xl font-bold">This capability detects and alerts on:</h2>
-                <ul className="mt-4 space-y-3 text-muted-foreground">
+          <div>
+            <h2 className="font-display text-2xl font-bold">This capability detects and alerts on:</h2>
+            <ul className="mt-4 grid gap-3 text-muted-foreground sm:grid-cols-2">
                   <li className="flex gap-2">• Visible flame anywhere in the camera's field of view</li>
                   <li className="flex gap-2">• Visible smoke developing in storage, electrical, or industrial areas</li>
                   <li className="flex gap-2">• Early-stage events in large or open spaces before a fixed sensor triggers</li>
@@ -53,36 +58,33 @@ export default function Page() {
                   <li className="flex gap-2">• Multiple simultaneous smoke sources indicating a fast-developing event</li>
                   <li className="flex gap-2">• Immediate, critical-severity alert routing to on-site staff</li>
                 </ul>
-              </div>
-            </ScrollReveal>
-            <PlaceholderVisual type="camera-feed" caption="FIRE & SMOKE DETECTION" alt="Camera view of a storage area with visible smoke highlighted by a detection bounding box" />
           </div>
 
           <div className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Why fire and smoke detection matters</h2>
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
-                <p>Fixed heat and particle sensors only trigger once smoke or heat physically reaches the sensor location. In a large warehouse with high ceilings, an open yard, or a space with strong airflow, that can take long enough for a fire to become well established before the alarm sounds — the sensor is, by design, always reacting after the fact.</p>
-                <p>The legacy backstop for that gap is staff simply noticing — someone smelling smoke or spotting flame and raising the alarm manually. That works during busy hours with people on the floor. It does not work overnight, in unattended buildings, or in areas with infrequent foot traffic, which is exactly when an undetected fire has the most time to spread before anyone responds.</p>
-                <p>Visual detection watches the space itself rather than waiting for smoke to travel to a fixed point, so it can flag flame or smoke as soon as it is visible in frame — independent of ceiling height, airflow, or whether anyone happens to be nearby. It runs continuously, which is the part a human observer or a periodically-checked sensor cannot guarantee.</p>
+                <p>Fixed heat and particle sensors only trigger once smoke or heat physically reaches the sensor location. In a large warehouse with high ceilings, an open yard, or a space with strong airflow, that can take long enough for a fire to become well established before the alarm sounds, the sensor is, by design, always reacting after the fact.</p>
+                <p>The legacy backstop for that gap is staff simply noticing, someone smelling smoke or spotting flame and raising the alarm manually. That works during busy hours with people on the floor. It does not work overnight, in unattended buildings, or in areas with infrequent foot traffic, which is exactly when an undetected fire has the most time to spread before anyone responds.</p>
+                <p>Visual detection watches the space itself rather than waiting for smoke to travel to a fixed point, so it can flag flame or smoke as soon as it is visible in frame, independent of ceiling height, airflow, or whether anyone happens to be nearby. It runs continuously, which is the part a human observer or a periodically-checked sensor cannot guarantee.</p>
               </div>
             </ScrollReveal>
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="VISUAL SIGNATURE MATCHING" alt="Diagram showing a camera feed analysed for flame and smoke visual signatures before a critical alert fires" />
+            <PhotoFigure src="/feature-fire-and-smoke-detection-2.jpg" alt="Diagram showing a camera feed analyzed for flame and smoke visual signatures before a critical alert fires" caption="Visual signature matching" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>
 
                 <h3 className="mt-6 font-display text-lg font-bold">Reading the visual signature</h3>
                 <p className="mt-2 text-muted-foreground">
-                  The model analyses each camera's live feed for the visual signatures of flame and smoke — colour, texture, and motion patterns distinct from ordinary movement in the scene. A confirmed match above the confidence threshold fires an alert immediately.
+                  The model analyzes each camera's live feed for the visual signatures of flame and smoke, color, texture, and motion patterns distinct from ordinary movement in the scene. A confirmed match above the confidence threshold fires an alert immediately.
                 </p>
 
                 <h3 className="mt-6 font-display text-lg font-bold">Filtering false triggers</h3>
                 <p className="mt-2 text-muted-foreground">
-                  Steam, dust, and fog can visually resemble smoke at a glance, so the model is trained to separate their distinct colour, texture, and motion characteristics from an actual smoke or flame event before an alert fires.
+                  Steam, dust, and fog can visually resemble smoke at a glance, so the model is trained to separate their distinct color, texture, and motion characteristics from an actual smoke or flame event before an alert fires.
                 </p>
 
                 <h3 className="mt-6 font-display text-lg font-bold">Critical alert routing</h3>
@@ -109,11 +111,11 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="FIRE & SMOKE CONFIGURATION" alt="Configuration panel showing critical-severity alerting and escalation rules for a camera" />
+            <PhotoFigure src="/feature-fire-and-smoke-detection-3.jpg" alt="Configuration panel showing critical-severity alerting and escalation rules for a camera" caption="Fire & smoke configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="industry" caption="FACILITY-WIDE FIRE MONITORING" alt="Site map showing fire and smoke detection coverage across storage, electrical, and warehouse areas" />
+            <PhotoFigure src="/feature-fire-and-smoke-detection-4.jpg" alt="Site map showing fire and smoke detection coverage across storage, electrical, and warehouse areas" caption="Facility-wide fire monitoring" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>
@@ -171,14 +173,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="bg-muted/30 py-16 sm:py-20">
-        <div className="mx-auto max-w-site px-6 text-center">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">Frequently asked questions</h2>
-          <div className="mx-auto mt-8 max-w-3xl text-left">
-            <FAQAccordion items={faqs} />
-          </div>
-        </div>
-      </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

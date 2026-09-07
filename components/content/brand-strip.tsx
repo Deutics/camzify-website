@@ -7,9 +7,9 @@ import { cameraBrands, type CameraBrand } from '@/lib/camera-brands';
  * Every cell is a white plate. That is not a styling preference — it is what the
  * artwork requires. Four of the eight marks (Axis, Dahua, Hanwha Vision, Uniview)
  * carry black or near-black lettering and vanish against the dark theme, and the fix
- * cannot be to recolour them: altering a trademark is worse than omitting it, and
+ * cannot be to recolor them: altering a trademark is worse than omitting it, and
  * inverting a two-colour mark yields something that is not the logo. On a white plate
- * each mark renders in exactly the colours its owner published, in both themes.
+ * each mark renders in exactly the colors its owner published, in both themes.
  *
  * Brands still awaiting artwork render a wordmark on the same plate, so the grid stays
  * one visual treatment rather than splitting into logos and text.

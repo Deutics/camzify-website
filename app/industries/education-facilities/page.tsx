@@ -1,10 +1,11 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { FaqSection } from '@/components/content/faq-section';
 import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 import { SiteImage } from '@/components/content/site-image';
 
@@ -14,8 +15,8 @@ import { SiteImage } from '@/components/content/site-image';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "AI Security for Education Facilities | Video Surveillance",
-  description: "Camzify provides AI-powered virtual patrolling and video analytics for education facilities — automated patrols, real-time alerts, and compliance reports.",
+  title: "AI Security for Education Facilities",
+  description: "Camzify provides AI-powered virtual patrolling and video analytics for education facilities, automated patrols, real-time alerts, and compliance reports.",
   path: "/industries/education-facilities",
 };
 
@@ -38,22 +39,30 @@ const faqs = [
 
 export default function EducationFacilitiesPage() {
   return (
-    <PageShell {...pageMeta} schema={[serviceSchema({ name: "AI Security for Education Facilities", description: "Camzify provides AI-powered virtual patrolling and video analytics for education facilities — automated patrols, real-time alerts, and compliance reports.", path: "/industries/education-facilities", audience: "Education Facilities" })]} faqs={faqs} breadcrumbs={[
+    <PageShell {...pageMeta} schema={[serviceSchema({ name: "AI Security for Education Facilities", description: "Camzify provides AI-powered virtual patrolling and video analytics for education facilities, automated patrols, real-time alerts, and compliance reports.", path: "/industries/education-facilities", audience: "Education Facilities" })]} faqs={faqs} breadcrumbs={[
       { label: 'Industries', href: '/industries' },
       { label: 'Education Facilities' },
     ]}>
+      <FeatureHero
+        eyebrow="Industry · education facilities"
+        title="AI security for education facilities"
+        lede={<><strong className="font-semibold text-foreground">Education facilities face security challenges that cameras alone cannot solve and manned guards cannot cover consistently.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.</>}
+        facts={['Multiple entrances across a campus with no single point of…', 'After-hours access to labs, gyms, and equipment rooms going…', 'Campus grounds and parking areas relying on a single evening…']}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}
+        visual={<SiteImage
+              src="/ai-security-for-education-facilities.jpg" alt="AI-monitored school campus showing bounding boxes tracking people, backpacks, and a bicycle on a walkway, with classroom, campus, and computer lab scenes" className="w-full rounded-xl"
+              width={1600}
+              height={900}
+              sizes="(max-width: 1024px) 100vw, 60vw"
+            priority />}
+      />
+
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">AI Security for Education Facilities</h1>
-          <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            Education facilities face security challenges that cameras alone cannot solve and manned guards cannot cover consistently. Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.
-          </p>
-
-          <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
-            <ScrollReveal>
-              <div>
-                <h2 className="font-display text-2xl font-bold">Common education facility security gaps Camzify closes:</h2>
-                <ul className="mt-4 space-y-3 text-muted-foreground">
+          <div>
+            <h2 className="font-display text-2xl font-bold">Common education facility security gaps Camzify closes:</h2>
+            <ul className="mt-4 grid gap-3 text-muted-foreground sm:grid-cols-2">
                   <li className="flex gap-2">• Multiple entrances across a campus with no single point of control</li>
                   <li className="flex gap-2">• After-hours access to labs, gyms, and equipment rooms going unchecked</li>
                   <li className="flex gap-2">• Campus grounds and parking areas relying on a single evening walkthrough</li>
@@ -61,24 +70,15 @@ export default function EducationFacilitiesPage() {
                   <li className="flex gap-2">• No consistent record proving each building was checked every night</li>
                   <li className="flex gap-2">• Cameras across multiple buildings not centrally monitored in real time</li>
                 </ul>
-              </div>
-            </ScrollReveal>
-            <SiteImage
-              src="/ai-security-for-education-facilities.jpg" alt="AI-monitored school campus showing bounding boxes tracking people, backpacks, and a bicycle on a walkway, with classroom, campus, and computer lab scenes" className="w-full rounded-xl"
-              width={1600}
-              height={900}
-              priority
-              sizes="(max-width: 1024px) 100vw, 60vw"
-            />
           </div>
 
           <div className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Why education facilities need continuous AI monitoring</h2>
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
-                <p>A campus is only lightly occupied for a fraction of the calendar year — evenings, weekends, and long holiday breaks leave labs, gyms, and equipment rooms across several buildings sitting empty at once. A single security officer walking a round can reach one building at a time; the rest of the campus goes unchecked until the next pass.</p>
+                <p>A campus is only lightly occupied for a fraction of the calendar year, evenings, weekends, and long holiday breaks leave labs, gyms, and equipment rooms across several buildings sitting empty at once. A single security officer walking a round can reach one building at a time; the rest of the campus goes unchecked until the next pass.</p>
                 <p>Plain CCTV records every building continuously but only gets reviewed after a break-in or an act of vandalism is already reported, and academic calendars add another layer of complexity: the same building can need a completely different patrol pattern during exam period versus a summer holiday.</p>
-                <p>Continuous AI monitoring runs a scheduled check across every building on the same campus, adjusts automatically to term-time and holiday schedules, and flags a propped door or an out-of-hours presence the moment it happens — giving one security team real coverage of a multi-building site without needing to physically walk it.</p>
+                <p>Continuous AI monitoring runs a scheduled check across every building on the same campus, adjusts automatically to term-time and holiday schedules, and flags a propped door or an out-of-hours presence the moment it happens, giving one security team real coverage of a multi-building site without needing to physically walk it.</p>
               </div>
             </ScrollReveal>
           </div>
@@ -111,7 +111,7 @@ export default function EducationFacilitiesPage() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Building the patrol route</h3>
                 <p className="mt-2 text-muted-foreground">
-                  A patrol sequence is set up once per building, ordering every camera stop — main entrances, laboratory and equipment rooms, grounds and parking areas — into a route that runs on a schedule aligned to the academic calendar.
+                  A patrol sequence is set up once per building, ordering every camera stop, main entrances, laboratory and equipment rooms, grounds and parking areas, into a route that runs on a schedule aligned to the academic calendar.
                 </p>
 
                 <h3 className="mt-6 font-display text-lg font-bold">Checking each stop</h3>
@@ -209,14 +209,7 @@ export default function EducationFacilitiesPage() {
         </div>
       </section>
 
-      <section className="bg-muted/30 py-16 sm:py-20">
-        <div className="mx-auto max-w-site px-6 text-center">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">Frequently asked questions</h2>
-          <div className="mx-auto mt-8 max-w-3xl text-left">
-            <FAQAccordion items={faqs} />
-          </div>
-        </div>
-      </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { articleSchema, personSchema } from '@/lib/seo';
 import { AuthorByline } from '@/components/content/author-byline';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
@@ -18,15 +19,22 @@ const pageMeta = {
 
 export const metadata = generatePageMeta({ ...pageMeta, type: 'article', publishedTime: '2026-08-31', modifiedTime: '2026-08-31' });
 
+const faqs = [
+  { question: 'Does Camzify publish prices?', answer: "No. Pricing is per camera and quoted for your site or your client portfolio. The ROI calculator works the reader's side of the sum, what routine rounds cost today or what remote patrols would earn, and a quote comes back against it." },
+  { question: 'What drives the quote?', answer: 'The number of cameras, which AI features are licensed on them, cloud retention per camera, and the number of sites and sub-users on the account. Platform modules come with the account; AI features are licensed per camera instance.' },
+  { question: 'Is there hardware to buy?', answer: 'No. Camzify sells no hardware. The one thing sometimes needed on site is a PC running the Camzify Connector for cameras that cannot be reached from the internet.' },
+  { question: 'How do I compare it with what I pay now?', answer: 'Take the hours per week spent on routine rounds, times the hourly rate, times sites. That is the figure a quote is measured against, and the ROI calculator computes it from your own numbers.' },
+];
+
 export default function VirtualPatrollingCostPage() {
   return (
-    <PageShell {...pageMeta} schema={[articleSchema({ headline: "Virtual Patrolling Cost", description: "What does virtual patrolling cost? Per-camera pricing, comparison with guard costs, and how to calculate ROI for your facility.", path: "/guides/virtual-patrolling-cost", datePublished: '2026-08-31', dateModified: '2026-08-31' }), personSchema()]} breadcrumbs={[
+    <PageShell {...pageMeta} faqs={faqs} schema={[articleSchema({ headline: "Virtual Patrolling Cost", description: "What does virtual patrolling cost? Per-camera pricing, comparison with guard costs, and how to calculate ROI for your facility.", path: "/guides/virtual-patrolling-cost", datePublished: '2026-08-31', dateModified: '2026-08-31' }), personSchema()]} breadcrumbs={[
       { label: 'Guides', href: '/guides' },
       { label: 'Virtual Patrolling Cost' },
     ]}>
       <article className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Virtual Patrolling Cost</h1>
+          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Virtual patrolling cost</h1>
           <AuthorByline className="mt-6" />
           <p className="mt-6 max-w-prose text-body text-muted-foreground">Virtual patrolling cost is typically structured as a per-camera, per-month subscription. The total cost depends on the number of cameras monitored, the AI features activated per camera, and the storage retention period. For most facilities, it represents a fraction of the cost of equivalent manned guard coverage.</p>
 
@@ -40,7 +48,7 @@ export default function VirtualPatrollingCostPage() {
           <section className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Cost comparison with manned guarding</h2>
-              <div className="mt-4 max-w-prose space-y-4 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `A single security guard at SGD 12/hour costs approximately SGD 105,120/year for 24/7 coverage (4.5 FTE including relief). Virtual patrolling with 20 cameras costs a fraction of that annually, while providing more consistent coverage with a verified audit trail. Use the <a href="/roi-calculator">ROI calculator</a> to model your specific scenario.` }} />
+              <div className="mt-4 max-w-prose space-y-4 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `Around-the-clock coverage of one post takes several people once shifts, breaks, leave and relief are counted, so the annual cost of a staffed post is a multiple of one hourly rate. A scheduled camera round covers the same stops at whatever frequency you set and is priced per camera, with a report per round. We do not publish rates or estimate yours. Use the <a href="/roi-calculator">ROI calculator</a> to model your specific scenario.` }} />
             </ScrollReveal>
           </section>
 
@@ -72,6 +80,7 @@ export default function VirtualPatrollingCostPage() {
           </section>
         </div>
       </article>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

@@ -1,8 +1,10 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { FaqSection } from '@/components/content/faq-section';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 
 /**
@@ -11,7 +13,7 @@ import Link from 'next/link';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Camera Tampering Detection | AI Camera Tampering Detection Software",
+  title: "Camera Tampering Detection | Five Modes",
   description: "Camzify camera tampering detection monitors five modes: defocus, coverage, scene change, brightness shift, and frozen frames.",
   path: "/ai-features/camera-tampering-detection",
 };
@@ -20,8 +22,8 @@ export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
   { question: 'What counts as camera tampering?', answer: 'Camera tampering detection watches for five distinct conditions: sudden defocus, physical coverage of the lens, a rapid scene change indicating the camera was moved or rotated, an abnormal brightness shift, and frozen frames suggesting a feed loop or hardware failure. Any one of these fires an alert.' },
-  { question: 'How is a frozen feed different from a network outage?', answer: 'A frozen-frame alert fires when the video signal is present but the image itself stops changing — a looped or stuck feed. A network or camera outage is a separate condition, typically surfaced elsewhere in the platform as a connectivity or offline-camera alert rather than a tampering event.' },
-  { question: 'Can someone spray-paint or tape over a lens without triggering an alert?', answer: 'Physical coverage of the lens is one of the five monitored tamper modes and is designed specifically to catch this — a sudden, sustained loss of scene detail consistent with the lens being blocked triggers an alert rather than being mistaken for darkness or a camera fault.' },
+  { question: 'How is a frozen feed different from a network outage?', answer: 'A frozen-frame alert fires when the video signal is present but the image itself stops changing, a looped or stuck feed. A network or camera outage is a separate condition, typically surfaced elsewhere in the platform as a connectivity or offline-camera alert rather than a tampering event.' },
+  { question: 'Can someone spray-paint or tape over a lens without triggering an alert?', answer: 'Physical coverage of the lens is one of the five monitored tamper modes and is designed specifically to catch this, a sudden, sustained loss of scene detail consistent with the lens being blocked triggers an alert rather than being mistaken for darkness or a camera fault.' },
   { question: 'Does tampering detection work on cameras with automatic exposure or focus?', answer: 'Yes. The model is tuned to distinguish a camera\'s own automatic exposure and focus adjustments — which happen gradually and predictably — from a sudden, abnormal defocus or brightness shift consistent with physical interference.' },
   { question: 'How fast is a tampering alert delivered?', answer: 'Detection and alert routing happen in near real time from the moment a tamper condition is confirmed, since a tampered camera is a blind spot for every other detection feature running on that feed until it\'s resolved.' },
   { question: 'Does a tampering alert affect other detections on the same camera?', answer: 'A tampered camera can\'t reliably run other detection models until the tamper condition clears, so a tampering alert is treated as high priority — it\'s effectively a signal that the camera\'s entire coverage area is temporarily unmonitored.' },
@@ -33,40 +35,42 @@ export default function Page() {
       { label: 'AI Features', href: '/ai-features' },
       { label: 'Camera Tampering Detection' },
     ]}>
+      <FeatureHero
+        eyebrow="AI detection · Camera tampering detection"
+        title="Camera tampering detection"
+        lede={<><strong className="font-semibold text-foreground">Camera tampering detection monitors five distinct tampering modes: sudden defocus, physical coverage of the lens, rapid scene change indicating the camera was moved, abnormal brightness shifts, and frozen frames suggesting a feed loop or hardware failure.</strong> Any of these conditions triggers an immediate alert.</>}
+        facts={['Sudden defocus that leaves the scene unusable for review', 'Physical coverage of the lens — a hand, cloth, or spray', 'Rapid scene change indicating the camera was moved or rotated']}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/ai-features', label: 'All 22 detections' }}
+        visual={<PhotoFigure src="/feature-camera-tampering-detection-1.jpg" alt="Camera Tampering Detection visualization on camera feed" caption="Camera tampering detection" priority />}
+      />
+
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Camera Tampering Detection</h1>
-          <p className="mt-6 max-w-2xl text-body text-muted-foreground">Camera tampering detection monitors five distinct tampering modes: sudden defocus, physical coverage of the lens, rapid scene change indicating the camera was moved, abnormal brightness shifts, and frozen frames suggesting a feed loop or hardware failure. Any of these conditions triggers an immediate alert.</p>
-
-          <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
-            <ScrollReveal>
-              <div>
-                <h2 className="font-display text-2xl font-bold">This capability detects and alerts on:</h2>
-                <ul className="mt-4 space-y-3 text-muted-foreground">
+          <div>
+            <h2 className="font-display text-2xl font-bold">This capability detects and alerts on:</h2>
+            <ul className="mt-4 grid gap-3 text-muted-foreground sm:grid-cols-2">
                   <li className="flex gap-2">• Sudden defocus that leaves the scene unusable for review</li>
-                  <li className="flex gap-2">• Physical coverage of the lens — a hand, cloth, or spray</li>
+                  <li className="flex gap-2">• Physical coverage of the lens, a hand, cloth, or spray</li>
                   <li className="flex gap-2">• Rapid scene change indicating the camera was moved or rotated</li>
                   <li className="flex gap-2">• Abnormal brightness shifts consistent with a light or laser aimed at the lens</li>
                   <li className="flex gap-2">• Frozen frames suggesting a looped feed or hardware failure</li>
                 </ul>
-              </div>
-            </ScrollReveal>
-            <PlaceholderVisual type="camera-feed" caption="CAMERA TAMPERING DETECTION" alt="Camera Tampering Detection visualization on camera feed" />
           </div>
 
           <div className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Why camera tampering detection matters</h2>
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
-                <p>A camera that's been blocked, defocused, or redirected doesn't just stop working — it keeps reporting as online while silently covering nothing. Every other detection feature running on that feed goes blind at the same moment, and unless someone happens to notice the footage looks wrong, the gap can go unnoticed for hours.</p>
-                <p>This is exactly the moment tampering is most likely: someone disabling a camera on purpose picks the one covering the area they're about to enter. A dashboard that only shows "camera online" isn't enough — it needs to know the difference between a working feed and a feed that's been deliberately or accidentally compromised.</p>
+                <p>A camera that's been blocked, defocused, or redirected doesn't just stop working, it keeps reporting as online while silently covering nothing. Every other detection feature running on that feed goes blind at the same moment, and unless someone happens to notice the footage looks wrong, the gap can go unnoticed for hours.</p>
+                <p>This is exactly the moment tampering is most likely: someone disabling a camera on purpose picks the one covering the area they're about to enter. A dashboard that only shows "camera online" isn't enough, it needs to know the difference between a working feed and a feed that's been deliberately or accidentally compromised.</p>
                 <p>Camera tampering detection closes that gap by continuously checking the feed itself against five known tamper signatures, so a compromised camera gets flagged the moment it happens, not the next time someone happens to look at that view.</p>
               </div>
             </ScrollReveal>
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="TAMPER SIGNATURE LOGIC" alt="Diagram showing five independent tamper-detection signatures evaluated against a live camera feed" />
+            <PhotoFigure src="/feature-camera-tampering-detection-2.jpg" alt="Diagram showing five independent tamper-detection signatures evaluated against a live camera feed" caption="Tamper signature logic" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>
@@ -97,7 +101,7 @@ export default function Page() {
                   Camera tampering detection is enabled per camera with sensible defaults, and each mode can be tuned independently:
                 </p>
                 <ul className="mt-4 space-y-3 text-muted-foreground">
-                  <li className="flex gap-2">• Per-mode enable/disable — turn off scene-change detection on a pan-tilt-zoom camera, for example</li>
+                  <li className="flex gap-2">• Per-mode enable/disable, turn off scene-change detection on a pan-tilt-zoom camera, for example</li>
                   <li className="flex gap-2">• Confirmation window before a condition is treated as confirmed tampering</li>
                   <li className="flex gap-2">• Sensitivity per mode</li>
                   <li className="flex gap-2">• Escalation and priority routing for tamper alerts specifically</li>
@@ -105,11 +109,11 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="TAMPER MODE SETTINGS" alt="Configuration panel showing five tamper detection modes with individual sensitivity and enable controls" />
+            <PhotoFigure src="/feature-camera-tampering-detection-3.jpg" alt="Configuration panel showing five tamper detection modes with individual sensitivity and enable controls" caption="Tamper mode settings" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="industry" caption="TAMPER-RESISTANT COVERAGE" alt="Site map highlighting cameras covering high-value and unmanned areas with tampering detection enabled" />
+            <PhotoFigure src="/feature-camera-tampering-detection-4.jpg" alt="Site map highlighting cameras covering high-value and unmanned areas with tampering detection enabled" caption="Tamper-resistant coverage" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>
@@ -152,14 +156,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="bg-muted/30 py-16 sm:py-20">
-        <div className="mx-auto max-w-site px-6 text-center">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">Frequently asked questions</h2>
-          <div className="mx-auto mt-8 max-w-3xl text-left">
-            <FAQAccordion items={faqs} />
-          </div>
-        </div>
-      </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

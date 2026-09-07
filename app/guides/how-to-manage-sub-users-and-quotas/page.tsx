@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { HowToSteps, HowToNote, type HowToStep } from '@/components/content/how-to-steps';
 import { howToSchema } from '@/lib/seo';
@@ -11,8 +12,8 @@ import Link from 'next/link';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "How to Manage Sub-Users and Quotas | Delegated Access Guide",
-  description: "Build a permission group from page access and CRUD rights, add sub-users, assign sites and cameras, allocate licence quota from what you hold, and handle quota requests.",
+  title: "How to Manage Sub-Users and Quotas",
+  description: "Create sub-users, scope them to sites, allocate cameras, AI instances and storage from your quota, approve requests, suspend without deleting.",
   path: "/guides/how-to-manage-sub-users-and-quotas",
 };
 
@@ -21,7 +22,7 @@ export const metadata = generatePageMeta({ ...pageMeta, type: 'article' });
 const steps: HowToStep[] = [
   {
     name: 'Build the permission group before the user',
-    text: 'A permission group combines page-level access — which pages a user can open — with create, read, update and delete rights per resource. Define it once and reuse it, rather than reasoning about one person at a time. Disabling a page also removes its CRUD permissions, so there is no state where someone holds edit rights over something they cannot reach.',
+    text: 'A permission group combines page-level access, which pages a user can open, with create, read, update and delete rights per resource. Define it once and reuse it, rather than reasoning about one person at a time. Disabling a page also removes its CRUD permissions, so there is no state where someone holds edit rights over something they cannot reach.',
   },
   {
     name: 'Add the sub-user and assign exactly one group',
@@ -29,7 +30,7 @@ const steps: HowToStep[] = [
   },
   {
     name: 'Assign sites and cameras explicitly',
-    text: 'Pick the sites and cameras that user can reach, with snapshot previews to confirm you have the right ones. Grant the narrowest set that lets them do their job — a contractor covering one site should not be able to open another, and site-scoped access is what makes a multi-tenant or landlord arrangement workable at all.',
+    text: 'Pick the sites and cameras that user can reach, with snapshot previews to confirm you have the right ones. Grant the narrowest set that lets them do their job, a contractor covering one site should not be able to open another, and site-scoped access is what makes a multi-tenant or landlord arrangement workable at all.',
   },
   {
     name: 'Allocate quota out of what you actually hold',
@@ -44,10 +45,10 @@ const steps: HowToStep[] = [
 const faqs = [
   {
     question: 'Can a sub-user create their own sub-users?',
-    answer: 'Yes, on the same model. They can create users beneath them, assign a permission group, and allocate sites, cameras, feature instances and backup storage from their own unused quota — never more than they hold. Subscription end date and pricing remain parent-admin-only, so a delegated administrator can run their part of the account without touching commercial terms. This is what makes the model work for managed service providers and for landlords with tenants.',
+    answer: 'Yes, on the same model. They can create users beneath them, assign a permission group, and allocate sites, cameras, feature instances and backup storage from their own unused quota, never more than they hold. Subscription end date and pricing remain parent-admin-only, so a delegated administrator can run their part of the account without touching commercial terms. This is what makes the model work for managed service providers and for landlords with tenants.',
   },
   {
-    question: 'What happens when a sub-user hits a licence limit?',
+    question: 'What happens when a sub-user hits a license limit?',
     answer: 'They see the limit and are offered a quota request rather than a dead end. The request lands with the parent account, which approves it if there is enough unallocated quota or declines it. Nothing is granted automatically.',
   },
   {
@@ -75,12 +76,12 @@ export default function Page() {
           <p className="mt-6 max-w-prose text-body text-muted-foreground">
             <strong className="font-semibold text-foreground">
               Delegated access has two halves: what someone can see and do, and how much of your
-              licence they are allowed to consume.
+              license they are allowed to consume.
             </strong>{' '}
             This guide covers both, and the request flow that handles it when someone runs out. See
             also{' '}
             <Link href="/platform/permission-groups" className="text-primary hover:underline">permission groups</Link> and{' '}
-            <Link href="/platform/license-and-instance-management" className="text-primary hover:underline">licence and instance management</Link>.
+            <Link href="/platform/license-and-instance-management" className="text-primary hover:underline">license and instance management</Link>.
           </p>
 
           <HowToSteps steps={steps} />
@@ -104,6 +105,8 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

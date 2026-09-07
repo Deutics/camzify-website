@@ -1,8 +1,10 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { FaqSection } from '@/components/content/faq-section';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 
 /**
@@ -11,7 +13,7 @@ import Link from 'next/link';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Littering Detection | AI Litter Detection Camera Software",
+  title: "Littering Detection on Security Cameras",
   description: "Camzify littering detection catches items discarded outside designated bins the moment it happens, with a timestamped clip.",
   path: "/ai-features/littering-detection",
 };
@@ -20,8 +22,8 @@ export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
   { question: 'What counts as a littering event?', answer: 'The model watches for an object being dropped or thrown by a confirmed subject and left on the ground outside a designated bin area. A brief drop-and-pick-up doesn\'t match the pattern; the object needs to remain on the ground unclaimed.' },
-  { question: 'Can it identify who littered?', answer: 'Every alert includes a clip of the moment the item was discarded and, when AI attribute extraction is enabled, structured attributes of the person involved — useful for enforcement in municipal or campus settings with posted littering policies.' },
-  { question: 'Where does this typically get deployed?', answer: 'Outdoor and semi-outdoor areas with existing camera coverage — parking lots, plazas, campus grounds, and streets — rather than requiring new dedicated hardware.' },
+  { question: 'Can it identify who littered?', answer: 'Every alert includes a clip of the moment the item was discarded and, when AI attribute extraction is enabled, structured attributes of the person involved, useful for enforcement in municipal or campus settings with posted littering policies.' },
+  { question: 'Where does this typically get deployed?', answer: 'Outdoor and semi-outdoor areas with existing camera coverage, parking lots, plazas, campus grounds, and streets, rather than requiring new dedicated hardware.' },
   { question: 'Does it tell the difference between littering and legitimate disposal near a bin?', answer: 'Bin zones are marked directly on the camera view, so an item placed inside or immediately at a bin is treated as normal disposal, while an item left on the ground outside that zone is what triggers a littering alert.' },
   { question: 'Can littering hotspots be identified over time?', answer: 'Yes. Because every event is logged with location and timestamp, alerts can be aggregated to show which spots see repeated littering, which is useful for deciding where to add signage, bins, or enforcement attention.' },
   { question: 'Does weather or wind cause false alerts?', answer: 'The model evaluates a confirmed object separating from a tracked subject and remaining on the ground, not simple debris movement, which reduces false triggers from wind-blown litter that was already on the ground before monitoring began.' },
@@ -33,43 +35,43 @@ export default function Page() {
       { label: 'AI Features', href: '/ai-features' },
       { label: 'Littering Detection' },
     ]}>
+      <FeatureHero
+        eyebrow="AI detection · Littering detection"
+        title="Littering detection"
+        lede={<><strong className="font-semibold text-foreground">Trash tossed? We catch the moment.</strong> Littering detection flags items discarded outside designated
+            bins the instant it happens, with a timestamped clip for enforcement or site upkeep records.</>}
+        facts={['Objects dropped or thrown by a confirmed subject outside a…', 'Litter left unclaimed on the ground in monitored outdoor areas', 'Repeated littering activity at the same location over time']}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/ai-features', label: 'All 22 detections' }}
+        visual={<PhotoFigure src="/feature-littering-detection-1.jpg" alt="Camera view of an outdoor area with a littering event highlighted by a detection bounding box" caption="Littering detection" priority />}
+      />
+
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Littering Detection</h1>
-          <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            Trash tossed? We catch the moment. Littering detection flags items discarded outside designated
-            bins the instant it happens, with a timestamped clip for enforcement or site upkeep records.
-          </p>
-
-          <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
-            <ScrollReveal>
-              <div>
-                <h2 className="font-display text-2xl font-bold">This capability detects and alerts on:</h2>
-                <ul className="mt-4 space-y-3 text-muted-foreground">
+          <div>
+            <h2 className="font-display text-2xl font-bold">This capability detects and alerts on:</h2>
+            <ul className="mt-4 grid gap-3 text-muted-foreground sm:grid-cols-2">
                   <li className="flex gap-2">• Objects dropped or thrown by a confirmed subject outside a bin area</li>
                   <li className="flex gap-2">• Litter left unclaimed on the ground in monitored outdoor areas</li>
                   <li className="flex gap-2">• Repeated littering activity at the same location over time</li>
                   <li className="flex gap-2">• A timestamped clip for site upkeep or enforcement records</li>
                   <li className="flex gap-2">• Recurring hotspot locations aggregated across multiple events</li>
                 </ul>
-              </div>
-            </ScrollReveal>
-            <PlaceholderVisual type="camera-feed" caption="LITTERING DETECTION" alt="Camera view of an outdoor area with a littering event highlighted by a detection bounding box" />
           </div>
 
           <div className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Why littering detection matters</h2>
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
-                <p>Litter in a parking lot, plaza, or campus doesn't just look bad — it takes ongoing cleaning staff time to keep pace with, and by the time someone notices a pile of discarded items, there's no way to know who's responsible or how it started.</p>
+                <p>Litter in a parking lot, plaza, or campus doesn't just look bad, it takes ongoing cleaning staff time to keep pace with, and by the time someone notices a pile of discarded items, there's no way to know who's responsible or how it started.</p>
                 <p>Signage and occasional patrols only work if someone happens to see the moment it happens. Most littering goes completely unwitnessed, which means there's no way to enforce a posted policy or identify a recurring hotspot without hard evidence.</p>
-                <p>Littering detection turns every camera already covering an outdoor area into a continuous witness — catching the exact moment an item is discarded, where, and by whom, without needing a person stationed there to see it.</p>
+                <p>Littering detection turns every camera already covering an outdoor area into a continuous witness, catching the exact moment an item is discarded, where, and by whom, without needing a person stationed there to see it.</p>
               </div>
             </ScrollReveal>
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="DISCARD EVENT LOGIC" alt="Diagram showing an object separating from a tracked subject and remaining outside a marked bin zone" />
+            <PhotoFigure src="/feature-littering-detection-2.jpg" alt="Diagram showing an object separating from a tracked subject and remaining outside a marked bin zone" caption="Discard event logic" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>
@@ -81,12 +83,12 @@ export default function Page() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Confirming a discard event</h3>
                 <p className="mt-2 text-muted-foreground">
-                  A confirmed event requires the item to separate from a tracked subject and stay on the ground, unclaimed, outside the bin zone — filtering out a dropped item that's immediately picked back up.
+                  A confirmed event requires the item to separate from a tracked subject and stay on the ground, unclaimed, outside the bin zone, filtering out a dropped item that's immediately picked back up.
                 </p>
 
                 <h3 className="mt-6 font-display text-lg font-bold">Alert delivery</h3>
                 <p className="mt-2 text-muted-foreground">
-                  The alert fires with a clip, location, and timestamp, and — when <Link href="/ai-features/ai-attribute-extraction" className="text-primary hover:underline">AI attribute extraction</Link> is enabled — structured attributes of the person involved. Alerts route through the platform's <Link href="/platform/notifications-and-alerts" className="text-primary hover:underline">notification system</Link> and can be aggregated to identify recurring hotspot locations.
+                  The alert fires with a clip, location, and timestamp, and, when <Link href="/ai-features/ai-attribute-extraction" className="text-primary hover:underline">AI attribute extraction</Link> is enabled — structured attributes of the person involved. Alerts route through the platform's <Link href="/platform/notifications-and-alerts" className="text-primary hover:underline">notification system</Link> and can be aggregated to identify recurring hotspot locations.
                 </p>
               </div>
             </ScrollReveal>
@@ -101,17 +103,17 @@ export default function Page() {
                 </p>
                 <ul className="mt-4 space-y-3 text-muted-foreground">
                   <li className="flex gap-2">• Bin-zone boundaries drawn directly on the camera view</li>
-                  <li className="flex gap-2">• Schedule-based activation, e.g. daytime hours only</li>
+                  <li className="flex gap-2">• Notification window per camera, e.g. notify in daytime hours only</li>
                   <li className="flex gap-2">• Sensitivity adjustment per zone</li>
                   <li className="flex gap-2">• Per-camera instance licensing</li>
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="BIN ZONE SETUP" alt="Configuration panel showing designated bin zones marked on a camera view of an outdoor plaza" />
+            <PhotoFigure src="/feature-littering-detection-3.jpg" alt="Configuration panel showing designated bin zones marked on a camera view of an outdoor plaza" caption="Bin zone setup" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="industry" caption="HOTSPOT TRACKING" alt="Site map highlighting recurring littering hotspot locations aggregated from multiple detection events" />
+            <PhotoFigure src="/feature-littering-detection-4.jpg" alt="Site map highlighting recurring littering hotspot locations aggregated from multiple detection events" caption="Hotspot tracking" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>
@@ -168,14 +170,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="bg-muted/30 py-16 sm:py-20">
-        <div className="mx-auto max-w-site px-6 text-center">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">Frequently asked questions</h2>
-          <div className="mx-auto mt-8 max-w-3xl text-left">
-            <FAQAccordion items={faqs} />
-          </div>
-        </div>
-      </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

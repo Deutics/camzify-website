@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { HowToSteps, HowToNote, type HowToStep } from '@/components/content/how-to-steps';
 import { howToSchema } from '@/lib/seo';
@@ -11,8 +12,8 @@ import Link from 'next/link';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "How to Configure Cloud Video Backup | Retention & Storage Guide",
-  description: "Choose which cameras record, pick continuous or scheduled recording, set retention per camera, read the storage estimate honestly, and export a clip when you need it.",
+  title: "How to Configure Cloud Video Backup",
+  description: "Set continuous or scheduled recording per camera, retention by days or storage cap, apply presets across a site, check the storage projection.",
   path: "/guides/how-to-configure-cloud-video-backup",
 };
 
@@ -33,7 +34,7 @@ const steps: HowToStep[] = [
   },
   {
     name: 'Read the storage estimate as an estimate',
-    text: 'The figure shown during configuration is derived from each stream’s bitrate, the recording hours and the retention days. It is a planning number, not a guarantee: bitrate rises with scene activity and falls at night, so real consumption moves around it. Watch actual usage in Plan and Usage for the first full retention cycle, after which it stabilises.',
+    text: 'The figure shown during configuration is derived from each stream’s bitrate, the recording hours and the retention days. It is a planning number, not a guarantee: bitrate rises with scene activity and falls at night, so real consumption moves around it. Watch actual usage in Plan and Usage for the first full retention cycle, after which it stabilizes.',
   },
   {
     name: 'Know how to get footage out before you need it',
@@ -44,11 +45,11 @@ const steps: HowToStep[] = [
 const faqs = [
   {
     question: 'How much cloud storage will my cameras actually use?',
-    answer: 'It scales with bitrate, hours recorded and retention days, so the three levers are resolution, recording schedule and how long you keep footage. The estimate shown during configuration multiplies those out, but treat it as a planning figure — scene activity moves bitrate around, so a busy forecourt overshoots and a still corridor undershoots. Usage settles into a steady state after the first full retention cycle, because from then on old footage is deleted at the same rate new footage arrives.',
+    answer: 'It scales with bitrate, hours recorded and retention days, so the three levers are resolution, recording schedule and how long you keep footage. The estimate shown during configuration multiplies those out, but treat it as a planning figure, scene activity moves bitrate around, so a busy forecourt overshoots and a still corridor undershoots. Usage settles into a steady state after the first full retention cycle, because from then on old footage is deleted at the same rate new footage arrives.',
   },
   {
     question: 'Which saves more, shorter retention or scheduled recording?',
-    answer: 'Scheduled recording, usually, because it cuts hours rather than days and most sites have long predictable stretches with nothing to record. Halving the recording window roughly halves that camera’s storage. Shortening retention helps too, but it is the lever that costs you evidence — an incident discovered three weeks later is only recoverable if retention covers it.',
+    answer: 'Scheduled recording, usually, because it cuts hours rather than days and most sites have long predictable stretches with nothing to record. Halving the recording window roughly halves that camera’s storage. Shortening retention helps too, but it is the lever that costs you evidence, an incident discovered three weeks later is only recoverable if retention covers it.',
   },
   {
     question: 'What happens to footage if I delete a camera?',
@@ -103,6 +104,8 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

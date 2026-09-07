@@ -1,10 +1,11 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { FaqSection } from '@/components/content/faq-section';
 import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 
 /**
@@ -13,8 +14,8 @@ import Link from 'next/link';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "AI Security for Financial Services | Video Surveillance",
-  description: "Camzify provides AI-powered virtual patrolling and video analytics for financial services — automated patrols, real-time alerts, and compliance reports.",
+  title: "AI Security for Financial Services",
+  description: "Camzify provides AI-powered virtual patrolling and video analytics for financial services, automated patrols, real-time alerts, and compliance reports.",
   path: "/industries/financial-services",
 };
 
@@ -23,7 +24,7 @@ export const metadata = generatePageMeta({ ...pageMeta });
 const deploymentPhases = [
     { title: "Start with the vault and ATM line", body: "Cash-handling rooms, ATM enclosures, server rooms and after-hours entrances are onboarded first, since these carry both the security and the regulatory weight." },
     { title: "Verify closing procedure every night", body: "The end-of-day sequence checks that each secured area is closed and clear, producing an independent record of the closing routine rather than relying on a signed sheet." },
-    { title: "Standardise across the branch network", body: "One approved sequence is applied to every branch through multi-site management, so compliance reporting is comparable across locations rather than branch-specific." },
+    { title: "Standardize across the branch network", body: "One approved sequence is applied to every branch through multi-site management, so compliance reporting is comparable across locations rather than branch-specific." },
 ];
 
 const faqs = [
@@ -31,28 +32,31 @@ const faqs = [
   { question: "Can it monitor ATM vestibules?", answer: "Yes. Zone detection on ATM-area cameras can alert on presence during closed hours or when the vestibule should be empty." },
   { question: "How long does setup take for a branch or vault facility?", answer: "Most single-branch deployments are configured within a few days once camera access is confirmed. Zones, patrol routes, and alert routing are set up per site, so a multi-branch rollout is typically staged branch by branch rather than all at once." },
   { question: "How does Camzify handle false positives in busy teller or lobby areas?", answer: "Zones and detection sensitivity are tuned per camera, so high-traffic customer areas can be excluded or set to a looser threshold while vaults, back offices, and after-hours zones stay strict. Multi-Object Tracking also helps distinguish routine foot traffic from an actual zone breach." },
-  { question: "Does Camzify store or process customer transaction data?", answer: "No. Camzify operates on the video feed for security monitoring only — it does not connect to teller systems, core banking platforms, or transaction records. Scope of camera coverage is defined by your team during setup." },
+  { question: "Does Camzify store or process customer transaction data?", answer: "No. Camzify operates on the video feed for security monitoring only, it does not connect to teller systems, core banking platforms, or transaction records. Scope of camera coverage is defined by your team during setup." },
   { question: "How does this compare to adding overnight guards at a branch?", answer: "Virtual patrolling covers every camera on a fixed schedule and produces a timestamped record for each round, at a fraction of the cost of stationing a guard at each location overnight. Most branches use it to close the after-hours gap rather than replace daytime staff entirely." },
 ];
 
 export default function FinancialServicesPage() {
   return (
-    <PageShell {...pageMeta} schema={[serviceSchema({ name: "AI Security for Financial Services", description: "Camzify provides AI-powered virtual patrolling and video analytics for financial services — automated patrols, real-time alerts, and compliance reports.", path: "/industries/financial-services", audience: "Financial Services" })]} faqs={faqs} breadcrumbs={[
+    <PageShell {...pageMeta} schema={[serviceSchema({ name: "AI Security for Financial Services", description: "Camzify provides AI-powered virtual patrolling and video analytics for financial services, automated patrols, real-time alerts, and compliance reports.", path: "/industries/financial-services", audience: "Financial Services" })]} faqs={faqs} breadcrumbs={[
       { label: 'Industries', href: '/industries' },
       { label: 'Financial Services' },
     ]}>
+      <FeatureHero
+        eyebrow="Industry · financial services"
+        title="AI security for financial services"
+        lede={<><strong className="font-semibold text-foreground">Financial services face security challenges that cameras alone cannot solve and manned guards cannot cover consistently.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.</>}
+        facts={['Vault corridors and cash-handling areas left unchecked…', 'ATM vestibules with no continuous after-hours monitoring', 'Branch perimeters relying on a single closing-time walk-through']}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}
+        visual={<PlaceholderVisual type="industry" caption="FINANCIAL SERVICES" alt="Security monitoring in a financial services environment" />}
+      />
+
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">AI Security for Financial Services</h1>
-          <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            Financial services face security challenges that cameras alone cannot solve and manned guards cannot cover consistently. Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.
-          </p>
-
-          <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
-            <ScrollReveal>
-              <div>
-                <h2 className="font-display text-2xl font-bold">Common financial services security gaps Camzify closes:</h2>
-                <ul className="mt-4 space-y-3 text-muted-foreground">
+          <div>
+            <h2 className="font-display text-2xl font-bold">Common financial services security gaps Camzify closes:</h2>
+            <ul className="mt-4 grid gap-3 text-muted-foreground sm:grid-cols-2">
                   <li className="flex gap-2">• Vault corridors and cash-handling areas left unchecked between staffed hours</li>
                   <li className="flex gap-2">• ATM vestibules with no continuous after-hours monitoring</li>
                   <li className="flex gap-2">• Branch perimeters relying on a single closing-time walk-through</li>
@@ -60,18 +64,15 @@ export default function FinancialServicesPage() {
                   <li className="flex gap-2">• Camera outages going unnoticed until an incident is already reported</li>
                   <li className="flex gap-2">• No timestamped audit trail proving a compliance check actually occurred</li>
                 </ul>
-              </div>
-            </ScrollReveal>
-            <PlaceholderVisual type="industry" caption="FINANCIAL SERVICES" alt="Security monitoring in a financial services environment" />
           </div>
 
           <div className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Why financial services needs continuous AI monitoring</h2>
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
-                <p>Branches and back-office facilities hold a mix of cash, records, and restricted infrastructure, but staffing thins out well before the building is actually empty — closing procedures, overnight hours, and weekend closures all leave vaults, ATMs, and server rooms with far less oversight than the risk they carry would suggest.</p>
+                <p>Branches and back-office facilities hold a mix of cash, records, and restricted infrastructure, but staffing thins out well before the building is actually empty, closing procedures, overnight hours, and weekend closures all leave vaults, ATMs, and server rooms with far less oversight than the risk they carry would suggest.</p>
                 <p>A guard walking a closing round checks each area once; a fixed CCTV system records everything but reviews none of it until someone asks for the footage after the fact. Neither approach catches a vault corridor breach or an ATM vestibule left occupied after hours while it is still happening.</p>
-                <p>Financial institutions also carry real audit and regulatory expectations around demonstrating that security checks took place, not just that cameras were recording. Continuous AI patrolling closes both gaps at once — a documented, timestamped check of every zone on a fixed schedule, with an immediate alert the moment something fails, rather than a record that only gets reviewed after a loss has already happened.</p>
+                <p>Financial institutions also carry real audit and regulatory expectations around demonstrating that security checks took place, not just that cameras were recording. Continuous AI patrolling closes both gaps at once, a documented, timestamped check of every zone on a fixed schedule, with an immediate alert the moment something fails, rather than a record that only gets reviewed after a loss has already happened.</p>
               </div>
             </ScrollReveal>
           </div>
@@ -104,7 +105,7 @@ export default function FinancialServicesPage() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Building the patrol route</h3>
                 <p className="mt-2 text-muted-foreground">
-                  A patrol sequence is set up once, ordering every camera stop — vault corridor, ATM vestibule, teller line, branch perimeter — into a single route that runs on a configurable schedule.
+                  A patrol sequence is set up once, ordering every camera stop, vault corridor, ATM vestibule, teller line, branch perimeter, into a single route that runs on a configurable schedule.
                 </p>
 
                 <h3 className="mt-6 font-display text-lg font-bold">Checking each stop</h3>
@@ -202,14 +203,7 @@ export default function FinancialServicesPage() {
         </div>
       </section>
 
-      <section className="bg-muted/30 py-16 sm:py-20">
-        <div className="mx-auto max-w-site px-6 text-center">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">Frequently asked questions</h2>
-          <div className="mx-auto mt-8 max-w-3xl text-left">
-            <FAQAccordion items={faqs} />
-          </div>
-        </div>
-      </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

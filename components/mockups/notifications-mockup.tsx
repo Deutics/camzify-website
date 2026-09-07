@@ -108,7 +108,7 @@ export function NotificationsMockup() {
       <div className="flex items-center justify-between border-b border-border bg-muted/30 px-5 py-3">
         <div className="flex items-center gap-2">
           <span className="h-2 w-2 animate-pulse-dot rounded-full bg-critical" />
-          <span className="font-mono text-mono-sm uppercase text-muted-foreground">Notifications · 3 Require Acknowledgement</span>
+          <span className="font-mono text-mono-sm uppercase text-muted-foreground">Notifications · 3 Require Acknowledgment</span>
         </div>
         <span className="font-mono text-mono-sm text-muted-foreground/60">Oldest: HQ-Parking · 4h 47m ago</span>
       </div>

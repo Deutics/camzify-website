@@ -69,7 +69,7 @@ const demoCameras: DemoCamera[] = [
     afterAlt: 'The same dock camera after the bay has been shut and the floor cleared',
     items: [
       { label: 'Dock door secured', guardMsg: 'Dock door unsecured — lock it and confirm.' },
-      { label: 'No unauthorised persons in zone', guardMsg: 'Unregistered person at the dock — investigate.' },
+      { label: 'No unauthorized persons in zone', guardMsg: 'Unregistered person at the dock — investigate.' },
     ],
   },
   {

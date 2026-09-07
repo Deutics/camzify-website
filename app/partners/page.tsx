@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
 import { Handshake, Shield, Monitor, Server, Users } from 'lucide-react';
@@ -11,28 +12,35 @@ import { Handshake, Shield, Monitor, Server, Users } from 'lucide-react';
  */
 const pageMeta = {
   title: "Partners | Reseller & Integration Partners",
-  description: "Join the Camzify partner program — resellers, security integrators, monitoring centres, and managed service providers.",
+  description: "Join the Camzify partner program, resellers, security integrators, monitoring centers, and managed service providers.",
   path: "/partners",
 };
 
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const partnerTypes = [
-  { slug: 'for-security-agencies', title: 'For Security Agencies', icon: Users, desc: 'Sell overnight coverage across every client site, with a report per client — alongside the guards you already provide.' },
-  { slug: 'become-a-reseller', title: 'Become a Reseller', icon: Handshake, desc: 'Sell Camzify to your customers with dedicated support and margin.' },
-  { slug: 'for-security-integrators', title: 'For Security Integrators', icon: Shield, desc: 'Add virtual patrolling to your installation and maintenance offering.' },
-  { slug: 'for-monitoring-centres', title: 'For Monitoring Centres', icon: Monitor, desc: 'Augment human monitoring with AI-powered patrol automation.' },
-  { slug: 'for-managed-service-providers', title: 'For Managed Service Providers', icon: Server, desc: 'Offer Camzify as a managed security service to your clients.' },
+  { slug: 'for-security-agencies', title: 'For Security Agencies', icon: Users, desc: 'Sell overnight coverage across every client site, with a report per client, alongside the guards you already provide.' },
+  { slug: 'become-a-reseller', title: 'Become a Reseller', icon: Handshake, desc: 'Sell a cloud VMS with virtual patrolling built in. Software only, quote-based pricing, a page you can quote for every claim.' },
+  { slug: 'for-security-integrators', title: 'For CCTV & Alarm Installers', icon: Shield, desc: 'Attach virtual patrolling to systems you already install: RTSP, RTMP or HTTPS, a Connector for LAN cameras, a clean hand-over.' },
+  { slug: 'for-monitoring-centers', title: 'For Monitoring Companies', icon: Monitor, desc: 'Run scheduled rounds for every agency you monitor for, notify their guards from the round, and hand each one a report per round.' },
+  { slug: 'for-managed-service-providers', title: 'For Managed Service Providers', icon: Server, desc: 'One account you hold, a scoped login per customer, quota you allocate and reclaim, alerts and reports per client.' },
+];
+
+const faqs = [
+  { question: 'Which partner page am I?', answer: 'If you sell guard hours or mobile patrols, security agencies. If you receive alarms or watch cameras for others, monitoring companies. If you install cameras, CCTV and alarm installers. If you run IT for customers, managed service providers. If you sell software, resellers.' },
+  { question: 'Is there a partner program with tiers and margins?', answer: 'No published margin, tier, portal or curriculum. Terms are agreed in conversation, and every partner page says so rather than inventing a program.' },
+  { question: 'Who holds the account, the partner or the customer?', answer: 'Whoever operates the console. A partner can hold the account with each customer as a scoped sub-user, or the customer can hold it and give the partner a login. Both are supported.' },
+  { question: 'Where do I run the numbers?', answer: "The ROI calculator has an agency mode: client sites, the price you would charge, the hours you cannot staff, and the recurring revenue that follows. Camzify's cost is quoted against it." },
 ];
 
 export default function PartnersHub() {
   return (
-    <PageShell {...pageMeta} breadcrumbs={[{ label: 'Partners' }]}>
+    <PageShell {...pageMeta} faqs={faqs} breadcrumbs={[{ label: 'Partners' }]}>
       <section className="pb-20">
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Partners</h1>
           <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            Camzify works with security integrators, resellers, monitoring centres, and MSPs to bring <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</Link> to facilities worldwide.
+            Camzify works with security integrators, resellers, monitoring centers, and MSPs to bring <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</Link> to facilities worldwide.
           </p>
           <div className="mt-14 grid gap-6 sm:grid-cols-2">
             {partnerTypes.map((p, i) => (
@@ -50,6 +58,7 @@ export default function PartnersHub() {
           </div>
         </div>
       </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

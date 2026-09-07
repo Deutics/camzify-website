@@ -1,6 +1,7 @@
 import { Inter, JetBrains_Mono, Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/system/theme-provider';
+import { MaintenanceNotice } from '@/components/system/maintenance-notice';
 import { Toaster } from '@/components/ui/sonner';
 import { ChunkLoadErrorHandler } from '@/components/system/chunk-load-error-handler';
 import { SiteHeader } from '@/components/layout/site-header';
@@ -15,9 +16,9 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-sans', display: 'swa
 const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono', display: 'swap' });
 const jakartaSans = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-display', weight: ['600', '700', '800'], display: 'swap' });
 
-const title = 'AI Video Management System & Virtual Patrolling Software';
+const title = 'AI Video Management & Virtual Patrolling Software';
 const description =
-  'Camzify is an AI-powered cloud video management system for the cameras you already own: live streaming, cloud backup, 22 real-time detections and scheduled virtual patrol rounds with a compliance record. Book a demo.';
+  'AI cloud video management for the cameras you already own: live streaming, 22 detections and scheduled virtual patrol rounds with a compliance record.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -109,6 +110,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <SiteHeader />
           <main id="main" className="min-h-screen">{children}</main>
           <SiteFooter />
+          {/* Remove when the site leaves maintenance. */}
+          <MaintenanceNotice />
           <ExitIntentModal />
           <Toaster />
           <ChunkLoadErrorHandler />

@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { articleSchema, personSchema } from '@/lib/seo';
 import { AuthorByline } from '@/components/content/author-byline';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
@@ -18,17 +19,24 @@ const pageMeta = {
 
 export const metadata = generatePageMeta({ ...pageMeta, type: 'article', publishedTime: '2026-08-31', modifiedTime: '2026-08-31' });
 
+const faqs = [
+  { question: 'What is virtual patrolling in one sentence?', answer: "A scheduled round in which software steps through a site's cameras in a set order, checks a defined list of conditions at each stop, notifies the guard responsible when a check fails, and files a report with the frame behind every result." },
+  { question: 'How is it different from remote guarding?', answer: 'Remote guarding usually means a person watching cameras from elsewhere and responding to alarms. Virtual patrolling is the round itself: the same stops, the same checks, on a schedule, with a record. It can be run by an operator or automated, and it hands a person the failures.' },
+  { question: 'Does it need special cameras?', answer: 'No. Any camera producing an RTSP stream works, plus RTMP and HTTPS streams. Cameras on a local network connect through the Camzify Connector on a PC inside that network.' },
+  { question: 'What does a round leave behind?', answer: 'A report per round: every stop, every checklist item with its result, the snapshot it was judged against, before and after frames on anything fixed, timestamps, and a compliance percentage. Nothing in it is typed in afterwards.' },
+];
+
 export default function WhatIsVirtualPatrollingPage() {
   return (
-    <PageShell {...pageMeta} schema={[articleSchema({ headline: "What Is Virtual Patrolling?", description: "Virtual patrolling is a system that runs scheduled AI patrol rounds on existing cameras, checking a defined checklist at each point. Complete guide.", path: "/guides/what-is-virtual-patrolling", datePublished: '2026-08-31', dateModified: '2026-08-31' }), personSchema()]} breadcrumbs={[
+    <PageShell {...pageMeta} faqs={faqs} schema={[articleSchema({ headline: "What Is Virtual Patrolling?", description: "Virtual patrolling is a system that runs scheduled AI patrol rounds on existing cameras, checking a defined checklist at each point. Complete guide.", path: "/guides/what-is-virtual-patrolling", datePublished: '2026-08-31', dateModified: '2026-08-31' }), personSchema()]} breadcrumbs={[
       { label: 'Guides', href: '/guides' },
       { label: 'What Is Virtual Patrolling?' },
     ]}>
       <article className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">What Is Virtual Patrolling?</h1>
+          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">What is virtual patrolling?</h1>
           <AuthorByline className="mt-6" />
-          <p className="mt-6 max-w-prose text-body text-muted-foreground">Virtual patrolling is a system that runs scheduled AI patrol rounds across your existing security cameras. At each camera stop, the system checks a defined list of conditions — is the door closed, is the area clear, is the perimeter intact — and flags failures to the assigned security contact. It is an alternative to physical guard patrols that provides consistent, verifiable, and auditable coverage.</p>
+          <p className="mt-6 max-w-prose text-body text-muted-foreground">Virtual patrolling is a system that runs scheduled AI patrol rounds across your existing security cameras. At each camera stop, the system checks a defined list of conditions, is the door closed, is the area clear, is the perimeter intact, and flags failures to the assigned security contact. It is an alternative to physical guard patrols that provides consistent, verifiable, and auditable coverage.</p>
 
           <section className="mt-16">
             <ScrollReveal>
@@ -56,7 +64,7 @@ The entire round produces a compliance report — exportable as PDF — showing 
           <section className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Virtual patrolling vs security guards</h2>
-              <div className="mt-4 max-w-prose space-y-4 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `The comparison is not binary — many facilities use both. Virtual patrolling provides the consistent, verifiable baseline; guards provide the physical response capability. The cost difference is significant: a single guard at SGD 12/hour for overnight coverage costs roughly SGD 43,800/year. Camzify monitors the same cameras for a fraction of that. See the full comparison at <a href="/compare/virtual-patrolling-vs-security-guards">virtual patrolling vs security guards</a>, or model your specific scenario with the <a href="/roi-calculator">ROI calculator</a>.` }} />
+              <div className="mt-4 max-w-prose space-y-4 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `The comparison is not binary — many facilities use both. Virtual patrolling provides the consistent, verifiable baseline; guards provide the physical response capability. The cost difference comes from hours: an overnight post is paid for every hour a person is on it, whether or not anything happens, while a scheduled round on the same cameras is priced per camera and runs as often as the schedule says. Camzify does not publish rates; the quote is measured against your own guarding hours. See the full comparison at <a href="/virtual-patrolling/vs-security-guards">virtual patrolling vs security guards</a>, or model your specific scenario with the <a href="/roi-calculator">ROI calculator</a>.` }} />
             </ScrollReveal>
           </section>
 
@@ -66,6 +74,7 @@ The entire round produces a compliance report — exportable as PDF — showing 
               <Link href="/guides/virtual-patrolling-cost" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">Virtual Patrolling Cost</Link>
               <Link href="/guides/security-guard-cost-per-hour" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">Security Guard Cost Per Hour</Link>
               <Link href="/guides/guard-tour-systems-explained" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">Guard Tour Systems Explained</Link>
+              <Link href="/virtual-guard" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">What Is a Virtual Guard?</Link>
             </div>
             <div className="mt-6 flex flex-wrap gap-4">
               <Link href="/pricing" className="rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white shadow transition-colors hover:bg-primary/90">View pricing</Link>
@@ -74,6 +83,7 @@ The entire round produces a compliance report — exportable as PDF — showing 
           </section>
         </div>
       </article>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

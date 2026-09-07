@@ -37,12 +37,12 @@ They share `.next/` and the build strips the dev server's CSS. Use
 
 **4. Never weaken `eslint.ssr.config.mjs`.**
 It is a hand-written hydration-safety lint that runs after every build. If it flags your
-code, fix the code. `new Date()`, `Math.random()`, `window`, and unlocalised
+code, fix the code. `new Date()`, `Math.random()`, `window`, and unlocalized
 `toLocaleString` in render are all real hydration bugs. Use `ClientOnly`, `useMounted`,
 `SafeDate`, `SafeNumber` from `components/system/`, or hoist the value to module scope
 with a comment explaining why it is safe.
 
-**5. Never use literal Tailwind palette colours.**
+**5. Never use literal Tailwind palette colors.**
 No `text-emerald-400`, `bg-red-500`, `text-gray-900`. Use the semantic tokens:
 `primary`, `muted`, `border`, `card`, `foreground`, and the status tokens `live`, `warn`,
 `critical`. Literal palette classes are tuned for one theme and fail contrast in the
@@ -88,8 +88,9 @@ the file the six SEO skills (`keyword-fanout-map`, `seo-content-writer`,
 `onpage-optimizer`, `internal-link-architect`, `ai-visibility-checker`) read, so keeping
 it accurate keeps their output on-brand.
 
-Target search market is the **United States**. Note the open conflict recorded in the
-brief: the copy is written in Commonwealth English while the search target is US.
+Target search market is the **United States**, and the copy is written in **US
+English** (organize, behavior, center, license, gray). Proper nouns keep their own
+spelling. Filenames and identifiers were not respelled; prose was.
 
 ---
 
@@ -135,10 +136,14 @@ rendered result — do not ask the user to look for you.
   nothing is emailed. Do not add a notification step back without asking.
 - **`images.unoptimized: true` in `next.config.js`** is deliberate for the deploy target.
   Images still use `next/image` with explicit `width`/`height` to prevent layout shift.
-- **Opacity stops `15` and `25` are declared in `tailwind.config.ts`.** They are not
-  Tailwind defaults; without them `bg-live/15` silently generates no CSS at all.
-- **`app/opengraph-image.tsx` generates the social card at build time.** Do not add an
-  `images` key to `openGraph` in metadata — it would override the generated card.
+- **Opacity stops `15`, `25`, `35`, `45`, `55`, `65` and `85` are declared in
+  `tailwind.config.ts`.** They are not Tailwind defaults; without them `bg-live/15` or
+  `text-foreground/85` silently generates no CSS at all, and text falls back to the
+  inherited body colour — which is how the hero labels went dark-on-dark in light mode.
+- **`app/opengraph-image.tsx` generates the social card at build time**, and
+  `generatePageMeta` attaches it to every page as the default `og:image`. A page that
+  exports its own metadata does not inherit the root card on its own, so do not remove
+  that fallback; pass `image` to `generatePageMeta` only for a page with its own card.
 - **The homepage has no `export const metadata`.** It inherits the root layout's, which is
   correct. Every other page must define its own.
 - **`components/system/safe-format.tsx` and `client-only.tsx` are currently unused.** They
@@ -155,6 +160,19 @@ Add a photo, run `python3 scripts/optimise-images.py`, use `<SiteImage>` with a 
 `sizes`, and commit the generated `.webp` files with `lib/image-manifest.ts`. In a
 mapped list, `priority={i === 0}` — not on every card.
 
+**Where the photographs come from.** The business supplied the full image set on
+2026-09-04 (zip in the owner's Downloads: "Camzify Website Images"). It was staged into
+`public/` under slug names by section: `hero-cam-*` (twelve real camera frames, used by
+the homepage hero, the placeholder camera walls and the live-wall mockup at the 640px
+WebP), `scene-*` (scene observation), `product-*-{dark,light}` (console screenshots),
+`feature-<slug>-{1..4}` (AI features: live view, photo, configuration, collage),
+`industry-<slug>-{1..3}` and `ai-security-for-<slug>` (industries), `vp-*` (virtual
+patrolling pages, how-it-works steps, sequence camera frames). Sources are JPEG at
+1600px or below; PSDs and 8000px originals stay out of the repo. Industries without a
+supplied set (healthcare, education, property, residential, waste, remote sites,
+financial services, multiple sites, self-storage) still use `PlaceholderVisual`.
+`components/content/photo-figure.tsx` is the framed figure for any of these.
+
 ## Author identity
 
 Guides carry a named byline: Muhammad Talha, from `siteConfig.author`. The visible
@@ -164,4 +182,5 @@ object, so never restate the name, role or credential anywhere else.
 ## Known gaps worth flagging, not silently fixing
 
 - There is **no test suite**. The gates are `tsc`, the build, and the SSR lint.
-- `/api/newsletter` exists with no UI posting to it.
+- `/api/newsletter` is posted to by the footer's `NewsletterForm`; the privacy and cookie
+  policies describe it, so keep the three in step.

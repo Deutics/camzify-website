@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 
 /**
@@ -18,7 +19,7 @@ export const metadata = generatePageMeta({ ...pageMeta });
 const faqs = [
   {
     question: 'Does my RTSP camera need a static IP or port forwarding?',
-    answer: 'No. There are two routes and only one of them involves exposing anything. If the RTSP stream is already reachable over the internet — a static IP, an existing forwarded port, a camera behind an NVR that publishes it — connect that URL directly. If the camera only exists on the local network, install the Camzify Connector on a PC on that network instead. The Connector makes an outbound connection to Camzify, so nothing needs to be opened up and the camera is never exposed to the internet.',
+    answer: 'No. There are two routes and only one of them involves exposing anything. If the RTSP stream is already reachable over the internet, a static IP, an existing forwarded port, a camera behind an NVR that publishes it, connect that URL directly. If the camera only exists on the local network, install the Camzify Connector on a PC on that network instead. The Connector makes an outbound connection to Camzify, so nothing needs to be opened up and the camera is never exposed to the internet.',
   },
   {
     question: 'What is the Camzify Connector and where does it run?',
@@ -26,7 +27,7 @@ const faqs = [
   },
   {
     question: 'Is a directly connected RTSP camera treated differently from a relayed one?',
-    answer: 'No. Once connected, both behave identically in Camzify — the same live view, AI detections, patrol sequences and reports. PTZ control on a local camera is carried by the Connector along with the video. The route only decides how the stream reaches the platform.',
+    answer: 'No. Once connected, both behave identically in Camzify, the same live view, AI detections, patrol sequences and reports. PTZ control on a local camera is carried by the Connector along with the video. The route only decides how the stream reaches the platform.',
   },
 ];
 
@@ -38,7 +39,7 @@ export default function RtspSetupPage() {
     ]}>
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">RTSP Camera Setup</h1>
+          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">RTSP camera setup</h1>
           <p className="mt-6 max-w-prose text-body text-muted-foreground">
             <strong className="font-semibold text-foreground">
               An RTSP camera connects to Camzify in one of two ways, depending on whether its
@@ -109,6 +110,8 @@ export default function RtspSetupPage() {
           </ol>
         </div>
       </section>
+
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

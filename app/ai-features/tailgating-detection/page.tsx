@@ -1,8 +1,10 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { FaqSection } from '@/components/content/faq-section';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 
 /**
@@ -11,8 +13,8 @@ import Link from 'next/link';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Tailgating Detection | AI Piggybacking Detection Software",
-  description: "Camzify tailgating detection flags a second person entering on a single access credential — one badge, one person, no exceptions.",
+  title: "Tailgating Detection at Controlled Doors",
+  description: "Camzify tailgating detection flags a second person entering on a single access credential, one badge, one person, no exceptions.",
   path: "/ai-features/tailgating-detection",
 };
 
@@ -22,9 +24,9 @@ const faqs = [
   { question: 'What is tailgating detection?', answer: 'Tailgating (or piggybacking) detection watches access points and flags when more than one person enters on a single badge, key card, or access credential. It closes the gap that badge-reader logs alone can\'t catch, since a badge log only proves the credential was used, not how many people came through.' },
   { question: 'Does it need to integrate with our access control system?', answer: 'No integration is required to detect a tailgating event on camera. For richer alerts, tailgating detection can be paired with access control logs where available, so an alert shows both the badge used and the confirmed head count on camera.' },
   { question: 'What happens when tailgating is detected?', answer: 'An alert with a timestamped clip routes to the assigned guard through the notification system. During a virtual patrol round, a tailgating event at a monitored entry point is logged as a non-compliant checklist item.' },
-  { question: 'How accurate is the head count at a busy entrance?', answer: 'The model relies on confirmed object tracks rather than raw motion, so it distinguishes closely spaced individuals rather than counting a crowd as a single blob. Camera angle and framing at the access point still matter — a doorway view with a clear line of sight to each entrant gives the most reliable count.' },
-  { question: 'Does it flag two authorised employees walking in together?', answer: 'The detection itself is based on headcount versus badge count at the entry event, not on whether both people are authorised. Pairing with access control logs lets a site distinguish an authorised second badge-in immediately after the first from an actual unbadged follower.' },
-  { question: 'How is this different from a standard door-held-open alarm?', answer: 'A door-held-open alarm only knows the door stayed open past a time threshold — it can\'t tell whether one person or five walked through. Tailgating detection counts confirmed people crossing the threshold on a single access event, which catches piggybacking even when the door closes normally between entries.' },
+  { question: 'How accurate is the head count at a busy entrance?', answer: 'The model relies on confirmed object tracks rather than raw motion, so it distinguishes closely spaced individuals rather than counting a crowd as a single blob. Camera angle and framing at the access point still matter, a doorway view with a clear line of sight to each entrant gives the most reliable count.' },
+  { question: 'Does it flag two authorized employees walking in together?', answer: 'The detection itself is based on headcount versus badge count at the entry event, not on whether both people are authorized. Pairing with access control logs lets a site distinguish an authorized second badge-in immediately after the first from an actual unbadged follower.' },
+  { question: 'How is this different from a standard door-held-open alarm?', answer: 'A door-held-open alarm only knows the door stayed open past a time threshold, it can\'t tell whether one person or five walked through. Tailgating detection counts confirmed people crossing the threshold on a single access event, which catches piggybacking even when the door closes normally between entries.' },
 ];
 
 export default function Page() {
@@ -33,44 +35,44 @@ export default function Page() {
       { label: 'AI Features', href: '/ai-features' },
       { label: 'Tailgating Detection' },
     ]}>
+      <FeatureHero
+        eyebrow="AI detection · Tailgating detection"
+        title="Tailgating detection"
+        lede={<><strong className="font-semibold text-foreground">One badge, one person, no exceptions.</strong> Tailgating detection watches secure entry points and flags
+            the moment a second person follows an authorized badge holder through a controlled door.</>}
+        facts={['A second, unbadged person entering directly behind an…', 'Multiple people passing through a single-entry access point…', 'Door-held-open events that allow entry without a fresh badge…']}
+        primary={{ href: '/book-a-demo', label: 'Book a demo' }}
+        secondary={{ href: '/ai-features', label: 'All 22 detections' }}
+        visual={<PhotoFigure src="/feature-tailgating-detection-1.jpg" alt="Camera view of a secure door showing two people entering on one badge scan, with the second person highlighted" caption="Tailgating detection" priority />}
+      />
+
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Tailgating Detection</h1>
-          <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            One badge, one person, no exceptions. Tailgating detection watches secure entry points and flags
-            the moment a second person follows an authorised badge holder through a controlled door.
-          </p>
-
-          <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
-            <ScrollReveal>
-              <div>
-                <h2 className="font-display text-2xl font-bold">This capability detects and alerts on:</h2>
-                <ul className="mt-4 space-y-3 text-muted-foreground">
-                  <li className="flex gap-2">• A second, unbadged person entering directly behind an authorised badge holder</li>
+          <div>
+            <h2 className="font-display text-2xl font-bold">This capability detects and alerts on:</h2>
+            <ul className="mt-4 grid gap-3 text-muted-foreground sm:grid-cols-2">
+                  <li className="flex gap-2">• A second, unbadged person entering directly behind an authorized badge holder</li>
                   <li className="flex gap-2">• Multiple people passing through a single-entry access point together</li>
                   <li className="flex gap-2">• Door-held-open events that allow entry without a fresh badge scan</li>
                   <li className="flex gap-2">• After-hours tailgating at doors that should see no traffic</li>
                   <li className="flex gap-2">• Mismatches between badge count and confirmed head count at an entry event</li>
                   <li className="flex gap-2">• Repeated tailgating attempts at the same door within a short window</li>
                 </ul>
-              </div>
-            </ScrollReveal>
-            <PlaceholderVisual type="camera-feed" caption="TAILGATING DETECTION" alt="Camera view of a secure door showing two people entering on one badge scan, with the second person highlighted" />
           </div>
 
           <div className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Why tailgating detection matters</h2>
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
-                <p>Access control systems are built around a simple assumption: one badge scan means one authorised person entering. That assumption breaks the moment someone holds a door for a colleague, or a second person simply walks in close behind the first before the door swings shut. The badge log still shows a clean, valid entry — it has no way of knowing a second, unauthorised person came through on the same event.</p>
+                <p>Access control systems are built around a simple assumption: one badge scan means one authorized person entering. That assumption breaks the moment someone holds a door for a colleague, or a second person simply walks in close behind the first before the door swings shut. The badge log still shows a clean, valid entry, it has no way of knowing a second, unauthorized person came through on the same event.</p>
                 <p>Manned entry points solve this with a guard physically watching the door, but that's not realistic at every access point on a large site, and attention lapses even where it is staffed. Reviewing footage after an incident to check who came in with whom is possible, but only after something has already gone wrong.</p>
-                <p>Tailgating detection closes that gap by watching every access event continuously and comparing what the camera actually sees — how many confirmed people crossed the threshold — against what the badge log implies. The mismatch is what triggers the alert, in real time, rather than being discovered during a post-incident review.</p>
+                <p>Tailgating detection closes that gap by watching every access event continuously and comparing what the camera actually sees, how many confirmed people crossed the threshold, against what the badge log implies. The mismatch is what triggers the alert, in real time, rather than being discovered during a post-incident review.</p>
               </div>
             </ScrollReveal>
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="HEADCOUNT VS. BADGE EVENT" alt="Diagram showing confirmed head count at a doorway compared against a single badge scan event to flag tailgating" />
+            <PhotoFigure src="/feature-tailgating-detection-2.jpg" alt="Diagram showing confirmed head count at a doorway compared against a single badge scan event to flag tailgating" caption="Headcount vs. badge event" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>
@@ -82,12 +84,12 @@ export default function Page() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Comparing to the badge event</h3>
                 <p className="mt-2 text-muted-foreground">
-                  When the confirmed head count exceeds one for a single badge scan, an alert fires. Each alert includes a clip of the entry, headcount, and timestamp — and, when <Link href="/ai-features/ai-attribute-extraction" className="text-primary hover:underline">AI attribute extraction</Link> is enabled, structured attributes for each person involved.
+                  When the confirmed head count exceeds one for a single badge scan, an alert fires. Each alert includes a clip of the entry, headcount, and timestamp, and, when <Link href="/ai-features/ai-attribute-extraction" className="text-primary hover:underline">AI attribute extraction</Link> is enabled, structured attributes for each person involved.
                 </p>
 
                 <h3 className="mt-6 font-display text-lg font-bold">Alert delivery</h3>
                 <p className="mt-2 text-muted-foreground">
-                  Alerts route through the platform's <Link href="/platform/notifications-and-alerts" className="text-primary hover:underline">notification system</Link> with severity, acknowledgement status, and the option to mark as false positive.
+                  Alerts route through the platform's <Link href="/platform/notifications-and-alerts" className="text-primary hover:underline">notification system</Link> with severity, acknowledgment status, and the option to mark as false positive.
                 </p>
               </div>
             </ScrollReveal>
@@ -103,26 +105,26 @@ export default function Page() {
                 </p>
                 <ul className="mt-4 space-y-3 text-muted-foreground">
                   <li className="flex gap-2">• Entry-zone boundaries drawn directly on the camera view</li>
-                  <li className="flex gap-2">• Schedule-based activation, e.g. business hours vs. after-hours doors</li>
+                  <li className="flex gap-2">• Notification window per camera, e.g. after-hours doors only</li>
                   <li className="flex gap-2">• Sensitivity tuning for closely spaced entrants</li>
                   <li className="flex gap-2">• Optional access control log pairing for badge-vs-headcount alerts</li>
                   <li className="flex gap-2">• Per-camera instance licensing, matching other detection features</li>
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="ENTRY-ZONE CONFIGURATION" alt="Configuration panel showing an entry-zone boundary drawn over a doorway camera view with schedule and sensitivity controls" />
+            <PhotoFigure src="/feature-tailgating-detection-3.jpg" alt="Configuration panel showing an entry-zone boundary drawn over a doorway camera view with schedule and sensitivity controls" caption="Entry-zone configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="industry" caption="ACCESS POINT MONITORING" alt="Site diagram showing tailgating detection deployed across multiple secure access points in a facility" />
+            <PhotoFigure src="/feature-tailgating-detection-4.jpg" alt="Site diagram showing tailgating detection deployed across multiple secure access points in a facility" caption="Access point monitoring" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>
                 <ul className="mt-4 space-y-3 text-muted-foreground">
-                  <li className="flex gap-2">• A data centre entrance where every badge-in must correspond to exactly one confirmed person</li>
+                  <li className="flex gap-2">• A data center entrance where every badge-in must correspond to exactly one confirmed person</li>
                   <li className="flex gap-2">• An office lobby turnstile flagged when a visitor follows an employee through without signing in</li>
                   <li className="flex gap-2">• A warehouse staff door monitored after-hours where any tailgating event is treated as non-compliant</li>
-                  <li className="flex gap-2">• A parking garage staff entrance separating authorised personnel from public access</li>
+                  <li className="flex gap-2">• A parking garage staff entrance separating authorized personnel from public access</li>
                   <li className="flex gap-2">• A server room door where tailgating alerts route immediately to on-call security</li>
                   <li className="flex gap-2">• A multi-tenant building entrance where each tenant's access should map to a single badge holder</li>
                 </ul>
@@ -172,14 +174,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="bg-muted/30 py-16 sm:py-20">
-        <div className="mx-auto max-w-site px-6 text-center">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">Frequently asked questions</h2>
-          <div className="mx-auto mt-8 max-w-3xl text-left">
-            <FAQAccordion items={faqs} />
-          </div>
-        </div>
-      </section>
+      <FaqSection items={faqs} />
     </PageShell>
   );
 }

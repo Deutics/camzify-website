@@ -81,6 +81,11 @@ const config: Config = {
       opacity: {
         15: '0.15',
         25: '0.25',
+        35: '0.35',
+        45: '0.45',
+        55: '0.55',
+        65: '0.65',
+        85: '0.85',
       },
       /*
        * `text-primary` resolves to the contrast-corrected token while `bg-primary`,
@@ -124,6 +129,10 @@ const config: Config = {
         'fade-out': {
           from: { opacity: '1' },
           to: { opacity: '0' },
+        },
+        'pulse-cta': {
+          '0%, 100%': { boxShadow: '0 0 0 0 hsl(var(--primary) / 0.45)' },
+          '60%': { boxShadow: '0 0 0 12px hsl(var(--primary) / 0)' },
         },
         'patrol-sweep': {
           '0%': { transform: 'translateX(-100%)' },
@@ -170,6 +179,7 @@ const config: Config = {
         slow: 'var(--duration-slow)',
       },
       animation: {
+        'pulse-cta': 'pulse-cta 1.8s ease-out infinite',
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         'fade-in': 'fade-in 0.4s ease-out',

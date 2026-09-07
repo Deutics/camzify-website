@@ -1,10 +1,10 @@
 # SEO & GEO
 
 How this site is built to be found — by search engines (SEO) and by AI answer engines
-(GEO: Generative Engine Optimisation).
+(GEO: Generative Engine Optimization).
 
-The distinction matters. Classic SEO optimises for a ranked list of blue links. GEO
-optimises for being **quoted as a source** inside a generated answer in ChatGPT, Claude,
+The distinction matters. Classic SEO optimizes for a ranked list of blue links. GEO
+optimizes for being **quoted as a source** inside a generated answer in ChatGPT, Claude,
 Perplexity or Google AI Overviews. They overlap, but GEO adds requirements classic SEO
 never had — chiefly that content must be extractable as standalone statements, and that
 claims must be verifiable enough for a model to be willing to attribute them.

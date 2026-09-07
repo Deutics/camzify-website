@@ -1,9 +1,9 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { FeatureHero } from '@/components/content/feature-hero';
 import { MobileAccessMockup } from '@/components/mockups/mobile-access-mockup';
-import { FAQAccordion } from '@/components/content/faq-accordion';
 import Link from 'next/link';
 import { SiteImage } from '@/components/content/site-image';
 import { Smartphone, Globe, ShieldCheck, Bell } from 'lucide-react';
@@ -15,7 +15,7 @@ import { Smartphone, Globe, ShieldCheck, Bell } from 'lucide-react';
  */
 const pageMeta = {
   title: "Mobile Access | Security on the Go",
-  description: "Camzify mobile access: live streams, alerts, and patrol compliance from any phone or tablet browser, with nothing to install. Native iOS and Android apps are in development.",
+  description: "Live streams, alerts and patrol compliance from any phone or tablet browser, nothing to install. Native iOS and Android apps are in development.",
   path: "/platform/mobile-access",
 };
 
@@ -24,8 +24,8 @@ export const metadata = generatePageMeta({ ...pageMeta });
 const faqs = [
   { question: 'Do guards need to install anything?', answer: 'No. Mobile access runs in the phone\'s own browser — Safari, Chrome, whatever is already there — so there is nothing to download, install, or keep updated. Native iOS and Android apps are in development; the browser interface is what is available today, and it stays available afterwards for anyone who would rather not install anything.' },
   { question: 'Does mobile access work on tablets too?', answer: 'Yes. The interface is responsive rather than built around one fixed screen size, so it adapts across phones, tablets, and desktop browsers alike.' },
-  { question: 'Can I acknowledge a critical alert from my phone?', answer: 'Yes, and it\'s the same acknowledgement state as everywhere else — acknowledging a critical event on mobile marks it acknowledged on the dashboard and in Notifications too, not just on the device you\'re holding.' },
-  { question: 'Is the mobile experience missing any features compared to desktop?', answer: 'The core operational views — live streams, the alert feed, and patrol compliance — are all fully available on mobile. Some administrative and configuration screens are simply easier to work through on a larger display, but nothing is desktop-only by design.' },
+  { question: 'Can I acknowledge a critical alert from my phone?', answer: 'Yes, and it\'s the same acknowledgment state as everywhere else — acknowledging a critical event on mobile marks it acknowledged on the dashboard and in Notifications too, not just on the device you\'re holding.' },
+  { question: 'Is the mobile experience missing any features compared to desktop?', answer: 'The core operational views, live streams, the alert feed, and patrol compliance, are all fully available on mobile. Some administrative and configuration screens are simply easier to work through on a larger display, but nothing is desktop-only by design.' },
   { question: 'Does mobile access require a separate license?', answer: 'No. It\'s the same account and the same data, viewed through a responsive interface — not a separate product or an add-on that needs its own license.' },
 ];
 
@@ -68,7 +68,7 @@ export default function Page() {
           </div>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { icon: Smartphone, title: 'No app download', desc: 'Runs in any mobile browser — nothing to install, nothing to keep updated through an app store.' },
+              { icon: Smartphone, title: 'No app download', desc: 'Runs in any mobile browser, nothing to install, nothing to keep updated through an app store.' },
               { icon: Globe, title: 'Reachable from anywhere', desc: 'Live streams and the alert feed are one login away, whether a guard is on-site or off.' },
               { icon: ShieldCheck, title: 'Patrol compliance on the go', desc: 'Check today\'s round completion percentage without needing to be back at a desk.' },
               { icon: Bell, title: 'Notifications reach guards', desc: 'Alerts follow the person, not the workstation, so nothing waits for someone to be back at their screen.' },
@@ -98,7 +98,7 @@ export default function Page() {
                 </p>
                 <p className="mt-4 text-muted-foreground">
                   Native Camzify apps for iOS and Android are in development. Until they ship, mobile access is the
-                  browser interface described here — which is also what makes it available to a contractor or a
+                  browser interface described here, which is also what makes it available to a contractor or a
                   relief guard on their own phone, on their first shift, with nothing to install. See the{' '}
                   <Link href="/roadmap" className="text-primary hover:underline">roadmap</Link> for what is coming.
                 </p>
@@ -129,13 +129,7 @@ export default function Page() {
             </ScrollReveal>
           </div>
 
-          <div className="mt-16 rounded-2xl border border-border bg-card p-8 sm:p-10">
-            <span className="font-mono text-mono-sm uppercase text-primary">FAQ</span>
-            <h2 className="mt-2 font-display text-2xl font-bold">Frequently asked questions</h2>
-            <div className="mt-6">
-              <FAQAccordion items={faqs} />
-            </div>
-          </div>
+          <FaqSection items={faqs} inline />
 
           <div className="mt-16">
             <h2 className="font-display text-2xl font-bold">Related</h2>
