@@ -1,0 +1,105 @@
+cluster,keyword,role,search_volume,page_today,note
+Cloud VMS,cloud vms,primary,590,/platform,Homepage and platform hub subject; matches the product as sold
+AI video analytics,intelligent video analytics,secondary,12100,(none),Largest relevant term on the map; no page uses the phrase
+Cloud VMS,vms software,secondary,1300,/platform,
+Cloud VMS,video management software,secondary,1000,/platform,Platform hub title should say it
+Industry,construction site security cameras,secondary,1000,/industries/construction-sites,"Title says ""AI Security for Construction Sites"", not the phrase searched"
+Industry,warehouse security cameras,secondary,1000,/industries/warehouses,Same pattern
+Camera connectivity,rtsp stream,secondary,1000,/guides/onvif-and-rtsp-explained,
+Cloud VMS,video management system,secondary,880,/compare/cloud-vms-vs-on-premise,
+Industry,parking lot security cameras,secondary,880,/use-cases/parking-lot-surveillance,
+Cloud VMS,cloud based video surveillance,secondary,720,(none),No page carries this phrase
+Security agency software,guard tour system,secondary,720,/guides/guard-tour-systems-explained,
+Virtual patrolling,virtual guard,secondary,480,(none),Market name for the category; no page uses it
+Cloud VMS,cloud video surveillance,secondary,320,(none),No page carries this phrase
+Video monitoring,remote video monitoring,secondary,260,(none),No page carries this phrase; monitoring-company page should
+Virtual patrolling,virtual security guard,secondary,210,(none),Same gap
+AI detections,ppe detection,secondary,210,/ai-features/ppe-violation-detection,
+AI detections,perimeter intrusion detection,secondary,210,/use-cases/perimeter-security,
+AI video analytics,video analytics software,secondary,170,/guides/how-to-choose-video-analytics-software,
+AI video analytics,ai video surveillance,secondary,170,/about,
+Security agency software,security guard management software,secondary,170,/partners/for-security-agencies,Title does not carry it
+Guard cost,how much does a security guard cost,secondary,170,/guides/security-guard-cost-per-hour,
+Guard cost,security guard cost,secondary,170,/guides/security-guard-cost-per-hour,
+Video monitoring,live video monitoring,secondary,140,/guides/how-to-monitor-live-camera-feeds,
+AI video analytics,ai video analytics,secondary,140,/compare/ai-video-analytics-vs-motion-detection,
+Remote guarding,remote guarding,secondary,110,/guides/remote-guarding-cost,
+AI detections,fire detection camera,support,6600,/ai-features/fire-and-smoke-detection,Hardware-buying intent; the feature page can only partly serve it
+AI detections,smoke detection camera,support,6600,/ai-features/fire-and-smoke-detection,Same
+Camera connectivity,onvif camera,support,1900,/supported-cameras,Mostly hardware intent
+Camera connectivity,rtsp camera,support,1000,/camera-connectivity/rtsp-setup,
+Cloud VMS,ip camera software,support,320,/supported-cameras,
+Remote guarding,remote guarding services,support,320,/partners/for-security-agencies,Service-buyer intent; hand to agency partners
+Remote guarding,remote security solutions,support,260,(none),
+Cloud VMS,cctv software,support,210,/platform,
+Virtual patrolling,virtual security,support,210,(none),
+AI detections,perimeter intrusion detection system,support,210,/use-cases/perimeter-security,
+AI detections,people counting camera,support,170,/use-cases/occupancy-monitoring,
+Cloud VMS,physical security software,support,140,(none),
+Remote guarding,remote security,support,140,(none),
+Virtual patrolling,video patrol,support,110,/virtual-patrolling/patrol-sequences,
+Video monitoring,remote video monitoring services,support,110,/partners/for-monitoring-centers,
+Video monitoring,video monitoring service,support,110,/partners/for-monitoring-centers,
+Video monitoring,security camera monitoring service,support,110,/partners/for-monitoring-centers,
+Cloud VMS,cloud nvr,support,90,(none),Guide candidate: cloud NVR vs on-site NVR
+Security agency software,guard tour software,support,90,/compare/virtual-patrolling-vs-guard-tour-systems,
+Industry,parking lot surveillance,support,90,/use-cases/parking-lot-surveillance,
+Cloud VMS,camera to cloud,support,70,/camera-connectivity,
+Remote guarding,remote security services,support,70,(none),
+Security agency software,security company software,support,70,/partners/for-security-agencies,
+Guard cost,cost of security guard,support,70,/guides/security-guard-cost-per-hour,
+Industry,construction site surveillance,support,70,/industries/construction-sites,
+Cloud VMS,cloud cctv,support,50,(none),
+Virtual patrolling,virtual guard service,support,50,(none),Service-buyer intent; agencies deliver it
+AI detections,ai weapon detection,support,50,/ai-features/weapons-detection,
+AI detections,loitering detection,support,50,/ai-features/loitering-detection,
+AI detections,occupancy monitoring,support,50,/use-cases/occupancy-monitoring,
+Security agency software,security patrol software,support,50,/virtual-patrolling/automated-patrol-scheduling,
+Security agency software,alarm monitoring software,support,50,/guides/adding-remote-patrols-to-alarm-monitoring,
+Security agency software,security automation software,support,50,(none),
+Cloud VMS,cloud video management system,support,40,/platform,
+AI video analytics,ai security camera software,support,40,/ai-features,
+AI video analytics,security video analytics,support,40,/ai-features,
+AI detections,line crossing detection,support,40,/ai-features/line-intrusion-detection,
+AI detections,tailgating detection,support,40,/ai-features/tailgating-detection,
+Video monitoring,proactive video monitoring,support,30,(none),
+AI detections,camera tampering detection,support,30,/ai-features/camera-tampering-detection,
+Security agency software,security guard company software,support,30,/partners/for-security-agencies,
+Video monitoring,24/7 video monitoring,support,20,/use-cases/after-hours-monitoring,
+Video monitoring,remote site monitoring,support,20,/use-cases/remote-site-monitoring,
+AI video analytics,ai surveillance software,support,20,/ai-features,
+AI video analytics,cctv analytics,support,20,/ai-features,
+AI detections,weapon detection camera,support,20,/ai-features/weapons-detection,
+AI detections,intrusion detection camera,support,20,/ai-features/zone-intrusion-detection,
+AI detections,alarm verification,support,20,/use-cases/alarm-verification,
+Security agency software,guard patrol software,support,20,/virtual-patrolling,
+Cloud VMS,nvr alternative,support,10,(none),
+Cloud VMS,cloud camera storage,support,10,/platform/video-backup-and-retention,
+Cloud VMS,enterprise video management,support,10,/platform/multi-site-management,
+Virtual patrolling,virtual patrol,support,10,/virtual-patrolling,Tiny volume; the site already owns it
+Virtual patrolling,virtual patrols,support,10,/virtual-patrolling,
+Virtual patrolling,remote patrol,support,10,/guides/what-goes-in-a-remote-patrol-proposal,
+Remote guarding,remote guarding companies,support,10,/partners/for-security-agencies,
+AI detections,ppe detection camera,support,10,/ai-features/ppe-violation-detection,
+AI detections,illegal parking detection,support,10,/ai-features/illegal-parking-detection,
+AI detections,slip and fall detection,support,10,/ai-features/slip-and-fall-detection,
+AI detections,camera health monitoring,support,10,/use-cases/camera-health-monitoring,
+AI detections,false alarm reduction,support,10,/guides/how-to-reduce-false-alarms,
+Guard cost,security guard cost per hour,support,10,/guides/security-guard-cost-per-hour,
+Industry,warehouse surveillance,support,10,/industries/warehouses,
+Virtual patrolling,unmanned site security,support,no data,/use-cases/remote-site-monitoring,No volume returned
+Remote guarding,mobile patrols,skip,49500,/compare/virtual-patrolling-vs-mobile-patrols,"Volume is jobs and games, not buyers"
+Remote guarding,mobile patrol,skip,49500,/compare/virtual-patrolling-vs-mobile-patrols,Same
+Off-topic,security systems,skip,22200,(none),Consumer hardware
+Off-topic,security companies,skip,18100,(none),Directory intent
+Off-topic,security system installation,skip,12100,(none),"Installer-service intent, not software"
+Off-topic,alarm system,skip,12100,(none),Consumer hardware
+Security agency software,securitas security,skip,5400,(none),Competitor brand
+Remote guarding,mobile security services,skip,1000,(none),Service-provider query
+Video monitoring,remote security camera,skip,1000,(none),Hardware intent
+Off-topic,remote security jobs,skip,1000,(none),Jobs
+Off-topic,remote monitoring jobs,skip,260,(none),Jobs
+Off-topic,virtual security guard jobs,skip,110,(none),Jobs
+Remote guarding,mobile guarding,skip,90,(none),Securitas product name
+Security agency software,securitas monitoring,skip,70,(none),Competitor brand
+Security agency software,securitas remote guarding,skip,20,(none),Competitor brand

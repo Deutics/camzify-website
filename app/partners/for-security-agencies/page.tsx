@@ -11,7 +11,7 @@ import { Building2, Users, FileText, Clock, ShieldAlert, Layers } from 'lucide-r
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "For Security Agencies | Remote Guarding Software",
+  title: "Remote Guarding Software for Security Companies",
   description: "Add virtual patrolling to a guarding offer: client sites covered overnight, a scoped login and reports per client, guards sent to verified events.",
   path: "/partners/for-security-agencies",
 };
@@ -54,7 +54,7 @@ export default function ForSecurityAgenciesPage() {
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
           <span className="font-mono text-mono-sm uppercase text-primary">Partner Program</span>
-          <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Camzify for security agencies</h1>
+          <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Remote guarding software for security agencies</h1>
           <p className="mt-6 max-w-prose text-body text-muted-foreground">
             <strong className="font-semibold text-foreground">
               A guarding company can only sell as many hours as it can staff.

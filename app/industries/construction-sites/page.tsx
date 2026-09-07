@@ -16,8 +16,8 @@ import { SiteImage } from '@/components/content/site-image';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "AI Security for Construction Sites",
-  description: "Camzify provides AI-powered virtual patrolling and video analytics for construction sites, automated patrols, real-time alerts, and compliance reports.",
+  title: "Construction Site Security Cameras, Watched by AI",
+  description: "Camzify turns the security cameras already on a construction site into patrol rounds: overnight checks, alerts to the guard and a report per round.",
   path: "/industries/construction-sites",
 };
 
@@ -40,13 +40,13 @@ const faqs = [
 
 export default function ConstructionSitesPage() {
   return (
-    <PageShell {...pageMeta} schema={[serviceSchema({ name: "AI Security for Construction Sites", description: "Camzify provides AI-powered virtual patrolling and video analytics for construction sites, automated patrols, real-time alerts, and compliance reports.", path: "/industries/construction-sites", audience: "Construction Sites" })]} faqs={faqs} breadcrumbs={[
+    <PageShell {...pageMeta} schema={[serviceSchema({ name: "Construction Site Security Cameras, Watched by AI", description: "Camzify turns the security cameras already on a construction site into patrol rounds: overnight checks, alerts to the guard and a report per round.", path: "/industries/construction-sites", audience: "Construction Sites" })]} faqs={faqs} breadcrumbs={[
       { label: 'Industries', href: '/industries' },
       { label: 'Construction Sites' },
     ]}>
       <FeatureHero
         eyebrow="Industry · construction sites"
-        title="AI security for construction sites"
+        title="Construction site security cameras, watched by AI"
         lede={<><strong className="font-semibold text-foreground">Construction sites face security challenges that cameras alone cannot solve and manned guards cannot cover consistently.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.</>}
         facts={['Open perimeters where temporary fencing panels can be moved…', 'Equipment and material storage areas relying on a single…', 'Site trailers and tool cribs left unmonitored overnight']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}

@@ -80,8 +80,9 @@ export default function VirtualPatrollingPage() {
             </strong>{' '}
             &mdash; following a defined route, checking a per-camera checklist at each stop,
             notifying the guard responsible when something fails, and filing a timestamped
-            compliance report with the frame behind every result. The same record a physical
-            guard tour produces, without a person walking it, and identical at 03:00 and 15:00.
+            compliance report with the frame behind every result. Some buyers call it a virtual
+            guard. It produces the same record a physical guard tour does, without a person
+            walking it, and identical at 03:00 and 15:00.
           </>
         }
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}

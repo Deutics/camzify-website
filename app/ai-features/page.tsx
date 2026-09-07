@@ -16,7 +16,7 @@ import Link from 'next/link';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "AI Detection Features | Video Analytics Suite",
+  title: "Intelligent Video Analytics | AI Detection Features",
   description: "20 live AI detection features. Intrusion, tailgating, weapons, PPE, fire and smoke, slip and fall, vehicle and parking, occupancy analytics, and more.",
   path: "/ai-features",
 };
@@ -64,7 +64,7 @@ export default function DetectionHubPage() {
     <PageShell {...pageMeta} faqs={faqs} breadcrumbs={[{ label: 'AI Features' }]}>
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">AI detection features</h1>
+          <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Intelligent video analytics, feature by feature</h1>
           <p className="mt-6 max-w-2xl text-body text-muted-foreground">
             Camzify ships 20 AI detection features that run on your existing cameras. Each fires on confirmed
             object tracks, not shadows, not lighting shifts, not camera noise. Every detection integrates

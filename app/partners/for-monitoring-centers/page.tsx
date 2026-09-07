@@ -19,8 +19,8 @@ import { Eye, Radio, ShieldAlert, FileCheck2, Users, KeyRound, Layers } from 'lu
  * page addresses all of them, but the three-party relationship is the frame.
  */
 const pageMeta = {
-  title: "For Monitoring Companies | CMS, ARC and GSOC",
-  description: "Run patrol rounds for every agency you monitor for, notify their guards from the round and hand each one a report. One account, a scoped login per agency.",
+  title: "Remote Video Monitoring Software for CMS and ARC",
+  description: "Run patrol rounds for every agency you monitor for, notify their guards from the round and hand each a report. One account, a scoped login per agency.",
   path: "/partners/for-monitoring-centers",
 };
 
@@ -72,7 +72,7 @@ export default function ForMonitoringCentresPage() {
     ]}>
       <FeatureHero
         eyebrow="Monitoring companies · CMS · ARC · GSOC"
-        title="Camzify for monitoring companies"
+        title="Remote video monitoring software for monitoring companies"
         lede={<>
           <strong className="font-semibold text-foreground">
             A monitoring company watches on the agency&apos;s behalf and sends the guard when

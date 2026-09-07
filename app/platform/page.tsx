@@ -17,8 +17,8 @@ import {
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "AI Video Management Platform | Cloud VMS Modules",
-  description: "One login for live streaming, cloud backup, alerts, analytics, users, permissions, licensing and multi-site control, with virtual patrolling built in.",
+  title: "Cloud VMS Platform | Video Management Software",
+  description: "Cloud VMS with virtual patrolling built in: live streaming, cloud backup, alerts, analytics, users, permissions and multi-site control in one login.",
   path: "/platform",
 };
 
@@ -77,7 +77,7 @@ export default function PlatformPage() {
     <PageShell {...pageMeta} faqs={faqs} breadcrumbs={[{ label: 'Platform' }]}>
       <FeatureHero
         eyebrow="The platform"
-        title="One console for the whole video operation"
+        title="A cloud VMS with one console for the whole video operation"
         lede={
           <>
             <strong className="font-semibold text-foreground">

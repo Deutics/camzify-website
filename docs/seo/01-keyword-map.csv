@@ -1,0 +1,105 @@
+cluster,keyword,intent,role,search_volume,ai_search_volume,competition,cpc
+Cloud VMS,cloud vms,commercial,primary,590,no data,MEDIUM,39.87
+AI video analytics,intelligent video analytics,informational,secondary,12100,no data,LOW,12.96
+Cloud VMS,vms software,commercial,secondary,1300,no data,LOW,25.51
+Cloud VMS,video management software,commercial,secondary,1000,no data,LOW,19.09
+Industry,construction site security cameras,commercial,secondary,1000,no data,HIGH,73.75
+Industry,warehouse security cameras,commercial,secondary,1000,no data,HIGH,6.69
+Camera connectivity,rtsp stream,informational,secondary,1000,no data,LOW,no data
+Cloud VMS,video management system,transactional,secondary,880,no data,LOW,31.48
+Industry,parking lot security cameras,transactional,secondary,880,no data,MEDIUM,41.42
+Cloud VMS,cloud based video surveillance,commercial,secondary,720,no data,LOW,33.71
+Security agency software,guard tour system,informational,secondary,720,no data,LOW,44.71
+Virtual patrolling,virtual guard,informational,secondary,480,no data,LOW,19.88
+Cloud VMS,cloud video surveillance,commercial,secondary,320,no data,LOW,28.13
+Video monitoring,remote video monitoring,commercial,secondary,260,no data,MEDIUM,11.12
+Virtual patrolling,virtual security guard,commercial,secondary,210,no data,LOW,25.3
+AI detections,ppe detection,informational,secondary,210,no data,LOW,17.8
+AI detections,perimeter intrusion detection,informational,secondary,210,no data,LOW,10.31
+AI video analytics,video analytics software,commercial,secondary,170,no data,LOW,21.08
+AI video analytics,ai video surveillance,transactional,secondary,170,no data,LOW,17.56
+Security agency software,security guard management software,commercial,secondary,170,no data,LOW,59.52
+Guard cost,how much does a security guard cost,informational,secondary,170,no data,LOW,4.9
+Guard cost,security guard cost,commercial,secondary,170,no data,MEDIUM,26.31
+Video monitoring,live video monitoring,informational,secondary,140,no data,LOW,2.47
+AI video analytics,ai video analytics,commercial,secondary,140,no data,LOW,8.6
+Remote guarding,remote guarding,informational,secondary,110,no data,LOW,21.49
+AI detections,fire detection camera,transactional,support,6600,no data,HIGH,1.55
+AI detections,smoke detection camera,transactional,support,6600,no data,HIGH,1.55
+Camera connectivity,onvif camera,transactional,support,1900,no data,HIGH,2.36
+Camera connectivity,rtsp camera,transactional,support,1000,no data,HIGH,2.2
+Cloud VMS,ip camera software,transactional,support,320,no data,LOW,7.93
+Remote guarding,remote guarding services,commercial,support,320,no data,LOW,3.49
+Remote guarding,remote security solutions,commercial,support,260,no data,LOW,8.4
+Cloud VMS,cctv software,commercial,support,210,no data,LOW,5.56
+Virtual patrolling,virtual security,informational,support,210,no data,LOW,21.22
+AI detections,perimeter intrusion detection system,commercial,support,210,no data,LOW,10.31
+AI detections,people counting camera,informational,support,170,no data,MEDIUM,26.73
+Cloud VMS,physical security software,commercial,support,140,no data,LOW,no data
+Remote guarding,remote security,commercial,support,140,no data,LOW,23.87
+Virtual patrolling,video patrol,informational,support,110,no data,LOW,no data
+Video monitoring,remote video monitoring services,commercial,support,110,no data,LOW,8.96
+Video monitoring,video monitoring service,commercial,support,110,no data,MEDIUM,63.68
+Video monitoring,security camera monitoring service,commercial,support,110,no data,MEDIUM,47.25
+Cloud VMS,cloud nvr,informational,support,90,no data,HIGH,11.69
+Security agency software,guard tour software,commercial,support,90,no data,LOW,63.58
+Industry,parking lot surveillance,navigational,support,90,no data,LOW,45.42
+Cloud VMS,camera to cloud,informational,support,70,no data,LOW,no data
+Remote guarding,remote security services,commercial,support,70,no data,LOW,39.81
+Security agency software,security company software,commercial,support,70,no data,LOW,63.83
+Guard cost,cost of security guard,commercial,support,70,no data,LOW,17.99
+Industry,construction site surveillance,navigational,support,70,no data,MEDIUM,53.59
+Cloud VMS,cloud cctv,commercial,support,50,no data,MEDIUM,16.5
+Virtual patrolling,virtual guard service,commercial,support,50,no data,LOW,5.66
+AI detections,ai weapon detection,informational,support,50,no data,LOW,no data
+AI detections,loitering detection,informational,support,50,no data,LOW,no data
+AI detections,occupancy monitoring,informational,support,50,no data,LOW,no data
+Security agency software,security patrol software,commercial,support,50,no data,MEDIUM,49.1
+Security agency software,alarm monitoring software,commercial,support,50,no data,LOW,13.02
+Security agency software,security automation software,commercial,support,50,no data,LOW,no data
+Cloud VMS,cloud video management system,commercial,support,40,no data,LOW,61.45
+AI video analytics,ai security camera software,commercial,support,40,no data,LOW,5.99
+AI video analytics,security video analytics,informational,support,40,no data,LOW,no data
+AI detections,line crossing detection,informational,support,40,no data,LOW,no data
+AI detections,tailgating detection,informational,support,40,no data,LOW,no data
+Video monitoring,proactive video monitoring,commercial,support,30,no data,LOW,no data
+AI detections,camera tampering detection,informational,support,30,no data,LOW,no data
+Security agency software,security guard company software,commercial,support,30,no data,MEDIUM,21.29
+Video monitoring,24/7 video monitoring,informational,support,20,no data,LOW,no data
+Video monitoring,remote site monitoring,commercial,support,20,no data,LOW,20.33
+AI video analytics,ai surveillance software,commercial,support,20,no data,MEDIUM,56.31
+AI video analytics,cctv analytics,informational,support,20,no data,MEDIUM,no data
+AI detections,weapon detection camera,transactional,support,20,no data,LOW,no data
+AI detections,intrusion detection camera,transactional,support,20,no data,LOW,26.79
+AI detections,alarm verification,informational,support,20,no data,LOW,no data
+Security agency software,guard patrol software,commercial,support,20,no data,LOW,no data
+Cloud VMS,nvr alternative,informational,support,10,no data,MEDIUM,8.74
+Cloud VMS,cloud camera storage,transactional,support,10,no data,HIGH,4.03
+Cloud VMS,enterprise video management,commercial,support,10,no data,LOW,no data
+Virtual patrolling,virtual patrol,informational,support,10,no data,LOW,no data
+Virtual patrolling,virtual patrols,informational,support,10,no data,LOW,no data
+Virtual patrolling,remote patrol,informational,support,10,no data,LOW,no data
+Remote guarding,remote guarding companies,commercial,support,10,no data,LOW,54.91
+AI detections,ppe detection camera,transactional,support,10,no data,HIGH,no data
+AI detections,illegal parking detection,informational,support,10,no data,LOW,no data
+AI detections,slip and fall detection,transactional,support,10,no data,MEDIUM,17.62
+AI detections,camera health monitoring,informational,support,10,no data,LOW,no data
+AI detections,false alarm reduction,informational,support,10,no data,LOW,no data
+Guard cost,security guard cost per hour,informational,support,10,no data,LOW,19.34
+Industry,warehouse surveillance,commercial,support,10,no data,LOW,no data
+Virtual patrolling,unmanned site security,navigational,support,no data,no data,no data,no data
+Remote guarding,mobile patrols,informational,skip,49500,no data,LOW,0.8
+Remote guarding,mobile patrol,informational,skip,49500,no data,LOW,0.8
+Off-topic,security systems,commercial,skip,22200,no data,HIGH,33.27
+Off-topic,security companies,commercial,skip,18100,no data,MEDIUM,18.05
+Off-topic,security system installation,commercial,skip,12100,no data,LOW,25.98
+Off-topic,alarm system,transactional,skip,12100,no data,HIGH,41
+Security agency software,securitas security,commercial,skip,5400,no data,LOW,10.99
+Remote guarding,mobile security services,commercial,skip,1000,no data,LOW,no data
+Video monitoring,remote security camera,transactional,skip,1000,no data,HIGH,5.3
+Off-topic,remote security jobs,informational,skip,1000,no data,LOW,2.6
+Off-topic,remote monitoring jobs,informational,skip,260,no data,LOW,0.6
+Off-topic,virtual security guard jobs,informational,skip,110,no data,LOW,0.89
+Remote guarding,mobile guarding,informational,skip,90,no data,LOW,no data
+Security agency software,securitas monitoring,navigational,skip,70,no data,MEDIUM,39.6
+Security agency software,securitas remote guarding,navigational,skip,20,no data,LOW,39.53

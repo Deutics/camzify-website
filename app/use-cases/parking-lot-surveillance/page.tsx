@@ -5,7 +5,7 @@ import { UseCasePage, type UseCaseContent } from '@/components/content/use-case-
 import Link from 'next/link';
 
 const pageMeta = {
-  title: "AI Parking Lot Surveillance",
+  title: "Parking Lot Security Cameras | AI Surveillance",
   description: "Parking lot surveillance on existing cameras: people after hours, fire lanes and restricted bays, vehicles where they should not be, a round that records it.",
   path: "/use-cases/parking-lot-surveillance",
 };
@@ -23,7 +23,7 @@ const faqs = [
 
 const content: UseCaseContent = {
   eyebrow: 'Use case · Car parks',
-  title: 'AI parking lot surveillance',
+  title: 'AI surveillance for parking lot security cameras',
   lede: <>
     <strong className="font-semibold text-foreground">Parking lot surveillance is the monitoring of outdoor vehicle areas for people present after hours, vehicles in fire lanes or restricted bays, and activity between parked cars that should not be happening.</strong>{' '}
     A lot is large, unevenly lit and generates more footage than anyone will review, which makes it the most common blind spot on a commercial site. Camzify tracks people and vehicles as objects on the existing cameras, notifies within the hours you set, and checks the lot on a patrol round.
@@ -83,7 +83,7 @@ const content: UseCaseContent = {
 
 export default function ParkingLotSurveillancePage() {
   return (
-    <PageShell {...pageMeta} faqs={faqs} schema={[serviceSchema({ name: "AI Parking Lot Surveillance", description: pageMeta.description, path: pageMeta.path })]} breadcrumbs={[
+    <PageShell {...pageMeta} faqs={faqs} schema={[serviceSchema({ name: "Parking Lot Security Cameras | AI Surveillance", description: pageMeta.description, path: pageMeta.path })]} breadcrumbs={[
       { label: 'Use Cases', href: '/use-cases' },
       { label: 'Parking Lot Surveillance' },
     ]}>

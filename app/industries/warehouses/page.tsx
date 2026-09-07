@@ -16,8 +16,8 @@ import { SiteImage } from '@/components/content/site-image';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "AI Security for Warehouses | Video Surveillance",
-  description: "Camzify provides AI-powered virtual patrolling and video analytics for warehouses, automated patrols, real-time alerts, and compliance reports.",
+  title: "Warehouse Security Cameras, Patrolled by AI",
+  description: "Camzify runs patrol rounds on the security cameras a warehouse already has: dock doors, perimeter and cages checked overnight, the guard notified.",
   path: "/industries/warehouses",
 };
 
@@ -40,13 +40,13 @@ const faqs = [
 
 export default function WarehousesPage() {
   return (
-    <PageShell {...pageMeta} schema={[serviceSchema({ name: "AI Security for Warehouses", description: "Camzify provides AI-powered virtual patrolling and video analytics for warehouses, automated patrols, real-time alerts, and compliance reports.", path: "/industries/warehouses", audience: "Warehouses" })]} faqs={faqs} breadcrumbs={[
+    <PageShell {...pageMeta} schema={[serviceSchema({ name: "Warehouse Security Cameras, Patrolled by AI", description: "Camzify runs patrol rounds on the security cameras a warehouse already has: dock doors, perimeter and cages checked overnight, the guard notified.", path: "/industries/warehouses", audience: "Warehouses" })]} faqs={faqs} breadcrumbs={[
       { label: 'Industries', href: '/industries' },
       { label: 'Warehouses' },
     ]}>
       <FeatureHero
         eyebrow="Industry · warehouses"
-        title="AI security for warehouses"
+        title="Warehouse security cameras, patrolled by AI"
         lede={<><strong className="font-semibold text-foreground">Warehouses face security challenges that cameras alone cannot solve and manned guards cannot cover consistently.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.</>}
         facts={['Dock doors left unmonitored between scheduled deliveries', 'Perimeter fence lines with no continuous overnight coverage', 'High-value storage areas relying on a single nightly guard pass']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
