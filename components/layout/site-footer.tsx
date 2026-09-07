@@ -1,20 +1,16 @@
 import Link from 'next/link';
-import { SiteLogo } from '@/components/layout/site-logo';
 import { NewsletterForm } from '@/components/layout/newsletter-form';
 import { Mail, Phone, MapPin, ArrowUpRight, ArrowRight } from 'lucide-react';
 import { siteConfig, formattedAddress } from '@/lib/site-config';
 
 /*
- * The footer, rebuilt.
- *
- * The previous footer was eight equal columns of five links each, with the brand, the
- * address and the copyright squeezed into one bottom row. It read as a sitemap
- * dumped at the foot of every page and gave a reader who had reached the end nothing
- * to do next. This one has three layers: a brand band with the definition sentence,
- * the two actions that matter and the newsletter; five link columns grouped the way
- * the navigation groups them, with the partner track (the primary audience per the
- * lead files) given its own column; and a bottom block with the head-office NAP, the
- * legal links and the copyright. The newsletter has a band of its own between them.
+ * The footer. Three layers: the newsletter band (the one thing a reader who has reached
+ * the end of a page can still do here that they could not do above), the link columns
+ * grouped the way the navigation groups them with the partner track given its own
+ * column, and a bottom block with the head-office NAP, the console sign-in, the legal
+ * links and the copyright. There is no brand blurb and no repeated call to action: the
+ * CTA band above every footer already carries "Book a demo", and the definition
+ * sentence lives in the hero and llms.txt.
  *
  * Identity, address, phone and email all read from siteConfig so they cannot disagree
  * with the Organization schema or /llms.txt.
@@ -102,25 +98,6 @@ const COPYRIGHT_YEAR = new Date().getFullYear();
 export function SiteFooter() {
   return (
     <footer className="border-t border-border bg-card">
-      {/* Top row: the wordmark and the three actions. The definition sentence lives in
-          the hero and in llms.txt; repeating it here said nothing new. */}
-      <div className="mx-auto flex max-w-site flex-col gap-5 px-6 py-8 sm:flex-row sm:items-center sm:justify-between">
-        <Link href="/" className="inline-flex items-center" aria-label={`${siteConfig.name} home`}>
-          <SiteLogo className="h-9 w-auto" />
-        </Link>
-        <div className="flex flex-wrap items-center gap-3">
-          <Link href="/book-a-demo" className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90">
-            Book a demo <ArrowRight className="h-4 w-4" aria-hidden="true" />
-          </Link>
-          <Link href="/contact" className="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 text-sm font-semibold transition-colors hover:border-primary/30 hover:bg-accent">
-            Ask for a quote
-          </Link>
-          <a href={siteConfig.appUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline">
-            Sign in to the console <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
-          </a>
-        </div>
-      </div>
-
       {/* Newsletter band */}
       <div className="border-t border-border bg-muted/20">
         <div className="mx-auto max-w-site px-6 py-14">
@@ -174,6 +151,11 @@ export function SiteFooter() {
               </span>
             </address>
             <ul className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted-foreground">
+              <li>
+                <a href={siteConfig.appUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 font-semibold text-primary hover:underline">
+                  Sign in to the console <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+                </a>
+              </li>
               {legal.map((l) => (
                 <li key={l.href}>
                   <Link href={l.href} className="transition-colors hover:text-primary">{l.label}</Link>
