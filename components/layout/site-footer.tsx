@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { SiteLogo } from '@/components/layout/site-logo';
 import { NewsletterForm } from '@/components/layout/newsletter-form';
 import { Mail, Phone, MapPin, ArrowUpRight, ArrowRight } from 'lucide-react';
 import { siteConfig, formattedAddress } from '@/lib/site-config';
@@ -108,14 +109,14 @@ export function SiteFooter() {
       {/* Link columns */}
       <div className="border-t border-border">
         <div className="mx-auto max-w-site px-6 py-12">
-          <nav aria-label="Footer" className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-5">
+          <nav aria-label="Footer" className="grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-3 lg:grid-cols-5">
             {columns.map((col) => (
               <div key={col.title}>
                 <h3 className="font-mono text-mono-sm uppercase tracking-wider text-muted-foreground">{col.title}</h3>
                 <ul className="mt-4 space-y-2.5">
                   {col.links.map((l) => (
                     <li key={l.href}>
-                      <Link href={l.href} className="text-sm text-foreground/75 transition-colors hover:text-primary">{l.label}</Link>
+                      <Link href={l.href} className="text-[13px] leading-snug text-foreground/75 transition-colors hover:text-primary sm:text-sm">{l.label}</Link>
                     </li>
                   ))}
                   {col.all && (
@@ -132,38 +133,40 @@ export function SiteFooter() {
         </div>
       </div>
 
-      {/* Bottom: head office, legal links, copyright */}
+      {/* Bottom: wordmark and legal links on one line, the head office on the next,
+          the copyright last. Three rows, all left-aligned, so nothing floats. */}
       <div className="border-t border-border">
         <div className="mx-auto max-w-site px-6 py-8">
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
-            <address className="grid gap-2 text-sm not-italic text-muted-foreground">
-              <span className="flex items-start gap-2">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
-                <span>{siteConfig.legalName} · {formattedAddress}</span>
-              </span>
-              <span className="flex flex-wrap gap-x-6 gap-y-2">
-                <a href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`} className="flex items-center gap-2 rounded transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
-                  <Phone className="h-4 w-4 shrink-0" aria-hidden="true" />{siteConfig.phone}
-                </a>
-                <a href={`mailto:${siteConfig.email}`} className="flex items-center gap-2 rounded transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
-                  <Mail className="h-4 w-4 shrink-0" aria-hidden="true" />{siteConfig.email}
-                </a>
-              </span>
-            </address>
+          <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+            <Link href="/" className="inline-flex items-center" aria-label={`${siteConfig.name} home`}>
+              <SiteLogo className="h-7 w-auto" />
+            </Link>
             <ul className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted-foreground">
-              <li>
-                <a href={siteConfig.appUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 font-semibold text-primary hover:underline">
-                  Sign in to the console <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
-                </a>
-              </li>
               {legal.map((l) => (
                 <li key={l.href}>
                   <Link href={l.href} className="transition-colors hover:text-primary">{l.label}</Link>
                 </li>
               ))}
+              <li>
+                <a href={siteConfig.appUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 font-semibold text-primary hover:underline">
+                  Sign in to the console <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+                </a>
+              </li>
             </ul>
           </div>
-          <p className="mt-6 text-xs text-muted-foreground">© {COPYRIGHT_YEAR} {siteConfig.legalName}. All rights reserved. Registered in Singapore.</p>
+          <address className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm not-italic text-muted-foreground">
+            <span className="flex items-center gap-2">
+              <MapPin className="h-4 w-4 shrink-0" aria-hidden="true" />
+              <span>{formattedAddress}</span>
+            </span>
+            <a href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`} className="flex items-center gap-2 rounded transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+              <Phone className="h-4 w-4 shrink-0" aria-hidden="true" />{siteConfig.phone}
+            </a>
+            <a href={`mailto:${siteConfig.email}`} className="flex items-center gap-2 rounded transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+              <Mail className="h-4 w-4 shrink-0" aria-hidden="true" />{siteConfig.email}
+            </a>
+          </address>
+          <p className="mt-4 text-xs text-muted-foreground">© {COPYRIGHT_YEAR} {siteConfig.legalName}. All rights reserved. Registered in Singapore.</p>
         </div>
       </div>
     </footer>
