@@ -49,13 +49,13 @@ const demoCameras: DemoCamera[] = [
     name: 'Main Gate',
     zone: 'PERIMETER',
     guard: 'Ahmad K.',
-    frame: '/cam-06.jpg',
-    afterFrame: '/cam-06-after.jpg',
-    frameAlt: 'Gate camera showing the sliding gate part open with a person walking through',
-    afterAlt: 'The same gate camera after the gate has been closed across the full opening',
+    frame: '/hero-cam-main-gate-640.webp',
+    afterFrame: '/hero-cam-main-gate-640.webp',
+    frameAlt: 'Gate camera: a guard at the gatehouse, the vehicle gate open with a red car passing through, two people on the pavement',
+    afterAlt: 'The same gate frame. In this demonstration the after frame is not a new capture.',
     items: [
-      { label: 'Gate fully closed', guardMsg: 'Gate left open after delivery — close and secure immediately.' },
-      { label: 'No tailgating observed', guardMsg: 'Possible tailgating at the gate — verify the entry log.' },
+      { label: 'Guard present at the gatehouse', guardMsg: 'Gatehouse looks unattended — confirm who is on post.' },
+      { label: 'Vehicle gate closed behind traffic', guardMsg: 'Gate standing open with no vehicle at it — close it and confirm.' },
     ],
   },
   {
@@ -63,27 +63,27 @@ const demoCameras: DemoCamera[] = [
     name: 'Loading Dock',
     zone: 'LOGISTICS',
     guard: 'Priya R.',
-    frame: '/cam-02.jpg',
-    afterFrame: '/cam-02-after.jpg',
-    frameAlt: 'Loading dock camera showing three bay doors with the middle bay open and a pallet on the floor',
-    afterAlt: 'The same dock camera after the bay has been shut and the floor cleared',
+    frame: '/hero-cam-loading-dock-640.webp',
+    afterFrame: '/hero-cam-loading-dock-640.webp',
+    frameAlt: 'Loading dock camera: dock door 1 open with a truck backed onto it, workers in high-visibility vests, pallets stacked by the ramp',
+    afterAlt: 'The same dock frame. In this demonstration the after frame is not a new capture.',
     items: [
-      { label: 'Dock door secured', guardMsg: 'Dock door unsecured — lock it and confirm.' },
-      { label: 'No unauthorized persons in zone', guardMsg: 'Unregistered person at the dock — investigate.' },
+      { label: 'Dock door 1 closed', guardMsg: 'Dock door 1 open after the delivery window — close and secure it.' },
+      { label: 'High-visibility vests worn on the apron', guardMsg: 'Person on the dock apron without a vest — stop work and correct.' },
     ],
   },
   {
     id: 'CAM 09',
-    name: 'Server Room Corridor',
+    name: 'Server Room',
     zone: 'RESTRICTED',
     guard: 'David L.',
-    frame: '/cam-03.jpg',
-    afterFrame: '/cam-03-after.jpg',
-    frameAlt: 'Corridor camera showing a person mid-corridor with doors along one wall',
-    afterAlt: 'The same corridor camera once the corridor is clear',
+    frame: '/hero-cam-server-room-640.webp',
+    afterFrame: '/hero-cam-server-room-640.webp',
+    frameAlt: 'Server room camera: rows of racks with a technician in uniform walking the aisle holding a tablet',
+    afterAlt: 'The same server room frame. In this demonstration the after frame is not a new capture.',
     items: [
-      { label: 'Corridor clear of obstructions', guardMsg: 'Obstruction in the corridor — clear it for fire safety.' },
-      { label: 'Access door closed', guardMsg: 'Server room door ajar — secure it immediately.' },
+      { label: 'Aisle clear of obstructions', guardMsg: 'Obstruction in the rack aisle — clear it for access and fire safety.' },
+      { label: 'Only authorized staff in the room', guardMsg: 'Unrecognized person in the server room — verify access.' },
     ],
   },
 ];
@@ -440,7 +440,7 @@ export function InteractiveChecklistDemo() {
                             <figure className="relative w-28 shrink-0">
                               <img src={cam.afterFrame} alt={cam.afterAlt} width={112} height={64} className="h-[64px] w-full rounded-md border border-border object-cover" />
                               <figcaption className="mt-1 text-center font-mono text-[9px] uppercase tracking-wider text-muted-foreground">
-                                After
+                                After · demo
                               </figcaption>
                             </figure>
                           )}
@@ -468,8 +468,11 @@ export function InteractiveChecklistDemo() {
                   })}
                 </ul>
                 <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
-                  A fixed item carries the frame as found and the frame after the guard dealt with
-                  it, so the report proves the problem was closed rather than only reported.
+                  A fixed item carries the frame as found and the frame captured after the guard
+                  dealt with it, so the report proves the problem was closed rather than only
+                  reported. In this demonstration the two frames are the same picture, because no
+                  guard has gone out to close the door; in a live round the after frame is a fresh
+                  capture taken when the guard confirms the fix.
                 </p>
               </div>
 

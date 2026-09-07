@@ -33,14 +33,17 @@ export function NewsletterForm({ className = '' }: { className?: string }) {
     return (
       <p className={`flex items-start gap-2 text-sm text-muted-foreground ${className}`} role="status">
         <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-live" aria-hidden="true" />
-        Subscribed. You will hear from us when there is something worth reading, and you can stop at any time.
+        You are on the list. The next brief goes out when there is something worth your time, not on a calendar, and one click takes you off it.
       </p>
     );
   }
 
   return (
     <form onSubmit={submit} className={className} aria-label="Subscribe to updates">
-      <label htmlFor="footer-email" className="text-sm font-medium">Occasional product and guide updates</label>
+      <p className="font-display text-base font-bold">The patrol brief</p>
+      <label htmlFor="footer-email" className="mt-1 block max-w-md text-sm text-muted-foreground">
+        A short email when we publish a guide worth your time or ship something that changes how a round runs. Written by the people who build the product, with no sales sequence behind it.
+      </label>
       <div className="mt-2 flex max-w-md gap-2">
         <input
           id="footer-email"
@@ -50,7 +53,7 @@ export function NewsletterForm({ className = '' }: { className?: string }) {
           autoComplete="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="work@company.com"
+          placeholder="you@yourcompany.com"
           className="min-w-0 flex-1 rounded-lg border border-border bg-background px-3 py-2 text-sm placeholder:text-muted-foreground/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         />
         <button
@@ -66,7 +69,7 @@ export function NewsletterForm({ className = '' }: { className?: string }) {
         {state === 'error' ? (
           <span className="text-critical">That did not go through. Check the address and try again, or email us directly.</span>
         ) : (
-          <>Unsubscribe any time. Your address is stored to send these and for nothing else; see the <Link href="/privacy-policy" className="text-primary hover:underline">privacy policy</Link>.</>
+          <>One click to leave, any time. Your address is stored to send the brief and for nothing else; see the <Link href="/privacy-policy" className="text-primary hover:underline">privacy policy</Link>.</>
         )}
       </p>
     </form>
