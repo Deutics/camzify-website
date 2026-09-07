@@ -223,6 +223,12 @@
   100% { transform: translateX(400%); }
 }
 
+/* The hero wall's scan pass over one tile: a band 30% of the tile's height, top to bottom. */
+@keyframes tile-sweep {
+  from { top: -30%; }
+  to { top: 100%; }
+}
+
 @keyframes pulse-dot {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.4; }

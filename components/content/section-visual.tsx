@@ -46,10 +46,10 @@ function Frame({ children, caption, alt }: { children: React.ReactNode; caption:
 }
 
 const stops = [
-  { id: 'CAM 01', loc: 'Main gate', frame: '/cam-06.jpg', items: 2 },
-  { id: 'CAM 04', loc: 'Loading dock', frame: '/cam-02.jpg', items: 2 },
-  { id: 'CAM 09', loc: 'Server corridor', frame: '/cam-03.jpg', items: 2 },
-  { id: 'CAM 02', loc: 'Parking lot A', frame: '/cam-04.jpg', items: 1 },
+  { id: 'CAM 01', loc: 'Main gate', frame: '/hero-cam-main-gate-640.webp', items: 2 },
+  { id: 'CAM 04', loc: 'Loading dock', frame: '/hero-cam-loading-dock-640.webp', items: 2 },
+  { id: 'CAM 09', loc: 'Server room', frame: '/hero-cam-server-room-640.webp', items: 2 },
+  { id: 'CAM 02', loc: 'Parking lot A', frame: '/hero-cam-parking-lot-640.webp', items: 1 },
 ];
 
 function Route() {
