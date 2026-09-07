@@ -101,6 +101,9 @@ export function PatrolSweepHero() {
       {/* The frame */}
       <div className="relative aspect-video w-full overflow-hidden bg-[hsl(216_22%_6%)]">
         <AnimatePresence initial={false} mode="popLayout">
+          {/* The next camera arrives from the right and the current one leaves to the
+              left, the way the round moves on to the next stop; the slow drift runs
+              underneath for the length of the stop. */}
           <motion.img
             key={stop.src}
             src={stop.src}
@@ -108,10 +111,13 @@ export function PatrolSweepHero() {
             aria-hidden="true"
             width={960}
             height={540}
-            initial={{ opacity: 0, scale: 1 }}
-            animate={{ opacity: 1, scale: reduceMotion || paused ? 1 : 1.04 }}
-            exit={{ opacity: 0, transition: { duration: 0.6 } }}
-            transition={{ opacity: { duration: reduceMotion ? 0 : 0.7 }, scale: { duration: STEP_MS / 1000, ease: 'linear' } }}
+            initial={reduceMotion ? { x: 0, opacity: 1, scale: 1 } : { x: '100%', opacity: 1, scale: 1 }}
+            animate={{ x: 0, opacity: 1, scale: reduceMotion || paused ? 1 : 1.04 }}
+            exit={reduceMotion ? { opacity: 0 } : { x: '-35%', opacity: 0, transition: { duration: 0.75, ease: [0.4, 0, 0.2, 1] } }}
+            transition={{
+              x: { duration: reduceMotion ? 0 : 0.75, ease: [0.4, 0, 0.2, 1] },
+              scale: { duration: STEP_MS / 1000, ease: 'linear', delay: reduceMotion ? 0 : 0.75 },
+            }}
             className="absolute inset-0 h-full w-full object-cover"
             style={{ transformOrigin: '50% 60%' }}
           />
@@ -146,7 +152,7 @@ export function PatrolSweepHero() {
               initial={{ opacity: 0, y: -6 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, transition: { duration: 0.2 } }}
-              transition={{ duration: 0.35, delay: 0.5 }}
+              transition={{ duration: 0.35, delay: 0.8 }}
               className="camera-tile absolute right-3 top-3 flex max-w-[85%] items-start gap-2 rounded-lg border border-border/60 bg-[hsl(216_22%_8%/0.8)] px-3 py-2 backdrop-blur-sm"
             >
               <ScanSearch className="mt-0.5 h-4 w-4 shrink-0 text-foreground/80 motion-safe:animate-pulse" aria-hidden="true" />
