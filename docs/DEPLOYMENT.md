@@ -129,7 +129,7 @@ self-canonicalising. But it means:
 Run these against the production URL after the first deploy:
 
 - [ ] Homepage renders styled, with the patrol-grid animation
-- [ ] `https://camzify.com/sitemap.xml` returns 121 `<loc>` entries, all absolute and
+- [ ] `https://camzify.com/sitemap.xml` returns 150 `<loc>` entries, all absolute and
       pointing at the production domain
 - [ ] `https://camzify.com/robots.txt` lists the AI crawler allowlist and the sitemap URL
 - [ ] `https://camzify.com/llms.txt` returns plain text with the correct HQ address
@@ -140,6 +140,12 @@ Run these against the production URL after the first deploy:
       ```
 - [ ] Submit the contact form and confirm the row lands in `ContactSubmission` (there is no email to wait for)
 - [ ] Submit Google Search Console verification and the sitemap
+- [ ] When the site leaves maintenance, remove the `<MaintenanceNotice />` mount from
+      `app/layout.tsx` and redeploy; the component and its cookie-policy row stay
+- [ ] Confirm `DATABASE_URL` is set on the production project, or every form returns an error
+
+`main` is production and `development` is the working branch; merge by pull request so
+Vercel builds a preview first.
 
 ---
 

@@ -29,7 +29,7 @@ npm run dev
 Open **http://localhost:3000**. That is the whole setup.
 
 > **You do not need a database, an `.env` file, or any credentials to run or build this
-> site.** All 121 pages are statically prerendered from source with no per-request data,
+> site.** All 150 pages are statically prerendered from source with no per-request data,
 > and `npx prisma generate` (which runs automatically on install) does not require a live
 > connection. A full production build succeeds with zero environment configuration.
 >
@@ -101,7 +101,7 @@ or `export const dynamic`), and that is a bug worth fixing.
 | Command | What it does |
 |---|---|
 | `npm run dev` | Dev server with hot reload |
-| `npm run build` | `prisma generate` then production build. Prerenders all 121 pages as static HTML |
+| `npm run build` | `prisma generate` then production build. Prerenders all 150 pages as static HTML |
 | `npm start` | Serve the production build |
 | `npm run lint` | Next.js ESLint |
 | `npx tsc --noEmit` | Type check. **Run before every commit** |
@@ -114,7 +114,7 @@ or `export const dynamic`), and that is a bug worth fixing.
 
 ## The 60-second mental model
 
-- **Next.js 14, App Router, TypeScript, Tailwind.** 121 pages, all statically prerendered at build time. Only the four `/api/*` routes are dynamic.
+- **Next.js 14, App Router, TypeScript, Tailwind.** 150 pages, all statically prerendered at build time. Only the four `/api/*` routes are dynamic.
 - **No CMS.** Page copy lives as TypeScript objects inside each `page.tsx`. Editing content means editing React.
 - **Content is organized into silos** — `ai-features`, `industries`, `use-cases`, `guides`, `platform`, `virtual-patrolling`, `compare`, `partners`, `camera-connectivity` — each a hub page plus spokes, densely cross-linked.
 - **The database only captures leads.** Four write-only tables behind four API routes. Nothing is read back by the site, and **no notification is sent** — someone must check the tables.
@@ -136,6 +136,9 @@ Read these in order. If you only read one, read **Adding Pages**.
 | [`docs/DESIGN-SYSTEM.md`](docs/DESIGN-SYSTEM.md) | You are writing UI — tokens, typography, components, motion |
 | [`docs/CONTRIBUTING.md`](docs/CONTRIBUTING.md) | Before your first change — the pre-flight checklist |
 | [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md) | You are deploying, or configuring environment variables on Vercel |
+| [`docs/SEO-GEO.md` § Keyword research](docs/SEO-GEO.md) and [`docs/seo/`](docs/seo/README.md) | You are choosing what a page should be titled or which page to write next |
+| [`docs/AUDIENCE-STRATEGY.md`](docs/AUDIENCE-STRATEGY.md) | You want to know who the buyers are and why the partner track leads |
+| [`docs/design/`](docs/design/) | Design handoffs for the product, not the site (the console sign-in) |
 
 ---
 
@@ -157,8 +160,11 @@ Read these in order. If you only read one, read **Adding Pages**.
 
 ## Project status and known gaps
 
-- **No remote yet.** The repository exists locally on `main` but has no origin. Add one and push so the history is not confined to a single machine.
+- **Branches.** `origin` is github.com/Deutics/camzify-website. `main` is production and deploys through Vercel; `development` is the working branch and is merged into `main` by pull request.
+- **The maintenance notice is on.** It is mounted in `app/layout.tsx` and is removed by hand when the site leaves maintenance.
+- **Legal pages are drafts** awaiting counsel, dated in each file. `/free-trial` describes a trial the business has not confirmed.
 - **No test suite.** There is no unit, integration or E2E testing. The de facto gates are `tsc --noEmit`, the production build, and `eslint.ssr.config.mjs`.
 - **Awaiting real content from the business:** customer case studies for the 16 industry pages, verified operating statistics for `/trust`, and public pricing if rate-card figures are ever to be indexed. Placeholder blocks have been replaced with honest substitute content rather than left visible — see `docs/SEO-GEO.md` § Honesty rules.
-- **`/api/newsletter` has no UI.** The endpoint and table exist; nothing on the site posts to it.
-- **`public/` is 134MB** — seven industry hero images are 9–10MB PNGs served unoptimized as LCP elements. Compressing these is the single largest available performance win.
+- **Nine industry pages and the seven newest use cases still use `PlaceholderVisual`** because no photograph was supplied for them.
+- **DataForSEO is out of credit.** The keyword map in `docs/seo/` has no difficulty, AI-volume or SERP columns until the account is topped up.
+- **Images are optimized at commit time, not at request time.** `public/` holds JPEG sources at 1600px or below plus generated WebP ladders; `scripts/optimise-images.py` regenerates them and `lib/image-manifest.ts`. Do not add a PNG or a PSD.

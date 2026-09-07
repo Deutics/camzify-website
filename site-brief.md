@@ -6,7 +6,7 @@
 > Anything marked ⚠️ verify was inferred from the website and needs a human to
 > confirm it. Anything marked ⚠️ NEEDS INPUT could not be determined at all.
 >
-> Built from the site's own source (121 pages), not a crawl — so the service
+> Built from the site's own source (150 pages), not a crawl — so the service
 > inventory, voice observations and content rules below are read from the real copy.
 >
 > Last updated: 2026-09-02 — competitors, years in business and team size supplied by the business. Still outstanding: customer value, and the author identity below.
@@ -35,6 +35,7 @@
 2. **AI detection features** (23 pages) — line and zone intrusion, motion, camera tampering, multi-object tracking, AI attribute extraction, cross-camera journey map, AI suspect search, tailgating, weapons, aggression, PPE, fire and smoke, slip and fall, abandoned object, littering, illegal parking, wrong-way vehicle, vehicle damage, heatmap anomalies, occupancy trends.
 3. **Platform** (12 pages) — dashboard, live streaming, video backup and retention, notifications and alerts, analytics and reporting, user management, permission groups, license and instance management, multi-site management, mobile access, AI architecture.
 4. **Camera connectivity** — ONVIF/RTSP/RTMP/HLS/WebRTC ingest plus the Camzify Connector for local networks without port forwarding.
+5. **Category pillars** (added 2026-09-07 from the keyword map in `docs/seo/`) — the names the US market uses for what the above adds up to: **virtual guard** (`/virtual-guard`), **cloud video surveillance / cloud VMS** (`/cloud-video-surveillance`), **remote video monitoring** (`/use-cases/remote-video-monitoring`), **intelligent video analytics** (a guide). Use these phrases in titles and definitions; "virtual patrolling" stays the product's own name for the round.
 
 **Money pages** (internal links should be prioritized towards these):
 - https://camzify.com/book-a-demo — the primary conversion target
@@ -351,7 +352,7 @@ Plain. Technical. Unhyped.
 
 - **Person:** First person plural for the company ("we build", "we do not claim"); second person for the reader ("your site", "the cameras you already own"). Feature and guide pages are largely impersonal and descriptive.
 - **Contractions:** Rare. The copy consistently prefers expanded forms — "cannot", "does not", "is not". Match this.
-- **Humour:** None. Not one joke across 121 pages. Do not introduce any.
+- **Humour:** None. Not one joke across 150 pages. Do not introduce any.
 - **Sentence length:** Medium, varied. Em-dash asides sparingly (2026-09-03: cut from ~100 to ~20 across the revamped pages; a dash-heavy page reads as machine-written). Prefer a full stop, a colon or a comma. Paragraphs run 2–4 sentences. Opening sentences are definitional and self-contained.
 - **Anything structural to always do or never do:** Answer in the first two sentences, then expand. Write sentences that survive being quoted out of context. Never open with a preamble or a rhetorical question. Never use a heading that does not describe what follows.
 
