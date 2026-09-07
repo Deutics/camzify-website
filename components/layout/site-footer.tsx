@@ -1,14 +1,15 @@
 import Link from 'next/link';
-import { SiteImage } from '@/components/content/site-image';
+import { SiteLogo } from '@/components/layout/site-logo';
 import { NewsletterForm } from '@/components/layout/newsletter-form';
 import { Mail, Phone, MapPin, ArrowUpRight, ArrowRight } from 'lucide-react';
 import { siteConfig, formattedAddress } from '@/lib/site-config';
 
 /*
- * The footer. Dark in both themes (see `.footer-dark` in globals.css), because the
- * end of a page is where a product site turns from reading into orientation: the
- * brand, how to reach the company, the newsletter, and every section of the site laid
- * out in one place. Four layers, all on one twelve-column grid:
+ * The footer. It follows the theme like the rest of the page (a deeper neutral than
+ * the page in light mode, the card surface in dark), because the end of a page is
+ * where a product site turns from reading into orientation: the brand, how to reach
+ * the company, the newsletter, and every section of the site laid out in one place.
+ * Three layers, all on one twelve-column grid:
  *
  *   1. Brand row: wordmark, the one-line positioning, the head office, the console
  *      sign-in; and the newsletter on the right.
@@ -102,13 +103,13 @@ const COPYRIGHT_YEAR = new Date().getFullYear();
 
 export function SiteFooter() {
   return (
-    <footer className="footer-dark border-t border-border">
+    <footer className="border-t border-border bg-muted/40 dark:bg-card">
       {/* Brand row */}
       <div className="mx-auto max-w-site px-6 pt-16 pb-14">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-5">
             <Link href="/" className="inline-flex items-center" aria-label={`${siteConfig.name} home`}>
-              <SiteImage src="/camzify-logo-dark.png" alt={siteConfig.name} width={825} height={192} sizes="165px" className="h-9 w-auto" />
+              <SiteLogo className="h-9 w-auto" />
             </Link>
             <p className="mt-6 max-w-sm text-body leading-relaxed text-muted-foreground">
               Cloud VMS with virtual patrolling, for the cameras you already own.
