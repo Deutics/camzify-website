@@ -182,4 +182,5 @@ object, so never restate the name, role or credential anywhere else.
 ## Known gaps worth flagging, not silently fixing
 
 - There is **no test suite**. The gates are `tsc`, the build, and the SSR lint.
-- `/api/newsletter` exists with no UI posting to it.
+- `/api/newsletter` is posted to by the footer's `NewsletterForm`; the privacy and cookie
+  policies describe it, so keep the three in step.
