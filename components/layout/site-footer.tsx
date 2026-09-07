@@ -13,8 +13,8 @@ import { siteConfig, formattedAddress } from '@/lib/site-config';
  * to do next. This one has three layers: a brand band with the definition sentence,
  * the two actions that matter and the newsletter; five link columns grouped the way
  * the navigation groups them, with the partner track (the primary audience per the
- * lead files) given its own column; and a bottom bar with the company identity, the
- * NAP block and the legal links.
+ * lead files) given its own column; and a bottom block with the head-office NAP, the
+ * legal links and the copyright. The newsletter has a band of its own between them.
  *
  * Identity, address, phone and email all read from siteConfig so they cannot disagree
  * with the Organization schema or /llms.txt.
@@ -102,44 +102,22 @@ const COPYRIGHT_YEAR = new Date().getFullYear();
 export function SiteFooter() {
   return (
     <footer className="border-t border-border bg-card">
-      {/* Brand band */}
-      <div className="mx-auto max-w-site px-6 pt-14 pb-10">
-        <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:gap-16">
-          <div>
-            <Link href="/" className="inline-flex items-center" aria-label={`${siteConfig.name} home`}>
-              <SiteLogo className="h-9 w-auto" />
-            </Link>
-            <p className="mt-5 max-w-lg text-body text-muted-foreground">
-              <strong className="font-semibold text-foreground">{siteConfig.name} is an AI-powered cloud video management system for the cameras you already own,</strong>{' '}
-              with scheduled virtual patrol rounds that check every site, notify the guard when something fails, and file a report with the frame behind every result.
-            </p>
-            <div className="mt-6 flex flex-wrap items-center gap-3">
-              <Link href="/book-a-demo" className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90">
-                Book a demo <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </Link>
-              <Link href="/contact" className="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 text-sm font-semibold transition-colors hover:border-primary/30 hover:bg-accent">
-                Ask for a quote
-              </Link>
-              <a href={siteConfig.appUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline">
-                Sign in to the console <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
-              </a>
-            </div>
-          </div>
-          <div className="lg:pt-2 lg:justify-self-end">
-            <h3 className="font-mono text-mono-sm uppercase tracking-wider text-muted-foreground">Head office</h3>
-            <address className="mt-4 grid gap-2 text-sm not-italic text-muted-foreground">
-              <span className="flex items-start gap-2">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
-                <span>{siteConfig.legalName}<br />{formattedAddress}</span>
-              </span>
-              <a href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`} className="flex items-center gap-2 rounded transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
-                <Phone className="h-4 w-4 shrink-0" aria-hidden="true" />{siteConfig.phone}
-              </a>
-              <a href={`mailto:${siteConfig.email}`} className="flex items-center gap-2 rounded transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
-                <Mail className="h-4 w-4 shrink-0" aria-hidden="true" />{siteConfig.email}
-              </a>
-            </address>
-          </div>
+      {/* Top row: the wordmark and the three actions. The definition sentence lives in
+          the hero and in llms.txt; repeating it here said nothing new. */}
+      <div className="mx-auto flex max-w-site flex-col gap-5 px-6 py-8 sm:flex-row sm:items-center sm:justify-between">
+        <Link href="/" className="inline-flex items-center" aria-label={`${siteConfig.name} home`}>
+          <SiteLogo className="h-9 w-auto" />
+        </Link>
+        <div className="flex flex-wrap items-center gap-3">
+          <Link href="/book-a-demo" className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90">
+            Book a demo <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </Link>
+          <Link href="/contact" className="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 text-sm font-semibold transition-colors hover:border-primary/30 hover:bg-accent">
+            Ask for a quote
+          </Link>
+          <a href={siteConfig.appUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline">
+            Sign in to the console <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+          </a>
         </div>
       </div>
 
@@ -177,17 +155,33 @@ export function SiteFooter() {
         </div>
       </div>
 
-      {/* Bottom bar */}
+      {/* Bottom: head office, legal links, copyright */}
       <div className="border-t border-border">
-        <div className="mx-auto flex max-w-site flex-col gap-4 px-6 py-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <p>© {COPYRIGHT_YEAR} {siteConfig.legalName}. All rights reserved. Registered in Singapore.</p>
-          <ul className="flex flex-wrap items-center gap-x-5 gap-y-2">
-            {legal.map((l) => (
-              <li key={l.href}>
-                <Link href={l.href} className="transition-colors hover:text-primary">{l.label}</Link>
-              </li>
-            ))}
-          </ul>
+        <div className="mx-auto max-w-site px-6 py-8">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
+            <address className="grid gap-2 text-sm not-italic text-muted-foreground">
+              <span className="flex items-start gap-2">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
+                <span>{siteConfig.legalName} · {formattedAddress}</span>
+              </span>
+              <span className="flex flex-wrap gap-x-6 gap-y-2">
+                <a href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`} className="flex items-center gap-2 rounded transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+                  <Phone className="h-4 w-4 shrink-0" aria-hidden="true" />{siteConfig.phone}
+                </a>
+                <a href={`mailto:${siteConfig.email}`} className="flex items-center gap-2 rounded transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+                  <Mail className="h-4 w-4 shrink-0" aria-hidden="true" />{siteConfig.email}
+                </a>
+              </span>
+            </address>
+            <ul className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted-foreground">
+              {legal.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} className="transition-colors hover:text-primary">{l.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <p className="mt-6 text-xs text-muted-foreground">© {COPYRIGHT_YEAR} {siteConfig.legalName}. All rights reserved. Registered in Singapore.</p>
         </div>
       </div>
     </footer>
