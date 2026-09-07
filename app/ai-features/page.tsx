@@ -68,7 +68,7 @@ export default function DetectionHubPage() {
           <p className="mt-6 max-w-2xl text-body text-muted-foreground">
             Camzify ships 20 AI detection features that run on your existing cameras. Each fires on confirmed
             object tracks, not shadows, not lighting shifts, not camera noise. Every detection integrates
-            directly into <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrol</Link> rounds.
+            directly into <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrol</Link> rounds. New to the field? Start with <Link href="/guides/what-is-intelligent-video-analytics" className="text-primary hover:underline">what intelligent video analytics is</Link>.
           </p>
 
           <div className="mt-12">

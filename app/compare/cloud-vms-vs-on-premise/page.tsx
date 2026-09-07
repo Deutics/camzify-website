@@ -63,7 +63,7 @@ export default function CloudVmsVsOnPremisePage() {
                 Neither approach is universally better. The right choice depends on your facility size, risk profile, budget, and existing infrastructure. <a href="/virtual-patrolling" className="text-primary hover:underline">Virtual patrolling</a> is strongest where consistency, audit trails, and cost efficiency matter most — typically multi-site operations, after-hours coverage, and facilities where guard costs are the dominant security spend.
               </p>
               <p className="mt-4 max-w-prose text-muted-foreground">
-                Use the <Link href="/roi-calculator" className="text-primary hover:underline">ROI calculator</Link> to model the cost comparison for your specific scenario, or <Link href="/pricing" className="text-primary hover:underline">review pricing</Link> to understand the per-camera licensing model.
+                Use the <Link href="/roi-calculator" className="text-primary hover:underline">ROI calculator</Link> to model the cost comparison for your specific scenario, or <Link href="/pricing" className="text-primary hover:underline">review pricing</Link> to understand the per-camera licensing model. The <Link href="/cloud-video-surveillance" className="text-primary hover:underline">cloud video surveillance</Link> page describes the cloud side on its own.
               </p>
             </ScrollReveal>
           </div>

@@ -76,6 +76,7 @@ const groups = [
     items: [
       { title: 'Guard tour verification', href: '/use-cases/guard-tour-verification', icon: ClipboardCheck, desc: 'Proof of the condition at each checkpoint, not proof that a tag was tapped.', image: '/guard-tour-verification.jpg' },
       { title: 'Remote site monitoring', href: '/use-cases/remote-site-monitoring', icon: Radio, desc: 'Unmanned sites on the same rounds and the same console as staffed ones.', image: '/remote-site-monitoring.jpg' },
+      { title: 'Remote video monitoring', href: '/use-cases/remote-video-monitoring', icon: Video, desc: 'A site watched from a monitoring room: rounds on schedule, detections in the window set, a report per client.', image: '/remote-site-monitoring.jpg' },
       { title: 'Incident investigation', href: '/use-cases/incident-investigation', icon: Search, desc: 'Timestamped detections, patrol snapshots and suspect search to shorten the review.', image: '/incident-investigation.jpg' },
       { title: 'Lock-up and closing checks', href: '/use-cases/lock-up-and-closing-checks', icon: DoorClosed, desc: 'A closing round that checks doors, shutters and lights from the camera, with a frame per item.', image: '/after-hours-security-monitoring.jpg' },
       { title: 'Alarm verification', href: '/use-cases/alarm-verification', icon: BellRing, desc: 'The camera view and a snapshot on the operator\'s desk at the moment the alarm comes in.', image: '/unauthorized-access-detection.jpg' },

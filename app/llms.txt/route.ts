@@ -100,6 +100,8 @@ ${siteConfig.name} is operated by ${siteConfig.legalName}, headquartered in Sing
 
 - Virtual patrolling overview: ${siteConfig.url}/virtual-patrolling
 - How it works: ${siteConfig.url}/virtual-patrolling/how-it-works
+- Virtual guard, the service model: ${siteConfig.url}/virtual-guard
+- Cloud video surveillance: ${siteConfig.url}/cloud-video-surveillance
 - AI features index: ${siteConfig.url}/ai-features
 - Platform overview: ${siteConfig.url}/platform
 - Pricing: ${siteConfig.url}/pricing

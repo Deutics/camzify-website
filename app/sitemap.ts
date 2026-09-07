@@ -51,6 +51,9 @@ const hubs = group(
   'weekly'
 );
 
+// Category pillars: the market's names for what the site sells, one page each.
+const pillars = group(['/virtual-guard', '/cloud-video-surveillance'], 0.8, 'weekly');
+
 // Tier 3 — the flagship cluster. Highest-intent commercial content after the hubs.
 const virtualPatrolling = group(
   [
@@ -128,6 +131,7 @@ const useCases = group(
     '/use-cases/loading-dock-monitoring',
     '/use-cases/parking-lot-surveillance',
     '/use-cases/remote-site-monitoring',
+    '/use-cases/remote-video-monitoring',
     '/use-cases/vehicle-monitoring',
     '/use-cases/night-security',
     '/use-cases/guard-tour-verification',
@@ -185,6 +189,7 @@ const compare = group(
 const guides = group(
   [
     '/guides/what-is-virtual-patrolling',
+    '/guides/what-is-intelligent-video-analytics',
     '/guides/how-to-run-a-virtual-patrol-round',
     '/guides/how-to-set-up-sites-and-cameras',
     '/guides/how-to-monitor-live-camera-feeds',
@@ -246,6 +251,7 @@ const allEntries: Entry[] = [
   ...conversion,
   ...legal,
   ...hubs,
+  ...pillars,
   ...virtualPatrolling,
   ...platform,
   ...aiFeatures,

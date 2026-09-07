@@ -104,8 +104,8 @@ export default function ForMonitoringCentresPage() {
               <h2 className="mt-2 font-display text-2xl font-bold">Where a monitoring company sits</h2>
               <p className="mt-4 max-w-prose text-muted-foreground">
                 The end client owns the site. The security agency holds the contract and
-                supplies the guards. The monitoring company sits behind the agency: it watches
-                the cameras, runs the rounds, and tells the guard on site when a person is
+                supplies the guards. The monitoring company sits behind the agency: it provides the{' '}
+                <Link href="/use-cases/remote-video-monitoring" className="text-primary hover:underline">remote video monitoring</Link>, runs the rounds, and tells the guard on site when a person is
                 needed. Three parties, and the one operating the console is neither the one
                 that owns the cameras nor the one that employs the guard.
               </p>

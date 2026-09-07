@@ -22,6 +22,7 @@ export const metadata = generatePageMeta({ ...pageMeta });
 /** Guides carry a named byline; the index says so once rather than repeating it per card. */
 const items = [
   { slug: 'what-is-virtual-patrolling', title: 'What Is Virtual Patrolling?' },
+  { slug: 'what-is-intelligent-video-analytics', title: 'What Is Intelligent Video Analytics?' },
   { slug: 'how-to-run-a-virtual-patrol-round', title: 'How to Run a Virtual Patrol Round' },
   { slug: 'how-to-set-up-sites-and-cameras', title: 'How to Add Sites and Cameras' },
   { slug: 'how-to-monitor-live-camera-feeds', title: 'How to Monitor Live Camera Feeds' },

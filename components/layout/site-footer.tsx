@@ -24,8 +24,10 @@ const columns: { title: string; links: { label: string; href: string }[]; all?: 
     title: 'Product',
     links: [
       { label: 'Virtual patrolling', href: '/virtual-patrolling' },
+      { label: 'Virtual guard', href: '/virtual-guard' },
       { label: 'How a round works', href: '/virtual-patrolling/how-it-works' },
       { label: 'Platform', href: '/platform' },
+      { label: 'Cloud video surveillance', href: '/cloud-video-surveillance' },
       { label: 'AI detections', href: '/ai-features' },
       { label: 'Camera connectivity', href: '/camera-connectivity' },
       { label: 'Supported cameras', href: '/supported-cameras' },
@@ -53,7 +55,7 @@ const columns: { title: string; links: { label: string; href: string }[]; all?: 
       { label: 'Guard tour verification', href: '/use-cases/guard-tour-verification' },
       { label: 'Fire and smoke monitoring', href: '/use-cases/fire-and-smoke-monitoring' },
     ],
-    all: { label: 'All 21 use cases', href: '/use-cases' },
+    all: { label: 'All 22 use cases', href: '/use-cases' },
   },
   {
     title: 'Industries',

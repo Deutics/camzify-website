@@ -116,7 +116,8 @@ export default function PlatformPage() {
                 <p className="mt-5 max-w-prose text-body text-muted-foreground">
                   A stream arrives, it is watched and kept, detection turns it into events, a person
                   is told and acts, and the platform keeps the record of all of it. The modules are the
-                  stages of that one pipeline, not eleven separate tools.
+                  stages of that one pipeline, not eleven separate tools. The recording layer underneath
+                  is described on <Link href="/cloud-video-surveillance" className="text-primary hover:underline">cloud video surveillance</Link>.
                 </p>
               </div>
             </ScrollReveal>

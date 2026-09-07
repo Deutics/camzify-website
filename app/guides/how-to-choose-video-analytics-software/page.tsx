@@ -76,9 +76,10 @@ export default function HowToChooseVideoAnalyticsSoftwarePage() {
           <section className="mt-20 rounded-xl bg-card p-8 shadow">
             <h2 className="font-display text-xl font-bold">Related guides</h2>
             <div className="mt-4 flex flex-wrap gap-3">
-              <Link href="/guides/ai-video-analytics-cost" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">Ai Video Analytics Cost</Link>
-              <Link href="/guides/how-to-reduce-false-alarms" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">How To Reduce False Alarms</Link>
-              <Link href="/guides/onvif-and-rtsp-explained" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">Onvif And Rtsp Explained</Link>
+              <Link href="/guides/what-is-intelligent-video-analytics" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">What Is Intelligent Video Analytics?</Link>
+              <Link href="/guides/ai-video-analytics-cost" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">AI Video Analytics Cost</Link>
+              <Link href="/guides/how-to-reduce-false-alarms" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">How to Reduce False Alarms</Link>
+              <Link href="/guides/onvif-and-rtsp-explained" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">ONVIF and RTSP Explained</Link>
             </div>
             <div className="mt-6 flex flex-wrap gap-4">
               <Link href="/pricing" className="rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white shadow transition-colors hover:bg-primary/90">View pricing</Link>

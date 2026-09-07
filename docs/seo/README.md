@@ -30,13 +30,16 @@ search rather than an internal name: `/platform`, `/ai-features`,
 `/use-cases/parking-lot-surveillance`. The virtual-patrolling hub now says "virtual guard"
 once in its definition.
 
-## Gaps still open (a page each, none exists yet)
+## Gaps closed the same day
 
-| Term family | Volume | Suggested page |
+Each term family now has a page of its own, wired into the nav, the sitemap, the footer,
+llms.txt and at least two existing pages:
+
+| Term family | Volume | Page |
 |---|---|---|
-| virtual guard, virtual security guard, virtual guard service | 480 + 210 + 50 | `/virtual-guard` or a guide "Virtual guard vs virtual patrolling" |
-| cloud based video surveillance, cloud video surveillance, cloud cctv, cloud nvr, nvr alternative | 720 + 320 + 50 + 90 + 10 | `/cloud-video-surveillance` pillar page |
-| intelligent video analytics | 12,100 | guide "What is intelligent video analytics?" |
+| virtual guard, virtual security guard, virtual guard service | 480 + 210 + 50 | `/virtual-guard` |
+| cloud based video surveillance, cloud video surveillance, cloud cctv, cloud nvr, nvr alternative | 720 + 320 + 50 + 90 + 10 | `/cloud-video-surveillance` |
+| intelligent video analytics | 12,100 | `/guides/what-is-intelligent-video-analytics` |
 | remote video monitoring, remote security solutions, proactive video monitoring | 260 + 260 + 30 | `/use-cases/remote-video-monitoring` |
 
 ## What could not be pulled
