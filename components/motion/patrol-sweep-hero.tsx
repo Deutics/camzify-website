@@ -17,8 +17,10 @@ import { Check, Radio } from 'lucide-react';
  * dock door 1 standing open with a truck on it, and the rear door open. Every other
  * item was checked against its frame by eye. Hovering or focusing the panel pauses it.
  *
- * Nothing is dimmed to make text legible. Frames the round has not reached yet sit a
- * touch darker; a decided frame is shown as it is, with the verdict in the corner.
+ * Nothing is dimmed to make text legible. On the first lap, frames the round has not
+ * reached yet sit a touch darker and wake as it arrives; from the second lap on every
+ * frame stays lit and only the verdict marks fade out and return, so the end of a round
+ * never snaps the wall back to dark. Marks fade rather than mount, for the same reason.
  *
  * SSR safety: timers run in effects only; the server renders the first stop in its
  * "looking" state. Under reduced motion the wall holds on the finished round.
@@ -52,6 +54,9 @@ export function PatrolSweepHero() {
   const [i, setI] = useState(0);
   const [phase, setPhase] = useState<Phase>('look');
   const [paused, setPaused] = useState(false);
+  // Laps completed. The first lap wakes the wall tile by tile; later laps keep every
+  // frame lit and only re-mark the verdicts, so the loop never snaps back to dark.
+  const [lap, setLap] = useState(0);
 
   useEffect(() => {
     if (reduceMotion) {
@@ -63,7 +68,7 @@ export function PatrolSweepHero() {
     let t: ReturnType<typeof setTimeout>;
     if (phase === 'look') t = setTimeout(() => setPhase('verdict'), LOOK_MS);
     else if (phase === 'verdict') t = setTimeout(() => (i === STOPS.length - 1 ? setPhase('summary') : (setI(i + 1), setPhase('look'))), HOLD_MS);
-    else t = setTimeout(() => (setI(0), setPhase('look')), SUMMARY_MS);
+    else t = setTimeout(() => (setLap((l) => l + 1), setI(0), setPhase('look')), SUMMARY_MS);
     return () => clearTimeout(t);
   }, [i, phase, paused, reduceMotion]);
 
@@ -133,7 +138,7 @@ export function PatrolSweepHero() {
                 loading={k < 4 ? 'eager' : 'lazy'}
                 decoding="async"
                 className={`absolute inset-0 h-full w-full object-cover transition-[filter] duration-700 ${
-                  isDecided || current ? '' : 'brightness-[0.78] saturate-[0.85]'
+                  lap === 0 && !isDecided && !current ? 'brightness-[0.78] saturate-[0.85]' : ''
                 }`}
               />
               {/* Only the bottom edge carries a gradient, and only as far as the label needs. */}
@@ -147,25 +152,30 @@ export function PatrolSweepHero() {
               <div className="camera-tile absolute inset-0 flex flex-col justify-between p-1.5 sm:p-2">
                 <div className="flex items-start justify-between">
                   <span className={`font-mono text-[8px] uppercase tracking-wider sm:text-[9px] ${failed ? 'text-critical' : 'camera-tile-label-dim'}`}>{s.id}</span>
-                  {failed ? (
-                    <span className="shrink-0 rounded-sm bg-critical px-1 py-px font-mono text-[7px] uppercase tracking-wider text-white sm:text-[8px]">
-                      Not compliant
-                    </span>
-                  ) : (
+                  <span className="relative flex h-3 items-center">
                     <span
-                      className={`mt-0.5 h-1.5 w-1.5 rounded-full transition-colors duration-500 ${
-                        isDecided ? 'bg-live' : current ? 'bg-live/70' : 'bg-[hsl(0_0%_100%/0.3)]'
+                      className={`h-1.5 w-1.5 rounded-full transition-[background-color,opacity] duration-500 ${
+                        failed ? 'opacity-0' : isDecided ? 'bg-live' : current ? 'bg-live/70' : 'bg-[hsl(0_0%_100%/0.3)]'
                       }`}
                     />
-                  )}
+                    <span
+                      className={`absolute right-0 top-0 whitespace-nowrap rounded-sm bg-critical px-1 py-px font-mono text-[7px] uppercase tracking-wider text-white transition-opacity duration-500 sm:text-[8px] ${
+                        failed ? 'opacity-100' : 'opacity-0'
+                      }`}
+                    >
+                      Not compliant
+                    </span>
+                  </span>
                 </div>
                 <div className="flex items-end justify-between gap-1">
                   <span className="truncate font-mono text-[8px] uppercase tracking-wider camera-tile-label sm:text-[9px]">{s.loc}</span>
-                  {isDecided && !failed && (
-                    <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-live text-[hsl(216_22%_6%)]">
-                      <Check className="h-2.5 w-2.5" strokeWidth={3} />
-                    </span>
-                  )}
+                  <span
+                    className={`flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-live text-[hsl(216_22%_6%)] transition-opacity duration-500 ${
+                      isDecided && !failed ? 'opacity-100' : 'opacity-0'
+                    }`}
+                  >
+                    <Check className="h-2.5 w-2.5" strokeWidth={3} />
+                  </span>
                 </div>
               </div>
             </div>
@@ -176,7 +186,7 @@ export function PatrolSweepHero() {
       {/* Footer strip: progress and the item being checked, in words. */}
       <div className="flex items-center gap-3 border-t border-border bg-muted/30 px-4 py-2.5">
         <div className="h-1 w-20 shrink-0 overflow-hidden rounded-full bg-border sm:w-28">
-          <div className="h-full rounded-full bg-live transition-[width] duration-700 ease-out" style={{ width: `${(done / STOPS.length) * 100}%` }} />
+          <div className={`h-full rounded-full bg-live ease-out ${done === 0 ? 'transition-none' : 'transition-[width] duration-700'}`} style={{ width: `${(done / STOPS.length) * 100}%` }} />
         </div>
         <span className={`min-w-0 flex-1 truncate font-mono text-[11px] tabular-nums ${phase === 'summary' ? 'text-live' : phase === 'verdict' && stop.failed ? 'text-critical' : 'text-muted-foreground'}`}>
           {message}
