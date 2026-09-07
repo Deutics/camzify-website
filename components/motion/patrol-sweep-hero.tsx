@@ -32,12 +32,12 @@ type Stop = {
 };
 
 const STOPS: Stop[] = [
-  { id: 'CAM 01', loc: 'Main gate', src: '/hero-cam-main-gate-960.webp', thumb: '/hero-cam-main-gate-640.webp', item: 'Gate closed and latched', ok: true },
-  { id: 'CAM 04', loc: 'Loading dock', src: '/hero-cam-loading-dock-960.webp', thumb: '/hero-cam-loading-dock-640.webp', item: 'Dock doors down after hours', ok: false },
-  { id: 'CAM 02', loc: 'Parking lot A', src: '/hero-cam-parking-lot-960.webp', thumb: '/hero-cam-parking-lot-640.webp', item: 'No person in the lot', ok: true },
-  { id: 'CAM 07', loc: 'Server room', src: '/hero-cam-server-room-960.webp', thumb: '/hero-cam-server-room-640.webp', item: 'Room empty, door closed', ok: true },
-  { id: 'CAM 05', loc: 'Warehouse east', src: '/hero-cam-warehouse-east-960.webp', thumb: '/hero-cam-warehouse-east-640.webp', item: 'Aisle clear of obstructions', ok: true },
-  { id: 'CAM 03', loc: 'Rear entrance', src: '/hero-cam-rear-entrance-960.webp', thumb: '/hero-cam-rear-entrance-640.webp', item: 'Rear door closed', ok: true },
+  { id: 'CAM 01', loc: 'Main gate', src: '/hero-cam-main-gate-960.webp', thumb: '/hero-cam-main-gate-640.webp', item: 'Guard present at the gatehouse', ok: true },
+  { id: 'CAM 04', loc: 'Loading dock', src: '/hero-cam-loading-dock-960.webp', thumb: '/hero-cam-loading-dock-640.webp', item: 'Dock door 1 closed', ok: false },
+  { id: 'CAM 02', loc: 'Parking lot A', src: '/hero-cam-parking-lot-960.webp', thumb: '/hero-cam-parking-lot-640.webp', item: 'Drive lanes clear of obstruction', ok: true },
+  { id: 'CAM 07', loc: 'Server room', src: '/hero-cam-server-room-960.webp', thumb: '/hero-cam-server-room-640.webp', item: 'Aisle clear of obstructions', ok: true },
+  { id: 'CAM 05', loc: 'Warehouse east', src: '/hero-cam-warehouse-east-960.webp', thumb: '/hero-cam-warehouse-east-640.webp', item: 'High-visibility vests worn', ok: true },
+  { id: 'CAM 03', loc: 'Rear entrance', src: '/hero-cam-rear-entrance-960.webp', thumb: '/hero-cam-rear-entrance-640.webp', item: 'Rear door closed', ok: false },
 ];
 
 const STEP_MS = 3200;
