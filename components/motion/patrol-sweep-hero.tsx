@@ -195,9 +195,11 @@ export function PatrolSweepHero() {
         <span className={`min-w-0 flex-1 truncate font-mono text-[11px] tabular-nums ${phase === 'summary' ? 'text-live' : phase === 'verdict' && stop.failed ? 'text-critical' : 'text-muted-foreground'}`}>
           {message}
         </span>
-        <span className="hidden shrink-0 font-mono text-[11px] tabular-nums text-muted-foreground sm:inline">
-          {flaggedSoFar} flagged
-        </span>
+        {phase !== 'summary' && (
+          <span className="hidden shrink-0 font-mono text-[11px] tabular-nums text-muted-foreground sm:inline">
+            {flaggedSoFar} flagged
+          </span>
+        )}
       </div>
       <figcaption className="sr-only">{label}</figcaption>
     </figure>
