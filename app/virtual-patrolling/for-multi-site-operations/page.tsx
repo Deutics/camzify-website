@@ -46,7 +46,7 @@ export default function MultiSiteOpsPage() {
             on one dashboard.</>}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/partners/for-security-agencies', label: 'For security agencies' }}
-        visual={<PhotoFigure src="/vp-for-multi-site-operations-1.jpg" alt="The virtual patrolling screen in the Camzify console with sequences and rounds for one site" priority />}
+        visual={<PhotoFigure src="/vp-for-multi-site-operations-1.png" alt="The virtual patrolling screen in the Camzify console with sequences and rounds for one site" priority />}
       />
 
       <section className="pb-16">
@@ -98,7 +98,7 @@ export default function MultiSiteOpsPage() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/vp-for-multi-site-operations-2.jpg" alt="Editing a patrol sequence for one site in the console" caption="Each site carries its own sequences, schedule and guard roster on one account." />
+            <PhotoFigure src="/vp-for-multi-site-operations-2.png" alt="Editing a patrol sequence for one site in the console" caption="Each site carries its own sequences, schedule and guard roster on one account." />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
@@ -119,7 +119,7 @@ export default function MultiSiteOpsPage() {
                 </p>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/vp-for-multi-site-operations-3.jpg" alt="Account diagram: the parent account with sites and sub-users beneath it" caption="How a multi-site account is structured: sites and sub-users under one parent." />
+            <PhotoFigure src="/vp-for-multi-site-operations-3.png" alt="Account diagram: the parent account with sites and sub-users beneath it" caption="How a multi-site account is structured: sites and sub-users under one parent." />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">

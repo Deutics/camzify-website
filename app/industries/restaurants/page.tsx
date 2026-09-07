@@ -50,7 +50,7 @@ export default function RestaurantsPage() {
         facts={['Back doors and delivery entrances left unmonitored between…', 'Closing procedures relying on whoever locks up that night to…', 'Walk-in cooler and freezer doors left ajar overnight']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}
-        visual={<PhotoFigure src="/ai-security-for-restaurants.jpg" alt="A restaurant kitchen and dining floor under AI camera monitoring" priority />}
+        visual={<PhotoFigure src="/ai-security-for-restaurants.png" alt="A restaurant kitchen and dining floor under AI camera monitoring" priority />}
       />
 
       <section className="pb-16">
@@ -76,7 +76,7 @@ export default function RestaurantsPage() {
                 <p>Continuous AI monitoring turns the closing routine into an automated checklist: the same points get checked on the same schedule every night regardless of who closed, with a logged result and an immediate alert to the manager on duty if something was missed.</p>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/ai-security-for-restaurants.jpg" alt="A restaurant kitchen and dining floor under AI camera monitoring" priority />
+            <PhotoFigure src="/ai-security-for-restaurants.png" alt="A restaurant kitchen and dining floor under AI camera monitoring" priority />
           </div>
 
           <div className="mt-16">

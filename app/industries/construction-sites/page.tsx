@@ -52,7 +52,7 @@ export default function ConstructionSitesPage() {
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}
         visual={<SiteImage
-              src="/ai-security-for-construction-sites.jpg" alt="AI-monitored construction site showing bounding boxes around workers, equipment, and material storage, with drone views of the site" className="w-full rounded-xl"
+              src="/ai-security-for-construction-sites.png" alt="AI-monitored construction site showing bounding boxes around workers, equipment, and material storage, with drone views of the site" className="w-full rounded-xl"
               width={1600}
               height={900}
               sizes="(max-width: 1024px) 100vw, 60vw"

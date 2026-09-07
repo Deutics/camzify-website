@@ -42,7 +42,7 @@ export default function Page() {
         facts={['Anyone entering a restricted server room or electrical closet', 'A forklift or vehicle entering a pedestrian-only zone', 'Personnel present in a hazardous or chemical storage area']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 22 detections' }}
-        visual={<PhotoFigure src="/feature-zone-intrusion-detection-1.jpg" alt="Zone Intrusion Detection visualization on camera feed" caption="Zone intrusion detection" priority />}
+        visual={<PhotoFigure src="/feature-zone-intrusion-detection-1.png" alt="Zone Intrusion Detection visualization on camera feed" caption="Zone intrusion detection" priority />}
       />
 
       <section className="pb-16">
@@ -111,7 +111,7 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/feature-zone-intrusion-detection-3.jpg" alt="Configuration panel showing a polygonal zone drawn over a restricted area with dwell-time and schedule controls" caption="Zone configuration" />
+            <PhotoFigure src="/feature-zone-intrusion-detection-3.png" alt="Configuration panel showing a polygonal zone drawn over a restricted area with dwell-time and schedule controls" caption="Zone configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">

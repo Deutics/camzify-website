@@ -50,7 +50,7 @@ export default function EnergyPage() {
         facts={['Unmanned substations sitting without any on-site presence…', 'Solar and wind farm perimeters spanning acres with no…', 'Remote sites relying on infrequent, scheduled maintenance…']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}
-        visual={<PhotoFigure src="/ai-security-for-energy.jpg" alt="A solar and wind energy site with its perimeter under AI camera monitoring" priority />}
+        visual={<PhotoFigure src="/ai-security-for-energy.png" alt="A solar and wind energy site with its perimeter under AI camera monitoring" priority />}
       />
 
       <section className="pb-16">
@@ -76,7 +76,7 @@ export default function EnergyPage() {
                 <p>Continuous AI monitoring closes the gap between physical visits by checking the perimeter, equipment yards, and camera health on a repeating schedule regardless of how remote the site is, and raising an alert the moment a fence line is crossed or a camera stops reporting, turning an infrequent visit-based model into a monitored one.</p>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/ai-security-for-energy.jpg" alt="A solar and wind energy site with its perimeter under AI camera monitoring" priority />
+            <PhotoFigure src="/ai-security-for-energy.png" alt="A solar and wind energy site with its perimeter under AI camera monitoring" priority />
           </div>
 
           <div className="mt-16">

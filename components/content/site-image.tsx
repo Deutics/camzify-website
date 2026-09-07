@@ -30,7 +30,7 @@ export function SiteImage({
   priority = false,
   'aria-hidden': ariaHidden,
 }: {
-  /** Path under /public, e.g. "/ai-security-for-warehouses.jpg". */
+  /** Path under /public, e.g. "/ai-security-for-warehouses.png". */
   src: string;
   alt: string;
   width: number;

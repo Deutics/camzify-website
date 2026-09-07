@@ -43,7 +43,7 @@ export default function Page() {
         facts={['Rapid, uncontrolled posture changes consistent with a fall', 'A person remaining on the ground after a fall event', 'Falls in aisles, entrances, and walkways during business hours']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 22 detections' }}
-        visual={<PhotoFigure src="/feature-slip-and-fall-detection-1.jpg" alt="Camera view of a retail aisle with a fallen person highlighted by a detection bounding box" caption="Slip & fall detection" priority />}
+        visual={<PhotoFigure src="/feature-slip-and-fall-detection-1.png" alt="Camera view of a retail aisle with a fallen person highlighted by a detection bounding box" caption="Slip & fall detection" priority />}
       />
 
       <section className="pb-16">
@@ -112,7 +112,7 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/feature-slip-and-fall-detection-3.jpg" alt="Configuration panel showing sensitivity and priority routing settings for slip and fall detection" caption="Fall detection configuration" />
+            <PhotoFigure src="/feature-slip-and-fall-detection-3.png" alt="Configuration panel showing sensitivity and priority routing settings for slip and fall detection" caption="Fall detection configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">

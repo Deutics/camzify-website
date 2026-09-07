@@ -42,7 +42,7 @@ export default function Page() {
         facts={['Sudden defocus that leaves the scene unusable for review', 'Physical coverage of the lens — a hand, cloth, or spray', 'Rapid scene change indicating the camera was moved or rotated']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 22 detections' }}
-        visual={<PhotoFigure src="/feature-camera-tampering-detection-1.jpg" alt="Camera Tampering Detection visualization on camera feed" caption="Camera tampering detection" priority />}
+        visual={<PhotoFigure src="/feature-camera-tampering-detection-1.png" alt="Camera Tampering Detection visualization on camera feed" caption="Camera tampering detection" priority />}
       />
 
       <section className="pb-16">
@@ -109,7 +109,7 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/feature-camera-tampering-detection-3.jpg" alt="Configuration panel showing five tamper detection modes with individual sensitivity and enable controls" caption="Tamper mode settings" />
+            <PhotoFigure src="/feature-camera-tampering-detection-3.png" alt="Configuration panel showing five tamper detection modes with individual sensitivity and enable controls" caption="Tamper mode settings" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">

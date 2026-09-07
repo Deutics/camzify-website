@@ -29,7 +29,7 @@ const content: UseCaseContent = {
     The slow part has always been finding the moment in hours of continuous video. Camzify writes the timeline as it goes, timestamped detections with snapshots and a frame per checklist item on every round, and lets you search footage for a person by description.
   </>,
   facts: ['Detections logged with time and snapshot', 'A frame per item on every round', 'Suspect search by description, not face'],
-  image: { src: '/incident-investigation.jpg', alt: 'Two analysts reviewing multi-camera footage while investigating an incident' },
+  image: { src: '/incident-investigation.png', alt: 'Two analysts reviewing multi-camera footage while investigating an incident' },
   secondary: { href: '/ai-features/forensic-video-search', label: 'AI suspect search' },
   problem: {
     heading: 'Hours of footage, one moment that matters',

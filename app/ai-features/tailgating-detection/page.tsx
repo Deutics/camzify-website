@@ -43,7 +43,7 @@ export default function Page() {
         facts={['A second, unbadged person entering directly behind an…', 'Multiple people passing through a single-entry access point…', 'Door-held-open events that allow entry without a fresh badge…']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 22 detections' }}
-        visual={<PhotoFigure src="/feature-tailgating-detection-1.jpg" alt="Camera view of a secure door showing two people entering on one badge scan, with the second person highlighted" caption="Tailgating detection" priority />}
+        visual={<PhotoFigure src="/feature-tailgating-detection-1.png" alt="Camera view of a secure door showing two people entering on one badge scan, with the second person highlighted" caption="Tailgating detection" priority />}
       />
 
       <section className="pb-16">
@@ -112,7 +112,7 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/feature-tailgating-detection-3.jpg" alt="Configuration panel showing an entry-zone boundary drawn over a doorway camera view with schedule and sensitivity controls" caption="Entry-zone configuration" />
+            <PhotoFigure src="/feature-tailgating-detection-3.png" alt="Configuration panel showing an entry-zone boundary drawn over a doorway camera view with schedule and sensitivity controls" caption="Entry-zone configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">

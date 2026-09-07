@@ -47,7 +47,7 @@ export default function GuardNotificationsPage() {
             Each notification carries a predefined message explaining what was found and what action is expected.</>}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/platform/notifications-and-alerts', label: 'The alert queue' }}
-        visual={<PhotoFigure src="/vp-guard-notifications-1.jpg" alt="An event detail in the Camzify console showing the camera snapshot behind a failed check and the guard message sent" priority />}
+        visual={<PhotoFigure src="/vp-guard-notifications-1.png" alt="An event detail in the Camzify console showing the camera snapshot behind a failed check and the guard message sent" priority />}
       />
 
       <section className="pb-16">
@@ -109,7 +109,7 @@ export default function GuardNotificationsPage() {
               </div>
             </ScrollReveal>
             <ScrollReveal delay={0.06}>
-              <PhotoFigure src="/vp-guard-notifications-3.jpg" alt="The notifications screen listing alerts with their camera, severity and acknowledgement state" caption="The notifications queue: every message sent, to whom, and whether it was acknowledged." />
+              <PhotoFigure src="/vp-guard-notifications-3.png" alt="The notifications screen listing alerts with their camera, severity and acknowledgement state" caption="The notifications queue: every message sent, to whom, and whether it was acknowledged." />
             </ScrollReveal>
           </div>
 

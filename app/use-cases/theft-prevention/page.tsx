@@ -29,7 +29,7 @@ const content: UseCaseContent = {
     Camzify puts zones on stockrooms, cages, cash offices and docks, notifies in the hours each should be empty, flags entry with a snapshot, and runs a patrol round that checks the controlled areas are clear and records it.
   </>,
   facts: ['Zones on stock and cash areas', 'Entry in set hours flagged with a snapshot', 'Controlled areas checked on the round'],
-  image: { src: '/ai-theft-detection.jpg', alt: 'A warehouse operator reviewing an alert on a tablet while a ceiling camera covers a caged storage area' },
+  image: { src: '/ai-theft-detection.png', alt: 'A warehouse operator reviewing an alert on a tablet while a ceiling camera covers a caged storage area' },
   secondary: { href: '/ai-features/zone-intrusion-detection', label: 'Zone intrusion detection' },
   problem: {
     heading: 'Shrinkage is counted, not caught',

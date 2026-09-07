@@ -43,7 +43,7 @@ export default function Page() {
         facts={['Live occupancy counts per camera, zone, or site', 'Historical peak-hour and peak-day trends over time', 'Zone-by-zone comparison across a single site']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 22 detections' }}
-        visual={<PhotoFigure src="/feature-occupancy-and-peak-hour-trends-1.jpg" alt="Dashboard chart showing occupancy counts across a day with a highlighted peak-hour window" caption="Occupancy & peak hour trends" priority />}
+        visual={<PhotoFigure src="/feature-occupancy-and-peak-hour-trends-1.png" alt="Dashboard chart showing occupancy counts across a day with a highlighted peak-hour window" caption="Occupancy & peak hour trends" priority />}
       />
 
       <section className="pb-16">
@@ -109,7 +109,7 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/feature-occupancy-and-peak-hour-trends-3.jpg" alt="Configuration panel showing occupancy tracking zones marked across a site floor plan" caption="Occupancy zone setup" />
+            <PhotoFigure src="/feature-occupancy-and-peak-hour-trends-3.png" alt="Configuration panel showing occupancy tracking zones marked across a site floor plan" caption="Occupancy zone setup" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">

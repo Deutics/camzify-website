@@ -52,7 +52,7 @@ export default function WarehousesPage() {
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}
         visual={<SiteImage
-              src="/ai-security-for-warehouses.jpg" alt="AI-monitored warehouse showing bounding boxes around a forklift, worker, and pallets, with aerial and interior storage rack views" className="w-full rounded-xl"
+              src="/ai-security-for-warehouses.png" alt="AI-monitored warehouse showing bounding boxes around a forklift, worker, and pallets, with aerial and interior storage rack views" className="w-full rounded-xl"
               width={1600}
               height={900}
               sizes="(max-width: 1024px) 100vw, 60vw"

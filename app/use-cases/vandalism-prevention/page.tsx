@@ -29,7 +29,7 @@ const content: UseCaseContent = {
     The aim is intervention, not a better recording of the damage. Camzify does it with zone rules on the exterior cameras already in place and a patrol round that checks the property and records what it found.
   </>,
   facts: ['Presence near assets off-hours, raised live', 'Zones drawn to the property line', 'Exterior checked and recorded on the round'],
-  image: { src: '/vandalism-prevention.jpg', alt: 'A camera covering an alley at night where a person is spray-painting a wall' },
+  image: { src: '/vandalism-prevention.png', alt: 'A camera covering an alley at night where a person is spray-painting a wall' },
   secondary: { href: '/virtual-patrolling/guard-notifications', label: 'How guards are notified' },
   problem: {
     heading: 'Discovered in the morning, every time',

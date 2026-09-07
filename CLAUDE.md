@@ -173,8 +173,13 @@ the homepage hero, the placeholder camera walls and the live-wall mockup at the 
 WebP), `scene-*` (scene observation), `product-*-{dark,light}` (console screenshots),
 `feature-<slug>-{1..4}` (AI features: live view, photo, configuration, collage),
 `industry-<slug>-{1..3}` and `ai-security-for-<slug>` (industries), `vp-*` (virtual
-patrolling pages, how-it-works steps, sequence camera frames). Sources are JPEG at
-1600px or below; PSDs and 8000px originals stay out of the repo. Industries without a
+patrolling pages, how-it-works steps, sequence camera frames). Photographs are JPEG
+sources at 1600px or below. Renders the designer supplied on a transparent background
+(device mock-ups with a drop shadow, rounded screenshots: the platform, use-case,
+industry, AI-feature and virtual-patrolling renders) are PNG sources, and the optimiser
+keeps their alpha in the WebP ladder. Never flatten one with `.convert('RGB')`: that
+exposes the junk under the transparent pixels as a pink wash and a dark halo. PSDs and
+8000px originals stay out of the repo. Industries without a
 supplied set (healthcare, education, property, residential, waste, remote sites,
 financial services, multiple sites, self-storage) still use `PlaceholderVisual`.
 `components/content/photo-figure.tsx` is the framed figure for any of these.

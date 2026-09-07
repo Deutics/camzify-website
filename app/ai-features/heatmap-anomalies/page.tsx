@@ -43,7 +43,7 @@ export default function Page() {
         facts={['Foot traffic congestion above the normal pattern for a zone', 'Activity in a normally low-traffic area outside expected hours', 'A monitored area sitting unusually empty during typically…']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 22 detections' }}
-        visual={<PhotoFigure src="/feature-heatmap-anomalies-1.jpg" alt="Site floor plan overlaid with a colour-coded foot traffic heatmap highlighting an anomalous zone" caption="Heatmap anomalies" priority />}
+        visual={<PhotoFigure src="/feature-heatmap-anomalies-1.png" alt="Site floor plan overlaid with a colour-coded foot traffic heatmap highlighting an anomalous zone" caption="Heatmap anomalies" priority />}
       />
 
       <section className="pb-16">
@@ -114,7 +114,7 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/feature-heatmap-anomalies-3.jpg" alt="Configuration panel showing a monitored zone drawn on a site map with an anomaly sensitivity threshold control" caption="Zone & sensitivity configuration" />
+            <PhotoFigure src="/feature-heatmap-anomalies-3.png" alt="Configuration panel showing a monitored zone drawn on a site map with an anomaly sensitivity threshold control" caption="Zone & sensitivity configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">

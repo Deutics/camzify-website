@@ -49,7 +49,7 @@ export default function PatrolReportsPage() {
             where each round opens as a web report or a PDF.</>}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/patrol-compliance-tracking', label: 'Compliance tracking' }}
-        visual={<PhotoFigure src="/vp-patrol-reports-1.jpg" alt="A patrol compliance report in the Camzify console with the checklist results and snapshots" priority />}
+        visual={<PhotoFigure src="/vp-patrol-reports-1.png" alt="A patrol compliance report in the Camzify console with the checklist results and snapshots" priority />}
       />
 
       <section className="pb-16">
@@ -82,7 +82,7 @@ export default function PatrolReportsPage() {
                 ))}
               </ul>
             </div>
-            <PhotoFigure src="/vp-patrol-reports-3.jpg" alt="Report settings in the console: distribution and retention of round reports" caption="Report settings: who receives each round's PDF and how reports are retained." />
+            <PhotoFigure src="/vp-patrol-reports-3.png" alt="Report settings in the console: distribution and retention of round reports" caption="Report settings: who receives each round's PDF and how reports are retained." />
           </div>
 
           <div className="mt-16">

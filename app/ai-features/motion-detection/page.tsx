@@ -129,7 +129,7 @@ export default function Page() {
                 </p>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/feature-motion-detection-3.jpg" alt="Configuration panel showing motion sensitivity, masked regions, and schedule controls for a camera feed" caption="Motion sensitivity" />
+            <PhotoFigure src="/feature-motion-detection-3.png" alt="Configuration panel showing motion sensitivity, masked regions, and schedule controls for a camera feed" caption="Motion sensitivity" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">

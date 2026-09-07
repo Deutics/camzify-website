@@ -51,7 +51,7 @@ export default function PropertyManagementPage() {
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}
         visual={<SiteImage
-              src="/ai-security-for-property-management.jpg" alt="AI-monitored residential property showing bounding boxes around a security guard, visitors, and a delivery vehicle, with aerial views of the grounds" className="w-full rounded-xl"
+              src="/ai-security-for-property-management.png" alt="AI-monitored residential property showing bounding boxes around a security guard, visitors, and a delivery vehicle, with aerial views of the grounds" className="w-full rounded-xl"
               width={1600}
               height={900}
               sizes="(max-width: 1024px) 100vw, 60vw"

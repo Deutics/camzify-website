@@ -43,7 +43,7 @@ export default function Page() {
         facts={['Vehicles travelling against the defined direction on a…', 'Wrong-way entries on parking garage ramps', 'Wrong-way movement through gated entry or exit lanes']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 22 detections' }}
-        visual={<PhotoFigure src="/feature-wrong-way-vehicle-detection-1.jpg" alt="Camera view of a one-way ramp with a wrong-way vehicle highlighted by a directional detection overlay" caption="Wrong-way vehicle detection" priority />}
+        visual={<PhotoFigure src="/feature-wrong-way-vehicle-detection-1.png" alt="Camera view of a one-way ramp with a wrong-way vehicle highlighted by a directional detection overlay" caption="Wrong-way vehicle detection" priority />}
       />
 
       <section className="pb-16">
@@ -115,7 +115,7 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/feature-wrong-way-vehicle-detection-3.jpg" alt="Configuration panel showing a directional rule drawn across a ramp with sensitivity and schedule controls" caption="Directional rule configuration" />
+            <PhotoFigure src="/feature-wrong-way-vehicle-detection-3.png" alt="Configuration panel showing a directional rule drawn across a ramp with sensitivity and schedule controls" caption="Directional rule configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">

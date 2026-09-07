@@ -50,7 +50,7 @@ export default function AutomotivePage() {
         facts={['Vehicle storage yards with high-value inventory sitting…', 'Showroom entrances left unchecked after closing', 'Service bay doors and roller shutters not confirmed closed…']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}
-        visual={<PhotoFigure src="/ai-security-for-automotive.jpg" alt="A vehicle storage yard and showroom under AI camera monitoring" priority />}
+        visual={<PhotoFigure src="/ai-security-for-automotive.png" alt="A vehicle storage yard and showroom under AI camera monitoring" priority />}
       />
 
       <section className="pb-16">
@@ -76,7 +76,7 @@ export default function AutomotivePage() {
                 <p>Continuous AI monitoring closes that gap by checking every yard row, entrance, and bay door on a repeating schedule, day and night, and raising an alert the moment something falls outside the expected pattern, without needing a person physically present at every stop.</p>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/ai-security-for-automotive.jpg" alt="A vehicle storage yard and showroom under AI camera monitoring" priority />
+            <PhotoFigure src="/ai-security-for-automotive.png" alt="A vehicle storage yard and showroom under AI camera monitoring" priority />
           </div>
 
           <div className="mt-16">

@@ -44,7 +44,7 @@ export default function Page() {
         facts={['A single stitched timeline of one subject across every…', 'Ordered, timestamped hand-offs between cameras with…', 'A route map view showing where a subject entered, moved, and…']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 22 detections' }}
-        visual={<PhotoFigure src="/feature-cross-camera-journey-map-1.jpg" alt="Site map showing a single subject's path connected across multiple camera coverage zones" caption="Cross-camera journey map" priority />}
+        visual={<PhotoFigure src="/feature-cross-camera-journey-map-1.png" alt="Site map showing a single subject's path connected across multiple camera coverage zones" caption="Cross-camera journey map" priority />}
       />
 
       <section className="pb-16">
@@ -113,7 +113,7 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/feature-cross-camera-journey-map-3.jpg" alt="Configuration panel showing route view options, confidence threshold, and export settings for a journey map" caption="Journey map configuration" />
+            <PhotoFigure src="/feature-cross-camera-journey-map-3.png" alt="Configuration panel showing route view options, confidence threshold, and export settings for a journey map" caption="Journey map configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">

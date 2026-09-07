@@ -51,7 +51,7 @@ export default function EducationFacilitiesPage() {
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}
         visual={<SiteImage
-              src="/ai-security-for-education-facilities.jpg" alt="AI-monitored school campus showing bounding boxes tracking people, backpacks, and a bicycle on a walkway, with classroom, campus, and computer lab scenes" className="w-full rounded-xl"
+              src="/ai-security-for-education-facilities.png" alt="AI-monitored school campus showing bounding boxes tracking people, backpacks, and a bicycle on a walkway, with classroom, campus, and computer lab scenes" className="w-full rounded-xl"
               width={1600}
               height={900}
               sizes="(max-width: 1024px) 100vw, 60vw"

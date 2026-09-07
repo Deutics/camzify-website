@@ -43,7 +43,7 @@ export default function Page() {
         facts={['Objects dropped or thrown by a confirmed subject outside a…', 'Litter left unclaimed on the ground in monitored outdoor areas', 'Repeated littering activity at the same location over time']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 22 detections' }}
-        visual={<PhotoFigure src="/feature-littering-detection-1.jpg" alt="Camera view of an outdoor area with a littering event highlighted by a detection bounding box" caption="Littering detection" priority />}
+        visual={<PhotoFigure src="/feature-littering-detection-1.png" alt="Camera view of an outdoor area with a littering event highlighted by a detection bounding box" caption="Littering detection" priority />}
       />
 
       <section className="pb-16">
@@ -109,7 +109,7 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/feature-littering-detection-3.jpg" alt="Configuration panel showing designated bin zones marked on a camera view of an outdoor plaza" caption="Bin zone setup" />
+            <PhotoFigure src="/feature-littering-detection-3.png" alt="Configuration panel showing designated bin zones marked on a camera view of an outdoor plaza" caption="Bin zone setup" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">

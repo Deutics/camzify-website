@@ -52,7 +52,7 @@ export default function RetailPage() {
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}
         visual={<SiteImage
-              src="/ai-security-for-retail.jpg" alt="AI-monitored retail store showing bounding boxes tracking shoppers and bags on the sales floor, with mall and checkout scenes" className="w-full rounded-xl"
+              src="/ai-security-for-retail.png" alt="AI-monitored retail store showing bounding boxes tracking shoppers and bags on the sales floor, with mall and checkout scenes" className="w-full rounded-xl"
               width={1600}
               height={900}
               sizes="(max-width: 1024px) 100vw, 60vw"

@@ -51,7 +51,7 @@ export default function HealthcarePage() {
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}
         visual={<SiteImage
-              src="/ai-security-for-healthcare.jpg" alt="AI-monitored hospital corridor showing bounding boxes around staff and equipment, with an emergency entrance and clinical team scenes" className="w-full rounded-xl"
+              src="/ai-security-for-healthcare.png" alt="AI-monitored hospital corridor showing bounding boxes around staff and equipment, with an emergency entrance and clinical team scenes" className="w-full rounded-xl"
               width={1600}
               height={900}
               sizes="(max-width: 1024px) 100vw, 60vw"
