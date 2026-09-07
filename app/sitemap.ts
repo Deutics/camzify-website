@@ -30,6 +30,9 @@ const conversion = group(
   'monthly'
 );
 
+// Legal and policy pages: indexed, rarely changed, never the point of a search.
+const legal = group(['/privacy-policy', '/terms-of-service', '/cookie-policy', '/accessibility'], 0.3, 'yearly');
+
 // Tier 2 — silo hubs. These carry the internal-link equity to their children.
 const hubs = group(
   [
@@ -241,6 +244,7 @@ const company = group(
 const allEntries: Entry[] = [
   ...core,
   ...conversion,
+  ...legal,
   ...hubs,
   ...virtualPatrolling,
   ...platform,

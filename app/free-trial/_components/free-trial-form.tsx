@@ -1,4 +1,6 @@
 'use client';
+
+import Link from 'next/link';
 import { FormWrapper } from '@/components/system/form-wrapper';
 import { Loader2, ArrowRight } from 'lucide-react';
 
@@ -33,6 +35,10 @@ export function FreeTrialForm() {
             {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <ArrowRight className="h-4 w-4" />}
             {loading ? 'Submitting...' : 'Start Free Trial'}
           </button>
+          <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
+            We store what you send so we can reply, and nothing else happens with it. See the{' '}
+            <Link href="/privacy-policy" className="text-primary hover:underline">privacy policy</Link>.
+          </p>
         </>
       )}
     </FormWrapper>
