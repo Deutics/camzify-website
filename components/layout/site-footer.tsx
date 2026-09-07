@@ -125,9 +125,9 @@ export function SiteFooter() {
               </a>
             </div>
           </div>
-          <div className="lg:pt-2">
-            <NewsletterForm />
-            <address className="mt-8 grid gap-2 text-sm not-italic text-muted-foreground">
+          <div className="lg:pt-2 lg:justify-self-end">
+            <h3 className="font-mono text-mono-sm uppercase tracking-wider text-muted-foreground">Head office</h3>
+            <address className="mt-4 grid gap-2 text-sm not-italic text-muted-foreground">
               <span className="flex items-start gap-2">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
                 <span>{siteConfig.legalName}<br />{formattedAddress}</span>
@@ -140,6 +140,13 @@ export function SiteFooter() {
               </a>
             </address>
           </div>
+        </div>
+      </div>
+
+      {/* Newsletter band */}
+      <div className="border-t border-border bg-muted/20">
+        <div className="mx-auto max-w-site px-6 py-14">
+          <NewsletterForm />
         </div>
       </div>
 
