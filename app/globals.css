@@ -139,6 +139,32 @@
   }
 }
 
+/*
+ * The footer is dark in both themes. Everything inside it uses the ordinary token
+ * classes, so this scope simply restates the dark palette on the footer element;
+ * `dark:` variants do not apply here (they key off html.dark), which is why the
+ * footer uses the dark wordmark file directly rather than the theme-swapping logo.
+ */
+.footer-dark {
+  --background: 216 22% 5%;
+  --foreground: 210 25% 97%;
+  --card: 215 22% 8%;
+  --card-foreground: 210 25% 97%;
+  --muted: 215 18% 14%;
+  --muted-foreground: 213 14% 62%;
+  --accent: 215 18% 14%;
+  --accent-foreground: 210 25% 97%;
+  --border: 0 0% 100% / 0.08;
+  --input: 0 0% 100% / 0.12;
+  --primary-text: 0 95% 68%;
+  --live: 168 100% 42%;
+  --warn: 38 92% 58%;
+  --critical: 0 100% 68%;
+  color-scheme: dark;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
 /* Patrol sweep animation */
 /*
  * Camera tile.

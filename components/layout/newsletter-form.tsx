@@ -5,8 +5,8 @@ import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
 
 /*
- * The newsletter band in the footer, and the one place the newsletter endpoint is posted
- * to. Two columns on desktop: the pitch on the left, the form on the right. /api/newsletter existed with no
+ * The newsletter block in the footer's brand row, and the one place the newsletter
+ * endpoint is posted to. Name, headline, one sentence that says what is in it, the form. /api/newsletter existed with no
  * UI for months; the privacy policy describes a newsletter form, so the form should
  * exist. Success and error states are rendered in place, and the input keeps its value
  * on error so nobody retypes an address.
@@ -30,45 +30,24 @@ export function NewsletterForm({ className = '' }: { className?: string }) {
     }
   }
 
-  const pitch = (
-    <div>
+  return (
+    <div className={className}>
       <span className="font-mono text-mono-sm uppercase tracking-wider text-primary">The patrol brief</span>
-      <h2 className="mt-3 font-display text-2xl font-bold leading-tight tracking-tight sm:text-3xl">
+      <h2 className="mt-3 font-display text-xl font-bold leading-snug tracking-tight sm:text-2xl">
         Run better rounds. Sell them with confidence.
       </h2>
-      <p className="mt-3 max-w-prose text-body text-muted-foreground">
-        A short brief from the people who build Camzify, sent only when there is something worth your time.
+      <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground">
+        A short brief from the people who build Camzify, sent only when there is something worth your time: checklists you can copy into your own sites, how agencies price and pitch remote patrols, and what changed in the console before you notice it.
       </p>
-      <ul className="mt-5 grid gap-2.5 text-sm text-muted-foreground">
-        {[
-          'Checklists and round designs you can copy into your own sites',
-          'How agencies and monitoring companies price and pitch remote patrols',
-          'What changed in the console, and why, before you notice it',
-        ].map((item) => (
-          <li key={item} className="flex gap-3">
-            <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-live" />
-            <span>{item}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-
-  return (
-    <div className={`grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16 ${className}`}>
-      {pitch}
       {state === 'done' ? (
-        <p className="flex items-start gap-3 rounded-xl border border-live/30 bg-live/10 p-5 text-sm" role="status">
-          <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-live" aria-hidden="true" />
-          <span>
-            <strong className="block font-semibold">You are in.</strong>
-            The first brief arrives when there is something worth your time, not on a calendar, and one click takes you off the list.
-          </span>
+        <p className="mt-5 flex max-w-xl items-start gap-3 rounded-lg border border-live/30 bg-live/10 px-4 py-3 text-sm" role="status">
+          <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-live" aria-hidden="true" />
+          <span><strong className="font-semibold">You are in.</strong> The first brief arrives when there is something worth your time, not on a calendar, and one click takes you off the list.</span>
         </p>
       ) : (
-        <form onSubmit={submit} className="rounded-xl border border-border bg-background p-6 shadow-sm" aria-label="Subscribe to the patrol brief">
-          <label htmlFor="footer-email" className="text-sm font-medium">Work email</label>
-          <div className="mt-2 flex flex-col gap-2 sm:flex-row">
+        <form onSubmit={submit} className="mt-5 max-w-xl" aria-label="Subscribe to the patrol brief">
+          <label htmlFor="footer-email" className="sr-only">Work email</label>
+          <div className="flex flex-col gap-2 sm:flex-row">
             <input
               id="footer-email"
               type="email"
@@ -78,7 +57,7 @@ export function NewsletterForm({ className = '' }: { className?: string }) {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="you@yourcompany.com"
-              className="h-11 min-w-0 flex-1 rounded-lg border border-border bg-card px-3.5 text-sm placeholder:text-muted-foreground/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="h-11 min-w-0 flex-1 rounded-lg border border-border bg-card px-3.5 text-sm text-foreground placeholder:text-muted-foreground/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             />
             <button
               type="submit"
@@ -89,7 +68,7 @@ export function NewsletterForm({ className = '' }: { className?: string }) {
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </button>
           </div>
-          <p className="mt-3 text-xs leading-relaxed text-muted-foreground" aria-live="polite">
+          <p className="mt-2.5 text-xs leading-relaxed text-muted-foreground" aria-live="polite">
             {state === 'error' ? (
               <span className="text-critical">That did not go through. Check the address and try again, or email us directly.</span>
             ) : (
