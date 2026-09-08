@@ -5,8 +5,9 @@ import { FaqSection } from '@/components/content/faq-section';
 import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
-import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import Link from 'next/link';
+import { PhotoFigure } from '@/components/content/photo-figure';
+import { SiteImage } from '@/components/content/site-image';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -49,7 +50,12 @@ export default function ResidentialPage() {
         facts={['Gated entry points left unwatched between staffed shifts', 'Pool and amenity areas used after posted closing hours', 'Visitor and delivery vehicles left unverified against…']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}
-        visual={<PlaceholderVisual type="industry" caption="RESIDENTIAL" alt="Security monitoring in a residential environment" />}
+        visual={<SiteImage
+              src="/ai-security-for-residential.webp" alt="Intelligent security for residential communities: gates, driveways and shared spaces outlined" className="w-full rounded-xl"
+              width={1600}
+              height={900}
+              sizes="(max-width: 1024px) 100vw, 60vw"
+            priority />}
       />
 
       <section className="pb-16">
@@ -98,7 +104,7 @@ export default function ResidentialPage() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="RESIDENTIAL PATROL SEQUENCE" alt="Diagram of a residential community patrol route stepping through entry gates, perimeter walls, and amenity areas" />
+            <PhotoFigure src="/industry-residential-2.webp" alt="The console configuring a detection on a residential community camera, the zone drawn over the live frame" caption="Configuring a detection in the console" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How Camzify works for residential</h2>
@@ -135,11 +141,11 @@ export default function ResidentialPage() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="RESIDENTIAL ZONE SETUP" alt="Configuration panel showing entry gate and amenity zones mapped across a residential community camera layout" />
+            <PhotoFigure src="/industry-residential-3.webp" alt="Live streaming from a residential community camera with people and vehicles outlined as they are tracked" caption="Live view with tracking" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="camera-feed" caption="RESIDENTIAL PATROL IN PROGRESS" alt="Camera feed showing an active patrol check at a residential community entry gate" />
+            <PhotoFigure src="/industry-residential-4.jpg" alt="Frames from a round across the residential community site, each with its alert raised" caption="Round frames with alerts" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

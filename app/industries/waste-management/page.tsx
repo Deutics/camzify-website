@@ -5,8 +5,9 @@ import { FaqSection } from '@/components/content/faq-section';
 import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
-import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import Link from 'next/link';
+import { PhotoFigure } from '@/components/content/photo-figure';
+import { SiteImage } from '@/components/content/site-image';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -49,7 +50,12 @@ export default function WasteManagementPage() {
         facts={['Illegal dumping after hours going undetected until the next…', 'Perimeter fence lines with no continuous coverage across…', 'Unauthorized vehicles entering through unmanned or unstaffed…']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}
-        visual={<PlaceholderVisual type="industry" caption="WASTE MANAGEMENT" alt="Security monitoring in a waste management environment" />}
+        visual={<SiteImage
+              src="/ai-security-for-waste-management.webp" alt="Intelligent security for waste management: yards, plant and vehicles outlined" className="w-full rounded-xl"
+              width={1600}
+              height={900}
+              sizes="(max-width: 1024px) 100vw, 60vw"
+            priority />}
       />
 
       <section className="pb-16">
@@ -98,7 +104,7 @@ export default function WasteManagementPage() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="WASTE MANAGEMENT PATROL SEQUENCE" alt="Diagram of a waste management patrol route stepping through the perimeter, gates, and yard" />
+            <PhotoFigure src="/industry-waste-management-2.webp" alt="The console configuring a detection on a waste management camera, the zone drawn over the live frame" caption="Configuring a detection in the console" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How Camzify works for waste management</h2>
@@ -135,11 +141,11 @@ export default function WasteManagementPage() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="WASTE MANAGEMENT ZONE SETUP" alt="Configuration panel showing perimeter and gate zones mapped across a waste management site camera layout" />
+            <PhotoFigure src="/industry-waste-management-3.jpg" alt="Live streaming from a waste management camera with people and vehicles outlined as they are tracked" caption="Live view with tracking" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="camera-feed" caption="WASTE MANAGEMENT PATROL IN PROGRESS" alt="Camera feed showing an active patrol check at a waste management site gate" />
+            <PhotoFigure src="/industry-waste-management-4.webp" alt="Frames from a round across the waste management site, each with its alert raised" caption="Round frames with alerts" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

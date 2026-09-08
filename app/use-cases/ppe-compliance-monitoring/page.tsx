@@ -2,7 +2,6 @@ import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { serviceSchema } from '@/lib/seo';
 import { UseCasePage, type UseCaseContent } from '@/components/content/use-case-page';
-import { HeroPlaceholder } from '@/components/content/hero-placeholder';
 import Link from 'next/link';
 
 const pageMeta = {
@@ -30,7 +29,7 @@ const content: UseCaseContent = {
     A safety officer sees a fraction of the floor for a fraction of the shift. Camzify checks each confirmed person against the policy set for that camera or zone, produces a clip per violation, and can add the check to the patrol round so the site is recorded as compliant at each time.
   </>,
   facts: ['Hats, vests and gloves against a per-zone policy', 'A clip and confidence score per violation', 'Compliance recorded on the round'],
-  heroVisual: <HeroPlaceholder label="Safety · PPE policy by zone" alt="A console camera wall of four cameras covering a loading bay, a warehouse aisle, a yard gate and a plant room, each labelled with its PPE zone" frames={[{ src: '/hero-cam-loading-dock-640.webp', id: 'CAM 04', loc: 'LOADING BAY · HAT + VEST' }, { src: '/hero-cam-parking-lot-640.webp', id: 'CAM 02', loc: 'YARD · HAT + VEST' }, { src: '/hero-cam-server-room-640.webp', id: 'CAM 09', loc: 'PLANT ROOM · HAT + GLOVES' }, { src: '/hero-cam-main-gate-640.webp', id: 'CAM 01', loc: 'GATE · VEST' }]} active={0} />,
+  image: { src: '/ppe-compliance-monitoring.webp', alt: 'A factory floor with each worker outlined and hard hat and vest checks shown beside them' },
   secondary: { href: '/ai-features/ppe-violation-detection', label: 'PPE violation detection' },
   problem: {
     heading: 'The policy is on the wall. Compliance is not.',

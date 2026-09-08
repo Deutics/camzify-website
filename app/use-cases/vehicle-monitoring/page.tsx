@@ -29,7 +29,7 @@ const content: UseCaseContent = {
     It is not license plate recognition. Camzify tracks vehicles as objects in the frame, applies rules about where and when they may be and which way they may move, and checks the yard on a patrol round.
   </>,
   facts: ['Vehicles tracked as objects, not plates', 'Notified in set hours at gates, yards and bays', 'Wrong-way and overstay as their own detections'],
-  image: { src: '/vehicle-monitoring.png', alt: 'Aerial view of a logistics yard with trucks, vans and cars tracked across zoned areas' },
+  image: { src: '/vehicle-monitoring.webp', alt: 'An aerial view of a yard with zones colored red, yellow and blue and each vehicle outlined' },
   secondary: { href: '/ai-features/multi-object-tracking', label: 'Multi-object tracking' },
   problem: {
     heading: 'Too many vehicles to flag by hand',

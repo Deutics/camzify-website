@@ -29,7 +29,7 @@ const content: UseCaseContent = {
     It is the first layer of a physical security program and the one most often left to a camera nobody is watching. Camzify puts two things on those cameras: detections that fire when a tracked person or vehicle crosses a line or enters a zone, and a scheduled patrol round that checks the fence, the gate and the camera itself and records what it found.
   </>,
   facts: ['Line and zone intrusion on confirmed tracks', 'A fence-line round with a checklist', 'Guard messaged on a failed check'],
-  image: { src: '/ai-perimeter-security.png', alt: 'Facility perimeter at dusk with networked cameras along the fence line' },
+  image: { src: '/ai-perimeter-security.webp', alt: 'An industrial site at dusk with the fence line highlighted as a perimeter zone' },
   secondary: { href: '/ai-features/line-intrusion-detection', label: 'Line intrusion detection' },
   problem: {
     heading: 'A recorded breach is not a detected one',

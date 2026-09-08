@@ -166,23 +166,26 @@ Add a photo, run `python3 scripts/optimise-images.py`, use `<SiteImage>` with a 
 `sizes`, and commit the generated `.webp` files with `lib/image-manifest.ts`. In a
 mapped list, `priority={i === 0}` — not on every card.
 
-**Where the photographs come from.** The business supplied the full image set on
-2026-09-04 (zip in the owner's Downloads: "Camzify Website Images"). It was staged into
-`public/` under slug names by section: `hero-cam-*` (twelve real camera frames, used by
-the homepage hero, the placeholder camera walls and the live-wall mockup at the 640px
-WebP), `scene-*` (scene observation), `product-*-{dark,light}` (console screenshots),
-`feature-<slug>-{1..4}` (AI features: live view, photo, configuration, collage),
-`industry-<slug>-{1..3}` and `ai-security-for-<slug>` (industries), `vp-*` (virtual
-patrolling pages, how-it-works steps, sequence camera frames). Photographs are JPEG
-sources at 1600px or below. Renders the designer supplied on a transparent background
-(device mock-ups with a drop shadow, rounded screenshots: the platform, use-case,
-industry, AI-feature and virtual-patrolling renders) are PNG sources, and the optimiser
-keeps their alpha in the WebP ladder. Never flatten one with `.convert('RGB')`: that
-exposes the junk under the transparent pixels as a pink wash and a dark halo. PSDs and
-8000px originals stay out of the repo. Industries without a
-supplied set (healthcare, education, property, residential, waste, remote sites,
-financial services, multiple sites, self-storage) still use `PlaceholderVisual`.
-`components/content/photo-figure.tsx` is the framed figure for any of these.
+**Where the photographs come from.** The business supplies the image set as a zip
+("Camzify Website Images", latest 2026-09-08, in the owner's Downloads). It is staged into
+`public/` under slug names by section: `hero-cam-*` (twelve real camera frames: homepage
+hero, camera walls, demo), `scene-*`, `product-*-{dark,light}` (console screenshots),
+`feature-<slug>-{1..4}` (AI features), `ai-security-for-<slug>` (industry hero, the
+designer's image 1) and `industry-<slug>-{2,3,4}` (the three figures), one render per
+use case, `vp-*` (virtual patrolling pages, risk-detection camera frames, the virtual
+guard render). **The designer numbers a folder's images in page order, from the top:
+image 1 is the hero, 2 is the first figure below it, and so on. Keep that order.**
+Photographs are JPEG sources at 1600px or below. Renders on a transparent background
+(device mock-ups with a drop shadow, rounded screenshots) keep their alpha: small ones
+are PNG sources, large ones (the 8000px industry figures) are lossy WebP sources with
+alpha, and the optimiser tells a WebP source from a ladder variant by the trailing
+number (a variant ends in a width of 300 or more). Never flatten a transparent render
+with `.convert('RGB')`: that exposes the junk under the transparent pixels as a pink
+wash and a dark halo. PSDs and 8000px originals stay out of the repo. Every industry
+and use case now has its own images; `PlaceholderVisual` remains only where no image
+was ever supplied.
+`components/content/photo-figure.tsx` is the figure for any of these: a card frame for
+photographs, no frame for renders.
 
 ## Author identity
 

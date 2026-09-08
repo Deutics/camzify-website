@@ -109,7 +109,7 @@ export default function GuardNotificationsPage() {
               </div>
             </ScrollReveal>
             <ScrollReveal delay={0.06}>
-              <PhotoFigure src="/vp-guard-notifications-3.png" alt="The notifications screen listing alerts with their camera, severity and acknowledgement state" caption="The notifications queue: every message sent, to whom, and whether it was acknowledged." />
+              <PhotoFigure src="/vp-guard-notifications-2.png" alt="The notifications screen listing alerts with their camera, severity and acknowledgement state" caption="The notifications queue: every message sent, to whom, and whether it was acknowledged." />
             </ScrollReveal>
           </div>
 

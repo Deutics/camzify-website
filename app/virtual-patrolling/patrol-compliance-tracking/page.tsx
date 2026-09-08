@@ -45,7 +45,7 @@ export default function ComplianceTrackingPage() {
             The dashboard surfaces a single compliance figure across all sites.</>}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/patrol-reports', label: 'Patrol reports' }}
-        visual={<PhotoFigure src="/vp-patrol-compliance-tracking-2.png" alt="Patrol history in the Camzify console listing rounds with their status and compliance" priority />}
+        visual={<PhotoFigure src="/vp-patrol-compliance-tracking-1.png" alt="Patrol history in the Camzify console listing rounds with their status and compliance" priority />}
       />
 
       <section className="pb-16">
@@ -101,7 +101,7 @@ export default function ComplianceTrackingPage() {
                 </div>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/vp-patrol-compliance-tracking-3.png" alt="A patrol compliance report with its percentage and per-item results" caption="The report a round produces: compliance percentage, every item, and the frames behind them." />
+            <PhotoFigure src="/vp-patrol-compliance-tracking-2.png" alt="A patrol compliance report with its percentage and per-item results" caption="The report a round produces: compliance percentage, every item, and the frames behind them." />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">

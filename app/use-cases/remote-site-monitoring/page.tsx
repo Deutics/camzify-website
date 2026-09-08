@@ -29,7 +29,7 @@ const content: UseCaseContent = {
     A guard visiting once a day covers one hour in twenty-four. Camzify runs scheduled rounds on the site&apos;s own cameras, treats camera health as a checklist item, and puts every site on one console with its own schedule and its own person to call.
   </>,
   facts: ['Rounds on schedule with nobody on site', 'Camera health checked as an item', 'Every site on one console, own schedule'],
-  image: { src: '/remote-site-monitoring.png', alt: 'A remote substation with networked cameras covering the fence line, a vehicle and open ground' },
+  image: { src: '/remote-site-monitoring.webp', alt: 'A fenced substation with a mast, the perimeter outlined and a vehicle at the fence' },
   secondary: { href: '/virtual-patrolling/for-multi-site-operations', label: 'Multi-site operations' },
   problem: {
     heading: 'One visit a day is twenty-three hours of nothing',

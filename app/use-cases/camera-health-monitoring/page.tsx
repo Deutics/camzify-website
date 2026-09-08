@@ -2,7 +2,6 @@ import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { serviceSchema } from '@/lib/seo';
 import { UseCasePage, type UseCaseContent } from '@/components/content/use-case-page';
-import { HeroPlaceholder } from '@/components/content/hero-placeholder';
 import Link from 'next/link';
 
 const pageMeta = {
@@ -30,7 +29,7 @@ const content: UseCaseContent = {
     A camera that has gone blind is quiet, which is why it is usually found weeks later, when the footage is needed and is not there. Camzify raises tampering the moment it is confirmed, shows offline cameras and sites as such, and checks every camera&apos;s view as an item on the patrol round.
   </>,
   facts: ['Tampering in five modes, raised live', 'Offline shown as offline, not as a stale frame', 'Camera view checked on every round'],
-  heroVisual: <HeroPlaceholder label="Estate view · One camera reporting a fault" alt="A console camera wall of four cameras from different sites, one of them highlighted for a tampering condition" frames={[{ src: '/hero-cam-main-gate-640.webp', id: 'SITE A · CAM 01', loc: 'MAIN GATE' }, { src: '/hero-cam-loading-dock-640.webp', id: 'SITE A · CAM 04', loc: 'LOADING DOCK' }, { src: '/hero-cam-parking-lot-640.webp', id: 'SITE B · CAM 02', loc: 'PARKING LOT A' }, { src: '/hero-cam-server-room-640.webp', id: 'SITE C · CAM 09', loc: 'SERVER CORRIDOR' }]} active={3} />,
+  image: { src: '/camera-health-monitoring.webp', alt: 'An operator looking at a wall of seven camera views with Camera 03 marked offline' },
   secondary: { href: '/ai-features/camera-tampering-detection', label: 'Camera tampering detection' },
   problem: {
     heading: 'A blind camera is a quiet camera',

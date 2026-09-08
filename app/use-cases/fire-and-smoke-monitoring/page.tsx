@@ -2,7 +2,6 @@ import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { serviceSchema } from '@/lib/seo';
 import { UseCasePage, type UseCaseContent } from '@/components/content/use-case-page';
-import { HeroPlaceholder } from '@/components/content/hero-placeholder';
 import Link from 'next/link';
 
 const pageMeta = {
@@ -30,7 +29,7 @@ const content: UseCaseContent = {
     In a large or open space a ceiling sensor waits for smoke to reach it; a camera sees it where it starts. Camzify runs the detection on the cameras already installed and adds fire exits and escape routes to the patrol checklist.
   </>,
   facts: ['Visual flame and smoke, any standard camera', 'Critical alert with a clip and a confidence score', 'Fire exits checked on every round'],
-  heroVisual: <HeroPlaceholder label="Fire safety · Escape routes on the round" alt="A console camera wall of four cameras covering fire exits, an electrical room, a loading bay and a warehouse aisle" frames={[{ src: '/hero-cam-server-room-640.webp', id: 'CAM 09', loc: 'FIRE EXIT · EAST' }, { src: '/hero-cam-loading-dock-640.webp', id: 'CAM 04', loc: 'LOADING BAY' }, { src: '/hero-cam-main-gate-640.webp', id: 'CAM 01', loc: 'ELECTRICAL ROOM' }, { src: '/hero-cam-parking-lot-640.webp', id: 'CAM 02', loc: 'WAREHOUSE AISLE C' }]} active={0} />,
+  image: { src: '/fire-and-smoke-monitoring.webp', alt: 'A warehouse aisle with a small fire on the floor boxed and labeled Fire and Smoke Detected' },
   secondary: { href: '/ai-features/fire-and-smoke-detection', label: 'Fire and smoke detection' },
   problem: {
     heading: 'A sensor waits for the smoke to arrive',

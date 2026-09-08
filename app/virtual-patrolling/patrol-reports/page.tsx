@@ -82,7 +82,7 @@ export default function PatrolReportsPage() {
                 ))}
               </ul>
             </div>
-            <PhotoFigure src="/vp-patrol-reports-3.png" alt="Report settings in the console: distribution and retention of round reports" caption="Report settings: who receives each round's PDF and how reports are retained." />
+            <PhotoFigure src="/vp-patrol-reports-2.png" alt="Report settings in the console: distribution and retention of round reports" caption="Report settings: who receives each round's PDF and how reports are retained." />
           </div>
 
           <div className="mt-16">

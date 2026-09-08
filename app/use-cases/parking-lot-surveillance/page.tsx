@@ -29,7 +29,7 @@ const content: UseCaseContent = {
     A lot is large, unevenly lit and generates more footage than anyone will review, which makes it the most common blind spot on a commercial site. Camzify tracks people and vehicles as objects on the existing cameras, notifies within the hours you set, and checks the lot on a patrol round.
   </>,
   facts: ['People and vehicles tracked as objects', 'Fire lanes and restricted bays as rules', 'Lot checked and recorded on the round'],
-  image: { src: '/parking-lot-surveillance.png', alt: 'A night parking lot with parked vehicles, a moving car and a pedestrian tracked by cameras' },
+  image: { src: '/parking-lot-surveillance.webp', alt: 'A parking lot with vehicles outlined, one person at the entrance and one car flagged in red' },
   secondary: { href: '/ai-features/illegal-parking-detection', label: 'Illegal parking detection' },
   problem: {
     heading: 'Too much footage from a place nobody walks',

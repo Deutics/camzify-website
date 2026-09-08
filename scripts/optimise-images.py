@@ -35,7 +35,17 @@ def main():
     # are PNG sources, and their alpha channel must survive: flattening them once
     # exposed the junk RGB values under the transparent pixels as a pink wash and a
     # ragged dark halo on a hundred pages. WebP carries alpha, so nothing is lost.
+    # Large renders with transparency (the 8000px industry figures) are stored as lossy
+    # WebP sources with alpha: a PNG of the same picture is ten times the size and the
+    # ladder is generated from it anyway.
+    import re
     sources = sorted(glob.glob(os.path.join(pub, '*.jpg'))) + sorted(glob.glob(os.path.join(pub, '*.png')))
+    # A ladder variant ends in a width of 300px or more (the logo ladder is 300/600);
+    # a source such as industry-retail-2.webp ends in a small figure number and is kept.
+    def is_variant(p):
+        m = re.search(r'-(\d+)\.webp$', p)
+        return bool(m) and int(m.group(1)) >= 300
+    sources += sorted(p for p in glob.glob(os.path.join(pub, '*.webp')) if not is_variant(p))
     before = after = 0
     converted = []
 

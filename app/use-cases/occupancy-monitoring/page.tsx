@@ -2,7 +2,6 @@ import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { serviceSchema } from '@/lib/seo';
 import { UseCasePage, type UseCaseContent } from '@/components/content/use-case-page';
-import { HeroPlaceholder } from '@/components/content/hero-placeholder';
 import Link from 'next/link';
 
 const pageMeta = {
@@ -30,7 +29,7 @@ const content: UseCaseContent = {
     It answers when a place is busiest and where, which decides staffing, cleaning and restocking windows and space planning. Camzify counts confirmed tracks per camera or zone, keeps the trend, and flags a pattern that departs from the usual one.
   </>,
   facts: ['Counts from confirmed tracks, per zone', 'Peak hours per zone and per site', 'No counting hardware'],
-  heroVisual: <HeroPlaceholder label="Occupancy · Four zones, live" alt="A console camera wall of four cameras covering an entrance, a corridor, a back-of-house area and a car park, each labelled as a counted zone" frames={[{ src: '/hero-cam-main-gate-640.webp', id: 'ZONE A · ENTRANCE', loc: 'LIVE COUNT' }, { src: '/hero-cam-server-room-640.webp', id: 'ZONE B · CORRIDOR', loc: 'LIVE COUNT' }, { src: '/hero-cam-loading-dock-640.webp', id: 'ZONE C · BACK OF HOUSE', loc: 'LIVE COUNT' }, { src: '/hero-cam-parking-lot-640.webp', id: 'ZONE D · CAR PARK', loc: 'LIVE COUNT' }]} active={0} />,
+  image: { src: '/occupancy-monitoring.webp', alt: 'A lobby with each person outlined and a live occupancy count of 18 out of 50 in the corner' },
   secondary: { href: '/ai-features/occupancy-and-peak-hour-trends', label: 'Occupancy and peak hour trends' },
   problem: {
     heading: 'Staffing is planned from a guess',

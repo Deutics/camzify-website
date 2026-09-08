@@ -6,7 +6,6 @@ import { PhotoFigure } from '@/components/content/photo-figure';
 import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
-import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import Link from 'next/link';
 import { SiteImage } from '@/components/content/site-image';
 
@@ -52,7 +51,7 @@ export default function ConstructionSitesPage() {
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}
         visual={<SiteImage
-              src="/ai-security-for-construction-sites.png" alt="AI-monitored construction site showing bounding boxes around workers, equipment, and material storage, with drone views of the site" className="w-full rounded-xl"
+              src="/ai-security-for-construction-sites.webp" alt="AI-monitored construction site showing bounding boxes around workers, equipment, and material storage, with drone views of the site" className="w-full rounded-xl"
               width={1600}
               height={900}
               sizes="(max-width: 1024px) 100vw, 60vw"
@@ -105,7 +104,7 @@ export default function ConstructionSitesPage() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/industry-construction-sites-3.jpg" alt="Diagram of a construction site patrol route stepping through the perimeter fence line, equipment yard, and site trailers" caption="Construction site patrol sequence" />
+            <PhotoFigure src="/industry-construction-sites-2.webp" alt="The console configuring a detection on a construction site camera, the zone drawn over the live frame" caption="Configuring a detection in the console" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How Camzify works for construction sites</h2>
@@ -142,11 +141,11 @@ export default function ConstructionSitesPage() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/industry-construction-sites-2.jpg" alt="Configuration panel showing perimeter and equipment yard zones mapped across a construction site camera layout" caption="Construction site zone setup" />
+            <PhotoFigure src="/industry-construction-sites-3.webp" alt="Live streaming from a construction site camera with people and vehicles outlined as they are tracked" caption="Live view with tracking" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/industry-construction-sites-1.jpg" alt="Camera feed showing an active patrol check along a construction site perimeter fence" caption="Construction site patrol in progress" />
+            <PhotoFigure src="/industry-construction-sites-4.jpg" alt="Frames from a round across the construction site site, each with its alert raised" caption="Round frames with alerts" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

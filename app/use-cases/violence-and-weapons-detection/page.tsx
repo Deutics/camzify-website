@@ -2,7 +2,6 @@ import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { serviceSchema } from '@/lib/seo';
 import { UseCasePage, type UseCaseContent } from '@/components/content/use-case-page';
-import { HeroPlaceholder } from '@/components/content/hero-placeholder';
 import Link from 'next/link';
 
 const pageMeta = {
@@ -30,7 +29,7 @@ const content: UseCaseContent = {
     The point is that the response starts while the event is happening rather than after the footage is reviewed. Camzify runs both detections on the cameras already covering entrances, floors and corridors, and puts the clip in front of a person to verify.
   </>,
   facts: ['Visible weapons and altercations, raised live', 'Critical severity with a clip to verify', 'Not a scanner, not facial recognition'],
-  heroVisual: <HeroPlaceholder label="Personal safety · Entrances and floors" alt="A console camera wall of four cameras covering a main entrance, a retail floor, a corridor and a car park" frames={[{ src: '/hero-cam-main-gate-640.webp', id: 'CAM 01', loc: 'MAIN ENTRANCE' }, { src: '/hero-cam-server-room-640.webp', id: 'CAM 09', loc: 'CORRIDOR · LEVEL 2' }, { src: '/hero-cam-loading-dock-640.webp', id: 'CAM 04', loc: 'BACK OF HOUSE' }, { src: '/hero-cam-parking-lot-640.webp', id: 'CAM 02', loc: 'CAR PARK' }]} active={0} />,
+  image: { src: '/violence-and-weapons-detection.webp', alt: 'A lobby with two people outlined and Weapon Detected and Violence Detected labels raised' },
   secondary: { href: '/ai-features/weapons-detection', label: 'Weapons detection' },
   problem: {
     heading: 'The footage is reviewed after the ambulance has left',

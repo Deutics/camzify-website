@@ -6,7 +6,6 @@ import { PhotoFigure } from '@/components/content/photo-figure';
 import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
-import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import Link from 'next/link';
 
 /**
@@ -50,7 +49,7 @@ export default function RestaurantsPage() {
         facts={['Back doors and delivery entrances left unmonitored between…', 'Closing procedures relying on whoever locks up that night to…', 'Walk-in cooler and freezer doors left ajar overnight']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}
-        visual={<PhotoFigure src="/ai-security-for-restaurants.png" alt="A restaurant kitchen and dining floor under AI camera monitoring" priority />}
+        visual={<PhotoFigure src="/ai-security-for-restaurants.webp" alt="A restaurant kitchen and dining floor under AI camera monitoring" priority />}
       />
 
       <section className="pb-16">
@@ -76,7 +75,6 @@ export default function RestaurantsPage() {
                 <p>Continuous AI monitoring turns the closing routine into an automated checklist: the same points get checked on the same schedule every night regardless of who closed, with a logged result and an immediate alert to the manager on duty if something was missed.</p>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/ai-security-for-restaurants.png" alt="A restaurant kitchen and dining floor under AI camera monitoring" priority />
           </div>
 
           <div className="mt-16">
@@ -100,7 +98,7 @@ export default function RestaurantsPage() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/industry-restaurants-3.jpg" alt="Diagram of a restaurant closing patrol route stepping through the back door, dining area, kitchen, and walk-in coolers" caption="Restaurant patrol sequence" />
+            <PhotoFigure src="/industry-restaurants-2.webp" alt="The console configuring a detection on a restaurant camera, the zone drawn over the live frame" caption="Configuring a detection in the console" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How Camzify works for restaurants</h2>
@@ -137,11 +135,11 @@ export default function RestaurantsPage() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/industry-restaurants-2.jpg" alt="Configuration panel showing back-door and walk-in cooler zones mapped across a restaurant camera layout" caption="Restaurant zone setup" />
+            <PhotoFigure src="/industry-restaurants-3.webp" alt="Live streaming from a restaurant camera with people and vehicles outlined as they are tracked" caption="Live view with tracking" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/industry-restaurants-1.jpg" alt="Camera feed showing an active patrol check at a restaurant back entrance" caption="Restaurant patrol in progress" />
+            <PhotoFigure src="/industry-restaurants-4.jpg" alt="Frames from a round across the restaurant site, each with its alert raised" caption="Round frames with alerts" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

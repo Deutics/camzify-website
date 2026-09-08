@@ -5,8 +5,9 @@ import { FaqSection } from '@/components/content/faq-section';
 import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
-import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import Link from 'next/link';
+import { PhotoFigure } from '@/components/content/photo-figure';
+import { SiteImage } from '@/components/content/site-image';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -49,7 +50,12 @@ export default function RemoteSitesPage() {
         facts={['Unmanned substations, pump stations, or towers sitting…', 'Perimeter fence lines with no continuous coverage far from…', 'Equipment and material theft going undetected until the next…']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}
-        visual={<PlaceholderVisual type="industry" caption="REMOTE SITES" alt="Security monitoring in a remote sites environment" />}
+        visual={<SiteImage
+              src="/ai-security-for-remote-sites.webp" alt="Intelligent security for remote sites: unmanned infrastructure with fences and masts outlined" className="w-full rounded-xl"
+              width={1600}
+              height={900}
+              sizes="(max-width: 1024px) 100vw, 60vw"
+            priority />}
       />
 
       <section className="pb-16">
@@ -98,7 +104,7 @@ export default function RemoteSitesPage() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="REMOTE SITE PATROL SEQUENCE" alt="Diagram of a remote site patrol route stepping through perimeter fence lines, equipment yards, and access gates" />
+            <PhotoFigure src="/industry-remote-sites-2.webp" alt="The console configuring a detection on a remote site camera, the zone drawn over the live frame" caption="Configuring a detection in the console" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How Camzify works for remote sites</h2>
@@ -135,11 +141,11 @@ export default function RemoteSitesPage() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="REMOTE SITE ZONE SETUP" alt="Configuration panel showing perimeter and equipment yard zones mapped across a remote site camera layout" />
+            <PhotoFigure src="/industry-remote-sites-3.webp" alt="Live streaming from a remote site camera with people and vehicles outlined as they are tracked" caption="Live view with tracking" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="camera-feed" caption="REMOTE SITE PATROL IN PROGRESS" alt="Camera feed showing an active patrol check at a remote site perimeter gate" />
+            <PhotoFigure src="/industry-remote-sites-4.jpg" alt="Frames from a round across the remote site site, each with its alert raised" caption="Round frames with alerts" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

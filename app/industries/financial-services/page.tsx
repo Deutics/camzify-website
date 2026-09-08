@@ -5,8 +5,9 @@ import { FaqSection } from '@/components/content/faq-section';
 import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
-import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import Link from 'next/link';
+import { PhotoFigure } from '@/components/content/photo-figure';
+import { SiteImage } from '@/components/content/site-image';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -49,7 +50,12 @@ export default function FinancialServicesPage() {
         facts={['Vault corridors and cash-handling areas left unchecked…', 'ATM vestibules with no continuous after-hours monitoring', 'Branch perimeters relying on a single closing-time walk-through']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}
-        visual={<PlaceholderVisual type="industry" caption="FINANCIAL SERVICES" alt="Security monitoring in a financial services environment" />}
+        visual={<SiteImage
+              src="/ai-security-for-financial-services.webp" alt="Intelligent security for financial services: branch entrances, counters and back offices outlined" className="w-full rounded-xl"
+              width={1600}
+              height={900}
+              sizes="(max-width: 1024px) 100vw, 60vw"
+            priority />}
       />
 
       <section className="pb-16">
@@ -98,7 +104,7 @@ export default function FinancialServicesPage() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="FINANCIAL SERVICES PATROL SEQUENCE" alt="Diagram of a financial services patrol route stepping through the vault, ATM vestibule, and branch perimeter" />
+            <PhotoFigure src="/industry-financial-services-2.webp" alt="The console configuring a detection on a financial services camera, the zone drawn over the live frame" caption="Configuring a detection in the console" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How Camzify works for financial services</h2>
@@ -135,11 +141,11 @@ export default function FinancialServicesPage() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="FINANCIAL SERVICES ZONE SETUP" alt="Configuration panel showing vault and ATM vestibule zones mapped across a branch camera layout" />
+            <PhotoFigure src="/industry-financial-services-3.webp" alt="Live streaming from a financial services camera with people and vehicles outlined as they are tracked" caption="Live view with tracking" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="camera-feed" caption="FINANCIAL SERVICES PATROL IN PROGRESS" alt="Camera feed showing an active patrol check at a bank branch vault corridor" />
+            <PhotoFigure src="/industry-financial-services-4.jpg" alt="Frames from a round across the financial services site, each with its alert raised" caption="Round frames with alerts" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

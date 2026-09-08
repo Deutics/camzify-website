@@ -69,13 +69,13 @@ export default function VirtualGuardPage() {
         secondary={{ href: '/virtual-patrolling', label: 'How the rounds work' }}
         facts={['Runs on the cameras you have', 'A person notified on every failure', 'Evidence on every check']}
         visual={
-          <div className="overflow-hidden rounded-xl border border-border bg-card">
+          <div className="overflow-hidden rounded-xl">
             <SiteImage
-              src="/vp-vs-security-guards.jpg"
-              alt="A security officer at a patrol car alongside an AI camera network, the blended model of guards and virtual rounds"
+              src="/vp-virtual-guard.png"
+              alt="The Camzify dashboard on a laptop: cameras live, critical events open, detection events over time and the live alert feed"
               className="w-full"
               width={1000}
-              height={667}
+              height={563}
               priority
               sizes="(max-width: 1024px) 100vw, 45vw"
             />
