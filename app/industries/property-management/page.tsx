@@ -5,8 +5,8 @@ import { FaqSection } from '@/components/content/faq-section';
 import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
-import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import Link from 'next/link';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { SiteImage } from '@/components/content/site-image';
 
 /**
@@ -51,7 +51,7 @@ export default function PropertyManagementPage() {
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}
         visual={<SiteImage
-              src="/ai-security-for-property-management.jpg" alt="AI-monitored residential property showing bounding boxes around a security guard, visitors, and a delivery vehicle, with aerial views of the grounds" className="w-full rounded-xl"
+              src="/ai-security-for-property-management.webp" alt="AI-monitored residential property showing bounding boxes around a security guard, visitors, and a delivery vehicle, with aerial views of the grounds" className="w-full rounded-xl"
               width={1600}
               height={900}
               sizes="(max-width: 1024px) 100vw, 60vw"
@@ -104,7 +104,7 @@ export default function PropertyManagementPage() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="PROPERTY MANAGEMENT PATROL SEQUENCE" alt="Diagram of a property management patrol route stepping through common areas, parking structures, and rooftop access points across a managed portfolio" />
+            <PhotoFigure src="/industry-property-management-2.webp" alt="The console configuring a detection on a property camera, the zone drawn over the live frame" caption="Configuring a detection in the console" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How Camzify works for property management</h2>
@@ -141,11 +141,11 @@ export default function PropertyManagementPage() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="PROPERTY MANAGEMENT ZONE SETUP" alt="Configuration panel showing common-area and parking zones mapped across a managed property portfolio" />
+            <PhotoFigure src="/industry-property-management-3.webp" alt="Live streaming from a property camera with people and vehicles outlined as they are tracked" caption="Live view with tracking" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="camera-feed" caption="PROPERTY MANAGEMENT PATROL IN PROGRESS" alt="Camera feed showing an active patrol check at a property management common area" />
+            <PhotoFigure src="/industry-property-management-4.jpg" alt="Frames from a round across the property site, each with its alert raised" caption="Round frames with alerts" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

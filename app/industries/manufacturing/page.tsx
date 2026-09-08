@@ -6,7 +6,6 @@ import { PhotoFigure } from '@/components/content/photo-figure';
 import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
-import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import Link from 'next/link';
 import { SiteImage } from '@/components/content/site-image';
 
@@ -52,7 +51,7 @@ export default function ManufacturingPage() {
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}
         visual={<SiteImage
-              src="/ai-security-for-manufacturing.jpg" alt="AI-monitored manufacturing floor showing a bounding box around a package on a conveyor line, with workers, machinery, and a production worker in PPE" className="w-full rounded-xl"
+              src="/ai-security-for-manufacturing.webp" alt="AI-monitored manufacturing floor showing a bounding box around a package on a conveyor line, with workers, machinery, and a production worker in PPE" className="w-full rounded-xl"
               width={1600}
               height={900}
               sizes="(max-width: 1024px) 100vw, 60vw"
@@ -105,7 +104,7 @@ export default function ManufacturingPage() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/industry-manufacturing-3.jpg" alt="Diagram of a manufacturing patrol route stepping through machinery zones, perimeter fencing, and materials storage" caption="Manufacturing patrol sequence" />
+            <PhotoFigure src="/industry-manufacturing-2.webp" alt="The console configuring a detection on a manufacturing camera, the zone drawn over the live frame" caption="Configuring a detection in the console" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How Camzify works for manufacturing</h2>
@@ -142,11 +141,11 @@ export default function ManufacturingPage() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/industry-manufacturing-2.jpg" alt="Configuration panel showing machinery and perimeter zones mapped across a manufacturing camera layout" caption="Manufacturing zone setup" />
+            <PhotoFigure src="/industry-manufacturing-3.webp" alt="Live streaming from a manufacturing camera with people and vehicles outlined as they are tracked" caption="Live view with tracking" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/industry-manufacturing-1.jpg" alt="Camera feed showing an active patrol check at a manufacturing plant perimeter" caption="Manufacturing patrol in progress" />
+            <PhotoFigure src="/industry-manufacturing-4.jpg" alt="Frames from a round across the manufacturing site, each with its alert raised" caption="Round frames with alerts" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

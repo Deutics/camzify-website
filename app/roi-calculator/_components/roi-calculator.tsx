@@ -18,9 +18,9 @@ import { Building2, Calculator, Clock, DollarSign, Repeat, TrendingUp, Users } f
  * partner pages use. The hash is read in an effect so the server render is stable.
  */
 type Mode = 'sites' | 'agency';
-type Currency = 'USD' | 'GBP' | 'EUR';
+type Currency = 'USD' | 'EUR' | 'GBP' | 'AED' | 'SGD' | 'PKR';
 
-const CURRENCY_LABEL: Record<Currency, string> = { USD: '$', GBP: '£', EUR: '€' };
+const CURRENCY_LABEL: Record<Currency, string> = { USD: '$', EUR: '€', GBP: '£', AED: 'AED', SGD: 'S$', PKR: 'Rs' };
 
 function fmt(n: number, currency: Currency) {
   return new Intl.NumberFormat('en-US', { style: 'currency', currency, maximumFractionDigits: 0 }).format(n);
@@ -128,8 +128,11 @@ export function ROICalculator() {
             className="rounded-lg border border-border bg-background px-3 py-2 text-sm"
           >
             <option value="USD">USD</option>
-            <option value="GBP">GBP</option>
             <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+            <option value="AED">AED</option>
+            <option value="SGD">SGD</option>
+            <option value="PKR">PKR</option>
           </select>
         </label>
       </div>

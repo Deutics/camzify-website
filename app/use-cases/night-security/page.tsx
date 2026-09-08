@@ -29,7 +29,7 @@ const content: UseCaseContent = {
     A guard on foot covers one place at a time and is least alert at the hour it matters. Camzify runs the round on the cameras instead: the same sequence, the same checks, at the same times, on the fourth night as reliably as the first, and sends a person only to what failed.
   </>,
   facts: ['Rounds on schedule, every night', 'Same checks, same times, recorded', 'Guard sent to what failed'],
-  image: { src: '/night-security.jpg', alt: 'Facility perimeter at night with networked security cameras around the building' },
+  image: { src: '/night-security.webp', alt: 'A facility at night with its buildings and fence outlined for the round' },
   secondary: { href: '/virtual-patrolling/automated-patrol-scheduling', label: 'Automated patrol scheduling' },
   problem: {
     heading: 'The overnight round depends on one tired person',

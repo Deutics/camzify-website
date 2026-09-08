@@ -5,8 +5,9 @@ import { FaqSection } from '@/components/content/faq-section';
 import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
-import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import Link from 'next/link';
+import { PhotoFigure } from '@/components/content/photo-figure';
+import { SiteImage } from '@/components/content/site-image';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -49,7 +50,12 @@ export default function MultipleSitesPage() {
         facts={['Inconsistent patrol coverage across locations run by…', 'No centralized visibility into which sites had checks…', 'Camera outages at remote sites going unnoticed for days']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}
-        visual={<PlaceholderVisual type="industry" caption="MULTIPLE SITES" alt="Security monitoring in a multiple sites environment" />}
+        visual={<SiteImage
+              src="/ai-security-for-multiple-sites.webp" alt="Intelligent security across multiple sites: several buildings and their cameras on one view" className="w-full rounded-xl"
+              width={1600}
+              height={900}
+              sizes="(max-width: 1024px) 100vw, 60vw"
+            priority />}
       />
 
       <section className="pb-16">
@@ -98,7 +104,7 @@ export default function MultipleSitesPage() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="MULTI-SITE PATROL SEQUENCE" alt="Diagram of patrol rounds running across multiple sites into a single centralized dashboard" />
+            <PhotoFigure src="/industry-multiple-sites-2.webp" alt="The console configuring a detection on a multi-site camera, the zone drawn over the live frame" caption="Configuring a detection in the console" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How Camzify works for multiple sites</h2>
@@ -135,11 +141,11 @@ export default function MultipleSitesPage() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="MULTI-SITE DASHBOARD SETUP" alt="Configuration panel showing patrol zones and schedules managed across several sites from one dashboard" />
+            <PhotoFigure src="/industry-multiple-sites-3.webp" alt="Live streaming from a multi-site camera with people and vehicles outlined as they are tracked" caption="Live view with tracking" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="camera-feed" caption="MULTI-SITE PATROL IN PROGRESS" alt="Camera feed showing an active patrol check running as part of a multi-site monitoring rollout" />
+            <PhotoFigure src="/industry-multiple-sites-4.jpg" alt="Frames from a round across the multi-site site, each with its alert raised" caption="Round frames with alerts" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

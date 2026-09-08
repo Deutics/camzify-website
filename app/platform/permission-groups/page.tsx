@@ -43,9 +43,9 @@ export default function Page() {
         lede={<><strong className="font-semibold text-foreground">Permission groups in Camzify define a per-module access matrix: which of the seven platform pages a role can reach, and View, Create, Edit, and Delete rights across the ten AI-feature instance types.</strong> Four ready-made roles, Site Admin, Guard, Auditor, and Surveillance Manager — cover the operational patterns most deployments need. Combined with site-level access control, this creates fine-grained security appropriate for multi-site enterprise deployments.</>}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/platform/user-management', label: 'User management' }}
-        visual={<div className="overflow-hidden rounded-xl border border-border bg-card">
+        visual={<div className="overflow-hidden rounded-xl">
             <SiteImage
-              src="/permission-group.jpg"
+              src="/permission-group.png"
               alt="A laptop showing the Camzify Create Permission Group screen with page-access toggles and a View/Create/Edit/Delete instance permissions matrix"
               className="w-full"
               width={1229}

@@ -41,9 +41,9 @@ export default function Page() {
         lede={<><strong className="font-semibold text-foreground">Camzify mobile access lets operations managers and guards view live streams, review alerts, and check patrol compliance from any device.</strong> The responsive web interface works on phones and tablets without a separate app download. Notifications reach guards wherever they are, and the same account data — cameras live, open critical alerts, patrol compliance — carries over exactly as it appears on desktop.</>}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/roadmap', label: 'Native apps on the roadmap' }}
-        visual={<div className="overflow-hidden rounded-xl border border-border bg-card">
+        visual={<div className="overflow-hidden rounded-xl">
             <SiteImage
-              src="/mobile-access.jpg"
+              src="/mobile-access.png"
               alt="A field worker checking a live camera grid on a phone and a multi-site status map on a tablet at a construction site"
               className="w-full rounded-xl"
               width={1229}

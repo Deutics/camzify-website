@@ -49,7 +49,7 @@ export default function AutomatedSchedulingPage() {
             unattended. The system handles every round, from the first camera to the final report.</>}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/risk-detection', label: 'Risk detection on patrol' }}
-        visual={<PhotoFigure src="/vp-automated-patrol-scheduling-1.jpg" alt="Auto-Patrol settings in the Camzify console: scene observation, schedule frequency, active hours and active days" priority />}
+        visual={<PhotoFigure src="/vp-automated-patrol-scheduling-1.png" alt="Auto-Patrol settings in the Camzify console: scene observation, schedule frequency, active hours and active days" priority />}
       />
 
       <section className="pb-16">
@@ -103,7 +103,7 @@ export default function AutomatedSchedulingPage() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/vp-automated-patrol-scheduling-2.jpg" alt="The Auto-Patrol panel with its schedule and reporting options" caption="Auto-Patrol settings as they appear in the console: frequency, active hours, active days and reporting." />
+            <PhotoFigure src="/vp-automated-patrol-scheduling-2.png" alt="The Auto-Patrol panel with its schedule and reporting options" caption="Auto-Patrol settings as they appear in the console: frequency, active hours, active days and reporting." />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">

@@ -30,7 +30,7 @@ export function SiteImage({
   priority = false,
   'aria-hidden': ariaHidden,
 }: {
-  /** Path under /public, e.g. "/ai-security-for-warehouses.jpg". */
+  /** Path under /public, e.g. "/ai-security-for-warehouses.webp". */
   src: string;
   alt: string;
   width: number;
@@ -45,7 +45,7 @@ export function SiteImage({
    */
   'aria-hidden'?: boolean | 'true' | 'false';
 }) {
-  const stem = src.replace(/^\//, '').replace(/\.(jpg|jpeg|png)$/i, '');
+  const stem = src.replace(/^\//, '').replace(/\.(jpg|jpeg|png|webp)$/i, '');
   const variants = imageManifest[stem];
 
   if (!variants) {

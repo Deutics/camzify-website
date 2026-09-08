@@ -5,8 +5,8 @@ import { FaqSection } from '@/components/content/faq-section';
 import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
-import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import Link from 'next/link';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { SiteImage } from '@/components/content/site-image';
 
 /**
@@ -51,7 +51,7 @@ export default function HealthcarePage() {
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}
         visual={<SiteImage
-              src="/ai-security-for-healthcare.jpg" alt="AI-monitored hospital corridor showing bounding boxes around staff and equipment, with an emergency entrance and clinical team scenes" className="w-full rounded-xl"
+              src="/ai-security-for-healthcare.webp" alt="AI-monitored hospital corridor showing bounding boxes around staff and equipment, with an emergency entrance and clinical team scenes" className="w-full rounded-xl"
               width={1600}
               height={900}
               sizes="(max-width: 1024px) 100vw, 60vw"
@@ -104,7 +104,7 @@ export default function HealthcarePage() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="HEALTHCARE PATROL SEQUENCE" alt="Diagram of a healthcare patrol route stepping through pharmacy storage, ward corridors, and emergency exits" />
+            <PhotoFigure src="/industry-healthcare-2.webp" alt="The console configuring a detection on a healthcare facility camera, the zone drawn over the live frame" caption="Configuring a detection in the console" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How Camzify works for healthcare</h2>
@@ -141,11 +141,11 @@ export default function HealthcarePage() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="HEALTHCARE ZONE SETUP" alt="Configuration panel showing pharmacy storage and emergency exit zones mapped across a hospital camera layout" />
+            <PhotoFigure src="/industry-healthcare-3.webp" alt="Live streaming from a healthcare facility camera with people and vehicles outlined as they are tracked" caption="Live view with tracking" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="camera-feed" caption="HEALTHCARE PATROL IN PROGRESS" alt="Camera feed showing an active patrol check at a hospital corridor" />
+            <PhotoFigure src="/industry-healthcare-4.jpg" alt="Frames from a round across the healthcare facility site, each with its alert raised" caption="Round frames with alerts" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

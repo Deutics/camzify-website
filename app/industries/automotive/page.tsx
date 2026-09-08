@@ -6,7 +6,6 @@ import { PhotoFigure } from '@/components/content/photo-figure';
 import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
-import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import Link from 'next/link';
 
 /**
@@ -50,7 +49,7 @@ export default function AutomotivePage() {
         facts={['Vehicle storage yards with high-value inventory sitting…', 'Showroom entrances left unchecked after closing', 'Service bay doors and roller shutters not confirmed closed…']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}
-        visual={<PhotoFigure src="/ai-security-for-automotive.jpg" alt="A vehicle storage yard and showroom under AI camera monitoring" priority />}
+        visual={<PhotoFigure src="/ai-security-for-automotive.webp" alt="A vehicle storage yard and showroom under AI camera monitoring" priority />}
       />
 
       <section className="pb-16">
@@ -76,7 +75,6 @@ export default function AutomotivePage() {
                 <p>Continuous AI monitoring closes that gap by checking every yard row, entrance, and bay door on a repeating schedule, day and night, and raising an alert the moment something falls outside the expected pattern, without needing a person physically present at every stop.</p>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/ai-security-for-automotive.jpg" alt="A vehicle storage yard and showroom under AI camera monitoring" priority />
           </div>
 
           <div className="mt-16">
@@ -100,7 +98,7 @@ export default function AutomotivePage() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/industry-automotive-3.jpg" alt="Diagram of an automotive patrol route stepping through the vehicle yard, showroom, and service bays" caption="Automotive patrol sequence" />
+            <PhotoFigure src="/industry-automotive-2.webp" alt="The console configuring a detection on a automotive camera, the zone drawn over the live frame" caption="Configuring a detection in the console" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How Camzify works for automotive</h2>
@@ -137,11 +135,11 @@ export default function AutomotivePage() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/industry-automotive-2.jpg" alt="Configuration panel showing vehicle yard and service bay zones mapped across an automotive camera layout" caption="Automotive zone setup" />
+            <PhotoFigure src="/industry-automotive-3.webp" alt="Live streaming from a automotive camera with people and vehicles outlined as they are tracked" caption="Live view with tracking" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/industry-automotive-1.jpg" alt="Camera feed showing an active patrol check at an automotive dealership vehicle yard" caption="Automotive patrol in progress" />
+            <PhotoFigure src="/industry-automotive-4.jpg" alt="Frames from a round across the automotive site, each with its alert raised" caption="Round frames with alerts" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

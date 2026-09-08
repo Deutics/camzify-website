@@ -46,7 +46,7 @@ export default function PatrolChecklistsPage() {
             Failed items trigger an automatic notification to the guard assigned to that camera.</>}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/guides/how-to-run-a-virtual-patrol-round', label: 'Run a round yourself' }}
-        visual={<PhotoFigure src="/vp-patrol-checklists-1.jpg" alt="Configuring a patrol sequence and its per-camera checklist in the Camzify console" priority />}
+        visual={<PhotoFigure src="/vp-patrol-checklists-1.png" alt="Configuring a patrol sequence and its per-camera checklist in the Camzify console" priority />}
       />
 
       <section className="pb-16">
@@ -123,7 +123,7 @@ export default function PatrolChecklistsPage() {
               </div>
             </ScrollReveal>
             <ScrollReveal delay={0.06}>
-              <PhotoFigure src="/vp-patrol-checklists-2.jpg" alt="A checklist item being judged against the camera frame during a round" caption="A checklist item evaluated against the frame: Compliant or Not Compliant, with the snapshot kept." />
+              <PhotoFigure src="/vp-patrol-checklists-2.png" alt="A checklist item being judged against the camera frame during a round" caption="A checklist item evaluated against the frame: Compliant or Not Compliant, with the snapshot kept." />
             </ScrollReveal>
           </div>
 

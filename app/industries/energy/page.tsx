@@ -6,7 +6,6 @@ import { PhotoFigure } from '@/components/content/photo-figure';
 import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
-import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import Link from 'next/link';
 
 /**
@@ -50,7 +49,7 @@ export default function EnergyPage() {
         facts={['Unmanned substations sitting without any on-site presence…', 'Solar and wind farm perimeters spanning acres with no…', 'Remote sites relying on infrequent, scheduled maintenance…']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}
-        visual={<PhotoFigure src="/ai-security-for-energy.jpg" alt="A solar and wind energy site with its perimeter under AI camera monitoring" priority />}
+        visual={<PhotoFigure src="/ai-security-for-energy.webp" alt="A solar and wind energy site with its perimeter under AI camera monitoring" priority />}
       />
 
       <section className="pb-16">
@@ -76,7 +75,6 @@ export default function EnergyPage() {
                 <p>Continuous AI monitoring closes the gap between physical visits by checking the perimeter, equipment yards, and camera health on a repeating schedule regardless of how remote the site is, and raising an alert the moment a fence line is crossed or a camera stops reporting, turning an infrequent visit-based model into a monitored one.</p>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/ai-security-for-energy.jpg" alt="A solar and wind energy site with its perimeter under AI camera monitoring" priority />
           </div>
 
           <div className="mt-16">
@@ -100,7 +98,7 @@ export default function EnergyPage() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/industry-energy-3.jpg" alt="Diagram of an energy site patrol route stepping through substation fencing, transformer yards, and remote perimeter cameras" caption="Energy site patrol sequence" />
+            <PhotoFigure src="/industry-energy-2.webp" alt="The console configuring a detection on a energy site camera, the zone drawn over the live frame" caption="Configuring a detection in the console" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How Camzify works for energy</h2>
@@ -137,11 +135,11 @@ export default function EnergyPage() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/industry-energy-2.jpg" alt="Configuration panel showing substation perimeter and compound zones mapped across an energy site camera layout" caption="Energy site zone setup" />
+            <PhotoFigure src="/industry-energy-3.webp" alt="Live streaming from a energy site camera with people and vehicles outlined as they are tracked" caption="Live view with tracking" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/industry-energy-1.jpg" alt="Camera feed showing an active patrol check at a remote energy substation perimeter" caption="Energy site patrol in progress" />
+            <PhotoFigure src="/industry-energy-4.webp" alt="Frames from a round across the energy site site, each with its alert raised" caption="Round frames with alerts" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

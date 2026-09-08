@@ -44,7 +44,7 @@ export default function Page() {
         facts={['A person matching a plain-language description across every…', 'Every timestamped appearance of that match, ranked by confidence', 'Matches across a single site or a full multi-site account']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 22 detections' }}
-        visual={<PhotoFigure src="/feature-forensic-video-search-1.jpg" alt="Camera feed with a search query overlay and highlighted matching subject" caption="Ai suspect search" priority />}
+        visual={<PhotoFigure src="/feature-forensic-video-search-1.png" alt="Camera feed with a search query overlay and highlighted matching subject" caption="Ai suspect search" priority />}
       />
 
       <section className="pb-16">
@@ -114,7 +114,7 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/feature-forensic-video-search-3.jpg" alt="Configuration panel showing search scope, date range, and attribute filters for AI suspect search" caption="Search configuration" />
+            <PhotoFigure src="/feature-forensic-video-search-3.png" alt="Configuration panel showing search scope, date range, and attribute filters for AI suspect search" caption="Search configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">

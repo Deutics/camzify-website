@@ -8,6 +8,7 @@ import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { SectionAtmosphere } from '@/components/motion/section-atmosphere';
 import { FeatureHero } from '@/components/content/feature-hero';
 import { SiteImage } from '@/components/content/site-image';
+import { ProductShot } from '@/components/content/product-shot';
 import Link from 'next/link';
 import {
   Camera, ClipboardCheck, Bell, FileText, Route, CheckCircle, BarChart3, Users, Calendar, ShieldAlert,
@@ -89,9 +90,9 @@ export default function VirtualPatrollingPage() {
         secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How it works' }}
         facts={['Manual or automated', 'Evidence on every check', 'Runs on existing cameras']}
         visual={
-          <div className="overflow-hidden rounded-xl border border-border bg-card">
+          <div className="overflow-hidden rounded-xl">
             <SiteImage
-              src="/vp-overview-main.jpg"
+              src="/vp-overview-main.png"
               alt="The Camzify virtual patrolling screen with an active patrol round and its camera sequence"
               className="w-full"
               width={1000}
@@ -260,16 +261,12 @@ export default function VirtualPatrollingPage() {
               </div>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
-              <div className="overflow-hidden rounded-xl border border-border bg-card">
-                <SiteImage
-                  src="/vp-overview-compliance-record.jpg"
-                  alt="Patrol history in the console with a patrol health score across all sites"
-                  className="w-full"
-                  width={1000}
-                  height={563}
-                  sizes="(max-width: 1024px) 100vw, 55vw"
-                />
-              </div>
+              <ProductShot
+                src="/product-virtual-patrolling"
+                alt="The virtual patrolling screen in the console: patrol sequences, the next round for each, and Auto-Patrol settings"
+                label="Virtual patrolling"
+                sizes="(max-width: 1024px) 100vw, 55vw"
+              />
             </ScrollReveal>
           </div>
         </div>

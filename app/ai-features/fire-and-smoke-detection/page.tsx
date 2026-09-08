@@ -43,7 +43,7 @@ export default function Page() {
         facts={["Visible flame anywhere in the camera's field of view", 'Visible smoke developing in storage, electrical, or…', 'Early-stage events in large or open spaces before a fixed…']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 22 detections' }}
-        visual={<PhotoFigure src="/feature-fire-and-smoke-detection-1.jpg" alt="Camera view of a storage area with visible smoke highlighted by a detection bounding box" caption="Fire & smoke detection" priority />}
+        visual={<PhotoFigure src="/feature-fire-and-smoke-detection-1.png" alt="Camera view of a storage area with visible smoke highlighted by a detection bounding box" caption="Fire & smoke detection" priority />}
       />
 
       <section className="pb-16">
@@ -111,7 +111,7 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/feature-fire-and-smoke-detection-3.jpg" alt="Configuration panel showing critical-severity alerting and escalation rules for a camera" caption="Fire & smoke configuration" />
+            <PhotoFigure src="/feature-fire-and-smoke-detection-3.png" alt="Configuration panel showing critical-severity alerting and escalation rules for a camera" caption="Fire & smoke configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">

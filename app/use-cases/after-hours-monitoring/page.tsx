@@ -29,7 +29,7 @@ const content: UseCaseContent = {
     It is the period when staffing is thinnest and when most incidents happen. Camzify covers it with scheduled patrol rounds that walk the cameras through the empty building on a checklist, message the guard when a check fails, and file a report per round so the morning starts with a record rather than a question.
   </>,
   facts: ['Rounds on a schedule, nobody in the loop', 'Checklist per camera, snapshot per item', 'A report per round by morning'],
-  image: { src: '/after-hours-security-monitoring.jpg', alt: 'A security operations desk with monitors showing night camera feeds across a facility' },
+  image: { src: '/after-hours-security-monitoring.png', alt: 'A security operations desk with monitors showing night camera feeds across a facility' },
   secondary: { href: '/virtual-patrolling/automated-patrol-scheduling', label: 'Automated patrol scheduling' },
   problem: {
     heading: 'Cameras record the night. Nobody watches it.',

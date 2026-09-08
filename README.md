@@ -165,6 +165,5 @@ Read these in order. If you only read one, read **Adding Pages**.
 - **Legal pages are drafts** awaiting counsel, dated in each file. `/free-trial` describes a trial the business has not confirmed.
 - **No test suite.** There is no unit, integration or E2E testing. The de facto gates are `tsc --noEmit`, the production build, and `eslint.ssr.config.mjs`.
 - **Awaiting real content from the business:** customer case studies for the 16 industry pages, verified operating statistics for `/trust`, and public pricing if rate-card figures are ever to be indexed. Placeholder blocks have been replaced with honest substitute content rather than left visible — see `docs/SEO-GEO.md` § Honesty rules.
-- **Nine industry pages and the seven newest use cases still use `PlaceholderVisual`** because no photograph was supplied for them.
 - **DataForSEO is out of credit.** The keyword map in `docs/seo/` has no difficulty, AI-volume or SERP columns until the account is topped up.
 - **Images are optimized at commit time, not at request time.** `public/` holds JPEG sources at 1600px or below plus generated WebP ladders; `scripts/optimise-images.py` regenerates them and `lib/image-manifest.ts`. Do not add a PNG or a PSD.

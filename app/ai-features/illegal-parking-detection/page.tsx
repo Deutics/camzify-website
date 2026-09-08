@@ -43,7 +43,7 @@ export default function Page() {
         facts={['Vehicles blocking marked fire lanes or emergency access routes', 'Vehicles occupying loading zones or reserved parking beyond…', 'Unauthorized vehicles in gated or accessible-only spots']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 22 detections' }}
-        visual={<PhotoFigure src="/feature-illegal-parking-detection-1.jpg" alt="Camera view of a fire lane with an illegally parked vehicle highlighted by a detection bounding box" caption="Illegal parking detection" priority />}
+        visual={<PhotoFigure src="/feature-illegal-parking-detection-1.png" alt="Camera view of a fire lane with an illegally parked vehicle highlighted by a detection bounding box" caption="Illegal parking detection" priority />}
       />
 
       <section className="pb-16">
@@ -116,7 +116,7 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/feature-illegal-parking-detection-3.jpg" alt="Configuration panel showing a restricted parking zone drawn on a camera view with a grace period slider" caption="Zone & grace period configuration" />
+            <PhotoFigure src="/feature-illegal-parking-detection-3.png" alt="Configuration panel showing a restricted parking zone drawn on a camera view with a grace period slider" caption="Zone & grace period configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">

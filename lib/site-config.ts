@@ -60,8 +60,12 @@ export const siteConfig = {
    */
   email: 'contact@camzify.com',
 
-  /** Founded/served geography — used for LocalBusiness areaServed. */
-  areaServed: ['Singapore', 'Southeast Asia', 'Middle East', 'United Kingdom', 'United States', 'Australia'],
+  /**
+   * The five markets the business named on 2026-09-08, in its own priority order.
+   * Used for the Organization and Service `areaServed` nodes; keep this list and the
+   * ROI calculator's currency list in step.
+   */
+  areaServed: ['United States', 'Europe', 'Middle East', 'Pakistan', 'Singapore'],
 
   /** Generated 1200x630 card (app/opengraph-image.tsx), not a static file. */
   ogImage: '/opengraph-image',

@@ -43,7 +43,7 @@ export default function Page() {
         facts={['Bags or packages separated from the person who was carrying them', 'Objects remaining unclaimed past a configurable dwell-time…', 'Unattended items in lobbies, entrances, and public waiting areas']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 22 detections' }}
-        visual={<PhotoFigure src="/feature-abandoned-object-detection-1.jpg" alt="Camera view of a lobby with an unattended bag highlighted by a detection bounding box" caption="Abandoned object detection" priority />}
+        visual={<PhotoFigure src="/feature-abandoned-object-detection-1.png" alt="Camera view of a lobby with an unattended bag highlighted by a detection bounding box" caption="Abandoned object detection" priority />}
       />
 
       <section className="pb-16">
@@ -112,7 +112,7 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/feature-abandoned-object-detection-3.jpg" alt="Configuration panel showing dwell-time threshold and monitored object types for a camera zone" caption="Dwell-time configuration" />
+            <PhotoFigure src="/feature-abandoned-object-detection-3.png" alt="Configuration panel showing dwell-time threshold and monitored object types for a camera zone" caption="Dwell-time configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">

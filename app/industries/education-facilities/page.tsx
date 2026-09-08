@@ -5,8 +5,8 @@ import { FaqSection } from '@/components/content/faq-section';
 import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
-import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import Link from 'next/link';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { SiteImage } from '@/components/content/site-image';
 
 /**
@@ -51,7 +51,7 @@ export default function EducationFacilitiesPage() {
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}
         visual={<SiteImage
-              src="/ai-security-for-education-facilities.jpg" alt="AI-monitored school campus showing bounding boxes tracking people, backpacks, and a bicycle on a walkway, with classroom, campus, and computer lab scenes" className="w-full rounded-xl"
+              src="/ai-security-for-education-facilities.webp" alt="AI-monitored school campus showing bounding boxes tracking people, backpacks, and a bicycle on a walkway, with classroom, campus, and computer lab scenes" className="w-full rounded-xl"
               width={1600}
               height={900}
               sizes="(max-width: 1024px) 100vw, 60vw"
@@ -104,7 +104,7 @@ export default function EducationFacilitiesPage() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="EDUCATION FACILITIES PATROL SEQUENCE" alt="Diagram of an education facilities patrol route stepping through campus entrances, laboratory buildings, and grounds" />
+            <PhotoFigure src="/industry-education-facilities-2.webp" alt="The console configuring a detection on a education facility camera, the zone drawn over the live frame" caption="Configuring a detection in the console" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How Camzify works for education facilities</h2>
@@ -141,11 +141,11 @@ export default function EducationFacilitiesPage() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="EDUCATION FACILITIES ZONE SETUP" alt="Configuration panel showing building and grounds zones mapped across an education facilities camera layout" />
+            <PhotoFigure src="/industry-education-facilities-3.webp" alt="Live streaming from a education facility camera with people and vehicles outlined as they are tracked" caption="Live view with tracking" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="camera-feed" caption="EDUCATION FACILITIES PATROL IN PROGRESS" alt="Camera feed showing an active patrol check at a campus building entrance" />
+            <PhotoFigure src="/industry-education-facilities-4.jpg" alt="Frames from a round across the education facility site, each with its alert raised" caption="Round frames with alerts" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

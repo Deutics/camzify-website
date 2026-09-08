@@ -44,7 +44,7 @@ export default function LineIntrusionPage() {
         facts={['People crossing a perimeter fence line', 'Vehicles entering a restricted loading zone', 'Directional crossings at one-way gates or turnstiles']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 22 detections' }}
-        visual={<PhotoFigure src="/feature-line-intrusion-detection-1.jpg" alt="Camera view showing a virtual tripwire line with directional arrows and detected object crossing" caption="Line intrusion detection" priority />}
+        visual={<PhotoFigure src="/feature-line-intrusion-detection-1.png" alt="Camera view showing a virtual tripwire line with directional arrows and detected object crossing" caption="Line intrusion detection" priority />}
       />
 
       <section className="pb-16">
@@ -112,7 +112,7 @@ export default function LineIntrusionPage() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/feature-line-intrusion-detection-3.jpg" alt="Configuration panel showing a directional line drawn across a camera view with sensitivity and schedule controls" caption="Line configuration" />
+            <PhotoFigure src="/feature-line-intrusion-detection-3.png" alt="Configuration panel showing a directional line drawn across a camera view with sensitivity and schedule controls" caption="Line configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">

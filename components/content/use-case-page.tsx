@@ -65,7 +65,7 @@ export function UseCasePage({ c }: { c: UseCaseContent }) {
         secondary={c.secondary}
         visual={
           c.image ? (
-            <div className="overflow-hidden rounded-xl border border-border bg-card">
+            <div className={`overflow-hidden rounded-xl ${/\.(png|webp)$/i.test(c.image.src) ? '' : 'border border-border bg-card'}`}>
               <SiteImage src={c.image.src} alt={c.image.alt} className="w-full" width={1229} height={692} priority sizes="(max-width: 1024px) 100vw, 45vw" />
             </div>
           ) : (

@@ -3,7 +3,7 @@ import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { FeatureHero } from '@/components/content/feature-hero';
-import { HeroPlaceholder } from '@/components/content/hero-placeholder';
+import { SiteImage } from '@/components/content/site-image';
 import { SectionVisual } from '@/components/content/section-visual';
 import Link from 'next/link';
 import { ShieldAlert, Bell, Eye, ClipboardCheck } from 'lucide-react';
@@ -66,7 +66,22 @@ export default function RiskDetectionPage() {
             a critical alert for what it finds &mdash; whether or not any checklist item covered it.</>}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/automated-patrol-scheduling', label: 'Automated scheduling' }}
-        visual={<HeroPlaceholder label="Auto-Patrol · risk assessment" alt="Camzify console illustrating ai risk detection on patrol" />}
+        visual={
+          <figure className="grid grid-cols-2 gap-2 rounded-xl border border-border bg-card p-2" aria-label="Four camera stops on a round, each assessed for risk in its own right">
+            {[
+              { src: '/vp-risk-cam-main-gate.jpg', label: 'CAM 01 · Main gate', alt: 'A gate camera: guard at the gatehouse, vehicles passing the barrier' },
+              { src: '/vp-risk-cam-loading-dock.jpg', label: 'CAM 04 · Loading dock', alt: 'A loading dock camera: two trucks at the bays, pallets on the apron' },
+              { src: '/vp-risk-cam-parking-lot.jpg', label: 'CAM 02 · Parking lot', alt: 'A parking lot camera: rows of parked cars with a person walking between them' },
+              { src: '/vp-risk-cam-server-room.jpg', label: 'CAM 07 · Server room', alt: 'A server room camera: rows of racks with a technician walking the aisle' },
+            ].map((c, i) => (
+              <div key={c.src} className="camera-tile-frame relative aspect-video overflow-hidden rounded-md">
+                <SiteImage src={c.src} alt={c.alt} width={1000} height={563} priority={i === 0} sizes="(max-width: 1024px) 50vw, 22vw" className="h-full w-full object-cover" />
+                <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[hsl(216_22%_4%/0.85)] to-transparent" aria-hidden="true" />
+                <span className="camera-tile absolute bottom-2 left-2 font-mono text-[9px] uppercase tracking-wider camera-tile-label">{c.label}</span>
+              </div>
+            ))}
+          </figure>
+        }
       />
 
       <section className="pb-16">

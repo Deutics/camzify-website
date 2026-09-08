@@ -42,7 +42,7 @@ export default function Page() {
         facts={['A unique, persistent track ID for every subject in frame', 'Continuous identity through brief occlusions and re-entries', 'The confirmed-track input that line and zone intrusion rules…']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 22 detections' }}
-        visual={<PhotoFigure src="/feature-multi-object-tracking-1.jpg" alt="Multi-Object Tracking visualization on camera feed" caption="Multi-object tracking" priority />}
+        visual={<PhotoFigure src="/feature-multi-object-tracking-1.png" alt="Multi-Object Tracking visualization on camera feed" caption="Multi-object tracking" priority />}
       />
 
       <section className="pb-16">
@@ -108,7 +108,7 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/feature-multi-object-tracking-3.jpg" alt="Configuration panel showing object-class filters and occlusion-recovery settings for multi-object tracking" caption="Tracking settings" />
+            <PhotoFigure src="/feature-multi-object-tracking-3.png" alt="Configuration panel showing object-class filters and occlusion-recovery settings for multi-object tracking" caption="Tracking settings" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">

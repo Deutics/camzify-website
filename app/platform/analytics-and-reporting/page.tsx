@@ -41,9 +41,9 @@ export default function Page() {
         lede={<><strong className="font-semibold text-foreground">Camzify analytics provides detection breakdowns by feature, object type, site, and severity.</strong> Attribute trends track people vs vehicles with distributions, and the detection-confidence split shows High, Medium, and Low confidence levels across all alerts. Every AI feature also carries its own 7-day event trend against the prior week, plus how many of its licensed camera instances are actively running — so a feature quietly nearing its limit shows up before it becomes a blind spot. All data is exportable.</>}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/platform/dashboard', label: 'The dashboard' }}
-        visual={<div className="overflow-hidden rounded-xl border border-border bg-card">
+        visual={<div className="overflow-hidden rounded-xl">
             <SiteImage
-              src="/video-surveillance-analytics-and-reporting.jpg"
+              src="/video-surveillance-analytics-and-reporting.png"
               alt="A laptop showing the Camzify Configuration AI Features screen with per-feature active-camera counts and 7-day event trends for Line Intrusion, Zone Intrusion, Heatmap Anomalies, and Camera Tampering"
               className="w-full"
               width={1229}

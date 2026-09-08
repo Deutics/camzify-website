@@ -1,7 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { serviceSchema } from '@/lib/seo';
-import { ProductShot } from '@/components/content/product-shot';
 import { UseCasePage, type UseCaseContent } from '@/components/content/use-case-page';
 import Link from 'next/link';
 
@@ -35,15 +34,7 @@ const content: UseCaseContent = {
     Most of it is alarm-driven: nothing happens until a sensor trips. Camzify adds the round. Scheduled patrols step through the cameras, answer a checklist at each one from the frame, message the guard on a failure and file a report, while the AI detections watch between rounds in the hours you set.
   </>,
   facts: ['Rounds on schedule, operator or not', 'Detections in the window you set', 'A report per round, per client'],
-  heroVisual: (
-    <ProductShot
-      src="/product-live-streaming"
-      alt="The live streaming screen in the Camzify console with a multi-camera wall grouped by site"
-      label="Live streaming"
-      priority
-      sizes="(max-width: 1024px) 100vw, 45vw"
-    />
-  ),
+  image: { src: '/remote-video-monitoring.webp', alt: 'A monitoring desk with a site camera on the operator\'s screen and the event details panel open' },
   secondary: { href: '/partners/for-monitoring-centers', label: 'For monitoring companies' },
   problem: {
     heading: 'A wall of cameras and nothing to make them speak',

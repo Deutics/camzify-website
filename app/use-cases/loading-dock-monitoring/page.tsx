@@ -29,7 +29,7 @@ const content: UseCaseContent = {
     A dock combines stock, vehicle access and a door that opens forty times a day, which makes it the most common route for goods to leave a building. Camzify checks it on a round against the delivery schedule and tracks what arrives at the bay between rounds.
   </>,
   facts: ['Door status checked against the schedule', 'Vehicles tracked at the bay, not plates', 'Staging areas clear on the round'],
-  image: { src: '/loading-dock-security.jpg', alt: 'Loading dock with cameras covering trucks, a forklift and dock doors' },
+  image: { src: '/loading-dock-security.webp', alt: 'Two trucks at loading bays with checks, a lock and crosses drawn on the doors and vehicles' },
   secondary: { href: '/virtual-patrolling/patrol-checklists', label: 'How checklists work' },
   problem: {
     heading: 'The door that is open forty times a day',

@@ -90,7 +90,7 @@ export default function BehavioralAnomalyDetectionPage() {
         facts={['Describe the behavior in plain language', 'No rule syntax, no zones to draw', 'Watches the cameras you pick for it']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 22 detections' }}
-        visual={<PhotoFigure src="/feature-behavioral-anomaly-detection-1.jpg" alt="People moving through a public space with an AI overlay tracing behavior patterns" priority />}
+        visual={<PhotoFigure src="/feature-behavioral-anomaly-detection-1.png" alt="People moving through a public space with an AI overlay tracing behavior patterns" priority />}
       />
 
       <section className="pb-16">

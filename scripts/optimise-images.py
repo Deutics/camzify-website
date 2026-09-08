@@ -30,11 +30,22 @@ MIN_BYTES = 60 * 1024  # below this a variant ladder costs more in complexity th
 def main():
     root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     pub = os.path.join(root, 'public')
-    sources = sorted(glob.glob(os.path.join(pub, '*.jpg')))
-    # The logo is a PNG with transparency, well under the size threshold, but it ships
-    # in both theme variants on every page at 825px wide for a ~150px display. WebP
-    # keeps the alpha channel and a narrower ladder removes the rest of the waste.
-    sources += sorted(glob.glob(os.path.join(pub, 'camzify-logo-*.png')))
+    # Photographs are JPEG sources. Renders the designer supplied on a transparent
+    # background (device mock-ups with a drop shadow, screenshots with rounded corners)
+    # are PNG sources, and their alpha channel must survive: flattening them once
+    # exposed the junk RGB values under the transparent pixels as a pink wash and a
+    # ragged dark halo on a hundred pages. WebP carries alpha, so nothing is lost.
+    # Large renders with transparency (the 8000px industry figures) are stored as lossy
+    # WebP sources with alpha: a PNG of the same picture is ten times the size and the
+    # ladder is generated from it anyway.
+    import re
+    sources = sorted(glob.glob(os.path.join(pub, '*.jpg'))) + sorted(glob.glob(os.path.join(pub, '*.png')))
+    # A ladder variant ends in a width of 300px or more (the logo ladder is 300/600);
+    # a source such as industry-retail-2.webp ends in a small figure number and is kept.
+    def is_variant(p):
+        m = re.search(r'-(\d+)\.webp$', p)
+        return bool(m) and int(m.group(1)) >= 300
+    sources += sorted(p for p in glob.glob(os.path.join(pub, '*.webp')) if not is_variant(p))
     before = after = 0
     converted = []
 
@@ -43,9 +54,11 @@ def main():
         is_logo = os.path.basename(src).startswith('camzify-logo-')
         if size < MIN_BYTES and not is_logo:
             continue
-        # RGBA for the logo so transparency survives; RGB for photographs.
+        # RGBA wherever the source carries transparency; RGB for photographs. Never
+        # `.convert('RGB')` an RGBA image: that drops alpha without compositing.
         im = Image.open(src)
-        im = im.convert('RGBA') if is_logo else im.convert('RGB')
+        has_alpha = im.mode in ('RGBA', 'LA') or (im.mode == 'P' and 'transparency' in im.info)
+        im = im.convert('RGBA') if (is_logo or has_alpha) else im.convert('RGB')
         stem = os.path.splitext(os.path.basename(src))[0]
         ladder = [300, 600] if is_logo else WIDTHS
         widths = [w for w in ladder if w < im.width] + ([im.width] if not is_logo else [])

@@ -5,8 +5,9 @@ import { FaqSection } from '@/components/content/faq-section';
 import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
-import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import Link from 'next/link';
+import { PhotoFigure } from '@/components/content/photo-figure';
+import { SiteImage } from '@/components/content/site-image';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -49,7 +50,12 @@ export default function SelfStoragePage() {
         facts={['Unmanned office hours leaving hallways and gate access…', 'Gate codes shared or tailgated by vehicles that never checked in', "Unit break-ins that go unnoticed until the tenant's next visit"]}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}
-        visual={<PlaceholderVisual type="industry" caption="SELF-STORAGE" alt="Security monitoring in a self-storage environment" />}
+        visual={<SiteImage
+              src="/ai-security-for-self-storage.webp" alt="Intelligent security for self-storage: unit corridors, gates and loading bays outlined" className="w-full rounded-xl"
+              width={1600}
+              height={900}
+              sizes="(max-width: 1024px) 100vw, 60vw"
+            priority />}
       />
 
       <section className="pb-16">
@@ -98,7 +104,7 @@ export default function SelfStoragePage() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="diagram" caption="SELF-STORAGE PATROL SEQUENCE" alt="Diagram of a self-storage patrol route stepping through the gate, drive-up aisles, and hallways" />
+            <PhotoFigure src="/industry-self-storage-2.webp" alt="The console configuring a detection on a self-storage camera, the zone drawn over the live frame" caption="Configuring a detection in the console" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How Camzify works for self-storage</h2>
@@ -135,11 +141,11 @@ export default function SelfStoragePage() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual type="config-ui" caption="SELF-STORAGE ZONE SETUP" alt="Configuration panel showing gate and aisle zones mapped across a self-storage facility camera layout" />
+            <PhotoFigure src="/industry-self-storage-3.webp" alt="Live streaming from a self-storage camera with people and vehicles outlined as they are tracked" caption="Live view with tracking" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual type="camera-feed" caption="SELF-STORAGE PATROL IN PROGRESS" alt="Camera feed showing an active patrol check at a self-storage facility gate" />
+            <PhotoFigure src="/industry-self-storage-4.jpg" alt="Frames from a round across the self-storage site, each with its alert raised" caption="Round frames with alerts" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

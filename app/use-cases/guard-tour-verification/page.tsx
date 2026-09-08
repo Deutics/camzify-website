@@ -29,7 +29,7 @@ const content: UseCaseContent = {
     Tag-based systems prove presence at a checkpoint and nothing about the checkpoint itself. Camzify runs a virtual round over the same points, judges the condition at each from the camera, keeps the frame, and files a report per round that can be set against the guard&apos;s own.
   </>,
   facts: ['The condition proven, not the tap', 'A frame per checklist item', 'A report per round, per client'],
-  image: { src: '/guard-tour-verification.jpg', alt: 'A guard reviewing a patrol route on a tablet with checkpoint markers on a campus at night' },
+  image: { src: '/guard-tour-verification.webp', alt: 'A guard with a tablet outside an office at night, checkpoints ticked on the map beside him' },
   secondary: { href: '/compare/virtual-patrolling-vs-guard-tour-systems', label: 'Versus guard tour systems' },
   problem: {
     heading: 'A tag proves the guard was there. Not what they saw.',

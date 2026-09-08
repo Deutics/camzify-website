@@ -42,7 +42,7 @@ export default function Page() {
         facts={['Structured clothing color and type attributes for every…', 'Object classification for vehicles, bags, and other carried…', 'Plain-language behavior descriptions attached to each alert']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 22 detections' }}
-        visual={<PhotoFigure src="/feature-ai-attribute-extraction-1.jpg" alt="AI Attribute Extraction visualization on camera feed" caption="Ai attribute extraction" priority />}
+        visual={<PhotoFigure src="/feature-ai-attribute-extraction-1.png" alt="AI Attribute Extraction visualization on camera feed" caption="Ai attribute extraction" priority />}
       />
 
       <section className="pb-16">
@@ -108,7 +108,7 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/feature-ai-attribute-extraction-3.jpg" alt="Configuration panel showing attribute categories and retention settings for AI attribute extraction" caption="Attribute settings" />
+            <PhotoFigure src="/feature-ai-attribute-extraction-3.png" alt="Configuration panel showing attribute categories and retention settings for AI attribute extraction" caption="Attribute settings" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">

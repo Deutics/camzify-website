@@ -43,7 +43,7 @@ export default function Page() {
         facts={['Visible dents and scratches on vehicles at entry or exit points', 'A timestamped condition record attached to each vehicle event', 'Side-by-side comparison between entry and exit records for…']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 22 detections' }}
-        visual={<PhotoFigure src="/feature-vehicle-damage-report-1.jpg" alt="Camera view of a vehicle at an entry point with a highlighted area of exterior damage" caption="Vehicle damage report" priority />}
+        visual={<PhotoFigure src="/feature-vehicle-damage-report-1.png" alt="Camera view of a vehicle at an entry point with a highlighted area of exterior damage" caption="Vehicle damage report" priority />}
       />
 
       <section className="pb-16">
@@ -114,7 +114,7 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/feature-vehicle-damage-report-3.jpg" alt="Configuration panel showing an entry checkpoint camera assigned to capture vehicle condition records" caption="Checkpoint configuration" />
+            <PhotoFigure src="/feature-vehicle-damage-report-3.png" alt="Configuration panel showing an entry checkpoint camera assigned to capture vehicle condition records" caption="Checkpoint configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">

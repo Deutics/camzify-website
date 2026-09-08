@@ -6,7 +6,6 @@ import { PhotoFigure } from '@/components/content/photo-figure';
 import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
-import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import Link from 'next/link';
 import { SiteImage } from '@/components/content/site-image';
 
@@ -52,7 +51,7 @@ export default function WarehousesPage() {
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}
         visual={<SiteImage
-              src="/ai-security-for-warehouses.jpg" alt="AI-monitored warehouse showing bounding boxes around a forklift, worker, and pallets, with aerial and interior storage rack views" className="w-full rounded-xl"
+              src="/ai-security-for-warehouses.webp" alt="AI-monitored warehouse showing bounding boxes around a forklift, worker, and pallets, with aerial and interior storage rack views" className="w-full rounded-xl"
               width={1600}
               height={900}
               sizes="(max-width: 1024px) 100vw, 60vw"
@@ -104,7 +103,7 @@ export default function WarehousesPage() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/industry-warehouses-3.jpg" alt="Diagram of a warehouse patrol route stepping through dock doors, perimeter, and storage zones" caption="Warehouse patrol sequence" />
+            <PhotoFigure src="/industry-warehouses-2.webp" alt="The console configuring a detection on a warehouse camera, the zone drawn over the live frame" caption="Configuring a detection in the console" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How Camzify works for warehouses</h2>
@@ -141,11 +140,11 @@ export default function WarehousesPage() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/industry-warehouses-2.jpg" alt="Configuration panel showing dock-door and perimeter zones mapped across a warehouse camera layout" caption="Warehouse zone setup" />
+            <PhotoFigure src="/industry-warehouses-3.webp" alt="Live streaming from a warehouse camera with people and vehicles outlined as they are tracked" caption="Live view with tracking" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/industry-warehouses-1.jpg" alt="Camera feed showing an active patrol check at a warehouse loading dock" caption="Warehouse patrol in progress" />
+            <PhotoFigure src="/industry-warehouses-4.jpg" alt="Frames from a round across the warehouse site, each with its alert raised" caption="Round frames with alerts" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

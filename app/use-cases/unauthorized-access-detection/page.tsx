@@ -29,7 +29,7 @@ const content: UseCaseContent = {
     It differs from motion detection because it works on defined zones with rules about who should be present and when, and it differs from access control because it watches what happens after the door opens. Camzify runs it on the cameras already covering those doors, rooms and corridors.
   </>,
   facts: ['A notification window per camera', 'Tailgating counted at controlled doors', 'Restricted rooms checked on the round'],
-  image: { src: '/unauthorized-access-detection.jpg', alt: 'Cameras at a facility gate flagging a person and a vehicle at night' },
+  image: { src: '/unauthorized-access-detection.webp', alt: 'A person walking through a restricted area gate, outlined in red with an alert above' },
   secondary: { href: '/ai-features/zone-intrusion-detection', label: 'Zone intrusion detection' },
   problem: {
     heading: 'The badge reader stops at the door',
