@@ -2,6 +2,7 @@ import { Inter, JetBrains_Mono, Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/system/theme-provider';
 import { MaintenanceNotice } from '@/components/system/maintenance-notice';
+import { BackToTop } from '@/components/system/back-to-top';
 import { Toaster } from '@/components/ui/sonner';
 import { ChunkLoadErrorHandler } from '@/components/system/chunk-load-error-handler';
 import { SiteHeader } from '@/components/layout/site-header';
@@ -111,6 +112,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main id="main" className="min-h-screen">{children}</main>
           <SiteFooter />
           {/* Remove when the site leaves maintenance. */}
+          <BackToTop />
           <MaintenanceNotice />
           <ExitIntentModal />
           <Toaster />

@@ -47,7 +47,7 @@ export function MaintenanceNotice() {
       aria-live="polite"
       {...((dismissed ? { inert: '' } : {}) as Record<string, unknown>)}
       aria-hidden={dismissed}
-      className={`fixed inset-x-4 bottom-4 z-[60] mx-auto max-w-md rounded-xl border border-warn/40 bg-card p-4 shadow-2xl transition-all duration-300 sm:inset-x-auto sm:right-6 sm:bottom-6 ${
+      className={`fixed inset-x-4 bottom-4 z-[60] mx-auto max-w-md rounded-xl border border-warn/40 bg-card p-4 shadow-2xl transition-all duration-300 sm:inset-x-auto sm:left-6 sm:bottom-6 ${
         dismissed ? 'pointer-events-none translate-y-4 opacity-0' : 'translate-y-0 opacity-100'
       }`}
     >

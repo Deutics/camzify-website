@@ -158,7 +158,8 @@ avoid it.
 | `FormWrapper` | Handles submit, loading, error and success for the lead forms. |
 | `ThemeProvider` / `ThemeToggle` | `next-themes`. Default is dark. |
 | `ChunkLoadErrorHandler` | **Do not remove.** Works around a known ChunkLoadError race. |
-| `MaintenanceNotice` | The dismissible corner card mounted in `app/layout.tsx` while the site is in maintenance. Dismissal is a `sessionStorage` key listed in the cookie policy. Remove the mount, not the component, when the site leaves maintenance. |
+| `BackToTop` | Site-wide control in the bottom-right corner, hidden with `inert` until the reader is more than a viewport down. A thin ring shows scroll progress; clicking scrolls to the top (instantly under reduced motion) and focuses the main landmark. No storage. |
+| `MaintenanceNotice` | The dismissible card mounted in `app/layout.tsx` while the site is in maintenance, bottom-left on wide screens so it never covers `BackToTop`. Dismissal is a `sessionStorage` key listed in the cookie policy. Remove the mount, not the component, when the site leaves maintenance. |
 
 Also in `layout/`: `NewsletterForm`, the only thing that posts to `/api/newsletter`, and
 `SiteLogo`, which swaps the light and dark wordmarks by theme class. The homepage's
