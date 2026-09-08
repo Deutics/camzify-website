@@ -76,7 +76,7 @@ organizations" — nothing on this site may carry a number the business has not 
 ### Service area
 
 - **Primary location(s):** Singapore (headquarters)
-- **Towns / suburbs / regions that matter:** Declared `areaServed` is Singapore, Southeast Asia, Middle East, United Kingdom, United States, Australia. The ROI calculator offers US, UK, Singapore, Australia, Europe, Other. ⚠️ verify — six regions is a very wide declared footprint for one site; the real priority market needs confirming.
+- **Markets, in the business's priority order (confirmed 2026-09-08):** United States (high-intent B2B and enterprise), Europe (GDPR-led buyers; certification is in progress, not held), Middle East (growing security market), Pakistan (founder's home market), Singapore (headquarters and hub). `areaServed` declares exactly these five, and the ROI calculator offers USD, EUR, GBP, AED, SGD and PKR. No regional page exists yet; see docs/AUDIENCE-STRATEGY.md Phase 2.
 - **Country for search data:** **United States** (confirmed by the business)
 - **Language for search data:** English (`en`), US variant for keyword matching.
 
