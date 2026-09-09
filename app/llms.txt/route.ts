@@ -118,6 +118,7 @@ ${siteConfig.name} is operated by ${siteConfig.legalName}, headquartered in Sing
 - **Phone:** ${siteConfig.phone}
 - **Email:** ${siteConfig.email}
 - **Website:** ${siteConfig.url}
+- **Profiles:** ${siteConfig.social.map((p) => `${p.label} ${p.href}`).join(' · ')}
 `;
 
 export async function GET() {

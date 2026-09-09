@@ -1,7 +1,9 @@
 import Link from 'next/link';
 import { SiteLogo } from '@/components/layout/site-logo';
 import { NewsletterForm } from '@/components/layout/newsletter-form';
-import { Mail, Phone, MapPin, ArrowUpRight, ArrowRight } from 'lucide-react';
+import { Mail, Phone, MapPin, ArrowUpRight, ArrowRight, Linkedin, Youtube, Facebook, Instagram } from 'lucide-react';
+
+const SOCIAL_ICON = { linkedin: Linkedin, youtube: Youtube, facebook: Facebook, instagram: Instagram } as const;
 import { siteConfig, formattedAddress } from '@/lib/site-config';
 
 /*
@@ -134,6 +136,25 @@ export function SiteFooter() {
             <a href={siteConfig.appUrl} target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-primary/40 hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
               Sign in to the console <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
             </a>
+            <ul className="mt-8 flex items-center gap-2" aria-label="Camzify on social media">
+              {siteConfig.social.map((p) => {
+                const Icon = SOCIAL_ICON[p.icon];
+                return (
+                  <li key={p.href}>
+                    <a
+                      href={p.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${siteConfig.name} on ${p.label}`}
+                      title={p.label}
+                      className="flex h-10 w-10 items-center justify-center rounded-lg border border-border text-muted-foreground transition-colors hover:border-primary/40 hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    >
+                      <Icon className="h-4 w-4" aria-hidden="true" />
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
           </div>
           <div className="lg:col-span-6 lg:col-start-7">
             <NewsletterForm />
