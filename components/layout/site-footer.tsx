@@ -136,25 +136,6 @@ export function SiteFooter() {
             <a href={siteConfig.appUrl} target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-primary/40 hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
               Sign in to the console <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
             </a>
-            <ul className="mt-8 flex items-center gap-2" aria-label="Camzify on social media">
-              {siteConfig.social.map((p) => {
-                const Icon = SOCIAL_ICON[p.icon];
-                return (
-                  <li key={p.href}>
-                    <a
-                      href={p.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`${siteConfig.name} on ${p.label}`}
-                      title={p.label}
-                      className="flex h-10 w-10 items-center justify-center rounded-lg border border-border text-muted-foreground transition-colors hover:border-primary/40 hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                    >
-                      <Icon className="h-4 w-4" aria-hidden="true" />
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
           </div>
           <div className="lg:col-span-6 lg:col-start-7">
             <NewsletterForm />
@@ -191,15 +172,36 @@ export function SiteFooter() {
 
       {/* Bottom bar */}
       <div className="border-t border-border">
-        <div className="mx-auto flex max-w-site flex-col gap-4 px-6 py-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+        <div className="mx-auto flex max-w-site flex-col gap-5 px-6 py-6 text-xs text-muted-foreground lg:flex-row lg:items-center lg:justify-between">
           <p>© {COPYRIGHT_YEAR} {siteConfig.legalName}. All rights reserved. Registered in Singapore.</p>
-          <ul className="flex flex-wrap items-center gap-x-5 gap-y-2">
-            {legal.map((l) => (
-              <li key={l.href}>
-                <Link href={l.href} className="transition-colors hover:text-foreground">{l.label}</Link>
-              </li>
-            ))}
-          </ul>
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
+            <ul className="flex flex-wrap items-center gap-x-5 gap-y-2">
+              {legal.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} className="transition-colors hover:text-foreground">{l.label}</Link>
+                </li>
+              ))}
+            </ul>
+            <ul className="flex items-center gap-1 sm:border-l sm:border-border sm:pl-6" aria-label="Camzify on social media">
+              {siteConfig.social.map((p) => {
+                const Icon = SOCIAL_ICON[p.icon];
+                return (
+                  <li key={p.href}>
+                    <a
+                      href={p.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${siteConfig.name} on ${p.label}`}
+                      title={p.label}
+                      className="flex h-8 w-8 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    >
+                      <Icon className="h-4 w-4" aria-hidden="true" />
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
         </div>
       </div>
     </footer>
