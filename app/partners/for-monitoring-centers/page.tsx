@@ -5,6 +5,7 @@ import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { FeatureHero } from '@/components/content/feature-hero';
 import { HeroPlaceholder } from '@/components/content/hero-placeholder';
 import { SectionVisual } from '@/components/content/section-visual';
+import { PointList } from '@/components/content/point-list';
 import Link from 'next/link';
 import { Eye, Radio, ShieldAlert, FileCheck2, Users, KeyRound, Layers } from 'lucide-react';
 
@@ -103,12 +104,14 @@ export default function ForMonitoringCentresPage() {
               <span className="font-mono text-mono-sm uppercase text-primary">The relationship</span>
               <h2 className="mt-2 font-display text-2xl font-bold">Where a monitoring company sits</h2>
               <p className="mt-4 max-w-prose text-muted-foreground">
-                The end client owns the site. The security agency holds the contract and
-                supplies the guards. The monitoring company sits behind the agency: it provides the{' '}
-                <Link href="/use-cases/remote-video-monitoring" className="text-primary hover:underline">remote video monitoring</Link>, runs the rounds, and tells the guard on site when a person is
-                needed. Three parties, and the one operating the console is neither the one
+                There are three parties, and the one operating the console is neither the one
                 that owns the cameras nor the one that employs the guard.
               </p>
+              <PointList items={[
+                'The end client owns the site.',
+                'The security agency holds the contract and supplies the guards.',
+                <>The monitoring company sits behind the agency: it provides the <Link href="/use-cases/remote-video-monitoring" className="text-primary hover:underline">remote video monitoring</Link>, runs the rounds, and tells the guard on site when a person is needed.</>,
+              ]} />
               <p className="mt-4 max-w-prose text-muted-foreground">
                 Most video software assumes the operator and the owner are the same company.
                 Camzify does not. The account model is multi-tenant by design, the guard
@@ -215,12 +218,18 @@ export default function ForMonitoringCentresPage() {
               <span className="font-mono text-mono-sm uppercase text-primary">The deliverable</span>
               <h2 className="mt-2 font-display text-2xl font-bold">What the agency receives after every round</h2>
               <p className="mt-4 max-w-prose text-muted-foreground">
-                A <Link href="/virtual-patrolling/patrol-reports" className="text-primary hover:underline">report per round</Link>:
-                the site, the camera stops in order, every checklist result, the snapshot each
-                result was judged against, the before-and-after pair for anything that failed and
-                was fixed, timestamps, and a compliance percentage. A Pending item counts against
-                that percentage, and a round cannot be closed with an item still Not Compliant, so
-                the number means what it says.
+                A <Link href="/virtual-patrolling/patrol-reports" className="text-primary hover:underline">report per round</Link>{' '}
+                sets out what was checked, what was found and when.
+              </p>
+              <PointList items={[
+                'It names the site and lists the camera stops in order.',
+                'It records every checklist result and the snapshot each result was judged against.',
+                'It includes the before-and-after pair for anything that failed and was fixed.',
+                'It carries timestamps and a compliance percentage.',
+              ]} />
+              <p className="mt-4 max-w-prose text-muted-foreground">
+                A Pending item counts against that percentage, and a round cannot be closed with
+                an item still Not Compliant, so the number means what it says.
               </p>
               <p className="mt-4 max-w-prose text-muted-foreground">
                 The agency reads its own reports through its scoped login and can pass them on
@@ -243,7 +252,10 @@ export default function ForMonitoringCentresPage() {
               <p className="mt-4 max-w-prose text-muted-foreground">
                 That this replaces your operators. It does not. Somebody still decides what a
                 critical notification means and whether the guard goes now or at the end of the
-                round. What changes is that the routine verification, the part that is expensive
+                round.
+              </p>
+              <p className="mt-4 max-w-prose text-muted-foreground">
+                What changes is that the routine verification, the part that is expensive
                 to staff and impossible to prove afterwards, stops depending on somebody watching
                 a wall of screens, and your operators&apos; attention goes to the events that
                 need it.
@@ -253,8 +265,10 @@ export default function ForMonitoringCentresPage() {
                 volumes, because we cannot substantiate them for your operation. Our position on
                 claims is on the{' '}
                 <Link href="/trust" className="text-primary hover:underline">trust page</Link>, and
-                it applies to partner conversations as much as to marketing. If you run guarding
-                rather than monitoring, the{' '}
+                it applies to partner conversations as much as to marketing.
+              </p>
+              <p className="mt-4 max-w-prose text-muted-foreground">
+                If you run guarding rather than monitoring, the{' '}
                 <Link href="/partners/for-security-agencies" className="text-primary hover:underline">security agencies</Link>{' '}
                 page is written for you. If you receive alarms, the{' '}
                 <Link href="/use-cases/alarm-verification" className="text-primary hover:underline">alarm verification</Link>{' '}

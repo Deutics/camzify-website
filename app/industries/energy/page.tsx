@@ -7,6 +7,7 @@ import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
 import Link from 'next/link';
+import { PointList } from '@/components/content/point-list';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -72,7 +73,12 @@ export default function EnergyPage() {
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
                 <p>Substations, solar farms, wind farms, and oil and gas installations are frequently unmanned by design, sitting hours from the nearest staffed office and visited only on a maintenance schedule that might run days or weeks apart. There is no guard walking a round at these sites, the fence line and equipment compounds go effectively unwatched between visits.</p>
                 <p>That distance is exactly what makes these sites attractive targets for copper theft, equipment tampering, and trespass, and by the time a scheduled visit uncovers a breach, whatever happened is long over and any evidence has degraded.</p>
-                <p>Continuous AI monitoring closes the gap between physical visits by checking the perimeter, equipment yards, and camera health on a repeating schedule regardless of how remote the site is, and raising an alert the moment a fence line is crossed or a camera stops reporting, turning an infrequent visit-based model into a monitored one.</p>
+                <p>Continuous AI monitoring closes the gap between physical visits, turning an infrequent visit-based model into a monitored one.</p>
+                <PointList items={[
+                  'It checks the perimeter, equipment yards, and camera health on a repeating schedule, regardless of how remote the site is.',
+                  'It raises an alert the moment a fence line is crossed.',
+                  'It raises an alert the moment a camera stops reporting.',
+                ]} />
               </div>
             </ScrollReveal>
           </div>
@@ -110,8 +116,13 @@ export default function EnergyPage() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Checking each stop</h3>
                 <p className="mt-2 text-muted-foreground">
-                  At each stop, the AI checks the defined conditions for that camera using <Link href="/ai-features/line-intrusion-detection" className="text-primary hover:underline">line intrusion</Link> and <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">zone intrusion detection</Link> — is the fence line intact, is the compound clear, is access restricted where it should be.
+                  At each stop, the AI checks the defined conditions for that camera using <Link href="/ai-features/line-intrusion-detection" className="text-primary hover:underline">line intrusion</Link> and <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">zone intrusion detection</Link>.
                 </p>
+                <PointList items={[
+                  'It checks whether the fence line is intact.',
+                  'It checks whether the compound is clear.',
+                  'It checks whether access is restricted where it should be.',
+                ]} />
 
                 <h3 className="mt-6 font-display text-lg font-bold">Routing the alert</h3>
                 <p className="mt-2 text-muted-foreground">

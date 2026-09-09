@@ -7,6 +7,7 @@ import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
 import Link from 'next/link';
+import { PointList } from '@/components/content/point-list';
 import { SiteImage } from '@/components/content/site-image';
 
 /**
@@ -78,7 +79,12 @@ export default function ConstructionSitesPage() {
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
                 <p>A construction site sits unoccupied for far more hours than it is worked, evenings, weekends, and the gaps between shifts, while holding materials, machinery, and copper wiring that are attractive and easy to move for anyone who gets past the fence line. A site is rarely staffed overnight at all, and where it is, one person cannot watch a laydown yard, a trailer row, and a full perimeter at the same time.</p>
                 <p>The layout itself keeps changing too. Fencing, storage areas, and camera positions shift week to week as the build progresses, which makes a fixed guard route or a "review the footage later" approach to CCTV fall behind the site almost as soon as it is set.</p>
-                <p>Continuous AI monitoring adapts with the site, zones and patrol stops are redrawn as cameras move, and checks the full perimeter and yard on a repeating schedule, flagging a breach or a moved fence panel the moment it happens instead of the next time someone reviews the recording.</p>
+                <p>Continuous AI monitoring adapts with the site.</p>
+                <PointList items={[
+                  'Zones and patrol stops are redrawn as cameras move.',
+                  'The round checks the full perimeter and yard on a repeating schedule.',
+                  'A breach or a moved fence panel is flagged the moment it happens instead of the next time someone reviews the recording.',
+                ]} />
               </div>
             </ScrollReveal>
           </div>
@@ -116,8 +122,13 @@ export default function ConstructionSitesPage() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Checking each stop</h3>
                 <p className="mt-2 text-muted-foreground">
-                  At each stop, the AI checks the defined conditions for that camera using <Link href="/ai-features/line-intrusion-detection" className="text-primary hover:underline">line intrusion</Link>, <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">zone intrusion</Link>, and <Link href="/ai-features/motion-detection" className="text-primary hover:underline">motion detection</Link> — is the fence line intact, is the yard clear, is there movement where there should not be.
+                  At each stop, the AI checks the defined conditions for that camera using <Link href="/ai-features/line-intrusion-detection" className="text-primary hover:underline">line intrusion</Link>, <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">zone intrusion</Link>, and <Link href="/ai-features/motion-detection" className="text-primary hover:underline">motion detection</Link>.
                 </p>
+                <PointList items={[
+                  'It checks whether the fence line is intact.',
+                  'It checks whether the yard is clear.',
+                  'It checks for movement where there should not be any.',
+                ]} />
 
                 <h3 className="mt-6 font-display text-lg font-bold">Routing the alert</h3>
                 <p className="mt-2 text-muted-foreground">

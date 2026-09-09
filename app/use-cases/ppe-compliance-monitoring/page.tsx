@@ -44,8 +44,18 @@ const content: UseCaseContent = {
   handles: {
     heading: 'Every person in frame, checked against the zone',
     paras: [
-      <><Link href="/ai-features/ppe-violation-detection" className="text-primary hover:underline">PPE violation detection</Link> checks each confirmed person in the camera view against the equipment required for that camera or zone and raises an alert with a clip and a confidence score when something required is missing. The check is weighed over the person&apos;s track rather than one frame, so a hat hidden for a second behind a rack is not a violation. The policy is per zone, so the dock and the office beside it carry different requirements on the same account.</>,
-      <>Add the check to a <Link href="/virtual-patrolling" className="text-primary hover:underline">patrol round</Link> and the site is recorded as compliant, or not, at each stop and each time, with the frame. That is the record an inspector or an insurer asks for after an incident, and it exists before anyone asks. <Link href="/ai-features/slip-and-fall-detection" className="text-primary hover:underline">Slip and fall detection</Link> on the same cameras covers the injury itself, and the <Link href="/use-cases/workplace-safety-monitoring" className="text-primary hover:underline">workplace safety page</Link> covers falls, exits and exclusion zones together.</>,
+      <><Link href="/ai-features/ppe-violation-detection" className="text-primary hover:underline">PPE violation detection</Link> checks each confirmed person in the camera view against the equipment required for that camera or zone.</>,
+      { points: [
+        'It raises an alert with a clip and a confidence score when something required is missing.',
+        'The check is weighed over the person\'s track rather than one frame, so a hat hidden for a second behind a rack is not a violation.',
+        'The policy is per zone, so the dock and the office beside it carry different requirements on the same account.',
+      ] },
+      <>Add the check to a <Link href="/virtual-patrolling" className="text-primary hover:underline">patrol round</Link> and the site is recorded as compliant, or not, at each stop and each time, with the frame.</>,
+      { points: [
+        'That is the record an inspector or an insurer asks for after an incident, and it exists before anyone asks.',
+        <><Link href="/ai-features/slip-and-fall-detection" className="text-primary hover:underline">Slip and fall detection</Link> on the same cameras covers the injury itself.</>,
+        <>The <Link href="/use-cases/workplace-safety-monitoring" className="text-primary hover:underline">workplace safety page</Link> covers falls, exits and exclusion zones together.</>,
+      ] },
     ],
     detections: [
       { href: '/ai-features/ppe-violation-detection', name: 'PPE violation detection', role: 'Hard hats, high-visibility vests and gloves checked per person against the zone policy.' },
@@ -61,14 +71,25 @@ const content: UseCaseContent = {
     items: [['All persons in hard hats', 'fail'], ['High-visibility vests worn', 'ok'], ['Exclusion zone clear', 'ok'], ['Walkway unobstructed', 'ok']],
     caption: 'The mid-shift round finds a person without a hat on the bay. The supervisor gets the frame; the round records it.',
     paras: [
-      'A safety sequence is the cameras on the working areas in order, and its checklist mixes equipment and conditions: everyone in hats, vests on, exclusion zone clear, walkways unobstructed, extinguisher points accessible. Run at the start of each shift and mid-shift, it produces a report per round that shows the site as it was, with frames, which is worth more in a review than a signed checklist.',
+      'A safety sequence is the cameras on the working areas in order, and its checklist mixes equipment and conditions.',
+      { points: [
+        'The items are everyone in hats, vests on, exclusion zone clear, walkways unobstructed, extinguisher points accessible.',
+        'Run at the start of each shift and mid-shift, it produces a report per round that shows the site as it was, with frames.',
+        'That report is worth more in a review than a signed checklist.',
+      ] },
       <>Where the round is <Link href="/virtual-patrolling/automated-patrol-scheduling" className="text-primary hover:underline">automated</Link>, the AI also raises a critical notification for a safety risk it sees that the checklist did not ask about.</>,
     ],
   },
   limits: {
     heading: 'What it will not do',
     paras: [
-      'It will not check equipment it is not built for: harnesses, eye protection and respirators are not claimed. It will not identify the person; the clip shows what a supervisor would see and no more. It will not see a person the camera cannot see, or a hat under a hood the camera cannot resolve. And it does not decide the consequence; that stays with your safety process.',
+      'The check is limited to the equipment it is built for and to what the camera can resolve.',
+      { points: [
+        'It will not check equipment it is not built for: harnesses, eye protection and respirators are not claimed.',
+        'It will not identify the person; the clip shows what a supervisor would see and no more.',
+        'It will not see a person the camera cannot see, or a hat under a hood the camera cannot resolve.',
+        'It does not decide the consequence; that stays with your safety process.',
+      ] },
       <>We do not publish detection accuracy or injury-reduction figures. The <Link href="/trust" className="text-primary hover:underline">trust page</Link> sets out why.</>,
     ],
   },

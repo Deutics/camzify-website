@@ -6,6 +6,7 @@ import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
 import Link from 'next/link';
+import { PointList } from '@/components/content/point-list';
 import { PhotoFigure } from '@/components/content/photo-figure';
 import { SiteImage } from '@/components/content/site-image';
 
@@ -78,7 +79,12 @@ export default function HealthcarePage() {
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
                 <p>Hospitals and clinics run around the clock, but security staff and clinical staff both thin out overnight, leaving pharmacy storage, restricted wings, equipment rooms, and emergency exits with far less oversight during the hours they're most exposed. A guard covering a large campus can only be in one place at a time.</p>
                 <p>Plain CCTV records every corridor and storage room but nobody reviews the footage until after an incident is reported, and healthcare facilities also carry patient privacy considerations that make blanket monitoring the wrong approach, security coverage needs to be scoped precisely to facility zones, not clinical care areas.</p>
-                <p>Continuous AI monitoring solves both problems at once: it checks only the zones you define, on a fixed schedule, and flags a failure the moment it happens rather than after the fact, giving security teams a documented, privacy-scoped patrol record without adding headcount.</p>
+                <p>Continuous AI monitoring solves both problems at once.</p>
+                <PointList items={[
+                  'It checks only the zones you define, on a fixed schedule.',
+                  'It flags a failure the moment it happens rather than after the fact.',
+                  'It gives security teams a documented, privacy-scoped patrol record without adding headcount.',
+                ]} />
               </div>
             </ScrollReveal>
           </div>
@@ -116,8 +122,13 @@ export default function HealthcarePage() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Checking each stop</h3>
                 <p className="mt-2 text-muted-foreground">
-                  At each stop, the AI checks the defined conditions for that camera using <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">Zone Intrusion Detection</Link> and <Link href="/ai-features/motion-detection" className="text-primary hover:underline">Motion Detection</Link> — is the storage room clear, is the exit path unobstructed, is the camera unobstructed.
+                  At each stop, the AI checks the defined conditions for that camera using <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">Zone Intrusion Detection</Link> and <Link href="/ai-features/motion-detection" className="text-primary hover:underline">Motion Detection</Link>.
                 </p>
+                <PointList items={[
+                  'It checks whether the storage room is clear.',
+                  'It checks whether the exit path is unobstructed.',
+                  'It checks whether the camera is unobstructed.',
+                ]} />
 
                 <h3 className="mt-6 font-display text-lg font-bold">Routing the alert</h3>
                 <p className="mt-2 text-muted-foreground">

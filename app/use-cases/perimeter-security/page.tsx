@@ -44,8 +44,20 @@ const content: UseCaseContent = {
   handles: {
     heading: 'Detections for the event, rounds for the record',
     paras: [
-      <><Link href="/ai-features/line-intrusion-detection" className="text-primary hover:underline">Line intrusion detection</Link> draws a tripwire across the fence line or gate in the camera view, with a direction, and fires when a confirmed object track of a chosen class crosses it. <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">Zone intrusion detection</Link> does the same for an area, the yard inside the fence for example, with a notification window per camera so that presence at 3am notifies and presence at 3pm does not. Both operate on a track the system has followed across frames, which is why a swaying branch does not count.</>,
-      <>Between those events, a <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrol round</Link> visits every fence-facing camera on a schedule and checks a list: is the fence line clear, is the gate closed, is the camera view unobstructed. Each answer is recorded with the frame it was judged against. <Link href="/ai-features/camera-tampering-detection" className="text-primary hover:underline">Camera tampering detection</Link> covers the case where the camera itself is turned, covered or blinded, which on a perimeter is often the first move; <Link href="/use-cases/camera-health-monitoring" className="text-primary hover:underline">camera health monitoring</Link> covers the slow failures.</>,
+      'Two detections watch the boundary for the event.',
+      { points: [
+        <><Link href="/ai-features/line-intrusion-detection" className="text-primary hover:underline">Line intrusion detection</Link> draws a tripwire across the fence line or gate in the camera view, with a direction, and fires when a confirmed object track of a chosen class crosses it.</>,
+        <><Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">Zone intrusion detection</Link> does the same for an area, the yard inside the fence for example.</>,
+        'A notification window per camera means that presence at 3am notifies and presence at 3pm does not.',
+        'Both operate on a track the system has followed across frames, which is why a swaying branch does not count.',
+      ] },
+      <>Between those events, a <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrol round</Link> visits every fence-facing camera on a schedule and checks a list.</>,
+      { points: [
+        'The list asks whether the fence line is clear, whether the gate is closed and whether the camera view is unobstructed.',
+        'Each answer is recorded with the frame it was judged against.',
+        <><Link href="/ai-features/camera-tampering-detection" className="text-primary hover:underline">Camera tampering detection</Link> covers the case where the camera itself is turned, covered or blinded, which on a perimeter is often the first move.</>,
+        <>The slow failures are covered by <Link href="/use-cases/camera-health-monitoring" className="text-primary hover:underline">camera health monitoring</Link>.</>,
+      ] },
     ],
     detections: [
       { href: '/ai-features/line-intrusion-detection', name: 'Line intrusion detection', role: 'A directional tripwire on the fence line or gate. Fires on a tracked person or vehicle crossing it.' },
@@ -61,14 +73,24 @@ const content: UseCaseContent = {
     items: [['Fence line clear', 'ok'], ['Gate closed and latched', 'ok'], ['No person in the yard', 'fail'], ['Camera view unobstructed', 'pending']],
     caption: 'A fence-line stop with one failed item and one waiting on the guard. Both count against the round’s compliance.',
     paras: [
-      'A perimeter sequence is the fence-facing cameras in walking order, with a checklist at each. The items are conditions, not events: the fence line is clear, the gate is closed, nothing is parked against the boundary, the camera sees what it should. A round that passes produces a report that says so, with a snapshot per item, which is the record an insurer or an auditor asks for and a camera alone never produces.',
+      'A perimeter sequence is the fence-facing cameras in walking order, with a checklist at each.',
+      { points: [
+        'The items are conditions, not events: the fence line is clear, the gate is closed, nothing is parked against the boundary, the camera sees what it should.',
+        'A round that passes produces a report that says so, with a snapshot per item.',
+        'That report is the record an insurer or an auditor asks for and a camera alone never produces.',
+      ] },
       <>Run it manually when an operator is on shift, or <Link href="/virtual-patrolling/automated-patrol-scheduling" className="text-primary hover:underline">on a schedule</Link> through the night with nobody in the loop. Frequency, active hours and active days are yours to set; every 30 minutes on the perimeter overnight is a common shape.</>,
     ],
   },
   limits: {
     heading: 'What it will not do',
     paras: [
-      'It will not see through a camera that cannot see. Fog, heavy rain and a lens pointed at a floodlight degrade the image, and the detections work on the image. It will not identify who crossed the fence; attribute extraction can describe clothing and what they were carrying, and it is not facial recognition. And it will not stop anyone. It tells the right guard, with the snapshot, and the response is theirs.',
+      'Its limits are the camera\'s limits, and the response is always a person\'s.',
+      { points: [
+        'It will not see through a camera that cannot see: fog, heavy rain and a lens pointed at a floodlight degrade the image, and the detections work on the image.',
+        'It will not identify who crossed the fence; attribute extraction can describe clothing and what they were carrying, and it is not facial recognition.',
+        'It will not stop anyone; it tells the right guard, with the snapshot, and the response is theirs.',
+      ] },
       <>We do not publish detection rates or alert delivery times, because they depend on your cameras, your lighting and your network. The <Link href="/trust" className="text-primary hover:underline">trust page</Link> sets out that policy.</>,
     ],
   },

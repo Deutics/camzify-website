@@ -5,6 +5,7 @@ import { FaqSection } from '@/components/content/faq-section';
 import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
+import { PointList } from '@/components/content/point-list';
 import Link from 'next/link';
 
 /**
@@ -90,8 +91,13 @@ export default function LineIntrusionPage() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Alert delivery</h3>
                 <p className="mt-2 text-muted-foreground">
-                  Each alert includes the object type, confidence score, timestamp, and, when <Link href="/ai-features/ai-attribute-extraction" className="text-primary hover:underline">AI attribute extraction</Link> is enabled — structured attributes like clothing color and behavior description. Alerts route through the platform's notification system and appear in the <Link href="/platform/notifications-and-alerts" className="text-primary hover:underline">notification queue</Link> with severity, acknowledgment status, and the option to mark as false positive.
+                  Each alert includes the object type, confidence score, and timestamp.
                 </p>
+                <PointList className="mt-3" items={[
+                  <>When <Link href="/ai-features/ai-attribute-extraction" className="text-primary hover:underline">AI attribute extraction</Link> is enabled, the alert also carries structured attributes like clothing color and behavior description.</>,
+                  <>Alerts route through the platform's notification system and appear in the <Link href="/platform/notifications-and-alerts" className="text-primary hover:underline">notification queue</Link>.</>,
+                  'Each queued alert shows its severity, its acknowledgment status, and the option to mark it as a false positive.',
+                ]} />
               </div>
             </ScrollReveal>
           </div>

@@ -5,6 +5,7 @@ import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { FeatureHero } from '@/components/content/feature-hero';
 import { HeroPlaceholder } from '@/components/content/hero-placeholder';
 import { SectionVisual } from '@/components/content/section-visual';
+import { PointList } from '@/components/content/point-list';
 import Link from 'next/link';
 import { Cable, Server, Users, FileCheck2, Camera, KeyRound, HardDrive } from 'lucide-react';
 
@@ -97,14 +98,14 @@ export default function ForSecurityIntegratorsPage() {
               <span className="font-mono text-mono-sm uppercase text-primary">Connection</span>
               <h2 className="mt-2 font-display text-2xl font-bold">Three ways a camera reaches Camzify</h2>
               <p className="mt-4 max-w-prose text-muted-foreground">
-                A camera whose stream is reachable from the internet connects directly by its
-                RTSP URL. A camera on the customer&apos;s LAN connects through the{' '}
-                <Link href="/camzify-connector" className="text-primary hover:underline">Camzify Connector</Link>,
-                a small application on a PC inside that network, so there is no port forwarding
-                to negotiate with the customer&apos;s IT. Encoders and streaming appliances push
-                RTMP to a private ingest address, and web-delivered streams connect over HTTPS,
-                whether HLS or WebRTC.
+                Which route a camera takes depends on where its stream is reachable from.
               </p>
+              <PointList items={[
+                'A camera whose stream is reachable from the internet connects directly by its RTSP URL.',
+                <>A camera on the customer&apos;s LAN connects through the <Link href="/camzify-connector" className="text-primary hover:underline">Camzify Connector</Link>, a small application on a PC inside that network, so there is no port forwarding to negotiate with the customer&apos;s IT.</>,
+                'Encoders and streaming appliances push RTMP to a private ingest address.',
+                'Web-delivered streams connect over HTTPS, whether HLS or WebRTC.',
+              ]} />
               <p className="mt-4 max-w-prose text-muted-foreground">
                 The route is chosen per camera when it is added, and a site can mix all three.
                 The{' '}
@@ -172,14 +173,14 @@ export default function ForSecurityIntegratorsPage() {
               <h2 className="font-display text-2xl font-bold">What we will not tell you</h2>
               <p className="mt-4 max-w-prose text-muted-foreground">
                 That there is a certified installer program, a partner portal or a published
-                margin. There is not, and we would rather say so than invent one. Commercial terms
-                for integrators are agreed in conversation. What we can say is what the product
-                does, in detail, on the{' '}
-                <Link href="/platform" className="text-primary hover:underline">platform pages</Link>{' '}
-                and in the{' '}
-                <Link href="/guides" className="text-primary hover:underline">guides</Link>, and our
-                position on claims is on the{' '}
-                <Link href="/trust" className="text-primary hover:underline">trust page</Link>.
+                margin.
+              </p>
+              <PointList items={[
+                'There is not, and we would rather say so than invent one.',
+                'Commercial terms for integrators are agreed in conversation.',
+                <>What we can say is what the product does, in detail, on the <Link href="/platform" className="text-primary hover:underline">platform pages</Link> and in the <Link href="/guides" className="text-primary hover:underline">guides</Link>, and our position on claims is on the <Link href="/trust" className="text-primary hover:underline">trust page</Link>.</>,
+              ]} />
+              <p className="mt-4 max-w-prose text-muted-foreground">
                 If you also operate monitoring for your customers, the{' '}
                 <Link href="/partners/for-managed-service-providers" className="text-primary hover:underline">managed service providers</Link>{' '}
                 page covers holding accounts on their behalf, and the{' '}

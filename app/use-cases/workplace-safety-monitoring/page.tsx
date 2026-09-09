@@ -34,7 +34,12 @@ const content: UseCaseContent = {
   problem: {
     heading: 'The injury is found by the next person past',
     paras: [
-      'Someone falls in an aisle at the far end of the warehouse and lies there until a colleague happens by. A fire exit is blocked by a pallet for a week because the walk-through is monthly. A contractor steps inside the press exclusion zone and nobody sees it, so it becomes normal. None of these is a mystery afterwards; all of them were on camera.',
+      'None of it is a mystery afterwards; all of it was on camera.',
+      { points: [
+        'Someone falls in an aisle at the far end of the warehouse and lies there until a colleague happens by.',
+        'A fire exit is blocked by a pallet for a week because the walk-through is monthly.',
+        'A contractor steps inside the press exclusion zone and nobody sees it, so it becomes normal.',
+      ] },
       'Safety monitoring has depended on the safety officer being in the right place, and a site has one safety officer and forty cameras.',
     ],
     visual: 'flow',
@@ -45,8 +50,18 @@ const content: UseCaseContent = {
   handles: {
     heading: 'Events raised live. Conditions checked on the round.',
     paras: [
-      <><Link href="/ai-features/slip-and-fall-detection" className="text-primary hover:underline">Slip and fall detection</Link> watches the movement pattern of each confirmed person and raises an alert with a clip when it matches a fall, routed to the nearest guard so someone attends rather than someone eventually notices. <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">Zone intrusion detection</Link> covers exclusion zones around machinery and vehicle lanes. <Link href="/ai-features/ppe-violation-detection" className="text-primary hover:underline">PPE violation detection</Link> checks hats, vests and gloves against the policy for each zone; the <Link href="/use-cases/ppe-compliance-monitoring" className="text-primary hover:underline">PPE compliance page</Link> covers that check in depth.</>,
-      <>The conditions that do not announce themselves, a blocked exit, a stacked walkway, an obstructed extinguisher point, are checklist items on a <Link href="/virtual-patrolling" className="text-primary hover:underline">patrol round</Link>, judged from the frame at each stop and recorded with it. <Link href="/ai-features/abandoned-object-detection" className="text-primary hover:underline">Abandoned object detection</Link> catches the pallet left in the route between rounds, and an automated round raises a critical notification for a <Link href="/virtual-patrolling/risk-detection" className="text-primary hover:underline">risk it sees</Link> that no item asked about.</>,
+      'The detections raise the events live.',
+      { points: [
+        <><Link href="/ai-features/slip-and-fall-detection" className="text-primary hover:underline">Slip and fall detection</Link> watches the movement pattern of each confirmed person and raises an alert with a clip when it matches a fall, routed to the nearest guard so someone attends rather than someone eventually notices.</>,
+        <><Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">Zone intrusion detection</Link> covers exclusion zones around machinery and vehicle lanes.</>,
+        <><Link href="/ai-features/ppe-violation-detection" className="text-primary hover:underline">PPE violation detection</Link> checks hats, vests and gloves against the policy for each zone; the <Link href="/use-cases/ppe-compliance-monitoring" className="text-primary hover:underline">PPE compliance page</Link> covers that check in depth.</>,
+      ] },
+      <>The conditions that do not announce themselves, a blocked exit, a stacked walkway, an obstructed extinguisher point, are checklist items on a <Link href="/virtual-patrolling" className="text-primary hover:underline">patrol round</Link>.</>,
+      { points: [
+        'Each is judged from the frame at each stop and recorded with it.',
+        <><Link href="/ai-features/abandoned-object-detection" className="text-primary hover:underline">Abandoned object detection</Link> catches the pallet left in the route between rounds.</>,
+        <>An automated round raises a critical notification for a <Link href="/virtual-patrolling/risk-detection" className="text-primary hover:underline">risk it sees</Link> that no item asked about.</>,
+      ] },
     ],
     detections: [
       { href: '/ai-features/slip-and-fall-detection', name: 'Slip and fall detection', role: 'A fall on a person\'s track, raised with a clip and routed to the nearest guard.' },
@@ -62,14 +77,25 @@ const content: UseCaseContent = {
     items: [['Walkway unobstructed', 'ok'], ['Fire exit clear', 'ok'], ['Exclusion zone empty', 'fail'], ['Spill or debris on floor', 'ok']],
     caption: 'The 10:00 round finds a person inside the press exclusion zone. Frame to the supervisor; the round records it.',
     paras: [
-      'A safety sequence walks the cameras over the working areas and asks the questions a safety officer asks on a walk-through: walkway clear, exit clear, zone empty, floor dry, extinguisher accessible. Run at shift start and mid-shift, it produces a report per round with a frame per item, which is the site as it was rather than as it was remembered.',
+      'A safety sequence walks the cameras over the working areas and asks the questions a safety officer asks on a walk-through.',
+      { points: [
+        'The items are walkway clear, exit clear, zone empty, floor dry, extinguisher accessible.',
+        'Run at shift start and mid-shift, it produces a report per round with a frame per item.',
+        'That is the site as it was rather than as it was remembered.',
+      ] },
       <>The <Link href="/virtual-patrolling/patrol-reports" className="text-primary hover:underline">report</Link> is what an inspector, an insurer or a claimant&apos;s solicitor asks for, and it exists before they ask.</>,
     ],
   },
   limits: {
     heading: 'What it will not do',
     paras: [
-      'It will not replace the safety officer, first aid or the reporting process; it starts them sooner. It will not see a fall on a camera pointed at the ceiling or in an area without a camera. It will not detect a chemical, a gas, a noise or a temperature. And it does not identify anyone; a fall alert shows a person falling, not who.',
+      'It works from what the camera shows and hands the rest to people.',
+      { points: [
+        'It will not replace the safety officer, first aid or the reporting process; it starts them sooner.',
+        'It will not see a fall on a camera pointed at the ceiling or in an area without a camera.',
+        'It will not detect a chemical, a gas, a noise or a temperature.',
+        'It does not identify anyone; a fall alert shows a person falling, not who.',
+      ] },
       <>We do not publish detection accuracy or injury-reduction figures. The <Link href="/trust" className="text-primary hover:underline">trust page</Link> sets out the policy.</>,
     ],
   },

@@ -44,8 +44,19 @@ const content: UseCaseContent = {
   handles: {
     heading: 'The timeline is written before anyone asks for it',
     paras: [
-      <>Every detection is logged with its camera, its time and a snapshot, so the log for a camera is already a list of the moments that mattered. Every <Link href="/virtual-patrolling/patrol-reports" className="text-primary hover:underline">patrol round</Link> adds a frame per checklist item at a known time, and two rounds either side of an incident bound it to a window before any footage is opened. <Link href="/ai-features/ai-attribute-extraction" className="text-primary hover:underline">Attribute extraction</Link> attaches a description to each person seen: clothing color, what they carried, which way they went.</>,
-      <>That description is what <Link href="/ai-features/forensic-video-search" className="text-primary hover:underline">AI suspect search</Link> works on. Describe the person in plain language and it returns every matching appearance across the indexed cameras and time window, ranked by confidence, with no reference photo. The <Link href="/ai-features/cross-camera-journey-map" className="text-primary hover:underline">cross-camera journey map</Link> then links those appearances into a path, and <Link href="/platform/video-backup-and-retention" className="text-primary hover:underline">cloud backup</Link> holds the footage to play at each point, within its retention window. For events that need a response while they happen, see <Link href="/use-cases/violence-and-weapons-detection" className="text-primary hover:underline">violence and weapons detection</Link>.</>,
+      'The timeline is assembled from the detection log, the patrol reports and the description attached to each person seen.',
+      { points: [
+        'Every detection is logged with its camera, its time and a snapshot, so the log for a camera is already a list of the moments that mattered.',
+        <>Every <Link href="/virtual-patrolling/patrol-reports" className="text-primary hover:underline">patrol round</Link> adds a frame per checklist item at a known time, and two rounds either side of an incident bound it to a window before any footage is opened.</>,
+        <><Link href="/ai-features/ai-attribute-extraction" className="text-primary hover:underline">Attribute extraction</Link> attaches a description to each person seen: clothing color, what they carried, which way they went.</>,
+      ] },
+      <>That description is what <Link href="/ai-features/forensic-video-search" className="text-primary hover:underline">AI suspect search</Link> works on.</>,
+      { points: [
+        'Describe the person in plain language and it returns every matching appearance across the indexed cameras and time window, ranked by confidence, with no reference photo.',
+        <>The <Link href="/ai-features/cross-camera-journey-map" className="text-primary hover:underline">cross-camera journey map</Link> then links those appearances into a path.</>,
+        <>Within its retention window, <Link href="/platform/video-backup-and-retention" className="text-primary hover:underline">cloud backup</Link> holds the footage to play at each point.</>,
+      ] },
+      <>For events that need a response while they happen, see <Link href="/use-cases/violence-and-weapons-detection" className="text-primary hover:underline">violence and weapons detection</Link>.</>,
     ],
     detections: [
       { href: '/ai-features/forensic-video-search', name: 'AI suspect search', role: 'A plain-language description returns matching appearances across cameras and time. Not facial recognition.' },
@@ -68,7 +79,13 @@ const content: UseCaseContent = {
   limits: {
     heading: 'What it will not do',
     paras: [
-      'It will not identify anyone. Suspect search matches on attributes, not faces, and returns appearances, not names. It will not recover footage past the retention window on that camera. It will not find a moment on a camera that was not covering it. And it does not decide what a record is worth in a proceeding; that is a question for your counsel.',
+      'The record it builds has four limits.',
+      { points: [
+        'It will not identify anyone: suspect search matches on attributes, not faces, and returns appearances, not names.',
+        'It will not recover footage past the retention window on that camera.',
+        'It will not find a moment on a camera that was not covering it.',
+        'It does not decide what a record is worth in a proceeding; that is a question for your counsel.',
+      ] },
       <>We do not publish search accuracy figures, because they depend on your cameras and lighting. The <Link href="/trust" className="text-primary hover:underline">trust page</Link> sets out the policy.</>,
     ],
   },

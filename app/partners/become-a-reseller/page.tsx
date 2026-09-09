@@ -5,6 +5,7 @@ import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { FeatureHero } from '@/components/content/feature-hero';
 import { HeroPlaceholder } from '@/components/content/hero-placeholder';
 import { SectionVisual } from '@/components/content/section-visual';
+import { PointList } from '@/components/content/point-list';
 import Link from 'next/link';
 import { Camera, Route, FileCheck2, ShieldCheck, Users, BookOpen, MessageSquare } from 'lucide-react';
 
@@ -99,10 +100,16 @@ export default function BecomeAResellerPage() {
                 An AI cloud video management system for the cameras a customer already has, with
                 one capability other cloud VMS products do not offer:{' '}
                 <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</Link>.
-                A scheduled round works through each camera in order, checks a defined list at
-                each stop, messages the designated guard when a check fails, and files a report
-                with the snapshot behind every result. It replaces the routine patrol round, not
-                the security function, and we say that on every page.
+              </p>
+              <PointList items={[
+                'A scheduled round works through each camera in order.',
+                'It checks a defined list at each stop.',
+                'It messages the designated guard when a check fails.',
+                'It files a report with the snapshot behind every result.',
+              ]} />
+              <p className="mt-4 max-w-prose text-muted-foreground">
+                It replaces the routine patrol round, not the security function, and we say that
+                on every page.
               </p>
               <p className="mt-4 max-w-prose text-muted-foreground">
                 Around it sit the parts a buyer expects of any VMS: live streaming, cloud

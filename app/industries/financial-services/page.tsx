@@ -6,6 +6,7 @@ import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
 import Link from 'next/link';
+import { PointList } from '@/components/content/point-list';
 import { PhotoFigure } from '@/components/content/photo-figure';
 import { SiteImage } from '@/components/content/site-image';
 
@@ -78,7 +79,12 @@ export default function FinancialServicesPage() {
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
                 <p>Branches and back-office facilities hold a mix of cash, records, and restricted infrastructure, but staffing thins out well before the building is actually empty, closing procedures, overnight hours, and weekend closures all leave vaults, ATMs, and server rooms with far less oversight than the risk they carry would suggest.</p>
                 <p>A guard walking a closing round checks each area once; a fixed CCTV system records everything but reviews none of it until someone asks for the footage after the fact. Neither approach catches a vault corridor breach or an ATM vestibule left occupied after hours while it is still happening.</p>
-                <p>Financial institutions also carry real audit and regulatory expectations around demonstrating that security checks took place, not just that cameras were recording. Continuous AI patrolling closes both gaps at once, a documented, timestamped check of every zone on a fixed schedule, with an immediate alert the moment something fails, rather than a record that only gets reviewed after a loss has already happened.</p>
+                <p>Financial institutions also carry real audit and regulatory expectations around demonstrating that security checks took place, not just that cameras were recording. Continuous AI patrolling closes both gaps at once.</p>
+                <PointList items={[
+                  'Every zone gets a documented, timestamped check on a fixed schedule.',
+                  'An immediate alert goes out the moment something fails.',
+                  'That replaces a record that only gets reviewed after a loss has already happened.',
+                ]} />
               </div>
             </ScrollReveal>
           </div>
@@ -116,8 +122,13 @@ export default function FinancialServicesPage() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Checking each stop</h3>
                 <p className="mt-2 text-muted-foreground">
-                  At each stop, the AI checks the defined conditions for that camera using <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">Zone Intrusion Detection</Link> and <Link href="/ai-features/motion-detection" className="text-primary hover:underline">Motion Detection</Link> — is the vault area clear, is the vestibule empty, is the camera unobstructed.
+                  At each stop, the AI checks the defined conditions for that camera using <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">Zone Intrusion Detection</Link> and <Link href="/ai-features/motion-detection" className="text-primary hover:underline">Motion Detection</Link>.
                 </p>
+                <PointList items={[
+                  'It checks whether the vault area is clear.',
+                  'It checks whether the vestibule is empty.',
+                  'It checks whether the camera is unobstructed.',
+                ]} />
 
                 <h3 className="mt-6 font-display text-lg font-bold">Routing the alert</h3>
                 <p className="mt-2 text-muted-foreground">

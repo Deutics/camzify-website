@@ -100,8 +100,11 @@ export default function Page() {
                 <p className="mt-4 text-muted-foreground">
                   An Auditor is the inverse. Page access is complete: all 7 pages, including Configuration and
                   Plan & Usage, which no other non-admin role reaches. Instance permissions are View on all 10
-                  types, and zero write access anywhere. One role is built to act with minimal visibility; the
-                  other is built to see everything and change nothing.
+                  types, and zero write access anywhere.
+                </p>
+                <p className="mt-4 text-muted-foreground">
+                  One role is built to act with minimal visibility; the other is built to see everything and
+                  change nothing.
                 </p>
               </div>
             </ScrollReveal>

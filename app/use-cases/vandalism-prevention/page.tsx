@@ -44,8 +44,13 @@ const content: UseCaseContent = {
   handles: {
     heading: 'The person at the wall is the event',
     paras: [
-      <><Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">Zone intrusion detection</Link> draws the vulnerable areas on each exterior camera, the wall, the forecourt, the ground-floor windows, the equipment yard, the car park, and the camera's notification window is set to the hours when nobody should be in them. A tracked person inside a zone during the window raises an alert with the snapshot; outside it, nothing is sent. Because it fires on a track rather than on motion, a cat, a headlight sweep or a plastic bag does not.</>,
-      <>Automated <Link href="/virtual-patrolling/automated-patrol-scheduling" className="text-primary hover:underline">patrol rounds</Link> can watch a scene for a short period before judging, which tells a person walking past from a person who has stopped. The round also checks the exterior on a schedule, no person present, no new damage visible, camera unobstructed, and keeps the frame, which is the timeline when damage is found.</>,
+      <><Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">Zone intrusion detection</Link> draws the vulnerable areas on each exterior camera: the wall, the forecourt, the ground-floor windows, the equipment yard, the car park.</>,
+      { points: [
+        'The camera\'s notification window is set to the hours when nobody should be in them.',
+        'A tracked person inside a zone during the window raises an alert with the snapshot; outside it, nothing is sent.',
+        'Because it fires on a track rather than on motion, a cat, a headlight sweep or a plastic bag does not.',
+      ] },
+      <>Automated <Link href="/virtual-patrolling/automated-patrol-scheduling" className="text-primary hover:underline">patrol rounds</Link> can watch a scene for a short period before judging, which tells a person walking past from a person who has stopped. The round also checks the exterior on a schedule: no person present, no new damage visible, camera unobstructed. It keeps the frame, which is the timeline when damage is found.</>,
     ],
     detections: [
       { href: '/ai-features/zone-intrusion-detection', name: 'Zone intrusion detection', role: 'Walls, windows, yards and car parks as zones, notified in the off-hours window.' },
@@ -61,14 +66,25 @@ const content: UseCaseContent = {
     items: [['No person at the wall', 'fail'], ['Ground-floor windows intact', 'ok'], ['Equipment yard clear', 'ok'], ['No new damage visible', 'ok']],
     caption: 'The 02:00 round finds someone at the west wall. Snapshot to the guard; the rest of the stop passed.',
     paras: [
-      'An exterior sequence is the cameras around the building in walking order, with a checklist of conditions: nobody present, windows intact, yard clear, no new damage visible, camera unobstructed. Repeated through the night, it produces a report per round that shows the property was checked and found in order at each time, which is what the landlord and the insurer ask for after the night it was not.',
+      'An exterior sequence is the cameras around the building in walking order, with a checklist of conditions.',
+      { points: [
+        'The items are nobody present, windows intact, yard clear, no new damage visible, camera unobstructed.',
+        'Repeated through the night, it produces a report per round that shows the property was checked and found in order at each time.',
+        'That is what the landlord and the insurer ask for after the night it was not.',
+      ] },
       <>Keep the items as conditions rather than events so that a passing round means something. <Link href="/virtual-patrolling/patrol-checklists" className="text-primary hover:underline">How checklists work</Link> covers the difference.</>,
     ],
   },
   limits: {
     heading: 'What it will not do',
     paras: [
-      'It will not see the act of painting, breaking or cutting, and it will not identify who did it; attribute extraction describes clothing and carried objects, and that is all. It will not cover a wall without a camera on it. And it will not intervene: it puts the snapshot in front of the guard designated for that camera while the person is still there.',
+      'It sees a person where one should not be, and no more than that.',
+      { points: [
+        'It will not see the act of painting, breaking or cutting.',
+        'It will not identify who did it; attribute extraction describes clothing and carried objects, and that is all.',
+        'It will not cover a wall without a camera on it.',
+        'It will not intervene: it puts the snapshot in front of the guard designated for that camera while the person is still there.',
+      ] },
       <>We do not publish figures for incidents prevented. The <Link href="/trust" className="text-primary hover:underline">trust page</Link> sets out what we claim and what we do not.</>,
     ],
   },

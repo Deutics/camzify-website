@@ -5,6 +5,7 @@ import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { FeatureHero } from '@/components/content/feature-hero';
 import { HeroPlaceholder } from '@/components/content/hero-placeholder';
 import { SectionVisual } from '@/components/content/section-visual';
+import { PointList } from '@/components/content/point-list';
 import Link from 'next/link';
 import { Layers, Users, KeyRound, Bell, HardDrive, FileCheck2, ShieldCheck } from 'lucide-react';
 
@@ -104,13 +105,14 @@ export default function ForManagedServiceProvidersPage() {
               <h2 className="mt-2 font-display text-2xl font-bold">Built for the party that is not the site owner</h2>
               <p className="mt-4 max-w-prose text-muted-foreground">
                 Most video software assumes the operator and the owner are the same company.
-                Camzify assumes they may not be. You hold the account; every customer is a{' '}
-                <Link href="/platform/user-management" className="text-primary hover:underline">sub-user</Link>{' '}
-                scoped to its own sites and cameras, carrying a{' '}
-                <Link href="/platform/permission-groups" className="text-primary hover:underline">permission group</Link>{' '}
-                that decides which pages it can open and what it can change. A customer never
-                sees another customer.
+                Camzify assumes they may not be.
               </p>
+              <PointList items={[
+                'You hold the account.',
+                <>Every customer is a <Link href="/platform/user-management" className="text-primary hover:underline">sub-user</Link> scoped to its own sites and cameras.</>,
+                <>Each customer carries a <Link href="/platform/permission-groups" className="text-primary hover:underline">permission group</Link> that decides which pages it can open and what it can change.</>,
+                'A customer never sees another customer.',
+              ]} />
               <p className="mt-4 max-w-prose text-muted-foreground">
                 Quota flows the same way. Sites, cameras, AI feature instances and backup storage
                 are handed to each customer out of what you hold, and a customer that reaches its
@@ -171,11 +173,14 @@ export default function ForManagedServiceProvidersPage() {
               <h2 className="font-display text-2xl font-bold">What we will not tell you</h2>
               <p className="mt-4 max-w-prose text-muted-foreground">
                 That there is a published partner margin, a white-label option or an SLA figure.
-                Pricing is quote-based and partner terms are agreed in conversation. The console
-                carries the Camzify name. We also do not publish uptime, response-time or event
-                figures, because we cannot substantiate them for your customers; the{' '}
-                <Link href="/trust" className="text-primary hover:underline">trust page</Link>{' '}
-                sets out that policy. If your work is installing cameras rather than operating
+              </p>
+              <PointList items={[
+                'Pricing is quote-based and partner terms are agreed in conversation.',
+                'The console carries the Camzify name.',
+                <>We also do not publish uptime, response-time or event figures, because we cannot substantiate them for your customers; the <Link href="/trust" className="text-primary hover:underline">trust page</Link> sets out that policy.</>,
+              ]} />
+              <p className="mt-4 max-w-prose text-muted-foreground">
+                If your work is installing cameras rather than operating
                 them, see{' '}
                 <Link href="/partners/for-security-integrators" className="text-primary hover:underline">security integrators</Link>;
                 if you run monitoring for security agencies, see{' '}

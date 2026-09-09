@@ -44,7 +44,12 @@ const content: UseCaseContent = {
   handles: {
     heading: 'The closing round, from the console or on a schedule',
     paras: [
-      <>A <Link href="/virtual-patrolling/patrol-sequences" className="text-primary hover:underline">closing sequence</Link> is the cameras that see the things that must be right at lock-up: front shutter, back door, stockroom, till area, safe, car park. The <Link href="/virtual-patrolling/patrol-checklists" className="text-primary hover:underline">checklist</Link> at each is the state it should be in, and each item is judged from the frame and kept with it. The closing manager can run it from the console before leaving, or the platform runs it <Link href="/virtual-patrolling/automated-patrol-scheduling" className="text-primary hover:underline">on schedule</Link> after the doors close, or both.</>,
+      <>A <Link href="/virtual-patrolling/patrol-sequences" className="text-primary hover:underline">closing sequence</Link> is the cameras that see the things that must be right at lock-up.</>,
+      { points: [
+        'The stops are the front shutter, back door, stockroom, till area, safe and car park.',
+        <>The <Link href="/virtual-patrolling/patrol-checklists" className="text-primary hover:underline">checklist</Link> at each is the state it should be in, and each item is judged from the frame and kept with it.</>,
+        <>The closing manager can run it from the console before leaving, or the platform runs it <Link href="/virtual-patrolling/automated-patrol-scheduling" className="text-primary hover:underline">on schedule</Link> after the doors close, or both.</>,
+      ] },
       <>Anything wrong messages the keyholder designated for that camera with the frame, and the item stays Pending until it is marked Fixed with an after frame. The <Link href="/virtual-patrolling/patrol-reports" className="text-primary hover:underline">report per round</Link> is what the opening manager and the regional manager read in the morning. Between the closing round and opening, <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">zone intrusion</Link> notifies on a tracked person inside during the hours you set.</>,
     ],
     detections: [
@@ -61,14 +66,28 @@ const content: UseCaseContent = {
     items: [['Back door closed and secured', 'ok'], ['Stockroom light off', 'fail'], ['Shutter fully down', 'ok'], ['Nobody inside', 'ok']],
     caption: 'The 22:10 round finds the stockroom light on. Frame to the keyholder; the rest of the stop passed.',
     paras: [
-      'The closing sequence is short and the same every night, which is exactly what a person is bad at and a schedule is good at. Front shutter down, back door secured, safe closed, tills empty and open, lights off, nobody inside. The report per round is the record that the site was left right, with the frame for each item, and a chain reads every branch in one place.',
+      'The closing sequence is short and the same every night, which is exactly what a person is bad at and a schedule is good at.',
+      { points: [
+        'The front shutter is down.',
+        'The back door is secured.',
+        'The safe is closed.',
+        'The tills are empty and open.',
+        'The lights are off and nobody is inside.',
+      ] },
+      'The report per round is the record that the site was left right, with the frame for each item, and a chain reads every branch in one place.',
       <>A branch that fails an item shows on the <Link href="/virtual-patrolling/patrol-compliance-tracking" className="text-primary hover:underline">compliance view</Link> with the item and the frame, so the conversation the next day is about a picture rather than a recollection.</>,
     ],
   },
   limits: {
     heading: 'What it will not do',
     paras: [
-      'It will not lock the door. It will not check a lock the camera cannot see, or confirm an alarm was set unless the panel is in view. It will not run without a connection to the cameras; a missed round is logged, not hidden. And it will not replace the closing manager; it replaces the drive back.',
+      'The closing round has four limits.',
+      { points: [
+        'It will not lock the door.',
+        'It will not check a lock the camera cannot see, or confirm an alarm was set unless the panel is in view.',
+        'It will not run without a connection to the cameras; a missed round is logged, not hidden.',
+        'It will not replace the closing manager; it replaces the drive back.',
+      ] },
       <>We do not publish figures for incidents prevented or hours saved. The <Link href="/trust" className="text-primary hover:underline">trust page</Link> sets out the policy.</>,
     ],
   },

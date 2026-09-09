@@ -7,6 +7,7 @@ import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
 import Link from 'next/link';
+import { PointList } from '@/components/content/point-list';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -72,7 +73,12 @@ export default function RestaurantsPage() {
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
                 <p>Restaurants run on a tight closing routine, locking the back door, clearing the dining room, verifying the walk-in coolers, securing storage, and that routine is only as reliable as whoever is doing it on a given night. A rushed close after a long shift means steps get skipped, and nobody finds out until there's a problem the next morning.</p>
                 <p>Standard CCTV records the close happening but doesn't verify anything, footage only gets reviewed after spoiled inventory, a break-in, or a loss is already discovered. By then, the walk-in door had been open all night, or the back entrance was unlocked for hours.</p>
-                <p>Continuous AI monitoring turns the closing routine into an automated checklist: the same points get checked on the same schedule every night regardless of who closed, with a logged result and an immediate alert to the manager on duty if something was missed.</p>
+                <p>Continuous AI monitoring turns the closing routine into an automated checklist.</p>
+                <PointList items={[
+                  'The same points get checked on the same schedule every night, regardless of who closed.',
+                  'Every check has a logged result.',
+                  'The manager on duty gets an immediate alert if something was missed.',
+                ]} />
               </div>
             </ScrollReveal>
           </div>
@@ -110,8 +116,13 @@ export default function RestaurantsPage() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Checking each stop</h3>
                 <p className="mt-2 text-muted-foreground">
-                  At each stop, the AI checks the defined conditions using <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">zone intrusion</Link> and <Link href="/ai-features/motion-detection" className="text-primary hover:underline">motion detection</Link> — is the back door secured, is the dining area clear, is anyone still in the building after closing.
+                  At each stop, the AI checks the defined conditions using <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">zone intrusion</Link> and <Link href="/ai-features/motion-detection" className="text-primary hover:underline">motion detection</Link>.
                 </p>
+                <PointList items={[
+                  'It checks whether the back door is secured.',
+                  'It checks whether the dining area is clear.',
+                  'It checks whether anyone is still in the building after closing.',
+                ]} />
 
                 <h3 className="mt-6 font-display text-lg font-bold">Routing the alert</h3>
                 <p className="mt-2 text-muted-foreground">

@@ -2,6 +2,7 @@ import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
+import { PointList } from '@/components/content/point-list';
 import Link from 'next/link';
 import { Building2, Users, FileText, Clock, ShieldAlert, Layers } from 'lucide-react';
 
@@ -197,18 +198,14 @@ export default function ForSecurityAgenciesPage() {
                 ))}
               </div>
               <p className="mt-6 max-w-prose text-muted-foreground">
-                If you sell mobile patrols today, the{' '}
-                <Link href="/compare/virtual-patrolling-vs-mobile-patrols" className="text-primary hover:underline">mobile patrols comparison</Link>{' '}
-                sets the two side by side, and the{' '}
-                <Link href="/guides/how-to-sell-virtual-patrolling-to-clients" className="text-primary hover:underline">selling guide</Link>{' '}
-                covers the client conversation. If you run a staffed monitoring operation, or a monitoring company runs it for
-                you and notifies your guards, the{' '}
-                <Link href="/partners/for-monitoring-centers" className="text-primary hover:underline">monitoring companies</Link>{' '}
-                page covers that angle, including who holds the account in that arrangement. If you resell rather than operate, see{' '}
-                <Link href="/partners/become-a-reseller" className="text-primary hover:underline">becoming a reseller</Link>; if
-                you install and maintain camera systems, see{' '}
-                <Link href="/partners/for-security-integrators" className="text-primary hover:underline">security integrators</Link>.
+                Where to read next depends on which of those you are.
               </p>
+              <PointList items={[
+                <>If you sell mobile patrols today, the <Link href="/compare/virtual-patrolling-vs-mobile-patrols" className="text-primary hover:underline">mobile patrols comparison</Link> sets the two side by side, and the <Link href="/guides/how-to-sell-virtual-patrolling-to-clients" className="text-primary hover:underline">selling guide</Link> covers the client conversation.</>,
+                <>If you run a staffed monitoring operation, or a monitoring company runs it for you and notifies your guards, the <Link href="/partners/for-monitoring-centers" className="text-primary hover:underline">monitoring companies</Link> page covers that angle, including who holds the account in that arrangement.</>,
+                <>If you resell rather than operate, see <Link href="/partners/become-a-reseller" className="text-primary hover:underline">becoming a reseller</Link>.</>,
+                <>If you install and maintain camera systems, see <Link href="/partners/for-security-integrators" className="text-primary hover:underline">security integrators</Link>.</>,
+              ]} />
             </ScrollReveal>
           </div>
 
@@ -218,7 +215,10 @@ export default function ForSecurityAgenciesPage() {
               <p className="mt-4 max-w-prose text-muted-foreground">
                 That this replaces your guards. It does not, and an agency is the last audience that
                 should be sold that story. Someone still has to attend, and no software decides
-                what to do about a broken window at 2am. What changes is that the routine round
+                what to do about a broken window at 2am.
+              </p>
+              <p className="mt-4 max-w-prose text-muted-foreground">
+                What changes is that the routine round
                 &mdash; the part that is expensive to staff, easy to skip and impossible to prove
                 &mdash; stops depending on somebody being awake, and your people are sent to the
                 things that need people.

@@ -7,6 +7,7 @@ import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
 import Link from 'next/link';
+import { PointList } from '@/components/content/point-list';
 import { SiteImage } from '@/components/content/site-image';
 
 /**
@@ -78,7 +79,12 @@ export default function ManufacturingPage() {
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
                 <p>Manufacturing sites combine large indoor floor areas with outdoor yards, loading docks, and perimeter fencing, often spread across multiple buildings and shifts. Restricted machinery zones, raw materials, and finished goods storage all carry real risk, but coverage tends to be thinnest exactly when the plant is least staffed, between shifts and overnight.</p>
                 <p>A guard patrol across a large industrial footprint covers only a fraction of the site in any given pass, and static CCTV records the yard and loading areas without anyone reviewing the footage until something is already missing or damaged.</p>
-                <p>Continuous AI monitoring runs a fixed patrol route across every camera on the site, indoor and outdoor, on a defined schedule, flagging a fence line breach, an unauthorized zone entry, or a camera going dark the moment it happens rather than at the next scheduled walk-through.</p>
+                <p>Continuous AI monitoring runs a fixed patrol route across every camera on the site, indoor and outdoor, on a defined schedule.</p>
+                <PointList items={[
+                  'It flags a fence line breach the moment it happens.',
+                  'It flags an unauthorized zone entry the moment it happens.',
+                  'It flags a camera going dark the moment it happens, rather than at the next scheduled walk-through.',
+                ]} />
               </div>
             </ScrollReveal>
           </div>
@@ -116,8 +122,13 @@ export default function ManufacturingPage() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Checking each stop</h3>
                 <p className="mt-2 text-muted-foreground">
-                  At each stop, the AI checks the defined conditions for that camera using <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">Zone Intrusion Detection</Link> and <Link href="/ai-features/line-intrusion-detection" className="text-primary hover:underline">Line Intrusion Detection</Link> — is the machinery zone clear, is the fence line intact, is the camera unobstructed.
+                  At each stop, the AI checks the defined conditions for that camera using <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">Zone Intrusion Detection</Link> and <Link href="/ai-features/line-intrusion-detection" className="text-primary hover:underline">Line Intrusion Detection</Link>.
                 </p>
+                <PointList items={[
+                  'It checks whether the machinery zone is clear.',
+                  'It checks whether the fence line is intact.',
+                  'It checks whether the camera is unobstructed.',
+                ]} />
 
                 <h3 className="mt-6 font-display text-lg font-bold">Routing the alert</h3>
                 <p className="mt-2 text-muted-foreground">

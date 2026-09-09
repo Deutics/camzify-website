@@ -6,6 +6,7 @@ import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
 import Link from 'next/link';
+import { PointList } from '@/components/content/point-list';
 import { PhotoFigure } from '@/components/content/photo-figure';
 import { SiteImage } from '@/components/content/site-image';
 
@@ -78,7 +79,12 @@ export default function ResidentialPage() {
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
                 <p>Residential communities and gated developments cover a lot of ground, entry gates, perimeter walls, parking areas, pools, and clubhouses, and most rely on a single guard or a nightly patrol to check all of it. One person walking a large property can realistically reach each point once or twice a shift, leaving long stretches where nothing is actually being watched.</p>
                 <p>Standard CCTV records the footage but doesn't act on it, if something happens at the back gate at 3am, nobody knows until a resident notices or a review happens after the fact. For a community, that gap shows up directly in resident complaints and trust in the property's security.</p>
-                <p>Continuous AI monitoring closes that gap by running the same checks a guard would make, gate status, pool area clear, parking lot activity, on a fixed schedule around the clock, so every point gets checked far more often than a single patrol could manage, with a timestamped record of every round.</p>
+                <p>Continuous AI monitoring closes that gap by running the same checks a guard would make, on a fixed schedule around the clock.</p>
+                <PointList items={[
+                  'It checks gate status, whether the pool area is clear, and parking lot activity.',
+                  'Every point gets checked far more often than a single patrol could manage.',
+                  'Every round leaves a timestamped record.',
+                ]} />
               </div>
             </ScrollReveal>
           </div>
@@ -116,8 +122,13 @@ export default function ResidentialPage() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Checking each stop</h3>
                 <p className="mt-2 text-muted-foreground">
-                  At each stop, the AI checks the defined conditions using <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">zone intrusion</Link> and <Link href="/ai-features/motion-detection" className="text-primary hover:underline">motion detection</Link> — is the gate area clear, is the pool empty after closing, is anyone present where they shouldn't be.
+                  At each stop, the AI checks the defined conditions using <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">zone intrusion</Link> and <Link href="/ai-features/motion-detection" className="text-primary hover:underline">motion detection</Link>.
                 </p>
+                <PointList items={[
+                  'It checks whether the gate area is clear.',
+                  'It checks whether the pool is empty after closing.',
+                  "It checks whether anyone is present where they shouldn't be.",
+                ]} />
 
                 <h3 className="mt-6 font-display text-lg font-bold">Routing the alert</h3>
                 <p className="mt-2 text-muted-foreground">

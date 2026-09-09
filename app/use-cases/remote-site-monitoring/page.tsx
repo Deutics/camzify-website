@@ -44,8 +44,19 @@ const content: UseCaseContent = {
   handles: {
     heading: 'The round drives out so nobody has to',
     paras: [
-      <>An <Link href="/virtual-patrolling/automated-patrol-scheduling" className="text-primary hover:underline">automated round</Link> visits each of the site&apos;s cameras on schedule and answers the checklist: fence intact, gate closed, no person or vehicle in the compound, equipment area clear, camera unobstructed. Each answer is recorded with the frame. A failed item messages the person designated for that camera, and a risk the AI sees that the checklist did not ask about raises a critical notification.</>,
-      <>Between rounds, <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">zone</Link> and <Link href="/ai-features/line-intrusion-detection" className="text-primary hover:underline">line intrusion</Link> fire on a tracked person or vehicle the moment one appears, and <Link href="/ai-features/camera-tampering-detection" className="text-primary hover:underline">camera tampering detection</Link> catches the site going blind, which at an unmanned site would otherwise be found on the next visit. All of it sits under one account with the rest of the estate, on the <Link href="/platform/multi-site-management" className="text-primary hover:underline">multi-site console</Link>.</>,
+      <>An <Link href="/virtual-patrolling/automated-patrol-scheduling" className="text-primary hover:underline">automated round</Link> visits each of the site&apos;s cameras on schedule and answers the checklist.</>,
+      { points: [
+        'The items are fence intact, gate closed, no person or vehicle in the compound, equipment area clear, camera unobstructed.',
+        'Each answer is recorded with the frame.',
+        'A failed item messages the person designated for that camera.',
+        'A risk the AI sees that the checklist did not ask about raises a critical notification.',
+      ] },
+      'The detections cover the time between rounds.',
+      { points: [
+        <><Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">Zone</Link> and <Link href="/ai-features/line-intrusion-detection" className="text-primary hover:underline">line intrusion</Link> fire on a tracked person or vehicle the moment one appears.</>,
+        <><Link href="/ai-features/camera-tampering-detection" className="text-primary hover:underline">Camera tampering detection</Link> catches the site going blind, which at an unmanned site would otherwise be found on the next visit.</>,
+        <>All of it sits under one account with the rest of the estate, on the <Link href="/platform/multi-site-management" className="text-primary hover:underline">multi-site console</Link>.</>,
+      ] },
     ],
     detections: [
       { href: '/ai-features/zone-intrusion-detection', name: 'Zone intrusion detection', role: 'The compound as a zone, at every hour. A tracked person or vehicle is the event.' },
@@ -68,7 +79,13 @@ const content: UseCaseContent = {
   limits: {
     heading: 'What it will not do',
     paras: [
-      'It will not run without a link to the cameras; an outage is a missed round in the log, not a hidden one. It will not see a corner without a camera, and a remote site often has fewer than it needs. It will not detect an electrical fault, a leak or a temperature that the camera cannot see. And it will not attend; it tells the person designated for that camera, and the drive is theirs.',
+      'At an unmanned site the limits are the link and the cameras, and the drive is still a person\'s.',
+      { points: [
+        'It will not run without a link to the cameras; an outage is a missed round in the log, not a hidden one.',
+        'It will not see a corner without a camera, and a remote site often has fewer than it needs.',
+        'It will not detect an electrical fault, a leak or a temperature that the camera cannot see.',
+        'It will not attend; it tells the person designated for that camera, and the drive is theirs.',
+      ] },
       <>We do not publish bandwidth figures, uptime or detection rates for remote sites. The <Link href="/trust" className="text-primary hover:underline">trust page</Link> sets out why.</>,
     ],
   },

@@ -6,6 +6,7 @@ import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import Link from 'next/link';
+import { PointList } from '@/components/content/point-list';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -64,7 +65,12 @@ export default function Page() {
               <h2 className="font-display text-2xl font-bold">Why zone intrusion detection matters</h2>
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
                 <p>Some areas aren't bounded by a single crossing point, a server room, a chemical storage cage, or a rooftop mechanical area has an interior that needs to stay empty of unauthorized people at all times, no matter which door, hatch, or gap someone comes through.</p>
-                <p>A line rule only catches one crossing point at a time; an irregular boundary with several possible entry points needs multiple coordinated lines and still leaves gaps at corners. Guards checking a restricted area on a walking round see it for seconds out of every hour, and a fixed door alarm misses anyone who gets in through a service hatch, a dropped ceiling panel, or a window.</p>
+                <p>A line rule only catches one crossing point at a time.</p>
+                <PointList items={[
+                  'An irregular boundary with several possible entry points needs multiple coordinated lines and still leaves gaps at corners.',
+                  'Guards checking a restricted area on a walking round see it for seconds out of every hour.',
+                  'A fixed door alarm misses anyone who gets in through a service hatch, a dropped ceiling panel, or a window.',
+                ]} />
                 <p>Zone intrusion detection replaces all of that with a single polygon drawn over the area a camera can see. Entry is entry, regardless of the path taken to get there, and the alert fires the moment a confirmed object track is inside the boundary.</p>
               </div>
             </ScrollReveal>
@@ -88,8 +94,13 @@ export default function Page() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Alert delivery</h3>
                 <p className="mt-2 text-muted-foreground">
-                  Each zone can carry its own object-class filter and dwell-time threshold, so a zone can be set to alert instantly on any person, or only after a subject remains inside longer than a set number of seconds. Alerts include the object type, confidence score, and timestamp, and, when <Link href="/ai-features/ai-attribute-extraction" className="text-primary hover:underline">AI attribute extraction</Link> is enabled — structured attributes describing the subject. Alerts route through the <Link href="/platform/notifications-and-alerts" className="text-primary hover:underline">notification queue</Link> with severity and acknowledgment status.
+                  Each zone can carry its own object-class filter and dwell-time threshold, so a zone can be set to alert instantly on any person, or only after a subject remains inside longer than a set number of seconds.
                 </p>
+                <PointList className="mt-3" items={[
+                  'Alerts include the object type, confidence score, and timestamp.',
+                  <>When <Link href="/ai-features/ai-attribute-extraction" className="text-primary hover:underline">AI attribute extraction</Link> is enabled, alerts also include structured attributes describing the subject.</>,
+                  <>Alerts route through the <Link href="/platform/notifications-and-alerts" className="text-primary hover:underline">notification queue</Link> with severity and acknowledgment status.</>,
+                ]} />
               </div>
             </ScrollReveal>
           </div>

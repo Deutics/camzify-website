@@ -44,8 +44,19 @@ const content: UseCaseContent = {
   handles: {
     heading: 'The camera watches for the fire. The round checks the way out.',
     paras: [
-      <><Link href="/ai-features/fire-and-smoke-detection" className="text-primary hover:underline">Fire and smoke detection</Link> watches each camera&apos;s live feed for the visual signatures of flame and smoke and raises a critical alert with a clip and a confidence score when a match passes the threshold set for that camera. It runs on the standard cameras already in place; no thermal hardware is involved. Steam, dust and fog are the known confounders, and a person verifies from the clip before anyone calls anyone.</>,
-      <>A <Link href="/virtual-patrolling" className="text-primary hover:underline">patrol round</Link> covers the part no sensor does: at each stop it asks whether the fire exit is clear, whether anything is stacked against the electrical cabinet, whether smoke is visible, and records the answer with the frame. On an <Link href="/virtual-patrolling/automated-patrol-scheduling" className="text-primary hover:underline">automated round</Link> the AI also raises a critical notification for a <Link href="/virtual-patrolling/risk-detection" className="text-primary hover:underline">risk it sees</Link> that the checklist did not ask about. <Link href="/ai-features/abandoned-object-detection" className="text-primary hover:underline">Abandoned object detection</Link> catches the pallet left in the escape route between rounds.</>,
+      <><Link href="/ai-features/fire-and-smoke-detection" className="text-primary hover:underline">Fire and smoke detection</Link> watches each camera&apos;s live feed for the visual signatures of flame and smoke.</>,
+      { points: [
+        'It raises a critical alert with a clip and a confidence score when a match passes the threshold set for that camera.',
+        'It runs on the standard cameras already in place; no thermal hardware is involved.',
+        'Steam, dust and fog are the known confounders.',
+        'A person verifies from the clip before anyone calls anyone.',
+      ] },
+      <>A <Link href="/virtual-patrolling" className="text-primary hover:underline">patrol round</Link> covers the part no sensor does.</>,
+      { points: [
+        'At each stop it asks whether the fire exit is clear, whether anything is stacked against the electrical cabinet and whether smoke is visible, and records the answer with the frame.',
+        <>On an <Link href="/virtual-patrolling/automated-patrol-scheduling" className="text-primary hover:underline">automated round</Link> the AI also raises a critical notification for a <Link href="/virtual-patrolling/risk-detection" className="text-primary hover:underline">risk it sees</Link> that the checklist did not ask about.</>,
+        <><Link href="/ai-features/abandoned-object-detection" className="text-primary hover:underline">Abandoned object detection</Link> catches the pallet left in the escape route between rounds.</>,
+      ] },
     ],
     detections: [
       { href: '/ai-features/fire-and-smoke-detection', name: 'Fire and smoke detection', role: 'Visual flame and smoke on any standard camera, raised as a critical alert with a clip.' },
@@ -61,14 +72,26 @@ const content: UseCaseContent = {
     items: [['Fire exit clear', 'fail'], ['No smoke visible', 'ok'], ['Nothing against electrical cabinet', 'ok'], ['Extinguisher point unobstructed', 'ok']],
     caption: 'The east fire exit found blocked on the evening round. Snapshot to the guard; the report shows before and after once cleared.',
     paras: [
-      'A fire-safety sequence is the cameras covering exits, escape routes, plant rooms and storage in walking order, and the checklist at each is the state a fire officer would want to find: exit clear, extinguisher point unobstructed, nothing against the switchgear, no smoke. Run it at closing and through the night, and the report per round is the record that the routes were clear at each time, with the frame to prove it.',
+      'A fire-safety sequence is the cameras covering exits, escape routes, plant rooms and storage in walking order, and the checklist at each is the state a fire officer would want to find.',
+      { points: [
+        'The exit is clear.',
+        'The extinguisher point is unobstructed.',
+        'Nothing is against the switchgear.',
+        'No smoke is visible.',
+      ] },
+      'Run it at closing and through the night, and the report per round is the record that the routes were clear at each time, with the frame to prove it.',
       <>The <Link href="/virtual-patrolling/patrol-reports" className="text-primary hover:underline">report</Link> is also what makes the inspection conversation short: a stack of passed rounds, each with frames, rather than a signature on a monthly sheet. Falls, exclusion zones and PPE on the same cameras are covered under <Link href="/use-cases/workplace-safety-monitoring" className="text-primary hover:underline">workplace safety monitoring</Link>.</>,
     ],
   },
   limits: {
     heading: 'What it will not do',
     paras: [
-      'It will not replace the fire alarm, the sprinklers or the inspection regime, and it is not certified as a life-safety system. It will not see a fire in a room without a camera, or behind a closed door, or through heavy steam. It will not call the fire service; it tells the person you designate, with a clip, and they decide.',
+      'Three limits apply to fire and smoke on cameras.',
+      { points: [
+        'It will not replace the fire alarm, the sprinklers or the inspection regime, and it is not certified as a life-safety system.',
+        'It will not see a fire in a room without a camera, or behind a closed door, or through heavy steam.',
+        'It will not call the fire service; it tells the person you designate, with a clip, and they decide.',
+      ] },
       <>We do not publish detection rates, lead times over sensors, or false-alarm figures, because they depend on your cameras and your building. The <Link href="/trust" className="text-primary hover:underline">trust page</Link> sets out the policy.</>,
     ],
   },

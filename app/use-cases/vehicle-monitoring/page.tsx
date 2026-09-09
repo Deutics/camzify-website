@@ -46,7 +46,13 @@ const content: UseCaseContent = {
     heading: 'Every vehicle a track, every track held to a rule',
     paras: [
       <><Link href="/ai-features/multi-object-tracking" className="text-primary hover:underline">Multi-object tracking</Link> is the foundation: each vehicle in frame is followed as one object across frames and classified, so the rules above it fire on a vehicle rather than on a moving patch of pixels. <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">Zone intrusion</Link> and <Link href="/ai-features/line-intrusion-detection" className="text-primary hover:underline">line intrusion</Link> with vehicle as the class cover the restricted yard and the gate after hours.</>,
-      <><Link href="/ai-features/wrong-way-vehicle-detection" className="text-primary hover:underline">Wrong-way vehicle detection</Link> fires on movement against a lane’s direction, and <Link href="/ai-features/illegal-parking-detection" className="text-primary hover:underline">illegal parking detection</Link> on a vehicle stopped in an area beyond the time allowed. A <Link href="/virtual-patrolling" className="text-primary hover:underline">patrol round</Link> checks the yard on a schedule, gate closed, no vehicle at the bay outside the window, restricted zone empty, and records each answer with the frame.</>,
+      'Above the tracking sit the rules about direction, overstay and the state of the yard.',
+      { points: [
+        <><Link href="/ai-features/wrong-way-vehicle-detection" className="text-primary hover:underline">Wrong-way vehicle detection</Link> fires on movement against a lane’s direction.</>,
+        <><Link href="/ai-features/illegal-parking-detection" className="text-primary hover:underline">Illegal parking detection</Link> fires on a vehicle stopped in an area beyond the time allowed.</>,
+        <>A <Link href="/virtual-patrolling" className="text-primary hover:underline">patrol round</Link> checks the yard on a schedule: gate closed, no vehicle at the bay outside the window, restricted zone empty.</>,
+        'Each answer is recorded with the frame.',
+      ] },
     ],
     detections: [
       { href: '/ai-features/multi-object-tracking', name: 'Multi-object tracking', role: 'Each vehicle followed as one object across frames and classified. The layer everything else sits on.' },
@@ -62,14 +68,25 @@ const content: UseCaseContent = {
     items: [['Yard gate closed', 'ok'], ['No vehicle at bay 2 outside window', 'fail'], ['Restricted zone empty', 'ok'], ['Fleet parking full count', 'pending']],
     caption: 'A yard stop with an unscheduled vehicle at bay 2. The frame goes to the guard; the fleet count waits on a person.',
     paras: [
-      'A yard sequence is the gate, the bays, the fleet parking and the restricted area in driving order, with the state each should be in at that hour as its checklist. After hours the items are short: gate closed, bays empty, zone clear. During shifts they are about exceptions: a vehicle at a bay outside its window, a vehicle in the restricted zone.',
-      <>Automated rounds can watch a scene for a short period before judging, which is how a vehicle passing through and a vehicle stopped are told apart. The <Link href="/virtual-patrolling/patrol-reports" className="text-primary hover:underline">report per round</Link> records each stop with its frame.</>,
+      'A yard sequence is the gate, the bays, the fleet parking and the restricted area in driving order, with the state each should be in at that hour as its checklist.',
+      { points: [
+        'After hours the items are short: gate closed, bays empty, zone clear.',
+        'During shifts they are about exceptions: a vehicle at a bay outside its window, a vehicle in the restricted zone.',
+        'Automated rounds can watch a scene for a short period before judging, which is how a vehicle passing through and a vehicle stopped are told apart.',
+        <>The <Link href="/virtual-patrolling/patrol-reports" className="text-primary hover:underline">report per round</Link> records each stop with its frame.</>,
+      ] },
     ],
   },
   limits: {
     heading: 'What it will not do',
     paras: [
-      'It will not read a plate, identify a driver or match a vehicle to a manifest. It will not weigh, count cargo or check a seal. It will not see a vehicle the camera cannot see, and a yard camera pointed into low sun at the wrong hour is a camera that cannot see. And it will not stop the vehicle; it tells the person designated for that camera and keeps the frame.',
+      'It tracks a vehicle as an object in the frame, and that is the boundary of what it can say.',
+      { points: [
+        'It will not read a plate, identify a driver or match a vehicle to a manifest.',
+        'It will not weigh, count cargo or check a seal.',
+        'It will not see a vehicle the camera cannot see, and a yard camera pointed into low sun at the wrong hour is a camera that cannot see.',
+        'It will not stop the vehicle; it tells the person designated for that camera and keeps the frame.',
+      ] },
       <>We do not publish detection rates for vehicles; they depend on camera height, angle and lighting. The <Link href="/trust" className="text-primary hover:underline">trust page</Link> explains why we will not estimate them.</>,
     ],
   },

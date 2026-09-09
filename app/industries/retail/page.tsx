@@ -7,6 +7,7 @@ import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
 import Link from 'next/link';
+import { PointList } from '@/components/content/point-list';
 import { SiteImage } from '@/components/content/site-image';
 
 /**
@@ -78,7 +79,12 @@ export default function RetailPage() {
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
                 <p>A store's exposure isn't limited to trading hours. Deliveries arrive before opening, staff cycle in and out of the stockroom all day, and the building sits empty overnight with a back door, fire exit, and loading area that no one is watching. A manager doing a closing walkthrough checks the sales floor, not every blind corner.</p>
                 <p>Standard CCTV records all of it, but nobody is reviewing hours of footage in real time, the recording only becomes useful after a loss has already happened, when it's too late to intervene. And a single loss prevention staffer, even a good one, can't be in the stockroom, at the back door, and on the sales floor at the same moment.</p>
-                <p>Virtual patrolling closes that gap by running scheduled AI checks across every camera zone continuously, sales floor, stockroom, back door, and loading area, flagging deviations the instant they happen and logging every check, so gaps in coverage stop being invisible.</p>
+                <p>Virtual patrolling closes that gap, so gaps in coverage stop being invisible.</p>
+                <PointList items={[
+                  'It runs scheduled AI checks across every camera zone continuously: sales floor, stockroom, back door, and loading area.',
+                  'It flags deviations the instant they happen.',
+                  'It logs every check.',
+                ]} />
               </div>
             </ScrollReveal>
           </div>
@@ -116,8 +122,13 @@ export default function RetailPage() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Checking each stop</h3>
                 <p className="mt-2 text-muted-foreground">
-                  At each stop, the AI checks the defined conditions for that camera using <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">zone intrusion detection</Link>, <Link href="/ai-features/motion-detection" className="text-primary hover:underline">motion detection</Link>, and <Link href="/ai-features/multi-object-tracking" className="text-primary hover:underline">multi-object tracking</Link> — is the stockroom clear, is the back door secure, is anyone present after closing.
+                  At each stop, the AI checks the defined conditions for that camera using <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">zone intrusion detection</Link>, <Link href="/ai-features/motion-detection" className="text-primary hover:underline">motion detection</Link>, and <Link href="/ai-features/multi-object-tracking" className="text-primary hover:underline">multi-object tracking</Link>.
                 </p>
+                <PointList items={[
+                  'It checks whether the stockroom is clear.',
+                  'It checks whether the back door is secure.',
+                  'It checks whether anyone is present after closing.',
+                ]} />
 
                 <h3 className="mt-6 font-display text-lg font-bold">Routing the alert</h3>
                 <p className="mt-2 text-muted-foreground">
