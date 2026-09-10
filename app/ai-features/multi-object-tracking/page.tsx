@@ -6,6 +6,7 @@ import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import Link from 'next/link';
+import { PointList } from '@/components/content/point-list';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -63,7 +64,12 @@ export default function Page() {
               <h2 className="font-display text-2xl font-bold">Why multi-object tracking matters</h2>
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
                 <p>Detection features that react to a single frame, a change in pixels, a shape that looks like a person, have no memory. The same subject can trigger a fresh, disconnected event every time they briefly leave and re-enter the frame, and there's no way to answer a simple question like "how long has this person been in the loading dock?"</p>
-                <p>Without persistent identity, every other detection feature is working with a snapshot instead of a story. A line-crossing rule can't tell direction reliably without a trajectory to evaluate. A dwell-time zone rule can't know how long someone has actually been present without a continuous track. A journey map across cameras has nothing to link.</p>
+                <p>Without persistent identity, every other detection feature is working with a snapshot instead of a story.</p>
+                <PointList items={[
+                  "A line-crossing rule can't tell direction reliably without a trajectory to evaluate.",
+                  "A dwell-time zone rule can't know how long someone has actually been present without a continuous track.",
+                  'A journey map across cameras has nothing to link.',
+                ]} />
                 <p>Multi-object tracking is the layer that turns isolated detections into a coherent record, one subject, one identity, one continuous history, that every other AI feature in the platform depends on.</p>
               </div>
             </ScrollReveal>

@@ -44,7 +44,13 @@ const content: UseCaseContent = {
   handles: {
     heading: 'The same walk, every night, with a record',
     paras: [
-      <>An <Link href="/virtual-patrolling/automated-patrol-scheduling" className="text-primary hover:underline">automated round</Link> walks the night sequence at whatever frequency you set. At each camera it answers the checklist, entrance locked, corridor empty, fence intact, dock doors down, camera unobstructed, and keeps the frame. It can watch a scene for a short period rather than judging one frame, and it messages the guard designated for a camera the moment an item is Not Compliant.</>,
+      <>An <Link href="/virtual-patrolling/automated-patrol-scheduling" className="text-primary hover:underline">automated round</Link> walks the night sequence at whatever frequency you set.</>,
+      { points: [
+        'At each camera it answers the checklist: entrance locked, corridor empty, fence intact, dock doors down, camera unobstructed.',
+        'It keeps the frame with each answer.',
+        'It can watch a scene for a short period rather than judging one frame.',
+        'It messages the guard designated for a camera the moment an item is Not Compliant.',
+      ] },
       <>Between rounds, <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">zone intrusion</Link> with an overnight notification window and <Link href="/ai-features/line-intrusion-detection" className="text-primary hover:underline">line intrusion</Link> at the boundary fire on a tracked person the moment one appears. <Link href="/ai-features/camera-tampering-detection" className="text-primary hover:underline">Camera tampering detection</Link> catches the camera being covered or turned, which on a dark site is often the first move. <Link href="/use-cases/fire-and-smoke-monitoring" className="text-primary hover:underline">Fire and smoke monitoring</Link> covers the other overnight risk.</>,
     ],
     detections: [
@@ -68,7 +74,12 @@ const content: UseCaseContent = {
   limits: {
     heading: 'What it will not do',
     paras: [
-      'It will not respond. It finds, records and tells the right person; someone still walks out to the car park. It will not see through darkness a camera cannot see through, so cameras without infrared on unlit areas are gaps in the round. And it will not run without a connection to the cameras; an outage is logged, not hidden.',
+      'A night round has three limits.',
+      { points: [
+        'It will not respond: it finds, records and tells the right person, and someone still walks out to the car park.',
+        'It will not see through darkness a camera cannot see through, so cameras without infrared on unlit areas are gaps in the round.',
+        'It will not run without a connection to the cameras; an outage is logged, not hidden.',
+      ] },
       <>We do not publish how many overnight incidents rounds have caught or how quickly guards were reached, because we cannot verify those numbers for your site. The <Link href="/trust" className="text-primary hover:underline">trust page</Link> sets out the policy.</>,
     ],
   },

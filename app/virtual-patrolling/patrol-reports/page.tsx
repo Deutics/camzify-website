@@ -2,6 +2,7 @@ import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
+import { PointList } from '@/components/content/point-list';
 import { FeatureHero } from '@/components/content/feature-hero';
 import { PhotoFigure } from '@/components/content/photo-figure';
 import { HeroPlaceholder } from '@/components/content/hero-placeholder';
@@ -90,10 +91,14 @@ export default function PatrolReportsPage() {
               <span className="font-mono text-mono-sm uppercase text-primary">Why Reports Matter</span>
               <h2 className="mt-2 font-display text-2xl font-bold">Why reports matter</h2>
               <p className="mt-4 max-w-2xl text-muted-foreground">
-                Insurers ask for proof of patrol coverage. Regulators want timestamped records. Auditors need
-                to verify that checks happened and failures were escalated. The patrol report is the document
-                that answers all three, generated automatically, every round, with zero manual input.
+                The patrol report is the document that answers all three of these, generated automatically,
+                every round, with zero manual input.
               </p>
+              <PointList items={[
+                'Insurers ask for proof of patrol coverage.',
+                'Regulators want timestamped records.',
+                'Auditors need to verify that checks happened and failures were escalated.',
+              ]} />
               <p className="mt-4 max-w-2xl text-muted-foreground">
                 See <Link href="/guides/how-to-run-a-virtual-patrol-round" className="text-primary hover:underline">how a round is run</Link> for where each part of the report comes from. Combined with <Link href="/virtual-patrolling/patrol-compliance-tracking" className="text-primary hover:underline">compliance tracking</Link>,
                 these reports create a continuous audit trail that proves patrol discipline across every site.

@@ -5,6 +5,7 @@ import { PhotoFigure } from '@/components/content/photo-figure';
 import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
+import { PointList } from '@/components/content/point-list';
 import Link from 'next/link';
 
 /**
@@ -175,11 +176,15 @@ export default function BehavioralAnomalyDetectionPage() {
               <div className="mt-4 max-w-prose space-y-4 text-muted-foreground">
                 <p>
                   Every site has behaviors that matter locally and appear on no vendor&rsquo;s
-                  feature list. Smoking beside a fuel store. People climbing on stacked pallets.
-                  Someone propping a fire door. These are obvious to whoever runs the site and
-                  invisible to a fixed model catalog.
+                  feature list.
                 </p>
+                <PointList items={[
+                  'Someone smokes beside a fuel store.',
+                  'People climb on stacked pallets.',
+                  'Someone props open a fire door.',
+                ]} />
                 <p>
+                  These are obvious to whoever runs the site and invisible to a fixed model catalog.
                   Historically the only options were to accept the gap or commission a custom model.
                   Describing the behavior in a sentence removes that trade-off, and it means the
                   system can be adjusted by the person who understands the site rather than by the

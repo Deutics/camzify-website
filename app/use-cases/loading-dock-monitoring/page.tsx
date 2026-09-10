@@ -44,7 +44,12 @@ const content: UseCaseContent = {
   handles: {
     heading: 'Checked against the window, watched between checks',
     paras: [
-      <>A <Link href="/virtual-patrolling" className="text-primary hover:underline">patrol round</Link> visits each bay camera on a schedule and answers the list: door down, staging area clear, no vehicle at the bay outside the window, no one in the yard. Each answer is recorded with the frame. On an automated round the AI can watch the scene for a short period, which is how a forklift passing through and a person loading a van are told apart.</>,
+      <>A <Link href="/virtual-patrolling" className="text-primary hover:underline">patrol round</Link> visits each bay camera on a schedule and answers the list.</>,
+      { points: [
+        'At each bay it checks that the door is down, the staging area is clear, no vehicle is at the bay outside the window and no one is in the yard.',
+        'Each answer is recorded with the frame.',
+        'On an automated round the AI can watch the scene for a short period, which is how a forklift passing through and a person loading a van are told apart.',
+      ] },
       <>Between rounds, <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">zone intrusion</Link> across the opening, with a notification window set to the hours outside deliveries, fires on a tracked person or vehicle passing through a door that should be down. <Link href="/ai-features/illegal-parking-detection" className="text-primary hover:underline">Illegal parking detection</Link> covers a vehicle stopped at the bay or in the yard longer than it should be, and <Link href="/ai-features/wrong-way-vehicle-detection" className="text-primary hover:underline">wrong-way vehicle detection</Link> a vehicle moving against the lane.</>,
     ],
     detections: [
@@ -68,7 +73,12 @@ const content: UseCaseContent = {
   limits: {
     heading: 'What it will not do',
     paras: [
-      'It will not read plates, so it cannot tell a scheduled carrier from an unscheduled one by registration; it can tell that a vehicle is at the bay outside the window. It will not count pallets or verify a manifest. It will not close the door; it tells the guard designated for that camera and keeps the frame.',
+      'The limits are about what a frame can show and what a person still has to do.',
+      { points: [
+        'It will not read plates, so it cannot tell a scheduled carrier from an unscheduled one by registration; it can tell that a vehicle is at the bay outside the window.',
+        'It will not count pallets or verify a manifest.',
+        'It will not close the door; it tells the guard designated for that camera and keeps the frame.',
+      ] },
       <>We do not publish detection rates or how much shrinkage dock rounds prevent. The <Link href="/trust" className="text-primary hover:underline">trust page</Link> sets out why.</>,
     ],
   },

@@ -44,8 +44,20 @@ const content: UseCaseContent = {
   handles: {
     heading: 'The round runs itself. The guard gets the failures.',
     paras: [
-      <>An <Link href="/virtual-patrolling/automated-patrol-scheduling" className="text-primary hover:underline">automated patrol round</Link> works through the after-hours sequence at the frequency you set: entrance, corridors, stockroom, dock, plant room, back out to the car park. At each camera it checks the list, doors closed, areas empty, nothing left running, and records the answer with the frame. Where one frame is not enough it watches the scene for a short period before deciding.</>,
-      <>A failed item messages the guard designated for that camera with the snapshot, and the AI raises a critical notification for a <Link href="/virtual-patrolling/risk-detection" className="text-primary hover:underline">risk it sees</Link> that the checklist did not ask about, a blocked exit, smoke, a person where none should be. Between rounds, <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">zone intrusion</Link> fires on a tracked person the moment they appear, and its notification window keeps it quiet during the day.</>,
+      <>An <Link href="/virtual-patrolling/automated-patrol-scheduling" className="text-primary hover:underline">automated patrol round</Link> works through the after-hours sequence at the frequency you set.</>,
+      { points: [
+        'The sequence runs entrance, corridors, stockroom, dock, plant room, and back out to the car park.',
+        'At each camera it checks the list: doors closed, areas empty, nothing left running.',
+        'It records the answer with the frame.',
+        'Where one frame is not enough it watches the scene for a short period before deciding.',
+      ] },
+      'The round messages the guard, and the detections cover the time between rounds.',
+      { points: [
+        'A failed item messages the guard designated for that camera with the snapshot.',
+        <>The AI raises a critical notification for a <Link href="/virtual-patrolling/risk-detection" className="text-primary hover:underline">risk it sees</Link> that the checklist did not ask about: a blocked exit, smoke, a person where none should be.</>,
+        <>Between rounds, <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">zone intrusion</Link> fires on a tracked person the moment they appear.</>,
+        'Its notification window keeps it quiet during the day.',
+      ] },
     ],
     detections: [
       { href: '/ai-features/zone-intrusion-detection', name: 'Zone intrusion detection', role: 'Interior and exterior zones with an after-hours notification window. A tracked person after closing is the event.' },
@@ -61,14 +73,27 @@ const content: UseCaseContent = {
     items: [['Main entrance locked', 'ok'], ['Reception empty', 'ok'], ['Stockroom door closed', 'fail'], ['Loading dock doors down', 'ok']],
     caption: 'The 01:00 round with the stockroom door found open. Guard messaged with the frame; the report will show before and after.',
     paras: [
-      'The after-hours sequence is the cameras in the order a guard would walk them, and the checklist at each is the state the building should be in when nobody is there. Entrance locked. Reception empty. Stockroom door closed. Dock doors down. Plant room clear. The round produces a report that says each was true at each time it was checked, with the frame to prove it.',
+      'The after-hours sequence is the cameras in the order a guard would walk them, and the checklist at each is the state the building should be in when nobody is there.',
+      { points: [
+        'The entrance is locked.',
+        'Reception is empty.',
+        'The stockroom door is closed.',
+        'The dock doors are down.',
+        'The plant room is clear.',
+      ] },
+      'The round produces a report that says each was true at each time it was checked, with the frame to prove it.',
       <>Use <Link href="/virtual-patrolling/patrol-checklists" className="text-primary hover:underline">checklists</Link> that describe conditions, not events, so a passing round is meaningful. The first round of the night is usually the <Link href="/use-cases/lock-up-and-closing-checks" className="text-primary hover:underline">closing round</Link>. A camera that sees an empty corridor is evidence; a camera that saw no motion is not.</>,
     ],
   },
   limits: {
     heading: 'What it will not do',
     paras: [
-      'It will not attend. A round finds the stockroom door open and messages the guard; someone still has to close it, and the item stays Pending in the report until they do. It will not see a room without a camera, and it will not run the round if the site loses its internet connection; the failure is logged and the next scheduled round runs when the connection returns.',
+      'The round has three limits worth knowing before you rely on it.',
+      { points: [
+        'It will not attend: a round finds the stockroom door open and messages the guard, someone still has to close it, and the item stays Pending in the report until they do.',
+        'It will not see a room without a camera.',
+        'It will not run the round if the site loses its internet connection; the failure is logged and the next scheduled round runs when the connection returns.',
+      ] },
       <>We do not publish uptime, response times or how many incidents rounds have caught, because we cannot verify those figures for your site. The <Link href="/trust" className="text-primary hover:underline">trust page</Link> explains the policy.</>,
     ],
   },

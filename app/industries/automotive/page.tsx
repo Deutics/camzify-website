@@ -7,6 +7,7 @@ import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
 import Link from 'next/link';
+import { PointList } from '@/components/content/point-list';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -72,7 +73,12 @@ export default function AutomotivePage() {
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
                 <p>Dealership lots and service centers hold some of the highest-value mobile assets on any commercial property, spread across large outdoor yards that are difficult for a single attendant to watch in full. A vehicle can be moved, damaged, or driven off a lot in the time it takes a guard to walk the opposite end of the site.</p>
                 <p>Plain CCTV records the yard around the clock but only gets reviewed after something has already gone missing, by then the vehicle, and any chance of recovery, is long gone. A guard walking a fixed route covers the property for a few minutes each hour at best, leaving showroom entrances, service bays, and back rows of inventory unwatched the rest of the time.</p>
-                <p>Continuous AI monitoring closes that gap by checking every yard row, entrance, and bay door on a repeating schedule, day and night, and raising an alert the moment something falls outside the expected pattern, without needing a person physically present at every stop.</p>
+                <p>Continuous AI monitoring closes that gap.</p>
+                <PointList items={[
+                  'It checks every yard row, entrance, and bay door on a repeating schedule, day and night.',
+                  'It raises an alert the moment something falls outside the expected pattern.',
+                  'It does this without needing a person physically present at every stop.',
+                ]} />
               </div>
             </ScrollReveal>
           </div>
@@ -110,8 +116,13 @@ export default function AutomotivePage() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Checking each stop</h3>
                 <p className="mt-2 text-muted-foreground">
-                  At each stop, the AI checks the defined conditions for that camera using <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">zone intrusion detection</Link> and <Link href="/ai-features/multi-object-tracking" className="text-primary hover:underline">multi-object tracking</Link> — is the yard clear, is a vehicle out of place, is the showroom entrance secure.
+                  At each stop, the AI checks the defined conditions for that camera using <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">zone intrusion detection</Link> and <Link href="/ai-features/multi-object-tracking" className="text-primary hover:underline">multi-object tracking</Link>.
                 </p>
+                <PointList items={[
+                  'It checks whether the yard is clear.',
+                  'It checks whether a vehicle is out of place.',
+                  'It checks whether the showroom entrance is secure.',
+                ]} />
 
                 <h3 className="mt-6 font-display text-lg font-bold">Routing the alert</h3>
                 <p className="mt-2 text-muted-foreground">

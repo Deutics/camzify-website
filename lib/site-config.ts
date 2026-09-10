@@ -72,8 +72,21 @@ export const siteConfig = {
   /** Black wordmark. Used for schema.org, where consumers render on light grounds. */
   logo: '/camzify-logo-light.png',
 
-  /** Populate as profiles go live — schema.org sameAs strengthens entity disambiguation. */
-  sameAs: [] as string[],
+  /**
+   * The company's public profiles, supplied by the business on 2026-09-09. Rendered in
+   * the footer, emitted as schema.org sameAs on the Organization node (which is how
+   * search and answer engines tie the site, the LinkedIn page and the channel to one
+   * entity) and listed in /llms.txt. Add X here when the business confirms the handle.
+   */
+  social: [
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/company/camzify-global/', icon: 'linkedin' },
+    { label: 'YouTube', href: 'https://www.youtube.com/@camzifyglobal', icon: 'youtube' },
+    { label: 'Facebook', href: 'https://www.facebook.com/camzifyglobal/', icon: 'facebook' },
+    { label: 'Instagram', href: 'https://www.instagram.com/camzifyglobal/', icon: 'instagram' },
+  ] as const,
+  get sameAs(): string[] {
+    return this.social.map((s) => s.href);
+  },
 
   /**
    * The named author behind the guides.

@@ -44,7 +44,12 @@ const content: UseCaseContent = {
   handles: {
     heading: 'A zone per area, a window per camera, a snapshot when it breaks',
     paras: [
-      <><Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">Zone intrusion detection</Link> puts an area on the camera view, and the camera carries a notification window: the yard notifies between 8pm and 6am, the roof at any hour. A tracked person inside the zone raises an alert with the snapshot during the window and nothing outside it. <Link href="/ai-features/line-intrusion-detection" className="text-primary hover:underline">Line intrusion detection</Link> covers the fence itself, a tripwire with a direction so that leaving is not the same event as entering.</>,
+      <><Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">Zone intrusion detection</Link> puts an area on the camera view, and the camera carries a notification window.</>,
+      { points: [
+        'The yard notifies between 8pm and 6am, the roof at any hour.',
+        'A tracked person inside the zone raises an alert with the snapshot during the window and nothing outside it.',
+        <><Link href="/ai-features/line-intrusion-detection" className="text-primary hover:underline">Line intrusion detection</Link> covers the fence itself, a tripwire with a direction so that leaving is not the same event as entering.</>,
+      ] },
       <>Both fire on a track from <Link href="/ai-features/multi-object-tracking" className="text-primary hover:underline">multi-object tracking</Link>, the layer that follows each subject across frames and is the reason a headlight sweep or a bird does not raise a person alert. If the person is still there when the next <Link href="/virtual-patrolling" className="text-primary hover:underline">patrol round</Link> reaches that camera, the checklist item fails as well, and the round writes it into the report with the frame.</>,
     ],
     detections: [
@@ -61,14 +66,23 @@ const content: UseCaseContent = {
     items: [['No person in the yard', 'ok'], ['Fence line intact', 'ok'], ['Roof access ladder clear', 'fail'], ['Camera view unobstructed', 'ok']],
     caption: 'A yard stop with the roof-access item failed. The guard gets the snapshot; the item stays Pending until it is fixed.',
     paras: [
-      'A trespassing round is the exterior and ground-level cameras in order, and the checklist at each asks whether the area is empty and the boundary intact. Run at a set frequency overnight, it produces a report that shows the grounds were checked and found clear at each time, which is the difference between a site that was watched and a site that merely had cameras.',
-      <>Automated rounds can also watch a scene for a short period rather than judging one frame, which matters for a yard where someone might be standing still, and they raise a critical notification for a <Link href="/virtual-patrolling/risk-detection" className="text-primary hover:underline">risk they see</Link> that the checklist did not ask about.</>,
+      'A trespassing round is the exterior and ground-level cameras in order, and the checklist at each asks whether the area is empty and the boundary intact.',
+      { points: [
+        'Run at a set frequency overnight, it produces a report that shows the grounds were checked and found clear at each time, which is the difference between a site that was watched and a site that merely had cameras.',
+        'Automated rounds can also watch a scene for a short period rather than judging one frame, which matters for a yard where someone might be standing still.',
+        <>They raise a critical notification for a <Link href="/virtual-patrolling/risk-detection" className="text-primary hover:underline">risk they see</Link> that the checklist did not ask about.</>,
+      ] },
     ],
   },
   limits: {
     heading: 'What it will not do',
     paras: [
-      'It will not identify the person. Attribute extraction describes; it does not recognize. It will not see a person the camera cannot see, so coverage gaps in the camera layout are coverage gaps in the detection. And it will not intervene: it puts the snapshot in front of the guard designated for that camera, and what happens next is a human decision.',
+      'It describes, it covers what the cameras cover, and it leaves the decision to a person.',
+      { points: [
+        'It will not identify the person; attribute extraction describes, it does not recognize.',
+        'It will not see a person the camera cannot see, so coverage gaps in the camera layout are coverage gaps in the detection.',
+        'It will not intervene: it puts the snapshot in front of the guard designated for that camera, and what happens next is a human decision.',
+      ] },
       <>Detection rates depend on your cameras and lighting, and we do not publish a number for them. The <Link href="/trust" className="text-primary hover:underline">trust page</Link> explains why.</>,
     ],
   },

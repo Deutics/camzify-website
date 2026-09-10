@@ -66,7 +66,7 @@ export default function Page() {
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
                 <p>A physical altercation can go from first shove to serious injury in seconds, far faster than a guard on patrol or watching a bank of monitors is likely to notice, intervene, or even know it's happening at all. By the time someone reports it or a supervisor reviews the footage afterward, the incident is already over and the only value left is documentation.</p>
                 <p>Relying on people nearby to call for help has the same gap: bystanders often hesitate, and staff aren't always positioned to see the moment it starts. Fixed motion alarms don't help either, since a fight looks like ordinary movement to a system that can't distinguish aggressive contact from a crowd milling around.</p>
-                <p>Aggression and fight detection watches for the specific motion pattern of a physical altercation, rapid, sustained, aggressive movement between tracked individuals, and fires the alert while the incident is still unfolding, giving security the chance to respond in real time rather than reconstruct events afterward.</p>
+                <p>Aggression and fight detection watches for the specific motion pattern of a physical altercation, rapid, sustained, aggressive movement between tracked individuals. It fires the alert while the incident is still unfolding, giving security the chance to respond in real time rather than reconstruct events afterward.</p>
               </div>
             </ScrollReveal>
           </div>

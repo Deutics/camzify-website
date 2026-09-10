@@ -6,6 +6,7 @@ import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
 import Link from 'next/link';
+import { PointList } from '@/components/content/point-list';
 import { PhotoFigure } from '@/components/content/photo-figure';
 import { SiteImage } from '@/components/content/site-image';
 
@@ -78,7 +79,12 @@ export default function MultipleSitesPage() {
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
                 <p>Running security across many locations usually means stitching together separate guarding contracts, inconsistent camera systems, and local teams who each handle checks their own way. What counts as a completed patrol at one site may be a quick glance at another.</p>
                 <p>A regional security manager reviewing that patchwork after the fact has no easy way to tell which sites are actually being checked consistently and which are relying on assumption. A camera going offline at a remote location can go unnoticed for days if no one is specifically watching for it.</p>
-                <p>Continuous AI monitoring standardizes the patrol itself, the same scheduled checks, the same reporting format, and the same alert routing logic applied across every site from one dashboard, so gaps show up immediately instead of being discovered during an incident review.</p>
+                <p>Continuous AI monitoring standardizes the patrol itself, so gaps show up immediately instead of being discovered during an incident review.</p>
+                <PointList items={[
+                  'The same scheduled checks run at every site.',
+                  'The same reporting format applies at every site.',
+                  'The same alert routing logic applies across every site from one dashboard.',
+                ]} />
               </div>
             </ScrollReveal>
           </div>
@@ -116,8 +122,14 @@ export default function MultipleSitesPage() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Checking each stop</h3>
                 <p className="mt-2 text-muted-foreground">
-                  At each stop, the AI checks the defined conditions for that camera using <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">Zone Intrusion Detection</Link> and <Link href="/ai-features/motion-detection" className="text-primary hover:underline">Motion Detection</Link> — is the area clear, is the boundary intact, is the camera unobstructed — using the same logic regardless of which site the camera belongs to.
+                  At each stop, the AI checks the defined conditions for that camera using <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">Zone Intrusion Detection</Link> and <Link href="/ai-features/motion-detection" className="text-primary hover:underline">Motion Detection</Link>.
                 </p>
+                <PointList items={[
+                  'It checks whether the area is clear.',
+                  'It checks whether the boundary is intact.',
+                  'It checks whether the camera is unobstructed.',
+                  'The same logic applies regardless of which site the camera belongs to.',
+                ]} />
 
                 <h3 className="mt-6 font-display text-lg font-bold">Routing the alert</h3>
                 <p className="mt-2 text-muted-foreground">

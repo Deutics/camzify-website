@@ -5,6 +5,7 @@ import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { FeatureHero } from '@/components/content/feature-hero';
 import { ProductShot } from '@/components/content/product-shot';
 import { VideoBackupMockup } from '@/components/mockups/video-backup-mockup';
+import { PointList } from '@/components/content/point-list';
 import Link from 'next/link';
 import { HardDrive, Clock, Zap, Info } from 'lucide-react';
 
@@ -97,13 +98,14 @@ export default function Page() {
                 <p className="mt-4 text-muted-foreground">
                   <strong className="font-semibold text-foreground">
                     Recording runs continuously or on a schedule, set per camera.
-                  </strong>{' '}
-                  Continuous suits anywhere an incident could happen at any hour. Scheduled records
-                  only during the hours you define, which is the bluntest and most effective control
-                  on storage cost. An interior camera watching an empty office overnight is paying
-                  to store twelve hours of nothing. A schedule can be applied to a whole site or to
-                  every camera at once rather than set one at a time.
+                  </strong>
                 </p>
+                <PointList items={[
+                  'Continuous suits anywhere an incident could happen at any hour.',
+                  'Scheduled records only during the hours you define, which is the bluntest and most effective control on storage cost.',
+                  'An interior camera watching an empty office overnight is paying to store twelve hours of nothing.',
+                  'A schedule can be applied to a whole site or to every camera at once rather than set one at a time.',
+                ]} />
                 <p className="mt-4 text-muted-foreground">
                   Retention policy is where storage cost and evidence coverage trade off against each other.
                   a high-motion entrance camera at 4K eats storage far faster than a quiet loading dock at

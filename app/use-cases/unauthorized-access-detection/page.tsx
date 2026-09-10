@@ -45,8 +45,18 @@ const content: UseCaseContent = {
   handles: {
     heading: 'Rules on the space, not on the door',
     paras: [
-      <><Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">Zone intrusion detection</Link> draws the restricted area on the camera view, the server room floor, the cash office, the roof, and the camera carries the notification window during which nobody, or nobody unaccompanied, should be there. A tracked person inside the zone during the window raises an alert with the snapshot. <Link href="/ai-features/tailgating-detection" className="text-primary hover:underline">Tailgating detection</Link> watches the controlled entrance itself and fires when more than one person passes on a single badge event.</>,
-      <>On top of the detections, a <Link href="/virtual-patrolling" className="text-primary hover:underline">patrol round</Link> checks the restricted rooms on a schedule: door closed, room empty, nothing left propped. It records the answer with a snapshot whether or not a detection fired, which is the evidence that the control was working, not just that it existed. Where the concern inside the door is a person rather than a place, <Link href="/use-cases/violence-and-weapons-detection" className="text-primary hover:underline">violence and weapons detection</Link> runs on the same cameras.</>,
+      <><Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">Zone intrusion detection</Link> draws the restricted area on the camera view: the server room floor, the cash office, the roof.</>,
+      { points: [
+        'The camera carries the notification window during which nobody, or nobody unaccompanied, should be there.',
+        'A tracked person inside the zone during the window raises an alert with the snapshot.',
+        <><Link href="/ai-features/tailgating-detection" className="text-primary hover:underline">Tailgating detection</Link> watches the controlled entrance itself and fires when more than one person passes on a single badge event.</>,
+      ] },
+      <>On top of the detections, a <Link href="/virtual-patrolling" className="text-primary hover:underline">patrol round</Link> checks the restricted rooms on a schedule.</>,
+      { points: [
+        'The items are door closed, room empty, nothing left propped.',
+        'It records the answer with a snapshot whether or not a detection fired, which is the evidence that the control was working, not just that it existed.',
+        <>Where the concern inside the door is a person rather than a place, <Link href="/use-cases/violence-and-weapons-detection" className="text-primary hover:underline">violence and weapons detection</Link> runs on the same cameras.</>,
+      ] },
     ],
     detections: [
       { href: '/ai-features/zone-intrusion-detection', name: 'Zone intrusion detection', role: 'The restricted area on the camera view, notified during the hours you set.' },
@@ -69,7 +79,13 @@ const content: UseCaseContent = {
   limits: {
     heading: 'What it will not do',
     paras: [
-      'It will not check a badge or open a door; it is not an access control system and does not replace one. It will not identify people. It will not see into a room without a camera in it. And it will not decide what to do about the person in the server room at midnight; it puts the snapshot in front of the guard designated for that camera.',
+      'It is a camera rule on the room, not a replacement for the system on the door.',
+      { points: [
+        'It will not check a badge or open a door; it is not an access control system and does not replace one.',
+        'It will not identify people.',
+        'It will not see into a room without a camera in it.',
+        'It will not decide what to do about the person in the server room at midnight; it puts the snapshot in front of the guard designated for that camera.',
+      ] },
       <>We do not publish detection rates or notification delivery times. The <Link href="/trust" className="text-primary hover:underline">trust page</Link> sets out what we do and do not claim.</>,
     ],
   },

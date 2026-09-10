@@ -44,7 +44,12 @@ const content: UseCaseContent = {
   handles: {
     heading: 'Raised when it is confirmed, verified by a person',
     paras: [
-      <><Link href="/ai-features/weapons-detection" className="text-primary hover:underline">Weapons detection</Link> flags a visibly brandished firearm or edged weapon the moment it enters the frame and raises a critical alert with a clip and a confidence score. It is a visual model: it does not see through a bag or a coat, and it is not a scanner. <Link href="/ai-features/aggression-and-fight-detection" className="text-primary hover:underline">Aggression and fight detection</Link> watches the movement between individually tracked people and fires on the sustained, aggressive pattern of an altercation rather than on a busy scene.</>,
+      'Two detections cover the weapon and the altercation.',
+      { points: [
+        <><Link href="/ai-features/weapons-detection" className="text-primary hover:underline">Weapons detection</Link> flags a visibly brandished firearm or edged weapon the moment it enters the frame and raises a critical alert with a clip and a confidence score.</>,
+        'It is a visual model: it does not see through a bag or a coat, and it is not a scanner.',
+        <><Link href="/ai-features/aggression-and-fight-detection" className="text-primary hover:underline">Aggression and fight detection</Link> watches the movement between individually tracked people and fires on the sustained, aggressive pattern of an altercation rather than on a busy scene.</>,
+      ] },
       <>Both are usually enabled together, because one escalates into the other. Both default to critical severity, and both put a clip in front of a person, because the correct workflow is to verify in seconds and then escalate, not to escalate on the alert alone. Afterwards, <Link href="/ai-features/forensic-video-search" className="text-primary hover:underline">AI suspect search</Link> finds the same person on other cameras by description, and <Link href="/platform/video-backup-and-retention" className="text-primary hover:underline">cloud backup</Link> holds the footage within the retention set for that camera.</>,
     ],
     detections: [
@@ -68,7 +73,13 @@ const content: UseCaseContent = {
   limits: {
     heading: 'What it will not do',
     paras: [
-      'It will not detect a concealed weapon; it is not a metal detector or an X-ray. It will not identify anyone. It will not prevent the event; it shortens the time between the event and a person knowing, and the response is that person\'s. It will produce some alerts that a human, looking at the clip, will dismiss, and the workflow is built for that.',
+      'The limits follow from what it is: a visual detection, verified by a person.',
+      { points: [
+        'It will not detect a concealed weapon; it is not a metal detector or an X-ray.',
+        'It will not identify anyone.',
+        'It will not prevent the event; it shortens the time between the event and a person knowing, and the response is that person\'s.',
+        'It will produce some alerts that a human, looking at the clip, will dismiss, and the workflow is built for that.',
+      ] },
       <>We do not publish detection or false-alert rates for these models. The <Link href="/trust" className="text-primary hover:underline">trust page</Link> explains why, and it applies here more than anywhere.</>,
     ],
   },

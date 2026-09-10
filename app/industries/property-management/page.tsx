@@ -6,6 +6,7 @@ import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
 import Link from 'next/link';
+import { PointList } from '@/components/content/point-list';
 import { PhotoFigure } from '@/components/content/photo-figure';
 import { SiteImage } from '@/components/content/site-image';
 
@@ -78,7 +79,13 @@ export default function PropertyManagementPage() {
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
                 <p>Property managers are typically responsible for a portfolio of buildings, not just one, a mix of residential, mixed-use, or commercial addresses spread across a city, each with its own common areas, parking structures, and access points. A single property manager or on-site super can walk one building's halls a few times a shift; the rest of the portfolio sits unchecked for hours or days between visits.</p>
                 <p>Plain CCTV compounds the problem: footage from a dozen buildings sits on a dozen separate systems, reviewed only after a resident complaint or an incident report already lands on the manager's desk. By then, whatever happened in the stairwell, garage, or amenity space is long over.</p>
-                <p>Virtual patrolling gives every managed property the same scheduled AI rounds a large staffed team would run, without needing a person physically present at each site. Every building gets checked on its own schedule, every result is logged, and alerts route to whoever's actually on call for that property, no portfolio-wide blind spots.</p>
+                <p>Virtual patrolling gives every managed property the same scheduled AI rounds a large staffed team would run, without needing a person physically present at each site.</p>
+                <PointList items={[
+                  'Every building gets checked on its own schedule.',
+                  'Every result is logged.',
+                  "Alerts route to whoever's actually on call for that property.",
+                  'There are no portfolio-wide blind spots.',
+                ]} />
               </div>
             </ScrollReveal>
           </div>
@@ -116,8 +123,13 @@ export default function PropertyManagementPage() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Checking each stop</h3>
                 <p className="mt-2 text-muted-foreground">
-                  At each stop, the AI checks the defined conditions for that camera using <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">zone intrusion</Link> and <Link href="/ai-features/motion-detection" className="text-primary hover:underline">motion detection</Link> — is the common area clear, is anyone in the garage after hours, is the camera unobstructed.
+                  At each stop, the AI checks the defined conditions for that camera using <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">zone intrusion</Link> and <Link href="/ai-features/motion-detection" className="text-primary hover:underline">motion detection</Link>.
                 </p>
+                <PointList items={[
+                  'It checks whether the common area is clear.',
+                  'It checks whether anyone is in the garage after hours.',
+                  'It checks whether the camera is unobstructed.',
+                ]} />
 
                 <h3 className="mt-6 font-display text-lg font-bold">Routing the alert</h3>
                 <p className="mt-2 text-muted-foreground">

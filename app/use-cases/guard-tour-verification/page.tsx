@@ -44,7 +44,12 @@ const content: UseCaseContent = {
   handles: {
     heading: 'The same points, judged from the camera, with the frame kept',
     paras: [
-      <>A <Link href="/virtual-patrolling/patrol-sequences" className="text-primary hover:underline">patrol sequence</Link> is built over the same checkpoints as the physical round, one camera stop per point, with a <Link href="/virtual-patrolling/patrol-checklists" className="text-primary hover:underline">checklist</Link> at each that asks what the guard is supposed to check: door closed, area clear, gate locked, fire exit unobstructed. The round judges each item from the frame and keeps that frame, so the report is a set of pictures with verdicts rather than a set of timestamps.</>,
+      <>A <Link href="/virtual-patrolling/patrol-sequences" className="text-primary hover:underline">patrol sequence</Link> is built over the same checkpoints as the physical round, one camera stop per point.</>,
+      { points: [
+        <>A <Link href="/virtual-patrolling/patrol-checklists" className="text-primary hover:underline">checklist</Link> at each stop asks what the guard is supposed to check: door closed, area clear, gate locked, fire exit unobstructed.</>,
+        'The round judges each item from the frame and keeps that frame.',
+        'That makes the report a set of pictures with verdicts rather than a set of timestamps.',
+      ] },
       <>Run it on the guard&apos;s schedule and the two records line up by time. Run it between the guard&apos;s rounds and it covers the gaps. Either way the <Link href="/virtual-patrolling/patrol-reports" className="text-primary hover:underline">report</Link> is filed per round with a compliance percentage, and a client with a scoped login reads their own without anyone forwarding it.</>,
     ],
     detections: [
@@ -68,7 +73,12 @@ const content: UseCaseContent = {
   limits: {
     heading: 'What it will not do',
     paras: [
-      'It will not identify the guard; it can see that a person was at the checkpoint and describe them, not name them. It will not verify a point with no camera on it, so a round with blind checkpoints keeps them blind. And it will not replace the guard: the round proves the condition, and a person still attends what fails.',
+      'The round proves the condition at each point; three limits sit around that.',
+      { points: [
+        'It will not identify the guard; it can see that a person was at the checkpoint and describe them, not name them.',
+        'It will not verify a point with no camera on it, so a round with blind checkpoints keeps them blind.',
+        'It will not replace the guard: the round proves the condition, and a person still attends what fails.',
+      ] },
       <>We do not publish figures on how often rounds are found to have been skipped, because it is not our number to publish. The <Link href="/trust" className="text-primary hover:underline">trust page</Link> sets out the policy.</>,
     ],
   },

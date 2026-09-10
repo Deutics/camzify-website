@@ -2,6 +2,7 @@ import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
+import { PointList } from '@/components/content/point-list';
 import { FeatureHero } from '@/components/content/feature-hero';
 import { SiteImage } from '@/components/content/site-image';
 import { SectionVisual } from '@/components/content/section-visual';
@@ -122,11 +123,13 @@ export default function RiskDetectionPage() {
                 Every camera on an automated round gets two entries in the report:{' '}
                 <strong className="font-semibold text-foreground">possible safety risks</strong> and{' '}
                 <strong className="font-semibold text-foreground">possible security risks</strong>.
-                They are filled in whether or not anything is wrong. A gym might read &ldquo;possible
-                tripping hazards due to equipment left out on the floor&rdquo;; a pathway,
-                &ldquo;wet surfaces might cause slipping&rdquo;; most stops, &ldquo;none
-                apparent&rdquo;.
+                They are filled in whether or not anything is wrong.
               </p>
+              <PointList items={[
+                <>A gym might read &ldquo;possible tripping hazards due to equipment left out on the floor&rdquo;.</>,
+                <>A pathway might read &ldquo;wet surfaces might cause slipping&rdquo;.</>,
+                <>Most stops read &ldquo;none apparent&rdquo;.</>,
+              ]} />
               <p className="mt-4 max-w-prose text-muted-foreground">
                 Recording the negatives is what makes the positives worth reading. A system that
                 only speaks up when it has something to say gives you no way to tell the difference
@@ -145,15 +148,17 @@ export default function RiskDetectionPage() {
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Why the timing is the whole point</h2>
               <p className="mt-4 max-w-prose text-muted-foreground">
-                Most site risks are not instantaneous. A fire door wedged open at the start of a
-                shift is wedged open for hours. Pallets in front of an exit stay there until someone
-                moves them. A bag left in a lobby sits there until it is noticed. Each is a risk for
-                a stretch of time before it is anything worse, and during that stretch it is a
-                five-minute fix.
+                Most site risks are not instantaneous.
               </p>
+              <PointList items={[
+                'A fire door wedged open at the start of a shift is wedged open for hours.',
+                'Pallets in front of an exit stay there until someone moves them.',
+                'A bag left in a lobby sits there until it is noticed.',
+              ]} />
               <p className="mt-4 max-w-prose text-muted-foreground">
-                A scheduled round that looks at every camera every couple of hours lands inside that
-                window. That is the entire claim &mdash; not that the system foresees events, but
+                Each is a risk for a stretch of time before it is anything worse, and during that
+                stretch it is a five-minute fix. A scheduled round that looks at every camera every
+                couple of hours lands inside that window. That is the entire claim &mdash; not that the system foresees events, but
                 that it reaches a hazardous condition while it is still just a condition, and tells
                 a named person who can deal with it.
               </p>
@@ -229,16 +234,16 @@ export default function RiskDetectionPage() {
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Where it matters most</h2>
               <p className="mt-4 max-w-prose text-muted-foreground">
-                Sites where a hazardous condition can persist unseen for hours get the most from it:
-                a{' '}
-                <Link href="/industries/warehouses" className="text-primary hover:underline">warehouse</Link>{' '}
-                after the shift ends, a{' '}
-                <Link href="/industries/construction-sites" className="text-primary hover:underline">construction site</Link>{' '}
-                overnight, a{' '}
-                <Link href="/industries/remote-sites" className="text-primary hover:underline">remote or unmanned site</Link>{' '}
-                where nobody walks past at all. Anywhere the answer to &ldquo;how long before someone
-                would notice&rdquo; is measured in hours, a scheduled round that looks properly is
-                worth more than another camera.
+                Sites where a hazardous condition can persist unseen for hours get the most from it.
+              </p>
+              <PointList items={[
+                <>A <Link href="/industries/warehouses" className="text-primary hover:underline">warehouse</Link> gets the most from it after the shift ends.</>,
+                <>A <Link href="/industries/construction-sites" className="text-primary hover:underline">construction site</Link> gets the most from it overnight.</>,
+                <>A <Link href="/industries/remote-sites" className="text-primary hover:underline">remote or unmanned site</Link>, where nobody walks past at all, gets the most from it.</>,
+              ]} />
+              <p className="mt-4 max-w-prose text-muted-foreground">
+                Anywhere the answer to &ldquo;how long before someone would notice&rdquo; is measured
+                in hours, a scheduled round that looks properly is worth more than another camera.
               </p>
             </ScrollReveal>
           </div>

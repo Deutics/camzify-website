@@ -6,6 +6,7 @@ import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import Link from 'next/link';
+import { PointList } from '@/components/content/point-list';
 import { SiteImage } from '@/components/content/site-image';
 
 /**
@@ -96,7 +97,16 @@ export default function Page() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Noise filtering</h3>
                 <p className="mt-2 text-muted-foreground">
-                  Candidate motion regions are filtered against known sources of noise, lighting transitions, camera auto-exposure adjustments, compression artifacts, and small repetitive movement like foliage in wind, before being passed on. Motion candidates that survive filtering are handed to <Link href="/ai-features/multi-object-tracking" className="text-primary hover:underline">multi-object tracking</Link> for object confirmation, which is what ultimately determines whether an alert fires.
+                  Candidate motion regions are filtered against known sources of noise before being passed on.
+                </p>
+                <PointList className="mt-3" items={[
+                  'Lighting transitions are filtered out.',
+                  'Camera auto-exposure adjustments are filtered out.',
+                  'Compression artifacts are filtered out.',
+                  'Small repetitive movement like foliage in wind is filtered out.',
+                ]} />
+                <p className="mt-3 text-muted-foreground">
+                  Motion candidates that survive filtering are handed to <Link href="/ai-features/multi-object-tracking" className="text-primary hover:underline">multi-object tracking</Link> for object confirmation, which is what ultimately determines whether an alert fires.
                 </p>
 
                 <h3 className="mt-6 font-display text-lg font-bold">Alert delivery</h3>

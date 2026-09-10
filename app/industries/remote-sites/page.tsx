@@ -6,6 +6,7 @@ import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
 import Link from 'next/link';
+import { PointList } from '@/components/content/point-list';
 import { PhotoFigure } from '@/components/content/photo-figure';
 import { SiteImage } from '@/components/content/site-image';
 
@@ -78,7 +79,12 @@ export default function RemoteSitesPage() {
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
                 <p>Remote sites, substations, cell towers, pipeline stations, construction laydown yards, solar and wind installations, are, by definition, far from anywhere a guard can be stationed cost-effectively. A maintenance crew or roaming patrol might visit once a day, once a week, or less; everything that happens between visits goes unwitnessed.</p>
                 <p>Manned guarding doesn't scale to this kind of geography, driving a guard to a remote substation for a nightly check costs far more than the asset being protected is worth in most cases, and even then, one drive-by a night still leaves the rest of the day uncovered.</p>
-                <p>Virtual patrolling replaces the physical drive with scheduled AI rounds that run on whatever connectivity the site has, cellular, satellite, or a site-to-site link, checking the fence line, the equipment yard, and the access gate on a fixed schedule and flagging anything that doesn't match, without anyone needing to be there.</p>
+                <p>Virtual patrolling replaces the physical drive with scheduled AI rounds, without anyone needing to be there.</p>
+                <PointList items={[
+                  'The rounds run on whatever connectivity the site has: cellular, satellite, or a site-to-site link.',
+                  'They check the fence line, the equipment yard, and the access gate on a fixed schedule.',
+                  "They flag anything that doesn't match.",
+                ]} />
               </div>
             </ScrollReveal>
           </div>
@@ -116,8 +122,13 @@ export default function RemoteSitesPage() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Checking each stop</h3>
                 <p className="mt-2 text-muted-foreground">
-                  At each stop, the AI checks the defined conditions using <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">zone intrusion</Link> and <Link href="/ai-features/line-intrusion-detection" className="text-primary hover:underline">line intrusion detection</Link> — is the fence line intact, has anyone crossed the boundary, is the camera still online and unobstructed.
+                  At each stop, the AI checks the defined conditions using <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">zone intrusion</Link> and <Link href="/ai-features/line-intrusion-detection" className="text-primary hover:underline">line intrusion detection</Link>.
                 </p>
+                <PointList items={[
+                  'It checks whether the fence line is intact.',
+                  'It checks whether anyone has crossed the boundary.',
+                  'It checks whether the camera is still online and unobstructed.',
+                ]} />
 
                 <h3 className="mt-6 font-display text-lg font-bold">Routing the alert</h3>
                 <p className="mt-2 text-muted-foreground">

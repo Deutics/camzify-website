@@ -44,8 +44,18 @@ const content: UseCaseContent = {
   handles: {
     heading: 'Zones on the places stock is kept, notified when they should be empty',
     paras: [
-      <><Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">Zone intrusion detection</Link> draws each controlled area on its camera, and the camera's notification window is set to the hours the area should be empty. A tracked person inside the cage during that window, or in the cash office at any hour it should be empty, raises an alert with the snapshot. <Link href="/ai-features/abandoned-object-detection" className="text-primary hover:underline">Abandoned object detection</Link> catches stock staged by a fire exit or a bag left in a corridor, which is how goods leave a building that has a guard on the front door.</>,
-      <>A <Link href="/virtual-patrolling" className="text-primary hover:underline">patrol round</Link> checks the same areas on a schedule, clear, closed, nothing staged, and records each answer with a frame. When something does go missing, <Link href="/ai-features/forensic-video-search" className="text-primary hover:underline">AI suspect search</Link> takes a description in plain language and returns matching appearances across the cameras and the time window, instead of a week of scrubbing. The same tracking gives <Link href="/use-cases/occupancy-monitoring" className="text-primary hover:underline">occupancy per zone</Link>, which is how a store learns when the floor is too busy to watch.</>,
+      <><Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">Zone intrusion detection</Link> draws each controlled area on its camera.</>,
+      { points: [
+        'The camera\'s notification window is set to the hours the area should be empty.',
+        'A tracked person inside the cage during that window, or in the cash office at any hour it should be empty, raises an alert with the snapshot.',
+        <><Link href="/ai-features/abandoned-object-detection" className="text-primary hover:underline">Abandoned object detection</Link> catches stock staged by a fire exit or a bag left in a corridor, which is how goods leave a building that has a guard on the front door.</>,
+      ] },
+      <>A <Link href="/virtual-patrolling" className="text-primary hover:underline">patrol round</Link> checks the same areas on a schedule.</>,
+      { points: [
+        'The items are clear, closed, nothing staged, and each answer is recorded with a frame.',
+        <>When something does go missing, <Link href="/ai-features/forensic-video-search" className="text-primary hover:underline">AI suspect search</Link> takes a description in plain language and returns matching appearances across the cameras and the time window, instead of a week of scrubbing.</>,
+        <>The same tracking gives <Link href="/use-cases/occupancy-monitoring" className="text-primary hover:underline">occupancy per zone</Link>, which is how a store learns when the floor is too busy to watch.</>,
+      ] },
     ],
     detections: [
       { href: '/ai-features/zone-intrusion-detection', name: 'Zone intrusion detection', role: 'Stockroom, cage and cash office as zones, notified in the hours they should be empty.' },
@@ -61,14 +71,24 @@ const content: UseCaseContent = {
     items: [['Stockroom empty after hours', 'ok'], ['Cage door locked', 'fail'], ['Cash office door closed', 'ok'], ['Nothing staged at the fire exit', 'ok']],
     caption: 'The closing round with the cage found unlocked. The guard gets the frame; the report shows before and after once it is fixed.',
     paras: [
-      'A theft-prevention sequence is the cameras on the controlled areas in order, and the checklist is the state each should be in: empty, locked, closed, nothing staged. Run at closing and through the night, it produces a report per round that shows the controls held, and once staff know the round exists and is recorded, it changes behavior on its own.',
+      'A theft-prevention sequence is the cameras on the controlled areas in order, and the checklist is the state each should be in.',
+      { points: [
+        'The items are empty, locked, closed, nothing staged.',
+        'Run at closing and through the night, it produces a report per round that shows the controls held.',
+        'Once staff know the round exists and is recorded, it changes behavior on its own.',
+      ] },
       <>Include the <Link href="/use-cases/loading-dock-monitoring" className="text-primary hover:underline">dock</Link> in the sequence. Stock leaves through it, and a dock door found up at 22:00 is a checklist failure with a snapshot rather than a discovery at the next count. The closing round itself is covered under <Link href="/use-cases/lock-up-and-closing-checks" className="text-primary hover:underline">lock-up and closing checks</Link>.</>,
     ],
   },
   limits: {
     heading: 'What it will not do',
     paras: [
-      'It will not see concealment, and it will not identify people. It works on presence, movement and objects against rules you define, and describes what it saw; it does not recognize faces or name anyone. It will not cover an area without a camera on it. And it will not stop the person in the cage; it puts the snapshot in front of whoever you designate.',
+      'It works on presence, movement and objects against rules you define, and describes what it saw.',
+      { points: [
+        'It will not see concealment, and it will not identify people; it does not recognize faces or name anyone.',
+        'It will not cover an area without a camera on it.',
+        'It will not stop the person in the cage; it puts the snapshot in front of whoever you designate.',
+      ] },
       <>We do not publish shrinkage reductions or detection rates. Those depend on your store, your staff and your cameras, and the <Link href="/trust" className="text-primary hover:underline">trust page</Link> explains why we will not estimate them.</>,
     ],
   },

@@ -7,6 +7,7 @@ import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
 import Link from 'next/link';
+import { PointList } from '@/components/content/point-list';
 import { SiteImage } from '@/components/content/site-image';
 
 /**
@@ -77,7 +78,13 @@ export default function WarehousesPage() {
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
                 <p>A typical warehouse runs far longer than its staffed hours, trucks arrive before dawn, shifts end well after dark, and the building itself sits empty or lightly staffed for large stretches of every 24-hour cycle. A single guard walking a round covers the whole site for a few minutes an hour at best; the rest of the time, dock doors, fence lines, and storage areas are effectively unwatched.</p>
                 <p>Traditional CCTV records everything and reviews nothing until an incident is already reported. By the time someone pulls the footage after a theft or a damaged shipment, the window to actually respond has closed.</p>
-                <p>Virtual patrolling replaces that gap with scheduled AI rounds that check every camera stop on a defined route, log the result, and notify the right person the moment something fails, producing the same audit trail a physical guard tour would, without needing a guard walking it.</p>
+                <p>Virtual patrolling replaces that gap with scheduled AI rounds.</p>
+                <PointList items={[
+                  'Each round checks every camera stop on a defined route.',
+                  'Each round logs the result.',
+                  'The right person is notified the moment something fails.',
+                  'The result is the same audit trail a physical guard tour would produce, without needing a guard walking it.',
+                ]} />
               </div>
             </ScrollReveal>
           </div>
@@ -115,8 +122,13 @@ export default function WarehousesPage() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Checking each stop</h3>
                 <p className="mt-2 text-muted-foreground">
-                  At each stop, the AI checks the defined conditions for that camera using <Link href="/ai-features/line-intrusion-detection" className="text-primary hover:underline">line</Link> and <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">zone intrusion detection</Link> — is the area clear, is the boundary intact, is the camera unobstructed.
+                  At each stop, the AI checks the defined conditions for that camera using <Link href="/ai-features/line-intrusion-detection" className="text-primary hover:underline">line</Link> and <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">zone intrusion detection</Link>.
                 </p>
+                <PointList items={[
+                  'It checks whether the area is clear.',
+                  'It checks whether the boundary is intact.',
+                  'It checks whether the camera is unobstructed.',
+                ]} />
 
                 <h3 className="mt-6 font-display text-lg font-bold">Routing the alert</h3>
                 <p className="mt-2 text-muted-foreground">

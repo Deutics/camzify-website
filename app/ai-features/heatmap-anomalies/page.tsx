@@ -5,6 +5,7 @@ import { FaqSection } from '@/components/content/faq-section';
 import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
+import { PointList } from '@/components/content/point-list';
 import Link from 'next/link';
 
 /**
@@ -64,8 +65,13 @@ export default function Page() {
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Why heatmap anomalies matters</h2>
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
-                <p>Most foot traffic on a site is unremarkable, people moving through as expected, at roughly the volume you'd expect for the time of day. The interesting moments are the exceptions: a corridor that's suddenly congested, a normally busy lobby that's gone quiet, a back area with activity at an hour when nobody should be there. Those exceptions are easy to miss without something actively watching for them.</p>
-                <p>A single fixed rule, "alert if more than N people are in this zone", doesn't capture what "unusual" actually means for a given area, because normal varies by zone, by hour, and by day of week. A number that's alarming in a back corridor at 2am is completely ordinary in a lobby at lunchtime.</p>
+                <p>Most foot traffic on a site is unremarkable, people moving through as expected, at roughly the volume you'd expect for the time of day. The interesting moments are the exceptions.</p>
+                <PointList items={[
+                  'A corridor is suddenly congested.',
+                  'A normally busy lobby has gone quiet.',
+                  'A back area shows activity at an hour when nobody should be there.',
+                ]} />
+                <p>Those exceptions are easy to miss without something actively watching for them. A single fixed rule, "alert if more than N people are in this zone", doesn't capture what "unusual" actually means for a given area, because normal varies by zone, by hour, and by day of week. A number that's alarming in a back corridor at 2am is completely ordinary in a lobby at lunchtime.</p>
                 <p>Heatmap anomalies solves this by comparing current traffic against a baseline built specifically for each zone, rather than a single threshold applied everywhere. That's what lets it flag a real deviation instead of either missing it or flooding the queue with false alerts.</p>
               </div>
             </ScrollReveal>

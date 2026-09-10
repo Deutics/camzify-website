@@ -6,6 +6,7 @@ import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
 import Link from 'next/link';
+import { PointList } from '@/components/content/point-list';
 import { PhotoFigure } from '@/components/content/photo-figure';
 import { SiteImage } from '@/components/content/site-image';
 
@@ -78,7 +79,12 @@ export default function EducationFacilitiesPage() {
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
                 <p>A campus is only lightly occupied for a fraction of the calendar year, evenings, weekends, and long holiday breaks leave labs, gyms, and equipment rooms across several buildings sitting empty at once. A single security officer walking a round can reach one building at a time; the rest of the campus goes unchecked until the next pass.</p>
                 <p>Plain CCTV records every building continuously but only gets reviewed after a break-in or an act of vandalism is already reported, and academic calendars add another layer of complexity: the same building can need a completely different patrol pattern during exam period versus a summer holiday.</p>
-                <p>Continuous AI monitoring runs a scheduled check across every building on the same campus, adjusts automatically to term-time and holiday schedules, and flags a propped door or an out-of-hours presence the moment it happens, giving one security team real coverage of a multi-building site without needing to physically walk it.</p>
+                <p>Continuous AI monitoring gives one security team real coverage of a multi-building site without needing to physically walk it.</p>
+                <PointList items={[
+                  'It runs a scheduled check across every building on the same campus.',
+                  'It adjusts automatically to term-time and holiday schedules.',
+                  'It flags a propped door or an out-of-hours presence the moment it happens.',
+                ]} />
               </div>
             </ScrollReveal>
           </div>
@@ -116,8 +122,13 @@ export default function EducationFacilitiesPage() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Checking each stop</h3>
                 <p className="mt-2 text-muted-foreground">
-                  At each stop, the AI checks the defined conditions for that camera using <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">zone intrusion</Link>, <Link href="/ai-features/line-intrusion-detection" className="text-primary hover:underline">line intrusion</Link>, and <Link href="/ai-features/motion-detection" className="text-primary hover:underline">motion detection</Link> — is the building secure, is the perimeter intact, is there presence where there should not be.
+                  At each stop, the AI checks the defined conditions for that camera using <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">zone intrusion</Link>, <Link href="/ai-features/line-intrusion-detection" className="text-primary hover:underline">line intrusion</Link>, and <Link href="/ai-features/motion-detection" className="text-primary hover:underline">motion detection</Link>.
                 </p>
+                <PointList items={[
+                  'It checks whether the building is secure.',
+                  'It checks whether the perimeter is intact.',
+                  'It checks for presence where there should not be any.',
+                ]} />
 
                 <h3 className="mt-6 font-display text-lg font-bold">Routing the alert</h3>
                 <p className="mt-2 text-muted-foreground">

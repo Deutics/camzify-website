@@ -34,7 +34,8 @@ const content: UseCaseContent = {
   problem: {
     heading: 'A blind camera is a quiet camera',
     paras: [
-      'Cameras fail slowly and silently. A lens fogs, a bracket drifts, a spider builds across the housing, a branch grows into the view, a feed freezes on a frame from Tuesday. Nothing alarms, because nothing is designed to. The failure is discovered when the footage is needed and the file shows a grey blur or a wall.',
+      'Cameras fail slowly and silently. A lens fogs, a bracket drifts, a spider builds across the housing, a branch grows into the view, a feed freezes on a frame from Tuesday.',
+      'Nothing alarms, because nothing is designed to. The failure is discovered when the footage is needed and the file shows a gray blur or a wall.',
       'Deliberate tampering is faster and worse. A camera covered or turned on the way in is the first move in most intrusions that are planned, and the system it feeds carries on as if the view were fine.',
     ],
     visual: 'sites',
@@ -44,7 +45,12 @@ const content: UseCaseContent = {
   handles: {
     heading: 'Tampering raised live, view checked on the round',
     paras: [
-      <><Link href="/ai-features/camera-tampering-detection" className="text-primary hover:underline">Camera tampering detection</Link> watches each feed for five conditions, defocus, lens coverage, sudden scene change, abnormal brightness shift and frozen frames, and raises an alert the moment one is confirmed, because every other detection on that camera is blind until it is fixed. It runs on signal analysis rather than a neural network, so it costs no GPU. Cameras and sites that go offline are shown as such on the <Link href="/platform/live-streaming" className="text-primary hover:underline">live wall</Link> and the <Link href="/platform/dashboard" className="text-primary hover:underline">dashboard</Link>, never as a stale picture.</>,
+      <><Link href="/ai-features/camera-tampering-detection" className="text-primary hover:underline">Camera tampering detection</Link> watches each feed for five conditions and raises an alert the moment one is confirmed, because every other detection on that camera is blind until it is fixed.</>,
+      { points: [
+        'The five conditions are defocus, lens coverage, sudden scene change, abnormal brightness shift and frozen frames.',
+        'It runs on signal analysis rather than a neural network, so it costs no GPU.',
+        <>Cameras and sites that go offline are shown as such on the <Link href="/platform/live-streaming" className="text-primary hover:underline">live wall</Link> and the <Link href="/platform/dashboard" className="text-primary hover:underline">dashboard</Link>, never as a stale picture.</>,
+      ] },
       <>The slow failures are caught by the <Link href="/virtual-patrolling" className="text-primary hover:underline">patrol round</Link>: every stop can carry &quot;camera view unobstructed&quot; as an item, judged from the frame, so a drifted bracket or a web across the housing fails a check with a picture of it. Alerts for tampering and offline conditions route on their own category, so they reach whoever maintains the cameras.</>,
     ],
     detections: [
@@ -61,14 +67,26 @@ const content: UseCaseContent = {
     items: [['Camera view unobstructed', 'fail'], ['Image in focus', 'ok'], ['Scene matches reference', 'ok'], ['Feed updating', 'ok']],
     caption: 'The corridor camera fails the view check with a picture of the obstruction. Maintenance gets the frame, not a ticket that says "check camera".',
     paras: [
-      'A camera-health round is every camera on the site, and the checklist is about the camera rather than the scene: view unobstructed, image in focus, scene as expected, feed updating. Run daily, it produces a report that every camera on the site could see at that time, which is the answer to the question an investigator asks first.',
+      'A camera-health round is every camera on the site, and the checklist is about the camera rather than the scene.',
+      { points: [
+        'The view is unobstructed.',
+        'The image is in focus.',
+        'The scene is as expected.',
+        'The feed is updating.',
+      ] },
+      'Run daily, it produces a report that every camera on the site could see at that time, which is the answer to the question an investigator asks first.',
       <>For an estate, every site&apos;s round reports into one place, and the <Link href="/platform/multi-site-management" className="text-primary hover:underline">multi-site console</Link> shows which sites have cameras down before anyone drives out.</>,
     ],
   },
   limits: {
     heading: 'What it will not do',
     paras: [
-      'It will not fix the camera or tell you why it failed; it tells you that it did, and shows the frame. It will not diagnose a network outage beyond showing the camera or site offline. It will not detect a camera that was never pointed at the right thing; that is a checklist item for the person who installed it.',
+      'It tells you that a camera failed, and that is where it stops.',
+      { points: [
+        'It will not fix the camera or tell you why it failed; it tells you that it did, and shows the frame.',
+        'It will not diagnose a network outage beyond showing the camera or site offline.',
+        'It will not detect a camera that was never pointed at the right thing; that is a checklist item for the person who installed it.',
+      ] },
       <>We do not publish figures for how quickly tampering is raised or how many blind cameras rounds find. The <Link href="/trust" className="text-primary hover:underline">trust page</Link> sets out the policy.</>,
     ],
   },

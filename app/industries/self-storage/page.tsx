@@ -6,6 +6,7 @@ import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
 import Link from 'next/link';
+import { PointList } from '@/components/content/point-list';
 import { PhotoFigure } from '@/components/content/photo-figure';
 import { SiteImage } from '@/components/content/site-image';
 
@@ -78,7 +79,12 @@ export default function SelfStoragePage() {
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
                 <p>Most self-storage facilities are unmanned outside a short window of office hours, yet tenants can access units around the clock. That leaves gates, drive-up aisles, and hallways running unsupervised for the majority of every day, on a site that's often spread across several acres and multiple buildings.</p>
                 <p>A gate code or keycard controls entry, but it doesn't stop tailgating, and it doesn't tell anyone if a unit door has been forced open in an aisle no one walks past until the next scheduled visit. Plain CCTV records the aisle either way, it just doesn't tell anyone in time to matter.</p>
-                <p>Virtual patrolling covers the gap by running scheduled AI checks across every gate, aisle, and perimeter camera on the property, flagging tailgating, forced entry, and camera tampering as they happen instead of during the next manual walkthrough.</p>
+                <p>Virtual patrolling covers the gap by running scheduled AI checks across every gate, aisle, and perimeter camera on the property.</p>
+                <PointList items={[
+                  'It flags tailgating as it happens.',
+                  'It flags forced entry as it happens.',
+                  'It flags camera tampering as it happens, instead of leaving it for the next manual walkthrough.',
+                ]} />
               </div>
             </ScrollReveal>
           </div>
@@ -116,8 +122,13 @@ export default function SelfStoragePage() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Checking each stop</h3>
                 <p className="mt-2 text-muted-foreground">
-                  At each stop, the AI checks the defined conditions for that camera using <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">zone</Link> and <Link href="/ai-features/line-intrusion-detection" className="text-primary hover:underline">line intrusion detection</Link> alongside <Link href="/ai-features/motion-detection" className="text-primary hover:underline">motion detection</Link> — is the gate secure, is the aisle clear, is anyone present who shouldn't be.
+                  At each stop, the AI checks the defined conditions for that camera using <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">zone</Link> and <Link href="/ai-features/line-intrusion-detection" className="text-primary hover:underline">line intrusion detection</Link> alongside <Link href="/ai-features/motion-detection" className="text-primary hover:underline">motion detection</Link>.
                 </p>
+                <PointList items={[
+                  'It checks whether the gate is secure.',
+                  'It checks whether the aisle is clear.',
+                  "It checks whether anyone is present who shouldn't be.",
+                ]} />
 
                 <h3 className="mt-6 font-display text-lg font-bold">Routing the alert</h3>
                 <p className="mt-2 text-muted-foreground">

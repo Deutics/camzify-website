@@ -49,8 +49,20 @@ const content: UseCaseContent = {
   handles: {
     heading: 'The round looks so the operator does not have to',
     paras: [
-      <>An <Link href="/virtual-patrolling/automated-patrol-scheduling" className="text-primary hover:underline">automated round</Link> steps through each site&apos;s cameras at the scheduled times and answers the checklist from the frame: door closed, shutter down, yard empty, fire exit clear, camera view unobstructed. A failed item sends the message written for it to the <Link href="/virtual-patrolling/guard-notifications" className="text-primary hover:underline">person designated for that camera</Link>, and a risk the AI sees that the checklist did not ask about is raised as critical. The operator sees the failures, not the sixty stops that passed.</>,
-      <>Between rounds, <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">zone</Link> and <Link href="/ai-features/line-intrusion-detection" className="text-primary hover:underline">line intrusion</Link> notify on a tracked person or vehicle inside each camera&apos;s notification window, <Link href="/ai-features/camera-tampering-detection" className="text-primary hover:underline">tampering detection</Link> catches a camera going blind, and everything lands in one <Link href="/platform/notifications-and-alerts" className="text-primary hover:underline">alert queue</Link> by severity and site. A <Link href="/use-cases/alarm-verification" className="text-primary hover:underline">verified alarm</Link> opens the camera and the clip on the operator&apos;s desk in the same place.</>,
+      <>An <Link href="/virtual-patrolling/automated-patrol-scheduling" className="text-primary hover:underline">automated round</Link> steps through each site&apos;s cameras at the scheduled times and answers the checklist from the frame.</>,
+      { points: [
+        'The items are door closed, shutter down, yard empty, fire exit clear, camera view unobstructed.',
+        <>A failed item sends the message written for it to the <Link href="/virtual-patrolling/guard-notifications" className="text-primary hover:underline">person designated for that camera</Link>.</>,
+        'A risk the AI sees that the checklist did not ask about is raised as critical.',
+        'The operator sees the failures, not the sixty stops that passed.',
+      ] },
+      'The detections cover the time between rounds, and everything they raise lands in one place.',
+      { points: [
+        <><Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">Zone</Link> and <Link href="/ai-features/line-intrusion-detection" className="text-primary hover:underline">line intrusion</Link> notify on a tracked person or vehicle inside each camera&apos;s notification window.</>,
+        <><Link href="/ai-features/camera-tampering-detection" className="text-primary hover:underline">Tampering detection</Link> catches a camera going blind.</>,
+        <>Everything lands in one <Link href="/platform/notifications-and-alerts" className="text-primary hover:underline">alert queue</Link> by severity and site.</>,
+        <>A <Link href="/use-cases/alarm-verification" className="text-primary hover:underline">verified alarm</Link> opens the camera and the clip on the operator&apos;s desk in the same place.</>,
+      ] },
     ],
     detections: [
       { href: '/ai-features/zone-intrusion-detection', name: 'Zone intrusion detection', role: 'A tracked person or vehicle in an area that should be empty, in the hours it should be.' },
@@ -73,7 +85,13 @@ const content: UseCaseContent = {
   limits: {
     heading: 'What it will not do',
     paras: [
-      'It will not attend; it tells the person designated for the camera, and the drive is theirs. It will not see what the camera cannot, which is why camera view is a checklist item at every stop. It will not decide what a detection means; it puts the frame in front of a person. And it will not run without a link to the cameras: an outage is a missed round in the log, never a silent one.',
+      'Its limits are the drive, the camera and the link, and the judgment stays with a person.',
+      { points: [
+        'It will not attend; it tells the person designated for the camera, and the drive is theirs.',
+        'It will not see what the camera cannot, which is why camera view is a checklist item at every stop.',
+        'It will not decide what a detection means; it puts the frame in front of a person.',
+        'It will not run without a link to the cameras: an outage is a missed round in the log, never a silent one.',
+      ] },
       <>We do not publish detection rates, response times or uptime. The <Link href="/trust" className="text-primary hover:underline">trust page</Link> sets out why, and the <Link href="/virtual-guard" className="text-primary hover:underline">virtual guard page</Link> covers the service model this use case sits inside.</>,
     ],
   },

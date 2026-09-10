@@ -44,7 +44,12 @@ const content: UseCaseContent = {
   handles: {
     heading: 'Rules for people, rules for vehicles',
     paras: [
-      <><Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">Zone intrusion detection</Link> covers the person case: the lot, or parts of it, as zones with a notification window, so a tracked person walking between parked cars at 2am raises an alert with the snapshot and one at 2pm does not. <Link href="/ai-features/illegal-parking-detection" className="text-primary hover:underline">Illegal parking detection</Link> covers the vehicle case: a fire lane, a disabled bay or a restricted area where a vehicle stopped beyond the allowed time is the event. <Link href="/ai-features/wrong-way-vehicle-detection" className="text-primary hover:underline">Wrong-way vehicle detection</Link> fires on a vehicle moving against a lane.</>,
+      'The person case and the vehicle case are separate rules on the same cameras.',
+      { points: [
+        <><Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">Zone intrusion detection</Link> covers the person case: the lot, or parts of it, as zones with a notification window, so a tracked person walking between parked cars at 2am raises an alert with the snapshot and one at 2pm does not.</>,
+        <><Link href="/ai-features/illegal-parking-detection" className="text-primary hover:underline">Illegal parking detection</Link> covers the vehicle case: a fire lane, a disabled bay or a restricted area where a vehicle stopped beyond the allowed time is the event.</>,
+        <><Link href="/ai-features/wrong-way-vehicle-detection" className="text-primary hover:underline">Wrong-way vehicle detection</Link> fires on a vehicle moving against a lane.</>,
+      ] },
       <>A <Link href="/virtual-patrolling" className="text-primary hover:underline">patrol round</Link> checks the lot on a schedule, no person present, fire lanes clear, restricted bays empty, gates secured, and records each answer with the frame. When something is reported the next morning, the detection log and the round reports are already the timeline. The same counts, read as a trend, are <Link href="/use-cases/occupancy-monitoring" className="text-primary hover:underline">occupancy monitoring</Link>.</>,
     ],
     detections: [
@@ -61,14 +66,27 @@ const content: UseCaseContent = {
     items: [['No person in the lot after hours', 'ok'], ['Fire lane clear', 'fail'], ['Restricted bays empty', 'ok'], ['Entrance barrier down', 'ok']],
     caption: 'A vehicle in the fire lane at 23:30. The item fails with the frame; the rest of the stop passed.',
     paras: [
-      'A lot sequence is the cameras in driving order, entrance, aisles, fire lane, restricted area, exit, and its checklist is the state each should be in at that hour. After hours the items are simple: nobody present, lanes clear, bays empty, barrier down. The report per round records the lot was checked and found so at each time.',
+      'A lot sequence is the cameras in driving order, entrance, aisles, fire lane, restricted area, exit, and its checklist is the state each should be in at that hour. After hours the items are simple.',
+      { points: [
+        'Nobody is present.',
+        'The lanes are clear.',
+        'The bays are empty.',
+        'The barrier is down.',
+      ] },
+      'The report per round records the lot was checked and found so at each time.',
       <>The lot round is a common addition to the <Link href="/use-cases/after-hours-monitoring" className="text-primary hover:underline">after-hours sequence</Link> for the building, as its first and last stops.</>,
     ],
   },
   limits: {
     heading: 'What it will not do',
     paras: [
-      'It will not read plates or match vehicles to a permit list. It will not identify people. It will not see a corner without a camera or through a camera that has gone dark. And it will not move the car from the fire lane; it tells the person designated for that camera and keeps the frame.',
+      'Four limits apply on a lot, starting with plates.',
+      { points: [
+        'It will not read plates or match vehicles to a permit list.',
+        'It will not identify people.',
+        'It will not see a corner without a camera or through a camera that has gone dark.',
+        'It will not move the car from the fire lane; it tells the person designated for that camera and keeps the frame.',
+      ] },
       <>We do not publish detection rates for lots, because lighting and camera placement vary too much to give one honestly. The <Link href="/trust" className="text-primary hover:underline">trust page</Link> sets out the policy.</>,
     ],
   },

@@ -5,6 +5,7 @@ import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { FeatureHero } from '@/components/content/feature-hero';
 import { ProductShot } from '@/components/content/product-shot';
 import { LicenseMockup } from '@/components/mockups/license-mockup';
+import { PointList } from '@/components/content/point-list';
 import Link from 'next/link';
 import { Layers, HardDrive, Users, RefreshCcw } from 'lucide-react';
 
@@ -87,11 +88,13 @@ export default function Page() {
                 <span className="font-mono text-mono-sm uppercase text-primary">Reading The Numbers</span>
                 <h2 className="mt-2 font-display text-2xl font-bold">Activated, granted, and available</h2>
                 <p className="mt-4 text-muted-foreground">
-                  Every feature on the plan is broken into the same three buckets. Activated means you've stood up
-                  an instance and it's running. Granted means you've allocated an instance out to a sub-user's
-                  account instead of using it yourself. Available is what's left of the total, neither activated
-                  nor granted, and it's the number that tells you how much room you actually have.
+                  Every feature on the plan is broken into the same three buckets.
                 </p>
+                <PointList items={[
+                  'Activated means you\'ve stood up an instance and it\'s running.',
+                  'Granted means you\'ve allocated an instance out to a sub-user\'s account instead of using it yourself.',
+                  'Available is what\'s left of the total, neither activated nor granted, and it\'s the number that tells you how much room you actually have.',
+                ]} />
                 <p className="mt-4 text-muted-foreground">
                   That distinction matters most at the edges. Virtual Patrolling System Instances shows 9 total,
                   0 activated, 9 granted, 0 available, every instance is already out with sub-users, so

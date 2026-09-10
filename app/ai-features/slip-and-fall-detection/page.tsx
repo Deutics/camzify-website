@@ -6,6 +6,7 @@ import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import Link from 'next/link';
+import { PointList } from '@/components/content/point-list';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -65,7 +66,12 @@ export default function Page() {
               <h2 className="font-display text-2xl font-bold">Why slip and fall detection matters</h2>
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
                 <p>Falls tend to happen when no one is looking directly at the spot where it occurs, an aisle with no other customers nearby, a hallway between patrol rounds, an entrance during a quiet stretch. The gap between the fall and someone noticing is exactly the time when a minor injury can become a serious one, and it's the hardest part of the incident to control with staffing alone.</p>
-                <p>The usual backstop is the person themselves calling for help, or a passerby happening to notice. Both are unpredictable, someone who is injured, disoriented, or elderly may not be able to call out, and low-traffic areas or off-hours periods can go long stretches without anyone walking through at all. A scheduled patrol round covers a location for a moment every so often, not continuously.</p>
+                <p>The usual backstop is the person themselves calling for help, or a passerby happening to notice, and both are unpredictable.</p>
+                <PointList items={[
+                  'Someone who is injured, disoriented, or elderly may not be able to call out.',
+                  'Low-traffic areas or off-hours periods can go long stretches without anyone walking through at all.',
+                  'A scheduled patrol round covers a location for a moment every so often, not continuously.',
+                ]} />
                 <p>Continuous AI monitoring removes the dependency on a witness being present. The moment a tracked subject's posture matches a fall pattern, an alert reaches the nearest guard directly, cutting the time between the event and a response, and producing a timestamped record of exactly what happened, independent of whether anyone saw it live.</p>
               </div>
             </ScrollReveal>

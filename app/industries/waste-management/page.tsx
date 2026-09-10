@@ -6,6 +6,7 @@ import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { DeploymentPlan } from '@/components/content/deployment-plan';
 import Link from 'next/link';
+import { PointList } from '@/components/content/point-list';
 import { PhotoFigure } from '@/components/content/photo-figure';
 import { SiteImage } from '@/components/content/site-image';
 
@@ -78,7 +79,12 @@ export default function WasteManagementPage() {
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
                 <p>Transfer stations, landfills, and recycling yards tend to sit on large open sites with long fence lines, multiple gates, and material that has real resale value sitting in the open. Most of these sites run staffed operations for a defined shift and then sit largely unattended overnight and on weekends.</p>
                 <p>A fence and a locked gate slow down illegal dumping and trespassing, but they don't stop it, and they don't tell anyone when it happens. Plain CCTV covering the yard records the event, but by the time someone reviews the footage, the dumped material is already there and the vehicle is long gone.</p>
-                <p>Virtual patrolling closes that window by running scheduled AI checks across the perimeter, gates, and yard continuously, flagging unauthorized vehicles or people the moment they appear and producing a timestamped record that supports enforcement action.</p>
+                <p>Virtual patrolling closes that window.</p>
+                <PointList items={[
+                  'It runs scheduled AI checks across the perimeter, gates, and yard continuously.',
+                  'It flags unauthorized vehicles or people the moment they appear.',
+                  'It produces a timestamped record that supports enforcement action.',
+                ]} />
               </div>
             </ScrollReveal>
           </div>
@@ -116,8 +122,13 @@ export default function WasteManagementPage() {
 
                 <h3 className="mt-6 font-display text-lg font-bold">Checking each stop</h3>
                 <p className="mt-2 text-muted-foreground">
-                  At each stop, the AI checks the defined conditions for that camera using <Link href="/ai-features/line-intrusion-detection" className="text-primary hover:underline">line</Link> and <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">zone intrusion detection</Link> together with <Link href="/ai-features/multi-object-tracking" className="text-primary hover:underline">multi-object tracking</Link> — is the fence line intact, is the yard clear, is an unregistered vehicle on site.
+                  At each stop, the AI checks the defined conditions for that camera using <Link href="/ai-features/line-intrusion-detection" className="text-primary hover:underline">line</Link> and <Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">zone intrusion detection</Link> together with <Link href="/ai-features/multi-object-tracking" className="text-primary hover:underline">multi-object tracking</Link>.
                 </p>
+                <PointList items={[
+                  'It checks whether the fence line is intact.',
+                  'It checks whether the yard is clear.',
+                  'It checks whether an unregistered vehicle is on site.',
+                ]} />
 
                 <h3 className="mt-6 font-display text-lg font-bold">Routing the alert</h3>
                 <p className="mt-2 text-muted-foreground">

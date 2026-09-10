@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { PointList } from '@/components/content/point-list';
 import Link from 'next/link';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { FeatureHero } from '@/components/content/feature-hero';
@@ -18,6 +19,9 @@ import { ArrowRight } from 'lucide-react';
  * not do, and where it applies. The checklist illustration takes the page's own rows,
  * so the visual matches the copy beside it.
  */
+/** A body item: a paragraph, or a list of full-sentence points rendered with the site's dot bullets. */
+export type Body = ReactNode | { points: ReactNode[] };
+
 export interface UseCaseContent {
   eyebrow: string;
   title: string;
@@ -29,7 +33,7 @@ export interface UseCaseContent {
   secondary: { href: string; label: string };
   problem: {
     heading: string;
-    paras: ReactNode[];
+    paras: Body[];
     visual: 'notification' | 'route' | 'report' | 'schedule' | 'compliance' | 'sites' | 'flow';
     caption: string;
     alt: string;
@@ -37,7 +41,7 @@ export interface UseCaseContent {
   };
   handles: {
     heading: string;
-    paras: ReactNode[];
+    paras: Body[];
     detections: { href: string; name: string; role: string }[];
   };
   round: {
@@ -46,11 +50,19 @@ export interface UseCaseContent {
     guard: string;
     items: ChecklistRow[];
     caption: string;
-    paras: ReactNode[];
+    paras: Body[];
   };
-  limits: { heading: string; paras: ReactNode[] };
+  limits: { heading: string; paras: Body[] };
   industries: { href: string; name: string }[];
   faqs: FAQItem[];
+}
+
+function isPoints(b: Body): b is { points: ReactNode[] } {
+  return typeof b === 'object' && b !== null && 'points' in (b as object);
+}
+
+function renderBody(b: Body, i: number) {
+  return isPoints(b) ? <PointList key={i} items={b.points} /> : <p key={i} className="mt-4 max-w-prose text-muted-foreground">{b}</p>;
 }
 
 export function UseCasePage({ c }: { c: UseCaseContent }) {
@@ -81,7 +93,7 @@ export function UseCasePage({ c }: { c: UseCaseContent }) {
               <span className="font-mono text-mono-sm uppercase text-primary">The problem</span>
               <h2 className="mt-2 font-display text-2xl font-bold">{c.problem.heading}</h2>
               {c.problem.paras.map((p, i) => (
-                <p key={i} className="mt-4 max-w-prose text-muted-foreground">{p}</p>
+                renderBody(p, i)
               ))}
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
@@ -94,7 +106,7 @@ export function UseCasePage({ c }: { c: UseCaseContent }) {
               <span className="font-mono text-mono-sm uppercase text-primary">How Camzify handles it</span>
               <h2 className="mt-2 font-display text-2xl font-bold">{c.handles.heading}</h2>
               {c.handles.paras.map((p, i) => (
-                <p key={i} className="mt-4 max-w-prose text-muted-foreground">{p}</p>
+                renderBody(p, i)
               ))}
             </ScrollReveal>
             <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -116,7 +128,7 @@ export function UseCasePage({ c }: { c: UseCaseContent }) {
               <span className="font-mono text-mono-sm uppercase text-primary">The patrol round</span>
               <h2 className="mt-2 font-display text-2xl font-bold">{c.round.heading}</h2>
               {c.round.paras.map((p, i) => (
-                <p key={i} className="mt-4 max-w-prose text-muted-foreground">{p}</p>
+                renderBody(p, i)
               ))}
               <p className="mt-4 max-w-prose text-muted-foreground">
                 A check found Not Compliant captures a snapshot and messages the guard designated for
@@ -133,7 +145,7 @@ export function UseCasePage({ c }: { c: UseCaseContent }) {
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">{c.limits.heading}</h2>
               {c.limits.paras.map((p, i) => (
-                <p key={i} className="mt-4 max-w-prose text-muted-foreground">{p}</p>
+                renderBody(p, i)
               ))}
             </ScrollReveal>
           </div>

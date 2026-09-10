@@ -2,6 +2,7 @@ import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
+import { PointList } from '@/components/content/point-list';
 import { FeatureHero } from '@/components/content/feature-hero';
 import { PhotoFigure } from '@/components/content/photo-figure';
 import { HeroPlaceholder } from '@/components/content/hero-placeholder';
@@ -144,10 +145,14 @@ export default function AutomatedSchedulingPage() {
                     </strong>{' '}
                     An automated round also assesses each stop for safety and security risks in its
                     own right and raises a critical notification when it finds one, whether or not
-                    any checklist item covered it. The blocked fire exit, the unattended bag, the
-                    smoke, the person somewhere they should not be &mdash; these do not need to
-                    have been anticipated when the sequence was written.
+                    any checklist item covered it.
                   </p>
+                  <PointList items={[
+                    'The blocked fire exit does not need to have been anticipated when the sequence was written.',
+                    'The unattended bag does not need an item of its own.',
+                    'The smoke does not need to have been on the list.',
+                    'The person somewhere they should not be is flagged without anyone having asked.',
+                  ]} />
                   <p className="mt-4 max-w-prose text-muted-foreground">
                     The point is when the alert arrives. A condition like a propped-open door or an
                     obstructed exit is a risk for a while before it is an incident, and that window

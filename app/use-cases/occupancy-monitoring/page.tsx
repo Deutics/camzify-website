@@ -44,7 +44,12 @@ const content: UseCaseContent = {
   handles: {
     heading: 'Counted from the tracking that already runs',
     paras: [
-      <><Link href="/ai-features/occupancy-and-peak-hour-trends" className="text-primary hover:underline">Occupancy and peak hour trends</Link> aggregates confirmed subject counts from <Link href="/ai-features/multi-object-tracking" className="text-primary hover:underline">multi-object tracking</Link> per camera or zone, continuously, into a live figure and a history. The busiest hours and the busiest zones fall out of the history, and the comparison runs zone by zone within a site or across a multi-site account. The cameras are the ones already on the floor for security; there is no counting hardware.</>,
+      <><Link href="/ai-features/occupancy-and-peak-hour-trends" className="text-primary hover:underline">Occupancy and peak hour trends</Link> aggregates confirmed subject counts from <Link href="/ai-features/multi-object-tracking" className="text-primary hover:underline">multi-object tracking</Link> per camera or zone, continuously, into a live figure and a history.</>,
+      { points: [
+        'The busiest hours and the busiest zones fall out of the history.',
+        'The comparison runs zone by zone within a site or across a multi-site account.',
+        'The cameras are the ones already on the floor for security; there is no counting hardware.',
+      ] },
       <><Link href="/ai-features/heatmap-anomalies" className="text-primary hover:underline">Heatmap anomalies</Link> covers the other side of the same data: it learns the usual pattern of activity per zone and flags a departure from it, a crowd where none forms, a corridor busy when it should be empty. A notification window on the camera keeps a known busy period from notifying. The <Link href="/platform/analytics-and-reporting" className="text-primary hover:underline">analytics</Link> pages hold the trends and export them.</>,
     ],
     detections: [
@@ -61,14 +66,26 @@ const content: UseCaseContent = {
     items: [['Queue within marked area', 'ok'], ['Entrance not congested', 'fail'], ['Fire exit clear', 'ok'], ['Staff present at desk', 'ok']],
     caption: 'A peak-hour stop with the entrance found congested. The duty manager gets the frame; the trend explains why.',
     paras: [
-      'Occupancy is continuous and does not need a round. The round adds the conditions a count does not capture: the queue inside its marked area, the entrance not congested, the exit clear when the floor is full. Run at the known peaks, it records the site as it was at its busiest, with frames, which is what a safety review asks for.',
+      'Occupancy is continuous and does not need a round; the round adds the conditions a count does not capture.',
+      { points: [
+        'The queue is inside its marked area.',
+        'The entrance is not congested.',
+        'The exit is clear when the floor is full.',
+      ] },
+      'Run at the known peaks, it records the site as it was at its busiest, with frames, which is what a safety review asks for.',
       <>On an <Link href="/virtual-patrolling/automated-patrol-scheduling" className="text-primary hover:underline">automated round</Link>, the AI also raises a critical notification for a safety risk it sees, a blocked exit on a full floor for instance, whether or not the checklist asked.</>,
     ],
   },
   limits: {
     heading: 'What it will not do',
     paras: [
-      'It will not give an exact headcount in a dense crowd; it gives a reliable trend. It will not identify or profile anyone. It will not count an area without a camera on it or with a camera pointed at the ceiling. And it is not a dedicated retail-analytics product with dwell-time funnels and conversion figures; it is what the security cameras can tell you about occupancy, honestly labelled.',
+      'The count has four limits.',
+      { points: [
+        'It will not give an exact headcount in a dense crowd; it gives a reliable trend.',
+        'It will not identify or profile anyone.',
+        'It will not count an area without a camera on it or with a camera pointed at the ceiling.',
+        'It is not a dedicated retail-analytics product with dwell-time funnels and conversion figures; it is what the security cameras can tell you about occupancy, honestly labeled.',
+      ] },
       <>We do not publish count accuracy figures. The <Link href="/trust" className="text-primary hover:underline">trust page</Link> sets out why.</>,
     ],
   },

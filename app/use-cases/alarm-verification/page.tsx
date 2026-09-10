@@ -44,7 +44,13 @@ const content: UseCaseContent = {
   handles: {
     heading: 'The camera answers the question the panel cannot',
     paras: [
-      <><Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">Zone intrusion detection</Link> on the camera covering the alarmed area raises its own alert with a snapshot when a tracked person is inside the zone during the notification window on that camera. The operator sees the person, or sees an empty yard, and decides. The <Link href="/platform/live-streaming" className="text-primary hover:underline">live wall</Link> shows the feed, and <Link href="/platform/video-backup-and-retention" className="text-primary hover:underline">cloud backup</Link> holds the seconds before the alarm for playback.</>,
+      'What reaches the operator is the alert, the live feed and the seconds before the alarm.',
+      { points: [
+        <><Link href="/ai-features/zone-intrusion-detection" className="text-primary hover:underline">Zone intrusion detection</Link> on the camera covering the alarmed area raises its own alert with a snapshot when a tracked person is inside the zone during the notification window on that camera.</>,
+        'The operator sees the person, or sees an empty yard, and decides.',
+        <>The <Link href="/platform/live-streaming" className="text-primary hover:underline">live wall</Link> shows the feed.</>,
+        <>For playback, <Link href="/platform/video-backup-and-retention" className="text-primary hover:underline">cloud backup</Link> holds the seconds before the alarm.</>,
+      ] },
       <>After the decision, a <Link href="/virtual-patrolling" className="text-primary hover:underline">patrol round</Link> can check the site and record it: yard clear, doors closed, camera unobstructed, with a frame per item. The account model puts every client or agency under one console with a scoped login each; the <Link href="/partners/for-monitoring-centers" className="text-primary hover:underline">monitoring companies page</Link> covers how that is set up.</>,
     ],
     detections: [
@@ -68,7 +74,13 @@ const content: UseCaseContent = {
   limits: {
     heading: 'What it will not do',
     paras: [
-      'It will not receive alarm signals or replace alarm receiving software; it is the video side, on the same desk. It will not verify an alarm in an area with no camera, or with a camera that has gone dark. It will not decide; it shows the operator what is there and records what they saw. And it does not identify anyone.',
+      'Four limits apply, each following from it being video and not a panel.',
+      { points: [
+        'It will not receive alarm signals or replace alarm receiving software; it is the video side, on the same desk.',
+        'It will not verify an alarm in an area with no camera, or with a camera that has gone dark.',
+        'It will not decide; it shows the operator what is there and records what they saw.',
+        'It does not identify anyone.',
+      ] },
       <>We do not publish false-alarm reduction figures or dispatch-time figures. The <Link href="/trust" className="text-primary hover:underline">trust page</Link> sets out the policy.</>,
     ],
   },

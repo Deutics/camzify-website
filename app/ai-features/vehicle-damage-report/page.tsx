@@ -6,6 +6,7 @@ import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import Link from 'next/link';
+import { PointList } from '@/components/content/point-list';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -64,7 +65,13 @@ export default function Page() {
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Why vehicle damage report matters</h2>
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
-                <p>Vehicle condition disputes almost always come down to a "he said, she said" problem. A rental customer says the scratch was already there; a fleet driver says the dent happened somewhere else; a valet guest says the car was fine when they handed it over. Without a record from the moment of hand-off, there's no way to settle it other than taking someone's word for it.</p>
+                <p>Vehicle condition disputes almost always come down to a "he said, she said" problem.</p>
+                <PointList items={[
+                  'A rental customer says the scratch was already there.',
+                  'A fleet driver says the dent happened somewhere else.',
+                  'A valet guest says the car was fine when they handed it over.',
+                ]} />
+                <p>Without a record from the moment of hand-off, there's no way to settle it other than taking someone's word for it.</p>
                 <p>A manual walk-around inspection can catch this, but it depends on a person doing it consistently, every single time, at every entry and exit, and writing down what they saw in a way that holds up later. On a busy site with dozens of vehicles moving through checkpoints a day, that consistency breaks down fast.</p>
                 <p>An automated condition record removes the dependency on someone remembering to check and write it down. Every vehicle that passes a configured checkpoint gets a timestamped clip, whether it's the first vehicle of the day or the fiftieth.</p>
               </div>
