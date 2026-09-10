@@ -76,10 +76,11 @@ export const siteConfig = {
    * The company's public profiles, supplied by the business on 2026-09-09. Rendered in
    * the footer, emitted as schema.org sameAs on the Organization node (which is how
    * search and answer engines tie the site, the LinkedIn page and the channel to one
-   * entity) and listed in /llms.txt. Add X here when the business confirms the handle.
+   * entity) and listed in /llms.txt.
    */
   social: [
     { label: 'LinkedIn', href: 'https://www.linkedin.com/company/camzify-global/', icon: 'linkedin' },
+    { label: 'X', href: 'https://x.com/camzifyglobal', icon: 'x' },
     { label: 'YouTube', href: 'https://www.youtube.com/@camzifyglobal', icon: 'youtube' },
     { label: 'Facebook', href: 'https://www.facebook.com/camzifyglobal/', icon: 'facebook' },
     { label: 'Instagram', href: 'https://www.instagram.com/camzifyglobal/', icon: 'instagram' },
