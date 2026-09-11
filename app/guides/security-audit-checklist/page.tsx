@@ -14,7 +14,7 @@ import { ProductShot } from '@/components/content/product-shot';
  */
 const pageMeta = {
   title: "Security Audit Checklist | Site Security Assessment",
-  description: "A practical security audit checklist for evaluating your facility\\'s physical security posture, cameras, access control, lighting, procedures, and monitoring.",
+  description: "A security audit checklist for a site: perimeter, doors, cameras, lighting, alarms and the record of each check, so nothing is missed.",
   path: "/guides/security-audit-checklist",
 };
 
@@ -29,7 +29,7 @@ const faqs = [
 
 export default function SecurityAuditChecklistPage() {
   return (
-    <PageShell {...pageMeta} faqs={faqs} schema={[articleSchema({ headline: "Security Audit Checklist", description: "A practical security audit checklist for evaluating your facility\\'s physical security posture, cameras, access control, lighting, procedures, and monitoring.", path: "/guides/security-audit-checklist", datePublished: '2026-08-31', dateModified: '2026-08-31' }), personSchema()]} breadcrumbs={[
+    <PageShell {...pageMeta} faqs={faqs} schema={[articleSchema({ headline: "Security Audit Checklist", description: "A security audit checklist for a site: perimeter, doors, cameras, lighting, alarms and the record of each check, so nothing is missed.", path: "/guides/security-audit-checklist", datePublished: '2026-08-31', dateModified: '2026-08-31' }), personSchema()]} breadcrumbs={[
       { label: 'Guides', href: '/guides' },
       { label: 'Security Audit Checklist' },
     ]}>

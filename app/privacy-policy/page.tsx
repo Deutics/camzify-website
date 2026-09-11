@@ -9,7 +9,7 @@ import Link from 'next/link';
  * <head> tags, and by `PageShell` for the on-page structured data.
  *
  * Written from what the site actually does, checked in code on 2026-09-07: four forms
- * that store what a visitor types in a database, no analytics or advertising
+ * that email what a visitor types to the team (and store it once the database is connected), no analytics or advertising
  * scripts, a theme preference and two session flags in browser storage, and no
  * emails sent by the site. Company details come from lib/site-config.ts. This is a
  * draft for counsel to review before the site leaves maintenance; the review date
@@ -17,7 +17,7 @@ import Link from 'next/link';
  */
 const pageMeta = {
   title: "Privacy Policy",
-  description: "What the Camzify website collects, why, where it is kept, who can see it, and the rights you have over it. Written from what the site actually does, in plain language.",
+  description: "What the Camzify website collects, why, where it is kept, who can see it, and the rights you have over it. A draft awaiting counsel.",
   path: "/privacy-policy",
 };
 
@@ -84,12 +84,12 @@ export default function PrivacyPolicyPage() {
 
           <H2>Where it is kept, and for how long</H2>
           <P>
-            Form submissions are stored in a database operated with our hosting and database providers, who process it on our instructions and may do so in countries other than yours, including outside Singapore, the EEA and the UK, under contracts that require them to protect it. We keep an enquiry for as long as we are dealing with it and for a reasonable period afterwards so that we can pick the conversation up if you come back; a newsletter address is kept until you unsubscribe. If you ask us to delete what we hold about you, we do, unless a legal obligation requires us to keep a record.
+            Form submissions are emailed to our team through a transactional email provider (ZeptoMail, operated by Zoho) and, once our lead database is connected, also stored in a database operated with our hosting and database providers. These providers process it on our instructions and may do so in countries other than yours, including outside Singapore, the EEA and the UK, under contracts that require them to protect it. We keep an enquiry for as long as we are dealing with it and for a reasonable period afterwards so that we can pick the conversation up if you come back; a newsletter address is kept until you unsubscribe. If you ask us to delete what we hold about you, we do, unless a legal obligation requires us to keep a record.
           </P>
 
           <H2>Who can see it</H2>
           <P>
-            The people at {siteConfig.company} who answer enquiries, and the providers who host the site and the database. We do not sell personal data, we do not share it with advertisers, and we do not pass it to anyone else except where the law requires it or you ask us to.
+            The people at {siteConfig.company} who answer enquiries, and the providers who host the site, deliver the email and, when connected, the database. We do not sell personal data, we do not share it with advertisers, and we do not pass it to anyone else except where the law requires it or you ask us to.
           </P>
 
           <H2>Cookies and browser storage</H2>

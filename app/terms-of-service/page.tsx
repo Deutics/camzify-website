@@ -14,7 +14,7 @@ import Link from 'next/link';
  */
 const pageMeta = {
   title: "Terms of Service",
-  description: "The terms for using the Camzify website: what you may do with the content, what we promise and do not promise about it, and how the product itself is governed separately.",
+  description: "The terms for using the Camzify website: what you may do with the content, what we promise about it, and how the product is governed separately.",
   path: "/terms-of-service",
 };
 

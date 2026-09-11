@@ -21,7 +21,7 @@ const { name, role, credential, email, linkedin, slug, alsoLeads } = siteConfig.
 
 const pageMeta = {
   title: `${name} | Product Manager and CTO at ${siteConfig.name}`,
-  description: `${name} is ${role} at ${siteConfig.name}. ${credential}, and the author of the guides on this site.`,
+  description: `${name} is ${role} at ${siteConfig.name} and writes the guides on this site.`,
   path: `/about/${slug}`,
 };
 

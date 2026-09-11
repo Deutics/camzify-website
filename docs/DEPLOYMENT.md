@@ -16,21 +16,25 @@ values directly in **Vercel → Project → Settings → Environment Variables**
 
 | Variable | Required? | Environments | What breaks without it |
 |---|---|---|---|
-| `DATABASE_URL` | **Yes, for forms only** | Production, Preview | All four forms return `{"success": false}`. Every page still renders normally. |
+| `ZEPTOMAIL_TOKEN`, `ZEPTOMAIL_FROM_ADDRESS` | **Yes, for forms** | Production, Preview | All four forms return `{"success": false}` and the visitor is told to email us. Every page still renders normally. |
+| `LEADS_TO_EMAIL`, `ZEPTOMAIL_FROM_NAME`, `ZEPTOMAIL_API_URL` | No | Production, Preview | Defaults: the public contact address, "Camzify website", the global ZeptoMail endpoint. |
+| `DATABASE_URL` | No, until the lead database is connected | Production, Preview | Leads are emailed only; nothing is written. When set, each lead is also stored, normally. |
 
 That is the entire list. The site has no other runtime configuration.
 
-### Leads are read from the database — nothing is emailed
+### Leads arrive by email; the database is optional
 
-The four form endpoints write to Postgres and return. **No notification is sent.** The
-Abacus.AI notification integration that previously ran here was removed, along with its
-five environment variables (`ABACUSAI_API_KEY`, `WEB_APP_ID`, and three `NOTIF_ID_*`),
-when the project moved to Vercel.
+Every form submission is sent to `LEADS_TO_EMAIL` through ZeptoMail by `lib/lead-mail.ts`,
+with the visitor's address as the reply-to. Until the lead database is connected that email
+is the record of the lead, so a failed send fails the request and the form tells the
+visitor to try again or email directly. When `DATABASE_URL` is set the endpoint also writes
+the row after emailing, and a failed write is logged, never surfaced: a lead that was
+emailed is never lost to a database error.
 
-Read leads directly from `DemoRequest`, `ContactSubmission`, `FreeTrialRequest` and
-`NewsletterSubscription`. **Someone has to actually check those tables** — there is no
-alert. If a notification channel is added later, keep it non-fatal: a failed notification
-must never lose a lead that has already been written.
+To set ZeptoMail up: verify the sending domain in the ZeptoMail console, create a Mail
+Agent, copy its Send Mail Token into `ZEPTOMAIL_TOKEN`, and put an address on the verified
+domain in `ZEPTOMAIL_FROM_ADDRESS`. Accounts in the EU or India data centres set
+`ZEPTOMAIL_API_URL` to that region's endpoint.
 
 ### Variables that must NOT be set
 
@@ -138,11 +142,11 @@ Run these against the production URL after the first deploy:
       ```bash
       curl -s https://camzify.com/pricing | grep -o '<meta property="og:title"[^>]*>'
       ```
-- [ ] Submit the contact form and confirm the row lands in `ContactSubmission` (there is no email to wait for)
+- [ ] Submit the contact form and confirm the email lands in the leads inbox (and, if `DATABASE_URL` is set, the row in `ContactSubmission`)
 - [ ] Submit Google Search Console verification and the sitemap
 - [ ] When the site leaves maintenance, remove the `<MaintenanceNotice />` mount from
       `app/layout.tsx` and redeploy; the component and its cookie-policy row stay
-- [ ] Confirm `DATABASE_URL` is set on the production project, or every form returns an error
+- [ ] Confirm `ZEPTOMAIL_TOKEN` and `ZEPTOMAIL_FROM_ADDRESS` are set on the production project, or every form returns an error
 
 `main` is production and `development` is the working branch; merge by pull request so
 Vercel builds a preview first.
@@ -210,7 +214,7 @@ git push -u origin main
 3. Framework preset: **Next.js** (auto-detected). Leave build, output and install commands
    at their defaults — `npm run build` already runs `prisma generate`
 4. Root directory: `./`
-5. Add `DATABASE_URL` under Environment Variables if the forms need to work
+5. Add `ZEPTOMAIL_TOKEN` and `ZEPTOMAIL_FROM_ADDRESS` under Environment Variables so the forms work (`DATABASE_URL` when the lead database is connected)
 6. Deploy
 
 ### Step 4 — Confirm the automation

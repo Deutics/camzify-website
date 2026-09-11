@@ -9,7 +9,7 @@ import Link from 'next/link';
  */
 const pageMeta = {
   title: "Sitemap | Every Page on Camzify",
-  description: "Complete list of all pages on the Camzify website.",
+  description: "Every page on the Camzify website in one list: virtual patrolling, platform, AI detections, use cases, industries, guides and comparisons.",
   path: "/sitemap-page",
 };
 

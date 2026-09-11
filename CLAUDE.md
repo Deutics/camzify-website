@@ -139,9 +139,12 @@ rendered result — do not ask the user to look for you.
 
 - **`prisma generate` is in both `build` and `postinstall`.** Not a duplicate — Vercel
   restores `node_modules` from cache and skips `postinstall`. See `docs/DEPLOYMENT.md`.
-- **`DATABASE_URL` is the only environment variable.** The Abacus.AI notification
-  integration and its five vars were removed; leads are read from the database and
-  nothing is emailed. Do not add a notification step back without asking.
+- **Leads are emailed through ZeptoMail; the database is optional.** `lib/lead-mail.ts`
+  sends every form submission to `LEADS_TO_EMAIL` (default: the public contact address)
+  using `ZEPTOMAIL_TOKEN` and `ZEPTOMAIL_FROM_ADDRESS`. Until the database is connected
+  the email is the record of the lead, so a failed send fails the request. When
+  `DATABASE_URL` is set the row is also written, non-fatally. `.env.example` is the
+  inventory of variables; the Abacus.AI notification integration is gone for good.
 - **`images.unoptimized: true` in `next.config.js`** is deliberate for the deploy target.
   Images still use `next/image` with explicit `width`/`height` to prevent layout shift.
 - **Opacity stops `15`, `25`, `35`, `45`, `55`, `65` and `85` are declared in
