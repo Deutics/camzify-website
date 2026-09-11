@@ -44,7 +44,7 @@ export default function Page() {
         facts={['A single stitched timeline of one subject across every…', 'Ordered, timestamped hand-offs between cameras with…', 'A route map view showing where a subject entered, moved, and…']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 22 detections' }}
-        visual={<PhotoFigure src="/feature-cross-camera-journey-map-1.png" alt="Site map showing a single subject's path connected across multiple camera coverage zones" caption="Cross-camera journey map" priority />}
+        visual={<PhotoFigure src="/feature-cross-camera-journey-map-1.webp" alt="The console live view with a cross-camera journey alert drawn on the camera frame" caption="Cross-camera journey map" priority />}
       />
 
       <section className="pb-16">
@@ -73,7 +73,7 @@ export default function Page() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/feature-cross-camera-journey-map-2.jpg" alt="Diagram showing tracked appearances from separate cameras linked into a single ordered subject timeline" caption="Path reconstruction" />
+            <PhotoFigure src="/feature-cross-camera-journey-map-2.webp" alt="A sequence of frames from one camera showing a cross-camera journey event build up to the alert" caption="Path reconstruction" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>
@@ -113,11 +113,11 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/feature-cross-camera-journey-map-3.png" alt="Configuration panel showing route view options, confidence threshold, and export settings for a journey map" caption="Journey map configuration" />
+            <PhotoFigure src="/feature-cross-camera-journey-map-3.webp" alt="Configuration panel showing route view options, confidence threshold, and export settings for a journey map" caption="Journey map configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/feature-cross-camera-journey-map-4.jpg" alt="Site map view showing a reconstructed subject route spanning several buildings and camera zones" caption="Route reconstruction" />
+            <PhotoFigure src="/feature-cross-camera-journey-map-4.webp" alt="Camera scenes across several sites where cross-camera journey detection is used" caption="Route reconstruction" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>
@@ -169,6 +169,7 @@ export default function Page() {
                 <div className="mt-4 flex flex-wrap justify-center gap-2">
                   <Link href="/use-cases/incident-investigation" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Incident Investigation</Link>
                   <Link href="/use-cases/theft-prevention" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Theft Prevention</Link>
+                  <Link href="/use-cases/tracking-one-person-across-cameras" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Tracking one person across cameras</Link>
                 </div>
               </div>
             </div>

@@ -3,6 +3,7 @@ import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
+import { SiteImage } from '@/components/content/site-image';
 import { Handshake, Shield, Monitor, Server, Users } from 'lucide-react';
 
 /**
@@ -19,11 +20,11 @@ const pageMeta = {
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const partnerTypes = [
-  { slug: 'for-security-agencies', title: 'For Security Agencies', icon: Users, desc: 'Sell overnight coverage across every client site, with a report per client, alongside the guards you already provide.' },
-  { slug: 'become-a-reseller', title: 'Become a Reseller', icon: Handshake, desc: 'Sell a cloud VMS with virtual patrolling built in. Software only, quote-based pricing, a page you can quote for every claim.' },
-  { slug: 'for-security-integrators', title: 'For CCTV & Alarm Installers', icon: Shield, desc: 'Attach virtual patrolling to systems you already install: RTSP, RTMP or HTTPS, a Connector for LAN cameras, a clean hand-over.' },
-  { slug: 'for-monitoring-centers', title: 'For Monitoring Companies', icon: Monitor, desc: 'Run scheduled rounds for every agency you monitor for, notify their guards from the round, and hand each one a report per round.' },
-  { slug: 'for-managed-service-providers', title: 'For Managed Service Providers', icon: Server, desc: 'One account you hold, a scoped login per customer, quota you allocate and reclaim, alerts and reports per client.' },
+  { slug: 'for-security-agencies', image: { src: '/vp-vs-security-guards.jpg', alt: 'A security officer at a patrol car alongside an AI camera network' }, title: 'For Security Agencies', icon: Users, desc: 'Sell overnight coverage across every client site, with a report per client, alongside the guards you already provide.' },
+  { slug: 'become-a-reseller', image: { src: '/product-license-plan-light.jpg', alt: 'The Plan and Usage screen: instances granted, activated and available' }, title: 'Become a Reseller', icon: Handshake, desc: 'Sell a cloud VMS with virtual patrolling built in. Software only, quote-based pricing, a page you can quote for every claim.' },
+  { slug: 'for-security-integrators', image: { src: '/product-configuration-light.jpg', alt: 'The Configuration screen: adding a camera by its stream address' }, title: 'For CCTV & Alarm Installers', icon: Shield, desc: 'Attach virtual patrolling to systems you already install: RTSP, RTMP or HTTPS, a Connector for LAN cameras, a clean hand-over.' },
+  { slug: 'for-monitoring-centers', image: { src: '/partner-gate-opened.jpg', alt: 'A yard gate camera: the gate standing open, the state the round found' }, title: 'For Monitoring Companies', icon: Monitor, desc: 'Run scheduled rounds for every agency you monitor for, notify their guards from the round, and hand each one a report per round.' },
+  { slug: 'for-managed-service-providers', image: { src: '/product-user-management-light.jpg', alt: 'The user management screen: sub-users with their sites and permission groups' }, title: 'For Managed Service Providers', icon: Server, desc: 'One account you hold, a scoped login per customer, quota you allocate and reclaim, alerts and reports per client.' },
 ];
 
 const faqs = [
@@ -45,7 +46,8 @@ export default function PartnersHub() {
           <div className="mt-14 grid gap-6 sm:grid-cols-2">
             {partnerTypes.map((p, i) => (
               <ScrollReveal key={p.slug} delay={i * 0.08}>
-                <Link href={`/partners/${p.slug}`} className="group flex items-start gap-5 rounded-xl bg-card p-8 shadow-md transition-all hover:shadow-lg hover:-translate-y-0.5">
+                <Link href={`/partners/${p.slug}`} className="group flex items-start gap-6 rounded-xl bg-card p-8 shadow-md transition-all hover:shadow-lg hover:-translate-y-0.5">
+                <div className="hidden w-40 shrink-0 overflow-hidden rounded-lg border border-border sm:block"><SiteImage src={p.image.src} alt={p.image.alt} width={1229} height={692} sizes="160px" className="aspect-video h-auto w-full object-cover" /></div>
                   <p.icon className="mt-0.5 h-8 w-8 shrink-0 text-primary" />
                   <div>
                     <h2 className="font-display text-lg font-bold">{p.title}</h2>

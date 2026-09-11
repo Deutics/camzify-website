@@ -5,6 +5,7 @@ import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { HowToSteps, HowToNote, type HowToStep } from '@/components/content/how-to-steps';
 import { howToSchema } from '@/lib/seo';
 import Link from 'next/link';
+import { ProductShot } from '@/components/content/product-shot';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -82,6 +83,10 @@ export default function Page() {
             <Link href="/camera-connectivity/https-setup" className="text-primary hover:underline">HTTPS</Link>, and
             confirming the stream works before anything is built on top of it.
           </p>
+
+          <div className="mt-10 max-w-3xl">
+            <ProductShot src="/product-configuration" alt="The Configuration screen in the console: adding a camera by its RTMP, RTSP or HTTPS address, with the cameras already on the site listed below" label="Configuration · Add camera" sizes="(max-width: 1024px) 100vw, 768px" />
+          </div>
 
           <HowToSteps steps={steps} />
 

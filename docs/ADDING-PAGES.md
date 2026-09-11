@@ -157,7 +157,10 @@ with `UseCasePage` from `components/content/use-case-page.tsx`; copy
 `heroVisual`), the problem section with a `SectionVisual` variant, the four detections
 the page leans on, the round checklist (`items`, `label`, `guard`), the limits, the
 industries and the FAQs, so every use case has the same shape and the renderer changes
-once. `serviceSchema` **without** `audience` (a use case is a scenario, not an
+once. A feature-in-a-setting page (fall detection for hospitals, weapons detection for
+schools) adds an `evidence` block: three or four published figures from named third
+parties, each with its source and link, quoted exactly from a page you opened. Never a
+Camzify figure there; the site publishes none. `serviceSchema` **without** `audience` (a use case is a scenario, not an
 audience). Sitemap group `useCases`; add the card to the hub and the footer count.
 
 ---

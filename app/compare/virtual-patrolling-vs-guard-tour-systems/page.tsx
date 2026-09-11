@@ -4,6 +4,7 @@ import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { ComparisonTable } from '@/components/content/comparison-table';
 import Link from 'next/link';
+import { PhotoFigure } from '@/components/content/photo-figure';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -39,6 +40,10 @@ export default function VirtualPatrollingVsGuardTourSystemsPage() {
           <p className="mt-6 max-w-2xl text-body text-muted-foreground">
             An honest comparison of virtual patrolling vs guard tour systems across the dimensions that matter most to security decision-makers. Both approaches have strengths, this table helps you decide which fits your facility.
           </p>
+
+          <div className="mt-10 max-w-3xl">
+            <PhotoFigure src="/guard-tour-verification.webp" alt="A guard with a tablet outside an office at night, checkpoints ticked on the map beside him" caption="Proof of the condition at each checkpoint, not of a tap" />
+          </div>
 
           <div className="mt-12">
             <ScrollReveal>

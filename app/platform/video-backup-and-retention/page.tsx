@@ -161,6 +161,7 @@ export default function Page() {
               <Link href="/use-cases/theft-prevention" className="rounded-lg border border-border bg-card px-4 py-2 text-sm hover:border-primary/30 hover:text-primary">Theft Prevention</Link>
               <Link href="/use-cases/vandalism-prevention" className="rounded-lg border border-border bg-card px-4 py-2 text-sm hover:border-primary/30 hover:text-primary">Vandalism Prevention</Link>
               <Link href="/use-cases/incident-investigation" className="rounded-lg border border-border bg-card px-4 py-2 text-sm hover:border-primary/30 hover:text-primary">Incident Investigation</Link>
+              <Link href="/use-cases/cloud-video-backup-against-dvr-theft" className="rounded-lg border border-border bg-card px-4 py-2 text-sm hover:border-primary/30 hover:text-primary">Cloud video backup against DVR and NVR theft</Link>
             </div>
           </div>
         </div>

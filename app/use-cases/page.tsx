@@ -7,7 +7,7 @@ import { FeatureHero } from '@/components/content/feature-hero';
 import { SectionVisual } from '@/components/content/section-visual';
 import Link from 'next/link';
 import { SiteImage } from '@/components/content/site-image';
-import { Shield, Moon, KeyRound, UserX, Paintbrush, ShoppingBag, Truck, ParkingCircle, Radio, Car, MoonStar, ClipboardCheck, Search, DoorClosed, Video, Flame, HeartPulse, HardHat, ShieldAlert, Users, BellRing } from 'lucide-react';
+import { Shield, Moon, KeyRound, UserX, Paintbrush, ShoppingBag, Truck, ParkingCircle, Radio, Car, MoonStar, ClipboardCheck, Search, DoorClosed, Video, Flame, HeartPulse, HardHat, ShieldAlert, Users, BellRing, Building2, CarFront, CloudUpload, DoorOpen, FileCheck, Fingerprint, Gauge, LayoutGrid, Route, Siren } from 'lucide-react';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -51,7 +51,7 @@ const groups = [
     desc: 'Boundaries, off-hours and restricted areas: the scenarios where a person present is the event.',
     items: [
       { title: 'Perimeter security', href: '/use-cases/perimeter-security', icon: Shield, desc: 'Fence lines, gates and open ground, checked every round and watched between rounds.', image: '/ai-perimeter-security.webp' },
-      { title: 'Trespassing detection', href: '/use-cases/trespassing-detection', icon: UserX, desc: 'A person where nobody should be, on a confirmed track rather than a moving shadow.', image: '/trespassing-detection.png' },
+      { title: 'Trespassing detection', href: '/use-cases/trespassing-detection', icon: UserX, desc: 'A person where nobody should be, on a confirmed track rather than a moving shadow.', image: '/trespassing-detection.webp' },
       { title: 'Unauthorized access detection', href: '/use-cases/unauthorized-access-detection', icon: KeyRound, desc: 'Zones notified in the hours you set, and the tailgating a badge reader never sees.', image: '/unauthorized-access-detection.webp' },
       { title: 'After-hours monitoring', href: '/use-cases/after-hours-monitoring', icon: Moon, desc: 'Scheduled rounds through the building when it is empty, with a report each.', image: '/after-hours-security-monitoring.png' },
       { title: 'Night security', href: '/use-cases/night-security', icon: MoonStar, desc: 'Overnight rounds that run on the fourth night as reliably as the first.', image: '/night-security.webp' },
@@ -93,6 +93,26 @@ const groups = [
       { title: 'PPE compliance monitoring', href: '/use-cases/ppe-compliance-monitoring', icon: HardHat, desc: 'Hats, vests and gloves checked per person against the policy for each zone.', image: '/ppe-compliance-monitoring.webp' },
       { title: 'Violence and weapons detection', href: '/use-cases/violence-and-weapons-detection', icon: ShieldAlert, desc: 'A visible weapon or an altercation raised as critical with a clip, verified by a person.', image: '/violence-and-weapons-detection.webp' },
       { title: 'Occupancy monitoring', href: '/use-cases/occupancy-monitoring', icon: Users, desc: 'Live counts and peak hours per zone from the tracking that already runs. No counting hardware.', image: '/occupancy-monitoring.webp' },
+    ],
+  },
+  {
+    eyebrow: '05',
+    title: 'Where it matters most',
+    desc: 'One capability in one setting where the stakes are highest for the people there, each with the published figures that say why.',
+    items: [
+      { title: 'Fall detection for hospitals and care homes', href: '/use-cases/fall-detection-for-hospitals-and-care-homes', icon: HeartPulse, desc: 'A person on the floor in a corridor, raised to staff in seconds on the cameras already there, not at the next round.', image: '/feature-slip-and-fall-detection-1.webp' },
+      { title: 'Weapons detection for schools and civic buildings', href: '/use-cases/weapons-detection-for-schools-and-public-buildings', icon: ShieldAlert, desc: 'A visibly held weapon on an entrance or lobby camera, raised as critical with a clip for a person to verify.', image: '/feature-weapons-detection-1.webp' },
+      { title: 'Violence detection in emergency departments', href: '/use-cases/violence-detection-in-emergency-departments', icon: Users, desc: 'An assault at the triage window raised to the security desk while it is happening, with the clip to verify.', image: '/feature-aggression-and-fight-detection-1.webp' },
+      { title: 'Fire and smoke detection for high-rise buildings', href: '/use-cases/fire-and-smoke-detection-for-high-rise-buildings', icon: Building2, desc: 'Visual flame and smoke in corridors, stairs and garages, beside the fire alarm and never instead of it.', image: '/feature-fire-and-smoke-detection-1.webp' },
+      { title: 'Fire exit and escape route monitoring', href: '/use-cases/fire-exit-and-escape-route-monitoring', icon: DoorOpen, desc: 'Every exit a checklist item on every round, and the pallet left in the route caught between rounds.', image: '/feature-abandoned-object-detection-1.webp' },
+      { title: 'Occupancy limits for venues and public spaces', href: '/use-cases/occupancy-limits-for-venues-and-public-spaces', icon: Gauge, desc: 'A live count per room against the posted occupant load, with the frame at each time; the door stays with a person.', image: '/feature-occupancy-and-peak-hour-trends-1.webp' },
+      { title: 'Car theft and vandalism in parking facilities', href: '/use-cases/car-theft-and-vandalism-in-parking-facilities', icon: CarFront, desc: 'Zones on the aisles, tripwires on the ramps and an after-hours round for garages, dealership lots and car parks.', image: '/parking-lot-surveillance.webp' },
+      { title: 'Fire lane and emergency access enforcement', href: '/use-cases/fire-lane-and-emergency-access-enforcement', icon: Siren, desc: 'A vehicle stopped in a fire lane, ambulance bay or loading zone past the grace period, with the frame and the time.', image: '/feature-illegal-parking-detection-1.webp' },
+      { title: 'Cloud video backup against DVR and NVR theft', href: '/use-cases/cloud-video-backup-against-dvr-theft', icon: CloudUpload, desc: 'Footage stored off site as it is captured, so a stolen, smashed or unplugged recorder takes no evidence with it.', image: '/product-video-backup-light.jpg' },
+      { title: 'One live wall for every camera brand and site', href: '/use-cases/one-live-wall-for-every-brand-and-location', icon: LayoutGrid, desc: 'Every ONVIF or RTSP camera from every site on one wall grouped by site, in place of a login per recorder.', image: '/product-live-streaming-light.jpg' },
+      { title: 'Tracking one person across cameras', href: '/use-cases/tracking-one-person-across-cameras', icon: Route, desc: 'Describe a person, find every appearance, and order the cameras into one timeline. Not face recognition.', image: '/feature-cross-camera-journey-map-1.webp' },
+      { title: 'Virtual patrolling for compliance evidence', href: '/use-cases/virtual-patrolling-for-compliance-evidence', icon: FileCheck, desc: 'Rounds that produce the record a regulator, insurer or contract asks for: item, time, frame, person notified.', image: '/guard-tour-verification.webp' },
+      { title: 'Tailgating detection for data centers and lobbies', href: '/use-cases/tailgating-detection-for-data-centers-and-secure-entrances', icon: Fingerprint, desc: 'The badge log shows one entry; the door camera counts two, records the frame and tells a person.', image: '/feature-tailgating-detection-1.webp' },
     ],
   },
 ];

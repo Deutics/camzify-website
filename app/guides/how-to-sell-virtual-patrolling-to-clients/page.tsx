@@ -6,6 +6,7 @@ import { AuthorByline } from '@/components/content/author-byline';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { SectionVisual } from '@/components/content/section-visual';
 import Link from 'next/link';
+import { PhotoFigure } from '@/components/content/photo-figure';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -44,6 +45,10 @@ export default function HowToSellVirtualPatrollingToClientsPage() {
           <AuthorByline className="mt-6" />
           <div className="mt-10 grid items-start gap-10 lg:grid-cols-[3fr_2fr]">
             <p className="max-w-prose text-body text-muted-foreground">Nobody who buys guarding has asked for virtual patrolling by name. They have asked, in other words, for the hours they cannot afford, the overnight checks nobody makes, and something to show the insurer. This guide is the conversation, in the order it tends to go, for an owner who sells guard hours and mobile patrols today and wants to add a monthly service without losing the contract they have.</p>
+
+          <div className="mt-10 max-w-3xl">
+            <PhotoFigure src="/vp-patrol-reports-1.png" alt="A patrol compliance report in the console: overall compliance, each camera stop, each item with its result and the frame behind it" caption="What the client receives after every round" />
+          </div>
             <SectionVisual variant="report" caption="The thing you are selling. Show the report before the price." alt="A patrol report excerpt with a checklist item, its before and after snapshots and a compliance percentage" />
           </div>
           <section className="mt-14">

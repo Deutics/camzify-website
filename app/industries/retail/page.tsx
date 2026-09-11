@@ -205,6 +205,9 @@ export default function RetailPage() {
                   <Link href="/use-cases/theft-prevention" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Theft Prevention</Link>
                   <Link href="/use-cases/after-hours-monitoring" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">After-Hours Monitoring</Link>
                   <Link href="/use-cases/vandalism-prevention" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Vandalism Prevention</Link>
+                  <Link href="/use-cases/occupancy-limits-for-venues-and-public-spaces" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Occupancy limits for venues and public spaces</Link>
+                  <Link href="/use-cases/cloud-video-backup-against-dvr-theft" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Cloud video backup against DVR and NVR theft</Link>
+                  <Link href="/use-cases/tracking-one-person-across-cameras" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Tracking one person across cameras</Link>
                 </div>
               </div>
               <div className="rounded-xl border border-border bg-card p-6 text-center">

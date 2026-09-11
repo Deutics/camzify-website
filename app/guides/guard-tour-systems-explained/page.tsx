@@ -5,6 +5,7 @@ import { articleSchema, personSchema } from '@/lib/seo';
 import { AuthorByline } from '@/components/content/author-byline';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
+import { PhotoFigure } from '@/components/content/photo-figure';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -37,6 +38,10 @@ export default function GuardTourSystemsExplainedPage() {
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Guard tour systems explained</h1>
           <AuthorByline className="mt-6" />
           <p className="mt-6 max-w-prose text-body text-muted-foreground">A guard tour system is a technology used to verify that security guards complete their assigned patrol routes. Traditional systems use NFC tags, QR codes, or Bluetooth beacons placed at checkpoints. The guard scans each checkpoint during their round, and the system logs the timestamp to prove they were there.</p>
+
+          <div className="mt-10 max-w-3xl">
+            <PhotoFigure src="/guard-tour-verification.webp" alt="A guard with a tablet outside an office at night, checkpoints ticked on the map beside him" caption="Proof of the condition at each checkpoint, not of a tap" />
+          </div>
 
           <section className="mt-16">
             <ScrollReveal>

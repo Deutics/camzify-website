@@ -43,7 +43,7 @@ export default function Page() {
         facts={['Vehicles blocking marked fire lanes or emergency access routes', 'Vehicles occupying loading zones or reserved parking beyond…', 'Unauthorized vehicles in gated or accessible-only spots']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 22 detections' }}
-        visual={<PhotoFigure src="/feature-illegal-parking-detection-1.png" alt="Camera view of a fire lane with an illegally parked vehicle highlighted by a detection bounding box" caption="Illegal parking detection" priority />}
+        visual={<PhotoFigure src="/feature-illegal-parking-detection-1.webp" alt="The console live view with a illegal parking alert drawn on the camera frame" caption="Illegal parking detection" priority />}
       />
 
       <section className="pb-16">
@@ -116,11 +116,11 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/feature-illegal-parking-detection-3.png" alt="Configuration panel showing a restricted parking zone drawn on a camera view with a grace period slider" caption="Zone & grace period configuration" />
+            <PhotoFigure src="/feature-illegal-parking-detection-3.webp" alt="Configuration panel showing a restricted parking zone drawn on a camera view with a grace period slider" caption="Zone & grace period configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/feature-illegal-parking-detection-4.jpg" alt="Site map showing multiple restricted parking zones monitored across a property's fire lanes and loading docks" caption="Parking enforcement" />
+            <PhotoFigure src="/feature-illegal-parking-detection-4.webp" alt="Camera scenes across several sites where illegal parking detection is used" caption="Parking enforcement" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>
@@ -171,6 +171,7 @@ export default function Page() {
                 <div className="mt-4 flex flex-wrap justify-center gap-2">
                   <Link href="/use-cases/parking-lot-surveillance" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Parking Lot Surveillance</Link>
                   <Link href="/use-cases/vehicle-monitoring" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Vehicle Monitoring</Link>
+                  <Link href="/use-cases/fire-lane-and-emergency-access-enforcement" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Fire lane and emergency access enforcement</Link>
                 </div>
               </div>
             </div>

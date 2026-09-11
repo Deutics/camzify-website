@@ -4,6 +4,7 @@ import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { ComparisonTable } from '@/components/content/comparison-table';
 import Link from 'next/link';
+import { ProductShot } from '@/components/content/product-shot';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -39,6 +40,10 @@ export default function CamzifyVsEagleEyeNetworksPage() {
           <p className="mt-6 max-w-2xl text-body text-muted-foreground">
             An honest comparison of camzify vs eagle eye networks across the dimensions that matter most to security decision-makers. Both approaches have strengths, this table helps you decide which fits your facility.
           </p>
+
+          <div className="mt-10 max-w-3xl">
+            <ProductShot src="/product-live-streaming" alt="The live streaming wall in the console, cameras grouped by site with their online state" label="Live streaming" sizes="(max-width: 1024px) 100vw, 768px" />
+          </div>
 
           <div className="mt-12">
             <ScrollReveal>

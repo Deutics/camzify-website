@@ -205,6 +205,7 @@ export default function EducationFacilitiesPage() {
                   <Link href="/use-cases/after-hours-monitoring" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">After-Hours Monitoring</Link>
                   <Link href="/use-cases/vandalism-prevention" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Vandalism Prevention</Link>
                   <Link href="/use-cases/perimeter-security" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Perimeter Security</Link>
+                  <Link href="/use-cases/weapons-detection-for-schools-and-public-buildings" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Weapons detection for schools and civic buildings</Link>
                 </div>
               </div>
               <div className="rounded-xl border border-border bg-card p-6 text-center">

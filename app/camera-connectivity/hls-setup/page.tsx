@@ -1,3 +1,4 @@
+import { ProductShot } from '@/components/content/product-shot';
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
@@ -37,6 +38,10 @@ export default function HlsSetupPage() {
             stream formats handled by the <a href="/camera-connectivity/https-setup" className="text-primary hover:underline">HTTPS connection type</a>;
             <a href="/camera-connectivity/webrtc-setup" className="text-primary hover:underline">WebRTC</a> is the other.
           </p>
+
+          <div className="mt-10 max-w-3xl">
+            <ProductShot src="/product-configuration" alt="The Configuration screen in the console: adding a camera by its RTMP, RTSP or HTTPS address, with the cameras already on the site listed below" label="Configuration · Add camera" sizes="(max-width: 1024px) 100vw, 768px" />
+          </div>
           <ol className="mt-12 space-y-10 max-w-prose">
             <ScrollReveal key={0} delay={0 * 0.1}>
               <li className="flex gap-5">

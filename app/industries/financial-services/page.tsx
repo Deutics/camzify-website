@@ -205,6 +205,7 @@ export default function FinancialServicesPage() {
                   <Link href="/use-cases/unauthorized-access-detection" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Unauthorized Access Detection</Link>
                   <Link href="/use-cases/guard-tour-verification" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Guard Tour Verification</Link>
                   <Link href="/use-cases/night-security" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Night Security</Link>
+                  <Link href="/use-cases/tailgating-detection-for-data-centers-and-secure-entrances" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Tailgating detection for data centers and lobbies</Link>
                 </div>
               </div>
               <div className="rounded-xl border border-border bg-card p-6 text-center">

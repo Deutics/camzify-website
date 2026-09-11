@@ -5,6 +5,7 @@ import { articleSchema, personSchema } from '@/lib/seo';
 import { AuthorByline } from '@/components/content/author-byline';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
+import { ProductShot } from '@/components/content/product-shot';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -37,6 +38,10 @@ export default function SecurityAuditChecklistPage() {
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Security audit checklist</h1>
           <AuthorByline className="mt-6" />
           <p className="mt-6 max-w-prose text-body text-muted-foreground">A security audit checklist is a structured assessment tool for evaluating the physical security posture of a facility. It covers camera coverage, access control, lighting, perimeter integrity, monitoring procedures, and incident response capabilities. Regular audits identify gaps before they become incidents.</p>
+
+          <div className="mt-10 max-w-3xl">
+            <ProductShot src="/product-virtual-patrolling" alt="The virtual patrolling screen: patrol sequences, the next round for each and the Auto-Patrol settings" label="Virtual patrolling" sizes="(max-width: 1024px) 100vw, 768px" />
+          </div>
 
           <section className="mt-16">
             <ScrollReveal>

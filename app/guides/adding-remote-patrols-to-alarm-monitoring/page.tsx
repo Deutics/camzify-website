@@ -6,6 +6,7 @@ import { AuthorByline } from '@/components/content/author-byline';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { SectionVisual } from '@/components/content/section-visual';
 import Link from 'next/link';
+import { PhotoFigure } from '@/components/content/photo-figure';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -44,6 +45,10 @@ export default function AddingRemotePatrolsToAlarmMonitoringPage() {
           <AuthorByline className="mt-6" />
           <div className="mt-10 grid items-start gap-10 lg:grid-cols-[3fr_2fr]">
             <p className="max-w-prose text-body text-muted-foreground">An alarm monitoring operation sells a response to a signal. A scheduled camera round sells a record that the site was checked and found in order, every hour, with a frame per item, whether or not anything signalled. They are different products on the same cameras, and the second is usually sold to clients the first already has. This guide is for the monitoring company or the installer with a monitoring desk that wants to add rounds without changing how alarms are handled.</p>
+
+          <div className="mt-10 max-w-3xl">
+            <PhotoFigure src="/alarm-verification.webp" alt="An operator desk with the alarmed site on screen: the camera view and the event details beside it" caption="The camera view on the desk when the alarm comes in" />
+          </div>
             <SectionVisual variant="sites" caption="Every client under one account, each with its own sites, sequences and schedule." alt="A list of sites on one account with their camera counts and online status" />
           </div>
           <section className="mt-14">

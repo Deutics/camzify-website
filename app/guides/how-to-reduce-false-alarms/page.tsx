@@ -5,6 +5,7 @@ import { articleSchema, personSchema } from '@/lib/seo';
 import { AuthorByline } from '@/components/content/author-byline';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
+import { ProductShot } from '@/components/content/product-shot';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -37,6 +38,10 @@ export default function HowToReduceFalseAlarmsPage() {
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">How to reduce false alarms from security cameras</h1>
           <AuthorByline className="mt-6" />
           <p className="mt-6 max-w-prose text-body text-muted-foreground">False alarms in video surveillance are alerts triggered by non-threatening events, shadows, animals, weather, lighting changes, or camera vibration. They are the primary failure mode of security camera systems, causing operators to ignore genuine alerts and undermining the value of the entire deployment.</p>
+
+          <div className="mt-10 max-w-3xl">
+            <ProductShot src="/product-notifications" alt="The notifications screen in the console: one queue of alerts by severity, site and camera" label="Notifications" sizes="(max-width: 1024px) 100vw, 768px" />
+          </div>
 
           <section className="mt-16">
             <ScrollReveal>

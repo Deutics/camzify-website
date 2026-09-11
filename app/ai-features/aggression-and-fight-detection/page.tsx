@@ -43,7 +43,7 @@ export default function Page() {
         facts={['Rapid, aggressive multi-person body movement consistent with…', 'Sustained pushing, striking, or grappling between confirmed…', 'Escalating confrontations in queues, entrances, and common areas']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 22 detections' }}
-        visual={<PhotoFigure src="/feature-aggression-and-fight-detection-1.png" alt="Camera view highlighting two subjects engaged in a physical altercation with a confidence score" caption="Aggression & fight detection" priority />}
+        visual={<PhotoFigure src="/feature-aggression-and-fight-detection-1.webp" alt="The console live view with a aggression and fight alert drawn on the camera frame" caption="Aggression & fight detection" priority />}
       />
 
       <section className="pb-16">
@@ -112,11 +112,11 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/feature-aggression-and-fight-detection-3.png" alt="Configuration panel showing sensitivity threshold and escalation routing for aggression and fight detection" caption="Alert sensitivity configuration" />
+            <PhotoFigure src="/feature-aggression-and-fight-detection-3.webp" alt="Configuration panel showing sensitivity threshold and escalation routing for aggression and fight detection" caption="Alert sensitivity configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/feature-aggression-and-fight-detection-4.jpg" alt="Security dashboard showing a critical-severity aggression detection alert with clip and escalation status" caption="Real-time incident response" />
+            <PhotoFigure src="/feature-aggression-and-fight-detection-4.webp" alt="Camera scenes across several sites where aggression and fight detection is used" caption="Real-time incident response" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>
@@ -167,6 +167,7 @@ export default function Page() {
                 <div className="mt-4 flex flex-wrap justify-center gap-2">
                   <Link href="/use-cases/incident-investigation" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Incident Investigation</Link>
                   <Link href="/use-cases/night-security" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Night Security</Link>
+                  <Link href="/use-cases/violence-detection-in-emergency-departments" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Violence detection in emergency departments</Link>
                 </div>
               </div>
             </div>

@@ -4,6 +4,7 @@ import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { ComparisonTable } from '@/components/content/comparison-table';
 import Link from 'next/link';
+import { PhotoFigure } from '@/components/content/photo-figure';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -39,6 +40,10 @@ export default function AiVideoAnalyticsVsMotionDetectionPage() {
           <p className="mt-6 max-w-2xl text-body text-muted-foreground">
             An honest comparison of ai video analytics vs motion detection across the dimensions that matter most to security decision-makers. Both approaches have strengths, this table helps you decide which fits your facility.
           </p>
+
+          <div className="mt-10 max-w-3xl">
+            <PhotoFigure src="/feature-motion-detection-1.webp" alt="The console live view with a motion detection alert drawn on the camera frame" caption="Motion detection on a live frame" />
+          </div>
 
           <div className="mt-12">
             <ScrollReveal>

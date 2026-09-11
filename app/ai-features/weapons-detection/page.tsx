@@ -43,7 +43,7 @@ export default function Page() {
         facts={['Visibly brandished firearms in camera view', 'Visible edged weapons in camera view', 'Detections at entrances, lobbies, and public-facing areas']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 22 detections' }}
-        visual={<PhotoFigure src="/feature-weapons-detection-1.png" alt="Camera view with a detected weapon highlighted by a bounding box and confidence score" caption="Weapons detection" priority />}
+        visual={<PhotoFigure src="/feature-weapons-detection-1.webp" alt="The console live view with a weapons alert drawn on the camera frame" caption="Weapons detection" priority />}
       />
 
       <section className="pb-16">
@@ -112,11 +112,11 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/feature-weapons-detection-3.png" alt="Configuration panel showing critical-severity alert routing and escalation contacts for weapons detection" caption="Alert routing configuration" />
+            <PhotoFigure src="/feature-weapons-detection-3.webp" alt="Configuration panel showing critical-severity alert routing and escalation contacts for weapons detection" caption="Alert routing configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/feature-weapons-detection-4.jpg" alt="Security dashboard showing a critical-severity weapons detection alert with clip, confidence score, and escalation status" caption="Critical alert response" />
+            <PhotoFigure src="/feature-weapons-detection-4.webp" alt="Camera scenes across several sites where weapons detection is used" caption="Critical alert response" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>
@@ -167,6 +167,7 @@ export default function Page() {
                 <div className="mt-4 flex flex-wrap justify-center gap-2">
                   <Link href="/use-cases/trespassing-detection" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Trespassing Detection</Link>
                   <Link href="/use-cases/incident-investigation" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Incident Investigation</Link>
+                  <Link href="/use-cases/weapons-detection-for-schools-and-public-buildings" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Weapons detection for schools and civic buildings</Link>
                 </div>
               </div>
             </div>

@@ -42,7 +42,7 @@ export default function Page() {
         facts={['Structured clothing color and type attributes for every…', 'Object classification for vehicles, bags, and other carried…', 'Plain-language behavior descriptions attached to each alert']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 22 detections' }}
-        visual={<PhotoFigure src="/feature-ai-attribute-extraction-1.png" alt="AI Attribute Extraction visualization on camera feed" caption="Ai attribute extraction" priority />}
+        visual={<PhotoFigure src="/feature-ai-attribute-extraction-1.webp" alt="The console live view with a attribute extraction alert drawn on the camera frame" caption="Ai attribute extraction" priority />}
       />
 
       <section className="pb-16">
@@ -70,7 +70,7 @@ export default function Page() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/feature-ai-attribute-extraction-2.jpg" alt="Diagram showing a vision-language model reading a detection frame and generating structured attribute fields" caption="Attribute pipeline" />
+            <PhotoFigure src="/feature-ai-attribute-extraction-2.webp" alt="A sequence of frames from one camera showing a attribute extraction event build up to the alert" caption="Attribute pipeline" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>
@@ -108,11 +108,11 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/feature-ai-attribute-extraction-3.png" alt="Configuration panel showing attribute categories and retention settings for AI attribute extraction" caption="Attribute settings" />
+            <PhotoFigure src="/feature-ai-attribute-extraction-3.webp" alt="Configuration panel showing attribute categories and retention settings for AI attribute extraction" caption="Attribute settings" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/feature-ai-attribute-extraction-4.jpg" alt="Notification queue showing alerts enriched with structured clothing and behavior attributes" caption="Richer alert context" />
+            <PhotoFigure src="/feature-ai-attribute-extraction-4.webp" alt="Camera scenes across several sites where attribute extraction detection is used" caption="Richer alert context" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

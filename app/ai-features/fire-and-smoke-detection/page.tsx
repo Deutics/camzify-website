@@ -43,7 +43,7 @@ export default function Page() {
         facts={["Visible flame anywhere in the camera's field of view", 'Visible smoke developing in storage, electrical, or…', 'Early-stage events in large or open spaces before a fixed…']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 22 detections' }}
-        visual={<PhotoFigure src="/feature-fire-and-smoke-detection-1.png" alt="Camera view of a storage area with visible smoke highlighted by a detection bounding box" caption="Fire & smoke detection" priority />}
+        visual={<PhotoFigure src="/feature-fire-and-smoke-detection-1.webp" alt="The console live view with a fire and smoke alert drawn on the camera frame" caption="Fire & smoke detection" priority />}
       />
 
       <section className="pb-16">
@@ -111,11 +111,11 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/feature-fire-and-smoke-detection-3.png" alt="Configuration panel showing critical-severity alerting and escalation rules for a camera" caption="Fire & smoke configuration" />
+            <PhotoFigure src="/feature-fire-and-smoke-detection-3.webp" alt="Configuration panel showing critical-severity alerting and escalation rules for a camera" caption="Fire & smoke configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/feature-fire-and-smoke-detection-4.jpg" alt="Site map showing fire and smoke detection coverage across storage, electrical, and warehouse areas" caption="Facility-wide fire monitoring" />
+            <PhotoFigure src="/feature-fire-and-smoke-detection-4.webp" alt="Camera scenes across several sites where fire and smoke detection is used" caption="Facility-wide fire monitoring" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>
@@ -166,6 +166,7 @@ export default function Page() {
                 <div className="mt-4 flex flex-wrap justify-center gap-2">
                   <Link href="/use-cases/after-hours-monitoring" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">After-Hours Monitoring</Link>
                   <Link href="/use-cases/remote-site-monitoring" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Remote Site Monitoring</Link>
+                  <Link href="/use-cases/fire-and-smoke-detection-for-high-rise-buildings" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Fire and smoke detection for high-rise buildings</Link>
                 </div>
               </div>
             </div>

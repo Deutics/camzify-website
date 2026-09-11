@@ -43,7 +43,7 @@ export default function Page() {
         secondary={{ href: '/ai-features', label: 'The 22 detection models' }}
         visual={<div className="overflow-hidden rounded-xl">
             <SiteImage
-              src="/ai-video-analytics-architecture.png"
+              src="/ai-video-analytics-architecture.webp"
               alt="Diagram of the Camzify AI detection pipeline, from camera feed through object detection, tracking, domain classification, analysis, and confidence-checked output"
               className="w-full rounded-xl"
               width={1229}

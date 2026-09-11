@@ -5,6 +5,7 @@ import { articleSchema, personSchema } from '@/lib/seo';
 import { AuthorByline } from '@/components/content/author-byline';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
+import { ProductShot } from '@/components/content/product-shot';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -37,6 +38,10 @@ export default function OnvifAndRtspExplainedPage() {
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">ONVIF and RTSP explained</h1>
           <AuthorByline className="mt-6" />
           <p className="mt-6 max-w-prose text-body text-muted-foreground">ONVIF and RTSP are the two most important protocols for connecting IP security cameras to video management and analytics platforms. ONVIF is a standardized interface for camera discovery and configuration. RTSP (Real Time Streaming Protocol) is the protocol for streaming live video from the camera to a receiving system.</p>
+
+          <div className="mt-10 max-w-3xl">
+            <ProductShot src="/product-configuration" alt="The Configuration screen in the console: adding a camera by its RTMP, RTSP or HTTPS address, with the cameras already on the site listed below" label="Configuration · Add camera" sizes="(max-width: 1024px) 100vw, 768px" />
+          </div>
 
           <section className="mt-16">
             <ScrollReveal>

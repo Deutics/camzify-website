@@ -43,7 +43,7 @@ export default function Page() {
         facts={['Bags or packages separated from the person who was carrying them', 'Objects remaining unclaimed past a configurable dwell-time…', 'Unattended items in lobbies, entrances, and public waiting areas']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 22 detections' }}
-        visual={<PhotoFigure src="/feature-abandoned-object-detection-1.png" alt="Camera view of a lobby with an unattended bag highlighted by a detection bounding box" caption="Abandoned object detection" priority />}
+        visual={<PhotoFigure src="/feature-abandoned-object-detection-1.webp" alt="The console live view with a abandoned object alert drawn on the camera frame" caption="Abandoned object detection" priority />}
       />
 
       <section className="pb-16">
@@ -112,11 +112,11 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/feature-abandoned-object-detection-3.png" alt="Configuration panel showing dwell-time threshold and monitored object types for a camera zone" caption="Dwell-time configuration" />
+            <PhotoFigure src="/feature-abandoned-object-detection-3.webp" alt="Configuration panel showing dwell-time threshold and monitored object types for a camera zone" caption="Dwell-time configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/feature-abandoned-object-detection-4.jpg" alt="Facility map showing abandoned object detection coverage across lobbies and entrances" caption="Public space monitoring" />
+            <PhotoFigure src="/feature-abandoned-object-detection-4.webp" alt="Camera scenes across several sites where abandoned object detection is used" caption="Public space monitoring" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>
@@ -167,6 +167,7 @@ export default function Page() {
                 <div className="mt-4 flex flex-wrap justify-center gap-2">
                   <Link href="/use-cases/perimeter-security" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Perimeter Security</Link>
                   <Link href="/use-cases/incident-investigation" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Incident Investigation</Link>
+                  <Link href="/use-cases/fire-exit-and-escape-route-monitoring" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Fire exit and escape route monitoring</Link>
                 </div>
               </div>
             </div>

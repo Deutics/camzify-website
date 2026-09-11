@@ -44,7 +44,7 @@ export default function Page() {
         facts={['Missing hard hats in zones where head protection is required', 'Missing high-visibility vests on active work floors', 'Missing gloves in zones handling hazardous materials or…']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 22 detections' }}
-        visual={<PhotoFigure src="/feature-ppe-violation-detection-1.png" alt="Camera view of a work floor with a worker missing required PPE highlighted" caption="Ppe violation detection" priority />}
+        visual={<PhotoFigure src="/feature-ppe-violation-detection-1.webp" alt="The console live view with a PPE violation alert drawn on the camera frame" caption="Ppe violation detection" priority />}
       />
 
       <section className="pb-16">
@@ -115,11 +115,11 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/feature-ppe-violation-detection-3.png" alt="Configuration panel showing required PPE types assigned to a camera zone" caption="Ppe zone configuration" />
+            <PhotoFigure src="/feature-ppe-violation-detection-3.webp" alt="Configuration panel showing required PPE types assigned to a camera zone" caption="Ppe zone configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/feature-ppe-violation-detection-4.jpg" alt="Facility map showing different PPE zone policies across a construction site" caption="Site-wide ppe compliance" />
+            <PhotoFigure src="/feature-ppe-violation-detection-4.webp" alt="Camera scenes across several sites where PPE violation detection is used" caption="Site-wide ppe compliance" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

@@ -43,7 +43,7 @@ export default function Page() {
         facts={['Live occupancy counts per camera, zone, or site', 'Historical peak-hour and peak-day trends over time', 'Zone-by-zone comparison across a single site']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 22 detections' }}
-        visual={<PhotoFigure src="/feature-occupancy-and-peak-hour-trends-1.png" alt="Dashboard chart showing occupancy counts across a day with a highlighted peak-hour window" caption="Occupancy & peak hour trends" priority />}
+        visual={<PhotoFigure src="/feature-occupancy-and-peak-hour-trends-1.webp" alt="The console live view with a occupancy and peak-hour alert drawn on the camera frame" caption="Occupancy & peak hour trends" priority />}
       />
 
       <section className="pb-16">
@@ -71,7 +71,7 @@ export default function Page() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/feature-occupancy-and-peak-hour-trends-2.jpg" alt="Diagram showing live subject counts from multiple cameras aggregating into a site-wide occupancy trend" caption="Occupancy aggregation" />
+            <PhotoFigure src="/feature-occupancy-and-peak-hour-trends-2.webp" alt="A sequence of frames from one camera showing a occupancy and peak-hour event build up to the alert" caption="Occupancy aggregation" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>
@@ -109,11 +109,11 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/feature-occupancy-and-peak-hour-trends-3.png" alt="Configuration panel showing occupancy tracking zones marked across a site floor plan" caption="Occupancy zone setup" />
+            <PhotoFigure src="/feature-occupancy-and-peak-hour-trends-3.webp" alt="Configuration panel showing occupancy tracking zones marked across a site floor plan" caption="Occupancy zone setup" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/feature-occupancy-and-peak-hour-trends-4.jpg" alt="Dashboard comparing occupancy trends across multiple zones and sites over a week" caption="Peak hour comparison" />
+            <PhotoFigure src="/feature-occupancy-and-peak-hour-trends-4.webp" alt="Camera scenes across several sites where occupancy and peak-hour detection is used" caption="Peak hour comparison" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>
@@ -163,6 +163,7 @@ export default function Page() {
                 <div className="mt-4 flex flex-wrap justify-center gap-2">
                   <Link href="/use-cases/guard-tour-verification" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Guard Tour Verification</Link>
                   <Link href="/use-cases/after-hours-monitoring" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">After-Hours Monitoring</Link>
+                  <Link href="/use-cases/occupancy-limits-for-venues-and-public-spaces" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Occupancy limits for venues and public spaces</Link>
                 </div>
               </div>
             </div>

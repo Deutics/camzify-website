@@ -44,7 +44,7 @@ export default function Page() {
         facts={['Foot traffic congestion above the normal pattern for a zone', 'Activity in a normally low-traffic area outside expected hours', 'A monitored area sitting unusually empty during typically…']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 22 detections' }}
-        visual={<PhotoFigure src="/feature-heatmap-anomalies-1.png" alt="Site floor plan overlaid with a colour-coded foot traffic heatmap highlighting an anomalous zone" caption="Heatmap anomalies" priority />}
+        visual={<PhotoFigure src="/feature-heatmap-anomalies-1.webp" alt="The console live view with a heatmap anomaly alert drawn on the camera frame" caption="Heatmap anomalies" priority />}
       />
 
       <section className="pb-16">
@@ -78,7 +78,7 @@ export default function Page() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/feature-heatmap-anomalies-2.jpg" alt="Diagram showing current zone traffic compared against a learned baseline pattern before an anomaly is flagged" caption="Baseline vs deviation logic" />
+            <PhotoFigure src="/feature-heatmap-anomalies-2.webp" alt="A sequence of frames from one camera showing a heatmap anomaly event build up to the alert" caption="Baseline vs deviation logic" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>
@@ -120,11 +120,11 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/feature-heatmap-anomalies-3.png" alt="Configuration panel showing a monitored zone drawn on a site map with an anomaly sensitivity threshold control" caption="Zone & sensitivity configuration" />
+            <PhotoFigure src="/feature-heatmap-anomalies-3.webp" alt="Configuration panel showing a monitored zone drawn on a site map with an anomaly sensitivity threshold control" caption="Zone & sensitivity configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/feature-heatmap-anomalies-4.jpg" alt="Dashboard view listing flagged heatmap anomalies by zone, time window, and deviation severity" caption="Anomaly review" />
+            <PhotoFigure src="/feature-heatmap-anomalies-4.webp" alt="Camera scenes across several sites where heatmap anomaly detection is used" caption="Anomaly review" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

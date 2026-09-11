@@ -5,6 +5,7 @@ import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { ComparisonTable } from '@/components/content/comparison-table';
 import { SectionVisual } from '@/components/content/section-visual';
 import Link from 'next/link';
+import { PhotoFigure } from '@/components/content/photo-figure';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -56,6 +57,10 @@ export default function VsMobilePatrolsPage() {
             <strong className="font-semibold text-foreground">A mobile patrol puts a person on site at intervals. A virtual patrol checks the site&apos;s cameras on a schedule, records what it found, and messages the guard when a check fails.</strong>{' '}
             They are not rivals. One is coverage between visits, the other is the visit. This page sets them side by side for a guarding company that sells the second and is deciding whether to sell the first.
           </p>
+
+          <div className="mt-10 max-w-3xl">
+            <PhotoFigure src="/vp-vs-security-guards.jpg" alt="A security officer at a patrol car alongside an AI camera network, the blended model of guards and virtual rounds" caption="Guards and virtual rounds, side by side" />
+          </div>
 
           <div className="mt-12">
             <ScrollReveal>

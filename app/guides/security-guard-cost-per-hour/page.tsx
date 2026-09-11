@@ -5,6 +5,7 @@ import { articleSchema, personSchema } from '@/lib/seo';
 import { AuthorByline } from '@/components/content/author-byline';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
+import { PhotoFigure } from '@/components/content/photo-figure';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -37,6 +38,10 @@ export default function SecurityGuardCostPerHourPage() {
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Security guard cost per hour</h1>
           <AuthorByline className="mt-6" />
           <p className="mt-6 max-w-prose text-body text-muted-foreground">Security guard cost per hour varies by region, level of training and contract terms, and no single figure holds across markets, which is why this guide explains the arithmetic rather than quoting a rate. The true cost of guard coverage goes far beyond the hourly rate: it includes overtime, benefits, training, supervision, and the several full-time people needed for genuine round-the-clock coverage.</p>
+
+          <div className="mt-10 max-w-3xl">
+            <PhotoFigure src="/vp-vs-security-guards.jpg" alt="A security officer at a patrol car alongside an AI camera network, the blended model of guards and virtual rounds" caption="Guards and virtual rounds, side by side" />
+          </div>
 
           <section className="mt-16">
             <ScrollReveal>

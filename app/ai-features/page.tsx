@@ -76,7 +76,7 @@ export default function DetectionHubPage() {
             <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {(liveDetections ?? []).map((d: any, i: number) => (
                 <ScrollReveal key={i} delay={i * 0.06}>
-                  <FeatureCard icon={d?.icon} title={d?.title ?? ''} description={d?.desc ?? ''} href={d?.href ?? '/'} />
+                  <FeatureCard icon={d?.icon} title={d?.title ?? ''} description={d?.desc ?? ''} href={d?.href ?? '/'} image={{ src: `/feature-${(d?.href ?? '').split('/').pop()}-1.webp`, alt: `${d?.title ?? ''} in the console live view` }} />
                 </ScrollReveal>
               ))}
             </div>
@@ -88,7 +88,7 @@ export default function DetectionHubPage() {
             <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {(roadmapDetections ?? []).map((d: any, i: number) => (
                 <ScrollReveal key={i} delay={i * 0.06}>
-                  <FeatureCard icon={d?.icon} title={d?.title ?? ''} description={d?.desc ?? ''} href={d?.href ?? '/'} isRoadmap />
+                  <FeatureCard icon={d?.icon} title={d?.title ?? ''} description={d?.desc ?? ''} href={d?.href ?? '/'} isRoadmap image={{ src: `/feature-${(d?.href ?? '').split('/').pop()}-1.webp`, alt: `${d?.title ?? ''} in the console live view` }} />
                 </ScrollReveal>
               ))}
             </div>

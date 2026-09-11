@@ -5,6 +5,7 @@ import { articleSchema, personSchema } from '@/lib/seo';
 import { AuthorByline } from '@/components/content/author-byline';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
+import { PhotoFigure } from '@/components/content/photo-figure';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -61,6 +62,10 @@ export default function WhatIsIntelligentVideoAnalyticsPage() {
             <strong className="font-semibold text-foreground">Intelligent video analytics is software that reads camera footage for what is in it, people, vehicles, objects and what they are doing, and raises the events that match a rule you have set.</strong>{' '}
             It is the difference between a camera that records and a camera that notices. This guide explains what the phrase covers, how it differs from the motion detection built into most recorders, what it can and cannot see, and how to judge a vendor&apos;s claims about it.
           </p>
+
+          <div className="mt-10 max-w-3xl">
+            <PhotoFigure src="/feature-line-intrusion-detection-1.webp" alt="The console live view with a line intrusion alert drawn on the camera frame" caption="A detection drawn on the frame it fired on" />
+          </div>
 
           <section className="mt-16">
             <ScrollReveal>

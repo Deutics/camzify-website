@@ -43,7 +43,7 @@ export default function Page() {
         facts={['A second, unbadged person entering directly behind an…', 'Multiple people passing through a single-entry access point…', 'Door-held-open events that allow entry without a fresh badge…']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 22 detections' }}
-        visual={<PhotoFigure src="/feature-tailgating-detection-1.png" alt="Camera view of a secure door showing two people entering on one badge scan, with the second person highlighted" caption="Tailgating detection" priority />}
+        visual={<PhotoFigure src="/feature-tailgating-detection-1.webp" alt="The console live view with a tailgating alert drawn on the camera frame" caption="Tailgating detection" priority />}
       />
 
       <section className="pb-16">
@@ -72,7 +72,7 @@ export default function Page() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/feature-tailgating-detection-2.jpg" alt="Diagram showing confirmed head count at a doorway compared against a single badge scan event to flag tailgating" caption="Headcount vs. badge event" />
+            <PhotoFigure src="/feature-tailgating-detection-2.webp" alt="A sequence of frames from one camera showing a tailgating event build up to the alert" caption="Headcount vs. badge event" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>
@@ -112,11 +112,11 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/feature-tailgating-detection-3.png" alt="Configuration panel showing an entry-zone boundary drawn over a doorway camera view with schedule and sensitivity controls" caption="Entry-zone configuration" />
+            <PhotoFigure src="/feature-tailgating-detection-3.webp" alt="Configuration panel showing an entry-zone boundary drawn over a doorway camera view with schedule and sensitivity controls" caption="Entry-zone configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/feature-tailgating-detection-4.jpg" alt="Site diagram showing tailgating detection deployed across multiple secure access points in a facility" caption="Access point monitoring" />
+            <PhotoFigure src="/feature-tailgating-detection-4.webp" alt="Camera scenes across several sites where tailgating detection is used" caption="Access point monitoring" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>
@@ -167,6 +167,7 @@ export default function Page() {
                 <div className="mt-4 flex flex-wrap justify-center gap-2">
                   <Link href="/use-cases/unauthorized-access-detection" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Unauthorized Access Detection</Link>
                   <Link href="/use-cases/perimeter-security" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Perimeter Security</Link>
+                  <Link href="/use-cases/tailgating-detection-for-data-centers-and-secure-entrances" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Tailgating detection for data centers and lobbies</Link>
                 </div>
               </div>
             </div>

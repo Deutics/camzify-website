@@ -43,7 +43,7 @@ export default function Page() {
         facts={['Anyone entering a restricted server room or electrical closet', 'A forklift or vehicle entering a pedestrian-only zone', 'Personnel present in a hazardous or chemical storage area']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 22 detections' }}
-        visual={<PhotoFigure src="/feature-zone-intrusion-detection-1.png" alt="Zone Intrusion Detection visualization on camera feed" caption="Zone intrusion detection" priority />}
+        visual={<PhotoFigure src="/feature-zone-intrusion-detection-1.webp" alt="The console live view with a zone intrusion alert drawn on the camera frame" caption="Zone intrusion detection" priority />}
       />
 
       <section className="pb-16">
@@ -77,7 +77,7 @@ export default function Page() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/feature-zone-intrusion-detection-2.jpg" alt="Diagram showing a confirmed object track entering a polygonal restricted zone and triggering an alert" caption="Zone entry logic" />
+            <PhotoFigure src="/feature-zone-intrusion-detection-2.webp" alt="A sequence of frames from one camera showing a zone intrusion event build up to the alert" caption="Zone entry logic" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>
@@ -122,11 +122,11 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/feature-zone-intrusion-detection-3.png" alt="Configuration panel showing a polygonal zone drawn over a restricted area with dwell-time and schedule controls" caption="Zone configuration" />
+            <PhotoFigure src="/feature-zone-intrusion-detection-3.webp" alt="Configuration panel showing a polygonal zone drawn over a restricted area with dwell-time and schedule controls" caption="Zone configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/feature-zone-intrusion-detection-4.jpg" alt="Facility map showing multiple zone intrusion rules placed over restricted rooms and hazardous areas" caption="Restricted area monitoring" />
+            <PhotoFigure src="/feature-zone-intrusion-detection-4.webp" alt="Camera scenes across several sites where zone intrusion detection is used" caption="Restricted area monitoring" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>
@@ -162,6 +162,7 @@ export default function Page() {
               <Link href="/industries/warehouses" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Warehouses</Link>
               <Link href="/industries/retail" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Retail</Link>
               <Link href="/use-cases/perimeter-security" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Perimeter Security</Link>
+              <Link href="/use-cases/car-theft-and-vandalism-in-parking-facilities" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Car theft and vandalism in parking facilities</Link>
               <Link href="/pricing" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Pricing</Link>
               </div>
             </div>

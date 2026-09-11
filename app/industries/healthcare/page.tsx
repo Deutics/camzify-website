@@ -205,6 +205,9 @@ export default function HealthcarePage() {
                   <Link href="/use-cases/unauthorized-access-detection" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Unauthorized Access Detection</Link>
                   <Link href="/use-cases/after-hours-monitoring" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">After-Hours Monitoring</Link>
                   <Link href="/use-cases/guard-tour-verification" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Guard Tour Verification</Link>
+                  <Link href="/use-cases/fall-detection-for-hospitals-and-care-homes" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Fall detection for hospitals and care homes</Link>
+                  <Link href="/use-cases/violence-detection-in-emergency-departments" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Violence detection in emergency departments</Link>
+                  <Link href="/use-cases/fire-lane-and-emergency-access-enforcement" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Fire lane and emergency access enforcement</Link>
                 </div>
               </div>
               <div className="rounded-xl border border-border bg-card p-6 text-center">

@@ -152,11 +152,11 @@ export default function WasteManagementPage() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/industry-waste-management-3.jpg" alt="Live streaming from a waste management camera with people and vehicles outlined as they are tracked" caption="Live view with tracking" />
+            <PhotoFigure src="/industry-waste-management-3.webp" alt="Live streaming from a waste management camera with people and vehicles outlined as they are tracked" caption="Live view with tracking" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/industry-waste-management-4.webp" alt="Frames from a round across the waste management site, each with its alert raised" caption="Round frames with alerts" />
+            <PhotoFigure src="/industry-waste-management-4.jpg" alt="Frames from a round across the waste management site, each with its alert raised" caption="Round frames with alerts" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

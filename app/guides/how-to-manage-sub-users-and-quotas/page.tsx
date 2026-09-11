@@ -5,6 +5,7 @@ import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { HowToSteps, HowToNote, type HowToStep } from '@/components/content/how-to-steps';
 import { howToSchema } from '@/lib/seo';
 import Link from 'next/link';
+import { ProductShot } from '@/components/content/product-shot';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -83,6 +84,10 @@ export default function Page() {
             <Link href="/platform/permission-groups" className="text-primary hover:underline">permission groups</Link> and{' '}
             <Link href="/platform/license-and-instance-management" className="text-primary hover:underline">license and instance management</Link>.
           </p>
+
+          <div className="mt-10 max-w-3xl">
+            <ProductShot src="/product-user-management" alt="The user management screen: sub-users with their sites, permission groups and instances" label="User management" sizes="(max-width: 1024px) 100vw, 768px" />
+          </div>
 
           <HowToSteps steps={steps} />
 

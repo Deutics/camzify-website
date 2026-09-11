@@ -44,7 +44,7 @@ export default function Page() {
         facts={['Rapid, uncontrolled posture changes consistent with a fall', 'A person remaining on the ground after a fall event', 'Falls in aisles, entrances, and walkways during business hours']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 22 detections' }}
-        visual={<PhotoFigure src="/feature-slip-and-fall-detection-1.png" alt="Camera view of a retail aisle with a fallen person highlighted by a detection bounding box" caption="Slip & fall detection" priority />}
+        visual={<PhotoFigure src="/feature-slip-and-fall-detection-1.webp" alt="The console live view with a slip and fall alert drawn on the camera frame" caption="Slip & fall detection" priority />}
       />
 
       <section className="pb-16">
@@ -118,11 +118,11 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/feature-slip-and-fall-detection-3.png" alt="Configuration panel showing sensitivity and priority routing settings for slip and fall detection" caption="Fall detection configuration" />
+            <PhotoFigure src="/feature-slip-and-fall-detection-3.webp" alt="Configuration panel showing sensitivity and priority routing settings for slip and fall detection" caption="Fall detection configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/feature-slip-and-fall-detection-4.jpg" alt="Facility map showing camera coverage across aisles, entrances, and walkways for fall detection" caption="Fall risk monitoring" />
+            <PhotoFigure src="/feature-slip-and-fall-detection-4.webp" alt="Camera scenes across several sites where slip and fall detection is used" caption="Fall risk monitoring" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>
@@ -173,6 +173,7 @@ export default function Page() {
                 <div className="mt-4 flex flex-wrap justify-center gap-2">
                   <Link href="/use-cases/incident-investigation" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Incident Investigation</Link>
                   <Link href="/use-cases/guard-tour-verification" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Guard Tour Verification</Link>
+                  <Link href="/use-cases/fall-detection-for-hospitals-and-care-homes" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Fall detection for hospitals and care homes</Link>
                 </div>
               </div>
             </div>

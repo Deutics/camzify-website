@@ -3,7 +3,7 @@ import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { FeatureHero } from '@/components/content/feature-hero';
-import { HeroPlaceholder } from '@/components/content/hero-placeholder';
+import { BeforeAfter } from '@/components/content/before-after';
 import { SectionVisual } from '@/components/content/section-visual';
 import { PointList } from '@/components/content/point-list';
 import Link from 'next/link';
@@ -58,13 +58,6 @@ const faqs = [
   },
 ];
 
-const FRAMES = [
-  { src: '/hero-cam-main-gate-640.webp', id: 'AGENCY A · CAM 01', loc: 'CLIENT SITE · MAIN GATE' },
-  { src: '/hero-cam-loading-dock-640.webp', id: 'AGENCY A · CAM 04', loc: 'CLIENT SITE · LOADING DOCK' },
-  { src: '/hero-cam-server-room-640.webp', id: 'AGENCY B · CAM 02', loc: 'CLIENT SITE · SERVER CORRIDOR' },
-  { src: '/hero-cam-parking-lot-640.webp', id: 'AGENCY C · CAM 07', loc: 'CLIENT SITE · PARKING LOT' },
-];
-
 export default function ForMonitoringCentresPage() {
   return (
     <PageShell {...pageMeta} faqs={faqs} breadcrumbs={[
@@ -88,11 +81,11 @@ export default function ForMonitoringCentresPage() {
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/partners/for-security-agencies', label: 'For security agencies' }}
         visual={
-          <HeroPlaceholder
-            label="Operator console · Rounds across three agencies"
-            alt="A monitoring operator's camera wall showing sites from three different security agencies, each tile labelled with the agency and client site"
-            frames={FRAMES}
-            active={2}
+          <BeforeAfter
+            priority
+            before={{ src: '/partner-gate-opened.jpg', label: 'Found open · guard notified', alt: 'A yard gate camera: the sliding gate standing open with nobody at it, the state the round found' }}
+            after={{ src: '/partner-gate-closed.jpg', label: 'Closed · verified', alt: 'The same gate camera minutes later: a guard in a high-visibility vest pushing the gate shut' }}
+            caption="The record every fixed item carries: the frame the round found, and the frame after the guard dealt with it."
           />
         }
       />

@@ -3,6 +3,7 @@ import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
+import { ProductShot } from '@/components/content/product-shot';
 import { Radio, Upload, Globe } from 'lucide-react';
 
 /**
@@ -46,6 +47,10 @@ export default function CameraConnectivityHub() {
           <p className="mt-6 max-w-2xl text-body text-muted-foreground">
             <strong className="font-semibold text-foreground">A camera connects to Camzify in one of three ways: RTSP, RTMP or HTTPS.</strong> Camzify uses the cameras you already own, with no proprietary hardware required. Choose your connection type below for step-by-step setup instructions, then start running <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrol</a> rounds within minutes.
           </p>
+
+          <div className="mt-10 max-w-3xl">
+            <ProductShot src="/product-configuration" alt="The Configuration screen in the console: adding a camera by its RTMP, RTSP or HTTPS address, with the cameras already on the site listed below" label="Configuration · Add camera" sizes="(max-width: 1024px) 100vw, 768px" />
+          </div>
           <p className="mt-4 text-muted-foreground">
             An RTSP stream that is already reachable over the internet connects directly. For cameras on local networks without direct cloud access, the <Link href="/camzify-connector" className="text-primary hover:underline">Camzify Connector</Link> relays streams securely. See <Link href="/guides/onvif-and-rtsp-explained" className="text-primary hover:underline">ONVIF and RTSP explained</Link> for protocol fundamentals.
           </p>

@@ -21,7 +21,7 @@ claims must be verifiable enough for a model to be willing to attribute them.
 | Page schema | `components/layout/page-shell.tsx` | Emits WebPage + FAQPage + any extra nodes |
 | Social card | `app/opengraph-image.tsx` | Generated 1200×630 PNG at build time |
 | Crawl directives | `app/robots.ts` | Explicit allowlist for 19 AI crawlers |
-| Index | `app/sitemap.ts` | All 150 routes, priority by silo |
+| Index | `app/sitemap.ts` | All 163 routes, priority by silo |
 | LLM briefing | `app/llms.txt/route.ts` | Plain-text summary written for AI crawlers |
 
 ---
