@@ -149,7 +149,7 @@ export default function CloudVideoSurveillancePage() {
               <span className="font-mono text-mono-sm uppercase text-primary">Cloud NVR alternative</span>
               <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">Against a recorder on site</h2>
               <p className="mt-5 max-w-prose text-body text-muted-foreground">
-                The last two rows are where the recorder wins. A site with poor upstream bandwidth, or a policy that footage never leaves the building, should keep its NVR. The longer version is on <Link href="/compare/cloud-vms-vs-on-premise" className="text-primary hover:underline">cloud VMS vs on-premise</Link>.
+                The last two rows are where the recorder wins. A site with poor upstream bandwidth, or a policy that footage never leaves the building, should keep its NVR. The longer version is on <Link href="/compare/cloud-vms-vs-on-premise" className="text-primary hover:underline">cloud VMS vs on-premise</Link>. For a named alternative, see <Link href="/compare/camzify-vs-eagle-eye-networks" className="text-primary hover:underline">Camzify vs Eagle Eye Networks</Link>.
               </p>
             </div>
           </ScrollReveal>

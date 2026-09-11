@@ -13,7 +13,7 @@ import { cameraBrands } from '@/lib/camera-brands';
  */
 const pageMeta = {
   title: "Supported Cameras | ONVIF and RTSP Brands",
-  description: "Camzify works with any ONVIF or RTSP-compatible IP camera. Axis, Hikvision, Dahua, Hanwha, Bosch and more. What ONVIF means, and how to check your own cameras.",
+  description: "Camzify works with any ONVIF or RTSP-compatible IP camera: Axis, Hikvision, Dahua, Hanwha, Uniview and more. Check yours before a demo.",
   path: "/supported-cameras",
 };
 

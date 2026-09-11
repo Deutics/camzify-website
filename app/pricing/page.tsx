@@ -20,7 +20,7 @@ import { Camera, Cpu, HardDrive, Users, Building2, Calculator, ArrowRight, Messa
  */
 const pageMeta = {
   title: "Pricing | Per Camera, Quoted for Your Site",
-  description: "Camzify is priced per camera per month and quoted for your site or client portfolio. What a quote is built from, how AI features are licensed, and how to compare it against guarding.",
+  description: "Camzify is priced per camera per month and quoted for your site or client portfolio. What a quote is built from, and how to ask for one.",
   path: "/pricing",
 };
 

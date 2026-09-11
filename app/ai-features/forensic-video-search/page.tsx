@@ -14,7 +14,7 @@ import Link from 'next/link';
  */
 const pageMeta = {
   title: "AI Suspect Search | Forensic Video Search Software",
-  description: "Camzify AI suspect search lets investigators describe a person in plain language and retrieve every matching appearance across indexed cameras and time windows.",
+  description: "AI suspect search: describe a person in plain language and retrieve every camera appearance across a site. Clothing and objects, not faces.",
   path: "/ai-features/forensic-video-search",
 };
 

@@ -13,7 +13,7 @@ import Link from 'next/link';
  */
 const pageMeta = {
   title: "Accessibility",
-  description: "How the Camzify website is built to be usable with a keyboard, a screen reader, reduced motion and either theme, what is not yet right, and how to tell us when something is in your way.",
+  description: "How the Camzify website works with a keyboard, a screen reader, reduced motion and either theme, what is not yet right, and how to tell us.",
   path: "/accessibility",
 };
 

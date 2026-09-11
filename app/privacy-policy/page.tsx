@@ -17,7 +17,7 @@ import Link from 'next/link';
  */
 const pageMeta = {
   title: "Privacy Policy",
-  description: "What the Camzify website collects, why, where it is kept, who can see it, and the rights you have over it. Written from what the site actually does, in plain language.",
+  description: "What the Camzify website collects, why, where it is kept, who can see it, and the rights you have over it. A draft awaiting counsel.",
   path: "/privacy-policy",
 };
 
