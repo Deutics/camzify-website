@@ -65,6 +65,22 @@ headers — the defaults are correct for this project.
 
 ---
 
+## Connecting the lead database later
+
+Add `DATABASE_URL` (a PostgreSQL connection string) to the deploy target and redeploy.
+The build script runs `prisma migrate deploy` whenever that variable is present
+(`scripts/migrate-if-configured.mjs`), which applies `prisma/migrations` and creates the
+four lead tables; from then on each lead is stored after it is emailed. Without the
+variable the step is skipped and the build needs no database. To create the tables from
+a laptop instead:
+
+```bash
+DATABASE_URL="postgresql://..." npx prisma migrate deploy
+```
+
+Schema changes go through `npx prisma migrate dev --name <change>` against a development
+database, and the resulting folder under `prisma/migrations` is committed.
+
 ## Why `prisma generate` is in the build script
 
 ```json

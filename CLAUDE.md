@@ -139,6 +139,10 @@ rendered result — do not ask the user to look for you.
 
 - **`prisma generate` is in both `build` and `postinstall`.** Not a duplicate — Vercel
   restores `node_modules` from cache and skips `postinstall`. See `docs/DEPLOYMENT.md`.
+- **The build applies migrations only when `DATABASE_URL` is set.**
+  `scripts/migrate-if-configured.mjs` runs `prisma migrate deploy` in that case and skips
+  otherwise, so a deploy with no database still builds, and connecting the database is
+  one variable plus a redeploy. Schema changes need a migration in `prisma/migrations`.
 - **Leads are emailed through ZeptoMail; the database is optional.** `lib/lead-mail.ts`
   sends every form submission to `LEADS_TO_EMAIL` (default: the public contact address)
   using `ZEPTOMAIL_TOKEN` and `ZEPTOMAIL_FROM_ADDRESS`. Until the database is connected
