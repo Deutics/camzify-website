@@ -85,7 +85,7 @@ export default function Page() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/feature-motion-detection-2.jpg" alt="Diagram showing background subtraction isolating a moving foreground object from a static modeled background" caption="Background model" />
+            <PhotoFigure src="/feature-motion-detection-2.webp" alt="A sequence of frames from one camera showing a motion event build up to the alert" caption="Background model" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>
@@ -139,11 +139,11 @@ export default function Page() {
                 </p>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/feature-motion-detection-3.png" alt="Configuration panel showing motion sensitivity, masked regions, and schedule controls for a camera feed" caption="Motion sensitivity" />
+            <PhotoFigure src="/feature-motion-detection-3.webp" alt="Configuration panel showing motion sensitivity, masked regions, and schedule controls for a camera feed" caption="Motion sensitivity" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/feature-motion-detection-4.jpg" alt="Facility view showing motion detection masked zones covering entrances and storage areas during closed hours" caption="After-hours monitoring" />
+            <PhotoFigure src="/feature-motion-detection-4.webp" alt="Camera scenes across several sites where motion detection is used" caption="After-hours monitoring" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

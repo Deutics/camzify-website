@@ -110,6 +110,8 @@ rather than nothing — see `components/motion/patrol-sweep-hero.tsx`.
 | `FeatureHero` | The hero on every feature, industry, use-case, platform, VP and pillar page: `eyebrow`, sentence-case `title`, `lede`, `visual`, `primary`/`secondary` CTAs, up to three `facts`. |
 | `UseCasePage` | Renders a `UseCaseContent` object; all 22 use-case pages go through it. |
 | `SectionVisual` | Static design-system renderings of product concepts: `route`, `checklist` (`items`, `label`, `guard`), `report`, `notification`, `schedule`, `compliance`, `sites`, `flow` (`steps`). |
+| `BeforeAfter` | Two frames from one camera side by side, the state a round found and the state after the guard dealt with it, with a red and a green label. The partner heroes use the gate pair. |
+| `PointList` | The one list treatment for body copy: dot bullets, one full sentence per item. Use-case pages reach it through a `{ points: [...] }` body item. |
 | `PhotoFigure` | A `SiteImage` with caption. A JPEG photograph gets the card frame; a PNG render (transparent background, its own device frame and shadow) is shown unframed, because a card around it reads as a frame inside a frame. |
 | `ProductShot` | A console screenshot that swaps light/dark with the theme; pass the base path without suffix. |
 | `SiteImage` | Responsive WebP `<picture>` from `lib/image-manifest.ts`. Use it instead of `next/image` for photographs. |

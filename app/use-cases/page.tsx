@@ -51,7 +51,7 @@ const groups = [
     desc: 'Boundaries, off-hours and restricted areas: the scenarios where a person present is the event.',
     items: [
       { title: 'Perimeter security', href: '/use-cases/perimeter-security', icon: Shield, desc: 'Fence lines, gates and open ground, checked every round and watched between rounds.', image: '/ai-perimeter-security.webp' },
-      { title: 'Trespassing detection', href: '/use-cases/trespassing-detection', icon: UserX, desc: 'A person where nobody should be, on a confirmed track rather than a moving shadow.', image: '/trespassing-detection.png' },
+      { title: 'Trespassing detection', href: '/use-cases/trespassing-detection', icon: UserX, desc: 'A person where nobody should be, on a confirmed track rather than a moving shadow.', image: '/trespassing-detection.webp' },
       { title: 'Unauthorized access detection', href: '/use-cases/unauthorized-access-detection', icon: KeyRound, desc: 'Zones notified in the hours you set, and the tailgating a badge reader never sees.', image: '/unauthorized-access-detection.webp' },
       { title: 'After-hours monitoring', href: '/use-cases/after-hours-monitoring', icon: Moon, desc: 'Scheduled rounds through the building when it is empty, with a report each.', image: '/after-hours-security-monitoring.png' },
       { title: 'Night security', href: '/use-cases/night-security', icon: MoonStar, desc: 'Overnight rounds that run on the fourth night as reliably as the first.', image: '/night-security.webp' },

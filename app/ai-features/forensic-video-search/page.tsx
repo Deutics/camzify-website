@@ -44,7 +44,7 @@ export default function Page() {
         facts={['A person matching a plain-language description across every…', 'Every timestamped appearance of that match, ranked by confidence', 'Matches across a single site or a full multi-site account']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 22 detections' }}
-        visual={<PhotoFigure src="/feature-forensic-video-search-1.png" alt="Camera feed with a search query overlay and highlighted matching subject" caption="Ai suspect search" priority />}
+        visual={<PhotoFigure src="/feature-forensic-video-search-1.webp" alt="The console live view with a suspect search alert drawn on the camera frame" caption="Ai suspect search" priority />}
       />
 
       <section className="pb-16">
@@ -73,7 +73,7 @@ export default function Page() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/feature-forensic-video-search-2.jpg" alt="Diagram showing camera feeds building a searchable appearance index matched against a plain-language description" caption="Appearance index" />
+            <PhotoFigure src="/feature-forensic-video-search-2.webp" alt="A sequence of frames from one camera showing a suspect search event build up to the alert" caption="Appearance index" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>
@@ -114,11 +114,11 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/feature-forensic-video-search-3.png" alt="Configuration panel showing search scope, date range, and attribute filters for AI suspect search" caption="Search configuration" />
+            <PhotoFigure src="/feature-forensic-video-search-3.webp" alt="Configuration panel showing search scope, date range, and attribute filters for AI suspect search" caption="Search configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/feature-forensic-video-search-4.jpg" alt="Investigator screen showing AI suspect search results across multiple camera thumbnails ranked by confidence" caption="Investigation use" />
+            <PhotoFigure src="/feature-forensic-video-search-4.webp" alt="Camera scenes across several sites where suspect search detection is used" caption="Investigation use" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

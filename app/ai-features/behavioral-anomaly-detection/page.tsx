@@ -4,7 +4,6 @@ import { FeatureHero } from '@/components/content/feature-hero';
 import { PhotoFigure } from '@/components/content/photo-figure';
 import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
-import { PlaceholderVisual } from '@/components/content/placeholder-visual';
 import { PointList } from '@/components/content/point-list';
 import Link from 'next/link';
 
@@ -91,7 +90,7 @@ export default function BehavioralAnomalyDetectionPage() {
         facts={['Describe the behavior in plain language', 'No rule syntax, no zones to draw', 'Watches the cameras you pick for it']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 22 detections' }}
-        visual={<PhotoFigure src="/feature-behavioral-anomaly-detection-1.png" alt="People moving through a public space with an AI overlay tracing behavior patterns" priority />}
+        visual={<PhotoFigure src="/feature-behavioral-anomaly-detection-1.webp" alt="The console live view with a behavioral anomaly alert drawn on the camera frame" priority />}
       />
 
       <section className="pb-16">
@@ -163,11 +162,7 @@ export default function BehavioralAnomalyDetectionPage() {
                 </p>
               </div>
             </ScrollReveal>
-            <PlaceholderVisual
-              type="config-ui"
-              caption="BEHAVIOR DESCRIPTION"
-              alt="Configuration panel showing a plain-language behavior description entered against a selected group of cameras"
-            />
+            <PhotoFigure src="/feature-behavioral-anomaly-detection-2.webp" alt="A sequence of frames from a lobby camera: people walking through, then one person smoking by the door and the unusual behavior alert raised" caption="From description to alert" />
           </div>
 
           <div className="mt-16">
@@ -195,11 +190,7 @@ export default function BehavioralAnomalyDetectionPage() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PlaceholderVisual
-              type="report"
-              caption="BEHAVIOR ALERT"
-              alt="Notification showing a matched behavior description with camera, timestamp and acknowledgment state"
-            />
+            <PhotoFigure src="/feature-behavioral-anomaly-detection-3.jpg" alt="A patrol compliance report in the console with a behavioral anomaly recorded against the main building camera, the frame attached" caption="Recorded on the round" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">In a patrol round</h2>

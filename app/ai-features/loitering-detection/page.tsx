@@ -40,7 +40,7 @@ export default function Page() {
         facts={['On the roadmap, not yet in production', 'Dwell time in a zone, not just presence', 'Will run on the same cameras and account']}
         primary={{ href: '/roadmap', label: 'See the roadmap' }}
         secondary={{ href: '/ai-features', label: 'Detections available today' }}
-        visual={<PhotoFigure src="/feature-loitering-detection-1.png" alt="A person waiting in a lit street at night, the scene a loitering rule would watch" priority />}
+        visual={<PhotoFigure src="/feature-loitering-detection-1.webp" alt="The console live view with a loitering alert drawn on the camera frame" priority />}
       />
 
       <section className="pb-16">

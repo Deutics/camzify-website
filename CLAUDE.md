@@ -167,13 +167,13 @@ Add a photo, run `python3 scripts/optimise-images.py`, use `<SiteImage>` with a 
 mapped list, `priority={i === 0}` — not on every card.
 
 **Where the photographs come from.** The business supplies the image set as a zip
-("Camzify Website Images", latest 2026-09-08, in the owner's Downloads). It is staged into
+("Camzify Website Images", latest 2026-09-11, in the owner's Downloads). It is staged into
 `public/` under slug names by section: `hero-cam-*` (twelve real camera frames: homepage
 hero, camera walls, demo), `scene-*`, `product-*-{dark,light}` (console screenshots),
 `feature-<slug>-{1..4}` (AI features), `ai-security-for-<slug>` (industry hero, the
 designer's image 1) and `industry-<slug>-{2,3,4}` (the three figures), one render per
 use case, `vp-*` (virtual patrolling pages, risk-detection camera frames, the virtual
-guard render). **The designer numbers a folder's images in page order, from the top:
+guard render), `partner-gate-{opened,closed}` (the before-and-after pair on the partner pages). **The designer numbers a folder's images in page order, from the top:
 image 1 is the hero, 2 is the first figure below it, and so on. Keep that order.**
 Photographs are JPEG sources at 1600px or below. Renders on a transparent background
 (device mock-ups with a drop shadow, rounded screenshots) keep their alpha: small ones

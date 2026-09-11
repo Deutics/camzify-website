@@ -43,8 +43,8 @@ export default function Page() {
         secondary={{ href: '/roadmap', label: 'Native apps on the roadmap' }}
         visual={<div className="overflow-hidden rounded-xl">
             <SiteImage
-              src="/mobile-access.png"
-              alt="A field worker checking a live camera grid on a phone and a multi-site status map on a tablet at a construction site"
+              src="/mobile-access.webp"
+              alt="The Camzify dashboard open on a laptop, a tablet and a phone at once"
               className="w-full rounded-xl"
               width={1229}
               height={692}

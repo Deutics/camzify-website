@@ -29,7 +29,7 @@ const content: UseCaseContent = {
     It covers exterior perimeters, open grounds, roofs and any area where human presence outside defined hours is itself the security event. Camzify does it on the cameras already installed, with a zone per area, a notification window per camera, and a snapshot to the guard when the rule is broken.
   </>,
   facts: ['A person on a confirmed track, not a moving shadow', 'Notified in the hours you set', 'Snapshot to the guard on the event'],
-  image: { src: '/trespassing-detection.png', alt: 'Perimeter fence at night with a person climbing over, highlighted in a thermal camera view' },
+  image: { src: '/trespassing-detection.webp', alt: 'A person climbing over a chain-link perimeter fence, outlined in red by the detection' },
   secondary: { href: '/ai-features/zone-intrusion-detection', label: 'Zone intrusion detection' },
   problem: {
     heading: 'Trespassers do not use the gate',

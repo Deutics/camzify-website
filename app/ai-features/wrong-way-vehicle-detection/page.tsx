@@ -43,7 +43,7 @@ export default function Page() {
         facts={['Vehicles travelling against the defined direction on a…', 'Wrong-way entries on parking garage ramps', 'Wrong-way movement through gated entry or exit lanes']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 22 detections' }}
-        visual={<PhotoFigure src="/feature-wrong-way-vehicle-detection-1.png" alt="Camera view of a one-way ramp with a wrong-way vehicle highlighted by a directional detection overlay" caption="Wrong-way vehicle detection" priority />}
+        visual={<PhotoFigure src="/feature-wrong-way-vehicle-detection-1.webp" alt="The console live view with a wrong-way vehicle alert drawn on the camera frame" caption="Wrong-way vehicle detection" priority />}
       />
 
       <section className="pb-16">
@@ -115,11 +115,11 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/feature-wrong-way-vehicle-detection-3.png" alt="Configuration panel showing a directional rule drawn across a ramp with sensitivity and schedule controls" caption="Directional rule configuration" />
+            <PhotoFigure src="/feature-wrong-way-vehicle-detection-3.webp" alt="Configuration panel showing a directional rule drawn across a ramp with sensitivity and schedule controls" caption="Directional rule configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/feature-wrong-way-vehicle-detection-4.jpg" alt="Site map showing directional rules placed across parking garage ramps and one-way site roads" caption="Ramp & lane monitoring" />
+            <PhotoFigure src="/feature-wrong-way-vehicle-detection-4.webp" alt="Camera scenes across several sites where wrong-way vehicle detection is used" caption="Ramp & lane monitoring" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

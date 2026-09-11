@@ -45,7 +45,7 @@ export default function LineIntrusionPage() {
         facts={['People crossing a perimeter fence line', 'Vehicles entering a restricted loading zone', 'Directional crossings at one-way gates or turnstiles']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 22 detections' }}
-        visual={<PhotoFigure src="/feature-line-intrusion-detection-1.png" alt="Camera view showing a virtual tripwire line with directional arrows and detected object crossing" caption="Line intrusion detection" priority />}
+        visual={<PhotoFigure src="/feature-line-intrusion-detection-1.webp" alt="The console live view with a line intrusion alert drawn on the camera frame" caption="Line intrusion detection" priority />}
       />
 
       <section className="pb-16">
@@ -73,7 +73,7 @@ export default function LineIntrusionPage() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/feature-line-intrusion-detection-2.jpg" alt="Diagram showing a directional line rule evaluating an object track's trajectory before firing an alert" caption="Tripwire logic" />
+            <PhotoFigure src="/feature-line-intrusion-detection-2.webp" alt="A sequence of frames from one camera showing a line intrusion event build up to the alert" caption="Tripwire logic" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>
@@ -118,11 +118,11 @@ export default function LineIntrusionPage() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/feature-line-intrusion-detection-3.png" alt="Configuration panel showing a directional line drawn across a camera view with sensitivity and schedule controls" caption="Line configuration" />
+            <PhotoFigure src="/feature-line-intrusion-detection-3.webp" alt="Configuration panel showing a directional line drawn across a camera view with sensitivity and schedule controls" caption="Line configuration" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/feature-line-intrusion-detection-4.jpg" alt="Site map showing multiple line intrusion rules placed across a facility's perimeter fence and vehicle gates" caption="Perimeter monitoring" />
+            <PhotoFigure src="/feature-line-intrusion-detection-4.webp" alt="Camera scenes across several sites where line intrusion detection is used" caption="Perimeter monitoring" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

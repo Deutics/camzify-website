@@ -43,7 +43,7 @@ export default function Page() {
         facts={['A unique, persistent track ID for every subject in frame', 'Continuous identity through brief occlusions and re-entries', 'The confirmed-track input that line and zone intrusion rules…']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 22 detections' }}
-        visual={<PhotoFigure src="/feature-multi-object-tracking-1.png" alt="Multi-Object Tracking visualization on camera feed" caption="Multi-object tracking" priority />}
+        visual={<PhotoFigure src="/feature-multi-object-tracking-1.webp" alt="The console live view with a multi-object tracking alert drawn on the camera frame" caption="Multi-object tracking" priority />}
       />
 
       <section className="pb-16">
@@ -76,7 +76,7 @@ export default function Page() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/feature-multi-object-tracking-2.jpg" alt="Diagram showing a subject's track ID surviving a brief occlusion behind an obstacle and continuing on re-entry" caption="Track persistence" />
+            <PhotoFigure src="/feature-multi-object-tracking-2.webp" alt="A sequence of frames from one camera showing a multi-object tracking event build up to the alert" caption="Track persistence" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>
@@ -114,11 +114,11 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/feature-multi-object-tracking-3.png" alt="Configuration panel showing object-class filters and occlusion-recovery settings for multi-object tracking" caption="Tracking settings" />
+            <PhotoFigure src="/feature-multi-object-tracking-3.webp" alt="Configuration panel showing object-class filters and occlusion-recovery settings for multi-object tracking" caption="Tracking settings" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/feature-multi-object-tracking-4.jpg" alt="Site map showing multi-object tracking running across several cameras as the shared layer beneath other detection features" caption="Foundational tracking layer" />
+            <PhotoFigure src="/feature-multi-object-tracking-4.webp" alt="Camera scenes across several sites where multi-object tracking detection is used" caption="Foundational tracking layer" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>

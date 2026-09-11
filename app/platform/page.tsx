@@ -39,7 +39,7 @@ const groups = [
       { icon: LayoutDashboard, title: 'Dashboard', href: '/platform/dashboard', desc: 'Cameras online, criticals open, alerts today, patrol compliance and retention coverage on one screen.', image: '/Video-Surveillance-Dashboard.png' },
       { icon: Video, title: 'Live streaming', href: '/platform/live-streaming', desc: 'A multi-camera wall grouped by site, saved camera sets, explicit offline states, PTZ where supported.', image: '/live-camera-streaming.png' },
       { icon: HardDrive, title: 'Video backup & retention', href: '/platform/video-backup-and-retention', desc: 'Continuous or scheduled recording, retention per camera by days or storage cap, playback and export.', image: '/cloud-video-backup-and-retention-management.png' },
-      { icon: Smartphone, title: 'Mobile access', href: '/platform/mobile-access', desc: 'Live streams, alerts and patrol compliance from any phone or tablet browser, nothing to install.', image: '/mobile-access.png' },
+      { icon: Smartphone, title: 'Mobile access', href: '/platform/mobile-access', desc: 'Live streams, alerts and patrol compliance from any phone or tablet browser, nothing to install.', image: '/mobile-access.webp' },
     ],
   },
   {
@@ -48,7 +48,7 @@ const groups = [
     modules: [
       { icon: Bell, title: 'Notifications & alerts', href: '/platform/notifications-and-alerts', desc: 'One queue by severity, site, camera or feature; acknowledgment, escalation and linked backup video.', image: '/security-alert-management.png' },
       { icon: BarChart3, title: 'Analytics & reporting', href: '/platform/analytics-and-reporting', desc: 'Detection trends over time, attribute breakdowns and confidence splits, per site and per feature.', image: '/video-surveillance-analytics-and-reporting.png' },
-      { icon: Brain, title: 'AI architecture', href: '/platform/ai-architecture', desc: 'Six processing layers from detection to adaptive inference, tuned independently per camera.', image: '/ai-video-analytics-architecture.png' },
+      { icon: Brain, title: 'AI architecture', href: '/platform/ai-architecture', desc: 'Six processing layers from detection to adaptive inference, tuned independently per camera.', image: '/ai-video-analytics-architecture.webp' },
     ],
   },
   {

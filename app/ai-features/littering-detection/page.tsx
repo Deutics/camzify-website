@@ -43,7 +43,7 @@ export default function Page() {
         facts={['Objects dropped or thrown by a confirmed subject outside a…', 'Litter left unclaimed on the ground in monitored outdoor areas', 'Repeated littering activity at the same location over time']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 22 detections' }}
-        visual={<PhotoFigure src="/feature-littering-detection-1.png" alt="Camera view of an outdoor area with a littering event highlighted by a detection bounding box" caption="Littering detection" priority />}
+        visual={<PhotoFigure src="/feature-littering-detection-1.webp" alt="The console live view with a littering alert drawn on the camera frame" caption="Littering detection" priority />}
       />
 
       <section className="pb-16">
@@ -109,11 +109,11 @@ export default function Page() {
                 </ul>
               </div>
             </ScrollReveal>
-            <PhotoFigure src="/feature-littering-detection-3.png" alt="Configuration panel showing designated bin zones marked on a camera view of an outdoor plaza" caption="Bin zone setup" />
+            <PhotoFigure src="/feature-littering-detection-3.webp" alt="Configuration panel showing designated bin zones marked on a camera view of an outdoor plaza" caption="Bin zone setup" />
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/feature-littering-detection-4.jpg" alt="Site map highlighting recurring littering hotspot locations aggregated from multiple detection events" caption="Hotspot tracking" />
+            <PhotoFigure src="/feature-littering-detection-4.webp" alt="Camera scenes across several sites where littering detection is used" caption="Hotspot tracking" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">Common scenarios</h2>
