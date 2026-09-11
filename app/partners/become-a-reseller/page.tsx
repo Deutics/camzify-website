@@ -3,7 +3,7 @@ import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { FeatureHero } from '@/components/content/feature-hero';
-import { HeroPlaceholder } from '@/components/content/hero-placeholder';
+import { ProductShot } from '@/components/content/product-shot';
 import { SectionVisual } from '@/components/content/section-visual';
 import { PointList } from '@/components/content/point-list';
 import Link from 'next/link';
@@ -52,13 +52,6 @@ const faqs = [
   },
 ];
 
-const FRAMES = [
-  { src: '/hero-cam-main-gate-640.webp', id: 'CAM 01', loc: 'MAIN GATE' },
-  { src: '/hero-cam-loading-dock-640.webp', id: 'CAM 04', loc: 'LOADING DOCK' },
-  { src: '/hero-cam-server-room-640.webp', id: 'CAM 09', loc: 'SERVER CORRIDOR' },
-  { src: '/hero-cam-parking-lot-640.webp', id: 'CAM 02', loc: 'PARKING LOT A' },
-];
-
 export default function BecomeAResellerPage() {
   return (
     <PageShell {...pageMeta} faqs={faqs} breadcrumbs={[
@@ -81,12 +74,7 @@ export default function BecomeAResellerPage() {
         primary={{ href: '/contact', label: 'Talk to us about reselling' }}
         secondary={{ href: '/virtual-patrolling', label: 'What you would be selling' }}
         visual={
-          <HeroPlaceholder
-            label="Live round · The demonstration you can run"
-            alt="A four-camera patrol round in progress in the Camzify console, the kind of live demonstration a reseller can run for a prospect"
-            frames={FRAMES}
-            active={0}
-          />
+          <ProductShot src="/product-license-plan" alt="The Plan and Usage screen: instances per feature, what is activated, granted to sub-users and still available" label="Plan and usage" priority sizes="(max-width: 1024px) 100vw, 45vw" />
         }
       />
 

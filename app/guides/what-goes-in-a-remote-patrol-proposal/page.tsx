@@ -6,6 +6,7 @@ import { AuthorByline } from '@/components/content/author-byline';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { SectionVisual } from '@/components/content/section-visual';
 import Link from 'next/link';
+import { PhotoFigure } from '@/components/content/photo-figure';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -44,6 +45,10 @@ export default function WhatGoesInARemotePatrolProposalPage() {
           <AuthorByline className="mt-6" />
           <div className="mt-10 grid items-start gap-10 lg:grid-cols-[3fr_2fr]">
             <p className="max-w-prose text-body text-muted-foreground">A proposal for remote patrols is short if it is honest, because the service is concrete: these cameras, this checklist, this schedule, this report, this person notified when a check fails, this price per site per month. This guide lists the sections in the order a client reads them, with what each should say and what it should leave out. It assumes you sell guarding or monitoring already and are adding rounds to the offer.</p>
+
+          <div className="mt-10 max-w-3xl">
+            <PhotoFigure src="/vp-patrol-reports-1.png" alt="A patrol compliance report in the console: overall compliance, each camera stop, each item with its result and the frame behind it" caption="What the client receives after every round" />
+          </div>
             <SectionVisual variant="checklist" caption="Section three of the proposal: the checklist per camera, as it appears on the round." alt="A patrol checklist with four items in different states" />
           </div>
           <section className="mt-14">

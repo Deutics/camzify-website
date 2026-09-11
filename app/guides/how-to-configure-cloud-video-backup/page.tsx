@@ -5,6 +5,7 @@ import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { HowToSteps, HowToNote, type HowToStep } from '@/components/content/how-to-steps';
 import { howToSchema } from '@/lib/seo';
 import Link from 'next/link';
+import { ProductShot } from '@/components/content/product-shot';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -82,6 +83,10 @@ export default function Page() {
             estimate without being surprised later. See also{' '}
             <Link href="/guides/video-retention-requirements" className="text-primary hover:underline">video retention requirements</Link>.
           </p>
+
+          <div className="mt-10 max-w-3xl">
+            <ProductShot src="/product-video-backup" alt="The video backup screen: recording mode and retention set per camera, storage by site above" label="Video backup and retention" sizes="(max-width: 1024px) 100vw, 768px" />
+          </div>
 
           <HowToSteps steps={steps} />
 

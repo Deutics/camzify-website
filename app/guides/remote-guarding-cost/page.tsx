@@ -5,6 +5,7 @@ import { articleSchema, personSchema } from '@/lib/seo';
 import { AuthorByline } from '@/components/content/author-byline';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
+import { PhotoFigure } from '@/components/content/photo-figure';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -37,6 +38,10 @@ export default function RemoteGuardingCostPage() {
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Remote guarding cost</h1>
           <AuthorByline className="mt-6" />
           <p className="mt-6 max-w-prose text-body text-muted-foreground">Remote guarding cost is the price of having a human operator in a monitoring center watch your camera feeds and respond to alerts. It sits between on-site guarding (most expensive) and fully automated virtual patrolling (least expensive). Typical remote guarding services charge per camera per month, with rates varying by hours of coverage and response protocol.</p>
+
+          <div className="mt-10 max-w-3xl">
+            <PhotoFigure src="/vp-virtual-guard.png" alt="The Camzify dashboard on a laptop: cameras live, critical events open, detection events over time and the live alert feed" caption="The console the virtual guard runs on" />
+          </div>
 
           <section className="mt-16">
             <ScrollReveal>

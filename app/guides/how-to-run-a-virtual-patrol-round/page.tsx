@@ -4,6 +4,7 @@ import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { howToSchema } from '@/lib/seo';
 import Link from 'next/link';
+import { PhotoFigure } from '@/components/content/photo-figure';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -96,6 +97,10 @@ export default function HowToRunAVirtualPatrolRoundPage() {
               automated patrol scheduling
             </Link>.
           </p>
+
+          <div className="mt-10 max-w-3xl">
+            <PhotoFigure src="/vp-overview-main.png" alt="The virtual patrolling screen with an active sequence, its next round and the Auto-Patrol schedule" caption="The round, as the operator sees it" />
+          </div>
 
           <div className="mt-10 rounded-xl border border-border bg-card p-6">
             <h2 className="font-display text-lg font-bold">The rule that matters most</h2>

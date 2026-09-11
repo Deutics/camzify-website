@@ -3,7 +3,7 @@ import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { FeatureHero } from '@/components/content/feature-hero';
-import { HeroPlaceholder } from '@/components/content/hero-placeholder';
+import { ProductShot } from '@/components/content/product-shot';
 import { SectionVisual } from '@/components/content/section-visual';
 import { PointList } from '@/components/content/point-list';
 import Link from 'next/link';
@@ -53,13 +53,6 @@ const faqs = [
   },
 ];
 
-const FRAMES = [
-  { src: '/hero-cam-main-gate-640.webp', id: 'CAM 01 · RTSP', loc: 'VIA CONNECTOR · MAIN GATE' },
-  { src: '/hero-cam-loading-dock-640.webp', id: 'CAM 04 · RTSP', loc: 'VIA CONNECTOR · LOADING DOCK' },
-  { src: '/hero-cam-server-room-640.webp', id: 'CAM 09 · RTMP', loc: 'ENCODER · SERVER CORRIDOR' },
-  { src: '/hero-cam-parking-lot-640.webp', id: 'CAM 02 · HTTPS', loc: 'HLS · PARKING LOT A' },
-];
-
 export default function ForSecurityIntegratorsPage() {
   return (
     <PageShell {...pageMeta} faqs={faqs} breadcrumbs={[
@@ -82,12 +75,7 @@ export default function ForSecurityIntegratorsPage() {
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/supported-cameras', label: 'Supported cameras' }}
         visual={
-          <HeroPlaceholder
-            label="Commissioning · Four cameras, three routes"
-            alt="A commissioning view of four cameras at one site, each labelled with the route it connects by: two via the Connector, one from an encoder, one over HLS"
-            frames={FRAMES}
-            active={0}
-          />
+          <ProductShot src="/product-configuration" alt="The Configuration screen in the console: adding a camera by its RTMP, RTSP or HTTPS address, with the cameras already on the site listed below" label="Configuration · Add camera" priority sizes="(max-width: 1024px) 100vw, 45vw" />
         }
       />
 

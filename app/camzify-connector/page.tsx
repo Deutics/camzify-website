@@ -3,6 +3,7 @@ import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
+import { ProductShot } from '@/components/content/product-shot';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -45,6 +46,10 @@ export default function CamzifyConnectorPage() {
           <p className="mt-6 max-w-prose text-body text-muted-foreground">
             The Camzify Connector is a lightweight software application installed on a PC or server on the same local network as your cameras. It relays RTSP streams, and the pan, tilt and zoom controls that go with them, securely to the Camzify cloud, without requiring port forwarding, static IP addresses, or firewall changes. It runs on Windows, macOS or Linux.
           </p>
+
+          <div className="mt-10 max-w-3xl">
+            <ProductShot src="/product-configuration" alt="The Configuration screen in the console: adding a camera by its RTMP, RTSP or HTTPS address, with the cameras already on the site listed below" label="Configuration · Add camera" sizes="(max-width: 1024px) 100vw, 768px" />
+          </div>
 
           <div className="mt-16">
             <ScrollReveal>

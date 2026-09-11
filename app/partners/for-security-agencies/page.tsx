@@ -4,6 +4,7 @@ import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PointList } from '@/components/content/point-list';
 import Link from 'next/link';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { Building2, Users, FileText, Clock, ShieldAlert, Layers } from 'lucide-react';
 
 /**
@@ -64,6 +65,10 @@ export default function ForSecurityAgenciesPage() {
             across every client site, through the hours nobody wants to work, with a report per
             client at the end of each one. Sold alongside guards, not instead of them.
           </p>
+
+          <div className="mt-10 max-w-3xl">
+            <PhotoFigure src="/vp-vs-security-guards.jpg" alt="A security officer at a patrol car alongside an AI camera network, the blended model of guards and virtual rounds" caption="Guards and virtual rounds, side by side" />
+          </div>
 
           <div className="mt-14">
             <ScrollReveal>

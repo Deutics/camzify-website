@@ -1,3 +1,4 @@
+import { ProductShot } from '@/components/content/product-shot';
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
@@ -47,6 +48,10 @@ export default function RtspSetupPage() {
             </strong>{' '}
             Both end up in the same place; the difference is only how the stream gets there.
           </p>
+
+          <div className="mt-10 max-w-3xl">
+            <ProductShot src="/product-configuration" alt="The Configuration screen in the console: adding a camera by its RTMP, RTSP or HTTPS address, with the cameras already on the site listed below" label="Configuration · Add camera" sizes="(max-width: 1024px) 100vw, 768px" />
+          </div>
 
           <div className="mt-10 grid gap-4 sm:grid-cols-2">
             <div className="rounded-xl border border-border bg-card p-6">

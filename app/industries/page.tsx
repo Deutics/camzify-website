@@ -4,6 +4,7 @@ import { FaqSection } from '@/components/content/faq-section';
 import { serviceSchema } from '@/lib/seo';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
+import { SiteImage } from '@/components/content/site-image';
 import { Warehouse, Store, Factory, HardHat, HeartPulse, GraduationCap, Landmark, Car, Zap, Building, Home, UtensilsCrossed, Archive, Trash2, Radio, MapPin } from 'lucide-react';
 
 /**
@@ -57,8 +58,11 @@ export default function IndustriesHub() {
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {items.map((ind, i) => (
               <ScrollReveal key={ind.slug} delay={i * 0.04}>
-                <Link href={`/industries/${ind.slug}`} className="group flex flex-col items-center rounded-xl bg-card p-6 text-center shadow-md transition-all hover:shadow-lg hover:-translate-y-0.5">
-                  <ind.icon className="h-10 w-10 text-primary" />
+                <Link href={`/industries/${ind.slug}`} className="group flex flex-col items-center overflow-hidden rounded-xl border border-border bg-card pb-6 text-center shadow-md transition-all hover:shadow-lg hover:-translate-y-0.5">
+                  <div className="mb-5 aspect-video w-full overflow-hidden border-b border-border">
+                    <SiteImage src={`/ai-security-for-${ind.slug}.webp`} alt={`${ind.name}: the setting Camzify watches, with people and vehicles outlined`} width={1600} height={900} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="h-full w-full object-cover" />
+                  </div>
+                  <ind.icon className="h-8 w-8 text-primary" />
                   <h2 className="mt-3 font-display text-base font-bold">{ind.name}</h2>
                   <span className="mt-2 text-xs font-semibold text-primary">Explore →</span>
                 </Link>
