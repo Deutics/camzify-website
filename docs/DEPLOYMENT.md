@@ -129,7 +129,7 @@ self-canonicalising. But it means:
 Run these against the production URL after the first deploy:
 
 - [ ] Homepage renders styled, with the patrol-grid animation
-- [ ] `https://camzify.com/sitemap.xml` returns 150 `<loc>` entries, all absolute and
+- [ ] `https://camzify.com/sitemap.xml` returns 163 `<loc>` entries, all absolute and
       pointing at the production domain
 - [ ] `https://camzify.com/robots.txt` lists the AI crawler allowlist and the sitemap URL
 - [ ] `https://camzify.com/llms.txt` returns plain text with the correct HQ address

@@ -167,6 +167,7 @@ export default function Page() {
                 <div className="mt-4 flex flex-wrap justify-center gap-2">
                   <Link href="/use-cases/unauthorized-access-detection" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Unauthorized Access Detection</Link>
                   <Link href="/use-cases/perimeter-security" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Perimeter Security</Link>
+                  <Link href="/use-cases/tailgating-detection-for-data-centers-and-secure-entrances" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Tailgating detection for data centers and lobbies</Link>
                 </div>
               </div>
             </div>

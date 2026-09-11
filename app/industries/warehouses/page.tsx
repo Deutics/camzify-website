@@ -205,6 +205,7 @@ export default function WarehousesPage() {
                   <Link href="/use-cases/loading-dock-monitoring" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Loading Dock Monitoring</Link>
                   <Link href="/use-cases/after-hours-monitoring" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">After-Hours Monitoring</Link>
                   <Link href="/use-cases/theft-prevention" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Theft Prevention</Link>
+                  <Link href="/use-cases/fire-exit-and-escape-route-monitoring" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Fire exit and escape route monitoring</Link>
                 </div>
               </div>
               <div className="rounded-xl border border-border bg-card p-6 text-center">

@@ -53,6 +53,17 @@ export interface UseCaseContent {
     paras: Body[];
   };
   limits: { heading: string; paras: Body[] };
+  /**
+   * Published figures from named third parties (a regulator, an industry body, a
+   * government statistic) that say why this scenario matters. Each carries its source
+   * and a link, so a reader or an answer engine can check it. Never a Camzify figure:
+   * the site publishes none.
+   */
+  evidence?: {
+    heading: string;
+    lede?: ReactNode;
+    items: { figure: string; text: string; source: { name: string; href: string } }[];
+  };
   industries: { href: string; name: string }[];
   faqs: FAQItem[];
 }
@@ -140,6 +151,27 @@ export function UseCasePage({ c }: { c: UseCaseContent }) {
               </p>
             </ScrollReveal>
           </div>
+
+          {c.evidence && (
+            <div className="mt-16">
+              <ScrollReveal>
+                <h2 className="font-display text-2xl font-bold">{c.evidence.heading}</h2>
+                {c.evidence.lede && <p className="mt-4 max-w-prose text-muted-foreground">{c.evidence.lede}</p>}
+                <dl className="mt-6 grid gap-4 sm:grid-cols-2">
+                  {c.evidence.items.map((e) => (
+                    <div key={e.figure + e.source.href} className="flex flex-col rounded-xl border border-border bg-card p-5">
+                      <dt className="font-display text-2xl font-bold tracking-tight text-primary">{e.figure}</dt>
+                      <dd className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{e.text}</dd>
+                      <dd className="mt-3 font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
+                        Source:{' '}
+                        <a href={e.source.href} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">{e.source.name}</a>
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </ScrollReveal>
+            </div>
+          )}
 
           <div className="mt-16">
             <ScrollReveal>

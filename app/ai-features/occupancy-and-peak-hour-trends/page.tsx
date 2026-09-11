@@ -163,6 +163,7 @@ export default function Page() {
                 <div className="mt-4 flex flex-wrap justify-center gap-2">
                   <Link href="/use-cases/guard-tour-verification" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Guard Tour Verification</Link>
                   <Link href="/use-cases/after-hours-monitoring" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">After-Hours Monitoring</Link>
+                  <Link href="/use-cases/occupancy-limits-for-venues-and-public-spaces" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Occupancy limits for venues and public spaces</Link>
                 </div>
               </div>
             </div>

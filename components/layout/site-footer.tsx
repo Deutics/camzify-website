@@ -68,7 +68,7 @@ const columns: { title: string; links: { label: string; href: string }[]; all?: 
       { label: 'Guard tour verification', href: '/use-cases/guard-tour-verification' },
       { label: 'Fire and smoke monitoring', href: '/use-cases/fire-and-smoke-monitoring' },
     ],
-    all: { label: 'All 22 use cases', href: '/use-cases' },
+    all: { label: 'All 35 use cases', href: '/use-cases' },
   },
   {
     title: 'Industries',

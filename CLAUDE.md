@@ -7,7 +7,7 @@ wrong here and expensive to get wrong. Full detail lives in [`docs/`](docs/).
 
 ## What this project is
 
-A 150-page statically prerendered Next.js 14 marketing site whose entire purpose is
+A 163-page statically prerendered Next.js 14 marketing site whose entire purpose is
 discoverability — organic search, AI answer engines (ChatGPT, Claude, Perplexity, Google
 AI Overviews), and conversion to demo requests. There is no application, no auth, no
 authenticated area. Treat every change as a change to a publication.
@@ -103,16 +103,18 @@ five-step checklist (create → wire nav → wire sitemap → cross-link → ver
 must have: a `pageMeta` const, `generatePageMeta`, a `PageShell` with `{...pageMeta}`,
 breadcrumbs, a `FaqSection` fed the same array as `PageShell`'s `faqs`, and inbound links
 from at least two existing pages. Titles are 50 source characters or fewer and
-descriptions 150 or fewer; the site name is appended at render. Top-level category
+descriptions 163 or fewer; the site name is appended at render. Top-level category
 pillars (`/virtual-guard`, `/cloud-video-surveillance`) go in the sitemap's `pillars`
-group.
+group. Use-case pages that put one capability in one setting carry an `evidence` block
+of cited third-party figures; every figure there must come from a source page that was
+actually opened, quoted exactly, with its link.
 
 ---
 
 ## Running it
 
 `npm install && npm run dev` — that is all. **No database and no `.env` are required** to
-run or build the site; all 150 pages are static and `prisma generate` needs no live
+run or build the site; all 163 pages are static and `prisma generate` needs no live
 connection. Only the four `/api/*` form endpoints need `.env`. Do not stall trying to
 provision a database you do not need.
 

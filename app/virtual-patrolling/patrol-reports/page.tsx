@@ -148,6 +148,7 @@ export default function PatrolReportsPage() {
               <Link href="/virtual-patrolling/automated-patrol-scheduling" className="inline-flex items-center gap-1 rounded-lg border border-border bg-card px-4 py-2 text-sm hover:border-primary/30 hover:text-primary">Automated Scheduling <ArrowRight className="h-3 w-3" /></Link>
               <Link href="/platform/analytics-and-reporting" className="inline-flex items-center gap-1 rounded-lg border border-border bg-card px-4 py-2 text-sm hover:border-primary/30 hover:text-primary">Analytics & Reporting <ArrowRight className="h-3 w-3" /></Link>
               <Link href="/industries/healthcare" className="inline-flex items-center gap-1 rounded-lg border border-border bg-card px-4 py-2 text-sm hover:border-primary/30 hover:text-primary">Healthcare <ArrowRight className="h-3 w-3" /></Link>
+              <Link href="/use-cases/virtual-patrolling-for-compliance-evidence" className="inline-flex items-center gap-1 rounded-lg border border-border bg-card px-4 py-2 text-sm hover:border-primary/30 hover:text-primary">Virtual patrolling for compliance evidence</Link>
             </div>
           </div>
         </div>

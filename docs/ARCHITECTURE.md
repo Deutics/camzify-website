@@ -16,7 +16,7 @@ camzify-website/
 │   ├── opengraph-image.tsx       Generated 1200×630 social card
 │   ├── twitter-image.tsx         Re-exports the OG card
 │   ├── robots.ts                 robots.txt (static)
-│   ├── sitemap.ts                sitemap.xml (static, all 150 routes)
+│   ├── sitemap.ts                sitemap.xml (static, all 163 routes)
 │   ├── llms.txt/route.ts         Plain-text briefing for AI crawlers
 │   ├── _components/              Homepage-only sections. Not shared.
 │   ├── api/                      The only dynamic routes. Four lead-capture POSTs.
@@ -57,7 +57,7 @@ camzify-website/
 
 ## Rendering model
 
-**Everything is static.** `npm run build` prerenders all 150 pages to HTML at build time.
+**Everything is static.** `npm run build` prerenders all 163 pages to HTML at build time.
 Only the four `/api/*` routes are dynamic (`ƒ` in the build output); every page is `○`.
 
 This was a deliberate change — the site previously carried `export const dynamic =
@@ -118,7 +118,7 @@ has already been written.
 |---|---|
 | `ui/` | Unstyled-ish primitives. Add with `npx shadcn@latest add <name>`. Do not put product logic here. |
 | `system/` | Cross-cutting infrastructure. Theming, SSR safety, JSON-LD, form submission. |
-| `layout/` | Site chrome and the page scaffold. Changing these affects all 150 pages. |
+| `layout/` | Site chrome and the page scaffold. Changing these affects all 163 pages. |
 | `content/` | Reusable content blocks composed by pages. **Most new components go here.** |
 | `motion/` | Presentation pieces with animation. All respect `prefers-reduced-motion`. |
 | `mockups/` | Faux product UI. GSAP + ScrollTrigger via `useDeferredGsap`. |

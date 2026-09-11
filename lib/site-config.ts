@@ -265,6 +265,8 @@ export const navItems = [
       { label: 'Remote Video Monitoring', href: '/use-cases/remote-video-monitoring', description: 'Rounds and detections from a monitoring room' },
       { label: 'Lock-Up & Closing Checks', href: '/use-cases/lock-up-and-closing-checks', description: 'A closing round from the cameras' },
       { label: 'Fire & Smoke Monitoring', href: '/use-cases/fire-and-smoke-monitoring', description: 'Visual early warning on any camera' },
+      { label: 'Fall Detection in Care Settings', href: '/use-cases/fall-detection-for-hospitals-and-care-homes', description: 'A person on the floor, raised in seconds' },
+      { label: 'Weapons Detection for Schools', href: '/use-cases/weapons-detection-for-schools-and-public-buildings', description: 'A visible weapon raised as critical' },
     ],
   },
   {

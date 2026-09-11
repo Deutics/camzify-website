@@ -171,6 +171,7 @@ export default function Page() {
                 <div className="mt-4 flex flex-wrap justify-center gap-2">
                   <Link href="/use-cases/parking-lot-surveillance" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Parking Lot Surveillance</Link>
                   <Link href="/use-cases/vehicle-monitoring" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Vehicle Monitoring</Link>
+                  <Link href="/use-cases/fire-lane-and-emergency-access-enforcement" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Fire lane and emergency access enforcement</Link>
                 </div>
               </div>
             </div>
