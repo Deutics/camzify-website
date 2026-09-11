@@ -73,7 +73,7 @@ export default function CookiePolicyPage() {
 
           <h2 className="mt-12 font-display text-2xl font-bold">What is not on this site</h2>
           <p className="mt-4 max-w-prose text-muted-foreground">
-            No Google Analytics or equivalent, no advertising pixels, no social-media tracking, no session recording, no A/B testing service. The forms on the site store what you type in a database, which is described in the{' '}
+            No Google Analytics or equivalent, no advertising pixels, no social-media tracking, no session recording, no A/B testing service. The forms on the site send what you type to us by email, which is described in the{' '}
             <Link href="/privacy-policy" className="text-primary hover:underline">privacy policy</Link>, and that is the only personal data the site handles.
           </p>
 

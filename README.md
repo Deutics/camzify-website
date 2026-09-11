@@ -90,7 +90,7 @@ or `export const dynamic`), and that is a bug worth fixing.
 | `Port 3000 is already in use` | Another project is on 3000 | `npm run dev -- -p 3411` |
 | `ChunkLoadError` in the browser console | Known Next dev race — a dynamic chunk was requested before it compiled | Handled automatically by `ChunkLoadErrorHandler`; the page self-reloads. If it loops, `rm -rf .next` |
 | A Tailwind class has no effect | The value is outside the configured scale — e.g. an opacity stop other than the defaults plus our `15`/`25` | Add the stop to `tailwind.config.ts`, or use a configured one |
-| Form returns `"Failed to send message"` | No `DATABASE_URL` — the Prisma write fails, so the whole request fails. Server log shows `Environment variable not found: DATABASE_URL` | Expected with no `.env`. Set `DATABASE_URL` and run `npx prisma db push` if you need the forms to work |
+| Form returns `"Failed to send message"` | ZeptoMail is not configured (`ZEPTOMAIL_TOKEN`, `ZEPTOMAIL_FROM_ADDRESS`) or rejected the send; the server log shows the response. Before: no `DATABASE_URL` — the Prisma write fails. Server log shows `Environment variable not found: DATABASE_URL` | Expected with no `.env`. Set `DATABASE_URL` and run `npx prisma db push` if you need the forms to work |
 | Build fails on a type error | `typescript.ignoreBuildErrors` is `false` by design | Run `npx tsc --noEmit` to see it directly |
 | Prisma client errors after editing the schema | Generated client is stale | `npx prisma generate` |
 
@@ -117,7 +117,7 @@ or `export const dynamic`), and that is a bug worth fixing.
 - **Next.js 14, App Router, TypeScript, Tailwind.** 163 pages, all statically prerendered at build time. Only the four `/api/*` routes are dynamic.
 - **No CMS.** Page copy lives as TypeScript objects inside each `page.tsx`. Editing content means editing React.
 - **Content is organized into silos** — `ai-features`, `industries`, `use-cases`, `guides`, `platform`, `virtual-patrolling`, `compare`, `partners`, `camera-connectivity` — each a hub page plus spokes, densely cross-linked.
-- **The database only captures leads.** Four write-only tables behind four API routes. Nothing is read back by the site, and **no notification is sent** — someone must check the tables.
+- **Leads are emailed through ZeptoMail; the database is optional.** Four API routes email each submission to the team and, when `DATABASE_URL` is set, also write it to four write-only tables. Nothing is read back by the site. Before this, **no notification was sent** — someone must check the tables.
 - **`lib/site-config.ts` is the single source of truth** for company identity, address, phone, email and canonical URL. Never hardcode those anywhere else.
 - **`lib/seo.ts` generates all structured data.** Every page emits one schema.org `@graph` that links back to shared Organization and WebSite nodes.
 
@@ -153,7 +153,7 @@ Read these in order. If you only read one, read **Adding Pages**.
 | Motion | `framer-motion` for reveals and nav; `gsap` + ScrollTrigger for product mockups |
 | Icons | `lucide-react` |
 | Database | PostgreSQL via Prisma 6 — lead capture only |
-| Lead notifications | Abacus.AI notification API |
+| Lead notifications | ZeptoMail (Zoho) transactional email API |
 | Deploy | Vercel-compatible static output |
 
 ---
