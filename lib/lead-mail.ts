@@ -32,8 +32,9 @@ function escapeHtml(s: string): string {
 }
 
 export async function sendLeadEmail(kind: LeadKind, fields: Record<string, string | undefined>, replyTo?: string): Promise<void> {
-  const token = process.env.ZEPTOMAIL_TOKEN;
-  const from = process.env.ZEPTOMAIL_FROM_ADDRESS;
+  // The console shows the token as `Zoho-enczapikey <value>`; accept it pasted either way.
+  const token = (process.env.ZEPTOMAIL_TOKEN || '').trim().replace(/^Zoho-enczapikey\s+/i, '');
+  const from = (process.env.ZEPTOMAIL_FROM_ADDRESS || '').trim();
   if (!token || !from) throw new Error('ZeptoMail is not configured: set ZEPTOMAIL_TOKEN and ZEPTOMAIL_FROM_ADDRESS');
   const to = process.env.LEADS_TO_EMAIL || siteConfig.email;
   const url = process.env.ZEPTOMAIL_API_URL || 'https://api.zeptomail.com/v1.1/email';
@@ -63,7 +64,16 @@ export async function sendLeadEmail(kind: LeadKind, fields: Record<string, strin
     body: JSON.stringify(payload),
   });
   if (!res.ok) {
-    const detail = await res.text().catch(() => '');
-    throw new Error(`ZeptoMail responded ${res.status}: ${detail.slice(0, 300)}`);
+    const detail = (await res.text().catch(() => '')).slice(0, 300);
+    // An empty 500 is what the .com endpoint returns for a token issued in another data
+    // centre; a 401 with a JSON body is a wrong token; a 4xx with details is a request
+    // problem (an unverified from-domain, most often). Say which, so the log is enough.
+    const hint =
+      res.status >= 500 && !detail
+        ? ' (empty response: if the ZeptoMail console is at zeptomail.zoho.eu or zeptomail.zoho.in, set ZEPTOMAIL_API_URL to https://api.zeptomail.eu/v1.1/email or https://api.zeptomail.in/v1.1/email)'
+        : res.status === 401
+          ? ' (the Send Mail Token is not accepted; copy it again from the Mail Agent in the ZeptoMail console)'
+          : '';
+    throw new Error(`ZeptoMail responded ${res.status} ${res.statusText} via ${url}${detail ? `: ${detail}` : ''}${hint}`);
   }
 }
