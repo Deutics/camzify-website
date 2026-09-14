@@ -35,6 +35,7 @@ export function SiteHeader() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [activeGroup, setActiveGroup] = useState<string | null>(null);
   const [flyoutAlign, setFlyoutAlign] = useState<'left' | 'right'>('right');
+  const [mobileOpenItem, setMobileOpenItem] = useState<string | null>(null);
   const [mobileOpenGroup, setMobileOpenGroup] = useState<string | null>(null);
 
   const pathname = usePathname();
@@ -54,6 +55,7 @@ export function SiteHeader() {
   // Close every menu on navigation.
   useEffect(() => {
     setMobileOpen(false);
+    setMobileOpenItem(null);
     setMobileOpenGroup(null);
     closeAll();
   }, [pathname, closeAll]);
@@ -329,75 +331,129 @@ export function SiteHeader() {
             >
               {(navItems ?? []).map((item: any) => {
                 const label = item?.label ?? '';
-                return (
-                  <div key={label}>
+                const href = item?.href ?? '/';
+                const hasMenu = Boolean(item?.children || item?.groups);
+                const itemId = `mobile-item-${label}`.replace(/\s+/g, '-').toLowerCase();
+                const itemOpen = mobileOpenItem === label;
+                // Items whose child list already starts with the hub page do not need a second link to it.
+                const hubInChildren = (item?.children ?? []).some((child: any) => child?.href === href);
+
+                if (!hasMenu) {
+                  return (
                     <Link
-                      href={item?.href ?? '/'}
-                      className="block rounded-md px-3 py-2.5 text-sm font-medium transition-colors hover:bg-accent hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                      key={label}
+                      href={href}
+                      className="block rounded-md px-3 py-3 text-sm font-medium transition-colors hover:bg-accent hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                     >
                       {label}
                     </Link>
+                  );
+                }
 
-                    {item?.children && (
-                      <ul className="ml-4 space-y-0.5">
-                        {(item.children ?? []).map((child: any) => (
-                          <li key={child?.href ?? ''}>
-                            <Link
-                              href={child?.href ?? '/'}
-                              className="block rounded-md px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                            >
-                              {child?.label ?? ''}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
+                return (
+                  <div key={label} className="border-b border-border/60 last:border-b-0">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setMobileOpenItem(itemOpen ? null : label);
+                        setMobileOpenGroup(null);
+                      }}
+                      className={`flex w-full items-center justify-between rounded-md px-3 py-3 text-left text-sm font-medium transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
+                        itemOpen ? 'text-primary' : 'text-foreground'
+                      }`}
+                      aria-expanded={itemOpen}
+                      aria-controls={itemId}
+                    >
+                      {label}
+                      <ChevronDown
+                        aria-hidden="true"
+                        className={`h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200 ${
+                          itemOpen ? 'rotate-180' : ''
+                        }`}
+                      />
+                    </button>
 
-                    {item?.groups && (
-                      <div className="ml-2 mt-0.5 space-y-0.5">
-                        {(item.groups ?? []).map((group: any) => {
-                          const groupLabel = group?.label ?? '';
-                          const groupId = `mobile-${label}-${groupLabel}`.replace(/\s+/g, '-').toLowerCase();
-                          const isOpen = mobileOpenGroup === groupLabel;
-                          return (
-                            <div key={groupLabel}>
-                              <button
-                                type="button"
-                                onClick={() => setMobileOpenGroup(isOpen ? null : groupLabel)}
-                                className="flex w-full items-center justify-between rounded-md px-3 py-1.5 text-left text-xs font-semibold uppercase tracking-wide text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                                aria-expanded={isOpen}
-                                aria-controls={groupId}
-                              >
-                                {groupLabel}
-                                <ChevronDown
-                                  aria-hidden="true"
-                                  className={`h-3 w-3 transition-transform ${isOpen ? 'rotate-180' : ''}`}
-                                />
-                              </button>
-                              <motion.ul
-                                id={groupId}
-                                {...({ inert: isOpen ? undefined : '' } as any)}
-                                initial={false}
-                                animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
-                                transition={{ duration: 0.15 }}
-                                className="ml-2 overflow-hidden"
-                              >
-                                {(group.items ?? []).map((sub: any) => (
-                                  <li key={sub?.href ?? ''}>
-                                    <Link
-                                      href={sub?.href ?? '/'}
-                                      className="block rounded-md px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                                    >
-                                      {sub?.label ?? ''}
-                                    </Link>
-                                  </li>
-                                ))}
-                              </motion.ul>
-                            </div>
-                          );
-                        })}
+                    <motion.div
+                      id={itemId}
+                      {...({ inert: itemOpen ? undefined : '' } as any)}
+                      initial={false}
+                      animate={{ height: itemOpen ? 'auto' : 0, opacity: itemOpen ? 1 : 0 }}
+                      transition={{ duration: 0.2, ease: 'easeOut' }}
+                      className="overflow-hidden"
+                    >
+                      <div className="pb-2">
+                        {!hubInChildren && (
+                          <Link
+                            href={href}
+                            className="ml-4 flex items-center gap-1 rounded-md px-3 py-1.5 text-xs font-medium text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                          >
+                            {label} overview
+                            <ChevronRight className="h-3 w-3" aria-hidden="true" />
+                          </Link>
+                        )}
+
+                        {item?.children && (
+                          <ul className="ml-4 space-y-0.5">
+                            {(item.children ?? []).map((child: any) => (
+                              <li key={child?.href ?? ''}>
+                                <Link
+                                  href={child?.href ?? '/'}
+                                  className="block rounded-md px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                                >
+                                  {child?.label ?? ''}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+
+                        {item?.groups && (
+                          <div className="ml-2 mt-0.5 space-y-0.5">
+                            {(item.groups ?? []).map((group: any) => {
+                              const groupLabel = group?.label ?? '';
+                              const groupId = `mobile-${label}-${groupLabel}`.replace(/\s+/g, '-').toLowerCase();
+                              const isOpen = mobileOpenGroup === groupLabel;
+                              return (
+                                <div key={groupLabel}>
+                                  <button
+                                    type="button"
+                                    onClick={() => setMobileOpenGroup(isOpen ? null : groupLabel)}
+                                    className="flex w-full items-center justify-between rounded-md px-3 py-1.5 text-left text-xs font-semibold uppercase tracking-wide text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                                    aria-expanded={isOpen}
+                                    aria-controls={groupId}
+                                  >
+                                    {groupLabel}
+                                    <ChevronDown
+                                      aria-hidden="true"
+                                      className={`h-3 w-3 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+                                    />
+                                  </button>
+                                  <motion.ul
+                                    id={groupId}
+                                    {...({ inert: isOpen ? undefined : '' } as any)}
+                                    initial={false}
+                                    animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
+                                    transition={{ duration: 0.15 }}
+                                    className="ml-2 overflow-hidden"
+                                  >
+                                    {(group.items ?? []).map((sub: any) => (
+                                      <li key={sub?.href ?? ''}>
+                                        <Link
+                                          href={sub?.href ?? '/'}
+                                          className="block rounded-md px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                                        >
+                                          {sub?.label ?? ''}
+                                        </Link>
+                                      </li>
+                                    ))}
+                                  </motion.ul>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        )}
                       </div>
-                    )}
+                    </motion.div>
                   </div>
                 );
               })}
