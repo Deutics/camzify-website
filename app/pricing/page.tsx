@@ -30,7 +30,7 @@ export const metadata = generatePageMeta({ ...pageMeta });
 const builtFrom = [
   { icon: Camera, title: 'Camera stream instances', desc: 'One per connected camera. It is what connects the camera, streams it live and lets it be recorded and patrolled. Every camera on the account takes one.' },
   { icon: Cpu, title: 'AI detection instances', desc: 'One per AI feature per camera. Ten cameras with line intrusion are ten line intrusion instances; a camera with three detections carries three instances. Each feature type has its own monthly price.' },
-  { icon: HardDrive, title: 'Cloud storage', desc: 'Sized in terabytes for the account, and drawn on by the retention set per camera. Longer retention on more cameras means more storage on the quote.' },
+  { icon: HardDrive, title: 'Cloud storage', desc: 'Sold per terabyte per month, as a pool for the account. You decide how it is spent: retention is set per camera or applied to a whole site, so a gate camera can keep ninety days while a corridor keeps seven.' },
   { icon: Users, title: 'Sub-users and quota', desc: 'Stream instances, detection instances and storage can be allocated to sub-users from what the account holds. A partner quote is sized for the portfolio.' },
   { icon: Building2, title: 'Sites', desc: 'Every site runs its own sequences, schedule and roster on one account. More sites do not need more accounts or more instances.' },
   { icon: MessageSquare, title: 'What is not a line item', desc: 'The platform modules: live streaming, cloud backup, notifications, analytics, user management, permission groups and virtual patrolling come with the account.' },
@@ -42,12 +42,12 @@ const example = [
   { count: '10', item: 'line intrusion instances', note: 'on the ten perimeter cameras' },
   { count: '30', item: 'loitering detection instances', note: 'on the thirty cameras that watch entrances and aisles' },
   { count: '5', item: 'weapons detection instances', note: 'on the five lobby and entrance cameras' },
-  { count: '30 TB', item: 'cloud storage', note: 'drawn on by the retention set on each camera' },
+  { count: '30 TB', item: 'cloud storage', note: 'per terabyte per month, spent by the retention set on each camera' },
 ];
 
 const faqs = [
   { question: 'Why is there no price on this page?', answer: 'Because a price that fits every site is a price that fits none, and we would rather quote than mislead. Camzify is priced per instance per month, and the quote is the sum of the instances an account needs: a stream instance for every camera, a detection instance for every AI feature on a camera, and the cloud storage the retention settings need. Ask for one with your camera count and the detections you want, and it comes back against your own guarding cost.' },
-  { question: 'How does per-instance pricing work?', answer: 'Every connected camera takes one stream instance, which connects it, streams it live and makes it available to record and patrol. Every AI feature you enable on a camera takes one detection instance of that feature, so a camera with two detections carries two. Storage is sized for the account in terabytes. Each instance type has its own monthly price, and the platform modules come with the account.' },
+  { question: 'How does per-instance pricing work?', answer: 'Every connected camera takes one stream instance, which connects it, streams it live and makes it available to record and patrol. Every AI feature you enable on a camera takes one detection instance of that feature, so a camera with two detections carries two. Storage is sold per terabyte per month as a pool for the account, and you set how each camera or site draws on it. Each instance type has its own monthly price, and the platform modules come with the account.' },
   { question: 'What is an instance?', answer: 'One unit of something licensed on one camera: a stream instance is one camera connected, a line intrusion instance is line intrusion running on one camera. The plan page in the console shows, per type, how many instances are on the plan, how many are activated, how many are granted to sub-users, and how many remain. A parent account allocates instances to sub-users from that pool.' },
   { question: 'How do I compare it with hiring guards?', answer: 'Take the hours per week spent on routine rounds, times the hourly rate, times sites. That is the figure a quote is measured against. The ROI calculator computes it from your own numbers and has an agency mode for partners who would sell remote patrols at their own price.' },
   { question: 'Is there hardware to buy?', answer: 'No. Camzify sells no hardware. The one thing sometimes needed on site is a PC running the Camzify Connector for cameras that cannot be reached from the internet.' },
@@ -65,7 +65,7 @@ export default function PricingPage() {
             <p className="mt-6 text-body text-muted-foreground">
               <strong className="font-semibold text-foreground">Camzify is priced per instance per month and quoted for your site.</strong>{' '}
               A stream instance for every camera, a detection instance for every AI feature on a
-              camera, and cloud storage sized for the account. No hardware, and no separate charge
+              camera, and cloud storage per terabyte, spent as you set retention per camera. No hardware, and no separate charge
               for the platform modules. The number depends on six things, all of them yours to
               count, and the quote comes back against what routine rounds cost you today.
             </p>
@@ -132,8 +132,10 @@ export default function PricingPage() {
                 camera connected: it streams live, it can be recorded, and it can be a stop on a
                 patrol round. A detection instance is one AI feature running on one camera, so a
                 camera with line intrusion and loitering detection carries one instance of each.
-                Cloud storage is its own pool, sized in terabytes, that the retention on every
-                camera draws from. The plan page in the console shows, per type, how many
+                Cloud storage is its own pool, sold per terabyte per month, that the retention on
+                every camera draws from. How it is spent is entirely yours to set: retention per
+                camera in days or as a storage cap, or one setting applied to a whole site, with
+                longer retention on the cameras that matter and shorter on the ones that do not. The plan page in the console shows, per type, how many
                 instances are on the plan, how many you have activated, how many are granted to
                 sub-users, and how many remain. For a multi-site or partner account, the parent
                 allocates instances to sub-users from that pool and can reclaim them. The{' '}
@@ -160,8 +162,10 @@ export default function PricingPage() {
                 </dl>
                 <p className="mt-4 max-w-prose text-sm text-muted-foreground">
                   The other 70 cameras carry no detection and cost only their stream instance. Add a
-                  detection to a camera later and it takes one more instance from that month on.
-                  Every type has its own monthly price, which is what the quote sets out.
+                  detection to a camera later and it takes one more instance from that month on. The
+                  30 TB is spent however the account decides: ninety days on the gates, seven on the
+                  corridors, a storage cap on a busy dock. Every type has its own monthly price,
+                  which is what the quote sets out.
                 </p>
               </div>
             </ScrollReveal>

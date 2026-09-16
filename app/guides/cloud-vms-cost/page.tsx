@@ -191,7 +191,7 @@ export default function CloudVmsCostPage() {
                 <p>
                   Camzify is priced per instance per month and quoted for your site or client
                   portfolio. The platform modules come with the account, AI detections are licensed
-                  per camera instance, and there is no hardware to buy.
+                  per camera instance, storage is sold per terabyte per month and spent as you set retention per camera, and there is no hardware to buy.
                 </p>
                 <p>
                   An instance is one AI feature running on one camera. A perimeter camera carrying

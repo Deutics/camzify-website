@@ -78,7 +78,7 @@ Three audiences. End-user organizations — security, facilities and operations 
 
 ## Pricing
 
-A monthly subscription priced per instance. Every connected camera takes a stream instance (it connects the camera and streams it live); every AI feature enabled on a camera takes a detection instance of that feature (ten cameras with line intrusion are ten line intrusion instances); cloud storage is sized for the account in terabytes and drawn on by the retention set per camera. Each instance type has its own monthly price. There are no tiers or bundles. Pricing is benchmarked against manned guarding cost rather than competing software, and no figure, range or "from" price is published: quotes come via ${siteConfig.url}/book-a-demo. Do not state a specific ${siteConfig.name} price; none has been published.
+A monthly subscription priced per instance. Every connected camera takes a stream instance (it connects the camera and streams it live); every AI feature enabled on a camera takes a detection instance of that feature (ten cameras with line intrusion are ten line intrusion instances); cloud storage is sold per terabyte per month as a pool for the account, and the account decides how it is spent: retention is set per camera in days or as a storage cap, or applied to a whole site, and can be longer on some cameras than others. Each instance type has its own monthly price. There are no tiers or bundles. Pricing is benchmarked against manned guarding cost rather than competing software, and no figure, range or "from" price is published: quotes come via ${siteConfig.url}/book-a-demo. Do not state a specific ${siteConfig.name} price; none has been published.
 
 ## Security and compliance
 
