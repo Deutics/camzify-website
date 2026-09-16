@@ -53,7 +53,7 @@ export function ConfigSummary({ config, heading = 'The quote will cover' }: { co
   const lines = summaryLines(config);
   const empty = lines.every((l) => l.qty === 0);
   return (
-    <div className="rounded-xl border border-primary/30 bg-primary/5 p-5" aria-live="polite">
+    <div className="rounded-xl border border-primary/30 bg-primary/5 p-4" aria-live="polite">
       <p className="font-mono text-mono-sm uppercase text-primary">{heading}</p>
       {empty ? (
         <p className="mt-2 text-sm text-muted-foreground">Enter at least one count to build a configuration.</p>
@@ -74,7 +74,7 @@ export function ConfigSummary({ config, heading = 'The quote will cover' }: { co
 
 export function EstimateFields({ config, onChange, compact = false }: { config: EstimateInput; onChange: (key: keyof EstimateInput, value: number) => void; compact?: boolean }) {
   return (
-    <div className={`grid gap-4 ${compact ? 'sm:grid-cols-2' : 'sm:grid-cols-2 lg:grid-cols-3'}`}>
+    <div className="grid gap-4 sm:grid-cols-2">
       {FIELDS.map((f) => (
         <div key={f.key}>
           <label htmlFor={`est-${f.key}`} className="text-sm font-medium">{f.label}</label>
@@ -88,7 +88,7 @@ export function EstimateFields({ config, onChange, compact = false }: { config: 
             onChange={(e) => onChange(f.key, Math.max(0, Math.min(f.max, Number(e.target.value) || 0)))}
             className="mt-1.5 w-full rounded-lg border border-border bg-background px-4 py-3 text-sm tabular-nums focus:border-primary focus:ring-1 focus:ring-primary"
           />
-          {!compact && <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">{f.hint}</p>}
+          {!compact && <p className="mt-1 text-xs leading-snug text-muted-foreground">{f.hint}</p>}
         </div>
       ))}
     </div>
