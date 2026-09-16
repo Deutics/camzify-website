@@ -143,6 +143,10 @@ export default function Page() {
                 When a patrol flags a non-compliant camera, suspect search can pull every earlier appearance
                 of the same subject to build a fuller picture before the guard is notified.
               </p>
+              <p className="mt-4 max-w-prose text-muted-foreground">
+                The footage around each alert is kept under the camera&apos;s own retention window on{' '}
+                <Link href="/cloud-video-surveillance" className="text-primary hover:underline">cloud video surveillance</Link>, so the clip and the recording it came from are on one account.
+              </p>
             </ScrollReveal>
           </div>
 

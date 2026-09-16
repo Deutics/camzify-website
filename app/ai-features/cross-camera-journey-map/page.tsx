@@ -142,6 +142,10 @@ export default function Page() {
                 When a patrol logs a non-compliant camera, a journey map can show what happened at that location
                 immediately before and after, across neighboring cameras.
               </p>
+              <p className="mt-4 max-w-prose text-muted-foreground">
+                The footage around each alert is kept under the camera&apos;s own retention window on{' '}
+                <Link href="/cloud-video-surveillance" className="text-primary hover:underline">cloud video surveillance</Link>, so the clip and the recording it came from are on one account.
+              </p>
             </ScrollReveal>
           </div>
 

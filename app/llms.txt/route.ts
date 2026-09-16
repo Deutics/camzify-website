@@ -17,7 +17,7 @@ import { siteConfig, formattedAddress } from '@/lib/site-config';
  */
 const buildLlmsTxt = () => `# ${siteConfig.name}
 
-> ${siteConfig.name} is an AI-powered cloud video management system (VMS) built by ${siteConfig.legalName}, headquartered in ${siteConfig.address.countryName}. It runs on the IP cameras a site already owns and combines live streaming, cloud video backup and retention, 22 real-time AI detection models, and scheduled virtual patrol rounds that verify specific conditions at each camera and produce an auditable compliance record.
+> ${siteConfig.name} is an AI-powered cloud video management system (VMS) built by ${siteConfig.legalName}, headquartered in ${siteConfig.address.countryName}. It runs on the IP cameras a site already owns and combines live streaming, cloud video backup and retention, 23 real-time AI detection models, and scheduled virtual patrol rounds that verify specific conditions at each camera and produce an auditable compliance record.
 
 ## What ${siteConfig.name} does
 

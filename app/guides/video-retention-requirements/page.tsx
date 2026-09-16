@@ -119,7 +119,7 @@ export default function VideoRetentionRequirementsPage() {
           <section className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Storage planning</h2>
-              <div className="mt-4 max-w-prose space-y-4 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `Camzify's <a href="/platform/video-backup-and-retention">video backup and retention</a> module manages storage automatically based on your configured retention policy. Storage costs scale with camera count, resolution, and retention period. The platform provides usage analytics to help plan capacity. <a href="/virtual-patrolling">Virtual patrolling</a> logs are retained separately from raw video footage.` }} />
+              <div className="mt-4 max-w-prose space-y-4 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `Camzify's <a href="/platform/video-backup-and-retention">video backup and retention</a> module manages storage automatically based on your configured retention policy. Storage costs scale with camera count, resolution, and retention period. The platform provides usage analytics to help plan capacity. <a href="/virtual-patrolling">Virtual patrolling</a> logs are retained separately from raw video footage. How recording without a recorder on site works end to end is on <a href="/cloud-video-surveillance">cloud video surveillance</a>.` }} />
             </ScrollReveal>
           </section>
 

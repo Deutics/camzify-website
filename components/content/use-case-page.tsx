@@ -149,6 +149,12 @@ export function UseCasePage({ c }: { c: UseCaseContent }) {
                 <Link href="/virtual-patrolling/patrol-reports" className="text-primary hover:underline">report</Link>{' '}
                 shows both.
               </p>
+              <p className="mt-4 max-w-prose text-muted-foreground">
+                The footage around every frame in that report stays under the camera&apos;s own retention
+                window on {' '}
+                <Link href="/cloud-video-surveillance" className="text-primary hover:underline">cloud video surveillance</Link>, on the same account, so the still and the video it came
+                from are never in two systems.
+              </p>
             </ScrollReveal>
           </div>
 

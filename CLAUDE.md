@@ -7,7 +7,7 @@ wrong here and expensive to get wrong. Full detail lives in [`docs/`](docs/).
 
 ## What this project is
 
-A 163-page statically prerendered Next.js 14 marketing site whose entire purpose is
+A 170-page statically prerendered Next.js 14 marketing site whose entire purpose is
 discoverability — organic search, AI answer engines (ChatGPT, Claude, Perplexity, Google
 AI Overviews), and conversion to demo requests. There is no application, no auth, no
 authenticated area. Treat every change as a change to a publication.
@@ -114,7 +114,7 @@ actually opened, quoted exactly, with its link.
 ## Running it
 
 `npm install && npm run dev` — that is all. **No database and no `.env` are required** to
-run or build the site; all 163 pages are static and `prisma generate` needs no live
+run or build the site; all 170 pages are static and `prisma generate` needs no live
 connection. Only the four `/api/*` form endpoints need `.env`. Do not stall trying to
 provision a database you do not need.
 

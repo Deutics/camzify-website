@@ -140,6 +140,10 @@ export default function Page() {
                 an unresolved abandoned object at a monitored location contributes to the compliance assessment
                 at that camera stop and is logged alongside the checklist results in the patrol report.
               </p>
+              <p className="mt-4 max-w-prose text-muted-foreground">
+                The footage around each alert is kept under the camera&apos;s own retention window on{' '}
+                <Link href="/cloud-video-surveillance" className="text-primary hover:underline">cloud video surveillance</Link>, so the clip and the recording it came from are on one account.
+              </p>
             </ScrollReveal>
           </div>
 

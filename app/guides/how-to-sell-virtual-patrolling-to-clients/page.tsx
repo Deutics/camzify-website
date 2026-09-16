@@ -121,6 +121,7 @@ export default function HowToSellVirtualPatrollingToClientsPage() {
               <Link href="/partners/for-security-agencies" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-primary-foreground">For security agencies</Link>
               <Link href="/compare/virtual-patrolling-vs-mobile-patrols" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-primary-foreground">Virtual patrolling vs mobile patrols</Link>
               <Link href="/guides/what-goes-in-a-remote-patrol-proposal" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-primary-foreground">What goes in a proposal</Link>
+              <Link href="/guides/cloud-vms-for-security-agencies" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-primary-foreground">Cloud VMS for Security Agencies</Link>
               <Link href="/virtual-patrolling/patrol-reports" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-primary-foreground">Patrol reports</Link>
             </div>
             <div className="mt-6 flex flex-wrap gap-4">

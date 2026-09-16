@@ -183,7 +183,7 @@ export default function WarehousesPage() {
           <div className="mt-12">
             <ScrollReveal>
               <p className="text-muted-foreground">
-                See how the numbers work for your warehouse facility with the <Link href="/roi-calculator" className="text-primary hover:underline">ROI calculator</Link>, or review <Link href="/pricing" className="text-primary hover:underline">pricing</Link> to understand the per-camera licensing model.
+                See how the numbers work for your warehouse facility with the <Link href="/roi-calculator" className="text-primary hover:underline">ROI calculator</Link>, or review <Link href="/pricing" className="text-primary hover:underline">pricing</Link> to understand the per-camera licensing model. Recording and retention for the same cameras are covered on <Link href="/cloud-video-surveillance" className="text-primary hover:underline">cloud video surveillance</Link>.
               </p>
             </ScrollReveal>
           </div>

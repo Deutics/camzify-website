@@ -14,14 +14,15 @@ import { ArrowRight, Cloud, HardDrive, Layers, ShieldCheck } from 'lucide-react'
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
  * <head> tags, and by `PageShell` for the on-page structured data.
  *
- * The category pillar for "cloud video surveillance", "cloud VMS", "cloud NVR" and
- * "NVR alternative", which between them are searched more than any product term the
- * site owns. It explains the model honestly, including where an on-site NVR is still
- * the right answer, and sends readers on to the platform modules.
+ * The category pillar for "cloud video surveillance", "cloud CCTV", "cloud NVR" and
+ * "NVR alternative". "Cloud VMS" itself is owned by /platform, which is the product as
+ * sold; this page deliberately does not carry that phrase in its title so the two
+ * pages are not competing for one query. It explains the model honestly, including
+ * where an on-site NVR is still the right answer, and sends readers on to the platform.
  */
 const pageMeta = {
-  title: "Cloud Video Surveillance | Cloud VMS, No NVR",
-  description: "Cloud video surveillance for cameras you already own: recording kept per camera, live view, AI detections and patrol rounds in a cloud VMS. No NVR.",
+  title: "Cloud Video Surveillance | Cloud CCTV, No NVR",
+  description: "Cloud video surveillance for the cameras you already own: recording per camera, live view, AI detections and patrol rounds, with no NVR on site.",
   path: "/cloud-video-surveillance",
 };
 
@@ -206,10 +207,14 @@ export default function CloudVideoSurveillancePage() {
           <h2 className="font-mono text-mono-sm uppercase text-muted-foreground">Read next</h2>
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
+              { href: '/guides/what-is-a-cloud-vms', title: 'What is a cloud VMS?', desc: 'The definition, and how it differs from an on-premise VMS.' },
+              { href: '/guides/what-is-a-cloud-nvr', title: 'Cloud NVR explained', desc: 'Recording without a recorder, and when the box should stay.' },
               { href: '/compare/cloud-vms-vs-on-premise', title: 'Cloud VMS vs on-premise', desc: 'The full comparison, including where on-premise wins.' },
-              { href: '/guides/how-to-configure-cloud-video-backup', title: 'Configure cloud video backup', desc: 'Recording mode and retention, camera by camera.' },
+              { href: '/guides/cloud-vms-cost', title: 'Cloud VMS cost', desc: 'What drives the price, and the hidden fees to ask about.' },
+              { href: '/guides/cloud-vms-bandwidth-requirements', title: 'Bandwidth requirements', desc: 'Whether your connection can carry your cameras.' },
+              { href: '/guides/using-existing-cameras-with-a-cloud-vms', title: 'Your existing cameras', desc: 'Which cameras connect, and how to try one first.' },
+              { href: '/guides/cloud-vms-for-multiple-sites', title: 'Cloud VMS for multiple sites', desc: 'Every location on one console, rolled out site by site.' },
               { href: '/guides/video-retention-requirements', title: 'Video retention requirements', desc: 'How long different sectors typically keep footage.' },
-              { href: '/guides/onvif-and-rtsp-explained', title: 'ONVIF and RTSP explained', desc: 'Why your existing cameras can connect.' },
             ].map((c) => (
               <Link key={c.href} href={c.href} className="group rounded-xl border border-border bg-card p-6 transition-all duration-normal hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
                 <h3 className="font-display text-base font-bold transition-colors group-hover:text-primary">{c.title}</h3>

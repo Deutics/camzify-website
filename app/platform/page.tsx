@@ -117,7 +117,7 @@ export default function PlatformPage() {
                   A stream arrives, it is watched and kept, detection turns it into events, a person
                   is told and acts, and the platform keeps the record of all of it. The modules are the
                   stages of that one pipeline, not eleven separate tools. The recording layer underneath
-                  is described on <Link href="/cloud-video-surveillance" className="text-primary hover:underline">cloud video surveillance</Link>. How it differs from a recorder-based system is on <Link href="/compare/camzify-vs-traditional-vms" className="text-primary hover:underline">Camzify vs traditional VMS</Link>.
+                  is described on <Link href="/cloud-video-surveillance" className="text-primary hover:underline">cloud video surveillance</Link>. How it differs from a recorder-based system is on <Link href="/compare/camzify-vs-traditional-vms" className="text-primary hover:underline">Camzify vs traditional VMS</Link>. If the term is new, <Link href="/guides/what-is-a-cloud-vms" className="text-primary hover:underline">what a cloud VMS is</Link> and <Link href="/guides/cloud-vms-cost" className="text-primary hover:underline">what drives its cost</Link> are the two guides to read first.
                 </p>
               </div>
             </ScrollReveal>

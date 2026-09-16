@@ -29,7 +29,7 @@ npm run dev
 Open **http://localhost:3000**. That is the whole setup.
 
 > **You do not need a database, an `.env` file, or any credentials to run or build this
-> site.** All 163 pages are statically prerendered from source with no per-request data,
+> site.** All 170 pages are statically prerendered from source with no per-request data,
 > and `npx prisma generate` (which runs automatically on install) does not require a live
 > connection. A full production build succeeds with zero environment configuration.
 >
@@ -101,7 +101,7 @@ or `export const dynamic`), and that is a bug worth fixing.
 | Command | What it does |
 |---|---|
 | `npm run dev` | Dev server with hot reload |
-| `npm run build` | `prisma generate` then production build. Prerenders all 163 pages as static HTML |
+| `npm run build` | `prisma generate` then production build. Prerenders all 170 pages as static HTML |
 | `npm start` | Serve the production build |
 | `npm run lint` | Next.js ESLint |
 | `npx tsc --noEmit` | Type check. **Run before every commit** |
@@ -114,7 +114,7 @@ or `export const dynamic`), and that is a bug worth fixing.
 
 ## The 60-second mental model
 
-- **Next.js 14, App Router, TypeScript, Tailwind.** 163 pages, all statically prerendered at build time. Only the four `/api/*` routes are dynamic.
+- **Next.js 14, App Router, TypeScript, Tailwind.** 170 pages, all statically prerendered at build time. Only the four `/api/*` routes are dynamic.
 - **No CMS.** Page copy lives as TypeScript objects inside each `page.tsx`. Editing content means editing React.
 - **Content is organized into silos** — `ai-features`, `industries`, `use-cases`, `guides`, `platform`, `virtual-patrolling`, `compare`, `partners`, `camera-connectivity` — each a hub page plus spokes, densely cross-linked.
 - **Leads are emailed through ZeptoMail; the database is optional.** Four API routes email each submission to the team and, when `DATABASE_URL` is set, also write it to four write-only tables. Nothing is read back by the site. Before this, **no notification was sent** — someone must check the tables.

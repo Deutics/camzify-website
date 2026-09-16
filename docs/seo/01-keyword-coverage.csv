@@ -8,10 +8,10 @@ Industry,warehouse security cameras,secondary,1000,/industries/warehouses,Same p
 Camera connectivity,rtsp stream,secondary,1000,/guides/onvif-and-rtsp-explained,
 Cloud VMS,video management system,secondary,880,/compare/cloud-vms-vs-on-premise,
 Industry,parking lot security cameras,secondary,880,/use-cases/parking-lot-surveillance,
-Cloud VMS,cloud based video surveillance,secondary,720,(none),No page carries this phrase
+Cloud VMS,cloud based video surveillance,secondary,720,/cloud-video-surveillance,Pillar; title no longer carries "cloud VMS" so /platform alone owns that query (2026-09-16)
 Security agency software,guard tour system,secondary,720,/guides/guard-tour-systems-explained,
 Virtual patrolling,virtual guard,secondary,480,(none),Market name for the category; no page uses it
-Cloud VMS,cloud video surveillance,secondary,320,(none),No page carries this phrase
+Cloud VMS,cloud video surveillance,secondary,320,/cloud-video-surveillance,Pillar; linked from every feature page and use case (2026-09-16)
 Video monitoring,remote video monitoring,secondary,260,(none),No page carries this phrase; monitoring-company page should
 Virtual patrolling,virtual security guard,secondary,210,(none),Same gap
 AI detections,ppe detection,secondary,210,/ai-features/ppe-violation-detection,
@@ -41,7 +41,7 @@ Virtual patrolling,video patrol,support,110,/virtual-patrolling/patrol-sequences
 Video monitoring,remote video monitoring services,support,110,/partners/for-monitoring-centers,
 Video monitoring,video monitoring service,support,110,/partners/for-monitoring-centers,
 Video monitoring,security camera monitoring service,support,110,/partners/for-monitoring-centers,
-Cloud VMS,cloud nvr,support,90,(none),Guide candidate: cloud NVR vs on-site NVR
+Cloud VMS,cloud nvr,support,90,/guides/what-is-a-cloud-nvr,Guide added 2026-09-16; also on the pillar's FAQ
 Security agency software,guard tour software,support,90,/compare/virtual-patrolling-vs-guard-tour-systems,
 Industry,parking lot surveillance,support,90,/use-cases/parking-lot-surveillance,
 Cloud VMS,camera to cloud,support,70,/camera-connectivity,
@@ -49,7 +49,7 @@ Remote guarding,remote security services,support,70,(none),
 Security agency software,security company software,support,70,/partners/for-security-agencies,
 Guard cost,cost of security guard,support,70,/guides/security-guard-cost-per-hour,
 Industry,construction site surveillance,support,70,/industries/construction-sites,
-Cloud VMS,cloud cctv,support,50,(none),
+Cloud VMS,cloud cctv,support,50,/cloud-video-surveillance,In the pillar title from 2026-09-16
 Virtual patrolling,virtual guard service,support,50,(none),Service-buyer intent; agencies deliver it
 AI detections,ai weapon detection,support,50,/ai-features/weapons-detection,
 AI detections,loitering detection,support,50,/ai-features/loitering-detection,
@@ -103,3 +103,9 @@ Off-topic,virtual security guard jobs,skip,110,(none),Jobs
 Remote guarding,mobile guarding,skip,90,(none),Securitas product name
 Security agency software,securitas monitoring,skip,70,(none),Competitor brand
 Security agency software,securitas remote guarding,skip,20,(none),Competitor brand
+Cloud VMS,what is a cloud vms,support,no data,/guides/what-is-a-cloud-vms,Definitional guide added 2026-09-16; links the pillar and /platform in the first 200 words
+Cloud VMS,cloud vms cost,support,no data,/guides/cloud-vms-cost,Cost-driver guide added 2026-09-16; no price published
+Cloud VMS,cloud vms bandwidth requirements,support,no data,/guides/cloud-vms-bandwidth-requirements,Method guide added 2026-09-16; no bandwidth figure published
+Cloud VMS,existing cameras cloud vms,support,no data,/guides/using-existing-cameras-with-a-cloud-vms,Guide added 2026-09-16
+Cloud VMS,cloud vms for multiple sites,support,no data,/guides/cloud-vms-for-multiple-sites,Guide added 2026-09-16
+Cloud VMS,cloud vms for security agencies,support,no data,/guides/cloud-vms-for-security-agencies,Partner guide added 2026-09-16

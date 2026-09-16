@@ -69,7 +69,7 @@ export default function ForSecurityIntegratorsPage() {
           Camzify attaches to the systems you have already installed, including ones several
           years old, over RTSP, RTMP or HTTPS. Nothing you specified is displaced: the recorder
           stays, the cameras stay, and virtual patrolling becomes a service line on top of the
-          footprint you already maintain.
+          footprint you already maintain. Where a customer wants the recorder gone, <Link href="/cloud-video-surveillance" className="text-primary hover:underline">cloud video surveillance</Link> takes over recording and retention per camera.
         </>}
         facts={['Any RTSP, RTMP or HTTPS stream', 'Connector for LAN cameras, no port forwarding', 'Hand-over by sub-user and permission group']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}

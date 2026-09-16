@@ -148,6 +148,10 @@ export default function Page() {
                 item during a <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrol</Link> round,
                 but a flagged anomaly at a patrolled site is visible alongside that site's patrol reports.
               </p>
+              <p className="mt-4 max-w-prose text-muted-foreground">
+                The footage around each alert is kept under the camera&apos;s own retention window on{' '}
+                <Link href="/cloud-video-surveillance" className="text-primary hover:underline">cloud video surveillance</Link>, so the clip and the recording it came from are on one account.
+              </p>
             </ScrollReveal>
           </div>
 

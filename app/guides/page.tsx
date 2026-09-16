@@ -42,6 +42,13 @@ const items = [
   { slug: 'adding-remote-patrols-to-alarm-monitoring', title: 'Adding Remote Patrols to Alarm Monitoring' },
   { slug: 'security-audit-checklist', title: 'Security Audit Checklist' },
   { slug: 'video-retention-requirements', title: 'Video Retention Requirements' },
+  { slug: 'what-is-a-cloud-vms', title: 'What Is a Cloud VMS?' },
+  { slug: 'what-is-a-cloud-nvr', title: 'Cloud NVR Explained' },
+  { slug: 'cloud-vms-cost', title: 'Cloud VMS Cost' },
+  { slug: 'cloud-vms-bandwidth-requirements', title: 'Cloud VMS Bandwidth Requirements' },
+  { slug: 'using-existing-cameras-with-a-cloud-vms', title: 'Using Existing Cameras with a Cloud VMS' },
+  { slug: 'cloud-vms-for-multiple-sites', title: 'Cloud VMS for Multiple Sites' },
+  { slug: 'cloud-vms-for-security-agencies', title: 'Cloud VMS for Security Agencies' },
 ];
 
 const faqs = [

@@ -184,7 +184,7 @@ export default function MultipleSitesPage() {
           <div className="mt-12">
             <ScrollReveal>
               <p className="text-muted-foreground">
-                See how the numbers work for your multiple sites facility with the <Link href="/roi-calculator" className="text-primary hover:underline">ROI calculator</Link>, or review <Link href="/pricing" className="text-primary hover:underline">pricing</Link> to understand the per-camera licensing model.
+                See how the numbers work for your multiple sites facility with the <Link href="/roi-calculator" className="text-primary hover:underline">ROI calculator</Link>, or review <Link href="/pricing" className="text-primary hover:underline">pricing</Link> to understand the per-camera licensing model. Recording and retention for the same cameras are covered on <Link href="/cloud-video-surveillance" className="text-primary hover:underline">cloud video surveillance</Link>. The guide to <Link href="/guides/cloud-vms-for-multiple-sites" className="text-primary hover:underline">running every site on one console</Link> covers the rollout site by site.
               </p>
             </ScrollReveal>
           </div>

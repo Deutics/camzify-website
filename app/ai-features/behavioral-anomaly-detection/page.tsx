@@ -204,6 +204,10 @@ export default function BehavioralAnomalyDetectionPage() {
                   , so the round reflects what happened while nobody was checking rather than only
                   what was true at the moment of the check.
                 </p>
+                <p className="mt-4 max-w-prose text-muted-foreground">
+                  The footage around each alert is kept under the camera&apos;s own retention window on{' '}
+                  <Link href="/cloud-video-surveillance" className="text-primary hover:underline">cloud video surveillance</Link>, so the clip and the recording it came from are on one account.
+                </p>
               </div>
             </ScrollReveal>
           </div>
