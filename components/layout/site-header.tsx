@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef, useCallback, type MouseEvent as ReactMouseEvent } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X, ChevronDown, ChevronRight, ArrowUpRight } from 'lucide-react';
@@ -9,11 +9,83 @@ import { ThemeToggle } from '@/components/system/theme-toggle';
 import { SiteLogo } from '@/components/layout/site-logo';
 import { AnimatePresence, motion } from 'framer-motion';
 
-const FLYOUT_WIDTH = 280;
 /** A flat menu with more children than this renders as a columned panel. */
 const WIDE_MENU_MIN = 8;
-const WIDE_PANEL_WIDTH = 760;
 const NARROW_PANEL_WIDTH = 320;
+
+type Column = { label: string; items: any[] };
+
+/**
+ * Columns for a menu, or null when it renders as a single narrow list. A `groups`
+ * menu is one column per group; a long `children` menu is one column per distinct
+ * `section`, with unsectioned children (the hub link) collected into the footer row.
+ */
+function columnsFor(item: any): { columns: Column[]; footer: any[] } | null {
+  if (item?.groups) {
+    return { columns: (item.groups as any[]).map((g) => ({ label: g?.label ?? '', items: g?.items ?? [] })), footer: [] };
+  }
+  const children: any[] = item?.children ?? [];
+  if (children.length <= WIDE_MENU_MIN) return null;
+  const columns: Column[] = [];
+  const footer: any[] = [];
+  for (const child of children) {
+    if (!child?.section) {
+      footer.push(child);
+      continue;
+    }
+    const existing = columns.find((col) => col.label === child.section);
+    if (existing) existing.items.push(child);
+    else columns.push({ label: child.section, items: [child] });
+  }
+  return { columns, footer };
+}
+
+const MAX_PANEL_COLUMNS = 4;
+
+/**
+ * Split groups, in order, into at most `n` columns so the tallest column is as short
+ * as possible. A menu with more groups than columns then stacks short groups instead
+ * of wrapping to a second row. Weight is one line per item plus one for the heading.
+ * The inputs are tiny (at most seven groups), so the exact search is cheap.
+ */
+function packColumns(groups: Column[], n: number): Column[][] {
+  const weights = groups.map((g) => g.items.length + 1);
+  const k = Math.min(n, groups.length);
+  if (k <= 1) return groups.length ? [groups] : [];
+  // best[i][j]: minimal tallest column when the first i groups fill j columns.
+  const INF = Number.POSITIVE_INFINITY;
+  const best: number[][] = Array.from({ length: groups.length + 1 }, () => Array(k + 1).fill(INF));
+  const cut: number[][] = Array.from({ length: groups.length + 1 }, () => Array(k + 1).fill(0));
+  best[0][0] = 0;
+  for (let i = 1; i <= groups.length; i++) {
+    for (let j = 1; j <= Math.min(i, k); j++) {
+      let load = 0;
+      for (let start = i; start >= j; start--) {
+        load += weights[start - 1];
+        const candidate = Math.max(best[start - 1][j - 1], load);
+        if (candidate < best[i][j]) {
+          best[i][j] = candidate;
+          cut[i][j] = start - 1;
+        }
+      }
+    }
+  }
+  const packed: Column[][] = [];
+  let end = groups.length;
+  for (let j = k; j >= 1; j--) {
+    const start = cut[end][j];
+    packed.unshift(groups.slice(start, end));
+    end = start;
+  }
+  return packed;
+}
+
+/** Panel width in px: wide enough for four columns of one-line descriptions, narrow for a plain list. */
+function panelWidthFor(item: any): number {
+  const layout = columnsFor(item);
+  if (!layout) return NARROW_PANEL_WIDTH;
+  return Math.min(layout.columns.length, MAX_PANEL_COLUMNS) >= 4 ? 1080 : 760;
+}
 
 /**
  * Primary site navigation.
@@ -32,13 +104,16 @@ const NARROW_PANEL_WIDTH = 320;
  *    keeps closed panels out of the tab order and the accessibility tree, while the
  *    links remain in the server-rendered HTML — which is what carries internal-link
  *    equity from every page to every silo page.
+ *
+ * Every desktop panel is a single level: a short list is one column, and a long or
+ * grouped menu is a columned panel with headings, sized to fit a laptop viewport and
+ * shifted left when it would overflow the right edge. The earlier hover flyout for
+ * grouped menus needed a second sideways move that closed the menu on the way.
  */
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
-  const [activeGroup, setActiveGroup] = useState<string | null>(null);
-  const [flyoutAlign, setFlyoutAlign] = useState<'left' | 'right'>('right');
   /** Horizontal offset (px) that keeps a wide panel inside the viewport. */
   const [menuShift, setMenuShift] = useState(0);
   const [mobileOpenItem, setMobileOpenItem] = useState<string | null>(null);
@@ -50,7 +125,6 @@ export function SiteHeader() {
 
   const closeAll = useCallback(() => {
     setActiveMenu(null);
-    setActiveGroup(null);
   }, []);
 
   useEffect(() => {
@@ -71,10 +145,6 @@ export function SiteHeader() {
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key !== 'Escape') return;
-      if (activeGroup) {
-        setActiveGroup(null);
-        return;
-      }
       if (activeMenu) {
         triggerRefs.current[activeMenu]?.focus();
         closeAll();
@@ -83,7 +153,7 @@ export function SiteHeader() {
     };
     document.addEventListener('keydown', onKeyDown);
     return () => document.removeEventListener('keydown', onKeyDown);
-  }, [activeMenu, activeGroup, closeAll]);
+  }, [activeMenu, closeAll]);
 
   /** Open a top-level menu; its panel is shifted left just enough to stay inside the viewport. */
   const openMenu = useCallback((label: string) => {
@@ -92,19 +162,11 @@ export function SiteHeader() {
     if (!el) return;
     const margin = 16;
     const item = (navItems as readonly any[]).find((entry) => entry?.label === label);
-    const wide = (item?.children?.length ?? 0) > WIDE_MENU_MIN;
-    const width = Math.min(wide ? WIDE_PANEL_WIDTH : NARROW_PANEL_WIDTH, window.innerWidth - margin * 2);
+    const width = Math.min(panelWidthFor(item), window.innerWidth - margin * 2);
     const rect = el.getBoundingClientRect();
     const overflow = rect.left + width - (window.innerWidth - margin);
     setMenuShift(overflow > 0 ? -Math.min(overflow, rect.left - margin) : 0);
   }, []);
-
-  const handleGroupOpen = (label: string, el: HTMLElement | null) => {
-    setActiveGroup(label);
-    if (!el) return;
-    const rect = el.getBoundingClientRect();
-    setFlyoutAlign(rect.right + 4 + FLYOUT_WIDTH > window.innerWidth ? 'left' : 'right');
-  };
 
   /** Close the group when focus moves entirely outside it. */
   const handleBlurOut = (e: React.FocusEvent<HTMLElement>, close: () => void) => {
@@ -137,21 +199,12 @@ export function SiteHeader() {
             const menuId = `nav-menu-${label.replace(/\s+/g, '-').toLowerCase()}`;
             const isOpen = activeMenu === label;
             const children: any[] = item?.children ?? [];
-            const wide = children.length > WIDE_MENU_MIN;
-            // Columns in order of first appearance; unsectioned children go to the footer row.
-            const sections: { label: string; items: any[] }[] = [];
-            const footerLinks: any[] = [];
-            if (wide) {
-              for (const child of children) {
-                if (!child?.section) {
-                  footerLinks.push(child);
-                  continue;
-                }
-                const existing = sections.find((sec) => sec.label === child.section);
-                if (existing) existing.items.push(child);
-                else sections.push({ label: child.section, items: [child] });
-              }
-            }
+            const layout = columnsFor(item);
+            const wide = layout !== null;
+            const sections = layout ? packColumns(layout.columns, Math.min(layout.columns.length, MAX_PANEL_COLUMNS)) : [];
+            // A grouped menu has no hub child, so its footer links to the hub page itself.
+            const footerLinks = layout ? (layout.footer.length > 0 ? layout.footer : [{ label: `${label} overview`, href }]) : [];
+            const panelWidth = panelWidthFor(item);
 
             return (
               <div
@@ -195,13 +248,13 @@ export function SiteHeader() {
                   )}
                 </div>
 
-                {/* Flat dropdown: one column, or a columned panel for long menus */}
-                {item?.children && (
+                {/* One column for a short list; a columned panel for long or grouped menus */}
+                {hasMenu && (
                   <div
                     id={menuId}
                     {...({ inert: isOpen ? undefined : '' } as any)}
                     style={{
-                      width: wide ? `min(${WIDE_PANEL_WIDTH}px, calc(100vw - 2rem))` : NARROW_PANEL_WIDTH,
+                      width: wide ? `min(${panelWidth}px, calc(100vw - 2rem))` : NARROW_PANEL_WIDTH,
                       left: menuShift,
                     }}
                     className={`absolute top-full z-50 max-h-[calc(100vh-6rem)] overflow-y-auto rounded-xl border border-border bg-card shadow-lg transition-all duration-fast ${
@@ -216,9 +269,11 @@ export function SiteHeader() {
                       <>
                         <div
                           className="grid gap-x-4 gap-y-5"
-                          style={{ gridTemplateColumns: `repeat(${Math.min(sections.length, 3)}, minmax(0, 1fr))` }}
+                          style={{ gridTemplateColumns: `repeat(${sections.length}, minmax(0, 1fr))` }}
                         >
-                          {sections.map((sec) => (
+                          {sections.map((stack) => (
+                          <div key={stack[0]?.label ?? ''} className="space-y-5">
+                          {stack.map((sec) => (
                             <div key={sec.label}>
                               <p className="mb-1.5 px-3 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
                                 {sec.label}
@@ -243,6 +298,8 @@ export function SiteHeader() {
                                 ))}
                               </ul>
                             </div>
+                          ))}
+                          </div>
                           ))}
                         </div>
                         {footerLinks.length > 0 && (
@@ -284,89 +341,6 @@ export function SiteHeader() {
                   </div>
                 )}
 
-                {/* Two-level mega menu */}
-                {item?.groups && (
-                  <div
-                    id={menuId}
-                    {...({ inert: isOpen ? undefined : '' } as any)}
-                    className={`absolute left-0 top-full z-50 max-h-[calc(100vh-6rem)] w-[260px] rounded-xl border border-border bg-card p-2 shadow-lg transition-all duration-fast ${
-                      isOpen
-                        ? 'visible translate-y-0 opacity-100'
-                        : 'invisible pointer-events-none translate-y-2 opacity-0'
-                    }`}
-                  >
-                    {(item.groups ?? []).map((group: any) => {
-                      const groupLabel = group?.label ?? '';
-                      const groupId = `${menuId}-${groupLabel.replace(/\s+/g, '-').toLowerCase()}`;
-                      const groupOpen = activeGroup === groupLabel;
-
-                      return (
-                        <div
-                          key={groupLabel}
-                          className="relative"
-                          onMouseEnter={(e: ReactMouseEvent<HTMLDivElement>) =>
-                            handleGroupOpen(groupLabel, e.currentTarget)
-                          }
-                          onBlur={(e) => handleBlurOut(e, () => setActiveGroup(null))}
-                        >
-                          <button
-                            type="button"
-                            onClick={(e) =>
-                              groupOpen ? setActiveGroup(null) : handleGroupOpen(groupLabel, e.currentTarget.parentElement)
-                            }
-                            onFocus={(e) => handleGroupOpen(groupLabel, e.currentTarget.parentElement)}
-                            aria-expanded={groupOpen}
-                            aria-controls={groupId}
-                            className={`flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-left text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
-                              groupOpen ? 'bg-accent text-primary' : ''
-                            }`}
-                          >
-                            {groupLabel}
-                            <ChevronRight
-                              aria-hidden="true"
-                              className={`h-3.5 w-3.5 text-muted-foreground ${
-                                flyoutAlign === 'left' && groupOpen ? 'rotate-180' : ''
-                              }`}
-                            />
-                          </button>
-
-                          <div
-                            id={groupId}
-                            {...({ inert: groupOpen && isOpen ? undefined : '' } as any)}
-                            className={`absolute top-0 z-50 w-[280px] rounded-xl border border-border bg-card p-2 shadow-lg transition-all duration-fast ${
-                              flyoutAlign === 'left' ? 'right-full mr-1' : 'left-full ml-1'
-                            } ${
-                              groupOpen
-                                ? 'visible translate-x-0 opacity-100'
-                                : 'invisible pointer-events-none opacity-0'
-                            }`}
-                          >
-                            <ul>
-                              {(group.items ?? []).map((sub: any) => (
-                                <li key={sub?.href ?? ''}>
-                                  <Link
-                                    href={sub?.href ?? '/'}
-                                    className="block rounded-lg px-3 py-2.5 text-sm transition-colors hover:bg-accent hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                                  >
-                                    {sub?.label ?? ''}
-                                  </Link>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        </div>
-                      );
-                    })}
-                    <div className="mt-1 border-t border-border pt-1">
-                      <Link
-                        href={href}
-                        className="block rounded-lg px-3 py-2 text-sm font-medium text-primary transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                      >
-                        View all {label} <span aria-hidden="true">→</span>
-                      </Link>
-                    </div>
-                  </div>
-                )}
               </div>
             );
           })}

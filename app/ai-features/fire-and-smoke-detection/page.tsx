@@ -42,7 +42,7 @@ export default function Page() {
             and smoke, often flagging an event before it reaches a fixed heat or particle sensor.</>}
         facts={["Visible flame anywhere in the camera's field of view", 'Visible smoke developing in storage, electrical, or…', 'Early-stage events in large or open spaces before a fixed…']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
-        secondary={{ href: '/ai-features', label: 'All 22 detections' }}
+        secondary={{ href: '/ai-features', label: 'All 23 detections' }}
         visual={<PhotoFigure src="/feature-fire-and-smoke-detection-1.webp" alt="The console live view with a fire and smoke alert drawn on the camera frame" caption="Fire & smoke detection" priority />}
       />
 

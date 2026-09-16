@@ -42,7 +42,7 @@ export default function Page() {
             the moment they start, so a response can begin in real time instead of after footage is reviewed.</>}
         facts={['Rapid, aggressive multi-person body movement consistent with…', 'Sustained pushing, striking, or grappling between confirmed…', 'Escalating confrontations in queues, entrances, and common areas']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
-        secondary={{ href: '/ai-features', label: 'All 22 detections' }}
+        secondary={{ href: '/ai-features', label: 'All 23 detections' }}
         visual={<PhotoFigure src="/feature-aggression-and-fight-detection-1.webp" alt="The console live view with a aggression and fight alert drawn on the camera frame" caption="Aggression & fight detection" priority />}
       />
 

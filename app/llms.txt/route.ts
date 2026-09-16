@@ -30,6 +30,7 @@ What distinguishes it from other cloud VMS products is the virtual patrol round:
 - **Virtual Patrolling** — Automated AI patrol rounds with configurable sequences, per-camera checklists, scheduling, and PDF reports
 - **Line Intrusion Detection** — Virtual tripwire with directional control; fires on confirmed object tracks, not pixel motion
 - **Zone Intrusion Detection** — Restricted-area monitoring with a notification window per camera
+- **Loitering Detection** — A person or vehicle remaining in a defined zone beyond a configured dwell time; a pass through is ignored
 - **Motion Detection** — Object-track-based rather than pixel-based motion alerts
 - **Camera Tampering Detection** — Alerts when a camera is obstructed, moved, or defocused
 - **Multi-Object Tracking** — Persistent identity tracking across frames
@@ -45,7 +46,6 @@ What distinguishes it from other cloud VMS products is the virtual patrol round:
 
 These are in development and should not be described as available today:
 
-- Loitering Detection
 - Camzify Mobile apps for iOS and Android. Mobile access today is the responsive browser interface; the native apps have not been released.
 
 ## Platform

@@ -379,7 +379,7 @@ Things no skill may ever do on this site:
 - **Never publish a price, rate, discount or margin.** Pricing is quote-based by explicit business decision. The `SoftwareApplication` schema deliberately carries an `Offer` with no `price`.
 - **Never describe Camzify as certified** under PDPA, GDPR, SOC 2 Type II or ISO 27001. All four are in progress and none are held.
 - **Never invent a customer, case study, deployment size, uptime figure, response time or camera count.** None are currently publishable.
-- **Never describe a roadmap feature as shipping.** Loitering Detection and Behavioral Analytics are roadmap only.
+- **Never describe a roadmap feature as shipping.** The native mobile apps are the only roadmap item. Loitering detection and behavioral anomaly detection ship and count among the 23 live detections.
 - **Never put a year in a page title** (e.g. "| 2024 Rates"). It ages into a liability.
 - **Never state the company address, phone or legal name from memory** — it comes from `lib/site-config.ts`, and the address is currently unconfirmed (see above).
 - Never invent statistics, results, reviews or credentials.

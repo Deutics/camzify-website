@@ -42,7 +42,7 @@ export default function Page() {
         lede={<><strong className="font-semibold text-foreground">Zone intrusion detection defines polygonal restricted zones in the camera view.</strong> Any confirmed object track entering the zone triggers an alert, regardless of how or from which direction the object entered the frame. This is ideal for restricted areas, server rooms, and hazardous zones.</>}
         facts={['Anyone entering a restricted server room or electrical closet', 'A forklift or vehicle entering a pedestrian-only zone', 'Personnel present in a hazardous or chemical storage area']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
-        secondary={{ href: '/ai-features', label: 'All 22 detections' }}
+        secondary={{ href: '/ai-features', label: 'All 23 detections' }}
         visual={<PhotoFigure src="/feature-zone-intrusion-detection-1.webp" alt="The console live view with a zone intrusion alert drawn on the camera frame" caption="Zone intrusion detection" priority />}
       />
 

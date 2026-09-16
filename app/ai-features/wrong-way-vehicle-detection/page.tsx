@@ -42,7 +42,7 @@ export default function Page() {
             and fires an alert the moment a vehicle travels against the defined direction of traffic.</>}
         facts={['Vehicles travelling against the defined direction on a…', 'Wrong-way entries on parking garage ramps', 'Wrong-way movement through gated entry or exit lanes']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
-        secondary={{ href: '/ai-features', label: 'All 22 detections' }}
+        secondary={{ href: '/ai-features', label: 'All 23 detections' }}
         visual={<PhotoFigure src="/feature-wrong-way-vehicle-detection-1.webp" alt="The console live view with a wrong-way vehicle alert drawn on the camera frame" caption="Wrong-way vehicle detection" priority />}
       />
 

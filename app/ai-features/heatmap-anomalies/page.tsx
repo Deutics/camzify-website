@@ -43,7 +43,7 @@ export default function Page() {
             that deviate from the established baseline — unusual congestion, empty zones, or unexpected activity.</>}
         facts={['Foot traffic congestion above the normal pattern for a zone', 'Activity in a normally low-traffic area outside expected hours', 'A monitored area sitting unusually empty during typically…']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
-        secondary={{ href: '/ai-features', label: 'All 22 detections' }}
+        secondary={{ href: '/ai-features', label: 'All 23 detections' }}
         visual={<PhotoFigure src="/feature-heatmap-anomalies-1.webp" alt="The console live view with a heatmap anomaly alert drawn on the camera frame" caption="Heatmap anomalies" priority />}
       />
 

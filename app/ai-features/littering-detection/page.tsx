@@ -42,7 +42,7 @@ export default function Page() {
             bins the instant it happens, with a timestamped clip for enforcement or site upkeep records.</>}
         facts={['Objects dropped or thrown by a confirmed subject outside a…', 'Litter left unclaimed on the ground in monitored outdoor areas', 'Repeated littering activity at the same location over time']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
-        secondary={{ href: '/ai-features', label: 'All 22 detections' }}
+        secondary={{ href: '/ai-features', label: 'All 23 detections' }}
         visual={<PhotoFigure src="/feature-littering-detection-1.webp" alt="The console live view with a littering alert drawn on the camera frame" caption="Littering detection" priority />}
       />
 

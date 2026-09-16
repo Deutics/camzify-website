@@ -43,7 +43,7 @@ export default function Page() {
             as they enter or leave a site, timestamped and logged automatically for later comparison.</>}
         facts={['Visible dents and scratches on vehicles at entry or exit points', 'A timestamped condition record attached to each vehicle event', 'Side-by-side comparison between entry and exit records for…']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
-        secondary={{ href: '/ai-features', label: 'All 22 detections' }}
+        secondary={{ href: '/ai-features', label: 'All 23 detections' }}
         visual={<PhotoFigure src="/feature-vehicle-damage-report-1.webp" alt="The console live view with a vehicle damage alert drawn on the camera frame" caption="Vehicle damage report" priority />}
       />
 

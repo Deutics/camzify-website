@@ -42,7 +42,7 @@ export default function Page() {
             moment they enter frame, so the response starts before an incident develops rather than after.</>}
         facts={['Visibly brandished firearms in camera view', 'Visible edged weapons in camera view', 'Detections at entrances, lobbies, and public-facing areas']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
-        secondary={{ href: '/ai-features', label: 'All 22 detections' }}
+        secondary={{ href: '/ai-features', label: 'All 23 detections' }}
         visual={<PhotoFigure src="/feature-weapons-detection-1.webp" alt="The console live view with a weapons alert drawn on the camera frame" caption="Weapons detection" priority />}
       />
 

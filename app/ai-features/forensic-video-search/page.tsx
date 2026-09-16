@@ -43,7 +43,7 @@ export default function Page() {
             cameras and time windows.</strong> What used to take hours of manual footage review takes seconds.</>}
         facts={['A person matching a plain-language description across every…', 'Every timestamped appearance of that match, ranked by confidence', 'Matches across a single site or a full multi-site account']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
-        secondary={{ href: '/ai-features', label: 'All 22 detections' }}
+        secondary={{ href: '/ai-features', label: 'All 23 detections' }}
         visual={<PhotoFigure src="/feature-forensic-video-search-1.webp" alt="The console live view with a suspect search alert drawn on the camera frame" caption="Ai suspect search" priority />}
       />
 

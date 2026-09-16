@@ -85,7 +85,7 @@ export default function PlatformPage() {
               cloud backup and retention, alerts, analytics, user and license management and
               multi-site control on one login
             </strong>{' '}
-            &mdash; with 22 detection models and{' '}
+            &mdash; with 23 detection models and{' '}
             <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</Link>{' '}
             built in rather than bolted on. Every module below is shipping and reachable from the
             same dashboard.
@@ -187,7 +187,7 @@ export default function PlatformPage() {
         <div className="mx-auto max-w-site px-6">
           <div className="grid gap-6 lg:grid-cols-2">
             {[
-              { title: '22 AI detection models', desc: 'Every detection fires on a confirmed object track and lands in the same alert queue, intrusion, tampering, weapons, fire, PPE, and behavior you describe in plain language.', href: '/ai-features', label: 'AI features' },
+              { title: '23 AI detection models', desc: 'Every detection fires on a confirmed object track and lands in the same alert queue, intrusion, tampering, weapons, fire, PPE, and behavior you describe in plain language.', href: '/ai-features', label: 'AI features' },
               { title: 'Virtual patrolling', desc: 'Scheduled rounds with a checklist per camera, before-and-after evidence on anything fixed, and a compliance report every time. The capability no other cloud VMS has.', href: '/virtual-patrolling', label: 'Virtual patrolling' },
             ].map((c) => (
               <ScrollReveal key={c.href}>

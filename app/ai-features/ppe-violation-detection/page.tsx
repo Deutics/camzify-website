@@ -43,7 +43,7 @@ export default function Page() {
             or gloves the moment they're spotted.</>}
         facts={['Missing hard hats in zones where head protection is required', 'Missing high-visibility vests on active work floors', 'Missing gloves in zones handling hazardous materials or…']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
-        secondary={{ href: '/ai-features', label: 'All 22 detections' }}
+        secondary={{ href: '/ai-features', label: 'All 23 detections' }}
         visual={<PhotoFigure src="/feature-ppe-violation-detection-1.webp" alt="The console live view with a PPE violation alert drawn on the camera frame" caption="Ppe violation detection" priority />}
       />
 

@@ -42,7 +42,7 @@ export default function Page() {
             loading zones, and reserved spots, and alerts the moment a vehicle overstays a restricted area.</>}
         facts={['Vehicles blocking marked fire lanes or emergency access routes', 'Vehicles occupying loading zones or reserved parking beyond…', 'Unauthorized vehicles in gated or accessible-only spots']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
-        secondary={{ href: '/ai-features', label: 'All 22 detections' }}
+        secondary={{ href: '/ai-features', label: 'All 23 detections' }}
         visual={<PhotoFigure src="/feature-illegal-parking-detection-1.webp" alt="The console live view with a illegal parking alert drawn on the camera frame" caption="Illegal parking detection" priority />}
       />
 

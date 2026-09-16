@@ -42,7 +42,7 @@ export default function Page() {
             moment they separate from their carrier and stay unclaimed past a configurable dwell time.</>}
         facts={['Bags or packages separated from the person who was carrying them', 'Objects remaining unclaimed past a configurable dwell-time…', 'Unattended items in lobbies, entrances, and public waiting areas']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
-        secondary={{ href: '/ai-features', label: 'All 22 detections' }}
+        secondary={{ href: '/ai-features', label: 'All 23 detections' }}
         visual={<PhotoFigure src="/feature-abandoned-object-detection-1.webp" alt="The console live view with a abandoned object alert drawn on the camera frame" caption="Abandoned object detection" priority />}
       />
 

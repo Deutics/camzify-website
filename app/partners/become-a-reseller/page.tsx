@@ -28,7 +28,7 @@ export const metadata = generatePageMeta({ ...pageMeta });
 const faqs = [
   {
     question: 'What exactly would we be selling?',
-    answer: 'A cloud video management system that runs on the cameras a customer already owns: live streaming, cloud recording and retention, 22 AI detections, alerts, and virtual patrolling, which is scheduled patrol rounds with a checklist per camera, a guard notified on failure and a compliance report per round. It is software only. There is no hardware to stock, ship or support.',
+    answer: 'A cloud video management system that runs on the cameras a customer already owns: live streaming, cloud recording and retention, 23 AI detections, alerts, and virtual patrolling, which is scheduled patrol rounds with a checklist per camera, a guard notified on failure and a compliance report per round. It is software only. There is no hardware to stock, ship or support.',
   },
   {
     question: 'How is it priced, and is there a published margin?',
@@ -101,7 +101,7 @@ export default function BecomeAResellerPage() {
               </p>
               <p className="mt-4 max-w-prose text-muted-foreground">
                 Around it sit the parts a buyer expects of any VMS: live streaming, cloud
-                recording with retention per camera, 22 detections that fire on confirmed object
+                recording with retention per camera, 23 detections that fire on confirmed object
                 tracks rather than pixel motion, alerts by email, SMS, WhatsApp and push, and
                 multi-site management with role-based access.
               </p>

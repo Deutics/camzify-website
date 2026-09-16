@@ -43,7 +43,7 @@ export default function Page() {
             footage from camera to camera.</>}
         facts={['A single stitched timeline of one subject across every…', 'Ordered, timestamped hand-offs between cameras with…', 'A route map view showing where a subject entered, moved, and…']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
-        secondary={{ href: '/ai-features', label: 'All 22 detections' }}
+        secondary={{ href: '/ai-features', label: 'All 23 detections' }}
         visual={<PhotoFigure src="/feature-cross-camera-journey-map-1.webp" alt="The console live view with a cross-camera journey alert drawn on the camera frame" caption="Cross-camera journey map" priority />}
       />
 
