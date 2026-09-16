@@ -10,6 +10,10 @@ import { SiteLogo } from '@/components/layout/site-logo';
 import { AnimatePresence, motion } from 'framer-motion';
 
 const FLYOUT_WIDTH = 280;
+/** A flat menu with more children than this renders as a columned panel. */
+const WIDE_MENU_MIN = 8;
+const WIDE_PANEL_WIDTH = 760;
+const NARROW_PANEL_WIDTH = 320;
 
 /**
  * Primary site navigation.
@@ -35,11 +39,14 @@ export function SiteHeader() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [activeGroup, setActiveGroup] = useState<string | null>(null);
   const [flyoutAlign, setFlyoutAlign] = useState<'left' | 'right'>('right');
+  /** Horizontal offset (px) that keeps a wide panel inside the viewport. */
+  const [menuShift, setMenuShift] = useState(0);
   const [mobileOpenItem, setMobileOpenItem] = useState<string | null>(null);
   const [mobileOpenGroup, setMobileOpenGroup] = useState<string | null>(null);
 
   const pathname = usePathname();
   const triggerRefs = useRef<Record<string, HTMLButtonElement | null>>({});
+  const wrapperRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
   const closeAll = useCallback(() => {
     setActiveMenu(null);
@@ -78,6 +85,20 @@ export function SiteHeader() {
     return () => document.removeEventListener('keydown', onKeyDown);
   }, [activeMenu, activeGroup, closeAll]);
 
+  /** Open a top-level menu; its panel is shifted left just enough to stay inside the viewport. */
+  const openMenu = useCallback((label: string) => {
+    setActiveMenu(label);
+    const el = wrapperRefs.current[label];
+    if (!el) return;
+    const margin = 16;
+    const item = (navItems as readonly any[]).find((entry) => entry?.label === label);
+    const wide = (item?.children?.length ?? 0) > WIDE_MENU_MIN;
+    const width = Math.min(wide ? WIDE_PANEL_WIDTH : NARROW_PANEL_WIDTH, window.innerWidth - margin * 2);
+    const rect = el.getBoundingClientRect();
+    const overflow = rect.left + width - (window.innerWidth - margin);
+    setMenuShift(overflow > 0 ? -Math.min(overflow, rect.left - margin) : 0);
+  }, []);
+
   const handleGroupOpen = (label: string, el: HTMLElement | null) => {
     setActiveGroup(label);
     if (!el) return;
@@ -115,14 +136,33 @@ export function SiteHeader() {
             const hasMenu = Boolean(item?.children || item?.groups);
             const menuId = `nav-menu-${label.replace(/\s+/g, '-').toLowerCase()}`;
             const isOpen = activeMenu === label;
+            const children: any[] = item?.children ?? [];
+            const wide = children.length > WIDE_MENU_MIN;
+            // Columns in order of first appearance; unsectioned children go to the footer row.
+            const sections: { label: string; items: any[] }[] = [];
+            const footerLinks: any[] = [];
+            if (wide) {
+              for (const child of children) {
+                if (!child?.section) {
+                  footerLinks.push(child);
+                  continue;
+                }
+                const existing = sections.find((sec) => sec.label === child.section);
+                if (existing) existing.items.push(child);
+                else sections.push({ label: child.section, items: [child] });
+              }
+            }
 
             return (
               <div
                 key={label}
+                ref={(el) => {
+                  wrapperRefs.current[label] = el;
+                }}
                 className="relative"
-                onMouseEnter={() => hasMenu && setActiveMenu(label)}
+                onMouseEnter={() => hasMenu && openMenu(label)}
                 onMouseLeave={() => hasMenu && closeAll()}
-                onFocus={() => hasMenu && setActiveMenu(label)}
+                onFocus={() => hasMenu && openMenu(label)}
                 onBlur={(e) => hasMenu && handleBlurOut(e, closeAll)}
               >
                 <div className="flex items-center">
@@ -141,7 +181,7 @@ export function SiteHeader() {
                       ref={(el) => {
                         triggerRefs.current[label] = el;
                       }}
-                      onClick={() => (isOpen ? closeAll() : setActiveMenu(label))}
+                      onClick={() => (isOpen ? closeAll() : openMenu(label))}
                       aria-expanded={isOpen}
                       aria-controls={menuId}
                       aria-label={`${label} menu`}
@@ -155,36 +195,92 @@ export function SiteHeader() {
                   )}
                 </div>
 
-                {/* Flat dropdown */}
+                {/* Flat dropdown: one column, or a columned panel for long menus */}
                 {item?.children && (
                   <div
                     id={menuId}
                     {...({ inert: isOpen ? undefined : '' } as any)}
-                    className={`absolute left-0 top-full z-50 w-[320px] rounded-xl border border-border bg-card p-3 shadow-lg transition-all duration-fast ${
+                    style={{
+                      width: wide ? `min(${WIDE_PANEL_WIDTH}px, calc(100vw - 2rem))` : NARROW_PANEL_WIDTH,
+                      left: menuShift,
+                    }}
+                    className={`absolute top-full z-50 max-h-[calc(100vh-6rem)] overflow-y-auto rounded-xl border border-border bg-card shadow-lg transition-all duration-fast ${
+                      wide ? 'p-4' : 'p-3'
+                    } ${
                       isOpen
                         ? 'visible translate-y-0 opacity-100'
                         : 'invisible pointer-events-none translate-y-2 opacity-0'
                     }`}
                   >
-                    <ul className="grid gap-0.5">
-                      {(item.children ?? []).map((child: any) => (
-                        <li key={child?.href ?? ''}>
-                          <Link
-                            href={child?.href ?? '/'}
-                            className="group block rounded-lg px-3 py-2.5 transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                          >
-                            <span className="block text-sm font-medium group-hover:text-primary">
-                              {child?.label ?? ''}
-                            </span>
-                            {child?.description && (
-                              <span className="mt-0.5 block text-xs text-muted-foreground">
-                                {child.description}
+                    {wide ? (
+                      <>
+                        <div
+                          className="grid gap-x-4 gap-y-5"
+                          style={{ gridTemplateColumns: `repeat(${Math.min(sections.length, 3)}, minmax(0, 1fr))` }}
+                        >
+                          {sections.map((sec) => (
+                            <div key={sec.label}>
+                              <p className="mb-1.5 px-3 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+                                {sec.label}
+                              </p>
+                              <ul className="grid gap-0.5">
+                                {sec.items.map((child: any) => (
+                                  <li key={child?.href ?? ''}>
+                                    <Link
+                                      href={child?.href ?? '/'}
+                                      className="group block rounded-lg px-3 py-2 transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                                    >
+                                      <span className="block text-sm font-medium group-hover:text-primary">
+                                        {child?.label ?? ''}
+                                      </span>
+                                      {child?.description && (
+                                        <span className="mt-0.5 block text-xs leading-snug text-muted-foreground">
+                                          {child.description}
+                                        </span>
+                                      )}
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          ))}
+                        </div>
+                        {footerLinks.length > 0 && (
+                          <div className="mt-4 flex flex-wrap gap-x-6 gap-y-1 border-t border-border pt-3">
+                            {footerLinks.map((child: any) => (
+                              <Link
+                                key={child?.href ?? ''}
+                                href={child?.href ?? '/'}
+                                className="group inline-flex items-center gap-1 rounded-md px-3 py-1.5 text-sm font-medium transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                              >
+                                {child?.label ?? ''}
+                                <ChevronRight className="h-3.5 w-3.5 text-muted-foreground group-hover:text-primary" aria-hidden="true" />
+                              </Link>
+                            ))}
+                          </div>
+                        )}
+                      </>
+                    ) : (
+                      <ul className="grid gap-0.5">
+                        {children.map((child: any) => (
+                          <li key={child?.href ?? ''}>
+                            <Link
+                              href={child?.href ?? '/'}
+                              className="group block rounded-lg px-3 py-2.5 transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                            >
+                              <span className="block text-sm font-medium group-hover:text-primary">
+                                {child?.label ?? ''}
                               </span>
-                            )}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
+                              {child?.description && (
+                                <span className="mt-0.5 block text-xs text-muted-foreground">
+                                  {child.description}
+                                </span>
+                              )}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </div>
                 )}
 
@@ -193,7 +289,7 @@ export function SiteHeader() {
                   <div
                     id={menuId}
                     {...({ inert: isOpen ? undefined : '' } as any)}
-                    className={`absolute left-0 top-full z-50 w-[260px] rounded-xl border border-border bg-card p-2 shadow-lg transition-all duration-fast ${
+                    className={`absolute left-0 top-full z-50 max-h-[calc(100vh-6rem)] w-[260px] rounded-xl border border-border bg-card p-2 shadow-lg transition-all duration-fast ${
                       isOpen
                         ? 'visible translate-y-0 opacity-100'
                         : 'invisible pointer-events-none translate-y-2 opacity-0'

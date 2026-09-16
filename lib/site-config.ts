@@ -140,23 +140,29 @@ export function absoluteUrl(path = '/'): string {
 }
 
 
+/*
+ * `section` on a child groups it under a column heading in the desktop menu. Menus with
+ * more than eight children render as a columned panel instead of one tall list, so they
+ * fit a laptop viewport; children without a section (the hub link) sit in the panel's
+ * footer row. The mobile accordion ignores sections and lists children in order.
+ */
 export const navItems = [
   {
     label: 'Virtual Patrolling',
     href: '/virtual-patrolling',
     children: [
       { label: 'Overview', href: '/virtual-patrolling', description: 'Automated AI patrol rounds on your cameras' },
-      { label: 'How It Works', href: '/virtual-patrolling/how-it-works', description: 'Step-by-step patrol system walkthrough' },
-      { label: 'Patrol Sequences', href: '/virtual-patrolling/patrol-sequences', description: 'Ordered camera routes across sites' },
-      { label: 'Patrol Checklists', href: '/virtual-patrolling/patrol-checklists', description: 'Per-camera compliance checks' },
-      { label: 'Automated Scheduling', href: '/virtual-patrolling/automated-patrol-scheduling', description: 'Set frequency, hours, and days' },
-      { label: 'Patrol Reports', href: '/virtual-patrolling/patrol-reports', description: 'PDF reports for every round' },
-      { label: 'Guard Notifications', href: '/virtual-patrolling/guard-notifications', description: 'Automatic alerts to assigned guards' },
-      { label: 'Risk Detection', href: '/virtual-patrolling/risk-detection', description: 'Hazards flagged beyond the checklist' },
-      { label: 'Compliance Tracking', href: '/virtual-patrolling/patrol-compliance-tracking', description: 'Rounds completed vs scheduled' },
-      { label: 'vs Security Guards', href: '/virtual-patrolling/vs-security-guards', description: 'Compare AI patrols to manned guarding' },
-      { label: 'Virtual Guard', href: '/virtual-guard', description: 'The service model, in the market\'s words' },
-      { label: 'Multi-Site Operations', href: '/virtual-patrolling/for-multi-site-operations', description: 'Patrol across distributed locations' },
+      { label: 'How It Works', href: '/virtual-patrolling/how-it-works', section: 'How it works', description: 'Step-by-step patrol system walkthrough' },
+      { label: 'Patrol Sequences', href: '/virtual-patrolling/patrol-sequences', section: 'How it works', description: 'Ordered camera routes across sites' },
+      { label: 'Patrol Checklists', href: '/virtual-patrolling/patrol-checklists', section: 'How it works', description: 'Per-camera compliance checks' },
+      { label: 'Automated Scheduling', href: '/virtual-patrolling/automated-patrol-scheduling', section: 'How it works', description: 'Set frequency, hours, and days' },
+      { label: 'Patrol Reports', href: '/virtual-patrolling/patrol-reports', section: 'What a round produces', description: 'PDF reports for every round' },
+      { label: 'Guard Notifications', href: '/virtual-patrolling/guard-notifications', section: 'What a round produces', description: 'Automatic alerts to assigned guards' },
+      { label: 'Risk Detection', href: '/virtual-patrolling/risk-detection', section: 'What a round produces', description: 'Hazards flagged beyond the checklist' },
+      { label: 'Compliance Tracking', href: '/virtual-patrolling/patrol-compliance-tracking', section: 'What a round produces', description: 'Rounds completed vs scheduled' },
+      { label: 'vs Security Guards', href: '/virtual-patrolling/vs-security-guards', section: 'In context', description: 'Compare AI patrols to manned guarding' },
+      { label: 'Virtual Guard', href: '/virtual-guard', section: 'In context', description: 'The service model, in the market\'s words' },
+      { label: 'Multi-Site Operations', href: '/virtual-patrolling/for-multi-site-operations', section: 'In context', description: 'Patrol across distributed locations' },
     ],
   },
   {
@@ -176,15 +182,15 @@ export const navItems = [
     href: '/platform',
     children: [
       { label: 'Overview', href: '/platform', description: 'Unified video management platform' },
-      { label: 'Cloud Video Surveillance', href: '/cloud-video-surveillance', description: 'Cloud VMS, no recorder on site' },
-      { label: 'Dashboard', href: '/platform/dashboard', description: 'Real-time operations overview' },
-      { label: 'Live Streaming', href: '/platform/live-streaming', description: 'Multi-camera live view' },
-      { label: 'Video Backup', href: '/platform/video-backup-and-retention', description: 'Retention and playback management' },
-      { label: 'Notifications', href: '/platform/notifications-and-alerts', description: 'Alert management and escalation' },
-      { label: 'Analytics', href: '/platform/analytics-and-reporting', description: 'Detection trends and insights' },
-      { label: 'User Management', href: '/platform/user-management', description: 'Roles and access control' },
-      { label: 'Multi-Site', href: '/platform/multi-site-management', description: 'Centralized multi-location control' },
-      { label: 'AI Architecture', href: '/platform/ai-architecture', description: 'Six-layer AI processing pipeline' },
+      { label: 'Cloud Video Surveillance', href: '/cloud-video-surveillance', section: 'Video', description: 'Cloud VMS, no recorder on site' },
+      { label: 'Dashboard', href: '/platform/dashboard', section: 'Operations', description: 'Real-time operations overview' },
+      { label: 'Live Streaming', href: '/platform/live-streaming', section: 'Video', description: 'Multi-camera live view' },
+      { label: 'Video Backup', href: '/platform/video-backup-and-retention', section: 'Video', description: 'Retention and playback management' },
+      { label: 'Notifications', href: '/platform/notifications-and-alerts', section: 'Operations', description: 'Alert management and escalation' },
+      { label: 'Analytics', href: '/platform/analytics-and-reporting', section: 'Operations', description: 'Detection trends and insights' },
+      { label: 'User Management', href: '/platform/user-management', section: 'Scale and control', description: 'Roles and access control' },
+      { label: 'Multi-Site', href: '/platform/multi-site-management', section: 'Scale and control', description: 'Centralized multi-location control' },
+      { label: 'AI Architecture', href: '/platform/ai-architecture', section: 'Scale and control', description: 'Six-layer AI processing pipeline' },
     ],
   },
   {
@@ -256,17 +262,17 @@ export const navItems = [
     href: '/use-cases',
     children: [
       { label: 'All Use Cases', href: '/use-cases', description: 'Security scenarios we address' },
-      { label: 'Perimeter Security', href: '/use-cases/perimeter-security', description: 'Fence-line and boundary protection' },
-      { label: 'After-Hours Monitoring', href: '/use-cases/after-hours-monitoring', description: 'Night and off-hours coverage' },
-      { label: 'Guard Tour Verification', href: '/use-cases/guard-tour-verification', description: 'Verify guard rounds remotely' },
-      { label: 'Theft Prevention', href: '/use-cases/theft-prevention', description: 'Shrinkage and loss reduction' },
-      { label: 'Loading Dock Monitoring', href: '/use-cases/loading-dock-monitoring', description: 'Dock and logistics security' },
-      { label: 'Remote Site Monitoring', href: '/use-cases/remote-site-monitoring', description: 'Unmanned location oversight' },
-      { label: 'Remote Video Monitoring', href: '/use-cases/remote-video-monitoring', description: 'Rounds and detections from a monitoring room' },
-      { label: 'Lock-Up & Closing Checks', href: '/use-cases/lock-up-and-closing-checks', description: 'A closing round from the cameras' },
-      { label: 'Fire & Smoke Monitoring', href: '/use-cases/fire-and-smoke-monitoring', description: 'Visual early warning on any camera' },
-      { label: 'Fall Detection in Care Settings', href: '/use-cases/fall-detection-for-hospitals-and-care-homes', description: 'A person on the floor, raised in seconds' },
-      { label: 'Weapons Detection for Schools', href: '/use-cases/weapons-detection-for-schools-and-public-buildings', description: 'A visible weapon raised as critical' },
+      { label: 'Perimeter Security', href: '/use-cases/perimeter-security', section: 'Sites and perimeters', description: 'Fence-line and boundary protection' },
+      { label: 'After-Hours Monitoring', href: '/use-cases/after-hours-monitoring', section: 'Sites and perimeters', description: 'Night and off-hours coverage' },
+      { label: 'Guard Tour Verification', href: '/use-cases/guard-tour-verification', section: 'Assets and operations', description: 'Verify guard rounds remotely' },
+      { label: 'Theft Prevention', href: '/use-cases/theft-prevention', section: 'Assets and operations', description: 'Shrinkage and loss reduction' },
+      { label: 'Loading Dock Monitoring', href: '/use-cases/loading-dock-monitoring', section: 'Assets and operations', description: 'Dock and logistics security' },
+      { label: 'Remote Site Monitoring', href: '/use-cases/remote-site-monitoring', section: 'Sites and perimeters', description: 'Unmanned location oversight' },
+      { label: 'Remote Video Monitoring', href: '/use-cases/remote-video-monitoring', section: 'Assets and operations', description: 'Rounds and detections from a monitoring room' },
+      { label: 'Lock-Up & Closing Checks', href: '/use-cases/lock-up-and-closing-checks', section: 'Sites and perimeters', description: 'A closing round from the cameras' },
+      { label: 'Fire & Smoke Monitoring', href: '/use-cases/fire-and-smoke-monitoring', section: 'Life safety', description: 'Visual early warning on any camera' },
+      { label: 'Fall Detection in Care Settings', href: '/use-cases/fall-detection-for-hospitals-and-care-homes', section: 'Life safety', description: 'A person on the floor, raised in seconds' },
+      { label: 'Weapons Detection for Schools', href: '/use-cases/weapons-detection-for-schools-and-public-buildings', section: 'Life safety', description: 'A visible weapon raised as critical' },
     ],
   },
   {
