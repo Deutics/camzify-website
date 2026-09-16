@@ -30,7 +30,7 @@ export function QuoteEstimator() {
     <div id="quote" className="scroll-mt-28 overflow-hidden rounded-2xl border border-border bg-card">
       <div className="grid lg:grid-cols-[1.15fr_1fr]">
         <div className="p-8 lg:border-r lg:border-border">
-          <Step n={1} title="Build your configuration" sub="Counts, not commitments. Change any number and the summary on the right follows." />
+          <Step n={1} title="Build your configuration" sub="Counts, not commitments. Change any number and the summary in step 2 follows." />
           <div className="mt-6">
             <EstimateFields config={config} onChange={set} />
           </div>
