@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 import { useState } from 'react';
 import { FormWrapper } from '@/components/system/form-wrapper';
-import { configFields, EstimateFields, useEstimateConfig } from '@/components/content/estimate-fields';
+import { configFields, ConfigSummary, EstimateFields, useEstimateConfig } from '@/components/content/estimate-fields';
 import { Loader2, ArrowRight, ChevronDown } from 'lucide-react';
 
 export function BookDemoForm() {
@@ -73,6 +73,7 @@ export function BookDemoForm() {
             <div id="demo-estimate" {...({ inert: withEstimate ? undefined : '' } as any)} className={withEstimate ? 'mt-4 space-y-4' : 'hidden'}>
               <p className="text-xs text-muted-foreground">Counts only. We bring a quote for this configuration to the demo, set for your site.</p>
               <EstimateFields config={config} onChange={set} compact />
+              <ConfigSummary config={config} heading="We will bring a quote for" />
             </div>
           </div>
           <button

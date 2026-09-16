@@ -38,6 +38,40 @@ export function configFields(config: EstimateInput): Record<string, string> {
   };
 }
 
+/** The configuration as a visitor reads it back: the lines a quote will carry. */
+export function summaryLines(config: EstimateInput): { label: string; qty: number }[] {
+  return [
+    { label: 'camera stream instances', qty: config.cameras },
+    { label: 'virtual patrolling instances', qty: config.patrolCameras },
+    { label: 'detection instances', qty: config.standardInstances },
+    { label: 'behavioral anomaly or weapons instances', qty: config.premiumInstances },
+    { label: 'TB of cloud storage', qty: config.storageTb },
+  ];
+}
+
+export function ConfigSummary({ config, heading = 'The quote will cover' }: { config: EstimateInput; heading?: string }) {
+  const lines = summaryLines(config);
+  const empty = lines.every((l) => l.qty === 0);
+  return (
+    <div className="rounded-xl border border-primary/30 bg-primary/5 p-5" aria-live="polite">
+      <p className="font-mono text-mono-sm uppercase text-primary">{heading}</p>
+      {empty ? (
+        <p className="mt-2 text-sm text-muted-foreground">Enter at least one count to build a configuration.</p>
+      ) : (
+        <ul className="mt-3 space-y-1.5">
+          {lines.filter((l) => l.qty > 0).map((l) => (
+            <li key={l.label} className="flex items-baseline gap-3 text-sm">
+              <span className="w-14 shrink-0 text-right font-display text-base font-bold tabular-nums text-foreground">{l.qty.toLocaleString('en-US')}</span>
+              <span className="text-muted-foreground">{l.label}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+      <p className="mt-3 text-xs leading-relaxed text-muted-foreground">Updates as you change the counts. Motion and camera tampering detection come with every stream instance.</p>
+    </div>
+  );
+}
+
 export function EstimateFields({ config, onChange, compact = false }: { config: EstimateInput; onChange: (key: keyof EstimateInput, value: number) => void; compact?: boolean }) {
   return (
     <div className={`grid gap-4 ${compact ? 'sm:grid-cols-2' : 'sm:grid-cols-2 lg:grid-cols-3'}`}>
