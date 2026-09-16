@@ -54,7 +54,7 @@ const items = [
 const faqs = [
   { question: 'Who are the guides written for?', answer: 'Two readers: the person configuring the console, who gets step-by-step guides with a HowTo schema, and the owner or manager deciding whether and how to buy, who gets the explainers, the cost guides and the owner guides for partners.' },
   { question: 'Are the how-to guides based on the real product?', answer: 'Yes. Each was written by running the steps in the console, and the screenshots on the product pages are the real screens. Where a step differs by plan we say so.' },
-  { question: 'Why do the cost guides not give a price?', answer: "Because a guide is not a quote. The pricing page shows approximate list rates and an estimator for your own counts; the guides give the reader's side of the sum and the ranges that exist in the market, and a quote comes in below list for an annual term. They give the reader's side of the sum and the ranges that exist in the market, and the ROI calculator turns your own numbers into a figure a quote is measured against." },
+  { question: 'Why do the cost guides not give a price?', answer: "Because a guide is not a quote. Camzify starts from $5 per camera per month and the rest is quoted per site; the guides give the reader's side of the sum and the ranges that exist in the market, and the pricing page turns your counts into a quote request. They give the reader's side of the sum and the ranges that exist in the market, and the ROI calculator turns your own numbers into a figure a quote is measured against." },
   { question: 'Who writes them?', answer: "Muhammad Talha, Camzify's product manager and CTO, with nine years in computer vision and automated surveillance. Each guide carries the byline." },
 ];
 

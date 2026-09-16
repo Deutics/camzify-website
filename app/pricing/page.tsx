@@ -6,32 +6,31 @@ import { SectionVisual } from '@/components/content/section-visual';
 import Link from 'next/link';
 import { Camera, Cpu, HardDrive, Users, Building2, Calculator, ArrowRight, MessageSquare } from 'lucide-react';
 import { QuoteEstimator } from '@/components/content/quote-estimator';
-import { formatUsd, LIST_RATES } from '@/lib/pricing-estimates';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
  * <head> tags, and by `PageShell` for the on-page structured data.
  *
- * Pricing is per instance per month and quoted for the site. Since 2026-09-16 the
- * business publishes approximate list rates (lib/pricing-estimates.ts, the only place
- * they live) and quotes below them for annual terms and for more features per camera.
- * So this page does three things: says what a quote is built from, lets the reader
- * build a configuration and see its estimate at list rates, and sends that
- * configuration in as a quote request. Every figure shown is labeled as an estimate
- * before discounts; the quote is the number.
+ * Pricing is per instance per month and quoted for the site, lower for an annual term
+ * and for more features per camera. The one public figure is the floor the business
+ * stated on 2026-09-17: from $5 per camera per month. Internal rates exist only in
+ * lib/pricing-estimates.ts and are used on the server to put an estimate in the team's
+ * lead email; nothing else on the site shows a rate, which is how the comparable
+ * software-only vendors handle it. So this page says what a quote is built from, lets
+ * the reader build a configuration, and sends it in as a quote request.
  */
 const pageMeta = {
-  title: "Pricing | Estimate It, Then Get Your Quote",
-  description: "Camzify is priced per instance per month. Build your configuration, see the estimate at list rates, and get a quote set for your site.",
+  title: "Pricing | From $5 a Camera, Quoted for You",
+  description: "Camzify is priced per instance per month, from $5 per camera. Build your configuration and get a quote for your site within one business day.",
   path: "/pricing",
 };
 
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const builtFrom = [
-  { icon: Camera, title: 'Camera stream instances', desc: `One per connected camera, about ${formatUsd(LIST_RATES.streamInstance)} a month at list. It connects the camera, streams it live and lets it be recorded and patrolled, and motion detection and camera tampering detection come with it at no charge.` },
-  { icon: Cpu, title: 'AI detection instances', desc: `One per AI feature per camera. Most detections, intrusion, loitering, PPE, parking and the rest, are under ${formatUsd(LIST_RATES.standardDetection)} a month each at list; behavioral anomaly and weapons detection are about ${formatUsd(LIST_RATES.premiumDetection)}. A virtual patrolling instance, about ${formatUsd(LIST_RATES.patrolInstance)}, puts one camera on manual and automated rounds.` },
-  { icon: HardDrive, title: 'Cloud storage', desc: `About ${formatUsd(LIST_RATES.storagePerTb)} per terabyte per month at list, as a pool for the account. You decide how it is spent: retention is set per camera or applied to a whole site, so a gate camera can keep ninety days while a corridor keeps seven.` },
+  { icon: Camera, title: 'Camera stream instances', desc: 'One per connected camera, from $5 a month. It connects the camera, streams it live and lets it be recorded and patrolled, and motion detection and camera tampering detection come with it at no charge.' },
+  { icon: Cpu, title: 'AI detection instances', desc: 'One per AI feature per camera: ten cameras with line intrusion are ten line intrusion instances. A virtual patrolling instance puts one camera on manual and automated rounds. Each feature type has its own monthly price, and behavioral anomaly and weapons detection sit at the top of the range.' },
+  { icon: HardDrive, title: 'Cloud storage', desc: 'Sold per terabyte per month, as a pool for the account. You decide how it is spent: retention is set per camera or applied to a whole site, so a gate camera can keep ninety days while a corridor keeps seven.' },
   { icon: Users, title: 'Sub-users and quota', desc: 'Stream instances, detection instances and storage can be allocated to sub-users from what the account holds. A partner quote is sized for the portfolio.' },
   { icon: Building2, title: 'Sites', desc: 'Every site runs its own sequences, schedule and roster on one account. More sites do not need more accounts or more instances.' },
   { icon: MessageSquare, title: 'What is not a line item', desc: 'The platform modules: live streaming, cloud backup, notifications, analytics, user management and permission groups come with the account. So do motion detection and camera tampering detection on every connected camera.' },
@@ -47,8 +46,8 @@ const example = [
 ];
 
 const faqs = [
-  { question: 'Are the rates on this page the price?', answer: 'They are approximate list rates, and the estimate they produce is the upper end of what a quote will say. Camzify is priced per instance per month, and the quote is the sum of the instances an account needs: a stream instance for every camera, a detection instance for every AI feature on a camera, a patrol instance for every camera on rounds, and storage per terabyte. Build the configuration above, request the quote, and it comes back set for your site.' },
-  { question: 'Do you offer discounts?', answer: 'Yes. Quotes come in below list for an annual term and for accounts that license more features per camera, and a partner portfolio is quoted as a whole. That is why the site shows an estimate rather than a price: the estimate is what the configuration costs at list, and the quote is what you would pay.' },
+  { question: 'Why is there no price list on this page?', answer: 'Because the quote depends on the term and on how much runs on each camera, and a list would be wrong for most sites. Camzify starts from $5 per camera per month, and the quote is the sum of the instances an account needs: a stream instance for every camera, a detection instance for every AI feature on a camera, a patrol instance for every camera on rounds, and storage per terabyte. Build the configuration above, request the quote, and it comes back set for your site within one business day.' },
+  { question: 'Do you offer discounts?', answer: 'Yes. Quotes come in lower for an annual term and for accounts that license more features per camera, and a partner portfolio is quoted as a whole. That is what takes a stream instance down to the $5 floor.' },
   { question: 'Which detections are free?', answer: 'Motion detection and camera tampering detection are included with every stream instance, so every connected camera has both without a detection instance. Everything else is licensed as an instance per camera.' },
   { question: 'How does per-instance pricing work?', answer: 'Every connected camera takes one stream instance, which connects it, streams it live and makes it available to record and patrol. Every AI feature you enable on a camera takes one detection instance of that feature, so a camera with two detections carries two, and every camera on patrol rounds takes a virtual patrolling instance. Storage is sold per terabyte per month as a pool for the account, and you set how each camera or site draws on it. Each instance type has its own monthly price, and the platform modules come with the account.' },
   { question: 'What is an instance?', answer: 'One unit of something licensed on one camera: a stream instance is one camera connected, a line intrusion instance is line intrusion running on one camera. The plan page in the console shows, per type, how many instances are on the plan, how many are activated, how many are granted to sub-users, and how many remain. A parent account allocates instances to sub-users from that pool.' },
@@ -63,18 +62,19 @@ export default function PricingPage() {
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
           <div className="mx-auto max-w-2xl text-center">
-            <span className="font-mono text-mono-sm uppercase text-primary">Per instance. Estimate it, then get the quote</span>
+            <span className="font-mono text-mono-sm uppercase text-primary">From $5 a camera a month, quoted for your site</span>
             <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Pricing</h1>
             <p className="mt-6 text-body text-muted-foreground">
               <strong className="font-semibold text-foreground">Camzify is priced per instance per month and quoted for your site.</strong>{' '}
-              A stream instance for every camera, a detection instance for every AI feature on a
-              camera, a patrol instance for every camera on rounds, and cloud storage per terabyte.
-              The list rates are below, the estimator turns your counts into a figure at those
-              rates, and the quote comes back lower for an annual term or more features per camera.
+              It starts from $5 per camera per month for a stream instance, with motion and camera
+              tampering detection included. A detection instance for every AI feature on a camera, a
+              patrol instance for every camera on rounds, and cloud storage per terabyte make up the
+              rest, and the quote comes in lower for an annual term or more features per camera.
+              Build your configuration below and the quote comes back within one business day.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <Link href="#quote" className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:bg-primary/90">
-                Estimate and request a quote <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                Build your configuration and get a quote <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
               <Link href="/roi-calculator" className="inline-flex items-center gap-2 rounded-lg border border-border px-7 py-3.5 text-sm font-semibold transition-all hover:bg-accent hover:border-primary/30">
                 <Calculator className="h-4 w-4" aria-hidden="true" /> Run your numbers first
@@ -167,8 +167,8 @@ export default function PricingPage() {
                   The other 70 cameras carry no detection and cost only their stream instance. Add a
                   detection to a camera later and it takes one more instance from that month on. The
                   30 TB is spent however the account decides: ninety days on the gates, seven on the
-                  corridors, a storage cap on a busy dock. Put your own counts into the estimator
-                  below and it prices a configuration like this at list rates.
+                  corridors, a storage cap on a busy dock. Put your own counts into the form
+                  below and the quote prices a configuration like this for your site.
                 </p>
               </div>
             </ScrollReveal>
@@ -176,13 +176,12 @@ export default function PricingPage() {
 
           <div className="mt-16">
             <ScrollReveal>
-              <span className="font-mono text-mono-sm uppercase text-primary">Estimate and request a quote</span>
-              <h2 className="mt-2 font-display text-2xl font-bold sm:text-3xl">Your counts, at list rates, then the quote</h2>
+              <span className="font-mono text-mono-sm uppercase text-primary">Request a quote</span>
+              <h2 className="mt-2 font-display text-2xl font-bold sm:text-3xl">Your counts, then the quote</h2>
               <p className="mt-4 max-w-prose text-muted-foreground">
-                Enter what you would connect and switch on. The estimate uses the approximate list
-                rates above and is the upper end of what a quote will say; an annual term or more
-                features per camera brings it down. Send it and the quote comes back for exactly this
-                configuration.
+                Enter what you would connect and switch on. Send it and the quote comes back within
+                one business day for exactly this configuration, set for your site, with any
+                annual-term or volume discount already applied.
               </p>
             </ScrollReveal>
             <div className="mt-8">

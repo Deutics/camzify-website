@@ -13,7 +13,7 @@
  *     whole site resolves to one entity graph rather than N disconnected islands.
  *   - All identity facts come from `siteConfig`. Never inline them here.
  */
-import { LIST_RATES } from '@/lib/pricing-estimates';
+import { PUBLIC_FLOOR_PER_CAMERA } from '@/lib/pricing-estimates';
 import { siteConfig, formattedAddress, absoluteUrl } from '@/lib/site-config';
 
 /** Stable @id anchors so every page's schema joins the same entity graph. */
@@ -111,9 +111,9 @@ export function websiteSchema() {
 }
 
 /**
- * The product itself, as SoftwareApplication. The offer is an AggregateOffer spanning
- * the approximate list rates per instance per month (lib/pricing-estimates.ts), which
- * the business publishes as estimates before discounts; the quote itself is per site.
+ * The product itself, as SoftwareApplication. The offer carries the one public figure,
+ * the floor of $5 per camera per month (lib/pricing-estimates.ts), as an AggregateOffer
+ * with a lowPrice and no highPrice; everything above the floor is quoted per site.
  */
 export function softwareApplicationSchema() {
   return {
@@ -141,9 +141,8 @@ export function softwareApplicationSchema() {
     offers: {
       '@type': 'AggregateOffer',
       priceCurrency: 'USD',
-      lowPrice: String(LIST_RATES.streamInstance),
-      highPrice: String(LIST_RATES.premiumDetection),
-      description: 'Per instance per month at approximate list rates, before discounts; quoted per site.',
+      lowPrice: String(PUBLIC_FLOOR_PER_CAMERA),
+      description: 'From $5 per camera per month for a stream instance; every other instance is quoted per site.',
       availability: 'https://schema.org/InStock',
       url: absoluteUrl('/pricing'),
       seller: { '@id': ORG_ID },

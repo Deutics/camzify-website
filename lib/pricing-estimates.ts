@@ -1,8 +1,13 @@
 /*
  * Approximate list rates, stated by the business on 2026-09-16, and the one place on
- * the site that holds them. Every estimate the site shows (the pricing page estimator,
- * the ROI calculator, the demo form) is computed from these values, so a price change
- * is one edit here.
+ * the site that holds them. They are NOT shown to visitors: the business withdrew the
+ * public estimate on 2026-09-17 after reviewing how comparable vendors handle pricing.
+ * The API routes use them to put a list-rate estimate in the team's lead email, so a
+ * reply can start from a number. Do not import them into a client component.
+ *
+ * The one public figure is PUBLIC_FLOOR_PER_CAMERA: a stream instance comes down to $5
+ * per camera per month with the discounts the business gives, and the site may say
+ * "from $5 per camera per month" and nothing more precise.
  *
  * They are list rates before discounts. The business quotes lower for an annual term
  * and for accounts that license more features per camera, so an estimate is the upper
@@ -25,6 +30,9 @@ export const LIST_RATES = {
 } as const;
 
 export const CURRENCY = 'USD';
+
+/** The only figure the site publishes: a stream instance after discount, per camera per month. */
+export const PUBLIC_FLOOR_PER_CAMERA = 5;
 
 export const ESTIMATE_DISCLAIMER =
   'An estimate at approximate list rates, before discounts. Quotes are lower with an annual term and with more features per camera, and are set for your site.';

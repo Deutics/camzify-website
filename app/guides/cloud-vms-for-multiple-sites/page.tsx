@@ -34,7 +34,7 @@ const faqs = [
   { question: 'Can a site manager see only their own site?', answer: 'Yes. A sub-user is scoped to specific sites through a permission group, and the live wall, recordings, alerts and reports all respect the same boundary. A manager assigned to one store does not see the warehouse, and a regional manager scoped to several sites sees those and nothing else.' },
   { question: 'Does every site have to run the same patrol round?', answer: 'No. A patrol sequence belongs to a site, with its own camera stops, checklist and schedule set in that site\'s own timezone. Comparable sites can be given the same sequence and schedule so their compliance figures compare directly, but a warehouse and a store do not have to look alike.' },
   { question: 'What happens when one site\'s internet connection drops?', answer: 'That site\'s cameras show as offline, the site is flagged in the site list and on the live wall, and recording and rounds at every other site continue. Nothing at the other sites depends on the site that dropped. Footage is recorded in the cloud, so a camera that is not streaming is not being recorded until the link returns.' },
-  { question: 'Does adding a site change the license?', answer: 'Adding a site by itself consumes nothing. The license is a pool of camera stream instances, AI feature instances and backup storage held by the account, and cameras and features at the new site draw from that same pool. What a new site needs is enough available instances, not a separate plan. The pricing page shows approximate list rates and an estimator; a quote for the whole estate comes in below list for an annual term.' },
+  { question: 'Does adding a site change the license?', answer: 'Adding a site by itself consumes nothing. The license is a pool of camera stream instances, AI feature instances and backup storage held by the account, and cameras and features at the new site draw from that same pool. What a new site needs is enough available instances, not a separate plan. Camzify starts from $5 per camera per month, and a quote for the whole estate comes in lower for an annual term.' },
   { question: 'Is there a limit on the number of sites?', answer: 'There is no practical limit built into the product. Each site is its own record with its own cameras, sequences, operators and event history, and the dashboard and reporting roll every site into one account-wide view or show one site on its own. What scales is the operator\'s attention, which is why the live wall paginates and rounds file a report per site.' },
 ];
 
@@ -220,7 +220,7 @@ export default function CloudVmsForMultipleSitesPage() {
                   'How many users, and what each needs: site managers, regional managers, guards and auditors, and which built-in permission group fits each before you define a custom one.',
                 ]} />
                 <p>
-                  Pricing is per instance per month, quoted for the estate; the <Link href="/pricing" className="text-primary hover:underline">pricing page</Link> shows approximate list rates and an estimator, and a quote comes in below list for an annual term.
+                  Pricing is per instance per month, quoted for the estate; the <Link href="/pricing" className="text-primary hover:underline">pricing page</Link> turns your camera and feature counts into a quote request, and Camzify starts from $5 per camera per month.
                 </p>
               </div>
             </ScrollReveal>

@@ -27,8 +27,9 @@ wrong answers cited about it in AI search. If you need the address as a string, 
 No invented prices, customer counts, uptime figures, response times, case studies, or
 certifications. Pricing is per instance per month (a stream instance per camera, a detection
 instance per AI feature per camera, cloud storage per terabyte per month, spent as the customer sets retention) and quoted per site.
-Approximate list rates are published as estimates before discounts, and they live only in
-`lib/pricing-estimates.ts`; never type a rate into a page, and never present one as a fixed price. All four compliance frameworks
+The one public figure is "from $5 per camera per month". List rates live only in
+`lib/pricing-estimates.ts`, are used on the server to add an estimate to lead emails, and must
+never be imported into a client component or typed into a page. All four compliance frameworks
 (PDPA, GDPR, SOC 2 Type II, ISO 27001) are **in progress and not held** — never render
 them as current. If you need a number you do not have, write around it honestly; do not
 estimate. `/trust` and `/llms.txt` both state this policy publicly, so violating it makes

@@ -21,7 +21,7 @@ const pageMeta = {
 export const metadata = generatePageMeta({ ...pageMeta, type: 'article', publishedTime: '2026-08-31', modifiedTime: '2026-08-31' });
 
 const faqs = [
-  { question: 'Does Camzify publish prices?', answer: "Approximate list rates, yes: the pricing page lists them and an estimator turns your counts into a figure. Pricing is per instance per month and quoted for your site or your client portfolio, below list for an annual term or more features per camera. The ROI calculator works the reader's side of the sum, what routine rounds cost today or what remote patrols would earn, and a quote comes back against it." },
+  { question: 'Does Camzify publish prices?', answer: "One figure: Camzify starts from $5 per camera per month. The rest is per instance per month and quoted for your site or your client portfolio, lower for an annual term or more features per camera; the pricing page turns your counts into a quote request. The ROI calculator works the reader's side of the sum, what routine rounds cost today or what remote patrols would earn, and a quote comes back against it." },
   { question: 'What drives the quote?', answer: 'The number of camera stream instances, the detection instances licensed on those cameras, the cloud storage the retention settings need, and the number of sites and sub-users on the account. Platform modules come with the account; every instance type has its own monthly price.' },
   { question: 'Is there hardware to buy?', answer: 'No. Camzify sells no hardware. The one thing sometimes needed on site is a PC running the Camzify Connector for cameras that cannot be reached from the internet.' },
   { question: 'How do I compare it with what I pay now?', answer: 'Take the hours per week spent on routine rounds, times the hourly rate, times sites. That is the figure a quote is measured against, and the ROI calculator computes it from your own numbers.' },
@@ -53,7 +53,7 @@ export default function VirtualPatrollingCostPage() {
           <section className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Cost comparison with manned guarding</h2>
-              <div className="mt-4 max-w-prose space-y-4 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `Around-the-clock coverage of one post takes several people once shifts, breaks, leave and relief are counted, so the annual cost of a staffed post is a multiple of one hourly rate. A scheduled camera round covers the same stops at whatever frequency you set and is priced per instance per month, with a report per round. The pricing page shows approximate list rates and estimates yours from your counts; the quote comes in below them for an annual term. Use the <a href="/roi-calculator">ROI calculator</a> to model your specific scenario.` }} />
+              <div className="mt-4 max-w-prose space-y-4 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `Around-the-clock coverage of one post takes several people once shifts, breaks, leave and relief are counted, so the annual cost of a staffed post is a multiple of one hourly rate. A scheduled camera round covers the same stops at whatever frequency you set and is priced per instance per month, with a report per round. Camzify starts from $5 per camera per month; the pricing page turns your counts into a quote request and the quote comes in lower for an annual term. Use the <a href="/roi-calculator">ROI calculator</a> to model your specific scenario.` }} />
             </ScrollReveal>
           </section>
 

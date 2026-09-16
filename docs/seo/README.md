@@ -74,11 +74,14 @@ figure while newer pages say no such figure is published. The figure was removed
 four now describe the method (sum of the cameras' stream bitrates) and point at the
 bandwidth guide.
 
-## Pricing estimates (16 September 2026)
+## Pricing disclosure (17 September 2026)
 
-The business now publishes approximate list rates per instance per month, before
-discounts, from one file (`lib/pricing-estimates.ts`). The pricing page carries an
-estimator and a quote request for the configuration it prices; the ROI calculator shows
-the same estimate against guard cost or partner price; the demo form can carry the
-configuration. llms.txt states the rates as approximate list rates only, and the
-SoftwareApplication schema carries an AggregateOffer with the low and high rate.
+For one day the site showed approximate list rates and an estimator. After checking how
+the comparable vendors handle it (Verkada and Rhombus list MSRP because they sell
+hardware; Solink, Spot AI, Coram, Pro-Vigil and Eagle Eye publish no rate card and ask
+for contact), the business withdrew the public figures. What remains: one floor
+statement, "from $5 per camera per month", on the pricing page, the FAQs, llms.txt and
+the SoftwareApplication schema (an AggregateOffer with only a lowPrice); a quote request
+on the pricing page and the demo form that collects camera and feature counts without
+showing a figure; and list rates kept in `lib/pricing-estimates.ts` for the server to add
+an estimate to the team's lead email. The ROI calculator shows the reader's own figures.
