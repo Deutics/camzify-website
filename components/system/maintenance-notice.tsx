@@ -17,6 +17,9 @@ import { Wrench, X } from 'lucide-react';
  * notice for a moment to a visitor who has dismissed it; that is the cheaper failure
  * compared with a hydration mismatch.
  *
+ * Stacking: z-40 keeps it under the header (z-50), so the open mobile menu covers it
+ * instead of the notice covering the menu's links.
+ *
  * Remove the mount in app/layout.tsx when the site leaves maintenance.
  */
 const KEY = 'camzify-maintenance-notice-dismissed';
@@ -47,7 +50,7 @@ export function MaintenanceNotice() {
       aria-live="polite"
       {...((dismissed ? { inert: '' } : {}) as Record<string, unknown>)}
       aria-hidden={dismissed}
-      className={`fixed inset-x-4 bottom-4 z-[60] mx-auto max-w-md rounded-xl border border-warn/40 bg-card p-4 shadow-2xl transition-all duration-300 sm:inset-x-auto sm:left-6 sm:bottom-6 ${
+      className={`fixed inset-x-4 bottom-4 z-40 mx-auto max-w-md rounded-xl border border-warn/40 bg-card p-4 shadow-2xl transition-all duration-300 sm:inset-x-auto sm:left-6 sm:bottom-6 ${
         dismissed ? 'pointer-events-none translate-y-4 opacity-0' : 'translate-y-0 opacity-100'
       }`}
     >
