@@ -42,7 +42,7 @@ const faqs = [
   },
   {
     question: 'Can some cameras stay on the NVR while others go to the cloud?',
-    answer: 'Yes. Camzify is licensed per camera, so you decide which cameras stream to the cloud and which stay on the recorder. The cameras left on the recorder are not affected, and a recorder that publishes an RTSP stream for a camera can itself be the source the cloud connects to.',
+    answer: 'Yes. Camzify licenses a stream instance per camera, so you decide which cameras stream to the cloud and which stay on the recorder. The cameras left on the recorder are not affected, and a recorder that publishes an RTSP stream for a camera can itself be the source the cloud connects to.',
   },
   {
     question: 'What happens to a camera when the connection cannot keep up?',
@@ -162,7 +162,7 @@ export default function CloudVmsBandwidthRequirementsPage() {
                   <><strong className="font-semibold text-foreground">Switch to the sub stream.</strong> Give Camzify the sub stream&apos;s RTSP address instead of the main stream&apos;s. It is usually the largest single saving available and needs no change on the camera itself.</>,
                   <><strong className="font-semibold text-foreground">Lower the frame rate or the bitrate cap on the camera.</strong> Both are settings in the camera&apos;s interface and both reduce the stream directly. Check the live view and any detections you rely on afterward before treating the new setting as final.</>,
                   <><strong className="font-semibold text-foreground">Record on a schedule.</strong> Set the cameras that only matter after hours to record after hours, and keep continuous recording for the few that need it.</>,
-                  <><strong className="font-semibold text-foreground">Put fewer cameras in the cloud.</strong> Camzify is licensed per camera, so the gate, the cash office and the loading bay can be cloud cameras while the stockroom stays on the local recorder.</>,
+                  <><strong className="font-semibold text-foreground">Put fewer cameras in the cloud.</strong> Camzify licenses a stream instance per camera, so the gate, the cash office and the loading bay can be cloud cameras while the stockroom stays on the local recorder.</>,
                   <><strong className="font-semibold text-foreground">Keep the NVR for that site.</strong> A site whose upstream connection cannot carry its cameras, even after the steps above, should keep its recorder. The cloud model is the wrong answer there, and pretending otherwise produces a site with missing footage and a bill for it.</>,
                 ]}
               />

@@ -61,7 +61,7 @@ export const homepageFaqs = [
   {
     question: 'How much does Camzify cost?',
     answer:
-      'Camzify is licensed per camera per month, with the price depending on camera count, the AI features activated and the retention period, so public rate-card figures are not published. The comparison that matters is usually against manned guarding rather than against other software: the ROI calculator models it using your own guard rates and camera count, and a demo returns an exact quote.',
+      'Camzify is priced per instance per month: a stream instance for each camera, a detection instance for each AI feature on a camera, and cloud storage for the account, so the price depends on those counts and no rate card is published. The comparison that matters is usually against manned guarding rather than against other software: the ROI calculator models it using your own guard rates and camera count, and a demo returns an exact quote.',
   },
   {
     question: 'How quickly does an alert reach someone?',

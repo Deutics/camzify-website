@@ -35,7 +35,7 @@ const faqs = [
   { question: 'When is an on-site NVR still the better choice?', answer: 'When the site has too little upstream bandwidth to carry its cameras, when footage must by policy never leave the building, or when the only thing wanted is local recording for occasional review. The comparison page sets this out in full rather than pretending the cloud wins every case.' },
   { question: 'How long is footage kept?', answer: 'For as long as the retention window on that camera says, set in days or as a storage cap, camera by camera. A gate camera can keep ninety days while a corridor keeps seven. The video retention guide covers what different sectors typically require.' },
   { question: 'How is footage protected?', answer: 'Encrypted in transit over TLS 1.2 or higher and at rest with AES-256. Access follows the same permission groups as everything else in the console, so a user who cannot open a camera cannot open its recordings, and every action on the account is written to an audit trail. Compliance certifications are in progress and are listed as such on the trust page; none is claimed as held.' },
-  { question: 'What does it cost?', answer: 'Camzify is licensed per camera and quoted for the site. We do not publish rates. The pricing page explains what a quote is built from, and the ROI calculator lets you compare it against the guarding or recorder costs it replaces.' },
+  { question: 'What does it cost?', answer: 'Camzify is priced per instance per month, a stream instance for each camera plus a detection instance for each AI feature on it and cloud storage, and quoted for the site. We do not publish rates. The pricing page explains what a quote is built from, and the ROI calculator lets you compare it against the guarding or recorder costs it replaces.' },
 ];
 
 const comparisonRows = [
@@ -128,7 +128,7 @@ export default function CloudVideoSurveillancePage() {
                 A recorder keeps footage so that someone can review it after something has happened. Cloud video surveillance on Camzify puts two things on the same streams that a recorder cannot. <Link href="/ai-features" className="text-primary hover:underline">AI detections</Link> watch each camera for a tracked person, vehicle, weapon, fire or the behavior you describe, and notify within the window you set for that camera. <Link href="/virtual-patrolling" className="text-primary hover:underline">Virtual patrolling</Link> runs a scheduled round through the cameras, checks a list at each one from the frame, messages the guard on a failure and files a report.
               </p>
               <p className="mt-4 max-w-prose text-body text-muted-foreground">
-                Both are licensed per camera and switched on where they earn their place. A corridor camera can record and nothing more; the gate camera can record, detect and be a stop on the round. The recording underneath is the same either way, which is what lets an alert or a failed check open the footage around it.
+                Both are licensed as instances per camera and switched on where they earn their place. A corridor camera can record and nothing more; the gate camera can record, detect and be a stop on the round. The recording underneath is the same either way, which is what lets an alert or a failed check open the footage around it.
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>

@@ -91,7 +91,7 @@ export default function HowToSellVirtualPatrollingToClientsPage() {
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Price it per site per month, at your rate</h2>
               <div className="mt-4 max-w-prose space-y-4 text-muted-foreground">
-              <p>Camzify is priced per camera and quoted for the portfolio you would cover; we do not publish rates and neither should your proposal repeat ours. You set the price per client site per month against the quote. The <Link href="/roi-calculator#agency" className="text-primary hover:underline">agency mode of the ROI calculator</Link> takes your client count, your price and the hours you cannot staff, and shows the recurring revenue; the margin is the difference between that and your quote.</p>
+              <p>Camzify is priced per instance per month and quoted for the portfolio you would cover; we do not publish rates and neither should your proposal repeat ours. You set the price per client site per month against the quote. The <Link href="/roi-calculator#agency" className="text-primary hover:underline">agency mode of the ROI calculator</Link> takes your client count, your price and the hours you cannot staff, and shows the recurring revenue; the margin is the difference between that and your quote.</p>
               <p>Put the price beside the report and the schedule, not on its own. The <Link href="/guides/what-goes-in-a-remote-patrol-proposal" className="text-primary hover:underline">proposal guide</Link> covers what the document contains.</p>
               </div>
             </ScrollReveal>

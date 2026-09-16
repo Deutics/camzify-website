@@ -55,7 +55,7 @@ export default function CamzifyVsEagleEyeNetworksPage() {
                   { label: "AI detection", values: ["Zone, line, motion, tampering, tracking, attributes", "Partner-dependent analytics via API"] },
                   { label: "Compliance reporting", values: ["Automated PDF patrol reports with compliance %", "Alert-based reporting"] },
                   { label: "Camera connectivity", values: ["RTSP, RTMP, HTTPS + Camzify Connector", "Bridge device + cloud connectivity"] },
-                  { label: "Pricing model", values: ["Per camera per month, feature-based licensing", "Per camera per month + bridge hardware"] },
+                  { label: "Pricing model", values: ["Per instance per month: a stream instance per camera, a detection instance per feature, storage", "Per camera per month + bridge hardware"] },
                 ]}
               />
             </ScrollReveal>
@@ -68,7 +68,7 @@ export default function CamzifyVsEagleEyeNetworksPage() {
                 Neither approach is universally better. The right choice depends on your facility size, risk profile, budget, and existing infrastructure. <a href="/virtual-patrolling" className="text-primary hover:underline">Virtual patrolling</a> is strongest where consistency, audit trails, and cost efficiency matter most — typically multi-site operations, after-hours coverage, and facilities where guard costs are the dominant security spend.
               </p>
               <p className="mt-4 max-w-prose text-muted-foreground">
-                Use the <Link href="/roi-calculator" className="text-primary hover:underline">ROI calculator</Link> to model the cost comparison for your specific scenario, or <Link href="/pricing" className="text-primary hover:underline">review pricing</Link> to understand the per-camera licensing model.
+                Use the <Link href="/roi-calculator" className="text-primary hover:underline">ROI calculator</Link> to model the cost comparison for your specific scenario, or <Link href="/pricing" className="text-primary hover:underline">review pricing</Link> to understand the per-instance licensing model.
               </p>
             </ScrollReveal>
           </div>

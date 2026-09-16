@@ -31,7 +31,7 @@ const link = 'text-primary hover:underline';
 
 const faqs = [
   { question: 'How much does a cloud VMS cost?', answer: 'There is no single market figure, because the cost is set by counts that differ at every site: cameras, the detections licensed on each one, retention days and resolution, the number of sites and users, and the support included. Vendors price per camera per month, per site, as hardware plus a license, or in tiers by retention or features. The way to get a real number is to fix those counts for your own site and ask each vendor for the total per year.' },
-  { question: 'Why does Camzify not publish a price?', answer: 'Because a price that fits every site is a price that fits none, and we would rather quote than mislead. Camzify is priced per camera per month, and the quote depends on camera count, the AI features licensed on each camera, retention, and the number of sites and sub-users. Ask for one with your camera count and it comes back against your own guarding cost.' },
+  { question: 'Why does Camzify not publish a price?', answer: 'Because a price that fits every site is a price that fits none, and we would rather quote than mislead. Camzify is priced per instance per month, a stream instance per camera plus a detection instance per AI feature per camera and cloud storage, and the quote depends on those counts, retention, and the number of sites and sub-users. Ask for one with your camera count and it comes back against your own guarding cost.' },
   { question: 'Is per camera per month cheaper than per site?', answer: 'It depends on how many cameras each site has. A flat per-site fee favors a site with many cameras and penalizes one with two or three, while a per-camera fee scales with what is actually connected. Convert both to a cost per camera per year at your retention before deciding.' },
   { question: 'What is the biggest hidden cost in a cloud VMS?', answer: 'Usually one of two things: storage that is billed beyond the retention plan when a busy scene produces more footage than the estimate assumed, or a hardware gateway at each site that is bought, replaced and tied to one vendor. Egress charges on exports, per-user seats and minimum terms are the next three to ask about.' },
   { question: 'Does a cloud VMS need hardware on site?', answer: 'Some do, and that hardware is part of the cost. Camzify sells no hardware and runs on the cameras a site already owns. The one thing sometimes needed is a PC running the Camzify Connector, for cameras on a private network that cannot be reached from the internet.' },
@@ -61,7 +61,7 @@ export default function CloudVmsCostPage() {
           <p className="mt-4 max-w-prose text-body text-muted-foreground">
             This guide covers what moves the number, the pricing models the market uses, what to
             ask about before signing, what an on-premise recorder costs instead, and how to lay
-            the comparison out for your own site. Camzify is a cloud VMS priced per camera and
+            the comparison out for your own site. Camzify is a cloud VMS priced per instance and
             quoted for your site;{' '}
             <Link href="/pricing" className={link}>how a Camzify quote is built</Link>{' '}
             is on the pricing page, and this guide covers the market around it.
@@ -189,7 +189,7 @@ export default function CloudVmsCostPage() {
               <h2 className="font-display text-2xl font-bold">How does Camzify price a cloud VMS?</h2>
               <div className="mt-4 max-w-prose space-y-4 text-muted-foreground">
                 <p>
-                  Camzify is priced per camera per month and quoted for your site or client
+                  Camzify is priced per instance per month and quoted for your site or client
                   portfolio. The platform modules come with the account, AI detections are licensed
                   per camera instance, and there is no hardware to buy.
                 </p>

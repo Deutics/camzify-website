@@ -25,7 +25,7 @@ const faqs = [
   { question: 'Do I have to choose one?', answer: "No. Many sites keep the tag system for the guard's own accountability and add the virtual round for the condition at each point. The two records line up by time." },
   { question: 'What does each record contain?', answer: 'A guard tour record: checkpoint ID and time. A virtual round record: each item, its result, the frame it was judged against, before and after frames on fixes, and a compliance percentage.' },
   { question: 'Which works without a guard on site?', answer: 'The virtual round. It runs on schedule with nobody in the loop and messages the guard designated for a camera when a check fails.' },
-  { question: 'How are they priced?', answer: "A guard tour system is priced per device and per guard; Camzify is priced per camera and quoted. Neither figure is on this page; the ROI calculator works the reader's side." },
+  { question: 'How are they priced?', answer: "A guard tour system is priced per device and per guard; Camzify is priced per instance per month and quoted. Neither figure is on this page; the ROI calculator works the reader's side." },
 ];
 
 export default function VirtualPatrollingVsGuardTourSystemsPage() {
@@ -54,7 +54,7 @@ export default function VirtualPatrollingVsGuardTourSystemsPage() {
                   { label: "Requires on-site staff", values: ["No — runs on existing cameras remotely", "Yes — requires a guard to walk the route"] },
                   { label: "False compliance risk", values: ["Low — AI checks the actual condition", "High — guard can tap tag and walk past"] },
                   { label: "Report quality", values: ["Camera snapshots, AI analysis, compliance %", "Timestamp + checkpoint ID"] },
-                  { label: "Cost", values: ["Per camera per month", "Per guard per shift + device costs"] },
+                  { label: "Cost", values: ["Per instance per month", "Per guard per shift + device costs"] },
                   { label: "Overnight capability", values: ["Runs continuously without staffing", "Requires overnight guard shift"] },
                 ]}
               />
@@ -68,7 +68,7 @@ export default function VirtualPatrollingVsGuardTourSystemsPage() {
                 Neither approach is universally better. The right choice depends on your facility size, risk profile, budget, and existing infrastructure. <a href="/virtual-patrolling" className="text-primary hover:underline">Virtual patrolling</a> is strongest where consistency, audit trails, and cost efficiency matter most — typically multi-site operations, after-hours coverage, and facilities where guard costs are the dominant security spend.
               </p>
               <p className="mt-4 max-w-prose text-muted-foreground">
-                Use the <Link href="/roi-calculator" className="text-primary hover:underline">ROI calculator</Link> to model the cost comparison for your specific scenario, or <Link href="/pricing" className="text-primary hover:underline">review pricing</Link> to understand the per-camera licensing model.
+                Use the <Link href="/roi-calculator" className="text-primary hover:underline">ROI calculator</Link> to model the cost comparison for your specific scenario, or <Link href="/pricing" className="text-primary hover:underline">review pricing</Link> to understand the per-instance licensing model.
               </p>
             </ScrollReveal>
           </div>

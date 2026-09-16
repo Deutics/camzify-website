@@ -37,7 +37,7 @@ const comparisonRows = [
   { feature: 'Risks flagged beyond the checklist', camzify: true, competitor: false, traditional: false },
   { feature: 'Scales across multiple sites', camzify: true, competitor: false, traditional: 'Partial' },
   { feature: 'Zero fatigue or human error', camzify: true, competitor: false, traditional: true },
-  { feature: 'Cost per site per month', camzify: 'Quoted per camera', competitor: '$3,000–$8,000', traditional: '$50–$200' },
+  { feature: 'Cost per site per month', camzify: 'Quoted per instance', competitor: '$3,000–$8,000', traditional: '$50–$200' },
 ];
 
 /**
@@ -280,7 +280,7 @@ export default function VirtualPatrollingPage() {
               <span className="font-mono text-mono-sm uppercase text-primary">How it compares</span>
               <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">Against a guard tour and against plain CCTV</h2>
               <p className="mt-5 max-w-prose text-body text-muted-foreground">
-                Guard-tour figures are order-of-magnitude industry estimates; Camzify is quoted per camera. If the term you know is <Link href="/virtual-guard" className="text-primary hover:underline">virtual guard</Link>, that page defines it.
+                Guard-tour figures are order-of-magnitude industry estimates; Camzify is quoted per instance. If the term you know is <Link href="/virtual-guard" className="text-primary hover:underline">virtual guard</Link>, that page defines it.
               </p>
             </div>
           </ScrollReveal>

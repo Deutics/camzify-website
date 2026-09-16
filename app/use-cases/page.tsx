@@ -28,7 +28,7 @@ const faqs = [
   },
   {
     question: 'Do I need different products for different use cases?',
-    answer: 'No. Every use case on this page runs on the same account: the same cameras, the same 23 detections licensed per camera, and the same virtual patrolling. What changes between them is configuration: which detections are enabled on which cameras, what the checklist at each stop asks, and who is notified when a check fails.',
+    answer: 'No. Every use case on this page runs on the same account: the same cameras, the same 23 detections licensed as instances per camera, and the same virtual patrolling. What changes between them is configuration: which detections are enabled on which cameras, what the checklist at each stop asks, and who is notified when a check fails.',
   },
   {
     question: 'Which use case should a first deployment start with?',

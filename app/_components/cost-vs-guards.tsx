@@ -18,7 +18,7 @@ import { ScrollReveal } from '@/components/motion/scroll-reveal';
 const rows = [
   { label: 'One guard, one 8-hour shift, every day', cost: '~$35,000/yr', width: '33%', tone: 'critical' },
   { label: '24/7 cover, three shifts', cost: '~$105,000/yr', width: '100%', tone: 'critical' },
-  { label: 'Camzify virtual patrolling', cost: 'Quoted per camera', width: '14%', tone: 'primary' },
+  { label: 'Camzify virtual patrolling', cost: 'Quoted per instance', width: '14%', tone: 'primary' },
 ];
 
 export function CostVsGuards() {
@@ -132,7 +132,7 @@ export function CostVsGuards() {
               </div>
               <p className="mt-8 border-t border-border pt-5 text-xs leading-relaxed text-muted-foreground">
                 Guard figures are order-of-magnitude estimates from published industry averages and
-                vary widely by market and contract. Camzify is licensed per camera per month, so the
+                vary widely by market and contract. Camzify is priced per instance per month, so the
                 comparable figure depends on your camera count rather than headcount, and the ROI
                 calculator works it out against your own site.
               </p>

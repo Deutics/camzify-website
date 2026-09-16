@@ -186,7 +186,7 @@ export function ROICalculator() {
           <div className="rounded-xl border border-border bg-card p-6">
             <p className="text-sm leading-relaxed text-muted-foreground">
               {mode === 'sites' ? (
-                <>These are your figures, not ours: what the routine round costs today and how many recorded rounds a schedule would run instead. Camzify is priced per camera and quoted for your site; we do not publish rates. <Link href="/contact" className="text-primary hover:underline">Ask for a quote</Link> with your camera count and the answer comes back against this number.</>
+                <>These are your figures, not ours: what the routine round costs today and how many recorded rounds a schedule would run instead. Camzify is priced per instance per month and quoted for your site; we do not publish rates. <Link href="/contact" className="text-primary hover:underline">Ask for a quote</Link> with your camera count and the answer comes back against this number.</>
               ) : (
                 <>Your price, your clients, your margin. Nothing here assumes what Camzify costs; that is quoted for your camera count so you can set your own rate against it. <Link href="/partners/for-security-agencies" className="text-primary hover:underline">How agencies sell it</Link> and <Link href="/partners/for-monitoring-centers" className="text-primary hover:underline">how monitoring companies run it</Link> cover the model.</>
               )}

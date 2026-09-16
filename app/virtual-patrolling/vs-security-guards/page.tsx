@@ -33,7 +33,7 @@ const rows = [
   { feature: 'PDF report per round', camzify: true, competitor: false, traditional: false },
   { feature: 'Scales across sites', camzify: 'Add cameras', competitor: 'Hire more guards', traditional: '-' },
   { feature: 'Physical response capability', camzify: 'Requires guard on call', competitor: true, traditional: false },
-  { feature: 'Monthly cost per site', camzify: 'Quoted per camera', competitor: '$3,000–$8,000+', traditional: '-' },
+  { feature: 'Monthly cost per site', camzify: 'Quoted per instance', competitor: '$3,000–$8,000+', traditional: '-' },
 ];
 
 const faqs = [

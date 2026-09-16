@@ -23,7 +23,7 @@ export const metadata = generatePageMeta({ ...pageMeta, type: 'article', publish
 const faqs = [
   { question: 'What does a guard tour system actually prove?', answer: 'That a guard reached a checkpoint at a time: a tag was scanned or a code was read. It does not prove what the guard saw or whether the condition at the checkpoint was in order.' },
   { question: 'Can virtual patrolling and a guard tour system run together?', answer: "Yes. Keep the tag system for the guard's own record and run the virtual round over the same points. The two records line up by time and either agree or do not, which is the point of guard tour verification." },
-  { question: 'Which is cheaper?', answer: 'They are not priced alike. A tag system is priced per device and per guard; a virtual round is priced per camera. The honest comparison is what each proves, and the comparison page sets that out.' },
+  { question: 'Which is cheaper?', answer: 'They are not priced alike. A tag system is priced per device and per guard; a virtual round is priced per instance per month. The honest comparison is what each proves, and the comparison page sets that out.' },
   { question: 'Is one better for compliance?', answer: 'A record with the frame behind each check is stronger evidence than a timestamp beside a checkpoint ID, and it exists whether or not a guard was on shift. Where a client asks for proof of the condition, not proof of presence, the virtual round is what answers.' },
 ];
 
