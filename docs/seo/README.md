@@ -73,3 +73,12 @@ patrolling cost guide and the sites-and-cameras how-to) used to state a per-came
 figure while newer pages say no such figure is published. The figure was removed and all
 four now describe the method (sum of the cameras' stream bitrates) and point at the
 bandwidth guide.
+
+## Pricing estimates (16 September 2026)
+
+The business now publishes approximate list rates per instance per month, before
+discounts, from one file (`lib/pricing-estimates.ts`). The pricing page carries an
+estimator and a quote request for the configuration it prices; the ROI calculator shows
+the same estimate against guard cost or partner price; the demo form can carry the
+configuration. llms.txt states the rates as approximate list rates only, and the
+SoftwareApplication schema carries an AggregateOffer with the low and high rate.

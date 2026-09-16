@@ -96,7 +96,7 @@ export default function AddingRemotePatrolsToAlarmMonitoringPage() {
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Pricing it beside the monitoring fee</h2>
               <div className="mt-4 max-w-prose space-y-4 text-muted-foreground">
-              <p>Camzify is priced per instance per month and quoted for your portfolio; we do not publish rates. Price the round to your client per site per month, separately from the monitoring fee, so the client can see what each buys. The <Link href="/roi-calculator#agency" className="text-primary hover:underline">agency mode of the ROI calculator</Link> takes your client count and your price and shows the recurring revenue; the quote comes back against it.</p>
+              <p>Camzify is priced per instance per month and quoted for your portfolio, below the list rates on the pricing page for an annual term. Price the round to your client per site per month, separately from the monitoring fee, so the client can see what each buys. The <Link href="/roi-calculator#agency" className="text-primary hover:underline">agency mode of the ROI calculator</Link> takes your client count and your price and shows the recurring revenue; the quote comes back against it.</p>
               </div>
             </ScrollReveal>
           </section>

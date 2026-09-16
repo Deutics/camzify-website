@@ -2,6 +2,7 @@ export const dynamic = 'force-dynamic';
 
 import { NextResponse } from 'next/server';
 import { sendLeadEmail } from '@/lib/lead-mail';
+import { describeEstimate } from '@/lib/pricing-estimates';
 
 /**
  * Lead capture. The submission is emailed to the team through ZeptoMail (lib/lead-mail.ts);
@@ -18,7 +19,16 @@ export async function POST(request: Request) {
       return NextResponse.json({ success: false, message: 'Name and email are required' }, { status: 400 });
     }
 
-    await sendLeadEmail('book-demo', { name, email, company, cameras }, email);
+    // Optional configuration from the form's estimate section; absent unless the visitor opened it.
+    const toNum = (v: unknown) => { const n = Number(v); return Number.isFinite(n) && n > 0 ? Math.floor(n) : 0; };
+    const hasConfig = data?.estimateCameras !== undefined;
+    const config = hasConfig
+      ? { cameras: toNum(data.estimateCameras), patrolCameras: toNum(data.patrolCameras), standardInstances: toNum(data.standardInstances), premiumInstances: toNum(data.premiumInstances), storageTb: toNum(data.storageTb) }
+      : null;
+    const configuration = config ? `${config.cameras} cameras; ${config.patrolCameras} on patrol rounds; ${config.standardInstances} standard detection instances; ${config.premiumInstances} premium detection instances; ${config.storageTb} TB storage` : undefined;
+    const estimate = config ? describeEstimate(config) : undefined;
+
+    await sendLeadEmail('book-demo', { name, email, company, cameras, configuration, estimate }, email);
 
     if (process.env.DATABASE_URL) {
       try {

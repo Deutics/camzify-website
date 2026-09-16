@@ -10,14 +10,14 @@ import Link from 'next/link';
  */
 const pageMeta = {
   title: "ROI Calculator | Guard Cost and Agency Revenue",
-  description: "Two calculators, your numbers only: what routine guard rounds cost a site operator today, and what remote patrols would earn an agency at its own price.",
+  description: "What routine guard rounds cost you today against a Camzify estimate at list rates, or what remote patrols would earn an agency against what it would pay.",
   path: "/roi-calculator",
 };
 
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
-  { question: 'Why does the calculator not show what Camzify costs?', answer: 'Because we do not publish prices. Camzify is priced per instance per month and quoted for your site or your client portfolio, so the honest calculation is the half that is yours: what routine rounds cost you today, or what remote patrols would earn you at the rate you set. The quote comes back against that figure.' },
+  { question: 'Is the Camzify figure a price?', answer: 'It is an estimate at approximate list rates, before discounts: a stream instance per camera, a patrol instance per camera on rounds, a detection instance per feature per camera, and storage per terabyte. Quotes are lower with an annual term and with more features per camera, and are set for your site, so treat the estimate as the upper end of what the quote will say.' },
   { question: 'Where do the guard cost figures come from?', answer: 'From you. Hours per week and hourly rate are sliders with your own numbers in them. The guard cost guide gives typical ranges by region if you want a reference, but nothing in the result is assumed on your behalf.' },
   { question: 'What is the agency mode for?', answer: 'For a guarding company or monitoring company that would sell remote patrols to its own clients. You enter the number of client sites, the price you would charge per site per month, and the hours you cannot staff today. The result is recurring revenue and the rounds delivered, with the margin left for you to set once you have a quote.' },
   { question: 'Does a scheduled round replace the guard?', answer: 'It replaces the routine walk, not the response. The rounds figure is how many recorded checks a schedule would run; someone still attends what fails. The security agencies page explains why that is the right framing for a guarding company.' },
@@ -29,12 +29,13 @@ export default function ROIPage() {
       <section className="pb-20">
         <div className="mx-auto max-w-site px-6">
           <div className="mx-auto max-w-2xl text-center">
-            <span className="font-mono text-mono-sm uppercase text-primary">Your numbers, not ours</span>
+            <span className="font-mono text-mono-sm uppercase text-primary">Your numbers against a list-rate estimate</span>
             <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">ROI calculator</h1>
             <p className="mt-6 text-body text-muted-foreground">
-              Running sites? See what routine guard rounds cost you today. Running a security
-              agency or a monitoring company? See what remote patrols would earn at your own
-              price. Results update as you move the sliders and nothing is sent anywhere.
+              Running sites? See what routine guard rounds cost you today, next to what the
+              configuration you would license costs at list rates. Running a security agency or a
+              monitoring company? See what remote patrols would earn at your own price against
+              what you would pay. Results update as you move the sliders and nothing is sent anywhere.
             </p>
           </div>
           <div className="mt-12">

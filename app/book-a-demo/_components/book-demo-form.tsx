@@ -2,14 +2,30 @@
 
 import Link from 'next/link';
 
+import { useState } from 'react';
 import { FormWrapper } from '@/components/system/form-wrapper';
-import { Loader2, ArrowRight } from 'lucide-react';
+import { EstimateFields, EstimateSummary, useEstimate } from '@/components/content/estimate-fields';
+import { Loader2, ArrowRight, ChevronDown } from 'lucide-react';
 
 export function BookDemoForm() {
+  const [withEstimate, setWithEstimate] = useState(false);
+  const { config, set } = useEstimate();
   return (
     <FormWrapper
       endpoint="/api/book-demo"
       successMessage="Demo request submitted. We will contact you within one business day to schedule your session."
+      onSubmit={(data) =>
+        withEstimate
+          ? {
+              ...data,
+              patrolCameras: String(config.patrolCameras),
+              standardInstances: String(config.standardInstances),
+              premiumInstances: String(config.premiumInstances),
+              storageTb: String(config.storageTb),
+              estimateCameras: String(config.cameras),
+            }
+          : data
+      }
     >
       {({ loading }: { loading: boolean }) => (
         <>
@@ -49,6 +65,23 @@ export function BookDemoForm() {
               <option value="65-200">65–200 cameras</option>
               <option value="200+">200+ cameras</option>
             </select>
+          </div>
+          <div className="rounded-xl border border-border bg-card/60 p-4">
+            <button
+              type="button"
+              onClick={() => setWithEstimate((v) => !v)}
+              aria-expanded={withEstimate}
+              aria-controls="demo-estimate"
+              className="flex w-full items-center justify-between gap-3 text-left text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              <span>Add your configuration for an estimate (optional)</span>
+              <ChevronDown className={`h-4 w-4 shrink-0 text-muted-foreground transition-transform ${withEstimate ? 'rotate-180' : ''}`} aria-hidden="true" />
+            </button>
+            <div id="demo-estimate" {...({ inert: withEstimate ? undefined : '' } as any)} className={withEstimate ? 'mt-4 space-y-4' : 'hidden'}>
+              <p className="text-xs text-muted-foreground">Counts only. We bring the estimate to the demo and the quote follows it, set for your site.</p>
+              <EstimateFields config={config} onChange={set} compact />
+              <EstimateSummary config={config} detailed={false} />
+            </div>
           </div>
           <button
             type="submit"

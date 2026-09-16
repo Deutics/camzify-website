@@ -3,7 +3,7 @@ import { siteConfig } from '@/lib/site-config';
 /*
  * Lead notification by email, through ZeptoMail (Zoho's transactional mail API).
  *
- * The four form endpoints call this first. Until the lead database is connected, the
+ * The five form endpoints call this first. Until the lead database is connected, the
  * email IS the record of the lead, so a failure here fails the request and the visitor
  * is told to try again or email us directly. When DATABASE_URL is present the routes
  * also write the row, non-fatally, so nothing changes here when the database arrives.
@@ -14,13 +14,14 @@ import { siteConfig } from '@/lib/site-config';
  * the public contact address). ZEPTOMAIL_API_URL only changes for the EU or India data
  * centres (api.zeptomail.eu, api.zeptomail.in).
  */
-export type LeadKind = 'contact' | 'book-demo' | 'free-trial' | 'newsletter';
+export type LeadKind = 'contact' | 'book-demo' | 'free-trial' | 'newsletter' | 'quote';
 
 const KIND_LABEL: Record<LeadKind, string> = {
   contact: 'Contact form',
   'book-demo': 'Demo request',
   'free-trial': 'Free trial request',
   newsletter: 'Newsletter subscription',
+  quote: 'Quote request',
 };
 
 export function mailConfigured(): boolean {
