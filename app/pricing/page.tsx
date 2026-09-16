@@ -3,8 +3,10 @@ import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { SectionVisual } from '@/components/content/section-visual';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { ProductShot } from '@/components/content/product-shot';
 import Link from 'next/link';
-import { Camera, Cpu, HardDrive, Users, Building2, Calculator, ArrowRight, MessageSquare } from 'lucide-react';
+import { Camera, Cpu, HardDrive, Users, Building2, MessageSquare } from 'lucide-react';
 import { QuoteEstimator } from '@/components/content/quote-estimator';
 
 /**
@@ -59,30 +61,37 @@ const faqs = [
 export default function PricingPage() {
   return (
     <PageShell {...pageMeta} faqs={faqs} breadcrumbs={[{ label: 'Pricing' }]}>
+      <FeatureHero
+        eyebrow="Pricing"
+        title="Pay per instance, per month, for what you switch on"
+        lede={
+          <>
+            <strong className="font-semibold text-foreground">
+              Camzify is priced per instance per month and quoted for your site, from $5 per camera.
+            </strong>{' '}
+            A stream instance for every camera, a detection instance for every AI feature on it, a
+            patrol instance for every camera on rounds, and cloud storage per terabyte. The platform
+            comes with the account, and the quote comes in lower for an annual term or more features
+            per camera.
+          </>
+        }
+        facts={['From $5 per camera per month', 'Motion and tampering detection included', 'Quote within one business day']}
+        primary={{ href: '#quote', label: 'Build your configuration and get a quote' }}
+        secondary={{ href: '/roi-calculator', label: 'Run your numbers first' }}
+        visual={
+          <ProductShot
+            src="/product-license-plan"
+            alt="The Plan and Usage screen in the Camzify console: instances per feature type, how many are activated, granted to sub-users and available, and the storage pool"
+            label="Plan and usage in the console"
+            priority
+            sizes="(max-width: 1024px) 100vw, 45vw"
+          />
+        }
+      />
+
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <div className="mx-auto max-w-2xl text-center">
-            <span className="font-mono text-mono-sm uppercase text-primary">From $5 a camera a month, quoted for your site</span>
-            <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Pricing</h1>
-            <p className="mt-6 text-body text-muted-foreground">
-              <strong className="font-semibold text-foreground">Camzify is priced per instance per month and quoted for your site.</strong>{' '}
-              It starts from $5 per camera per month for a stream instance, with motion and camera
-              tampering detection included. A detection instance for every AI feature on a camera, a
-              patrol instance for every camera on rounds, and cloud storage per terabyte make up the
-              rest, and the quote comes in lower for an annual term or more features per camera.
-              Build your configuration below and the quote comes back within one business day.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-              <Link href="#quote" className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:bg-primary/90">
-                Build your configuration and get a quote <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </Link>
-              <Link href="/roi-calculator" className="inline-flex items-center gap-2 rounded-lg border border-border px-7 py-3.5 text-sm font-semibold transition-all hover:bg-accent hover:border-primary/30">
-                <Calculator className="h-4 w-4" aria-hidden="true" /> Run your numbers first
-              </Link>
-            </div>
-          </div>
-
-          <div className="mt-16">
+          <div>
             <ScrollReveal>
               <span className="font-mono text-mono-sm uppercase text-primary">What a quote is built from</span>
               <h2 className="mt-2 font-display text-2xl font-bold sm:text-3xl">Six things, all of them yours to count</h2>
