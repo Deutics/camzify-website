@@ -68,7 +68,8 @@ all on-site; link building is the business's side and is not covered here.
    bandwidth figure. Search volumes for their long-tail phrases read "no data" because
    DataForSEO was still returning 402; rerun the map when credit is back.
 
-Known inconsistency left for the business: four older pages (the Connector page, remote
-sites, the virtual patrolling cost guide and the sites-and-cameras how-to) state a
-per-camera upload figure, while the DVR-theft use case and the new guides say no such
-figure is published. Decide which is right and align the four pages.
+Resolved the same day: four older pages (the Connector page, remote sites, the virtual
+patrolling cost guide and the sites-and-cameras how-to) used to state a per-camera upload
+figure while newer pages say no such figure is published. The figure was removed and all
+four now describe the method (sum of the cameras' stream bitrates) and point at the
+bandwidth guide.

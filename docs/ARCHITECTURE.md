@@ -77,7 +77,7 @@ There is **no CMS**. Copy lives as TypeScript objects inside each `page.tsx` —
 feature lists, comparison rows, deployment phases. Editing content means editing React.
 
 Pages are written by hand from the templates in [`ADDING-PAGES.md`](ADDING-PAGES.md).
-Two silos share a renderer rather than a template: the 22 use-case pages each export a
+Two silos share a renderer rather than a template: the 35 use-case pages each export a
 `UseCaseContent` object and hand it to `UseCasePage`, and every AI-feature, industry,
 platform, virtual-patrolling and pillar page opens with `FeatureHero`. FAQs everywhere
 go through `FaqSection`, which is the only FAQ treatment on the site.

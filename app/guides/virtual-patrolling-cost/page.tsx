@@ -67,7 +67,7 @@ export default function VirtualPatrollingCostPage() {
           <section className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Hidden costs to consider</h2>
-              <div className="mt-4 max-w-prose space-y-4 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `Internet bandwidth (2-4 Mbps per camera), the Camzify Connector for sites with local-only cameras, and any additional camera hardware if existing cameras lack ONVIF/RTSP support. These are typically minor compared to the guard cost savings.` }} />
+              <div className="mt-4 max-w-prose space-y-4 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `Upstream internet bandwidth for the cameras you stream, which is the sum of their bitrates (see the <a href="/guides/cloud-vms-bandwidth-requirements">bandwidth guide</a>), the Camzify Connector for sites with local-only cameras, and any additional camera hardware if existing cameras lack ONVIF/RTSP support. These are typically minor compared to the guard cost savings.` }} />
             </ScrollReveal>
           </section>
 
