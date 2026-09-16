@@ -42,7 +42,7 @@ export default function Page() {
             the moment they start, so a response can begin in real time instead of after footage is reviewed.</>}
         facts={['Rapid, aggressive multi-person body movement consistent with…', 'Sustained pushing, striking, or grappling between confirmed…', 'Escalating confrontations in queues, entrances, and common areas']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
-        secondary={{ href: '/ai-features', label: 'All 22 detections' }}
+        secondary={{ href: '/ai-features', label: 'All 23 detections' }}
         visual={<PhotoFigure src="/feature-aggression-and-fight-detection-1.webp" alt="The console live view with a aggression and fight alert drawn on the camera frame" caption="Aggression & fight detection" priority />}
       />
 
@@ -139,6 +139,10 @@ export default function Page() {
                 Aggression detection runs continuously rather than only during scheduled checks, but an event
                 during an active <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrol</Link> round
                 is logged immediately as a critical non-compliance event in the patrol report.
+              </p>
+              <p className="mt-4 max-w-prose text-muted-foreground">
+                The footage around each alert is kept under the camera&apos;s own retention window on{' '}
+                <Link href="/cloud-video-surveillance" className="text-primary hover:underline">cloud video surveillance</Link>, so the clip and the recording it came from are on one account.
               </p>
             </ScrollReveal>
           </div>

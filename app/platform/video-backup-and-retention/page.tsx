@@ -42,7 +42,7 @@ export default function Page() {
       <FeatureHero
         eyebrow="Off-Site, Even When The Hardware Isn't"
         title="Cloud video backup & retention management"
-        lede={<><strong className="font-semibold text-foreground">Footage stays safe in the cloud, even if the on-site hardware doesn't.</strong> Camzify lets you set per-camera retention policies by days or GB cap, with bulk application per site. The system shows projected storage usage, enables playback and multi-camera comparison, and manages storage allocation across sub-accounts — so a broken or stolen NVR never means lost evidence.</>}
+        lede={<><strong className="font-semibold text-foreground">Footage stays safe in the cloud, even if the on-site hardware doesn't.</strong> Camzify lets you set per-camera retention policies by days or GB cap, with bulk application per site. The system shows projected storage usage, enables playback and multi-camera comparison, and manages storage allocation across sub-accounts — so a broken or stolen NVR never means lost evidence. It is the recording layer of <Link href="/cloud-video-surveillance" className="text-primary hover:underline">cloud video surveillance</Link> on Camzify.</>}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/guides/how-to-configure-cloud-video-backup', label: 'How to configure backup' }}
         visual={<ProductShot

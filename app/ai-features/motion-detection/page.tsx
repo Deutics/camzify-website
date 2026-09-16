@@ -45,7 +45,7 @@ export default function Page() {
         lede={<><strong className="font-semibold text-foreground">Motion detection uses background-subtraction analysis to identify meaningful movement in the camera view while filtering out camera noise, lighting shifts, and environmental changes.</strong> Unlike legacy pixel-based motion detection, which generates an estimated 90% false alarm rate across the industry, Camzify applies intelligent filtering to separate real activity from noise.</>}
         facts={['Vehicles entering a driveway or parking area after hours', 'People walking through a loading zone during closed hours', 'Package or equipment movement in a storage area']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
-        secondary={{ href: '/ai-features', label: 'All 22 detections' }}
+        secondary={{ href: '/ai-features', label: 'All 23 detections' }}
         visual={<div className="overflow-hidden rounded-xl bg-card">
               <SiteImage
               src="/motion-detection-1.jpg"
@@ -175,6 +175,7 @@ export default function Page() {
               <h3 className="font-display text-lg font-bold">Related</h3>
               <div className="mt-4 flex flex-wrap justify-center gap-2">
               <Link href="/ai-features" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">All AI Features</Link>
+              <Link href="/cloud-video-surveillance" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Cloud Video Surveillance</Link>
               <Link href="/virtual-patrolling" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Virtual Patrolling</Link>
               <Link href="/industries/warehouses" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Warehouses</Link>
               <Link href="/industries/retail" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Retail</Link>

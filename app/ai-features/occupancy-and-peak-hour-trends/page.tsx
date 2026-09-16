@@ -42,7 +42,7 @@ export default function Page() {
             and zones automatically from live camera counts, so staffing and planning decisions aren't guesswork.</>}
         facts={['Live occupancy counts per camera, zone, or site', 'Historical peak-hour and peak-day trends over time', 'Zone-by-zone comparison across a single site']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
-        secondary={{ href: '/ai-features', label: 'All 22 detections' }}
+        secondary={{ href: '/ai-features', label: 'All 23 detections' }}
         visual={<PhotoFigure src="/feature-occupancy-and-peak-hour-trends-1.webp" alt="The console live view with a occupancy and peak-hour alert drawn on the camera frame" caption="Occupancy & peak hour trends" priority />}
       />
 
@@ -135,6 +135,10 @@ export default function Page() {
                 Occupancy tracking runs as continuous background analytics rather than a per-camera checklist
                 item during a <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrol</Link> round,
                 but occupancy trends for a patrolled site are visible alongside that site's patrol reports.
+              </p>
+              <p className="mt-4 max-w-prose text-muted-foreground">
+                The footage around each alert is kept under the camera&apos;s own retention window on{' '}
+                <Link href="/cloud-video-surveillance" className="text-primary hover:underline">cloud video surveillance</Link>, so the clip and the recording it came from are on one account.
               </p>
             </ScrollReveal>
           </div>

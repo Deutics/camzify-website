@@ -27,7 +27,16 @@ its capability; a render set in the actual setting would make the page its own.
 | /use-cases/cloud-video-backup-against-dvr-theft | A ransacked back office with the recorder gone, beside the cloud backup screen still holding the footage |
 | /use-cases/one-live-wall-for-every-brand-and-location | A live wall mixing camera brands and sites, each tile labeled with site and brand |
 
-## 2. Pages that still have no image at all (a designed visual would help)
+## 2. Loitering detection: three more figures (1)
+
+The feature shipped and its page now has the full feature layout, but only image 1 (the
+hero render) was ever supplied, so the sections below the hero run without figures.
+
+| Page | What to show |
+|---|---|
+| /ai-features/loitering-detection | Image 2: a sequence of frames from one camera in which a person stays in a drawn zone while the dwell timer counts up to the alert. Image 3: the configuration panel with a loitering zone drawn and the dwell-time and notification-window controls. Image 4: camera scenes where it applies: a rear entrance after closing, an ATM lobby, a fence line with a parked vehicle |
+
+## 3. Pages that still have no image at all (a designed visual would help)
 
 | Page | What to show |
 |---|---|

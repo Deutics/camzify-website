@@ -9,13 +9,13 @@ import { Stagger, StaggerItem } from '@/components/motion/stagger';
  * navigation uses.
  *
  * This section previously showed six of them and claimed six was the total, which
- * contradicted the navigation, /llms.txt and the 23 feature pages. Listing all 21
- * corrects that, and it puts fifteen more internal links on the highest-authority
- * page on the site.
+ * contradicted the navigation, /llms.txt and the feature pages. Listing every model
+ * corrects that, and it puts more internal links on the highest-authority page on the
+ * site. The heading count is derived from `groups`, so adding a model here is enough.
  *
  * `featured` marks the six with the deepest pages — they get a card each; the rest
  * render as a dense linked list so the section stays scannable rather than becoming
- * a wall of 21 identical cards.
+ * a wall of identical cards.
  */
 const featured = [
   {
@@ -56,6 +56,7 @@ const groups = [
     items: [
       ['Line Intrusion Detection', '/ai-features/line-intrusion-detection'],
       ['Zone Intrusion Detection', '/ai-features/zone-intrusion-detection'],
+      ['Loitering Detection', '/ai-features/loitering-detection'],
       ['Motion Detection', '/ai-features/motion-detection'],
       ['Tailgating Detection', '/ai-features/tailgating-detection'],
     ],
@@ -158,10 +159,10 @@ export function DetectionGrid() {
           <div className="mt-16 rounded-2xl border border-border bg-card/40 p-8 sm:p-10">
             <h3 className="font-display text-xl font-bold">The full detection set</h3>
             <p className="mt-2 max-w-prose text-sm text-muted-foreground">
-              Grouped the way the platform groups them. One further model, loitering
-              detection, is in development and marked as such on its page; the{' '}
+              Grouped the way the platform groups them. Every model listed here ships
+              today; the{' '}
               <Link href="/roadmap" className="text-primary hover:underline">roadmap</Link> lists
-              what else is coming.
+              what is coming next.
             </p>
             <div className="mt-8 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
               {groups.map((g) => (

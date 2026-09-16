@@ -42,7 +42,7 @@ export default function Page() {
         lede={<><strong className="font-semibold text-foreground">Zone intrusion detection defines polygonal restricted zones in the camera view.</strong> Any confirmed object track entering the zone triggers an alert, regardless of how or from which direction the object entered the frame. This is ideal for restricted areas, server rooms, and hazardous zones.</>}
         facts={['Anyone entering a restricted server room or electrical closet', 'A forklift or vehicle entering a pedestrian-only zone', 'Personnel present in a hazardous or chemical storage area']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
-        secondary={{ href: '/ai-features', label: 'All 22 detections' }}
+        secondary={{ href: '/ai-features', label: 'All 23 detections' }}
         visual={<PhotoFigure src="/feature-zone-intrusion-detection-1.webp" alt="The console live view with a zone intrusion alert drawn on the camera frame" caption="Zone intrusion detection" priority />}
       />
 
@@ -158,6 +158,7 @@ export default function Page() {
               <h3 className="font-display text-lg font-bold">Related</h3>
               <div className="mt-4 flex flex-wrap justify-center gap-2">
               <Link href="/ai-features" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">All AI Features</Link>
+              <Link href="/cloud-video-surveillance" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Cloud Video Surveillance</Link>
               <Link href="/virtual-patrolling" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Virtual Patrolling</Link>
               <Link href="/industries/warehouses" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Warehouses</Link>
               <Link href="/industries/retail" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Retail</Link>

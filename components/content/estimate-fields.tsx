@@ -1,0 +1,96 @@
+'use client';
+
+import { useState } from 'react';
+import type { EstimateInput } from '@/lib/pricing-estimates';
+
+/*
+ * The five configuration inputs shared by the pricing page quote request and the demo
+ * form. No figure is shown to the visitor: the counts travel with the form, and the
+ * server works out the list-rate estimate for the team's lead email only. The inputs
+ * carry no `name` on purpose; the surrounding form merges the values in its onSubmit,
+ * which keeps them from colliding with the demo form's own "cameras" field and from
+ * submitting while the section is collapsed.
+ */
+export const DEFAULT_CONFIG: EstimateInput = { cameras: 20, patrolCameras: 10, standardInstances: 10, premiumInstances: 0, storageTb: 4 };
+
+const FIELDS: { key: keyof EstimateInput; label: string; hint: string; max: number }[] = [
+  { key: 'cameras', label: 'Cameras to connect', hint: 'A stream instance each. Motion detection and camera tampering detection are included.', max: 5000 },
+  { key: 'patrolCameras', label: 'Cameras on patrol rounds', hint: 'A virtual patrolling instance each, for manual and automated rounds.', max: 5000 },
+  { key: 'standardInstances', label: 'Detection instances', hint: 'Intrusion, loitering, PPE, parking and the rest. One instance is one feature on one camera.', max: 20000 },
+  { key: 'premiumInstances', label: 'Behavioral anomaly or weapons instances', hint: 'One per camera that carries either feature.', max: 5000 },
+  { key: 'storageTb', label: 'Cloud storage (TB)', hint: 'Spent as you set retention per camera or per site.', max: 10000 },
+];
+
+export function useEstimateConfig(initial: EstimateInput = DEFAULT_CONFIG) {
+  const [config, setConfig] = useState<EstimateInput>(initial);
+  const set = (key: keyof EstimateInput, value: number) => setConfig((c) => ({ ...c, [key]: value }));
+  return { config, set };
+}
+
+/** The configuration as form fields, for the onSubmit merge. */
+export function configFields(config: EstimateInput): Record<string, string> {
+  return {
+    cameras: String(config.cameras),
+    patrolCameras: String(config.patrolCameras),
+    standardInstances: String(config.standardInstances),
+    premiumInstances: String(config.premiumInstances),
+    storageTb: String(config.storageTb),
+  };
+}
+
+/** The configuration as a visitor reads it back: the lines a quote will carry. */
+export function summaryLines(config: EstimateInput): { label: string; qty: number }[] {
+  return [
+    { label: 'camera stream instances', qty: config.cameras },
+    { label: 'virtual patrolling instances', qty: config.patrolCameras },
+    { label: 'detection instances', qty: config.standardInstances },
+    { label: 'behavioral anomaly or weapons instances', qty: config.premiumInstances },
+    { label: 'TB of cloud storage', qty: config.storageTb },
+  ];
+}
+
+export function ConfigSummary({ config, heading = 'The quote will cover' }: { config: EstimateInput; heading?: string }) {
+  const lines = summaryLines(config);
+  const empty = lines.every((l) => l.qty === 0);
+  return (
+    <div className="rounded-xl border border-primary/30 bg-primary/5 p-4" aria-live="polite">
+      <p className="font-mono text-mono-sm uppercase text-primary">{heading}</p>
+      {empty ? (
+        <p className="mt-2 text-sm text-muted-foreground">Enter at least one count to build a configuration.</p>
+      ) : (
+        <ul className="mt-3 space-y-1.5">
+          {lines.filter((l) => l.qty > 0).map((l) => (
+            <li key={l.label} className="flex items-baseline gap-3 text-sm">
+              <span className="w-14 shrink-0 text-right font-display text-base font-bold tabular-nums text-foreground">{l.qty.toLocaleString('en-US')}</span>
+              <span className="text-muted-foreground">{l.label}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+      <p className="mt-3 text-xs leading-relaxed text-muted-foreground">Updates as you change the counts. Motion and camera tampering detection come with every stream instance.</p>
+    </div>
+  );
+}
+
+export function EstimateFields({ config, onChange, compact = false }: { config: EstimateInput; onChange: (key: keyof EstimateInput, value: number) => void; compact?: boolean }) {
+  return (
+    <div className="grid gap-4 sm:grid-cols-2">
+      {FIELDS.map((f) => (
+        <div key={f.key}>
+          <label htmlFor={`est-${f.key}`} className="text-sm font-medium">{f.label}</label>
+          <input
+            id={`est-${f.key}`}
+            type="number"
+            inputMode="numeric"
+            min={0}
+            max={f.max}
+            value={config[f.key]}
+            onChange={(e) => onChange(f.key, Math.max(0, Math.min(f.max, Number(e.target.value) || 0)))}
+            className="mt-1.5 w-full rounded-lg border border-border bg-background px-4 py-3 text-sm tabular-nums focus:border-primary focus:ring-1 focus:ring-primary"
+          />
+          {!compact && <p className="mt-1 text-xs leading-snug text-muted-foreground">{f.hint}</p>}
+        </div>
+      ))}
+    </div>
+  );
+}

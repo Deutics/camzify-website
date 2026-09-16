@@ -14,7 +14,7 @@ import { ProductShot } from '@/components/content/product-shot';
  */
 const pageMeta = {
   title: "AI Video Analytics Cost | Pricing Guide",
-  description: "What does AI video analytics cost? Per-camera pricing models, cloud vs on-premise, and how to evaluate ROI for your security budget.",
+  description: "What does AI video analytics cost? Per-instance and per-camera pricing models, cloud vs on-premise, and how to evaluate ROI for your security budget.",
   path: "/guides/ai-video-analytics-cost",
 };
 
@@ -29,7 +29,7 @@ const faqs = [
 
 export default function AiVideoAnalyticsCostPage() {
   return (
-    <PageShell {...pageMeta} faqs={faqs} schema={[articleSchema({ headline: "AI Video Analytics Cost", description: "What does AI video analytics cost? Per-camera pricing models, cloud vs on-premise, and how to evaluate ROI for your security budget.", path: "/guides/ai-video-analytics-cost", datePublished: '2026-08-31', dateModified: '2026-08-31' }), personSchema()]} breadcrumbs={[
+    <PageShell {...pageMeta} faqs={faqs} schema={[articleSchema({ headline: "AI Video Analytics Cost", description: "What does AI video analytics cost? Per-instance and per-camera pricing models, cloud vs on-premise, and how to evaluate ROI for your security budget.", path: "/guides/ai-video-analytics-cost", datePublished: '2026-08-31', dateModified: '2026-08-31' }), personSchema()]} breadcrumbs={[
       { label: 'Guides', href: '/guides' },
       { label: 'AI Video Analytics Cost' },
     ]}>

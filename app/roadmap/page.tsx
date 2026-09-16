@@ -4,7 +4,7 @@ import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { RoadmapBadge } from '@/components/content/roadmap-badge';
 import Link from 'next/link';
-import { Clock, Brain, Smartphone } from 'lucide-react';
+import { Smartphone } from 'lucide-react';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -13,19 +13,19 @@ import { Clock, Brain, Smartphone } from 'lucide-react';
  */
 const pageMeta = {
   title: "Product Roadmap | Upcoming Features",
-  description: "What Camzify is building next and what shipped recently, marked honestly: mobile apps and loitering detection in development, nothing planned called current.",
+  description: "What Camzify is building next and what shipped recently, marked honestly: native mobile apps in development, nothing planned called current.",
   path: "/roadmap",
 };
 
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const roadmapItems = [
-  { title: 'Loitering Detection', href: '/ai-features/loitering-detection', icon: Clock, status: 'In Development', desc: 'Detect when a person or vehicle remains in a defined area beyond a configured dwell time. This addresses a common security gap, someone lingering near a fence line, ATM, or restricted entrance.' },
   { title: 'Camzify Mobile Apps', href: '/platform/mobile-access', icon: Smartphone, status: 'In Development', desc: 'Native iOS and Android apps for live streams, push alerts and patrol reviews on the go. Not yet released, mobile access today is the responsive browser interface, which will remain available after the apps ship.' },
-  // Forensic video search used to sit here as "Planned". It shipped as AI Suspect
-  // Search (/ai-features/forensic-video-search) and is counted among the 22 live
-  // models, so listing it as future work contradicted the feature page, the detection
-  // grid and /llms.txt at once.
+  // Forensic video search used to sit here as "Planned" and loitering detection as "In
+  // Development". Both shipped (as AI Suspect Search at /ai-features/forensic-video-search
+  // and at /ai-features/loitering-detection) and are counted among the 23 live models, so
+  // listing either as future work contradicted the feature page, the detection grid and
+  // /llms.txt at once.
 ];
 
 const faqs = [
@@ -33,6 +33,7 @@ const faqs = [
   { question: 'When will the mobile apps ship?', answer: "They are in development. We do not publish dates, because a date on a website becomes a promise on a contract. Mobile access today runs in the phone's browser with nothing to install." },
   { question: 'Can I ask for a feature?', answer: 'Yes, through the contact page. Requests that recur from several customers are what moves an item onto this page.' },
   { question: 'Why was forensic video search removed from the roadmap?', answer: 'Because it shipped as AI suspect search: a plain-language description returns matching appearances across cameras, without facial recognition. It has its own feature page now.' },
+  { question: 'Why was loitering detection removed from the roadmap?', answer: 'Because it shipped. It alerts when a person or vehicle stays in a defined zone beyond a dwell time you set, runs on the same cameras as every other detection, and has its own feature page.' },
 ];
 
 export default function RoadmapPage() {

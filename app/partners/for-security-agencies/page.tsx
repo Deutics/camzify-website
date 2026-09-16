@@ -166,6 +166,8 @@ export default function ForSecurityAgenciesPage() {
                 <Link href="/platform/permission-groups" className="text-primary hover:underline">permission groups</Link>,
                 or the walkthrough at{' '}
                 <Link href="/guides/how-to-manage-sub-users-and-quotas" className="text-primary hover:underline">managing sub-users and quotas</Link>.
+                The longer read on running a monitored video service on the cameras your clients already own is{' '}
+                <Link href="/guides/cloud-vms-for-security-agencies" className="text-primary hover:underline">cloud VMS for security agencies</Link>.
               </p>
             </ScrollReveal>
           </div>

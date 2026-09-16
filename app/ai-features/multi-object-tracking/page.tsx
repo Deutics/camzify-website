@@ -42,7 +42,7 @@ export default function Page() {
         lede={<><strong className="font-semibold text-foreground">Multi-object tracking maintains persistent identity for every subject in the camera view.</strong> Each tracked object gets a unique track ID that survives brief occlusions — when a person walks behind a pillar and reappears, the system recognizes it as the same subject. This is the foundation that makes line and zone intrusion detection accurate.</>}
         facts={['A unique, persistent track ID for every subject in frame', 'Continuous identity through brief occlusions and re-entries', 'The confirmed-track input that line and zone intrusion rules…']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
-        secondary={{ href: '/ai-features', label: 'All 22 detections' }}
+        secondary={{ href: '/ai-features', label: 'All 23 detections' }}
         visual={<PhotoFigure src="/feature-multi-object-tracking-1.webp" alt="The console live view with a multi-object tracking alert drawn on the camera frame" caption="Multi-object tracking" priority />}
       />
 
@@ -149,6 +149,7 @@ export default function Page() {
               <h3 className="font-display text-lg font-bold">Related</h3>
               <div className="mt-4 flex flex-wrap justify-center gap-2">
               <Link href="/ai-features" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">All AI Features</Link>
+              <Link href="/cloud-video-surveillance" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Cloud Video Surveillance</Link>
               <Link href="/virtual-patrolling" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Virtual Patrolling</Link>
               <Link href="/industries/warehouses" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Warehouses</Link>
               <Link href="/industries/retail" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Retail</Link>

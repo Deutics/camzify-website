@@ -17,7 +17,7 @@ import Link from 'next/link';
  */
 const pageMeta = {
   title: "Intelligent Video Analytics | AI Detection Features",
-  description: "20 live AI detection features. Intrusion, tailgating, weapons, PPE, fire and smoke, slip and fall, vehicle and parking, occupancy analytics, and more.",
+  description: "23 live AI detection features. Intrusion, loitering, tailgating, weapons, PPE, fire and smoke, slip and fall, vehicle and parking, and more.",
   path: "/ai-features",
 };
 
@@ -26,6 +26,7 @@ export const metadata = generatePageMeta({ ...pageMeta });
 const liveDetections = [
   { icon: <Crosshair className="h-5 w-5" />, title: 'Line Intrusion Detection', desc: 'Virtual tripwire across any area with directional control. Fires on confirmed object tracks, not pixel motion.', href: '/ai-features/line-intrusion-detection' },
   { icon: <Shield className="h-5 w-5" />, title: 'Zone Intrusion Detection', desc: 'Polygonal restricted zones. Any confirmed object track entering triggers an alert regardless of entry direction.', href: '/ai-features/zone-intrusion-detection' },
+  { icon: <ClockIcon className="h-5 w-5" />, title: 'Loitering Detection', desc: 'A person or vehicle that stays in a zone beyond a dwell time you set. Brief visits ignored, lingering subjects raised.', href: '/ai-features/loitering-detection' },
   { icon: <Activity className="h-5 w-5" />, title: 'Motion Detection', desc: 'Background-subtraction detection that filters camera noise, lighting shifts, and environmental change.', href: '/ai-features/motion-detection' },
   { icon: <Camera className="h-5 w-5" />, title: 'Camera Tampering Detection', desc: 'Five modes: sudden defocus, physical coverage, rapid scene change, abnormal brightness shift, frozen frames.', href: '/ai-features/camera-tampering-detection' },
   { icon: <Users className="h-5 w-5" />, title: 'Multi-Object Tracking', desc: 'Persistent track identity per subject. Survives brief occlusions and re-entries with clean track histories.', href: '/ai-features/multi-object-tracking' },
@@ -35,6 +36,7 @@ const liveDetections = [
   { icon: <DoorClosed className="h-5 w-5" />, title: 'Tailgating Detection', desc: 'One badge, one person. Flags a second person entering on a single access credential.', href: '/ai-features/tailgating-detection' },
   { icon: <ShieldAlert className="h-5 w-5" />, title: 'Weapons Detection', desc: 'Visible weapons flagged the moment they enter frame, before a threat escalates.', href: '/ai-features/weapons-detection' },
   { icon: <Swords className="h-5 w-5" />, title: 'Aggression & Fight Detection', desc: 'Physical altercations flagged the moment they start, not after someone reviews the footage.', href: '/ai-features/aggression-and-fight-detection' },
+  { icon: <Eye className="h-5 w-5" />, title: 'Behavioral Anomaly Detection', desc: 'Describe the behavior to watch for in plain language, fights, smoking, vandalism, trespassing, and it monitors for exactly that.', href: '/ai-features/behavioral-anomaly-detection' },
   { icon: <HardHat className="h-5 w-5" />, title: 'PPE Violation Detection', desc: 'Missing helmets, vests, or gloves flagged automatically against your site’s required PPE policy.', href: '/ai-features/ppe-violation-detection' },
   { icon: <Flame className="h-5 w-5" />, title: 'Fire & Smoke Detection', desc: 'Visual smoke and flame spotted directly from camera feeds, often before a heat sensor would trigger.', href: '/ai-features/fire-and-smoke-detection' },
   { icon: <PersonStanding className="h-5 w-5" />, title: 'Slip & Fall Detection', desc: 'Falls detected in real time and routed to the nearest guard, before they become a liability claim.', href: '/ai-features/slip-and-fall-detection' },
@@ -47,15 +49,10 @@ const liveDetections = [
   { icon: <TrendingUp className="h-5 w-5" />, title: 'Occupancy & Peak Hour Trends', desc: 'Busiest hours and zones identified automatically from live camera counts, not guesswork.', href: '/ai-features/occupancy-and-peak-hour-trends' },
 ];
 
-const roadmapDetections = [
-  { icon: <ClockIcon className="h-5 w-5" />, title: 'Loitering Detection', desc: 'Configurable dwell-time threshold. Brief entries ignored, lingering subjects escalate. In development.', href: '/ai-features/loitering-detection' },
-  { icon: <Eye className="h-5 w-5" />, title: 'Behavioral Anomaly Detection', desc: 'Describe the behavior to watch for in plain language, fights, smoking, vandalism, trespassing, and it monitors for exactly that.', href: '/ai-features/behavioral-anomaly-detection' },
-];
-
 const faqs = [
   { question: 'Do I have to license every detection?', answer: 'No. AI features are licensed per camera instance, so each camera carries only the detections it uses. Most sites start with intrusion, zones and camera tampering and add by camera.' },
   { question: 'What do all the detections have in common?', answer: 'They fire on confirmed object tracks from multi-object tracking, not on pixel change, and every alert carries a snapshot or clip, a confidence score, and a notification window per camera. None of them identifies people.' },
-  { question: 'Which detections are not yet available?', answer: 'Loitering detection is in development and is marked as such on its page and on the roadmap. Everything else on this page ships today.' },
+  { question: 'Which detections are not yet available?', answer: 'Every detection on this page ships today, loitering detection included. The only roadmap item is the native mobile apps, listed on the roadmap page; mobile access today is the browser.' },
   { question: 'How do detections relate to patrol rounds?', answer: 'A round checks conditions on a schedule; detections watch continuously between rounds. On an automated round the AI also raises a critical notification for a risk it sees that the checklist did not ask about.' },
 ];
 
@@ -66,7 +63,7 @@ export default function DetectionHubPage() {
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Intelligent video analytics, feature by feature</h1>
           <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            Camzify ships 20 AI detection features that run on your existing cameras. Each fires on confirmed
+            Camzify ships 23 AI detection features that run on your existing cameras. Each fires on confirmed
             object tracks, not shadows, not lighting shifts, not camera noise. Every detection integrates
             directly into <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrol</Link> rounds. New to the field? Start with <Link href="/guides/what-is-intelligent-video-analytics" className="text-primary hover:underline">what intelligent video analytics is</Link>.
           </p>
@@ -82,17 +79,6 @@ export default function DetectionHubPage() {
             </div>
           </div>
 
-          <div className="mt-16">
-            <h2 className="font-display text-2xl font-bold">On the roadmap</h2>
-            <p className="mt-2 text-muted-foreground">These features are in development or planned. They are not yet available in production.</p>
-            <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {(roadmapDetections ?? []).map((d: any, i: number) => (
-                <ScrollReveal key={i} delay={i * 0.06}>
-                  <FeatureCard icon={d?.icon} title={d?.title ?? ''} description={d?.desc ?? ''} href={d?.href ?? '/'} isRoadmap image={{ src: `/feature-${(d?.href ?? '').split('/').pop()}-1.webp`, alt: `${d?.title ?? ''} in the console live view` }} />
-                </ScrollReveal>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
       <FaqSection items={faqs} />

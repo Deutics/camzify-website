@@ -79,8 +79,12 @@ export default function CamzifyConnectorPage() {
                 <li>• Windows, macOS, or Linux</li>
                 <li>• Network access to the cameras (same LAN or VLAN)</li>
                 <li>• Outbound internet access (HTTPS, no inbound ports required)</li>
-                <li>• 2-4 Mbps upload bandwidth per camera (standard resolution)</li>
+                <li>• Upload bandwidth for every camera relayed: the sum of their stream bitrates, as set on the cameras</li>
               </ul>
+              <p className="mt-4 max-w-prose text-muted-foreground">
+                How to work out the upload bandwidth a site needs from its own cameras is in the{' '}
+                <Link href="/guides/cloud-vms-bandwidth-requirements" className="text-primary hover:underline">cloud VMS bandwidth guide</Link>.
+              </p>
             </ScrollReveal>
           </div>
 

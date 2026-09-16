@@ -19,7 +19,7 @@ const jakartaSans = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-di
 
 const title = 'AI Video Management & Virtual Patrolling Software';
 const description =
-  'AI cloud video management for the cameras you already own: live streaming, 22 detections and scheduled virtual patrol rounds with a compliance record.';
+  'AI cloud video management for the cameras you already own: live streaming, 23 detections and scheduled virtual patrol rounds with a compliance record.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),

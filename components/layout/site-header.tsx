@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef, useCallback, type MouseEvent as ReactMouseEvent } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X, ChevronDown, ChevronRight, ArrowUpRight } from 'lucide-react';
@@ -9,7 +9,83 @@ import { ThemeToggle } from '@/components/system/theme-toggle';
 import { SiteLogo } from '@/components/layout/site-logo';
 import { AnimatePresence, motion } from 'framer-motion';
 
-const FLYOUT_WIDTH = 280;
+/** A flat menu with more children than this renders as a columned panel. */
+const WIDE_MENU_MIN = 8;
+const NARROW_PANEL_WIDTH = 320;
+
+type Column = { label: string; items: any[] };
+
+/**
+ * Columns for a menu, or null when it renders as a single narrow list. A `groups`
+ * menu is one column per group; a long `children` menu is one column per distinct
+ * `section`, with unsectioned children (the hub link) collected into the footer row.
+ */
+function columnsFor(item: any): { columns: Column[]; footer: any[] } | null {
+  if (item?.groups) {
+    return { columns: (item.groups as any[]).map((g) => ({ label: g?.label ?? '', items: g?.items ?? [] })), footer: [] };
+  }
+  const children: any[] = item?.children ?? [];
+  if (children.length <= WIDE_MENU_MIN) return null;
+  const columns: Column[] = [];
+  const footer: any[] = [];
+  for (const child of children) {
+    if (!child?.section) {
+      footer.push(child);
+      continue;
+    }
+    const existing = columns.find((col) => col.label === child.section);
+    if (existing) existing.items.push(child);
+    else columns.push({ label: child.section, items: [child] });
+  }
+  return { columns, footer };
+}
+
+const MAX_PANEL_COLUMNS = 4;
+
+/**
+ * Split groups, in order, into at most `n` columns so the tallest column is as short
+ * as possible. A menu with more groups than columns then stacks short groups instead
+ * of wrapping to a second row. Weight is one line per item plus one for the heading.
+ * The inputs are tiny (at most seven groups), so the exact search is cheap.
+ */
+function packColumns(groups: Column[], n: number): Column[][] {
+  const weights = groups.map((g) => g.items.length + 1);
+  const k = Math.min(n, groups.length);
+  if (k <= 1) return groups.length ? [groups] : [];
+  // best[i][j]: minimal tallest column when the first i groups fill j columns.
+  const INF = Number.POSITIVE_INFINITY;
+  const best: number[][] = Array.from({ length: groups.length + 1 }, () => Array(k + 1).fill(INF));
+  const cut: number[][] = Array.from({ length: groups.length + 1 }, () => Array(k + 1).fill(0));
+  best[0][0] = 0;
+  for (let i = 1; i <= groups.length; i++) {
+    for (let j = 1; j <= Math.min(i, k); j++) {
+      let load = 0;
+      for (let start = i; start >= j; start--) {
+        load += weights[start - 1];
+        const candidate = Math.max(best[start - 1][j - 1], load);
+        if (candidate < best[i][j]) {
+          best[i][j] = candidate;
+          cut[i][j] = start - 1;
+        }
+      }
+    }
+  }
+  const packed: Column[][] = [];
+  let end = groups.length;
+  for (let j = k; j >= 1; j--) {
+    const start = cut[end][j];
+    packed.unshift(groups.slice(start, end));
+    end = start;
+  }
+  return packed;
+}
+
+/** Panel width in px: wide enough for four columns of one-line descriptions, narrow for a plain list. */
+function panelWidthFor(item: any): number {
+  const layout = columnsFor(item);
+  if (!layout) return NARROW_PANEL_WIDTH;
+  return Math.min(layout.columns.length, MAX_PANEL_COLUMNS) >= 4 ? 1080 : 760;
+}
 
 /**
  * Primary site navigation.
@@ -28,21 +104,27 @@ const FLYOUT_WIDTH = 280;
  *    keeps closed panels out of the tab order and the accessibility tree, while the
  *    links remain in the server-rendered HTML — which is what carries internal-link
  *    equity from every page to every silo page.
+ *
+ * Every desktop panel is a single level: a short list is one column, and a long or
+ * grouped menu is a columned panel with headings, sized to fit a laptop viewport and
+ * shifted left when it would overflow the right edge. The earlier hover flyout for
+ * grouped menus needed a second sideways move that closed the menu on the way.
  */
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
-  const [activeGroup, setActiveGroup] = useState<string | null>(null);
-  const [flyoutAlign, setFlyoutAlign] = useState<'left' | 'right'>('right');
+  /** Horizontal offset (px) that keeps a wide panel inside the viewport. */
+  const [menuShift, setMenuShift] = useState(0);
+  const [mobileOpenItem, setMobileOpenItem] = useState<string | null>(null);
   const [mobileOpenGroup, setMobileOpenGroup] = useState<string | null>(null);
 
   const pathname = usePathname();
   const triggerRefs = useRef<Record<string, HTMLButtonElement | null>>({});
+  const wrapperRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
   const closeAll = useCallback(() => {
     setActiveMenu(null);
-    setActiveGroup(null);
   }, []);
 
   useEffect(() => {
@@ -54,6 +136,7 @@ export function SiteHeader() {
   // Close every menu on navigation.
   useEffect(() => {
     setMobileOpen(false);
+    setMobileOpenItem(null);
     setMobileOpenGroup(null);
     closeAll();
   }, [pathname, closeAll]);
@@ -62,10 +145,6 @@ export function SiteHeader() {
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key !== 'Escape') return;
-      if (activeGroup) {
-        setActiveGroup(null);
-        return;
-      }
       if (activeMenu) {
         triggerRefs.current[activeMenu]?.focus();
         closeAll();
@@ -74,14 +153,20 @@ export function SiteHeader() {
     };
     document.addEventListener('keydown', onKeyDown);
     return () => document.removeEventListener('keydown', onKeyDown);
-  }, [activeMenu, activeGroup, closeAll]);
+  }, [activeMenu, closeAll]);
 
-  const handleGroupOpen = (label: string, el: HTMLElement | null) => {
-    setActiveGroup(label);
+  /** Open a top-level menu; its panel is shifted left just enough to stay inside the viewport. */
+  const openMenu = useCallback((label: string) => {
+    setActiveMenu(label);
+    const el = wrapperRefs.current[label];
     if (!el) return;
+    const margin = 16;
+    const item = (navItems as readonly any[]).find((entry) => entry?.label === label);
+    const width = Math.min(panelWidthFor(item), window.innerWidth - margin * 2);
     const rect = el.getBoundingClientRect();
-    setFlyoutAlign(rect.right + 4 + FLYOUT_WIDTH > window.innerWidth ? 'left' : 'right');
-  };
+    const overflow = rect.left + width - (window.innerWidth - margin);
+    setMenuShift(overflow > 0 ? -Math.min(overflow, rect.left - margin) : 0);
+  }, []);
 
   /** Close the group when focus moves entirely outside it. */
   const handleBlurOut = (e: React.FocusEvent<HTMLElement>, close: () => void) => {
@@ -113,14 +198,24 @@ export function SiteHeader() {
             const hasMenu = Boolean(item?.children || item?.groups);
             const menuId = `nav-menu-${label.replace(/\s+/g, '-').toLowerCase()}`;
             const isOpen = activeMenu === label;
+            const children: any[] = item?.children ?? [];
+            const layout = columnsFor(item);
+            const wide = layout !== null;
+            const sections = layout ? packColumns(layout.columns, Math.min(layout.columns.length, MAX_PANEL_COLUMNS)) : [];
+            // A grouped menu has no hub child, so its footer links to the hub page itself.
+            const footerLinks = layout ? (layout.footer.length > 0 ? layout.footer : [{ label: `${label} overview`, href }]) : [];
+            const panelWidth = panelWidthFor(item);
 
             return (
               <div
                 key={label}
+                ref={(el) => {
+                  wrapperRefs.current[label] = el;
+                }}
                 className="relative"
-                onMouseEnter={() => hasMenu && setActiveMenu(label)}
+                onMouseEnter={() => hasMenu && openMenu(label)}
                 onMouseLeave={() => hasMenu && closeAll()}
-                onFocus={() => hasMenu && setActiveMenu(label)}
+                onFocus={() => hasMenu && openMenu(label)}
                 onBlur={(e) => hasMenu && handleBlurOut(e, closeAll)}
               >
                 <div className="flex items-center">
@@ -139,7 +234,7 @@ export function SiteHeader() {
                       ref={(el) => {
                         triggerRefs.current[label] = el;
                       }}
-                      onClick={() => (isOpen ? closeAll() : setActiveMenu(label))}
+                      onClick={() => (isOpen ? closeAll() : openMenu(label))}
                       aria-expanded={isOpen}
                       aria-controls={menuId}
                       aria-label={`${label} menu`}
@@ -153,122 +248,99 @@ export function SiteHeader() {
                   )}
                 </div>
 
-                {/* Flat dropdown */}
-                {item?.children && (
+                {/* One column for a short list; a columned panel for long or grouped menus */}
+                {hasMenu && (
                   <div
                     id={menuId}
                     {...({ inert: isOpen ? undefined : '' } as any)}
-                    className={`absolute left-0 top-full z-50 w-[320px] rounded-xl border border-border bg-card p-3 shadow-lg transition-all duration-fast ${
+                    style={{
+                      width: wide ? `min(${panelWidth}px, calc(100vw - 2rem))` : NARROW_PANEL_WIDTH,
+                      left: menuShift,
+                    }}
+                    className={`absolute top-full z-50 max-h-[calc(100vh-6rem)] overflow-y-auto rounded-xl border border-border bg-card shadow-lg transition-all duration-fast ${
+                      wide ? 'p-4' : 'p-3'
+                    } ${
                       isOpen
                         ? 'visible translate-y-0 opacity-100'
                         : 'invisible pointer-events-none translate-y-2 opacity-0'
                     }`}
                   >
-                    <ul className="grid gap-0.5">
-                      {(item.children ?? []).map((child: any) => (
-                        <li key={child?.href ?? ''}>
-                          <Link
-                            href={child?.href ?? '/'}
-                            className="group block rounded-lg px-3 py-2.5 transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                          >
-                            <span className="block text-sm font-medium group-hover:text-primary">
-                              {child?.label ?? ''}
-                            </span>
-                            {child?.description && (
-                              <span className="mt-0.5 block text-xs text-muted-foreground">
-                                {child.description}
-                              </span>
-                            )}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                {/* Two-level mega menu */}
-                {item?.groups && (
-                  <div
-                    id={menuId}
-                    {...({ inert: isOpen ? undefined : '' } as any)}
-                    className={`absolute left-0 top-full z-50 w-[260px] rounded-xl border border-border bg-card p-2 shadow-lg transition-all duration-fast ${
-                      isOpen
-                        ? 'visible translate-y-0 opacity-100'
-                        : 'invisible pointer-events-none translate-y-2 opacity-0'
-                    }`}
-                  >
-                    {(item.groups ?? []).map((group: any) => {
-                      const groupLabel = group?.label ?? '';
-                      const groupId = `${menuId}-${groupLabel.replace(/\s+/g, '-').toLowerCase()}`;
-                      const groupOpen = activeGroup === groupLabel;
-
-                      return (
+                    {wide ? (
+                      <>
                         <div
-                          key={groupLabel}
-                          className="relative"
-                          onMouseEnter={(e: ReactMouseEvent<HTMLDivElement>) =>
-                            handleGroupOpen(groupLabel, e.currentTarget)
-                          }
-                          onBlur={(e) => handleBlurOut(e, () => setActiveGroup(null))}
+                          className="grid gap-x-4 gap-y-5"
+                          style={{ gridTemplateColumns: `repeat(${sections.length}, minmax(0, 1fr))` }}
                         >
-                          <button
-                            type="button"
-                            onClick={(e) =>
-                              groupOpen ? setActiveGroup(null) : handleGroupOpen(groupLabel, e.currentTarget.parentElement)
-                            }
-                            onFocus={(e) => handleGroupOpen(groupLabel, e.currentTarget.parentElement)}
-                            aria-expanded={groupOpen}
-                            aria-controls={groupId}
-                            className={`flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-left text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
-                              groupOpen ? 'bg-accent text-primary' : ''
-                            }`}
-                          >
-                            {groupLabel}
-                            <ChevronRight
-                              aria-hidden="true"
-                              className={`h-3.5 w-3.5 text-muted-foreground ${
-                                flyoutAlign === 'left' && groupOpen ? 'rotate-180' : ''
-                              }`}
-                            />
-                          </button>
-
-                          <div
-                            id={groupId}
-                            {...({ inert: groupOpen && isOpen ? undefined : '' } as any)}
-                            className={`absolute top-0 z-50 w-[280px] rounded-xl border border-border bg-card p-2 shadow-lg transition-all duration-fast ${
-                              flyoutAlign === 'left' ? 'right-full mr-1' : 'left-full ml-1'
-                            } ${
-                              groupOpen
-                                ? 'visible translate-x-0 opacity-100'
-                                : 'invisible pointer-events-none opacity-0'
-                            }`}
-                          >
-                            <ul>
-                              {(group.items ?? []).map((sub: any) => (
-                                <li key={sub?.href ?? ''}>
-                                  <Link
-                                    href={sub?.href ?? '/'}
-                                    className="block rounded-lg px-3 py-2.5 text-sm transition-colors hover:bg-accent hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                                  >
-                                    {sub?.label ?? ''}
-                                  </Link>
-                                </li>
-                              ))}
-                            </ul>
+                          {sections.map((stack) => (
+                          <div key={stack[0]?.label ?? ''} className="space-y-5">
+                          {stack.map((sec) => (
+                            <div key={sec.label}>
+                              <p className="mb-1.5 px-3 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+                                {sec.label}
+                              </p>
+                              <ul className="grid gap-0.5">
+                                {sec.items.map((child: any) => (
+                                  <li key={child?.href ?? ''}>
+                                    <Link
+                                      href={child?.href ?? '/'}
+                                      className="group block rounded-lg px-3 py-2 transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                                    >
+                                      <span className="block text-sm font-medium group-hover:text-primary">
+                                        {child?.label ?? ''}
+                                      </span>
+                                      {child?.description && (
+                                        <span className="mt-0.5 block text-xs leading-snug text-muted-foreground">
+                                          {child.description}
+                                        </span>
+                                      )}
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          ))}
                           </div>
+                          ))}
                         </div>
-                      );
-                    })}
-                    <div className="mt-1 border-t border-border pt-1">
-                      <Link
-                        href={href}
-                        className="block rounded-lg px-3 py-2 text-sm font-medium text-primary transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                      >
-                        View all {label} <span aria-hidden="true">→</span>
-                      </Link>
-                    </div>
+                        {footerLinks.length > 0 && (
+                          <div className="mt-4 flex flex-wrap gap-x-6 gap-y-1 border-t border-border pt-3">
+                            {footerLinks.map((child: any) => (
+                              <Link
+                                key={child?.href ?? ''}
+                                href={child?.href ?? '/'}
+                                className="group inline-flex items-center gap-1 rounded-md px-3 py-1.5 text-sm font-medium transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                              >
+                                {child?.label ?? ''}
+                                <ChevronRight className="h-3.5 w-3.5 text-muted-foreground group-hover:text-primary" aria-hidden="true" />
+                              </Link>
+                            ))}
+                          </div>
+                        )}
+                      </>
+                    ) : (
+                      <ul className="grid gap-0.5">
+                        {children.map((child: any) => (
+                          <li key={child?.href ?? ''}>
+                            <Link
+                              href={child?.href ?? '/'}
+                              className="group block rounded-lg px-3 py-2.5 transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                            >
+                              <span className="block text-sm font-medium group-hover:text-primary">
+                                {child?.label ?? ''}
+                              </span>
+                              {child?.description && (
+                                <span className="mt-0.5 block text-xs text-muted-foreground">
+                                  {child.description}
+                                </span>
+                              )}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </div>
                 )}
+
               </div>
             );
           })}
@@ -329,75 +401,129 @@ export function SiteHeader() {
             >
               {(navItems ?? []).map((item: any) => {
                 const label = item?.label ?? '';
-                return (
-                  <div key={label}>
+                const href = item?.href ?? '/';
+                const hasMenu = Boolean(item?.children || item?.groups);
+                const itemId = `mobile-item-${label}`.replace(/\s+/g, '-').toLowerCase();
+                const itemOpen = mobileOpenItem === label;
+                // Items whose child list already starts with the hub page do not need a second link to it.
+                const hubInChildren = (item?.children ?? []).some((child: any) => child?.href === href);
+
+                if (!hasMenu) {
+                  return (
                     <Link
-                      href={item?.href ?? '/'}
-                      className="block rounded-md px-3 py-2.5 text-sm font-medium transition-colors hover:bg-accent hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                      key={label}
+                      href={href}
+                      className="block rounded-md px-3 py-3 text-sm font-medium transition-colors hover:bg-accent hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                     >
                       {label}
                     </Link>
+                  );
+                }
 
-                    {item?.children && (
-                      <ul className="ml-4 space-y-0.5">
-                        {(item.children ?? []).map((child: any) => (
-                          <li key={child?.href ?? ''}>
-                            <Link
-                              href={child?.href ?? '/'}
-                              className="block rounded-md px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                            >
-                              {child?.label ?? ''}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
+                return (
+                  <div key={label} className="border-b border-border/60 last:border-b-0">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setMobileOpenItem(itemOpen ? null : label);
+                        setMobileOpenGroup(null);
+                      }}
+                      className={`flex w-full items-center justify-between rounded-md px-3 py-3 text-left text-sm font-medium transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
+                        itemOpen ? 'text-primary' : 'text-foreground'
+                      }`}
+                      aria-expanded={itemOpen}
+                      aria-controls={itemId}
+                    >
+                      {label}
+                      <ChevronDown
+                        aria-hidden="true"
+                        className={`h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200 ${
+                          itemOpen ? 'rotate-180' : ''
+                        }`}
+                      />
+                    </button>
 
-                    {item?.groups && (
-                      <div className="ml-2 mt-0.5 space-y-0.5">
-                        {(item.groups ?? []).map((group: any) => {
-                          const groupLabel = group?.label ?? '';
-                          const groupId = `mobile-${label}-${groupLabel}`.replace(/\s+/g, '-').toLowerCase();
-                          const isOpen = mobileOpenGroup === groupLabel;
-                          return (
-                            <div key={groupLabel}>
-                              <button
-                                type="button"
-                                onClick={() => setMobileOpenGroup(isOpen ? null : groupLabel)}
-                                className="flex w-full items-center justify-between rounded-md px-3 py-1.5 text-left text-xs font-semibold uppercase tracking-wide text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                                aria-expanded={isOpen}
-                                aria-controls={groupId}
-                              >
-                                {groupLabel}
-                                <ChevronDown
-                                  aria-hidden="true"
-                                  className={`h-3 w-3 transition-transform ${isOpen ? 'rotate-180' : ''}`}
-                                />
-                              </button>
-                              <motion.ul
-                                id={groupId}
-                                {...({ inert: isOpen ? undefined : '' } as any)}
-                                initial={false}
-                                animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
-                                transition={{ duration: 0.15 }}
-                                className="ml-2 overflow-hidden"
-                              >
-                                {(group.items ?? []).map((sub: any) => (
-                                  <li key={sub?.href ?? ''}>
-                                    <Link
-                                      href={sub?.href ?? '/'}
-                                      className="block rounded-md px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                                    >
-                                      {sub?.label ?? ''}
-                                    </Link>
-                                  </li>
-                                ))}
-                              </motion.ul>
-                            </div>
-                          );
-                        })}
+                    <motion.div
+                      id={itemId}
+                      {...({ inert: itemOpen ? undefined : '' } as any)}
+                      initial={false}
+                      animate={{ height: itemOpen ? 'auto' : 0, opacity: itemOpen ? 1 : 0 }}
+                      transition={{ duration: 0.2, ease: 'easeOut' }}
+                      className="overflow-hidden"
+                    >
+                      <div className="pb-2">
+                        {!hubInChildren && (
+                          <Link
+                            href={href}
+                            className="ml-4 flex items-center gap-1 rounded-md px-3 py-1.5 text-xs font-medium text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                          >
+                            {label} overview
+                            <ChevronRight className="h-3 w-3" aria-hidden="true" />
+                          </Link>
+                        )}
+
+                        {item?.children && (
+                          <ul className="ml-4 space-y-0.5">
+                            {(item.children ?? []).map((child: any) => (
+                              <li key={child?.href ?? ''}>
+                                <Link
+                                  href={child?.href ?? '/'}
+                                  className="block rounded-md px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                                >
+                                  {child?.label ?? ''}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+
+                        {item?.groups && (
+                          <div className="ml-2 mt-0.5 space-y-0.5">
+                            {(item.groups ?? []).map((group: any) => {
+                              const groupLabel = group?.label ?? '';
+                              const groupId = `mobile-${label}-${groupLabel}`.replace(/\s+/g, '-').toLowerCase();
+                              const isOpen = mobileOpenGroup === groupLabel;
+                              return (
+                                <div key={groupLabel}>
+                                  <button
+                                    type="button"
+                                    onClick={() => setMobileOpenGroup(isOpen ? null : groupLabel)}
+                                    className="flex w-full items-center justify-between rounded-md px-3 py-1.5 text-left text-xs font-semibold uppercase tracking-wide text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                                    aria-expanded={isOpen}
+                                    aria-controls={groupId}
+                                  >
+                                    {groupLabel}
+                                    <ChevronDown
+                                      aria-hidden="true"
+                                      className={`h-3 w-3 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+                                    />
+                                  </button>
+                                  <motion.ul
+                                    id={groupId}
+                                    {...({ inert: isOpen ? undefined : '' } as any)}
+                                    initial={false}
+                                    animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
+                                    transition={{ duration: 0.15 }}
+                                    className="ml-2 overflow-hidden"
+                                  >
+                                    {(group.items ?? []).map((sub: any) => (
+                                      <li key={sub?.href ?? ''}>
+                                        <Link
+                                          href={sub?.href ?? '/'}
+                                          className="block rounded-md px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                                        >
+                                          {sub?.label ?? ''}
+                                        </Link>
+                                      </li>
+                                    ))}
+                                  </motion.ul>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        )}
                       </div>
-                    )}
+                    </motion.div>
                   </div>
                 );
               })}

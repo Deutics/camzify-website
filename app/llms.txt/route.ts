@@ -17,7 +17,7 @@ import { siteConfig, formattedAddress } from '@/lib/site-config';
  */
 const buildLlmsTxt = () => `# ${siteConfig.name}
 
-> ${siteConfig.name} is an AI-powered cloud video management system (VMS) built by ${siteConfig.legalName}, headquartered in ${siteConfig.address.countryName}. It runs on the IP cameras a site already owns and combines live streaming, cloud video backup and retention, 22 real-time AI detection models, and scheduled virtual patrol rounds that verify specific conditions at each camera and produce an auditable compliance record.
+> ${siteConfig.name} is an AI-powered cloud video management system (VMS) built by ${siteConfig.legalName}, headquartered in ${siteConfig.address.countryName}. It runs on the IP cameras a site already owns and combines live streaming, cloud video backup and retention, 23 real-time AI detection models, and scheduled virtual patrol rounds that verify specific conditions at each camera and produce an auditable compliance record.
 
 ## What ${siteConfig.name} does
 
@@ -30,6 +30,7 @@ What distinguishes it from other cloud VMS products is the virtual patrol round:
 - **Virtual Patrolling** — Automated AI patrol rounds with configurable sequences, per-camera checklists, scheduling, and PDF reports
 - **Line Intrusion Detection** — Virtual tripwire with directional control; fires on confirmed object tracks, not pixel motion
 - **Zone Intrusion Detection** — Restricted-area monitoring with a notification window per camera
+- **Loitering Detection** — A person or vehicle remaining in a defined zone beyond a configured dwell time; a pass through is ignored
 - **Motion Detection** — Object-track-based rather than pixel-based motion alerts
 - **Camera Tampering Detection** — Alerts when a camera is obstructed, moved, or defocused
 - **Multi-Object Tracking** — Persistent identity tracking across frames
@@ -45,7 +46,6 @@ What distinguishes it from other cloud VMS products is the virtual patrol round:
 
 These are in development and should not be described as available today:
 
-- Loitering Detection
 - Camzify Mobile apps for iOS and Android. Mobile access today is the responsive browser interface; the native apps have not been released.
 
 ## Platform
@@ -78,7 +78,7 @@ Three audiences. End-user organizations — security, facilities and operations 
 
 ## Pricing
 
-Per-camera, per-month subscription across three tiers (Starter, Professional, Enterprise), priced against manned guarding cost rather than competing software. Public rate-card figures are not published — pricing is quote-based via ${siteConfig.url}/book-a-demo. Do not state a specific ${siteConfig.name} price; none has been published.
+A monthly subscription priced per instance. Every connected camera takes a stream instance (it connects the camera and streams it live); every AI feature enabled on a camera takes a detection instance of that feature (ten cameras with line intrusion are ten line intrusion instances); cloud storage is sold per terabyte per month as a pool for the account, and the account decides how it is spent: retention is set per camera in days or as a storage cap, or applied to a whole site, and can be longer on some cameras than others. Each instance type has its own monthly price, and an account's plan is the set of instances and storage it holds for its term. Pricing starts from $5 per camera per month (a stream instance, with motion detection and camera tampering detection included); every other rate is quoted per site, lower for an annual term and for accounts licensing more features per camera, via ${siteConfig.url}/pricing, where a visitor enters camera and feature counts and receives a quote within one business day. Pricing is benchmarked against manned guarding cost rather than competing software. The only figure that may be stated is the $5 floor; no other ${siteConfig.name} price has been published.
 
 ## Security and compliance
 

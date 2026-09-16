@@ -44,7 +44,7 @@ export default function LineIntrusionPage() {
             moves or a light flickers. This is the foundation of perimeter security in Camzify.</>}
         facts={['People crossing a perimeter fence line', 'Vehicles entering a restricted loading zone', 'Directional crossings at one-way gates or turnstiles']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
-        secondary={{ href: '/ai-features', label: 'All 22 detections' }}
+        secondary={{ href: '/ai-features', label: 'All 23 detections' }}
         visual={<PhotoFigure src="/feature-line-intrusion-detection-1.webp" alt="The console live view with a line intrusion alert drawn on the camera frame" caption="Line intrusion detection" priority />}
       />
 
@@ -144,6 +144,10 @@ export default function LineIntrusionPage() {
                 During a <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrol</Link> round,
                 line intrusion alerts contribute to the compliance assessment at each camera stop. If an alert
                 fired between rounds, it is logged alongside the checklist results in the patrol report.
+              </p>
+              <p className="mt-4 max-w-prose text-muted-foreground">
+                The footage around each alert is kept under the camera&apos;s own retention window on{' '}
+                <Link href="/cloud-video-surveillance" className="text-primary hover:underline">cloud video surveillance</Link>, so the clip and the recording it came from are on one account.
               </p>
             </ScrollReveal>
           </div>

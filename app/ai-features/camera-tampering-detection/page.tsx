@@ -41,7 +41,7 @@ export default function Page() {
         lede={<><strong className="font-semibold text-foreground">Camera tampering detection monitors five distinct tampering modes: sudden defocus, physical coverage of the lens, rapid scene change indicating the camera was moved, abnormal brightness shifts, and frozen frames suggesting a feed loop or hardware failure.</strong> Any of these conditions triggers an immediate alert.</>}
         facts={['Sudden defocus that leaves the scene unusable for review', 'Physical coverage of the lens — a hand, cloth, or spray', 'Rapid scene change indicating the camera was moved or rotated']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
-        secondary={{ href: '/ai-features', label: 'All 22 detections' }}
+        secondary={{ href: '/ai-features', label: 'All 23 detections' }}
         visual={<PhotoFigure src="/feature-camera-tampering-detection-1.webp" alt="The console live view with a camera tampering alert drawn on the camera frame" caption="Camera tampering detection" priority />}
       />
 
@@ -145,6 +145,7 @@ export default function Page() {
               <h3 className="font-display text-lg font-bold">Related</h3>
               <div className="mt-4 flex flex-wrap justify-center gap-2">
               <Link href="/ai-features" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">All AI Features</Link>
+              <Link href="/cloud-video-surveillance" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Cloud Video Surveillance</Link>
               <Link href="/virtual-patrolling" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Virtual Patrolling</Link>
               <Link href="/industries/warehouses" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Warehouses</Link>
               <Link href="/industries/retail" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Retail</Link>

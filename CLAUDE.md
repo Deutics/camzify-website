@@ -7,7 +7,7 @@ wrong here and expensive to get wrong. Full detail lives in [`docs/`](docs/).
 
 ## What this project is
 
-A 163-page statically prerendered Next.js 14 marketing site whose entire purpose is
+A 170-page statically prerendered Next.js 14 marketing site whose entire purpose is
 discoverability — organic search, AI answer engines (ChatGPT, Claude, Perplexity, Google
 AI Overviews), and conversion to demo requests. There is no application, no auth, no
 authenticated area. Treat every change as a change to a publication.
@@ -25,7 +25,11 @@ wrong answers cited about it in AI search. If you need the address as a string, 
 
 **2. Never publish a fact the business has not verified.**
 No invented prices, customer counts, uptime figures, response times, case studies, or
-certifications. Pricing is deliberately quote-based. All four compliance frameworks
+certifications. Pricing is per instance per month (a stream instance per camera, a detection
+instance per AI feature per camera, cloud storage per terabyte per month, spent as the customer sets retention) and quoted per site.
+The one public figure is "from $5 per camera per month". List rates live only in
+`lib/pricing-estimates.ts`, are used on the server to add an estimate to lead emails, and must
+never be imported into a client component or typed into a page. All four compliance frameworks
 (PDPA, GDPR, SOC 2 Type II, ISO 27001) are **in progress and not held** — never render
 them as current. If you need a number you do not have, write around it honestly; do not
 estimate. `/trust` and `/llms.txt` both state this policy publicly, so violating it makes
@@ -114,7 +118,7 @@ actually opened, quoted exactly, with its link.
 ## Running it
 
 `npm install && npm run dev` — that is all. **No database and no `.env` are required** to
-run or build the site; all 163 pages are static and `prisma generate` needs no live
+run or build the site; all 170 pages are static and `prisma generate` needs no live
 connection. Only the four `/api/*` form endpoints need `.env`. Do not stall trying to
 provision a database you do not need.
 

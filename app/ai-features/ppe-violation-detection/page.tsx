@@ -43,7 +43,7 @@ export default function Page() {
             or gloves the moment they're spotted.</>}
         facts={['Missing hard hats in zones where head protection is required', 'Missing high-visibility vests on active work floors', 'Missing gloves in zones handling hazardous materials or…']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
-        secondary={{ href: '/ai-features', label: 'All 22 detections' }}
+        secondary={{ href: '/ai-features', label: 'All 23 detections' }}
         visual={<PhotoFigure src="/feature-ppe-violation-detection-1.webp" alt="The console live view with a PPE violation alert drawn on the camera frame" caption="Ppe violation detection" priority />}
       />
 
@@ -142,6 +142,10 @@ export default function Page() {
                 During a <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrol</Link> round,
                 PPE compliance at each monitored zone contributes to the compliance assessment at that camera
                 stop and is logged alongside the checklist results in the patrol report.
+              </p>
+              <p className="mt-4 max-w-prose text-muted-foreground">
+                The footage around each alert is kept under the camera&apos;s own retention window on{' '}
+                <Link href="/cloud-video-surveillance" className="text-primary hover:underline">cloud video surveillance</Link>, so the clip and the recording it came from are on one account.
               </p>
             </ScrollReveal>
           </div>

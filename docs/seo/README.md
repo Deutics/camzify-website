@@ -47,3 +47,41 @@ llms.txt and at least two existing pages:
 AI search volume, keyword difficulty, intent scoring, the live SERP and the fan-out
 (People Also Ask, LLM mentions) endpoints all returned HTTP 402 from DataForSEO, so those
 columns read "no data". Re-run the skill once the account has credit to fill them in.
+
+## Cloud VMS cluster (16 September 2026)
+
+The site ranked for the virtual patrolling terms, which nobody else competes for, and
+not for the cloud VMS terms, which established vendors do. Three things were changed,
+all on-site; link building is the business's side and is not covered here.
+
+1. **One owner per phrase.** `/platform` keeps "cloud VMS". The cloud video surveillance
+   pillar was retitled to "Cloud CCTV, No NVR" so the two pages stop competing for one
+   query; it owns "cloud video surveillance", "cloud CCTV" and "cloud NVR".
+2. **Internal links to the pillar** went from 6 files to 61: a sentence in the shared
+   use-case component (35 pages), the licensing sentence on all 16 industry pages, the
+   patrol-round paragraph or Related row on all 23 feature pages, and hand-placed
+   sentences on the backup, integrator, RTSP, ONVIF and retention pages.
+3. **Seven supporting guides**, each linking the pillar and `/platform` in its first
+   200 words and cross-linked in a Related block: what a cloud VMS is, cloud NVR
+   explained, cloud VMS cost, bandwidth requirements, using existing cameras, cloud VMS
+   for multiple sites, and cloud VMS for security agencies. None publishes a price or a
+   bandwidth figure. Search volumes for their long-tail phrases read "no data" because
+   DataForSEO was still returning 402; rerun the map when credit is back.
+
+Resolved the same day: four older pages (the Connector page, remote sites, the virtual
+patrolling cost guide and the sites-and-cameras how-to) used to state a per-camera upload
+figure while newer pages say no such figure is published. The figure was removed and all
+four now describe the method (sum of the cameras' stream bitrates) and point at the
+bandwidth guide.
+
+## Pricing disclosure (17 September 2026)
+
+For one day the site showed approximate list rates and an estimator. After checking how
+the comparable vendors handle it (Verkada and Rhombus list MSRP because they sell
+hardware; Solink, Spot AI, Coram, Pro-Vigil and Eagle Eye publish no rate card and ask
+for contact), the business withdrew the public figures. What remains: one floor
+statement, "from $5 per camera per month", on the pricing page, the FAQs, llms.txt and
+the SoftwareApplication schema (an AggregateOffer with only a lowPrice); a quote request
+on the pricing page and the demo form that collects camera and feature counts without
+showing a figure; and list rates kept in `lib/pricing-estimates.ts` for the server to add
+an estimate to the team's lead email. The ROI calculator shows the reader's own figures.

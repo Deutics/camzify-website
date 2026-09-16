@@ -43,7 +43,7 @@ export default function Page() {
             an alert to the nearest guard — before an incident goes unnoticed and becomes an unresolved claim.</>}
         facts={['Rapid, uncontrolled posture changes consistent with a fall', 'A person remaining on the ground after a fall event', 'Falls in aisles, entrances, and walkways during business hours']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
-        secondary={{ href: '/ai-features', label: 'All 22 detections' }}
+        secondary={{ href: '/ai-features', label: 'All 23 detections' }}
         visual={<PhotoFigure src="/feature-slip-and-fall-detection-1.webp" alt="The console live view with a slip and fall alert drawn on the camera frame" caption="Slip & fall detection" priority />}
       />
 
@@ -145,6 +145,10 @@ export default function Page() {
                 Slip and fall detection runs continuously rather than only during scheduled checks, but an
                 event during an active <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrol</Link> round
                 is logged immediately as a non-compliance event in the patrol report.
+              </p>
+              <p className="mt-4 max-w-prose text-muted-foreground">
+                The footage around each alert is kept under the camera&apos;s own retention window on{' '}
+                <Link href="/cloud-video-surveillance" className="text-primary hover:underline">cloud video surveillance</Link>, so the clip and the recording it came from are on one account.
               </p>
             </ScrollReveal>
           </div>

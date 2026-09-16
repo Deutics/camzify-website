@@ -16,7 +16,7 @@ camzify-website/
 │   ├── opengraph-image.tsx       Generated 1200×630 social card
 │   ├── twitter-image.tsx         Re-exports the OG card
 │   ├── robots.ts                 robots.txt (static)
-│   ├── sitemap.ts                sitemap.xml (static, all 163 routes)
+│   ├── sitemap.ts                sitemap.xml (static, all 170 routes)
 │   ├── llms.txt/route.ts         Plain-text briefing for AI crawlers
 │   ├── _components/              Homepage-only sections. Not shared.
 │   ├── api/                      The only dynamic routes. Four lead-capture POSTs.
@@ -57,7 +57,7 @@ camzify-website/
 
 ## Rendering model
 
-**Everything is static.** `npm run build` prerenders all 163 pages to HTML at build time.
+**Everything is static.** `npm run build` prerenders all 170 pages to HTML at build time.
 Only the four `/api/*` routes are dynamic (`ƒ` in the build output); every page is `○`.
 
 This was a deliberate change — the site previously carried `export const dynamic =
@@ -77,7 +77,7 @@ There is **no CMS**. Copy lives as TypeScript objects inside each `page.tsx` —
 feature lists, comparison rows, deployment phases. Editing content means editing React.
 
 Pages are written by hand from the templates in [`ADDING-PAGES.md`](ADDING-PAGES.md).
-Two silos share a renderer rather than a template: the 22 use-case pages each export a
+Two silos share a renderer rather than a template: the 35 use-case pages each export a
 `UseCaseContent` object and hand it to `UseCasePage`, and every AI-feature, industry,
 platform, virtual-patrolling and pillar page opens with `FeatureHero`. FAQs everywhere
 go through `FaqSection`, which is the only FAQ treatment on the site.
@@ -118,7 +118,7 @@ has already been written.
 |---|---|
 | `ui/` | Unstyled-ish primitives. Add with `npx shadcn@latest add <name>`. Do not put product logic here. |
 | `system/` | Cross-cutting infrastructure. Theming, SSR safety, JSON-LD, form submission. |
-| `layout/` | Site chrome and the page scaffold. Changing these affects all 163 pages. |
+| `layout/` | Site chrome and the page scaffold. Changing these affects all 170 pages. |
 | `content/` | Reusable content blocks composed by pages. **Most new components go here.** |
 | `motion/` | Presentation pieces with animation. All respect `prefers-reduced-motion`. |
 | `mockups/` | Faux product UI. GSAP + ScrollTrigger via `useDeferredGsap`. |

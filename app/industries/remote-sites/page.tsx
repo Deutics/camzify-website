@@ -30,7 +30,7 @@ const deploymentPhases = [
 ];
 
 const faqs = [
-  { question: "What bandwidth does a remote site need?", answer: "Typically 2-4 Mbps per camera for standard resolution streaming. The Camzify Connector can be configured to optimize bandwidth usage for limited connectivity scenarios." },
+  { question: "What bandwidth does a remote site need?", answer: "Enough upstream bandwidth to carry every camera you send to the cloud, which is the sum of their stream bitrates as set on the cameras. Read the bitrate in each camera's own interface, add them up, and compare the total with the site's measured upload speed. Where the link is short, send a sub stream, record on a schedule, or keep the busiest cameras on the local recorder; the cloud VMS bandwidth guide walks through it." },
   { question: "Does Camzify work with satellite internet connections?", answer: "Yes. The Camzify Connector adjusts patrol frequency and stream quality to match available bandwidth, which makes it workable over satellite links where connectivity is limited or intermittent." },
   { question: "What happens if a remote site loses connectivity entirely?", answer: "Patrol checks for that site pause until the connection is restored, and the outage itself is logged. Camera Tampering Detection flags a feed that goes dark so the gap shows up in the patrol report rather than going unnoticed." },
   { question: "Can one dispatcher monitor alerts from multiple remote sites?", answer: "Yes. Alerts from every configured site route into one notification queue, so a single dispatcher or field team can handle escalations across a distributed portfolio of unmanned locations." },
@@ -183,7 +183,7 @@ export default function RemoteSitesPage() {
           <div className="mt-12">
             <ScrollReveal>
               <p className="text-muted-foreground">
-                See how the numbers work for your remote sites facility with the <Link href="/roi-calculator" className="text-primary hover:underline">ROI calculator</Link>, or review <Link href="/pricing" className="text-primary hover:underline">pricing</Link> to understand the per-camera licensing model.
+                See how the numbers work for your remote sites facility with the <Link href="/roi-calculator" className="text-primary hover:underline">ROI calculator</Link>, or review <Link href="/pricing" className="text-primary hover:underline">pricing</Link> to understand the per-instance licensing model. Recording and retention for the same cameras are covered on <Link href="/cloud-video-surveillance" className="text-primary hover:underline">cloud video surveillance</Link>.
               </p>
             </ScrollReveal>
           </div>

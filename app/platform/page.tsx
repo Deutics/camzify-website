@@ -65,7 +65,7 @@ const groups = [
 
 const faqs = [
   { question: 'Is the Camzify platform a cloud VMS or an on-premise one?', answer: 'Cloud. There is no server or NVR to install: cameras stream to the platform, footage is stored in the cloud under a retention window set per camera, and every module is used from a browser. The only on-site software is the optional Camzify Connector, a small application for a Windows, macOS or Linux machine that relays cameras on a private network without port forwarding.' },
-  { question: 'Are all of these modules included, or licensed separately?', answer: 'The platform modules, dashboard, live streaming, backup, notifications, analytics, users, permissions, license and multi-site, are one product on one login. What is licensed per camera is the AI: each detection feature has a pool of instances in your plan, activating a feature on a camera consumes one, and virtual patrolling instances are counted per camera per sequence. Plan and Usage shows exactly what is activated, granted and still available.' },
+  { question: 'Are all of these modules included, or licensed separately?', answer: 'The platform modules, dashboard, live streaming, backup, notifications, analytics, users, permissions, license and multi-site, are one product on one login. Every connected camera takes a stream instance, and what is licensed on top is the AI: each detection feature has a pool of instances in your plan, activating a feature on a camera consumes one, and virtual patrolling instances are counted per camera per sequence. Plan and Usage shows exactly what is activated, granted and still available.' },
   { question: 'Can one account run several clients or sites separately?', answer: 'Yes. Sites are the unit everything is organized around, and a sub-user can be scoped to their own sites and cameras and nothing else, with a permission group deciding what they can open and change. License quota is allocated to them from yours, and a request for more comes back to you to approve. Sub-users can create their own sub-users on the same model, which is what makes it work for security agencies and managed service providers.' },
   { question: 'Where is footage stored, and who can reach it?', answer: 'In the cloud, encrypted at rest with AES-256 and in transit over TLS 1.2 or higher, under a per-camera retention window. Access follows the same permission groups as the rest of the platform, so a user who cannot open a camera cannot open its recordings either, and every action on the account is written to an audit trail the account holder can review.' },
   { question: 'Are the screenshots on these pages the real product?', answer: 'Yes. The console screens shown across the platform pages are captured from the application in both its light and dark themes and swap with the theme you are viewing the site in. Figures inside them are interface illustrations with sample sites and cameras rather than customer data, and every one says so in its caption.' },
@@ -85,7 +85,7 @@ export default function PlatformPage() {
               cloud backup and retention, alerts, analytics, user and license management and
               multi-site control on one login
             </strong>{' '}
-            &mdash; with 22 detection models and{' '}
+            &mdash; with 23 detection models and{' '}
             <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</Link>{' '}
             built in rather than bolted on. Every module below is shipping and reachable from the
             same dashboard.
@@ -117,7 +117,7 @@ export default function PlatformPage() {
                   A stream arrives, it is watched and kept, detection turns it into events, a person
                   is told and acts, and the platform keeps the record of all of it. The modules are the
                   stages of that one pipeline, not eleven separate tools. The recording layer underneath
-                  is described on <Link href="/cloud-video-surveillance" className="text-primary hover:underline">cloud video surveillance</Link>. How it differs from a recorder-based system is on <Link href="/compare/camzify-vs-traditional-vms" className="text-primary hover:underline">Camzify vs traditional VMS</Link>.
+                  is described on <Link href="/cloud-video-surveillance" className="text-primary hover:underline">cloud video surveillance</Link>. How it differs from a recorder-based system is on <Link href="/compare/camzify-vs-traditional-vms" className="text-primary hover:underline">Camzify vs traditional VMS</Link>. If the term is new, <Link href="/guides/what-is-a-cloud-vms" className="text-primary hover:underline">what a cloud VMS is</Link> and <Link href="/guides/cloud-vms-cost" className="text-primary hover:underline">what drives its cost</Link> are the two guides to read first.
                 </p>
               </div>
             </ScrollReveal>
@@ -187,7 +187,7 @@ export default function PlatformPage() {
         <div className="mx-auto max-w-site px-6">
           <div className="grid gap-6 lg:grid-cols-2">
             {[
-              { title: '22 AI detection models', desc: 'Every detection fires on a confirmed object track and lands in the same alert queue, intrusion, tampering, weapons, fire, PPE, and behavior you describe in plain language.', href: '/ai-features', label: 'AI features' },
+              { title: '23 AI detection models', desc: 'Every detection fires on a confirmed object track and lands in the same alert queue, intrusion, tampering, weapons, fire, PPE, and behavior you describe in plain language.', href: '/ai-features', label: 'AI features' },
               { title: 'Virtual patrolling', desc: 'Scheduled rounds with a checklist per camera, before-and-after evidence on anything fixed, and a compliance report every time. The capability no other cloud VMS has.', href: '/virtual-patrolling', label: 'Virtual patrolling' },
             ].map((c) => (
               <ScrollReveal key={c.href}>

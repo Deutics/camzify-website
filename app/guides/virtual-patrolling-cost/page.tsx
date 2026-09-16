@@ -14,22 +14,22 @@ import { ProductShot } from '@/components/content/product-shot';
  */
 const pageMeta = {
   title: "Virtual Patrolling Cost | Pricing Guide",
-  description: "What does virtual patrolling cost? Per-camera pricing, comparison with guard costs, and how to calculate ROI for your facility.",
+  description: "What does virtual patrolling cost? Per-instance pricing, comparison with guard costs, and how to calculate ROI for your facility.",
   path: "/guides/virtual-patrolling-cost",
 };
 
 export const metadata = generatePageMeta({ ...pageMeta, type: 'article', publishedTime: '2026-08-31', modifiedTime: '2026-08-31' });
 
 const faqs = [
-  { question: 'Does Camzify publish prices?', answer: "No. Pricing is per camera and quoted for your site or your client portfolio. The ROI calculator works the reader's side of the sum, what routine rounds cost today or what remote patrols would earn, and a quote comes back against it." },
-  { question: 'What drives the quote?', answer: 'The number of cameras, which AI features are licensed on them, cloud retention per camera, and the number of sites and sub-users on the account. Platform modules come with the account; AI features are licensed per camera instance.' },
+  { question: 'Does Camzify publish prices?', answer: "One figure: Camzify starts from $5 per camera per month. The rest is per instance per month and quoted for your site or your client portfolio, lower for an annual term or more features per camera; the pricing page turns your counts into a quote request. The ROI calculator works the reader's side of the sum, what routine rounds cost today or what remote patrols would earn, and a quote comes back against it." },
+  { question: 'What drives the quote?', answer: 'The number of camera stream instances, the detection instances licensed on those cameras, the cloud storage the retention settings need, and the number of sites and sub-users on the account. Platform modules come with the account; every instance type has its own monthly price.' },
   { question: 'Is there hardware to buy?', answer: 'No. Camzify sells no hardware. The one thing sometimes needed on site is a PC running the Camzify Connector for cameras that cannot be reached from the internet.' },
   { question: 'How do I compare it with what I pay now?', answer: 'Take the hours per week spent on routine rounds, times the hourly rate, times sites. That is the figure a quote is measured against, and the ROI calculator computes it from your own numbers.' },
 ];
 
 export default function VirtualPatrollingCostPage() {
   return (
-    <PageShell {...pageMeta} faqs={faqs} schema={[articleSchema({ headline: "Virtual Patrolling Cost", description: "What does virtual patrolling cost? Per-camera pricing, comparison with guard costs, and how to calculate ROI for your facility.", path: "/guides/virtual-patrolling-cost", datePublished: '2026-08-31', dateModified: '2026-08-31' }), personSchema()]} breadcrumbs={[
+    <PageShell {...pageMeta} faqs={faqs} schema={[articleSchema({ headline: "Virtual Patrolling Cost", description: "What does virtual patrolling cost? Per-instance pricing, comparison with guard costs, and how to calculate ROI for your facility.", path: "/guides/virtual-patrolling-cost", datePublished: '2026-08-31', dateModified: '2026-08-31' }), personSchema()]} breadcrumbs={[
       { label: 'Guides', href: '/guides' },
       { label: 'Virtual Patrolling Cost' },
     ]}>
@@ -53,21 +53,21 @@ export default function VirtualPatrollingCostPage() {
           <section className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Cost comparison with manned guarding</h2>
-              <div className="mt-4 max-w-prose space-y-4 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `Around-the-clock coverage of one post takes several people once shifts, breaks, leave and relief are counted, so the annual cost of a staffed post is a multiple of one hourly rate. A scheduled camera round covers the same stops at whatever frequency you set and is priced per camera, with a report per round. We do not publish rates or estimate yours. Use the <a href="/roi-calculator">ROI calculator</a> to model your specific scenario.` }} />
+              <div className="mt-4 max-w-prose space-y-4 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `Around-the-clock coverage of one post takes several people once shifts, breaks, leave and relief are counted, so the annual cost of a staffed post is a multiple of one hourly rate. A scheduled camera round covers the same stops at whatever frequency you set and is priced per instance per month, with a report per round. Camzify starts from $5 per camera per month; the pricing page turns your counts into a quote request and the quote comes in lower for an annual term. Use the <a href="/roi-calculator">ROI calculator</a> to model your specific scenario.` }} />
             </ScrollReveal>
           </section>
 
           <section className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">What affects the price</h2>
-              <div className="mt-4 max-w-prose space-y-4 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `The primary cost drivers are: number of cameras, AI features per camera, video retention period, and number of sites. Multi-site operations typically see the strongest ROI because the per-camera cost scales linearly while guard costs multiply per location.` }} />
+              <div className="mt-4 max-w-prose space-y-4 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `The primary cost drivers are: camera stream instances (one per connected camera), AI detection instances per camera, the cloud storage that retention draws from, and number of sites. Multi-site operations typically see the strongest ROI because the per-camera cost scales linearly while guard costs multiply per location.` }} />
             </ScrollReveal>
           </section>
 
           <section className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Hidden costs to consider</h2>
-              <div className="mt-4 max-w-prose space-y-4 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `Internet bandwidth (2-4 Mbps per camera), the Camzify Connector for sites with local-only cameras, and any additional camera hardware if existing cameras lack ONVIF/RTSP support. These are typically minor compared to the guard cost savings.` }} />
+              <div className="mt-4 max-w-prose space-y-4 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `Upstream internet bandwidth for the cameras you stream, which is the sum of their bitrates (see the <a href="/guides/cloud-vms-bandwidth-requirements">bandwidth guide</a>), the Camzify Connector for sites with local-only cameras, and any additional camera hardware if existing cameras lack ONVIF/RTSP support. These are typically minor compared to the guard cost savings.` }} />
             </ScrollReveal>
           </section>
 

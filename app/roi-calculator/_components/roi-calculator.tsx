@@ -7,12 +7,13 @@ import { Building2, Calculator, Clock, DollarSign, Repeat, TrendingUp, Users } f
 /*
  * Two calculators, no Camzify price in either.
  *
- * The previous version subtracted a "placeholder camera cost of $15/camera/month" from
- * the guard bill and called the difference a saving. That number was invented, and
- * the business has decided prices are not published on the site. So the calculator now
- * does the half of the sum that belongs to the reader — what routine guarding costs
- * them today, or what remote patrols would earn them from their own clients — and
- * hands the other half to a quote. Every input is the reader's own figure.
+ * An earlier version subtracted an invented "$15 per camera" from the guard bill and
+ * called the difference a saving; a later one (one day, 2026-09-16) showed a list-rate
+ * estimate, which the business then withdrew after looking at how the comparable
+ * vendors handle pricing. So the calculator does the half of the sum that belongs to
+ * the reader, what routine guarding costs them today or what remote patrols would earn
+ * them from their own clients, and hands the other half to a quote. The one public
+ * figure is the floor, from $5 per camera per month, stated on the pricing page.
  *
  * Mode is chosen with the tabs, or by arriving with `#agency` in the URL, which the
  * partner pages use. The hash is read in an effect so the server render is stable.
@@ -186,15 +187,15 @@ export function ROICalculator() {
           <div className="rounded-xl border border-border bg-card p-6">
             <p className="text-sm leading-relaxed text-muted-foreground">
               {mode === 'sites' ? (
-                <>These are your figures, not ours: what the routine round costs today and how many recorded rounds a schedule would run instead. Camzify is priced per camera and quoted for your site; we do not publish rates. <Link href="/contact" className="text-primary hover:underline">Ask for a quote</Link> with your camera count and the answer comes back against this number.</>
+                <>These are your figures, not ours: what the routine round costs today and how many recorded rounds a schedule would run instead. Camzify starts from $5 per camera per month and is quoted per site, lower for an annual term or more features per camera. <Link href="/pricing#quote" className="text-primary hover:underline">Build your configuration and request the quote</Link>; it comes back against this number.</>
               ) : (
-                <>Your price, your clients, your margin. Nothing here assumes what Camzify costs; that is quoted for your camera count so you can set your own rate against it. <Link href="/partners/for-security-agencies" className="text-primary hover:underline">How agencies sell it</Link> and <Link href="/partners/for-monitoring-centers" className="text-primary hover:underline">how monitoring companies run it</Link> cover the model.</>
+                <>Your price, your clients, your margin. Camzify is quoted per portfolio so you can set your own rate against it, and it starts from $5 per camera per month. <Link href="/partners/for-security-agencies" className="text-primary hover:underline">How agencies sell it</Link> and <Link href="/partners/for-monitoring-centers" className="text-primary hover:underline">how monitoring companies run it</Link> cover the model.</>
               )}
             </p>
           </div>
 
           <Link
-            href="/contact"
+            href={mode === 'sites' ? '/pricing#quote' : '/contact'}
             className="block rounded-xl bg-primary px-8 py-4 text-center font-semibold text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-lg"
           >
             {mode === 'sites' ? 'Get a quote for these sites' : 'Talk to us about a partner quote'}

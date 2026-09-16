@@ -89,7 +89,7 @@ export default function BehavioralAnomalyDetectionPage() {
         lede={<><strong className="font-semibold text-foreground"> Describe the behavior you want watched, in your own words, and Camzify monitors for it. </strong>{' '} Type &ldquo;alert me if anyone starts fighting&rdquo; or &ldquo;tell me if someone is smoking in the loading bay&rdquo;. Natural-language processing interprets what you have asked for, the system watches the people appearing in the cameras you selected, and a notification is raised when that activity is observed.</>}
         facts={['Describe the behavior in plain language', 'No rule syntax, no zones to draw', 'Watches the cameras you pick for it']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
-        secondary={{ href: '/ai-features', label: 'All 22 detections' }}
+        secondary={{ href: '/ai-features', label: 'All 23 detections' }}
         visual={<PhotoFigure src="/feature-behavioral-anomaly-detection-1.webp" alt="The console live view with a behavioral anomaly alert drawn on the camera frame" priority />}
       />
 
@@ -203,6 +203,10 @@ export default function BehavioralAnomalyDetectionPage() {
                   </Link>
                   , so the round reflects what happened while nobody was checking rather than only
                   what was true at the moment of the check.
+                </p>
+                <p className="mt-4 max-w-prose text-muted-foreground">
+                  The footage around each alert is kept under the camera&apos;s own retention window on{' '}
+                  <Link href="/cloud-video-surveillance" className="text-primary hover:underline">cloud video surveillance</Link>, so the clip and the recording it came from are on one account.
                 </p>
               </div>
             </ScrollReveal>

@@ -58,7 +58,7 @@ const faqs = [
   },
   {
     question: 'How many cameras can one Connector handle?',
-    answer: 'It depends on the machine and the upload bandwidth available, since each camera consumes roughly 2 to 4 Mbps at standard resolution. Plan the bandwidth first, that is the constraint that bites, not the software.',
+    answer: 'It depends on the machine and the upload bandwidth available, since each relayed camera adds its own stream bitrate to what the site must send upstream. Plan the bandwidth first, that is the constraint that bites, not the software; the cloud VMS bandwidth guide shows how to work it out from the cameras\' own settings.',
   },
 ];
 

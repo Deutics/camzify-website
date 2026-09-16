@@ -13,6 +13,7 @@
  *     whole site resolves to one entity graph rather than N disconnected islands.
  *   - All identity facts come from `siteConfig`. Never inline them here.
  */
+import { PUBLIC_FLOOR_PER_CAMERA } from '@/lib/pricing-estimates';
 import { siteConfig, formattedAddress, absoluteUrl } from '@/lib/site-config';
 
 /** Stable @id anchors so every page's schema joins the same entity graph. */
@@ -110,9 +111,9 @@ export function websiteSchema() {
 }
 
 /**
- * The product itself, as SoftwareApplication. Carries the pricing model without
- * publishing a price we cannot verify — `Offer` with no `price` and an explicit
- * quote-based availability is the correct representation of "contact sales".
+ * The product itself, as SoftwareApplication. The offer carries the one public figure,
+ * the floor of $5 per camera per month (lib/pricing-estimates.ts), as an AggregateOffer
+ * with a lowPrice and no highPrice; everything above the floor is quoted per site.
  */
 export function softwareApplicationSchema() {
   return {
@@ -138,10 +139,11 @@ export function softwareApplicationSchema() {
       'Multi-site management',
     ],
     offers: {
-      '@type': 'Offer',
+      '@type': 'AggregateOffer',
       priceCurrency: 'USD',
+      lowPrice: String(PUBLIC_FLOOR_PER_CAMERA),
+      description: 'From $5 per camera per month for a stream instance; every other instance is quoted per site.',
       availability: 'https://schema.org/InStock',
-      // Quote-based: no `price` is published because none is verified.
       url: absoluteUrl('/pricing'),
       seller: { '@id': ORG_ID },
     },

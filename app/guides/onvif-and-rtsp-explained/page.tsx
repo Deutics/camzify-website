@@ -60,7 +60,7 @@ export default function OnvifAndRtspExplainedPage() {
           <section className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">How Camzify uses these protocols</h2>
-              <div className="mt-4 max-w-prose space-y-4 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `Camzify connects to cameras via RTSP for video streaming. ONVIF support means Camzify can discover and configure compatible cameras automatically. For cameras behind NAT or firewalls, the <a href="/camzify-connector">Camzify Connector</a> relays the RTSP stream securely to the cloud. See <a href="/camera-connectivity/rtsp-setup">RTSP setup</a> for step-by-step instructions.` }} />
+              <div className="mt-4 max-w-prose space-y-4 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `Camzify connects to cameras via RTSP for video streaming. ONVIF support means Camzify can discover and configure compatible cameras automatically. For cameras behind NAT or firewalls, the <a href="/camzify-connector">Camzify Connector</a> relays the RTSP stream securely to the cloud. See <a href="/camera-connectivity/rtsp-setup">RTSP setup</a> for step-by-step instructions. Once connected, the stream is recorded in the cloud under the camera's own retention window, as described on <a href="/cloud-video-surveillance">cloud video surveillance</a>.` }} />
             </ScrollReveal>
           </section>
 
@@ -84,6 +84,7 @@ export default function OnvifAndRtspExplainedPage() {
               <Link href="/guides/how-to-choose-video-analytics-software" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">How To Choose Video Analytics Software</Link>
               <Link href="/guides/how-to-reduce-false-alarms" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">How To Reduce False Alarms</Link>
               <Link href="/guides/video-retention-requirements" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">Video Retention Requirements</Link>
+              <Link href="/guides/using-existing-cameras-with-a-cloud-vms" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">Using Existing Cameras with a Cloud VMS</Link>
             </div>
             <div className="mt-6 flex flex-wrap gap-4">
               <Link href="/pricing" className="rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white shadow transition-colors hover:bg-primary/90">View pricing</Link>

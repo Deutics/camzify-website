@@ -28,7 +28,7 @@ const faqs = [
   },
   {
     question: 'Do I need different products for different use cases?',
-    answer: 'No. Every use case on this page runs on the same account: the same cameras, the same 22 detections licensed per camera, and the same virtual patrolling. What changes between them is configuration: which detections are enabled on which cameras, what the checklist at each stop asks, and who is notified when a check fails.',
+    answer: 'No. Every use case on this page runs on the same account: the same cameras, the same 23 detections licensed as instances per camera, and the same virtual patrolling. What changes between them is configuration: which detections are enabled on which cameras, what the checklist at each stop asks, and who is notified when a check fails.',
   },
   {
     question: 'Which use case should a first deployment start with?',
@@ -189,7 +189,7 @@ export default function UseCasesHub() {
               <div className="rounded-xl border border-border bg-card p-8">
                 <h2 className="font-display text-xl font-bold">Or the detection itself?</h2>
                 <p className="mt-3 text-muted-foreground">Every use case names the detections it uses. Each has its own page: what it fires on, how it is tuned per camera, and what it does not detect.</p>
-                <Link href="/ai-features" className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline">All 22 detections <span aria-hidden="true">→</span></Link>
+                <Link href="/ai-features" className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline">All 23 detections <span aria-hidden="true">→</span></Link>
               </div>
             </div>
           </ScrollReveal>

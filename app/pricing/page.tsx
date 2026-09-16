@@ -3,42 +3,56 @@ import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { SectionVisual } from '@/components/content/section-visual';
+import { FeatureHero } from '@/components/content/feature-hero';
+import { ProductShot } from '@/components/content/product-shot';
 import Link from 'next/link';
-import { Camera, Cpu, HardDrive, Users, Building2, Calculator, ArrowRight, MessageSquare } from 'lucide-react';
+import { Camera, Cpu, HardDrive, Users, Building2, MessageSquare } from 'lucide-react';
+import { QuoteEstimator } from '@/components/content/quote-estimator';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
  * <head> tags, and by `PageShell` for the on-page structured data.
  *
- * Pricing is quote-based and the business has decided (2026-09-07) that no price,
- * "from" figure or placeholder rate appears on the site. The previous version of this
- * page showed three tiers with camera bands, retention days, "SLA guarantees" and an
- * "on-premise option", none of which the business has verified and several of which
- * contradict the product as documented elsewhere. This page now says what a quote is
- * built from, which is the substance a buyer and an answer engine can use, and sends
- * the reader to contact for the number.
+ * Pricing is per instance per month and quoted for the site, lower for an annual term
+ * and for more features per camera. The one public figure is the floor the business
+ * stated on 2026-09-17: from $5 per camera per month. Internal rates exist only in
+ * lib/pricing-estimates.ts and are used on the server to put an estimate in the team's
+ * lead email; nothing else on the site shows a rate, which is how the comparable
+ * software-only vendors handle it. So this page says what a quote is built from, lets
+ * the reader build a configuration, and sends it in as a quote request.
  */
 const pageMeta = {
-  title: "Pricing | Per Camera, Quoted for Your Site",
-  description: "Camzify is priced per camera per month and quoted for your site or client portfolio. What a quote is built from, and how to ask for one.",
+  title: "Pricing | From $5 a Camera, Quoted for You",
+  description: "Camzify is priced per instance per month, from $5 per camera. Build your configuration and get a quote for your site within one business day.",
   path: "/pricing",
 };
 
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const builtFrom = [
-  { icon: Camera, title: 'Cameras', desc: 'The unit of pricing. Every camera on the account counts once, whatever it is used for.' },
-  { icon: Cpu, title: 'AI features per camera', desc: 'Each detection is licensed as an instance on a camera, so a perimeter camera and a stockroom camera carry different features and different cost.' },
-  { icon: HardDrive, title: 'Cloud retention', desc: 'Recording is kept per camera by days or by a storage cap. Longer retention on more cameras is the second thing that moves a quote.' },
-  { icon: Users, title: 'Sub-users and quota', desc: 'Sites, cameras, instances and storage can be allocated to sub-users from what the account holds. A partner quote is sized for the portfolio.' },
-  { icon: Building2, title: 'Sites', desc: 'Every site runs its own sequences, schedule and roster on one account. More sites do not need more accounts.' },
-  { icon: MessageSquare, title: 'What is not a line item', desc: 'The platform modules: live streaming, cloud backup, notifications, analytics, user management, permission groups and virtual patrolling come with the account.' },
+  { icon: Camera, title: 'Camera stream instances', desc: 'One per connected camera, from $5 a month. It connects the camera, streams it live and lets it be recorded and patrolled, and motion detection and camera tampering detection come with it at no charge.' },
+  { icon: Cpu, title: 'AI detection instances', desc: 'One per AI feature per camera: ten cameras with line intrusion are ten line intrusion instances. A virtual patrolling instance puts one camera on manual and automated rounds. Each feature type has its own monthly price, and behavioral anomaly and weapons detection sit at the top of the range.' },
+  { icon: HardDrive, title: 'Cloud storage', desc: 'Sold per terabyte per month, as a pool for the account. You decide how it is spent: retention is set per camera or applied to a whole site, so a gate camera can keep ninety days while a corridor keeps seven.' },
+  { icon: Users, title: 'Sub-users and quota', desc: 'Stream instances, detection instances and storage can be allocated to sub-users from what the account holds. A partner quote is sized for the portfolio.' },
+  { icon: Building2, title: 'Sites', desc: 'Every site runs its own sequences, schedule and roster on one account. More sites do not need more accounts or more instances.' },
+  { icon: MessageSquare, title: 'What is not a line item', desc: 'The platform modules: live streaming, cloud backup, notifications, analytics, user management and permission groups come with the account. So do motion detection and camera tampering detection on every connected camera.' },
+];
+
+/** A configuration, not a price: what an account of this shape is licensed for. */
+const example = [
+  { count: '100', item: 'camera stream instances', note: 'one per connected camera, each streamed live' },
+  { count: '10', item: 'line intrusion instances', note: 'on the ten perimeter cameras' },
+  { count: '30', item: 'loitering detection instances', note: 'on the thirty cameras that watch entrances and aisles' },
+  { count: '5', item: 'weapons detection instances', note: 'on the five lobby and entrance cameras' },
+  { count: '30 TB', item: 'cloud storage', note: 'per terabyte per month, spent by the retention set on each camera' },
 ];
 
 const faqs = [
-  { question: 'Why is there no price on this page?', answer: 'Because a price that fits every site is a price that fits none, and we would rather quote than mislead. Camzify is priced per camera per month, and the quote depends on camera count, the AI features licensed on each camera, retention, and the number of sites and sub-users. Ask for one with your camera count and it comes back against your own guarding cost.' },
-  { question: 'How does per-camera pricing work?', answer: 'Every camera on the account counts once. The platform modules come with the account; AI features are licensed per camera instance, so each camera carries only the detections it uses. Retention is set per camera and affects the quote in proportion.' },
-  { question: 'What is an instance?', answer: 'One AI feature running on one camera. The plan page in the console shows, per feature, how many instances are on the plan, how many are activated, how many are granted to sub-users, and how many remain. A parent account allocates instances to sub-users from that pool.' },
+  { question: 'Why is there no price list on this page?', answer: 'Because the quote depends on the term and on how much runs on each camera, and a list would be wrong for most sites. Camzify starts from $5 per camera per month, and the quote is the sum of the instances an account needs: a stream instance for every camera, a detection instance for every AI feature on a camera, a patrol instance for every camera on rounds, and storage per terabyte. Build the configuration above, request the quote, and it comes back set for your site within one business day.' },
+  { question: 'Do you offer discounts?', answer: 'Yes. Quotes come in lower for an annual term and for accounts that license more features per camera, and a partner portfolio is quoted as a whole. That is what takes a stream instance down to the $5 floor.' },
+  { question: 'Which detections are free?', answer: 'Motion detection and camera tampering detection are included with every stream instance, so every connected camera has both without a detection instance. Everything else is licensed as an instance per camera.' },
+  { question: 'How does per-instance pricing work?', answer: 'Every connected camera takes one stream instance, which connects it, streams it live and makes it available to record and patrol. Every AI feature you enable on a camera takes one detection instance of that feature, so a camera with two detections carries two, and every camera on patrol rounds takes a virtual patrolling instance. Storage is sold per terabyte per month as a pool for the account, and you set how each camera or site draws on it. Each instance type has its own monthly price, and the platform modules come with the account.' },
+  { question: 'What is an instance?', answer: 'One unit of something licensed on one camera: a stream instance is one camera connected, a line intrusion instance is line intrusion running on one camera. The plan page in the console shows, per type, how many instances are on the plan, how many are activated, how many are granted to sub-users, and how many remain. A parent account allocates instances to sub-users from that pool.' },
   { question: 'How do I compare it with hiring guards?', answer: 'Take the hours per week spent on routine rounds, times the hourly rate, times sites. That is the figure a quote is measured against. The ROI calculator computes it from your own numbers and has an agency mode for partners who would sell remote patrols at their own price.' },
   { question: 'Is there hardware to buy?', answer: 'No. Camzify sells no hardware. The one thing sometimes needed on site is a PC running the Camzify Connector for cameras that cannot be reached from the internet.' },
   { question: 'Are there minimums or contracts?', answer: 'Terms are agreed in the quote, not published. Tell us the sites and cameras and we will tell you what applies.' },
@@ -47,28 +61,37 @@ const faqs = [
 export default function PricingPage() {
   return (
     <PageShell {...pageMeta} faqs={faqs} breadcrumbs={[{ label: 'Pricing' }]}>
+      <FeatureHero
+        eyebrow="Pricing"
+        title="Pay per instance, per month, for what you switch on"
+        lede={
+          <>
+            <strong className="font-semibold text-foreground">
+              Camzify is priced per instance per month and quoted for your site, from $5 per camera.
+            </strong>{' '}
+            A stream instance for every camera, a detection instance for every AI feature on it, a
+            patrol instance for every camera on rounds, and cloud storage per terabyte. The platform
+            comes with the account, and the quote comes in lower for an annual term or more features
+            per camera.
+          </>
+        }
+        facts={['From $5 per camera per month', 'Motion and tampering detection included', 'Quote within one business day']}
+        primary={{ href: '#quote', label: 'Build your configuration and get a quote' }}
+        secondary={{ href: '/roi-calculator', label: 'Run your numbers first' }}
+        visual={
+          <ProductShot
+            src="/product-license-plan"
+            alt="The Plan and Usage screen in the Camzify console: instances per feature type, how many are activated, granted to sub-users and available, and the storage pool"
+            label="Plan and usage in the console"
+            priority
+            sizes="(max-width: 1024px) 100vw, 45vw"
+          />
+        }
+      />
+
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <div className="mx-auto max-w-2xl text-center">
-            <span className="font-mono text-mono-sm uppercase text-primary">Per camera, quoted for your site</span>
-            <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Pricing</h1>
-            <p className="mt-6 text-body text-muted-foreground">
-              <strong className="font-semibold text-foreground">Camzify is priced per camera per month and quoted for your site.</strong>{' '}
-              No hardware, no separate charge for the platform modules, and AI features licensed
-              only on the cameras that use them. The number depends on six things, all of them
-              yours to count, and the quote comes back against what routine rounds cost you today.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-              <Link href="/contact" className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:bg-primary/90">
-                Ask for a quote <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </Link>
-              <Link href="/roi-calculator" className="inline-flex items-center gap-2 rounded-lg border border-border px-7 py-3.5 text-sm font-semibold transition-all hover:bg-accent hover:border-primary/30">
-                <Calculator className="h-4 w-4" aria-hidden="true" /> Run your numbers first
-              </Link>
-            </div>
-          </div>
-
-          <div className="mt-16">
+          <div>
             <ScrollReveal>
               <span className="font-mono text-mono-sm uppercase text-primary">What a quote is built from</span>
               <h2 className="mt-2 font-display text-2xl font-bold sm:text-3xl">Six things, all of them yours to count</h2>
@@ -109,7 +132,7 @@ export default function PricingPage() {
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
-              <SectionVisual variant="compliance" caption="What you are paying for per round: the checks, the frames and the compliance record. The quote is per camera; the value is per round." alt="A compliance overview showing patrol rounds with their compliance percentages" />
+              <SectionVisual variant="compliance" caption="What you are paying for per round: the checks, the frames and the compliance record. The quote is per instance; the value is per round." alt="A compliance overview showing patrol rounds with their compliance percentages" />
             </ScrollReveal>
           </div>
 
@@ -117,15 +140,62 @@ export default function PricingPage() {
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">How instance licensing works</h2>
               <p className="mt-4 max-w-prose text-muted-foreground">
-                An instance is one AI feature running on one camera. The plan page in the console
-                shows, per feature, how many instances are on the plan, how many you have
-                activated, how many are granted to sub-users, and how many remain. For a
-                multi-site or partner account, the parent allocates instances to sub-users from that
-                pool and can reclaim them. The{' '}
+                Everything on the account is an instance of one type. A stream instance is one
+                camera connected: it streams live, it can be recorded, and it can be a stop on a
+                patrol round. A detection instance is one AI feature running on one camera, so a
+                camera with line intrusion and loitering detection carries one instance of each.
+                Cloud storage is its own pool, sold per terabyte per month, that the retention on
+                every camera draws from. How it is spent is entirely yours to set: retention per
+                camera in days or as a storage cap, or one setting applied to a whole site, with
+                longer retention on the cameras that matter and shorter on the ones that do not. The plan page in the console shows, per type, how many
+                instances are on the plan, how many you have activated, how many are granted to
+                sub-users, and how many remain. For a multi-site or partner account, the parent
+                allocates instances to sub-users from that pool and can reclaim them. The{' '}
                 <Link href="/platform/license-and-instance-management" className="text-primary hover:underline">license and instance management</Link>{' '}
                 page shows the screen.
               </p>
+              <div className="mt-8 rounded-xl border border-border bg-card p-6">
+                <p className="font-mono text-mono-sm uppercase text-primary">Worked configuration</p>
+                <p className="mt-2 max-w-prose text-sm text-muted-foreground">
+                  A site with 100 cameras that wants line intrusion on ten of them, loitering
+                  detection on thirty, weapons detection on five, and 30 TB of storage is licensed
+                  for exactly that, and billed monthly for it:
+                </p>
+                <dl className="mt-4 grid gap-3 sm:grid-cols-2">
+                  {example.map((e) => (
+                    <div key={e.item} className="flex gap-3 rounded-lg border border-border bg-background px-4 py-3">
+                      <dt className="font-display text-lg font-bold text-foreground">{e.count}</dt>
+                      <dd className="text-sm">
+                        <span className="block font-medium text-foreground">{e.item}</span>
+                        <span className="block text-muted-foreground">{e.note}</span>
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+                <p className="mt-4 max-w-prose text-sm text-muted-foreground">
+                  The other 70 cameras carry no detection and cost only their stream instance. Add a
+                  detection to a camera later and it takes one more instance from that month on. The
+                  30 TB is spent however the account decides: ninety days on the gates, seven on the
+                  corridors, a storage cap on a busy dock. Put your own counts into the form
+                  below and the quote prices a configuration like this for your site.
+                </p>
+              </div>
             </ScrollReveal>
+          </div>
+
+          <div className="mt-16">
+            <ScrollReveal>
+              <span className="font-mono text-mono-sm uppercase text-primary">Request a quote</span>
+              <h2 className="mt-2 font-display text-2xl font-bold sm:text-3xl">Your counts, then the quote</h2>
+              <p className="mt-4 max-w-prose text-muted-foreground">
+                Enter what you would connect and switch on. Send it and the quote comes back within
+                one business day for exactly this configuration, set for your site, with any
+                annual-term or volume discount already applied.
+              </p>
+            </ScrollReveal>
+            <div className="mt-8">
+              <QuoteEstimator />
+            </div>
           </div>
 
           <FaqSection items={faqs} inline heading="Pricing, answered" />

@@ -42,7 +42,7 @@ export default function Page() {
             moment they separate from their carrier and stay unclaimed past a configurable dwell time.</>}
         facts={['Bags or packages separated from the person who was carrying them', 'Objects remaining unclaimed past a configurable dwell-time…', 'Unattended items in lobbies, entrances, and public waiting areas']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
-        secondary={{ href: '/ai-features', label: 'All 22 detections' }}
+        secondary={{ href: '/ai-features', label: 'All 23 detections' }}
         visual={<PhotoFigure src="/feature-abandoned-object-detection-1.webp" alt="The console live view with a abandoned object alert drawn on the camera frame" caption="Abandoned object detection" priority />}
       />
 
@@ -139,6 +139,10 @@ export default function Page() {
                 During a <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrol</Link> round,
                 an unresolved abandoned object at a monitored location contributes to the compliance assessment
                 at that camera stop and is logged alongside the checklist results in the patrol report.
+              </p>
+              <p className="mt-4 max-w-prose text-muted-foreground">
+                The footage around each alert is kept under the camera&apos;s own retention window on{' '}
+                <Link href="/cloud-video-surveillance" className="text-primary hover:underline">cloud video surveillance</Link>, so the clip and the recording it came from are on one account.
               </p>
             </ScrollReveal>
           </div>

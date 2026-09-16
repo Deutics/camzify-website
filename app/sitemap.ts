@@ -222,6 +222,13 @@ const guides = group(
     '/guides/adding-remote-patrols-to-alarm-monitoring',
     '/guides/security-audit-checklist',
     '/guides/video-retention-requirements',
+    '/guides/what-is-a-cloud-vms',
+    '/guides/what-is-a-cloud-nvr',
+    '/guides/cloud-vms-cost',
+    '/guides/cloud-vms-bandwidth-requirements',
+    '/guides/using-existing-cameras-with-a-cloud-vms',
+    '/guides/cloud-vms-for-multiple-sites',
+    '/guides/cloud-vms-for-security-agencies',
   ],
   0.7,
   'monthly'

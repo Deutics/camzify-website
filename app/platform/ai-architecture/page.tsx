@@ -40,7 +40,7 @@ export default function Page() {
         title="AI video analytics architecture"
         lede={<>Camzify AI architecture consists of six processing layers: Object Detection, Multi-Object Tracking, Custom Domain Models (industry-specific classes), Vision-Language Model (attributes and natural-language context), Signal Analysis (tampering, motion gating, stream health, no GPU required), and Adaptive Inference (skips static frames, full attention on active scenes).</>}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
-        secondary={{ href: '/ai-features', label: 'The 22 detection models' }}
+        secondary={{ href: '/ai-features', label: 'The 23 detection models' }}
         visual={<div className="overflow-hidden rounded-xl">
             <SiteImage
               src="/ai-video-analytics-architecture.webp"

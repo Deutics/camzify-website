@@ -43,7 +43,7 @@ export default function Page() {
             cameras and time windows.</strong> What used to take hours of manual footage review takes seconds.</>}
         facts={['A person matching a plain-language description across every…', 'Every timestamped appearance of that match, ranked by confidence', 'Matches across a single site or a full multi-site account']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
-        secondary={{ href: '/ai-features', label: 'All 22 detections' }}
+        secondary={{ href: '/ai-features', label: 'All 23 detections' }}
         visual={<PhotoFigure src="/feature-forensic-video-search-1.webp" alt="The console live view with a suspect search alert drawn on the camera frame" caption="Ai suspect search" priority />}
       />
 
@@ -142,6 +142,10 @@ export default function Page() {
                 checklist item during a <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrol</Link> round.
                 When a patrol flags a non-compliant camera, suspect search can pull every earlier appearance
                 of the same subject to build a fuller picture before the guard is notified.
+              </p>
+              <p className="mt-4 max-w-prose text-muted-foreground">
+                The footage around each alert is kept under the camera&apos;s own retention window on{' '}
+                <Link href="/cloud-video-surveillance" className="text-primary hover:underline">cloud video surveillance</Link>, so the clip and the recording it came from are on one account.
               </p>
             </ScrollReveal>
           </div>

@@ -158,8 +158,9 @@ the site self-contradictory and destroys exactly the credibility that earns cita
   Camzify should not be described as certified.
 - **No invented case studies.** The industry pages carry deployment-process content
   instead, which is verifiable.
-- **No roadmap features described as shipping.** Loitering Detection and Behavioral
-  Analytics are roadmap; both pages carry `<RoadmapBadge />` and say so in the opening.
+- **No roadmap features described as shipping.** The native mobile apps are the only
+  roadmap item. Loitering detection and behavioral anomaly detection both shipped and
+  are counted among the 23 live models, so nothing should still call them upcoming.
 
 When the business supplies verified figures, replace the honest placeholder content and
 update `/llms.txt` in the same change.

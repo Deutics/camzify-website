@@ -42,7 +42,7 @@ export default function Page() {
             moment they enter frame, so the response starts before an incident develops rather than after.</>}
         facts={['Visibly brandished firearms in camera view', 'Visible edged weapons in camera view', 'Detections at entrances, lobbies, and public-facing areas']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
-        secondary={{ href: '/ai-features', label: 'All 22 detections' }}
+        secondary={{ href: '/ai-features', label: 'All 23 detections' }}
         visual={<PhotoFigure src="/feature-weapons-detection-1.webp" alt="The console live view with a weapons alert drawn on the camera frame" caption="Weapons detection" priority />}
       />
 
@@ -139,6 +139,10 @@ export default function Page() {
                 Weapons detection runs continuously rather than only during scheduled checks, but a detection
                 during an active <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrol</Link> round
                 is logged immediately as a critical non-compliance event in the patrol report.
+              </p>
+              <p className="mt-4 max-w-prose text-muted-foreground">
+                The footage around each alert is kept under the camera&apos;s own retention window on{' '}
+                <Link href="/cloud-video-surveillance" className="text-primary hover:underline">cloud video surveillance</Link>, so the clip and the recording it came from are on one account.
               </p>
             </ScrollReveal>
           </div>

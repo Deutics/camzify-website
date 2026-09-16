@@ -41,7 +41,7 @@ export default function Page() {
         lede={<><strong className="font-semibold text-foreground">AI attribute extraction uses a vision-language model to read the scene when an alert fires and attach structured attributes to each detection — clothing color, object type, behavior description — with no operator input.</strong> This transforms a basic alert into an information-rich event that operators can act on immediately.</>}
         facts={['Structured clothing color and type attributes for every…', 'Object classification for vehicles, bags, and other carried…', 'Plain-language behavior descriptions attached to each alert']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
-        secondary={{ href: '/ai-features', label: 'All 22 detections' }}
+        secondary={{ href: '/ai-features', label: 'All 23 detections' }}
         visual={<PhotoFigure src="/feature-ai-attribute-extraction-1.webp" alt="The console live view with a attribute extraction alert drawn on the camera frame" caption="Ai attribute extraction" priority />}
       />
 
@@ -143,6 +143,7 @@ export default function Page() {
               <h3 className="font-display text-lg font-bold">Related</h3>
               <div className="mt-4 flex flex-wrap justify-center gap-2">
               <Link href="/ai-features" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">All AI Features</Link>
+              <Link href="/cloud-video-surveillance" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Cloud Video Surveillance</Link>
               <Link href="/virtual-patrolling" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Virtual Patrolling</Link>
               <Link href="/industries/warehouses" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Warehouses</Link>
               <Link href="/industries/retail" className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm hover:border-primary/30 hover:text-primary">Retail</Link>

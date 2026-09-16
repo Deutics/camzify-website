@@ -1,4 +1,5 @@
 import { ProductShot } from '@/components/content/product-shot';
+import Link from 'next/link';
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
@@ -60,7 +61,7 @@ export default function RtspSetupPage() {
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                 If the RTSP stream is already published to the internet &mdash; a static IP, an
                 existing forwarded route, or an NVR that exposes it &mdash; paste the URL into
-                Camzify and you are done. Nothing is installed.
+                Camzify and you are done. Nothing is installed. From there the stream is recorded and kept under <Link href="/cloud-video-surveillance" className="text-primary hover:underline">cloud video surveillance</Link> like any other camera.
               </p>
             </div>
             <div className="rounded-xl border border-border bg-card p-6">
