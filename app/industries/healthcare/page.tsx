@@ -16,7 +16,7 @@ import { SiteImage } from '@/components/content/site-image';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "AI Security for Healthcare | Video Surveillance",
+  title: "Hospital & Healthcare Security Cameras | AI",
   description: "Camzify provides AI-powered virtual patrolling and video analytics for healthcare, automated patrols, real-time alerts, and compliance reports.",
   path: "/industries/healthcare",
 };
@@ -36,6 +36,7 @@ const faqs = [
   { question: "How accurate is detection in busy corridors with high foot traffic?", answer: "Zone and motion sensitivity are tuned per camera, so high-traffic corridors during shift changes or visiting hours can run different thresholds than a quiet overnight ward. Multi-Object Tracking helps the system follow individual movement through a crowd rather than treating normal traffic as a blanket trigger." },
   { question: "How long does deployment take for a hospital or clinic?", answer: "It depends on the number of buildings and cameras involved, but zone setup, patrol routes, and alert routing for a single facility are typically configured within a few days once camera access is confirmed. Larger campuses with multiple buildings are usually staged wing by wing." },
   { question: "How does virtual patrolling compare to a dedicated overnight security officer?", answer: "A single officer can only be in one place at a time and typically checks each area a few times per shift. Virtual patrolling checks every configured zone on a fixed schedule with a timestamped record of each round, and is commonly run alongside existing security staff to cover corridors, exits, and storage areas a roaming officer can't watch continuously." },
+  { question: "Does this work as hospital security cameras?", answer: "On the cameras a hospital already runs, yes. Corridors, entrances and parking go on a scheduled round, fall detection and aggression detection watch the cameras between rounds, and nothing identifies a person: alerts carry a frame and a time, not an identity." },
 ];
 
 export default function HealthcarePage() {

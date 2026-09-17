@@ -15,7 +15,7 @@ import { PointList } from '@/components/content/point-list';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "AI Security for Restaurants | Video Surveillance",
+  title: "Restaurant & QSR Security Cameras | AI Patrols",
   description: "Camzify provides AI-powered virtual patrolling and video analytics for restaurants, automated patrols, real-time alerts, and compliance reports.",
   path: "/industries/restaurants",
 };
@@ -35,6 +35,7 @@ const faqs = [
   { question: "How fast does a manager get notified if the back door was left unlocked?", answer: "Alerts fire in near real time from the moment a confirmed event is detected and route to the assigned manager through the notification queue with a timestamped clip, typically within seconds." },
   { question: "Does Camzify work with the cameras we already have in the kitchen and dining area?", answer: "In most cases, yes. Camzify works with any IP camera feed, so existing kitchen and dining area cameras can usually be connected without new hardware, provided they support standard IP or RTSP streaming." },
   { question: "How does this compare to relying on staff to self-report a missed closing step?", answer: "Self-reporting depends on someone remembering and admitting a step was missed. Automated patrol checks verify the same points independently every night and create a record either way, which removes the guesswork from closing compliance." },
+  { question: "Does this work for a quick service restaurant chain?", answer: "Yes. Each location is a site on one account: back door, kitchen, dining room and drive-through lane on a closing checklist and an overnight round, a report per location each morning, and an area manager who sees every store on one login." },
 ];
 
 export default function RestaurantsPage() {

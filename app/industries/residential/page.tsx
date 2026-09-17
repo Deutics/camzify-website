@@ -16,7 +16,7 @@ import { SiteImage } from '@/components/content/site-image';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "AI Security for Residential | Video Surveillance",
+  title: "Multifamily & Residential Security Cameras | AI",
   description: "Camzify provides AI-powered virtual patrolling and video analytics for residential, automated patrols, real-time alerts, and compliance reports.",
   path: "/industries/residential",
 };
@@ -36,6 +36,7 @@ const faqs = [
   { question: "How quickly does someone get notified if the gate is left open?", answer: "Alerts fire in near real time from the moment a confirmed event is detected and route to the assigned contact through the notification queue with a timestamped clip, typically within seconds." },
   { question: "Does this replace our community's guard service entirely?", answer: "For most communities, it reduces reliance on guards for routine overnight rounds rather than eliminating a guard presence outright. Many communities run virtual patrols alongside a smaller guard team to cover blind spots and off-hours checks a single guard can't reach every hour." },
   { question: "Can different areas of the community have different rules?", answer: "Yes. Zones, schedules, and detection rules are configured per camera, so an entry gate active around the clock and a pool area active only outside posted hours can run entirely different rules on the same account." },
+  { question: "Does this suit a multifamily property?", answer: "Yes. Multifamily is where it fits best: gates, parking, lobbies, corridors and shared amenities on a scheduled round after hours, with a report per building and a manager who sees only their property through permission groups." },
 ];
 
 export default function ResidentialPage() {

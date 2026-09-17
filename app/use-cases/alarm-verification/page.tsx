@@ -5,7 +5,7 @@ import { UseCasePage, type UseCaseContent } from '@/components/content/use-case-
 import Link from 'next/link';
 
 const pageMeta = {
-  title: "Alarm Verification With Cameras",
+  title: "Video Alarm Verification & Monitoring With Cameras",
   description: "Alarm verification with cameras: the view, a snapshot and the live feed on the operator desk when an alarm comes in, so dispatch goes to a verified event.",
   path: "/use-cases/alarm-verification",
 };
@@ -19,6 +19,7 @@ const faqs = [
   { question: 'Can we tell the difference between a cat and a person?', answer: 'Detections fire on a tracked object of a chosen class. An animal is not classified as a person, so a person rule stays quiet for a cat crossing the yard. Motion detection, which fires on pixel change, is separate and used deliberately.' },
   { question: 'Is there a record of what the operator saw?', answer: 'Every detection is logged with camera, time and snapshot, every notification with who was told and whether it was acknowledged, and every patrol round with a frame per item. A dispatch decision can be shown against the frame it was made on.' },
   { question: 'Who holds the account, us or the installer?', answer: 'Whoever operates the console. A monitoring company usually holds it with each client or agency as a sub-user scoped to their sites; an installer can commission and hand over. The monitoring companies page covers both arrangements.' },
+  { question: "Is this video alarm monitoring?", answer: "It is the video side of it. When an alarm comes in, the operator sees the camera view and a snapshot at that moment, and detections and patrol rounds on the same cameras watch the site between alarms. The alarm panel, the receiving center and the response stay with whoever runs them today." },
 ];
 
 const content: UseCaseContent = {

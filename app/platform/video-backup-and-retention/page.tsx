@@ -15,7 +15,7 @@ import { HardDrive, Clock, Zap, Info } from 'lucide-react';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Cloud Video Backup & Retention Management",
+  title: "Cloud Video Recording, Backup & Retention",
   description: "Cloud video backup that survives a destroyed NVR. Retention per camera by days or GB, applied per site in bulk, with playback and comparison.",
   path: "/platform/video-backup-and-retention",
 };
@@ -31,6 +31,7 @@ const faqs = [
   { question: 'What\'s the difference between retention "By Days" and "By Storage"?', answer: 'By Days keeps a fixed time window, say 14 days, regardless of how much footage that ends up being. By Storage instead caps a camera at a fixed GB allowance and lets the retained time window shrink or grow with scene activity. 24/7 continuous recording can be paired with either limit.' },
   { question: 'Can retention be set per camera, or only for the whole account?', answer: 'Both. Each camera can carry its own retention mode and limit, or you can use the quick-apply presets of 7, 30, 60 or 90 days to set every camera on the account to the same policy in one action.' },
   { question: 'What happens to a camera\'s footage if the camera is removed?', answer: 'Footage already stored under that camera remains subject to its existing retention policy until it ages out or is manually cleared. Removing a camera from active monitoring doesn\'t immediately delete its backed-up history.' },
+  { question: "Is this cloud video recording?", answer: "Yes. Each camera records to the cloud continuously or on a schedule, and the footage is kept under a retention window set per camera in days or as a storage cap, so nothing depends on a recorder on site. Playback and export are in the same console." },
 ];
 
 export default function Page() {

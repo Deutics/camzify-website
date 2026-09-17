@@ -13,7 +13,7 @@ import Link from 'next/link';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Occupancy & Peak Hour Trends From Cameras",
+  title: "People Counting & Occupancy Trends From Cameras",
   description: "Camzify occupancy and peak hour trends identifies busiest hours and zones automatically from live camera counts, not guesswork.",
   path: "/ai-features/occupancy-and-peak-hour-trends",
 };
@@ -27,6 +27,7 @@ const faqs = [
   { question: 'How accurate is the occupancy count in busy areas?', answer: 'The count is built from confirmed subject tracks, which holds up well in moderately busy areas. In very dense crowds, individual tracks can be harder to separate, so figures are best read as a reliable trend indicator rather than an exact headcount at extreme density.' },
   { question: 'Can I compare occupancy across multiple zones or sites?', answer: 'Yes. Occupancy is tracked per camera or defined zone, so trends can be compared zone-by-zone within a site, or rolled up across a multi-site account for portfolio-level staffing and planning decisions.' },
   { question: 'How far back does historical trend data go?', answer: 'Historical trends build up continuously from the point tracking is enabled, with retention configurable per account, enough history to establish reliable day-of-week and hour-of-day patterns for staffing and planning decisions.' },
+  { question: "Is this people counting?", answer: "Yes. The counts come from the same tracking that runs for every other detection, so there is no counting hardware to install: each camera reports the people in its view per zone and per hour, and the trends are built from those counts." },
 ];
 
 export default function Page() {

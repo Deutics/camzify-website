@@ -281,7 +281,7 @@ export const navItems = [
           { label: 'Manufacturing', href: '/industries/manufacturing', description: 'Plant floors, PPE zones and perimeters' },
           { label: 'Construction Sites', href: '/industries/construction-sites', description: 'Open sites, plant and material theft' },
           { label: 'Energy', href: '/industries/energy', description: 'Substations, plants and remote assets' },
-          { label: 'Automotive', href: '/industries/automotive', description: 'Dealership lots, yards and workshops' },
+          { label: 'Automotive', href: '/industries/automotive', description: 'Repair shops, service bays and lots' },
         ],
       },
       {

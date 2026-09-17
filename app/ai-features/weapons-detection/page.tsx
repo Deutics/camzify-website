@@ -13,7 +13,7 @@ import Link from 'next/link';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Weapons Detection on Cameras | Visible Only",
+  title: "Gun & Weapons Detection on Cameras | Visible Only",
   description: "Camzify weapons detection flags visible weapons in camera view the moment they appear, routing an alert before a threat escalates.",
   path: "/ai-features/weapons-detection",
 };
@@ -27,6 +27,7 @@ const faqs = [
   { question: 'Can it detect a concealed weapon?', answer: 'No. Weapons detection identifies weapons that are visibly brandished in the camera frame, it is a visual model, not a concealed-weapons scanner. A firearm or blade kept out of camera view, such as holstered or in a bag, will not trigger a detection.' },
   { question: 'How complex is setup for a new site?', answer: 'Setup follows the same pattern as other detection features, enable the capability per camera, and default critical-severity alerting applies immediately. No additional hardware, calibration, or per-camera training is required beyond a clear enough view of the monitored area.' },
   { question: 'How is this different from a metal-detector or checkpoint system?', answer: 'A metal detector or checkpoint screens people as they pass through a fixed point and requires that point to be staffed and enforced. Weapons detection works continuously across any monitored camera view, including areas with no physical checkpoint at all, and doesn\'t require anyone to walk through a designated screening line.' },
+  { question: "Is this gun detection?", answer: "Yes. Gun detection is the common name for it: a visibly held firearm or other weapon in the camera view is raised as a critical alert with the frame and a clip for a person to verify. A weapon inside a bag or under clothing is not visible to a camera and is not detected." },
 ];
 
 export default function Page() {
