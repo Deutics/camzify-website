@@ -148,7 +148,8 @@ rendered result — do not ask the user to look for you.
   otherwise, so a deploy with no database still builds, and connecting the database is
   one variable plus a redeploy. Schema changes need a migration in `prisma/migrations`.
 - **Leads are emailed through ZeptoMail; the database is optional.** `lib/lead-mail.ts`
-  sends every form submission to `LEADS_TO_EMAIL` (default: the public contact address)
+  sends every form submission to `LEADS_TO_EMAIL` (default: the public contact address),
+  copying any addresses in `LEADS_CC_EMAIL`,
   using `ZEPTOMAIL_TOKEN` and `ZEPTOMAIL_FROM_ADDRESS`. Until the database is connected
   the email is the record of the lead, so a failed send fails the request. When
   `DATABASE_URL` is set the row is also written, non-fatally. `.env.example` is the
