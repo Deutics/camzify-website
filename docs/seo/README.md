@@ -85,3 +85,20 @@ the SoftwareApplication schema (an AggregateOffer with only a lowPrice); a quote
 on the pricing page and the demo form that collects camera and feature counts without
 showing a figure; and list rates kept in `lib/pricing-estimates.ts` for the server to add
 an estimate to the team's lead email. The ROI calculator shows the reader's own figures.
+
+## Competitor keyword map (17 September 2026)
+
+`02-competitor-keywords.csv` lists the phrases the comparable vendors build pages for,
+taken from the sitemaps of Eagle Eye Networks, Solink, Spot AI, Coram AI, Rhombus,
+Verkada, Pro-Vigil, Cloudastructure and 3dEYE, and maps each to the Camzify page that
+carries it today or marks it as a gap with the action to take. Search volumes are
+"pending" because DataForSEO returned 402 again; rerun `keyword-fanout-map` on the
+`high` rows when credit is back, before writing anything.
+
+The patterns worth copying, in order: named comparison and "alternative" pages (Spot AI
+has more than forty, Solink and Rhombus have their own); a glossary of short
+definitional pages (Pro-Vigil, Solink and Coram all run one); industry pages for the
+segments three or more competitors target (auto dealerships, logistics, utilities and
+solar, cannabis, hospitality); and a construction site security checklist. Hardware,
+plate recognition, facial recognition, POS integration and white label are marked
+`skip` because Camzify does not sell them.
