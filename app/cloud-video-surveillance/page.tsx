@@ -152,7 +152,7 @@ export default function CloudVideoSurveillancePage() {
               <span className="font-mono text-mono-sm uppercase text-primary">Cloud NVR alternative</span>
               <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">Against a recorder on site</h2>
               <p className="mt-5 max-w-prose text-body text-muted-foreground">
-                The last two rows are where the recorder wins. A site with poor upstream bandwidth, or a policy that footage never leaves the building, should keep its NVR. The longer version is on <Link href="/compare/cloud-vms-vs-on-premise" className="text-primary hover:underline">cloud VMS vs on-premise</Link>. For a named alternative, see <Link href="/compare/camzify-vs-eagle-eye-networks" className="text-primary hover:underline">Camzify vs Eagle Eye Networks</Link>.
+                The last two rows are where the recorder wins. A site with poor upstream bandwidth, or a policy that footage never leaves the building, should keep its NVR. The longer version is on <Link href="/compare/cloud-vms-vs-on-premise" className="text-primary hover:underline">cloud VMS vs on-premise</Link>. For a named alternative, see Camzify against <Link href="/compare/camzify-vs-eagle-eye-networks" className="text-primary hover:underline">Eagle Eye Networks</Link>, <Link href="/compare/camzify-vs-verkada" className="text-primary hover:underline">Verkada</Link>, <Link href="/compare/camzify-vs-rhombus" className="text-primary hover:underline">Rhombus</Link>, <Link href="/compare/camzify-vs-solink" className="text-primary hover:underline">Solink</Link>, <Link href="/compare/camzify-vs-spot-ai" className="text-primary hover:underline">Spot AI</Link>, <Link href="/compare/camzify-vs-coram-ai" className="text-primary hover:underline">Coram AI</Link> or <Link href="/compare/camzify-vs-avigilon-alta" className="text-primary hover:underline">Avigilon Alta</Link>.
               </p>
             </div>
           </ScrollReveal>
@@ -211,12 +211,12 @@ export default function CloudVideoSurveillancePage() {
             {[
               { href: '/guides/what-is-a-cloud-vms', title: 'What is a cloud VMS?', desc: 'The definition, and how it differs from an on-premise VMS.' },
               { href: '/guides/what-is-a-cloud-nvr', title: 'Cloud NVR explained', desc: 'Recording without a recorder, and when the box should stay.' },
-              { href: '/compare/cloud-vms-vs-on-premise', title: 'Cloud VMS vs on-premise', desc: 'The full comparison, including where on-premise wins.' },
+              { href: '/guides/what-is-vsaas', title: 'What is VSaaS?', desc: 'Video surveillance as a service, and what the subscription covers.' },
               { href: '/guides/cloud-vms-cost', title: 'Cloud VMS cost', desc: 'What drives the price, and the hidden fees to ask about.' },
               { href: '/guides/cloud-vms-bandwidth-requirements', title: 'Bandwidth requirements', desc: 'Whether your connection can carry your cameras.' },
               { href: '/guides/using-existing-cameras-with-a-cloud-vms', title: 'Your existing cameras', desc: 'Which cameras connect, and how to try one first.' },
               { href: '/guides/cloud-vms-for-multiple-sites', title: 'Cloud VMS for multiple sites', desc: 'Every location on one console, rolled out site by site.' },
-              { href: '/guides/video-retention-requirements', title: 'Video retention requirements', desc: 'How long different sectors typically keep footage.' },
+              { href: '/guides/hybrid-cloud-video-surveillance', title: 'Hybrid cloud video surveillance', desc: 'Keep the recorder, add the cloud, site by site.' },
             ].map((c) => (
               <Link key={c.href} href={c.href} className="group rounded-xl border border-border bg-card p-6 transition-all duration-normal hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
                 <h3 className="font-display text-base font-bold transition-colors group-hover:text-primary">{c.title}</h3>

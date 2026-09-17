@@ -186,6 +186,7 @@ export default function WhatIsACloudNvrPage() {
             <h2 className="font-display text-xl font-bold">Related guides</h2>
             <div className="mt-4 flex flex-wrap gap-3">
               <Link href="/guides/what-is-a-cloud-vms" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">What is a cloud VMS</Link>
+              <Link href="/guides/hybrid-cloud-video-surveillance" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">Hybrid Cloud Video Surveillance</Link>
               <Link href="/guides/using-existing-cameras-with-a-cloud-vms" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">Using existing cameras with a cloud VMS</Link>
               <Link href="/guides/cloud-vms-bandwidth-requirements" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">Cloud VMS bandwidth requirements</Link>
             </div>

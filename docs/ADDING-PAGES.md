@@ -218,6 +218,13 @@ tanks click-through the moment the year turns.
 
 ---
 
+### Glossary term — `/glossary/<slug>`
+
+No page file. Add an entry to `lib/glossary-terms.ts` (the `GlossaryTerm` type and its
+header comment are the contract) and the route, hub, sitemap and DefinedTerm schema follow
+from it. Run `python3 scripts/check-glossary.py` before committing: it checks title and
+description lengths and that every related href exists.
+
 ### Comparison — `/compare/<slug>`
 
 Bottom-funnel. Use `ComparisonTable` from `@/components/content/comparison-table`.
@@ -227,6 +234,12 @@ answer engines, which is the exact traffic these pages exist to capture. Where a
 competitor or the traditional approach is better, say so — the site already does this on
 `/virtual-patrolling/vs-security-guards` ("Physical response capability: requires guard on
 call").
+
+**Every claim about a named competitor comes from a page on that competitor's own site,
+opened in the same run, and the page ends with a "Sources, checked <date>" list of those
+URLs.** Never characterize a competitor's pricing beyond what its own pricing page states,
+and never quote a figure. The pages against Verkada, Rhombus, Solink, Spot AI, Coram AI
+and Avigilon Alta (2026-09-17) are the model.
 
 ---
 

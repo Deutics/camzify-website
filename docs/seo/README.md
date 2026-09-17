@@ -102,3 +102,15 @@ segments three or more competitors target (auto dealerships, logistics, utilitie
 solar, cannabis, hospitality); and a construction site security checklist. Hardware,
 plate recognition, facial recognition, POS integration and white label are marked
 `skip` because Camzify does not sell them.
+
+## Competitor map, acted on (17 September 2026)
+
+From `02-competitor-keywords.csv`, three groups shipped the same day. Twenty existing pages
+took the phrases competitors rank for (titles where there was room, a FAQ that answers the
+phrase otherwise) and the automotive page was rewritten around repair shops and
+multi-branch groups after an inbound lead. Three guides were added (VSaaS, hybrid cloud
+video surveillance, construction site security checklist). Six sourced comparison pages
+were added (Verkada, Rhombus, Solink, Spot AI, Coram AI, Avigilon Alta), each with a
+Sources section of the competitor's own pages. A glossary silo of thirty short
+definitional pages with DefinedTerm schema was added at `/glossary`, driven by
+`lib/glossary-terms.ts`. Volumes for all of it are still pending DataForSEO credit.

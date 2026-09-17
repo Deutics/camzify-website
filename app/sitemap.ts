@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import { siteConfig } from '@/lib/site-config';
+import { GLOSSARY_TERMS } from '@/lib/glossary-terms';
 
 /**
  * Static sitemap, generated at build time.
@@ -194,10 +195,18 @@ const compare = group(
     '/compare/ai-video-analytics-vs-motion-detection',
     '/compare/cloud-vms-vs-on-premise',
     '/compare/camzify-vs-eagle-eye-networks',
+    '/compare/camzify-vs-verkada',
+    '/compare/camzify-vs-rhombus',
+    '/compare/camzify-vs-solink',
+    '/compare/camzify-vs-spot-ai',
+    '/compare/camzify-vs-coram-ai',
+    '/compare/camzify-vs-avigilon-alta',
   ],
   0.8,
   'monthly'
 );
+
+const glossary = group(['/glossary', ...GLOSSARY_TERMS.map((t) => `/glossary/${t.slug}`)], 0.6, 'monthly');
 
 const guides = group(
   [
@@ -229,6 +238,9 @@ const guides = group(
     '/guides/using-existing-cameras-with-a-cloud-vms',
     '/guides/cloud-vms-for-multiple-sites',
     '/guides/cloud-vms-for-security-agencies',
+    '/guides/what-is-vsaas',
+    '/guides/hybrid-cloud-video-surveillance',
+    '/guides/construction-site-security-checklist',
   ],
   0.7,
   'monthly'
@@ -279,6 +291,7 @@ const allEntries: Entry[] = [
   ...industries,
   ...compare,
   ...guides,
+  ...glossary,
   ...connectivity,
   ...partners,
   ...company,

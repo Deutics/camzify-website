@@ -196,6 +196,7 @@ export default function CloudVmsBandwidthRequirementsPage() {
             <div className="mt-4 flex flex-wrap gap-3">
               <Link href="/guides/what-is-a-cloud-vms" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">What Is a Cloud VMS</Link>
               <Link href="/guides/what-is-a-cloud-nvr" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">What Is a Cloud NVR</Link>
+              <Link href="/guides/hybrid-cloud-video-surveillance" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">Hybrid Cloud Video Surveillance</Link>
               <Link href="/guides/using-existing-cameras-with-a-cloud-vms" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">Using Existing Cameras with a Cloud VMS</Link>
             </div>
             <div className="mt-6 flex flex-wrap gap-4">

@@ -56,6 +56,8 @@ other.
 `app/sitemap.ts` must list every route. A page with no sitemap entry and no internal
 links is invisible. See `docs/ADDING-PAGES.md` for the checklist.
 
+**8. Never state a fact about a named competitor that did not come from that competitor's own site**, opened in the same run and listed in the page's Sources section. Never characterize competitor pricing beyond what their pricing page says.
+
 **7. Never unmount content to hide it.**
 Collapsed FAQ answers and closed nav menus stay in the DOM with `inert`. AI crawlers read
 rendered text, not just JSON-LD — unmounting content makes it invisible to them.
@@ -77,6 +79,7 @@ components/
   ui/                   shadcn primitives. Re-add more with `npx shadcn@latest add <x>`
 lib/
   site-config.ts        Identity + navigation. Single source of truth
+  glossary-terms.ts     The glossary: one entry renders one /glossary/<slug> page
   seo.ts                All schema.org builders
   page-utils.tsx        generatePageMeta — every page's <head> metadata
 docs/                   The documentation set. Keep it current

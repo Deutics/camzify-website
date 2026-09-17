@@ -25,6 +25,12 @@ const items = [
   { href: '/compare/camzify-vs-traditional-vms', title: 'Camzify vs Traditional VMS' },
   { href: '/compare/ai-video-analytics-vs-motion-detection', title: 'AI Video Analytics vs Motion Detection' },
   { href: '/compare/cloud-vms-vs-on-premise', title: 'Cloud VMS vs On-Premise VMS' },
+  { href: '/compare/camzify-vs-verkada', title: 'Camzify vs Verkada' },
+  { href: '/compare/camzify-vs-rhombus', title: 'Camzify vs Rhombus' },
+  { href: '/compare/camzify-vs-solink', title: 'Camzify vs Solink' },
+  { href: '/compare/camzify-vs-spot-ai', title: 'Camzify vs Spot AI' },
+  { href: '/compare/camzify-vs-coram-ai', title: 'Camzify vs Coram AI' },
+  { href: '/compare/camzify-vs-avigilon-alta', title: 'Camzify vs Avigilon Alta' },
 ];
 
 const faqs = [

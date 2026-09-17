@@ -315,6 +315,23 @@ export function howToSchema({
 }
 
 /** WebPage node tying an individual page back into the site graph. */
+/**
+ * A glossary entry as DefinedTerm, inside the site's DefinedTermSet at /glossary. The
+ * two-sentence definition is the text an answer engine quotes, so it is the
+ * `description` here as well as the lead on the page.
+ */
+export function definedTermSchema({ term, definition, path }: { term: string; definition: string; path: string }) {
+  return {
+    '@type': 'DefinedTerm',
+    '@id': absoluteUrl(path),
+    url: absoluteUrl(path),
+    name: term,
+    description: definition,
+    inDefinedTermSet: { '@type': 'DefinedTermSet', '@id': absoluteUrl('/glossary'), name: `${siteConfig.name} security video glossary`, url: absoluteUrl('/glossary') },
+    publisher: { '@id': ORG_ID },
+  };
+}
+
 export function webPageSchema({
   name,
   description,

@@ -161,6 +161,7 @@ export default function WhatIsACloudVmsPage() {
             <h2 className="font-display text-xl font-bold">Related guides</h2>
             <div className="mt-4 flex flex-wrap gap-3">
               <Link href="/guides/what-is-a-cloud-nvr" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">What Is a Cloud NVR?</Link>
+              <Link href="/guides/what-is-vsaas" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">What Is VSaaS?</Link>
               <Link href="/guides/cloud-vms-cost" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">Cloud VMS Cost</Link>
               <Link href="/guides/cloud-vms-bandwidth-requirements" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">Cloud VMS Bandwidth Requirements</Link>
               <Link href="/guides/onvif-and-rtsp-explained" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">ONVIF and RTSP Explained</Link>

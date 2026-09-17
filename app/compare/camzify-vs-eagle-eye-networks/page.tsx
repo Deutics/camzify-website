@@ -12,7 +12,7 @@ import { ProductShot } from '@/components/content/product-shot';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Camzify vs Eagle Eye Networks | Cloud VMS Comparison",
+  title: "Camzify vs Eagle Eye Networks | An Alternative?",
   description: "Compare Camzify with Eagle Eye Networks. Both are cloud video platforms, but Camzify adds automated virtual patrolling with structured compliance reporting.",
   path: "/compare/camzify-vs-eagle-eye-networks",
 };
@@ -38,7 +38,7 @@ export default function CamzifyVsEagleEyeNetworksPage() {
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Camzify vs Eagle Eye Networks</h1>
           <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            An honest comparison of camzify vs eagle eye networks across the dimensions that matter most to security decision-makers. Both approaches have strengths, this table helps you decide which fits your facility.
+            An honest comparison of Camzify and Eagle Eye Networks across the dimensions that matter most to a security decision-maker, including whether Camzify is an Eagle Eye Networks alternative for a site that wants to keep its cameras. Both have strengths; the table helps you decide which fits your facility.
           </p>
 
           <div className="mt-10 max-w-3xl">

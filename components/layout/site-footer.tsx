@@ -87,6 +87,7 @@ const columns: { title: string; links: { label: string; href: string }[]; all?: 
     links: [
       { label: 'Guides', href: '/guides' },
       { label: 'Comparisons', href: '/compare' },
+      { label: 'Glossary', href: '/glossary' },
       { label: 'FAQs', href: '/faqs' },
       { label: 'Blog', href: '/blog' },
       { label: 'Trust', href: '/trust' },

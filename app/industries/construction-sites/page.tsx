@@ -183,7 +183,7 @@ export default function ConstructionSitesPage() {
           <div className="mt-12">
             <ScrollReveal>
               <p className="text-muted-foreground">
-                See how the numbers work for your construction sites facility with the <Link href="/roi-calculator" className="text-primary hover:underline">ROI calculator</Link>, or review <Link href="/pricing" className="text-primary hover:underline">pricing</Link> to understand the per-instance licensing model. Recording and retention for the same cameras are covered on <Link href="/cloud-video-surveillance" className="text-primary hover:underline">cloud video surveillance</Link>.
+                See how the numbers work for your construction sites facility with the <Link href="/roi-calculator" className="text-primary hover:underline">ROI calculator</Link>, or review <Link href="/pricing" className="text-primary hover:underline">pricing</Link> to understand the per-instance licensing model. The <Link href="/guides/construction-site-security-checklist" className="text-primary hover:underline">construction site security checklist</Link> is the daily list a round runs. Recording and retention for the same cameras are covered on <Link href="/cloud-video-surveillance" className="text-primary hover:underline">cloud video surveillance</Link>.
               </p>
             </ScrollReveal>
           </div>

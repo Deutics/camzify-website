@@ -328,6 +328,7 @@ export const navItems = [
       { label: 'Supported Cameras', href: '/supported-cameras', description: 'Compatible camera database' },
       { label: 'Camera Connectivity', href: '/camera-connectivity', description: 'Setup guides by protocol' },
       { label: 'FAQs', href: '/faqs', description: 'Common questions answered' },
+      { label: 'Glossary', href: '/glossary', description: 'Security video terms, defined' },
       { label: 'Blog', href: '/blog', description: 'Latest insights and updates' },
       { label: 'Roadmap', href: '/roadmap', description: 'What we are building next' },
     ],

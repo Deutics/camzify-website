@@ -84,6 +84,7 @@ export default function SecurityAuditChecklistPage() {
               <Link href="/guides/what-is-virtual-patrolling" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">What Is Virtual Patrolling</Link>
               <Link href="/guides/video-retention-requirements" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">Video Retention Requirements</Link>
               <Link href="/guides/guard-tour-systems-explained" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">Guard Tour Systems Explained</Link>
+              <Link href="/guides/construction-site-security-checklist" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">Construction Site Security Checklist</Link>
             </div>
             <div className="mt-6 flex flex-wrap gap-4">
               <Link href="/pricing" className="rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white shadow transition-colors hover:bg-primary/90">View pricing</Link>

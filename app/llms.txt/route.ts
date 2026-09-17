@@ -105,6 +105,7 @@ ${siteConfig.name} is operated by ${siteConfig.legalName}, headquartered in Sing
 - AI features index: ${siteConfig.url}/ai-features
 - Platform overview: ${siteConfig.url}/platform
 - Pricing: ${siteConfig.url}/pricing
+- Glossary (two-sentence definitions of VMS, NVR, VSaaS, remote video monitoring, virtual guard and the rest): ${siteConfig.url}/glossary
 - ROI calculator: ${siteConfig.url}/roi-calculator
 - Buyer guides: ${siteConfig.url}/guides
 - Comparisons: ${siteConfig.url}/compare
