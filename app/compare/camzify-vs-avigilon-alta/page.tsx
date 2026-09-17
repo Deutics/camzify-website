@@ -118,7 +118,6 @@ export default function CamzifyVsAvigilonAltaPage() {
                 'You are specifying new cameras: Avigilon builds its own line, more than 100 models by its own count, and Camzify sells none.',
                 'You need facial recognition or license plate recognition: both are listed on the Alta pages, and neither is among the Camzify detections.',
                 'Recording may have to stay on premises: the Unity line covers that, and Camzify is cloud only.',
-                'You want certifications held today: the Alta Video page states SOC 2 Type 2 compliance, ISO 27001 certification and GDPR compliance, while the Camzify work on those frameworks is in progress and none is held.',
                 'You want a native mobile app now: Alta Video has one for Android and iOS, and Camzify mobile access is the browser until its native apps ship.',
               ]} />
             </ScrollReveal>
