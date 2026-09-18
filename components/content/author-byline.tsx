@@ -15,7 +15,11 @@ import { SiteImage } from '@/components/content/site-image';
  * data cannot disagree. A byline claiming one thing while the schema claims another is
  * the specific failure that gets a rich result withheld.
  */
-export function AuthorByline({ className = '' }: { className?: string }) {
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+/** '2026-09-18' -> '18 September 2026'. Hand-formatted so the server and client agree byte for byte. */
+const longDate = (iso: string) => { const [y, m, d] = iso.split('-').map(Number); return `${d} ${MONTHS[m - 1]} ${y}`; };
+
+export function AuthorByline({ className = '', updated }: { className?: string; updated?: string }) {
   const { name, slug, role, credential } = siteConfig.author;
 
   return (
@@ -40,7 +44,10 @@ export function AuthorByline({ className = '' }: { className?: string }) {
           </Link>
           <span className="text-muted-foreground"> · {role}</span>
         </span>
-        <span className="mt-0.5 block text-xs text-muted-foreground">{credential}</span>
+        <span className="mt-0.5 block text-xs text-muted-foreground">
+          {credential}
+          {updated && <> · Updated <time dateTime={updated}>{longDate(updated)}</time></>}
+        </span>
       </span>
     </div>
   );

@@ -1,7 +1,10 @@
 # SEO & GEO
 
 How this site is built to be found — by search engines (SEO) and by AI answer engines
-(GEO: Generative Engine Optimization).
+(GEO: Generative Engine Optimization). This file is the technical architecture. The
+operating rules, checklists, tooling and market strategy are in
+[`seo/PLAYBOOK.md`](seo/PLAYBOOK.md); the current audit and backlog in
+[`seo/AUDIT-2026-09-18.md`](seo/AUDIT-2026-09-18.md).
 
 The distinction matters. Classic SEO optimizes for a ranked list of blue links. GEO
 optimizes for being **quoted as a source** inside a generated answer in ChatGPT, Claude,

@@ -2,7 +2,8 @@ import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
-import { howToSchema } from '@/lib/seo';
+import { howToSchema, articleSchema, personSchema } from '@/lib/seo';
+import { AuthorByline } from '@/components/content/author-byline';
 import Link from 'next/link';
 import { PhotoFigure } from '@/components/content/photo-figure';
 
@@ -17,7 +18,10 @@ const pageMeta = {
   path: "/guides/how-to-run-a-virtual-patrol-round",
 };
 
-export const metadata = generatePageMeta({ ...pageMeta, type: 'article' });
+const publishedTime = '2026-09-02';
+const modifiedTime = '2026-09-18';
+
+export const metadata = generatePageMeta({ ...pageMeta, type: 'article', publishedTime, modifiedTime });
 
 /**
  * Steps are declared once and used twice — rendered on the page and emitted as HowTo
@@ -79,13 +83,14 @@ export default function HowToRunAVirtualPatrolRoundPage() {
         description: pageMeta.description,
         path: pageMeta.path,
         steps: steps.map((s) => ({ name: s.name, text: s.text })),
-      })]}
+      }), articleSchema({ headline: pageMeta.title, description: pageMeta.description, path: pageMeta.path, datePublished: publishedTime, dateModified: modifiedTime }), personSchema()]}
       breadcrumbs={[{ label: 'Guides', href: '/guides' }, { label: 'How to Run a Virtual Patrol Round' }]}
     >
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
           <span className="font-mono text-mono-sm uppercase text-primary">Guide</span>
           <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">How to run a virtual patrol round</h1>
+          <AuthorByline className="mt-6" updated={modifiedTime} />
           <p className="mt-6 max-w-prose text-body text-muted-foreground">
             <strong className="font-semibold text-foreground">
               A virtual patrol round is a walk through a defined sequence of cameras, checking a

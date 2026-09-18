@@ -47,7 +47,7 @@ export default function WhatIsACloudVmsPage() {
       <article className="pb-16">
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">What is a cloud VMS?</h1>
-          <AuthorByline className="mt-6" />
+          <AuthorByline className="mt-6" updated={modifiedTime} />
           <p className="mt-6 max-w-prose text-body text-muted-foreground">
             A cloud VMS is a video management system that runs as a service in the cloud: cameras stream to it, it records and stores their footage, and every function is used from a browser instead of from a server or recorder on site. It replaces the on-premise VMS server and the NVR with a per-camera subscription, and it keeps the cameras a site already owns.
           </p>
@@ -160,6 +160,7 @@ export default function WhatIsACloudVmsPage() {
           <section className="mt-20 rounded-xl bg-card p-8 shadow">
             <h2 className="font-display text-xl font-bold">Related guides</h2>
             <div className="mt-4 flex flex-wrap gap-3">
+              <Link href="/guides/best-cloud-vms" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">Best Cloud VMS Platforms</Link>
               <Link href="/guides/what-is-a-video-management-system" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">What Is a VMS?</Link>
               <Link href="/guides/what-is-a-cloud-nvr" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">What Is a Cloud NVR?</Link>
               <Link href="/guides/what-is-vsaas" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">What Is VSaaS?</Link>

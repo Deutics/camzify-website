@@ -65,7 +65,7 @@ export const siteConfig = {
    * Used for the Organization and Service `areaServed` nodes; keep this list and the
    * ROI calculator's currency list in step.
    */
-  areaServed: ['United States', 'Europe', 'Middle East', 'Pakistan', 'Singapore'],
+  areaServed: ['United States', 'Singapore', 'United Arab Emirates', 'Middle East', 'Europe', 'Pakistan'],
 
   /** Generated 1200x630 card (app/opengraph-image.tsx), not a static file. */
   ogImage: '/opengraph-image',
@@ -325,6 +325,7 @@ export const navItems = [
       { label: 'Buyer Guides', href: '/guides', description: 'In-depth security guides' },
       { label: 'ROI Calculator', href: '/roi-calculator', description: 'Calculate your savings' },
       { label: 'Compare', href: '/compare', description: 'Side-by-side comparisons' },
+      { label: 'Alternatives', href: '/alternatives', description: 'Switching from ADT or Verkada' },
       { label: 'Supported Cameras', href: '/supported-cameras', description: 'Compatible camera database' },
       { label: 'Camera Connectivity', href: '/camera-connectivity', description: 'Setup guides by protocol' },
       { label: 'FAQs', href: '/faqs', description: 'Common questions answered' },

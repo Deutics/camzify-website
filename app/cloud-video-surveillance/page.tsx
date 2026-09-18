@@ -210,6 +210,7 @@ export default function CloudVideoSurveillancePage() {
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { href: '/guides/what-is-a-cloud-vms', title: 'What is a cloud VMS?', desc: 'The definition, and how it differs from an on-premise VMS.' },
+              { href: '/guides/best-cloud-vms', title: 'Best cloud VMS platforms', desc: 'Eight platforms, including this one, compared on what their own pages say.' },
               { href: '/guides/what-is-a-cloud-nvr', title: 'Cloud NVR explained', desc: 'Recording without a recorder, and when the box should stay.' },
               { href: '/guides/what-is-vsaas', title: 'What is VSaaS?', desc: 'Video surveillance as a service, and what the subscription covers.' },
               { href: '/guides/cloud-vms-cost', title: 'Cloud VMS cost', desc: 'What drives the price, and the hidden fees to ask about.' },

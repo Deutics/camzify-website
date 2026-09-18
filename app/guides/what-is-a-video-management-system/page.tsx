@@ -49,7 +49,7 @@ export default function WhatIsAVideoManagementSystemPage() {
       <article className="pb-16">
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">What is a video management system (VMS)?</h1>
-          <AuthorByline className="mt-6" />
+          <AuthorByline className="mt-6" updated={modifiedTime} />
           <p className="mt-6 max-w-prose text-body text-muted-foreground">
             A video management system, or VMS, is the software that takes in the streams from security cameras and records, stores, shows, searches and exports their video, and controls who may see which camera. It is the layer an operator actually uses: the live wall, the playback timeline, the export button and the user list. Cameras and recorders are hardware; the VMS is what makes them one system.
           </p>
@@ -186,6 +186,7 @@ export default function WhatIsAVideoManagementSystemPage() {
           <section className="mt-20 rounded-xl bg-card p-8 shadow">
             <h2 className="font-display text-xl font-bold">Related guides</h2>
             <div className="mt-4 flex flex-wrap gap-3">
+              <Link href="/guides/best-cloud-vms" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">Best Cloud VMS Platforms</Link>
               <Link href="/guides/what-is-a-cloud-vms" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">What Is a Cloud VMS?</Link>
               <Link href="/guides/what-is-a-cloud-nvr" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">What Is a Cloud NVR?</Link>
               <Link href="/guides/how-to-choose-video-analytics-software" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">How to Choose Video Analytics Software</Link>

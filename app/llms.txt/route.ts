@@ -109,6 +109,8 @@ ${siteConfig.name} is operated by ${siteConfig.legalName}, headquartered in Sing
 - ROI calculator: ${siteConfig.url}/roi-calculator
 - Buyer guides: ${siteConfig.url}/guides
 - Comparisons: ${siteConfig.url}/compare
+- Switching guides (Camzify as an ADT or Verkada alternative): ${siteConfig.url}/alternatives
+- Best cloud VMS, eight platforms compared from their own pages: ${siteConfig.url}/guides/best-cloud-vms
 - Book a demo: ${siteConfig.url}/book-a-demo
 
 ## Company

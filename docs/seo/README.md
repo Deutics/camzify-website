@@ -1,3 +1,12 @@
+# SEO research log
+
+Start with [`PLAYBOOK.md`](PLAYBOOK.md) (how this site is optimized for search engines,
+answer engines and AI citation, and how to measure it) and
+[`AUDIT-2026-09-18.md`](AUDIT-2026-09-18.md) (where it stands and the ordered backlog).
+The rest of this file is the dated log of each research pass, oldest first. Data files:
+`01-*` the original keyword map, `02-*` competitor phrases, `03-*` volumes and difficulty,
+`04-*` the rendered site audit, `05-*` AI visibility.
+
 # Keyword research (7 September 2026)
 
 Files in this folder are the output of the `keyword-fanout-map` skill, run against
@@ -174,3 +183,40 @@ reporting threshold, which is also true of "virtual patrolling" itself). What ma
   virtualization results and the AI Overview cites a "best cloud VMS" listicle. A
   buyer's-guide page that lists several vendors fairly is the format that ranks there;
   a product page will not.
+
+## Alternative pages and the cloud VMS buyer's guide (18 September 2026)
+
+Three pages built on the volume data above. `/alternatives/adt` and `/alternatives/verkada`
+are the switch-intent counterparts to the `/compare` "vs" pages: the reader already has
+the other product and is asking what a move means (cameras kept, services that stay with
+the incumbent, what is given up, who should not switch). They follow rule 8 exactly like
+the comparisons: every vendor statement from a vendor page opened that day and listed in
+the page's Sources section, pricing never characterized beyond the vendor's own pricing
+page. `/alternatives` is the hub, in the Resources menu and the sitemap's
+`alternatives` group. One caveat on the ADT page: adt.com serves US visitors only and
+returned 403 to every request from this machine, so its pages were read from the Internet
+Archive's most recent capture of each URL (March to August 2026), and the page says so in
+its Sources section with the capture date per source. Nothing rests on the one old (2024)
+capture. Re-check the rows against the live pages from a US connection when one is
+available. The other vendor "alternative" phrases returned no volume, so no
+more alternative pages are planned until the data says otherwise.
+
+`/guides/best-cloud-vms` is the buyer's guide format that ranks for "cloud vms": eight
+platforms, Camzify first with a disclosure, the other seven alphabetically, each described
+only from its own pages, with a side-by-side table and a "which for which buyer" list.
+It links every one-to-one comparison and is linked from the cloud pillar, both VMS guides
+and llms.txt.
+
+## Full-site SEO, AEO and GEO audit (18 September 2026)
+
+The whole site was crawled and scored (`scripts/seo-audit.py`, 215 routes), the US, UAE
+and Singapore volumes pulled for the head terms, the SERPs read for the cloud cluster in
+all three markets, and 18 live answers pulled from ChatGPT, Perplexity and Gemini to see
+who is cited. Findings and the backlog are in `AUDIT-2026-09-18.md`; the rules and
+cadence that came out of it are in `PLAYBOOK.md`. Changed the same day: a quotable cost
+FAQ on /pricing and an ONVIF/RTSP compatibility FAQ on /supported-cameras (the two
+sentence types engines lifted from competitors), mention-based related-term links across
+the glossary, one-to-one comparison links from the best-cloud-VMS guide, visible
+"Updated" dates on every guide byline, author and article schema on the six how-to
+guides, the UAE named in `areaServed`, and the eight thinnest content pages expanded to
+900 to 1,400 words with definition-first ledes (four category comparisons, four guides).

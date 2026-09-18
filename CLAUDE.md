@@ -56,7 +56,7 @@ other.
 `app/sitemap.ts` must list every route. A page with no sitemap entry and no internal
 links is invisible. See `docs/ADDING-PAGES.md` for the checklist.
 
-**8. Never state a fact about a named competitor that did not come from that competitor's own site**, opened in the same run and listed in the page's Sources section. Never characterize competitor pricing beyond what their pricing page says.
+**8. Never state a fact about a named competitor that did not come from that competitor's own site**, opened in the same run and listed in the page's Sources section. Never characterize competitor pricing beyond what their pricing page says. This covers the `/compare` pages, the `/alternatives` switching pages and the multi-vendor buyer's guide at `/guides/best-cloud-vms`.
 
 **7. Never unmount content to hide it.**
 Collapsed FAQ answers and closed nav menus stay in the DOM with `inert`. AI crawlers read
@@ -83,7 +83,8 @@ lib/
   seo.ts                All schema.org builders
   page-utils.tsx        generatePageMeta — every page's <head> metadata
 docs/                   The documentation set. Keep it current
-  seo/                  Keyword map and coverage sheet (2026-09-07), read by the SEO skills
+  seo/                  PLAYBOOK.md (SEO/AEO/GEO rules, tooling, cadence), AUDIT-<date>.md
+                        (state and backlog), keyword and audit data, read by the SEO skills
   design/               Design handoffs that are not part of the site (console sign-in)
 ```
 

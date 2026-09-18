@@ -57,7 +57,7 @@ export default function HybridCloudVideoSurveillancePage() {
       <article className="pb-16">
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Hybrid cloud video surveillance: keep the recorder, add the cloud</h1>
-          <AuthorByline className="mt-6" />
+          <AuthorByline className="mt-6" updated={modifiedTime} />
           <p className="mt-6 max-w-prose text-body text-muted-foreground">
             <strong className="font-semibold text-foreground">
               Hybrid cloud video surveillance keeps the recorder on site and adds cloud recording beside it, so the same cameras are recorded in two places: locally on the NVR and off site in a cloud VMS. The recorder carries on as it did; the cloud takes the cameras that need remote access, longer retention, AI detections or a copy that survives the building.

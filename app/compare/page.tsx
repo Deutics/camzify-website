@@ -31,6 +31,8 @@ const items = [
   { href: '/compare/camzify-vs-spot-ai', title: 'Camzify vs Spot AI' },
   { href: '/compare/camzify-vs-coram-ai', title: 'Camzify vs Coram AI' },
   { href: '/compare/camzify-vs-avigilon-alta', title: 'Camzify vs Avigilon Alta' },
+  { href: '/alternatives/adt', title: 'Camzify as an ADT Alternative' },
+  { href: '/alternatives/verkada', title: 'Camzify as a Verkada Alternative' },
 ];
 
 const faqs = [

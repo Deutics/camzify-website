@@ -74,7 +74,7 @@ export default function CloudVmsBandwidthRequirementsPage() {
       <article className="pb-16">
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Cloud VMS bandwidth requirements: what your cameras will send</h1>
-          <AuthorByline className="mt-6" />
+          <AuthorByline className="mt-6" updated={modifiedTime} />
           <div className="mt-10 max-w-3xl">
             <PhotoFigure src="/guide-cloud-vms-bandwidth-requirements.webp" alt="Illustration for this guide: the Camzify console and the cameras it runs on" priority />
           </div>

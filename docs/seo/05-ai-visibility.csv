@@ -1,0 +1,19 @@
+engine,query,camzify_cited,camzify_page,domains_cited
+ChatGPT gpt-5.5,What is a cloud VMS for security cameras?,no,,axis.com genetec.com techdocs.genetec.com newsroom.axis.com onvif.org
+ChatGPT gpt-5.5,Best cloud VMS platforms that keep existing IP cameras,no,,een.com arcules.com verkada.com surveillant.ai
+ChatGPT gpt-5.5,What is cloud video surveillance and how does it work?,no,,seing.cloud milestonesys.com clearway.co.uk newsroom.axis.com arxiv.org
+ChatGPT gpt-5.5,What is remote video monitoring and what does it cost?,no,,en.wikipedia.org getsafeandsound.com sirixmonitoring.com getscw.com surveillant.ai
+ChatGPT gpt-5.5,What is virtual patrolling; which software offers scheduled rounds on existing cameras?,yes,/virtual-patrolling,camzify.com support.chekt.com gfiveaisecurity.com smartgard.ai exigasoft.com hikvision.com 1degreesurveillance.com precisioncctv.com
+ChatGPT gpt-5.5,What is a virtual guard service vs on-site guards?,no,,virtualguard.com interfacesystems.com en.wikipedia.org asisonline.org
+ChatGPT gpt-5.5,What is AI video analytics for security cameras; typical detections?,no,,axis.com help.axis.com avigilon.com techdocs.genetec.com
+ChatGPT gpt-5.5,What is VSaaS?,no,,forasoft.com genetec.com grandviewresearch.com csoonline.com arxiv.org
+ChatGPT gpt-5.5,Verkada alternatives that work with existing cameras,no,,een.com genetec.com rhombus.com en.wikipedia.org
+ChatGPT gpt-5.5,ADT alternatives for business video surveillance,no,,everonsolutions.com rhombus.com dbsi.net nightdragon.com 2mtechnology.net reddit.com
+Perplexity sonar-pro,What is a cloud VMS for security cameras?,no,,avigilon.com aws.amazon.com coram.ai een.com spot.ai surveillant.ai tetherx.io guideflow.com videoloft.com ifovea.com cloudcctv.app getkisi.com ipvm.com forasoft.com
+Perplexity sonar-pro,What is virtual patrolling and which software offers it?,no,,bossecurity.com eyeqmonitoring.com mactwin.com get-licensed.co.uk iguard360.com beyondsensor.com gabkotech.com virtualpatrol.org imotionsecurite.com csisecurity.net
+Perplexity sonar-pro,What is remote video monitoring and what does it cost?,no,,everonsolutions.com pro-vigil.com spot.ai openeye.net ecam.com avigilon.com honorsecurity.com sirixmonitoring.com ivis.net camcloud.com wifieye.com brivo.com coram.ai een.com adt.com learn.g2.com
+Perplexity sonar-pro,Best cloud VMS platforms that work with existing IP cameras,no,,spot.ai tetherx.io ifovea.com surveillant.ai asmag.com nuzzel.com ipvm.com rhombus.com guideflow.com coram.ai zipdo.co itsupplychain.com gitnux.org forasoft.com
+Perplexity sonar-pro,What is a virtual guard vs on-site guards?,no,,duckviewsystems.com pro-vigil.com enverasystems.com bossecurity.com csisecurity.net cunninghamsecurity.com solink.com
+Gemini 2.5 Flash,What is a cloud VMS for security cameras?,no,,spot.ai videoloft.com callmc.com camerasecuritynow.com coram.ai videoexpertsgroup.com axxonsoft.com cloud.google.com
+Gemini 2.5 Flash,What is virtual patrolling; which software offers scheduled rounds?,yes,/guides/what-is-virtual-patrolling,eyeqmonitoring.com bossecurity.com get-licensed.co.uk camzify.com lcdoutsource.com irondeltasecurity.com protechsecurity.com targpatrol.com instanotified.com redgps.com koalendar.com
+Gemini 2.5 Flash,What is remote video monitoring and which providers offer it?,no,,hakimo.ai pro-vigil.com arrowsecurityinc.com amarok.com gcctvms.com pioneersecurity.com himalayas.app researchandmarkets.com een.com everonsolutions.com serenasecurity.com permarsecurity.com prosegur.us securitastechnology.com

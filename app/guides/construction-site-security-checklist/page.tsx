@@ -44,7 +44,7 @@ export default function ConstructionSiteSecurityChecklistPage() {
       <article className="pb-16">
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Construction site security checklist: what to check every day</h1>
-          <AuthorByline className="mt-6" />
+          <AuthorByline className="mt-6" updated={modifiedTime} />
           <p className="mt-6 max-w-prose text-body text-muted-foreground">
             <strong className="font-semibold text-foreground">A construction site security checklist is the list of conditions a site must be in at the end of each working day, checked by a named person and recorded.</strong>{' '}
             It covers six areas: the perimeter and access, plant and materials, the daily close, cameras and monitoring, people, and incident readiness. The lists below can be copied and cut to fit the site.
