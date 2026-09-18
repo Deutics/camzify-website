@@ -93,7 +93,7 @@ export default function CamzifyVsAvigilonAltaPage() {
               </p>
               <div className="mt-8">
                 <ComparisonTable
-                  columns={['', sides[0], sides[1]]}
+                  columns={['Aspect', sides[0], sides[1]]}
                   rows={[
                     { label: 'What you buy', values: ['A software subscription only. No cameras and no appliance; the Connector is an application on a PC.', 'A cloud security platform: Alta Video, Alta Access, Avigilon cameras, sensors and Cloud Connector appliances, installed by a partner.'] },
                     { label: 'Cameras', values: ['The ONVIF and RTSP cameras you already own, over RTSP, RTMP or HTTPS streams.', 'Its own line: dome, bullet and box, PTZ, 360 and panoramic, specialty, up to 10K. Existing IP cameras connect through an Alta Cloud Connector appliance.'] },

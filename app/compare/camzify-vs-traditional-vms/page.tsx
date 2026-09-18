@@ -48,7 +48,7 @@ export default function CamzifyVsTraditionalVmsPage() {
           <div className="mt-12">
             <ScrollReveal>
               <ComparisonTable
-                columns={[sides?.[0] ?? 'Option A', sides?.[1] ?? 'Option B']}
+                columns={['Aspect', sides?.[0] ?? 'Option A', sides?.[1] ?? 'Option B']}
                 rows={[
                   { label: "Primary function", values: ["Active AI verification via patrol rounds", "Passive video recording and playback"] },
                   { label: "Detection", values: ["AI-powered: zone, line, motion, tampering, tracking", "Basic motion detection or none"] },

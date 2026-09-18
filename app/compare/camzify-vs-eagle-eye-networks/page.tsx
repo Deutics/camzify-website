@@ -48,7 +48,7 @@ export default function CamzifyVsEagleEyeNetworksPage() {
           <div className="mt-12">
             <ScrollReveal>
               <ComparisonTable
-                columns={[sides?.[0] ?? 'Option A', sides?.[1] ?? 'Option B']}
+                columns={['Aspect', sides?.[0] ?? 'Option A', sides?.[1] ?? 'Option B']}
                 rows={[
                   { label: "Core differentiator", values: ["Virtual patrolling with structured compliance", "Cloud-native VMS with broad integrations"] },
                   { label: "Patrol automation", values: ["Built-in scheduled patrol rounds with checklists", "Not available — integrations-based approach"] },

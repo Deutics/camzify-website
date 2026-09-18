@@ -64,7 +64,7 @@ export default function VsMobilePatrolsPage() {
 
           <div className="mt-12">
             <ScrollReveal>
-              <ComparisonTable columns={['Virtual patrolling', 'Mobile patrols']} rows={rows} />
+              <ComparisonTable columns={['Aspect', 'Virtual patrolling', 'Mobile patrols']} rows={rows} />
             </ScrollReveal>
           </div>
 

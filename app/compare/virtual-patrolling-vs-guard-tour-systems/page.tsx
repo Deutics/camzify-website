@@ -48,7 +48,7 @@ export default function VirtualPatrollingVsGuardTourSystemsPage() {
           <div className="mt-12">
             <ScrollReveal>
               <ComparisonTable
-                columns={[sides?.[0] ?? 'Option A', sides?.[1] ?? 'Option B']}
+                columns={['Aspect', sides?.[0] ?? 'Option A', sides?.[1] ?? 'Option B']}
                 rows={[
                   { label: "What it verifies", values: ["The condition at each checkpoint — is the door closed, is the area clear", "That the guard was physically present at the checkpoint"] },
                   { label: "Requires on-site staff", values: ["No — runs on existing cameras remotely", "Yes — requires a guard to walk the route"] },

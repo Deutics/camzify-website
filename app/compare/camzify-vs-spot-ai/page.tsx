@@ -24,7 +24,7 @@ const pageMeta = {
 
 export const metadata = generatePageMeta({ ...pageMeta });
 
-const columns = ['Camzify', 'Spot AI'];
+const columns = ['Aspect', 'Camzify', 'Spot AI'];
 
 const rows = [
   { label: 'What you buy', values: ['A software subscription, priced per instance. No hardware is sold or required beyond the optional Camzify Connector on a PC.', 'An AI camera system: cameras, an Intelligent Video Recorder with on-device AI, and a cloud dashboard with pre-trained AI agents.'] },
