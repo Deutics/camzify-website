@@ -231,6 +231,7 @@ const guides = group(
     '/guides/adding-remote-patrols-to-alarm-monitoring',
     '/guides/security-audit-checklist',
     '/guides/video-retention-requirements',
+    '/guides/what-is-a-video-management-system',
     '/guides/what-is-a-cloud-vms',
     '/guides/what-is-a-cloud-nvr',
     '/guides/cloud-vms-cost',

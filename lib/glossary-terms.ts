@@ -69,6 +69,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
       'A cloud VMS delivers the same functions as a service, with no server to maintain, retention set per camera and every site on one login. On Camzify the AI detections and scheduled patrol rounds run inside the same system, on the same streams.',
     ],
     related: [
+      { href: '/guides/what-is-a-video-management-system', label: 'What is a video management system? The full guide' },
       { href: '/guides/what-is-a-cloud-vms', label: 'What is a cloud VMS?' },
       { href: '/platform', label: 'The Camzify platform' },
       { href: '/compare/camzify-vs-traditional-vms', label: 'Camzify vs traditional VMS' },

@@ -124,6 +124,53 @@ or 52 characters, the seven industry titles still in the generic "AI Security fo
 (now the buyer's phrase, e.g. "Retail Store Security Cameras"), the glossary description,
 and 38 pages whose title phrase never appeared in their own opening paragraph (the lede
 now carries it once). The Eagle Eye comparison, written before the competitor-sourcing
-rule, was rewritten to the sourced format. Check to rerun after any batch of new pages:
-`scripts/` has no audit script yet; the checks are in the session transcript and worth
-promoting to `scripts/check-pages.py`.
+rule, was rewritten to the sourced format. Rerun `python3 scripts/check-pages.py` after
+any batch of new pages (static checks) and `--rendered` against the dev server on :3411.
+
+## Ranking check and keyword volumes (18 September 2026)
+
+With the DataForSEO account connected, the first ranked-keywords pull for camzify.com
+explained the gap between "we rank for virtual patrolling" and "we do not rank for cloud
+VMS". The domain ranks for 15 keywords, every one of them through two URLs from the old
+site: `/blog/what-is-video-management-software-vms/` ("vms system" 1,600 a month at
+position 34, "vms video management software" 480 at 19, plus "what is vms in cctv",
+"vms recording", "vms device") and
+`/blog/revolutionizing-security-how-ai-surveillance-is-changing-the-game/`. Both had
+returned 404 since the rebuild, so the only equity the domain had was draining. Fixed the
+same day: permanent redirects in `next.config.js` (the VMS post to the new
+`/guides/what-is-a-video-management-system`, the AI post to
+`/guides/what-is-intelligent-video-analytics`, any other `/blog/<slug>` to `/guides`),
+and the VMS guide itself, written to answer the queries the old post ranked for.
+
+The site has 39 backlinks from 36 referring domains, all to the homepage; nothing deep.
+The historical view shows the domain barely ranked before the rebuild either, so the
+baseline is close to zero and every page is a first attempt, not a recovery.
+
+Volumes and difficulty for 130 phrases are in `03-keyword-volumes.csv` (Google, United
+States, English, 12-month average; "no data" means the phrase is below Google's
+reporting threshold, which is also true of "virtual patrolling" itself). What matters:
+
+- **Head terms the site now owns a page for, with low difficulty:** "cloud based video
+  surveillance" 720 (KD 3), "business security camera system" 590 (KD 2), "retail
+  security cameras" 590 (KD 1), "warehouse security cameras" 1,000 (KD 7), "ai camera
+  system" 880 (KD 4), "ai security camera" 1,300 (KD 7), "apartment security" 1,300
+  (KD 6), "remote video monitoring" 210 (KD 1), "cloud nvr" 90 (KD 1), "video
+  surveillance software" 720 (KD 13). These are winnable with the pages that exist
+  and a handful of links.
+- **The VMS cluster is the largest informational demand the site can credibly answer:**
+  "vms" 60,500 (mixed with other meanings), "vms system" 1,600, "vms software" 1,300,
+  "video management system software" 1,000, "video management software" 1,000, "video
+  management system" 880, "cloud vms" 590 (KD 50, the hardest phrase in the set),
+  "cloud based vms" 480 (KD 12). The new VMS guide, the glossary entry and the cloud
+  VMS guide split this by intent: category definition, bare term, cloud form.
+- **Competitor-switch demand is small but expensive:** "verkada competitors" 260 and
+  "verkada alternative" 70 (CPC $71 to $79), "adt competitors" 390 and "adt
+  alternatives" 260. The other vendor "alternative" phrases return no volume, which
+  argues for one ADT alternative page and one Verkada alternative page before any other.
+- **Not worth a page:** "virtual patrol" 10 (KD 43), "remote patrol" 10, "security agency
+  software" 10, "guard company software" 10, "multi site video surveillance" 10,
+  "car dealership security cameras" 30. Keep these as phrases inside existing pages.
+- **"cloud vms" is partly a virtual-machine query.** The SERP mixes video and
+  virtualization results and the AI Overview cites a "best cloud VMS" listicle. A
+  buyer's-guide page that lists several vendors fairly is the format that ranks there;
+  a product page will not.

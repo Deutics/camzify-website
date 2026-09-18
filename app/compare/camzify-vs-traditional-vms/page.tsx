@@ -38,7 +38,7 @@ export default function CamzifyVsTraditionalVmsPage() {
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Camzify vs traditional VMS</h1>
           <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            An honest comparison of camzify vs traditional vms across the dimensions that matter most to security decision-makers. Both approaches have strengths, this table helps you decide which fits your facility.
+            An honest comparison of Camzify vs traditional VMS across the dimensions that matter most to security decision-makers. Both approaches have strengths, and this table helps you decide which fits your facility. If the term is new, start with <Link href="/guides/what-is-a-video-management-system" className="text-primary hover:underline">what a video management system is</Link>.
           </p>
 
           <div className="mt-10 max-w-3xl">

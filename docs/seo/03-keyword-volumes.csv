@@ -1,0 +1,146 @@
+keyword,search_volume,keyword_difficulty,competition,cpc,intent
+vms,60500,17,LOW,12.41,informational
+central station,27100,16,LOW,1.36,navigational
+security camera system,22200,50,HIGH,14.59,commercial
+intrusion detection,6600,27,LOW,51.07,informational
+loss prevention,6600,7,LOW,15.11,informational
+motion detection,6600,13,HIGH,0.92,informational
+onvif,4400,34,LOW,5.93,informational
+security operations center,2900,31,LOW,41.94,navigational
+campus security,2400,22,LOW,13,informational
+commercial security systems,2400,22,MEDIUM,71.39,commercial
+people counting,2400,80,MEDIUM,8.04,informational
+cctv security system,1900,50,HIGH,9.29,commercial
+vms system,1600,25,MEDIUM,44.02,informational
+ai security camera,1300,7,HIGH,14.96,transactional
+apartment security,1300,6,HIGH,16.32,commercial
+vms software,1300,14,LOW,22.24,commercial
+rtsp camera,1000,,HIGH,1.8,transactional
+video management software,1000,22,LOW,20.13,commercial
+warehouse security cameras,1000,7,HIGH,6.22,commercial
+video management system software,1000,22,LOW,20.13,commercial
+ai camera system,880,4,HIGH,22.8,transactional
+commercial security camera system,880,35,HIGH,56.25,commercial
+perimeter security,880,17,LOW,20.23,commercial
+video management system,880,47,LOW,22,transactional
+cloud based video surveillance,720,3,LOW,23.11,commercial
+construction site security,720,,LOW,74.03,commercial
+guard tour system,720,30,LOW,30.98,informational
+gun detection,720,22,LOW,9.6,informational
+video surveillance software,720,13,LOW,3.99,commercial
+business security camera system,590,2,HIGH,38.38,commercial
+cctv cloud storage,590,,HIGH,11.93,transactional
+cloud vms,590,50,MEDIUM,46.55,commercial
+retail security cameras,590,1,HIGH,33.47,transactional
+video storage,590,31,MEDIUM,5.76,informational
+camera cloud storage,480,42,HIGH,6.16,transactional
+security camera software,480,10,LOW,15.1,commercial
+virtual guard,480,,MEDIUM,14.62,informational
+vms video management software,480,22,LOW,12.79,transactional
+video management software vms,480,22,LOW,12.79,transactional
+cloud based vms,480,12,MEDIUM,44.5,commercial
+adt competitors,390,,HIGH,27.3,navigational
+incident investigation,320,,LOW,31.39,informational
+ip camera software,320,20,LOW,11.27,transactional
+cloud video surveillance,260,18,LOW,,commercial
+restaurant security cameras,260,,HIGH,54.6,commercial
+adt alternatives,260,,HIGH,23.08,informational
+verkada competitors,260,,MEDIUM,79.09,navigational
+remote video monitoring,210,1,MEDIUM,5.08,commercial
+video alarms,210,20,LOW,5.72,commercial
+video verification,210,16,LOW,13.53,informational
+virtual security guard,210,,MEDIUM,9.99,commercial
+cctv software,210,23,LOW,14.21,commercial
+ai video surveillance,170,21,MEDIUM,32.24,transactional
+bank security cameras,170,,MEDIUM,11.06,commercial
+substation security,170,,LOW,8.57,commercial
+ai video analytics,140,20,LOW,,commercial
+central monitoring station,140,2,MEDIUM,3.65,informational
+city security cameras,140,8,LOW,6.29,informational
+hospital security cameras,140,,MEDIUM,,commercial
+logistics security,140,,LOW,15.33,informational
+self storage security,140,3,LOW,74.96,commercial
+self-storage security cameras,140,,HIGH,4.87,transactional
+vsaas,140,,LOW,30.44,informational
+cloud based security camera system,110,,HIGH,6.29,commercial
+cloud security camera system,110,8,HIGH,6.29,commercial
+remote guarding,110,,LOW,31.09,informational
+vms security,110,12,LOW,,navigational
+security camera monitoring service,110,,MEDIUM,45.3,commercial
+ai surveillance system,90,16,MEDIUM,113.9,commercial
+cloud nvr,90,1,HIGH,37.57,informational
+guard tour software,90,6,LOW,16.25,commercial
+people detection,90,,LOW,17.01,informational
+video alarm monitoring,90,,MEDIUM,40.83,commercial
+auto dealership security,70,,LOW,,commercial
+camera to cloud,70,6,LOW,7.61,informational
+grocery store security,70,,LOW,,commercial
+verkada alternative,70,,LOW,70.61,informational
+live video monitoring service,70,,LOW,,commercial
+ai security guard,50,,MEDIUM,12.42,commercial
+loitering detection,50,,LOW,,informational
+what is a video management system,50,22,LOW,,informational
+cloud cctv,40,8,HIGH,23.5,commercial
+cloud video recording,40,8,MEDIUM,8.64,informational
+gas station security,40,,LOW,,informational
+tailgating detection,40,,LOW,,informational
+video surveillance as a service,40,,LOW,,commercial
+cloud video management system,40,2,MEDIUM,12.21,commercial
+vms cctv,40,18,MEDIUM,14.59,navigational
+cctv monitoring software,40,33,MEDIUM,4.42,commercial
+what is vsaas,30,,LOW,,informational
+vms device,30,33,LOW,,transactional
+car dealership security cameras,30,,LOW,,commercial
+24/7 video monitoring,20,47,LOW,,informational
+data center security cameras,20,,HIGH,,informational
+property management security cameras,20,,MEDIUM,46.85,commercial
+remote site monitoring,20,,MEDIUM,,commercial
+smart video search,20,3,LOW,59.85,informational
+solar farm security,20,,LOW,,commercial
+utility security,20,4,LOW,,navigational
+vms recording,20,,LOW,,informational
+what is vms in cctv,20,6,LOW,,informational
+remote camera monitoring service,20,9,MEDIUM,108.17,commercial
+camera health monitoring,10,,MEDIUM,,informational
+cloud camera storage,10,42,HIGH,6.45,transactional
+construction site security checklist,10,,LOW,,informational
+convenience store security,10,,LOW,,commercial
+dispensary security cameras,10,,LOW,,commercial
+fire and smoke detection camera,10,,HIGH,4.01,transactional
+hybrid cloud video surveillance,10,,LOW,,commercial
+ip camera hosting,10,,LOW,,commercial
+nvr alternative,10,,LOW,,informational
+places of worship security,10,,LOW,,informational
+scrap yard security,10,,LOW,,commercial
+security camera dealer program,10,,,,transactional
+security guard cost per hour,10,,LOW,22.69,informational
+virtual patrol,10,43,LOW,,informational
+avigilon alternative,10,,,,commercial
+milestone alternative,10,,MEDIUM,,informational
+cloud video management software,10,,LOW,,commercial
+guard company software,10,,LOW,,commercial
+multi site video surveillance,10,,,,informational
+remote patrol,10,,LOW,,informational
+security agency software,10,28,,,commercial
+central station monitoring software,10,28,MEDIUM,,commercial
+video monitoring center,10,43,LOW,,commercial
+hospitality security cameras,0,,,,commercial
+how to reduce false alarms,0,,,,informational
+manufacturing security cameras,0,27,,,commercial
+multifamily security cameras,0,,,,commercial
+school security cameras,0,5,,,informational
+best cloud vms,no data,,,,
+best cloud based vms,no data,,,,
+adt alternative,no data,,,,
+rhombus alternative,no data,,,,
+eagle eye networks alternative,no data,,,,
+solink alternative,no data,,,,
+spot ai alternative,no data,,,,
+coram ai alternative,no data,,,,
+genetec alternative,no data,,,,
+auto repair shop security cameras,no data,,,,
+auto shop security cameras,no data,,,,
+dealership security cameras,no data,,,,
+multi site security cameras,no data,,,,
+24/7 camera monitoring service,no data,,,,
+virtual patrolling,no data,,,,
