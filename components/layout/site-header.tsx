@@ -123,9 +123,32 @@ export function SiteHeader() {
   const triggerRefs = useRef<Record<string, HTMLButtonElement | null>>({});
   const wrapperRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
-  const closeAll = useCallback(() => {
-    setActiveMenu(null);
+  /** Pending close from a mouse leave; cancelled if the pointer comes back within the delay. */
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const cancelClose = useCallback(() => {
+    if (closeTimer.current) {
+      clearTimeout(closeTimer.current);
+      closeTimer.current = null;
+    }
   }, []);
+
+  const closeAll = useCallback(() => {
+    cancelClose();
+    setActiveMenu(null);
+  }, [cancelClose]);
+
+  /**
+   * Close after a short grace period. A menu that closes the instant the pointer
+   * crosses the gap between trigger and panel reads as broken; 140ms is long enough
+   * to cross the gap and short enough that leaving the nav feels immediate.
+   */
+  const scheduleClose = useCallback(() => {
+    cancelClose();
+    closeTimer.current = setTimeout(() => setActiveMenu(null), 140);
+  }, [cancelClose]);
+
+  useEffect(() => cancelClose, [cancelClose]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80);
@@ -157,6 +180,7 @@ export function SiteHeader() {
 
   /** Open a top-level menu; its panel is shifted left just enough to stay inside the viewport. */
   const openMenu = useCallback((label: string) => {
+    cancelClose();
     setActiveMenu(label);
     const el = wrapperRefs.current[label];
     if (!el) return;
@@ -166,7 +190,7 @@ export function SiteHeader() {
     const rect = el.getBoundingClientRect();
     const overflow = rect.left + width - (window.innerWidth - margin);
     setMenuShift(overflow > 0 ? -Math.min(overflow, rect.left - margin) : 0);
-  }, []);
+  }, [cancelClose]);
 
   /** Close the group when focus moves entirely outside it. */
   const handleBlurOut = (e: React.FocusEvent<HTMLElement>, close: () => void) => {
@@ -214,15 +238,15 @@ export function SiteHeader() {
                 }}
                 className="relative"
                 onMouseEnter={() => hasMenu && openMenu(label)}
-                onMouseLeave={() => hasMenu && closeAll()}
+                onMouseLeave={() => hasMenu && scheduleClose()}
                 onFocus={() => hasMenu && openMenu(label)}
                 onBlur={(e) => hasMenu && handleBlurOut(e, closeAll)}
               >
-                <div className="flex items-center">
+                <div className={`flex items-center rounded-md transition-colors duration-fast ${isOpen ? 'bg-accent' : ''}`}>
                   <Link
                     href={href}
                     className={`whitespace-nowrap rounded-md px-1.5 py-2 text-[13px] font-medium xl:px-2 transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
-                      isActivePath(href) ? 'text-primary' : 'text-foreground/80'
+                      isActivePath(href) || isOpen ? 'text-primary' : 'text-foreground/80'
                     }`}
                     aria-current={pathname === href ? 'page' : undefined}
                   >
@@ -238,10 +262,10 @@ export function SiteHeader() {
                       aria-expanded={isOpen}
                       aria-controls={menuId}
                       aria-label={`${label} menu`}
-                      className="-ml-1.5 rounded-md p-0.5 text-foreground/80 transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                      className={`-ml-1.5 rounded-md p-0.5 pr-1.5 transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${isOpen ? 'text-primary' : 'text-foreground/80'}`}
                     >
                       <ChevronDown
-                        className={`h-3.5 w-3.5 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+                        className={`h-3.5 w-3.5 transition-transform duration-fast ${isOpen ? 'rotate-180' : ''}`}
                         aria-hidden="true"
                       />
                     </button>
@@ -257,22 +281,31 @@ export function SiteHeader() {
                       width: wide ? `min(${panelWidth}px, calc(100vw - 2rem))` : NARROW_PANEL_WIDTH,
                       left: menuShift,
                     }}
-                    className={`absolute top-full z-50 max-h-[calc(100vh-6rem)] overflow-y-auto rounded-xl border border-border bg-card shadow-lg transition-all duration-fast ${
-                      wide ? 'p-4' : 'p-3'
-                    } ${
+                    className={`absolute top-full z-50 origin-top pt-2.5 transition-[opacity,transform,visibility] duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] ${
                       isOpen
-                        ? 'visible translate-y-0 opacity-100'
-                        : 'invisible pointer-events-none translate-y-2 opacity-0'
+                        ? 'visible translate-y-0 scale-100 opacity-100'
+                        : 'invisible pointer-events-none -translate-y-1 scale-[0.98] opacity-0'
                     }`}
                   >
+                    {/* Pointer under the trigger; it stays put when the panel is shifted left to fit the viewport. */}
+                    <span
+                      aria-hidden="true"
+                      className="absolute top-[5px] z-10 h-3 w-3 rotate-45 rounded-sm border-l border-t border-border bg-card"
+                      style={{ left: 22 - menuShift }}
+                    />
+                    <div
+                      className={`max-h-[calc(100vh-6rem)] overflow-y-auto rounded-xl border border-border bg-card/95 shadow-2xl backdrop-blur-xl ${
+                        wide ? 'p-4' : 'p-2'
+                      }`}
+                    >
                     {wide ? (
                       <>
                         <div
-                          className="grid gap-x-4 gap-y-5"
+                          className="grid gap-x-3 gap-y-5"
                           style={{ gridTemplateColumns: `repeat(${sections.length}, minmax(0, 1fr))` }}
                         >
-                          {sections.map((stack) => (
-                          <div key={stack[0]?.label ?? ''} className="space-y-5">
+                          {sections.map((stack, stackIndex) => (
+                          <div key={stack[0]?.label ?? ''} className={`space-y-5 ${stackIndex > 0 ? 'border-l border-border pl-3' : ''}`}>
                           {stack.map((sec) => (
                             <div key={sec.label}>
                               <p className="mb-1.5 px-3 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
@@ -303,7 +336,7 @@ export function SiteHeader() {
                           ))}
                         </div>
                         {footerLinks.length > 0 && (
-                          <div className="mt-4 flex flex-wrap gap-x-6 gap-y-1 border-t border-border pt-3">
+                          <div className="-mx-4 -mb-4 mt-4 flex flex-wrap gap-x-4 gap-y-1 rounded-b-xl border-t border-border bg-muted/40 px-3 py-2">
                             {footerLinks.map((child: any) => (
                               <Link
                                 key={child?.href ?? ''}
@@ -338,6 +371,7 @@ export function SiteHeader() {
                         ))}
                       </ul>
                     )}
+                    </div>
                   </div>
                 )}
 
@@ -463,18 +497,37 @@ export function SiteHeader() {
                         )}
 
                         {item?.children && (
-                          <ul className="ml-4 space-y-0.5">
-                            {(item.children ?? []).map((child: any) => (
-                              <li key={child?.href ?? ''}>
-                                <Link
-                                  href={child?.href ?? '/'}
-                                  className="block rounded-md px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                                >
-                                  {child?.label ?? ''}
-                                </Link>
-                              </li>
+                          <div className="ml-4 space-y-2">
+                            {/* A sectioned menu keeps its section headings on mobile so the list reads the same as the desktop panel. */}
+                            {(columnsFor(item)?.columns ?? [{ label: '', items: item.children ?? [] }]).map((sec: any) => (
+                              <div key={sec.label || 'all'}>
+                                {sec.label && (
+                                  <p className="px-3 pb-0.5 pt-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground/80">{sec.label}</p>
+                                )}
+                                <ul className="space-y-0.5">
+                                  {(sec.items ?? []).map((child: any) => (
+                                    <li key={child?.href ?? ''}>
+                                      <Link
+                                        href={child?.href ?? '/'}
+                                        className="block rounded-md px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                                      >
+                                        {child?.label ?? ''}
+                                      </Link>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
                             ))}
-                          </ul>
+                            {(columnsFor(item)?.footer ?? []).map((child: any) => (
+                              <Link
+                                key={child?.href ?? ''}
+                                href={child?.href ?? '/'}
+                                className="block rounded-md px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                              >
+                                {child?.label ?? ''}
+                              </Link>
+                            ))}
+                          </div>
                         )}
 
                         {item?.groups && (
