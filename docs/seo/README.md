@@ -174,3 +174,26 @@ reporting threshold, which is also true of "virtual patrolling" itself). What ma
   virtualization results and the AI Overview cites a "best cloud VMS" listicle. A
   buyer's-guide page that lists several vendors fairly is the format that ranks there;
   a product page will not.
+
+## Alternative pages and the cloud VMS buyer's guide (18 September 2026)
+
+Three pages built on the volume data above. `/alternatives/adt` and `/alternatives/verkada`
+are the switch-intent counterparts to the `/compare` "vs" pages: the reader already has
+the other product and is asking what a move means (cameras kept, services that stay with
+the incumbent, what is given up, who should not switch). They follow rule 8 exactly like
+the comparisons: every vendor statement from a vendor page opened that day and listed in
+the page's Sources section, pricing never characterized beyond the vendor's own pricing
+page. `/alternatives` is the hub, in the Resources menu and the sitemap's
+`alternatives` group. One caveat on the ADT page: adt.com serves US visitors only and
+returned 403 to every request from this machine, so its pages were read from the Internet
+Archive's most recent capture of each URL (March to August 2026), and the page says so in
+its Sources section with the capture date per source. Nothing rests on the one old (2024)
+capture. Re-check the rows against the live pages from a US connection when one is
+available. The other vendor "alternative" phrases returned no volume, so no
+more alternative pages are planned until the data says otherwise.
+
+`/guides/best-cloud-vms` is the buyer's guide format that ranks for "cloud vms": eight
+platforms, Camzify first with a disclosure, the other seven alphabetically, each described
+only from its own pages, with a side-by-side table and a "which for which buyer" list.
+It links every one-to-one comparison and is linked from the cloud pillar, both VMS guides
+and llms.txt.

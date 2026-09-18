@@ -206,6 +206,9 @@ const compare = group(
   'monthly'
 );
 
+// Switch-intent pages: the buyer already has the other vendor.
+const alternatives = group(['/alternatives', '/alternatives/adt', '/alternatives/verkada'], 0.8, 'monthly');
+
 const glossary = group(['/glossary', ...GLOSSARY_TERMS.map((t) => `/glossary/${t.slug}`)], 0.6, 'monthly');
 
 const guides = group(
@@ -232,6 +235,7 @@ const guides = group(
     '/guides/security-audit-checklist',
     '/guides/video-retention-requirements',
     '/guides/what-is-a-video-management-system',
+    '/guides/best-cloud-vms',
     '/guides/what-is-a-cloud-vms',
     '/guides/what-is-a-cloud-nvr',
     '/guides/cloud-vms-cost',
@@ -291,6 +295,7 @@ const allEntries: Entry[] = [
   ...useCases,
   ...industries,
   ...compare,
+  ...alternatives,
   ...guides,
   ...glossary,
   ...connectivity,

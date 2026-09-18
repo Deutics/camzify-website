@@ -186,6 +186,7 @@ export default function WhatIsAVideoManagementSystemPage() {
           <section className="mt-20 rounded-xl bg-card p-8 shadow">
             <h2 className="font-display text-xl font-bold">Related guides</h2>
             <div className="mt-4 flex flex-wrap gap-3">
+              <Link href="/guides/best-cloud-vms" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">Best Cloud VMS Platforms</Link>
               <Link href="/guides/what-is-a-cloud-vms" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">What Is a Cloud VMS?</Link>
               <Link href="/guides/what-is-a-cloud-nvr" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">What Is a Cloud NVR?</Link>
               <Link href="/guides/how-to-choose-video-analytics-software" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">How to Choose Video Analytics Software</Link>
