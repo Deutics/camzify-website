@@ -18,7 +18,7 @@ const pageMeta = {
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
-  { question: 'Is Camzify SOC 2 or ISO 27001 certified?', answer: 'Not yet. Both are in progress, as are PDPA and GDPR alignment. This page states the current posture and will change when a certificate is held, not before.' },
+  { question: 'Is Camzify SOC 2 or ISO 27001 certified?', answer: 'Not yet. Both are in progress, as are PDPA and GDPR alignment. The target for completing all four is the end of 2026. This page states the current posture and will change when a certificate is held, not before.' },
   { question: 'How is video protected in transit and at rest?', answer: 'Streams are carried over TLS 1.2 or higher and footage at rest is encrypted with AES-256. Access is role-based through permission groups, and every action on the account is logged.' },
   { question: "Who can see a client's footage on a multi-tenant account?", answer: "Only logins scoped to that client's sites. A sub-user sees its own cameras, alerts and reports; the parent account sees everything under it. The audit trail records who opened what." },
   { question: 'Does the AI identify people?', answer: 'No. Attribute extraction describes clothing, carried objects and direction of travel; nothing on the platform recognises faces or names anyone, and we say so on every page where it could be assumed.' },
@@ -47,8 +47,9 @@ export default function SecurityCompliancePage() {
               <p className="mt-4 text-muted-foreground">
                 We list certification work honestly, including where it is unfinished. Everything
                 below is <strong className="font-semibold text-foreground">in progress and not yet
-                held</strong>. Camzify should not be described as certified under any of these
-                frameworks until this page says otherwise.
+                held</strong>, with completion of all four targeted for the end of 2026. Camzify should
+                not be described as certified under any of these frameworks until this page
+                says otherwise.
               </p>
               <ul className="mt-6 space-y-3">
                 {[

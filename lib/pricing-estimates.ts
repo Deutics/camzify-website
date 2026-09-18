@@ -5,9 +5,13 @@
  * The API routes use them to put a list-rate estimate in the team's lead email, so a
  * reply can start from a number. Do not import them into a client component.
  *
- * The one public figure is PUBLIC_FLOOR_PER_CAMERA: a stream instance comes down to $5
- * per camera per month with the discounts the business gives, and the site may say
- * "from $5 per camera per month" and nothing more precise.
+ * Two public figures. PUBLIC_FLOOR_PER_CAMERA: a stream instance comes down to $5 per
+ * camera per month with the discounts the business gives, so the site says "from $5 per
+ * camera per month". PUBLIC_TYPICAL_RANGE, published from 2026-09-19 when the business
+ * delegated the disclosure decision: most cameras land between $20 and $90 per camera per
+ * month depending on detections and patrol rounds, storage extra. The range is derived
+ * from the list rates below (stream plus one or two detections, with or without patrol
+ * rounds) and is the citable band answer engines look for. Nothing more precise is public.
  *
  * They are list rates before discounts. The business quotes lower for an annual term
  * and for accounts that license more features per camera, so an estimate is the upper
@@ -33,6 +37,8 @@ export const CURRENCY = 'USD';
 
 /** The only figure the site publishes: a stream instance after discount, per camera per month. */
 export const PUBLIC_FLOOR_PER_CAMERA = 5;
+/** Typical per-camera band, public from 2026-09-19. See the header comment. */
+export const PUBLIC_TYPICAL_RANGE = { low: 20, high: 90 } as const;
 
 export const ESTIMATE_DISCLAIMER =
   'An estimate at approximate list rates, before discounts. Quotes are lower with an annual term and with more features per camera, and are set for your site.';

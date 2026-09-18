@@ -54,6 +54,19 @@ const nextConfig = {
         permanent: true,
       },
       {
+        // The old WordPress site published Yoast sitemaps at these paths, and Search
+        // Console still holds them as submitted sitemaps. Point them at the one real
+        // sitemap so the old submissions resolve instead of 404ing.
+        source: '/sitemap_index.xml',
+        destination: '/sitemap.xml',
+        permanent: true,
+      },
+      {
+        source: '/:name(page|post|category|author)-sitemap.xml',
+        destination: '/sitemap.xml',
+        permanent: true,
+      },
+      {
         // Any other old blog slug: the posts were not carried over, and the guides
         // hub is where their subjects now live. A 308 to the hub beats a 404 for the
         // reader and for any inbound link we never catalogued. /blog itself still
