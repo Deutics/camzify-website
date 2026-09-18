@@ -15,7 +15,8 @@ import { QuoteEstimator } from '@/components/content/quote-estimator';
  *
  * Pricing is per instance per month and quoted for the site, lower for an annual term
  * and for more features per camera. The one public figure is the floor the business
- * stated on 2026-09-17: from $5 per camera per month. Internal rates exist only in
+ * stated on 2026-09-17, plus the typical band of $20 to $90 per camera per month the
+ * business let the site publish on 2026-09-19. Internal rates exist only in
  * lib/pricing-estimates.ts and are used on the server to put an estimate in the team's
  * lead email; nothing else on the site shows a rate, which is how the comparable
  * software-only vendors handle it. So this page says what a quote is built from, lets
@@ -48,7 +49,7 @@ const example = [
 ];
 
 const faqs = [
-  { question: 'How much does Camzify cost?', answer: 'Camzify starts from $5 per camera per month. Every camera takes one stream instance, each AI detection is licensed per feature per camera, and cloud storage is sold per terabyte per month, so the exact figure depends on how many detections run on each camera and how long footage is kept. Motion detection and camera tampering detection are included with every camera. Quotes are per site, with no hardware to buy.' },
+  { question: 'How much does Camzify cost?', answer: 'Camzify starts from $5 per camera per month. Every camera takes one stream instance, each AI detection is licensed per feature per camera, and cloud storage is sold per terabyte per month, so the exact figure depends on how many detections run on each camera and how long footage is kept. Motion detection and camera tampering detection are included with every camera. Most cameras land between $20 and $90 per camera per month, depending on which detections run and whether scheduled patrol rounds are on; cloud storage is priced separately per terabyte per month. Quotes are per site, with no hardware to buy.' },
   { question: 'Why is there no price list on this page?', answer: 'Because the quote depends on the term and on how much runs on each camera, and a list would be wrong for most sites. Camzify starts from $5 per camera per month, and the quote is the sum of the instances an account needs: a stream instance for every camera, a detection instance for every AI feature on a camera, a patrol instance for every camera on rounds, and storage per terabyte. Build the configuration above, request the quote, and it comes back set for your site within one business day.' },
   { question: 'Do you offer discounts?', answer: 'Yes. Quotes come in lower for an annual term and for accounts that license more features per camera, and a partner portfolio is quoted as a whole. That is what takes a stream instance down to the $5 floor.' },
   { question: 'Which detections are free?', answer: 'Motion detection and camera tampering detection are included with every stream instance, so every connected camera has both without a detection instance. Everything else is licensed as an instance per camera.' },

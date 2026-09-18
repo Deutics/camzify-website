@@ -220,3 +220,16 @@ the glossary, one-to-one comparison links from the best-cloud-VMS guide, visible
 "Updated" dates on every guide byline, author and article schema on the six how-to
 guides, the UAE named in `areaServed`, and the eight thinnest content pages expanded to
 900 to 1,400 words with definition-first ledes (four category comparisons, four guides).
+
+## Facts supplied by the business (19 September 2026)
+
+Four facts arrived and were placed where answer engines look for them. Footage storage
+(Amazon S3 in the AWS region nearest the customer's sites): trust page, security section
+of llms.txt, and a new "Where is the footage stored?" FAQ on the backup page. Certification
+timing (all four frameworks targeted for the end of 2026): trust and security pages, llms.txt.
+Why US customers left ADT (instability, false alarms, an old-style interface): on the ADT
+alternative page only as what the switchers said they were looking for, never as a claim
+about ADT. And the pricing decision, delegated to the site editor: one typical band, "$20
+to $90 per camera per month depending on detections and patrol rounds, storage per
+terabyte extra", now beside the $5 floor on /pricing, in llms.txt and in the four cost
+guides, because every page engines cited for cost queries carried a per-camera range.

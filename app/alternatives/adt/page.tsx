@@ -94,6 +94,7 @@ const camzifyBetter = [
 ];
 
 const faqs = [
+  { question: 'Why do businesses move from ADT to Camzify?', answer: 'The ones who have told us gave three reasons about what they wanted next: fewer false alarms, a system that keeps running without a recorder in the building, and an interface their staff would actually use. Camzify fires detections on confirmed object tracks rather than pixel motion, records to the cloud, and runs in a browser. That is what they were looking for; it is not a finding about ADT, whose pages are the only source this page uses for ADT itself.' },
   { question: 'Is Camzify an ADT alternative?', answer: 'For the video part of business security, yes. Camzify is cloud video surveillance with 23 AI detections and scheduled virtual patrol rounds on the ONVIF and RTSP cameras a site already owns, and a buyer who wants the video without a new hardware install is who this page is for. It is not an alternative for intrusion alarms, access control or 24/7 alarm monitoring, which Camzify does not offer.' },
   { question: 'Can I use Camzify alongside ADT alarm monitoring?', answer: 'Yes, in the sense that Camzify does not touch alarm panels, sensors or the monitoring center, so an alarm monitoring arrangement keeps running exactly as it is. The condition is on the camera side: Camzify needs each camera to be reachable as an RTSP or ONVIF stream, or as an RTMP or HTTPS stream. We do not claim compatibility with any ADT camera; check what your cameras publish before you plan on it.' },
   { question: 'Does Camzify replace ADT cameras?', answer: 'Camzify sells no hardware, so it does not supply replacement cameras. Cameras that publish a standard RTSP or ONVIF stream can be kept and connected as they are, and cameras on a private network are relayed by the Camzify Connector without port forwarding. A camera that only speaks to its own recorder or app would need to be replaced by a standard one, which you would source yourself.' },
@@ -189,6 +190,9 @@ export default function AdtAlternativePage() {
               <h2 className="font-display text-2xl font-bold">Where Camzify is the better choice</h2>
               <p className="mt-4 max-w-prose text-muted-foreground">
                 Camzify is the stronger option when the cameras stay and what is missing is detection and verification on top of them.
+              </p>
+              <p className="mt-4 max-w-prose text-muted-foreground">
+                The US businesses that have moved from ADT to Camzify told us what they were looking for: fewer false alarms, a service that does not depend on a recorder in the building, and an interface their staff would use without training. Camzify answers those three with detections that fire on confirmed object tracks rather than pixel motion, cloud recording with nothing on site to fail except the camera itself, and a browser console that needs no software installed. Whether ADT met those needs at their sites is their account to give, not a claim this page makes about ADT.
               </p>
               <PointList items={camzifyBetter} />
             </ScrollReveal>
