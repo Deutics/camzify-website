@@ -1,4 +1,5 @@
 import { generatePageMeta } from '@/lib/page-utils';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
@@ -33,6 +34,9 @@ export default function TrustPage() {
           <p className="mt-6 max-w-prose text-body text-muted-foreground">
             Trust in a video surveillance platform is earned through transparency, not marketing claims. This page states plainly what Camzify does and does not do with your camera feeds, data, and <Link href="/virtual-patrolling" className="text-primary hover:underline">patrol records</Link>.
           </p>
+          <div className="mt-10 max-w-3xl">
+            <PhotoFigure src="/trust-data-flow.webp" alt="What happens to your data: cameras send streams, the AI processes them, footage is stored encrypted under your retention, and every action is in the audit trail" />
+          </div>
           <div className="mt-16 space-y-12 max-w-prose">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Data handling</h2>

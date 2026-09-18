@@ -1,4 +1,5 @@
 import { generatePageMeta } from '@/lib/page-utils';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { articleSchema, personSchema } from '@/lib/seo';
@@ -48,6 +49,9 @@ export default function CloudVmsForSecurityAgenciesPage() {
           <span className="font-mono text-mono-sm uppercase text-primary">Owner guide</span>
           <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Cloud VMS for security agencies: a service on the cameras your clients already own</h1>
           <AuthorByline className="mt-6" />
+          <div className="mt-10 max-w-3xl">
+            <PhotoFigure src="/guide-cloud-vms-for-security-agencies.webp" alt="Illustration for this guide: the Camzify console and the cameras it runs on" priority />
+          </div>
           <p className="mt-6 max-w-prose text-body text-muted-foreground">A <Link href="/platform" className="text-primary hover:underline">cloud VMS</Link> lets a guarding company, a monitoring center or a CCTV installer sell a monitored video service on cameras the client already has, from one account, with a login per client. The cameras stream to the cloud instead of to a recorder on site, and the rounds, alerts, recordings and reports for every client are run from one console. This guide answers the questions an owner asks before putting that service on a proposal: how the accounts separate, how per-camera billing maps to a monthly price, what the client sees, what you need on your side, and how to start with one client.</p>
 
           <section className="mt-14">

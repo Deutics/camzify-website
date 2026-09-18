@@ -29,7 +29,7 @@ const content: UseCaseContent = {
     Exits get blocked by the ordinary work of the building: a pallet parked for an hour, a cage of returns, a delivery left inside the door. Camzify asks about each exit on every round, catches the object left in the route between rounds, and files the record.
   </>,
   facts: ['Every exit a checklist item on every round', 'The pallet left in the route caught between rounds', 'A frame of each exit at each time, filed'],
-  image: { src: '/feature-abandoned-object-detection-1.webp', alt: 'The console live view on a tablet, a terminal concourse with a backpack left by the seating boxed and labeled Unattended Object Detected' },
+  image: { src: '/fire-exit-and-escape-route-monitoring.webp', alt: 'The console live view on a tablet, a terminal concourse with a backpack left by the seating boxed and labeled Unattended Object Detected' },
   secondary: { href: '/ai-features/abandoned-object-detection', label: 'Abandoned object detection' },
   problem: {
     heading: 'Clear at the inspection, blocked by Tuesday',

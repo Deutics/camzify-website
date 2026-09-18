@@ -78,7 +78,7 @@ export default function Page() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/feature-slip-and-fall-detection-2.jpg" alt="Diagram showing a tracked subject's posture change over time crossing the fall-detection threshold" caption="Fall pattern detection" />
+            <PhotoFigure src="/feature-slip-and-fall-detection-2.webp" alt="Diagram showing a tracked subject's posture change over time crossing the fall-detection threshold" caption="Fall pattern detection" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>

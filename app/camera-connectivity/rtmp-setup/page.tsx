@@ -1,5 +1,5 @@
-import { ProductShot } from '@/components/content/product-shot';
 import { generatePageMeta } from '@/lib/page-utils';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
@@ -38,7 +38,7 @@ export default function RtmpSetupPage() {
           </p>
 
           <div className="mt-10 max-w-3xl">
-            <ProductShot src="/product-configuration" alt="The Configuration screen in the console: adding a camera by its RTMP, RTSP or HTTPS address, with the cameras already on the site listed below" label="Configuration · Add camera" sizes="(max-width: 1024px) 100vw, 768px" />
+            <PhotoFigure src="/configuration-rtmp.jpg" alt="The Configuration screen in the console with the RTMP option selected for a new camera and the cameras already on the site listed below" />
           </div>
           <ol className="mt-12 space-y-10 max-w-prose">
             <ScrollReveal key={0} delay={0 * 0.1}>

@@ -1,11 +1,11 @@
 import { generatePageMeta } from '@/lib/page-utils';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { articleSchema, personSchema } from '@/lib/seo';
 import { AuthorByline } from '@/components/content/author-byline';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
-import { ProductShot } from '@/components/content/product-shot';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -40,7 +40,7 @@ export default function VirtualPatrollingCostPage() {
           <p className="mt-6 max-w-prose text-body text-muted-foreground">Virtual patrolling cost is typically structured as a per-camera, per-month subscription. The total cost depends on the number of cameras monitored, the AI features activated per camera, and the storage retention period. For most facilities, it represents a fraction of the cost of equivalent manned guard coverage.</p>
 
           <div className="mt-10 max-w-3xl">
-            <ProductShot src="/product-license-plan" alt="The Plan and Usage screen: instances per feature, what is activated, granted to sub-users and still available" label="Plan and usage" sizes="(max-width: 1024px) 100vw, 768px" />
+            <PhotoFigure src="/guide-virtual-patrolling-cost.webp" alt="Illustration for this guide: the Camzify console and the cameras it runs on" priority />
           </div>
 
           <section className="mt-16">

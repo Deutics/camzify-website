@@ -29,7 +29,7 @@ const content: UseCaseContent = {
     The access control system logs a valid credential and nothing about the second person who walked in behind it. Camzify watches the door, counts the people who crossed on each entry event, and messages the person designated for that door when the count is more than one.
   </>,
   facts: ['One badge, one person, counted on camera', 'No access-control integration required', 'Every event logged with its frame'],
-  image: { src: '/feature-tailgating-detection-1.webp', alt: 'A camera view of a glass office door with a badge reader, a woman holding it open with her badge on a lanyard and a man following her through, outlined by the console as a person' },
+  image: { src: '/tailgating-detection-for-data-centers-and-secure-entrances.webp', alt: 'A camera view of a glass office door with a badge reader, a woman holding it open with her badge on a lanyard and a man following her through, outlined by the console as a person' },
   secondary: { href: '/ai-features/tailgating-detection', label: 'Tailgating detection' },
   problem: {
     heading: 'The badge log says one person came in',

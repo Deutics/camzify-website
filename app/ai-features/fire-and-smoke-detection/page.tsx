@@ -72,7 +72,7 @@ export default function Page() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/feature-fire-and-smoke-detection-2.jpg" alt="Diagram showing a camera feed analyzed for flame and smoke visual signatures before a critical alert fires" caption="Visual signature matching" />
+            <PhotoFigure src="/feature-fire-and-smoke-detection-2.webp" alt="Diagram showing a camera feed analyzed for flame and smoke visual signatures before a critical alert fires" caption="Visual signature matching" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>

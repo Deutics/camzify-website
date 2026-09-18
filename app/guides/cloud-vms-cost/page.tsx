@@ -1,4 +1,5 @@
 import { generatePageMeta } from '@/lib/page-utils';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { articleSchema, personSchema } from '@/lib/seo';
@@ -49,6 +50,9 @@ export default function CloudVmsCostPage() {
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Cloud VMS cost: what actually drives the price</h1>
           <AuthorByline className="mt-6" />
+          <div className="mt-10 max-w-3xl">
+            <PhotoFigure src="/guide-cloud-vms-cost.webp" alt="Illustration for this guide: the Camzify console and the cameras it runs on" priority />
+          </div>
           <p className="mt-6 max-w-prose text-body text-muted-foreground">
             Cloud VMS cost is the recurring fee for video management software that the vendor hosts,
             and it is set by what your site asks the service to do: how many cameras stream to it,

@@ -1,11 +1,11 @@
 import { generatePageMeta } from '@/lib/page-utils';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { articleSchema, personSchema } from '@/lib/seo';
 import { AuthorByline } from '@/components/content/author-byline';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PointList } from '@/components/content/point-list';
-import { ProductShot } from '@/components/content/product-shot';
 import Link from 'next/link';
 
 /**
@@ -67,7 +67,7 @@ export default function WhatIsACloudNvrPage() {
           </p>
 
           <div className="mt-10 max-w-3xl">
-            <ProductShot src="/product-video-backup" alt="The video backup screen in the Camzify console: each camera with its recording mode, retention limit and estimated storage, and the account's storage totals above" label="Video backup and retention" sizes="(max-width: 1024px) 100vw, 768px" />
+            <PhotoFigure src="/guide-what-is-a-cloud-nvr.webp" alt="Illustration for this guide: the Camzify console and the cameras it runs on" priority />
           </div>
 
           <section className="mt-16">

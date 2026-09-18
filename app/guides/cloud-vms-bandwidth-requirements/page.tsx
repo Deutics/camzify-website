@@ -1,4 +1,5 @@
 import { generatePageMeta } from '@/lib/page-utils';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { PointList } from '@/components/content/point-list';
@@ -74,6 +75,9 @@ export default function CloudVmsBandwidthRequirementsPage() {
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Cloud VMS bandwidth requirements: what your cameras will send</h1>
           <AuthorByline className="mt-6" />
+          <div className="mt-10 max-w-3xl">
+            <PhotoFigure src="/guide-cloud-vms-bandwidth-requirements.webp" alt="Illustration for this guide: the Camzify console and the cameras it runs on" priority />
+          </div>
           <p className="mt-6 max-w-prose text-body text-muted-foreground">
             <strong className="font-semibold text-foreground">
               Cloud VMS bandwidth requirements come down to one comparison: the upstream capacity of your site&apos;s internet connection against the combined bitrate of every camera stream you send to the cloud.

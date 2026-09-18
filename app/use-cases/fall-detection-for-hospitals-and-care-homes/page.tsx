@@ -29,7 +29,7 @@ const content: UseCaseContent = {
     A fall in a corridor between rounds is found when someone walks past. Camzify watches the same cameras continuously, sends the frame and a clip to the person designated for that camera, and records who acknowledged it and when.
   </>,
   facts: ['A person on the floor, raised in seconds', 'On the corridor cameras already installed', 'Staff decide and attend, the record is kept'],
-  image: { src: '/feature-slip-and-fall-detection-1.webp', alt: 'The console live view of a hospital corridor with a person on the floor outlined and a Fall Detected label, nurses at the station behind' },
+  image: { src: '/fall-detection-for-hospitals-and-care-homes.webp', alt: 'The console live view of a hospital corridor with a person on the floor outlined and a Fall Detected label, nurses at the station behind' },
   secondary: { href: '/ai-features/slip-and-fall-detection', label: 'Slip and fall detection' },
   problem: {
     heading: 'The fall is found at the next round, not when it happens',

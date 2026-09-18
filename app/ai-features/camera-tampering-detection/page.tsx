@@ -70,7 +70,7 @@ export default function Page() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/feature-camera-tampering-detection-2.jpg" alt="Diagram showing five independent tamper-detection signatures evaluated against a live camera feed" caption="Tamper signature logic" />
+            <PhotoFigure src="/feature-camera-tampering-detection-2.webp" alt="Diagram showing five independent tamper-detection signatures evaluated against a live camera feed" caption="Tamper signature logic" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>

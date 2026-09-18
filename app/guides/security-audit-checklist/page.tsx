@@ -1,11 +1,11 @@
 import { generatePageMeta } from '@/lib/page-utils';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { articleSchema, personSchema } from '@/lib/seo';
 import { AuthorByline } from '@/components/content/author-byline';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
-import { ProductShot } from '@/components/content/product-shot';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -40,7 +40,7 @@ export default function SecurityAuditChecklistPage() {
           <p className="mt-6 max-w-prose text-body text-muted-foreground">A security audit checklist is a structured assessment tool for evaluating the physical security posture of a facility. It covers camera coverage, access control, lighting, perimeter integrity, monitoring procedures, and incident response capabilities. Regular audits identify gaps before they become incidents.</p>
 
           <div className="mt-10 max-w-3xl">
-            <ProductShot src="/product-virtual-patrolling" alt="The virtual patrolling screen: patrol sequences, the next round for each and the Auto-Patrol settings" label="Virtual patrolling" sizes="(max-width: 1024px) 100vw, 768px" />
+            <PhotoFigure src="/guide-security-audit-checklist.webp" alt="Illustration for this guide: the Camzify console and the cameras it runs on" priority />
           </div>
 
           <section className="mt-16">

@@ -1,8 +1,8 @@
 import { generatePageMeta } from '@/lib/page-utils';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { PageShell } from '@/components/layout/page-shell';
 import { serviceSchema } from '@/lib/seo';
 import { UseCasePage, type UseCaseContent } from '@/components/content/use-case-page';
-import { ProductShot } from '@/components/content/product-shot';
 import Link from 'next/link';
 
 /**
@@ -37,13 +37,7 @@ const content: UseCaseContent = {
   </>,
   facts: ['Footage stored off site as it is captured', 'Retention by days or GB, per camera', 'A camera going dark raises at once'],
   heroVisual: (
-    <ProductShot
-      src="/product-video-backup"
-      alt="The Camzify video backup screen: a list of cameras with each one's retention mode, retention limit and estimated storage, and the account's storage totals above"
-      label="Video backup and retention"
-      priority
-      sizes="(max-width: 1024px) 100vw, 45vw"
-    />
+    <PhotoFigure src="/cloud-video-backup-against-dvr-theft.webp" alt="A ransacked back office with the recorder gone beside the cloud backup screen still holding the footage" priority />
   ),
   secondary: { href: '/platform/video-backup-and-retention', label: 'Video backup and retention' },
   problem: {

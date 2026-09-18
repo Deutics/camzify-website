@@ -1,10 +1,10 @@
 import { generatePageMeta } from '@/lib/page-utils';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { ComparisonTable } from '@/components/content/comparison-table';
 import Link from 'next/link';
-import { ProductShot } from '@/components/content/product-shot';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -42,7 +42,7 @@ export default function CamzifyVsTraditionalVmsPage() {
           </p>
 
           <div className="mt-10 max-w-3xl">
-            <ProductShot src="/product-dashboard" alt="The Camzify dashboard: cameras live, critical events open, detections over time and the live alert feed" label="Dashboard" sizes="(max-width: 1024px) 100vw, 768px" />
+            <PhotoFigure src="/compare-vs-traditional-vms.webp" alt="Camzify on a laptop beside an operator at a wall of traditional VMS monitors" />
           </div>
 
           <div className="mt-12">

@@ -42,7 +42,7 @@ export default function VirtualPatrollingVsGuardTourSystemsPage() {
           </p>
 
           <div className="mt-10 max-w-3xl">
-            <PhotoFigure src="/guard-tour-verification.webp" alt="A guard with a tablet outside an office at night, checkpoints ticked on the map beside him" caption="Proof of the condition at each checkpoint, not of a tap" />
+            <PhotoFigure src="/compare-vs-guard-tour-systems.webp" alt="A guard checking a virtual patrol on a tablet beside a guard tapping a checkpoint tag" caption="Proof of the condition at each checkpoint, not of a tap" />
           </div>
 
           <div className="mt-12">

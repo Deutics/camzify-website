@@ -37,6 +37,9 @@ export default function GuardTourSystemsExplainedPage() {
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Guard tour systems explained</h1>
           <AuthorByline className="mt-6" />
+          <div className="mt-10 max-w-3xl">
+            <PhotoFigure src="/guide-guard-tour-systems-explained.webp" alt="Illustration for this guide: the Camzify console and the cameras it runs on" priority />
+          </div>
           <p className="mt-6 max-w-prose text-body text-muted-foreground">A guard tour system is a technology used to verify that security guards complete their assigned patrol routes. Traditional systems use NFC tags, QR codes, or Bluetooth beacons placed at checkpoints. The guard scans each checkpoint during their round, and the system logs the timestamp to prove they were there.</p>
 
           <div className="mt-10 max-w-3xl">

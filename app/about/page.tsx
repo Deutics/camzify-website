@@ -1,4 +1,5 @@
 import { generatePageMeta } from '@/lib/page-utils';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { PageShell } from '@/components/layout/page-shell';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
@@ -26,6 +27,9 @@ export default function AboutPage() {
           <p className="mt-6 max-w-prose text-body text-muted-foreground">
             Camzify is an AI video analytics and <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</Link> platform built by {siteConfig.legalName}, headquartered in Singapore and serving customers since 2023. The platform turns existing security cameras into an active verification system — running scheduled AI patrol rounds, checking defined conditions at each camera, and notifying the right person when something fails.
           </p>
+          <div className="mt-10 max-w-3xl">
+            <PhotoFigure src="/about-camzify.webp" alt="Turning security cameras into real-time intelligence: a store with people tracked, a city skyline and the console on a tablet" priority />
+          </div>
           <div className="mt-16 space-y-12 max-w-prose">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">What we do</h2>

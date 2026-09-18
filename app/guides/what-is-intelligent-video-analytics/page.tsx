@@ -58,6 +58,9 @@ export default function WhatIsIntelligentVideoAnalyticsPage() {
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">What is intelligent video analytics?</h1>
           <AuthorByline className="mt-6" />
+          <div className="mt-10 max-w-3xl">
+            <PhotoFigure src="/guide-what-is-intelligent-video-analytics.webp" alt="Illustration for this guide: the Camzify console and the cameras it runs on" priority />
+          </div>
           <p className="mt-6 max-w-prose text-body text-muted-foreground">
             <strong className="font-semibold text-foreground">Intelligent video analytics is software that reads camera footage for what is in it, people, vehicles, objects and what they are doing, and raises the events that match a rule you have set.</strong>{' '}
             It is the difference between a camera that records and a camera that notices. This guide explains what the phrase covers, how it differs from the motion detection built into most recorders, what it can and cannot see, and how to judge a vendor&apos;s claims about it.

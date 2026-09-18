@@ -1,8 +1,8 @@
 import { generatePageMeta } from '@/lib/page-utils';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { PageShell } from '@/components/layout/page-shell';
 import { serviceSchema } from '@/lib/seo';
 import { UseCasePage, type UseCaseContent } from '@/components/content/use-case-page';
-import { ProductShot } from '@/components/content/product-shot';
 import Link from 'next/link';
 
 /**
@@ -37,13 +37,7 @@ const content: UseCaseContent = {
   </>,
   facts: ['Any ONVIF or RTSP camera or recorder', 'Grouped by site, with an online count', 'Local networks through the Connector'],
   heroVisual: (
-    <ProductShot
-      src="/product-live-streaming"
-      alt="The Camzify live streaming screen: a grid of camera feeds grouped by site, with the site strip and per-site online counts along the top and a no-signal tile for a dropped camera"
-      label="Live streaming"
-      priority
-      sizes="(max-width: 1024px) 100vw, 45vw"
-    />
+    <PhotoFigure src="/one-live-wall-for-every-brand-and-location.webp" alt="A live wall of cameras from several brands and sites, each tile labeled with its site" priority />
   ),
   secondary: { href: '/platform/live-streaming', label: 'Live streaming' },
   problem: {

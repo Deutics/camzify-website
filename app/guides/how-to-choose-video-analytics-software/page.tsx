@@ -1,11 +1,11 @@
 import { generatePageMeta } from '@/lib/page-utils';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { articleSchema, personSchema } from '@/lib/seo';
 import { AuthorByline } from '@/components/content/author-byline';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
-import { ProductShot } from '@/components/content/product-shot';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -40,7 +40,7 @@ export default function HowToChooseVideoAnalyticsSoftwarePage() {
           <p className="mt-6 max-w-prose text-body text-muted-foreground">Choosing video analytics software requires evaluating detection accuracy, camera compatibility, deployment model, total cost of ownership, and the specific capabilities your security program needs. This guide provides a practical framework for making that decision.</p>
 
           <div className="mt-10 max-w-3xl">
-            <ProductShot src="/product-configuration" alt="The Configuration screen in the console: adding a camera by its RTMP, RTSP or HTTPS address, with the cameras already on the site listed below" label="Configuration · Add camera" sizes="(max-width: 1024px) 100vw, 768px" />
+            <PhotoFigure src="/guide-how-to-choose-video-analytics-software.webp" alt="Illustration for this guide: the Camzify console and the cameras it runs on" priority />
           </div>
 
           <section className="mt-16">

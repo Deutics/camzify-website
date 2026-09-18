@@ -1,11 +1,11 @@
 import { generatePageMeta } from '@/lib/page-utils';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { articleSchema, personSchema } from '@/lib/seo';
 import { AuthorByline } from '@/components/content/author-byline';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
-import { ProductShot } from '@/components/content/product-shot';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -40,7 +40,7 @@ export default function HowToReduceFalseAlarmsPage() {
           <p className="mt-6 max-w-prose text-body text-muted-foreground">False alarms in video surveillance are alerts triggered by non-threatening events, shadows, animals, weather, lighting changes, or camera vibration. They are the primary failure mode of security camera systems, causing operators to ignore genuine alerts and undermining the value of the entire deployment.</p>
 
           <div className="mt-10 max-w-3xl">
-            <ProductShot src="/product-notifications" alt="The notifications screen in the console: one queue of alerts by severity, site and camera" label="Notifications" sizes="(max-width: 1024px) 100vw, 768px" />
+            <PhotoFigure src="/guide-how-to-reduce-false-alarms.webp" alt="Illustration for this guide: the Camzify console and the cameras it runs on" priority />
           </div>
 
           <section className="mt-16">

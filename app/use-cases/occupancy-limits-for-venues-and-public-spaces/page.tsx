@@ -29,7 +29,7 @@ const content: UseCaseContent = {
     The number on the sign by the door comes from the fire code and the fire marshal. Camzify gives the duty manager a live count per room from the cameras already there, keeps it as a trend, and adds the doors and the exits to the round at the busy hours.
   </>,
   facts: ['Live count per room from the cameras already installed', 'The count kept as a record against the posted load', 'Doors and exits checked on the round at the peak'],
-  image: { src: '/feature-occupancy-and-peak-hour-trends-1.webp', alt: 'The console live view on a tablet, a busy store floor with the main aisle boxed and labeled Occupancy' },
+  image: { src: '/occupancy-limits-for-venues-and-public-spaces.webp', alt: 'The console live view on a tablet, a busy store floor with the main aisle boxed and labeled Occupancy' },
   secondary: { href: '/ai-features/occupancy-and-peak-hour-trends', label: 'Occupancy and peak hour trends' },
   problem: {
     heading: 'The sign says 350. Nobody knows what the room holds now.',

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { siteConfig } from '@/lib/site-config';
+import { SiteImage } from '@/components/content/site-image';
 
 /**
  * The byline under a guide's heading.
@@ -19,13 +20,15 @@ export function AuthorByline({ className = '' }: { className?: string }) {
 
   return (
     <div className={`flex items-center gap-3 ${className}`}>
-      {/* Initials rather than a photo: a stock headshot would undo the point of a real byline. */}
-      <span
-        aria-hidden="true"
-        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border bg-card font-display text-sm font-bold text-primary"
-      >
-        {name.split(' ').map((part) => part[0]).join('').slice(0, 2)}
-      </span>
+      {/* The author's own portrait, supplied by the business 2026-09-18, replacing the initials fallback. */}
+      <SiteImage
+        src="/author-muhammad-talha-profile.webp"
+        alt=""
+        width={80}
+        height={80}
+        sizes="40px"
+        className="h-10 w-10 shrink-0 rounded-full border border-border object-cover"
+      />
       <span className="text-sm leading-snug">
         <span className="block">
           <span className="text-muted-foreground">By </span>

@@ -72,7 +72,7 @@ export default function Page() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/feature-aggression-and-fight-detection-2.jpg" alt="Diagram showing relative motion and proximity between tracked subjects evaluated against an aggression threshold" caption="Altercation pattern detection" />
+            <PhotoFigure src="/feature-aggression-and-fight-detection-2.webp" alt="Diagram showing relative motion and proximity between tracked subjects evaluated against an aggression threshold" caption="Altercation pattern detection" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>

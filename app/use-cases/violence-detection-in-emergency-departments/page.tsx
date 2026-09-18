@@ -29,7 +29,7 @@ const content: UseCaseContent = {
     Emergency staff are assaulted more often than any other workers in the country, and the camera above the triage window records it for the review. Camzify raises it instead, to a person who verifies the clip and responds.
   </>,
   facts: ['Altercations raised live, not reviewed later', 'On the waiting-room cameras already installed', 'A person verifies the clip and responds'],
-  image: { src: '/feature-aggression-and-fight-detection-1.webp', alt: 'The console live view of a public square with a group of people outlined and a Violence Detected label as two of them grapple' },
+  image: { src: '/violence-detection-in-emergency-departments.webp', alt: 'The console live view of a public square with a group of people outlined and a Violence Detected label as two of them grapple' },
   secondary: { href: '/ai-features/aggression-and-fight-detection', label: 'Aggression and fight detection' },
   problem: {
     heading: 'The security desk learns about it from the shout',

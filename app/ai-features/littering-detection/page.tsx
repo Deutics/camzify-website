@@ -71,7 +71,7 @@ export default function Page() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/feature-littering-detection-2.jpg" alt="Diagram showing an object separating from a tracked subject and remaining outside a marked bin zone" caption="Discard event logic" />
+            <PhotoFigure src="/feature-littering-detection-2.webp" alt="Diagram showing an object separating from a tracked subject and remaining outside a marked bin zone" caption="Discard event logic" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>

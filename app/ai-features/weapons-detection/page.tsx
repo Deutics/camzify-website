@@ -73,7 +73,7 @@ export default function Page() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/feature-weapons-detection-2.jpg" alt="Diagram showing a confirmed object track evaluated against trained weapon classes with a confidence threshold" caption="Weapon classification" />
+            <PhotoFigure src="/feature-weapons-detection-2.webp" alt="Diagram showing a confirmed object track evaluated against trained weapon classes with a confidence threshold" caption="Weapon classification" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>

@@ -37,6 +37,9 @@ export default function SecurityGuardCostPerHourPage() {
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Security guard cost per hour</h1>
           <AuthorByline className="mt-6" />
+          <div className="mt-10 max-w-3xl">
+            <PhotoFigure src="/guide-security-guard-cost-per-hour.webp" alt="Illustration for this guide: the Camzify console and the cameras it runs on" priority />
+          </div>
           <p className="mt-6 max-w-prose text-body text-muted-foreground">Security guard cost per hour varies by region, level of training and contract terms, and no single figure holds across markets, which is why this guide explains the arithmetic rather than quoting a rate. The true cost of guard coverage goes far beyond the hourly rate: it includes overtime, benefits, training, supervision, and the several full-time people needed for genuine round-the-clock coverage.</p>
 
           <div className="mt-10 max-w-3xl">

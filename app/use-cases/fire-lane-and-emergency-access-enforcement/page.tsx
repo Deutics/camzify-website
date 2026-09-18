@@ -29,7 +29,7 @@ const content: UseCaseContent = {
     The fire code requires the lane to be unobstructed at all times; a painted curb does not make it so. Camzify marks the lane as a restricted zone on the camera that already sees it, flags a vehicle that stays past the grace period, records the frame and the time, and checks the lane as an item on every patrol round.
   </>,
   facts: ['A vehicle stopped past the grace period is the event', 'The frame, the time and the dwell on every event', 'Lane clear as a checklist item on the round'],
-  image: { src: '/feature-illegal-parking-detection-1.webp', alt: 'A console view of a storefront fire lane with a blue car parked across the yellow hatching, outlined in red and labeled Illegal Parking Detected' },
+  image: { src: '/fire-lane-and-emergency-access-enforcement.webp', alt: 'A console view of a storefront fire lane with a blue car parked across the yellow hatching, outlined in red and labeled Illegal Parking Detected' },
   secondary: { href: '/ai-features/illegal-parking-detection', label: 'Illegal parking detection' },
   problem: {
     heading: 'A sign is not a clear lane',
