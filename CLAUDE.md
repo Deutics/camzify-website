@@ -83,7 +83,8 @@ lib/
   seo.ts                All schema.org builders
   page-utils.tsx        generatePageMeta — every page's <head> metadata
 docs/                   The documentation set. Keep it current
-  seo/                  Keyword map and coverage sheet (2026-09-07), read by the SEO skills
+  seo/                  PLAYBOOK.md (SEO/AEO/GEO rules, tooling, cadence), AUDIT-<date>.md
+                        (state and backlog), keyword and audit data, read by the SEO skills
   design/               Design handoffs that are not part of the site (console sign-in)
 ```
 

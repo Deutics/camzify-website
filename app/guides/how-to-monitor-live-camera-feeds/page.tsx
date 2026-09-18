@@ -4,7 +4,8 @@ import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { HowToSteps, HowToNote, type HowToStep } from '@/components/content/how-to-steps';
-import { howToSchema } from '@/lib/seo';
+import { howToSchema, articleSchema, personSchema } from '@/lib/seo';
+import { AuthorByline } from '@/components/content/author-byline';
 import Link from 'next/link';
 
 /**
@@ -18,7 +19,10 @@ const pageMeta = {
   path: "/guides/how-to-monitor-live-camera-feeds",
 };
 
-export const metadata = generatePageMeta({ ...pageMeta, type: 'article' });
+const publishedTime = '2026-09-02';
+const modifiedTime = '2026-09-18';
+
+export const metadata = generatePageMeta({ ...pageMeta, type: 'article', publishedTime, modifiedTime });
 
 const steps: HowToStep[] = [
   {
@@ -63,13 +67,14 @@ export default function Page() {
     <PageShell
       {...pageMeta}
       faqs={faqs}
-      schema={[howToSchema({ name: 'How to monitor live camera feeds in Camzify', description: pageMeta.description, path: pageMeta.path, steps })]}
+      schema={[howToSchema({ name: 'How to monitor live camera feeds in Camzify', description: pageMeta.description, path: pageMeta.path, steps }), articleSchema({ headline: pageMeta.title, description: pageMeta.description, path: pageMeta.path, datePublished: publishedTime, dateModified: modifiedTime }), personSchema()]}
       breadcrumbs={[{ label: 'Guides', href: '/guides' }, { label: 'How to Monitor Live Camera Feeds' }]}
     >
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
           <span className="font-mono text-mono-sm uppercase text-primary">Guide</span>
           <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">How to monitor live camera feeds</h1>
+          <AuthorByline className="mt-6" updated={modifiedTime} />
           <p className="mt-6 max-w-prose text-body text-muted-foreground">
             <strong className="font-semibold text-foreground">
               A live wall answers what is happening now; it does not prove what was checked.

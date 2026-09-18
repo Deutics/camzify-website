@@ -47,7 +47,7 @@ export default function WhatIsACloudVmsPage() {
       <article className="pb-16">
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">What is a cloud VMS?</h1>
-          <AuthorByline className="mt-6" />
+          <AuthorByline className="mt-6" updated={modifiedTime} />
           <p className="mt-6 max-w-prose text-body text-muted-foreground">
             A cloud VMS is a video management system that runs as a service in the cloud: cameras stream to it, it records and stores their footage, and every function is used from a browser instead of from a server or recorder on site. It replaces the on-premise VMS server and the NVR with a per-camera subscription, and it keeps the cameras a site already owns.
           </p>

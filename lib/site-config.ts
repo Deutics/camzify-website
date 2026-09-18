@@ -65,7 +65,7 @@ export const siteConfig = {
    * Used for the Organization and Service `areaServed` nodes; keep this list and the
    * ROI calculator's currency list in step.
    */
-  areaServed: ['United States', 'Europe', 'Middle East', 'Pakistan', 'Singapore'],
+  areaServed: ['United States', 'Singapore', 'United Arab Emirates', 'Middle East', 'Europe', 'Pakistan'],
 
   /** Generated 1200x630 card (app/opengraph-image.tsx), not a static file. */
   ogImage: '/opengraph-image',

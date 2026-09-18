@@ -50,7 +50,7 @@ export default function WhatIsVsaasPage() {
       <article className="pb-16">
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">What is VSaaS? Video surveillance as a service, explained</h1>
-          <AuthorByline className="mt-6" />
+          <AuthorByline className="mt-6" updated={modifiedTime} />
           <p className="mt-6 max-w-prose text-body text-muted-foreground">
             VSaaS, video surveillance as a service, is a subscription under which a site&apos;s cameras stream to a vendor&apos;s cloud, which records, stores and serves their footage for a monthly fee per camera. The customer keeps the cameras and the internet connection; the vendor owns and runs the recording, the storage and the software, and delivers all of it through a browser.
           </p>

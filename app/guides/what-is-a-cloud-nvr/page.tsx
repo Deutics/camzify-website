@@ -55,7 +55,7 @@ export default function WhatIsACloudNvrPage() {
       <article className="pb-16">
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Cloud NVR explained: recording without a recorder</h1>
-          <AuthorByline className="mt-6" />
+          <AuthorByline className="mt-6" updated={modifiedTime} />
           <p className="mt-6 max-w-prose text-body text-muted-foreground">
             A cloud NVR is a network video recorder that runs as a service in the cloud instead of as a box on site: the cameras stream to it, it records them, and the footage is played back from a browser. The cameras stay where they are; the recorder, its disks and its login are what go.
           </p>

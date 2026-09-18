@@ -49,7 +49,7 @@ export default function WhatIsAVideoManagementSystemPage() {
       <article className="pb-16">
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">What is a video management system (VMS)?</h1>
-          <AuthorByline className="mt-6" />
+          <AuthorByline className="mt-6" updated={modifiedTime} />
           <p className="mt-6 max-w-prose text-body text-muted-foreground">
             A video management system, or VMS, is the software that takes in the streams from security cameras and records, stores, shows, searches and exports their video, and controls who may see which camera. It is the layer an operator actually uses: the live wall, the playback timeline, the export button and the user list. Cameras and recorders are hardware; the VMS is what makes them one system.
           </p>

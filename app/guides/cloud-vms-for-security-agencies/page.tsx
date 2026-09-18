@@ -48,7 +48,7 @@ export default function CloudVmsForSecurityAgenciesPage() {
         <div className="mx-auto max-w-site px-6">
           <span className="font-mono text-mono-sm uppercase text-primary">Owner guide</span>
           <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Cloud VMS for security agencies: a service on the cameras your clients already own</h1>
-          <AuthorByline className="mt-6" />
+          <AuthorByline className="mt-6" updated={modifiedTime} />
           <div className="mt-10 max-w-3xl">
             <PhotoFigure src="/guide-cloud-vms-for-security-agencies.webp" alt="Illustration for this guide: the Camzify console and the cameras it runs on" priority />
           </div>

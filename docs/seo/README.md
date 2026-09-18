@@ -1,3 +1,12 @@
+# SEO research log
+
+Start with [`PLAYBOOK.md`](PLAYBOOK.md) (how this site is optimized for search engines,
+answer engines and AI citation, and how to measure it) and
+[`AUDIT-2026-09-18.md`](AUDIT-2026-09-18.md) (where it stands and the ordered backlog).
+The rest of this file is the dated log of each research pass, oldest first. Data files:
+`01-*` the original keyword map, `02-*` competitor phrases, `03-*` volumes and difficulty,
+`04-*` the rendered site audit, `05-*` AI visibility.
+
 # Keyword research (7 September 2026)
 
 Files in this folder are the output of the `keyword-fanout-map` skill, run against
@@ -197,3 +206,17 @@ platforms, Camzify first with a disclosure, the other seven alphabetically, each
 only from its own pages, with a side-by-side table and a "which for which buyer" list.
 It links every one-to-one comparison and is linked from the cloud pillar, both VMS guides
 and llms.txt.
+
+## Full-site SEO, AEO and GEO audit (18 September 2026)
+
+The whole site was crawled and scored (`scripts/seo-audit.py`, 215 routes), the US, UAE
+and Singapore volumes pulled for the head terms, the SERPs read for the cloud cluster in
+all three markets, and 18 live answers pulled from ChatGPT, Perplexity and Gemini to see
+who is cited. Findings and the backlog are in `AUDIT-2026-09-18.md`; the rules and
+cadence that came out of it are in `PLAYBOOK.md`. Changed the same day: a quotable cost
+FAQ on /pricing and an ONVIF/RTSP compatibility FAQ on /supported-cameras (the two
+sentence types engines lifted from competitors), mention-based related-term links across
+the glossary, one-to-one comparison links from the best-cloud-VMS guide, visible
+"Updated" dates on every guide byline, author and article schema on the six how-to
+guides, the UAE named in `areaServed`, and the eight thinnest content pages expanded to
+900 to 1,400 words with definition-first ledes (four category comparisons, four guides).

@@ -33,7 +33,17 @@ export default function GlossaryTermPage({ params }: { params: { slug: string } 
   if (!t) notFound();
   const path = `/glossary/${t.slug}`;
   const pageMeta = { title: t.title, description: t.description, path };
-  const others = GLOSSARY_TERMS.filter((o) => o.slug !== t.slug).slice(0, 6);
+  // Related terms: entries this one mentions, then entries that mention this one,
+  // topped up with neighbors so every term links six others and every term is
+  // linked from more than the hub. Deterministic, so the static build is stable.
+  const text = [t.definition, ...t.body, ...t.faqs.map((f) => f.answer)].join(' ').toLowerCase();
+  const mentions = (o: (typeof GLOSSARY_TERMS)[number]) => [o.term, o.abbreviation].filter(Boolean).some((w) => text.includes(String(w).toLowerCase()));
+  const mentionedBy = (o: (typeof GLOSSARY_TERMS)[number]) => [o.definition, ...o.body].join(' ').toLowerCase().includes(t.term.toLowerCase());
+  // The fallback walks the list from the entry after this one (wrapping), so the top-up
+  // links spread across the whole glossary instead of all pointing at the first six.
+  const idx = GLOSSARY_TERMS.findIndex((o) => o.slug === t.slug);
+  const pool = [...GLOSSARY_TERMS.slice(idx + 1), ...GLOSSARY_TERMS.slice(0, idx)];
+  const others = [...pool.filter(mentions), ...pool.filter((o) => !mentions(o) && mentionedBy(o)), ...pool].filter((o, i, a) => a.indexOf(o) === i).slice(0, 6);
   return (
     <PageShell
       {...pageMeta}
@@ -70,7 +80,7 @@ export default function GlossaryTermPage({ params }: { params: { slug: string } 
           </ScrollReveal>
 
           <section className="mt-10">
-            <h2 className="font-mono text-mono-sm uppercase text-muted-foreground">More terms</h2>
+            <h2 className="font-mono text-mono-sm uppercase text-muted-foreground">Related terms</h2>
             <ul className="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
               {others.map((o) => (
                 <li key={o.slug}>

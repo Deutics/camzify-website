@@ -55,7 +55,7 @@ export default function CloudVmsForMultipleSitesPage() {
       <article className="pb-16">
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Cloud VMS for multiple sites: every location on one console</h1>
-          <AuthorByline className="mt-6" />
+          <AuthorByline className="mt-6" updated={modifiedTime} />
           <p className="mt-6 max-w-prose text-body text-muted-foreground">
             A <Link href="/platform" className="text-primary hover:underline">cloud VMS</Link> for multiple sites puts every location&apos;s cameras under one account, on one login, with each site kept as its own record. Recording, live view, permissions, alerts and patrol rounds are set per site and read from one console, folded together or held separate. This guide is for whoever runs security or operations across several locations and today carries a recorder login for each.
           </p>

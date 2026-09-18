@@ -21,6 +21,7 @@ export const metadata = generatePageMeta({ ...pageMeta });
 
 
 const faqs = [
+  { question: 'Does Camzify work with ONVIF and RTSP cameras?', answer: 'Yes. Camzify connects any IP camera that publishes an RTSP stream, which includes ONVIF-conformant cameras from every major manufacturer, and it also accepts RTMP pushes from encoders and HTTPS streams (HLS and WebRTC). No proprietary camera is required and none is sold: the cameras a site already owns are the cameras Camzify runs on.' },
   { question: 'My brand is not on the list. Will my cameras work?', answer: 'Very likely, if they produce an RTSP stream, which almost every IP camera made in the last decade does. The list names manufacturers whose ONVIF-conformant cameras are known to interoperate; it is not an exclusive list.' },
   { question: 'Do cameras need to be reachable from the internet?', answer: 'No. Cameras on a local network connect through the Camzify Connector on a PC inside that network, with no port forwarding.' },
   { question: 'Does listing a brand mean a partnership?', answer: "No. Brand names and logos are their owners' trademarks. Listing states that the manufacturer's ONVIF-conformant cameras interoperate with Camzify and implies no partnership or endorsement." },

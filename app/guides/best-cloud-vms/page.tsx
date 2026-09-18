@@ -139,7 +139,7 @@ export default function BestCloudVmsPage() {
       <article className="pb-16">
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">The best cloud VMS platforms, compared on what their own pages say</h1>
-          <AuthorByline className="mt-6" />
+          <AuthorByline className="mt-6" updated={modifiedTime} />
           <p className="mt-6 max-w-prose text-body text-muted-foreground">
             This guide compares eight cloud VMS platforms: Camzify, Eagle Eye Networks, Verkada, Rhombus, Solink, Spot AI, Coram AI and Avigilon Alta. Camzify is our product, which is why it is listed first; the other seven follow in alphabetical order. Every statement about a vendor comes from that vendor&apos;s own website, read on the date shown in the Sources section at the bottom; nothing here rests on reviews or third-party reports.
           </p>
@@ -205,6 +205,7 @@ export default function BestCloudVmsPage() {
               <p className="mt-4 max-w-prose text-muted-foreground">
                 Fits best when a mixed camera estate, analog included, reaches the cloud through an on-site bridge and doors and intrusion detection belong in the same interface as video.
               </p>
+              <p className="mt-3 max-w-prose text-sm text-muted-foreground">One to one: <Link href="/compare/camzify-vs-eagle-eye-networks" className="text-primary hover:underline">Camzify vs Eagle Eye Networks</Link>.</p>
             </ScrollReveal>
           </section>
 
@@ -225,6 +226,7 @@ export default function BestCloudVmsPage() {
               <p className="mt-4 max-w-prose text-muted-foreground">
                 Fits best when an organization is replacing its cameras and wants doors, alarms, sensors and intercoms from the same vendor, less well when the installed cameras are meant to stay.
               </p>
+              <p className="mt-3 max-w-prose text-sm text-muted-foreground">One to one: <Link href="/compare/camzify-vs-verkada" className="text-primary hover:underline">Camzify vs Verkada</Link>.</p>
             </ScrollReveal>
           </section>
 
@@ -245,6 +247,7 @@ export default function BestCloudVmsPage() {
               <p className="mt-4 max-w-prose text-muted-foreground">
                 Fits best when new cameras with onboard storage are wanted and doors, sensors and a staffed alarm monitoring service should come from the same account.
               </p>
+              <p className="mt-3 max-w-prose text-sm text-muted-foreground">One to one: <Link href="/compare/camzify-vs-rhombus" className="text-primary hover:underline">Camzify vs Rhombus</Link>.</p>
             </ScrollReveal>
           </section>
 
@@ -265,6 +268,7 @@ export default function BestCloudVmsPage() {
               <p className="mt-4 max-w-prose text-muted-foreground">
                 Fits best when a restaurant or retail operator is keeping its cameras and wants video matched to point-of-sale and other business data rather than a security-only view.
               </p>
+              <p className="mt-3 max-w-prose text-sm text-muted-foreground">One to one: <Link href="/compare/camzify-vs-solink" className="text-primary hover:underline">Camzify vs Solink</Link>.</p>
             </ScrollReveal>
           </section>
 
@@ -285,6 +289,7 @@ export default function BestCloudVmsPage() {
               <p className="mt-4 max-w-prose text-muted-foreground">
                 Fits best when a site wants local recording on a supplied device with AI agents on top and cameras either kept or replaced at no charge; doors and alarms are not described on the pages checked.
               </p>
+              <p className="mt-3 max-w-prose text-sm text-muted-foreground">One to one: <Link href="/compare/camzify-vs-spot-ai" className="text-primary hover:underline">Camzify vs Spot AI</Link>.</p>
             </ScrollReveal>
           </section>
 
@@ -305,6 +310,7 @@ export default function BestCloudVmsPage() {
               <p className="mt-4 max-w-prose text-muted-foreground">
                 Fits best when a site wants an on-premise recorder it owns, cloud access to it, and doors and emergency alerts in the same product, less well when nothing may be installed on site.
               </p>
+              <p className="mt-3 max-w-prose text-sm text-muted-foreground">One to one: <Link href="/compare/camzify-vs-coram-ai" className="text-primary hover:underline">Camzify vs Coram AI</Link>.</p>
             </ScrollReveal>
           </section>
 
@@ -325,6 +331,7 @@ export default function BestCloudVmsPage() {
               <p className="mt-4 max-w-prose text-muted-foreground">
                 Fits best when an organization already runs Avigilon or Motorola equipment, buys through an integrator, and wants cloud video, access control and sensors from one vendor.
               </p>
+              <p className="mt-3 max-w-prose text-sm text-muted-foreground">One to one: <Link href="/compare/camzify-vs-avigilon-alta" className="text-primary hover:underline">Camzify vs Avigilon Alta</Link>.</p>
             </ScrollReveal>
           </section>
 
