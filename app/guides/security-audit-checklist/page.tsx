@@ -1,11 +1,11 @@
 import { generatePageMeta } from '@/lib/page-utils';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { articleSchema, personSchema } from '@/lib/seo';
 import { AuthorByline } from '@/components/content/author-byline';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
-import { ProductShot } from '@/components/content/product-shot';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -13,7 +13,7 @@ import { ProductShot } from '@/components/content/product-shot';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Security Audit Checklist | Site Security Assessment",
+  title: "Security Audit Checklist | Site Assessment",
   description: "A security audit checklist for a site: perimeter, doors, cameras, lighting, alarms and the record of each check, so nothing is missed.",
   path: "/guides/security-audit-checklist",
 };
@@ -40,7 +40,7 @@ export default function SecurityAuditChecklistPage() {
           <p className="mt-6 max-w-prose text-body text-muted-foreground">A security audit checklist is a structured assessment tool for evaluating the physical security posture of a facility. It covers camera coverage, access control, lighting, perimeter integrity, monitoring procedures, and incident response capabilities. Regular audits identify gaps before they become incidents.</p>
 
           <div className="mt-10 max-w-3xl">
-            <ProductShot src="/product-virtual-patrolling" alt="The virtual patrolling screen: patrol sequences, the next round for each and the Auto-Patrol settings" label="Virtual patrolling" sizes="(max-width: 1024px) 100vw, 768px" />
+            <PhotoFigure src="/guide-security-audit-checklist.webp" alt="Illustration for this guide: the Camzify console and the cameras it runs on" priority />
           </div>
 
           <section className="mt-16">
@@ -84,6 +84,7 @@ export default function SecurityAuditChecklistPage() {
               <Link href="/guides/what-is-virtual-patrolling" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">What Is Virtual Patrolling</Link>
               <Link href="/guides/video-retention-requirements" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">Video Retention Requirements</Link>
               <Link href="/guides/guard-tour-systems-explained" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">Guard Tour Systems Explained</Link>
+              <Link href="/guides/construction-site-security-checklist" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">Construction Site Security Checklist</Link>
             </div>
             <div className="mt-6 flex flex-wrap gap-4">
               <Link href="/pricing" className="rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white shadow transition-colors hover:bg-primary/90">View pricing</Link>

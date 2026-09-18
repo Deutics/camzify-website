@@ -43,6 +43,9 @@ export default function AddingRemotePatrolsToAlarmMonitoringPage() {
           <span className="font-mono text-mono-sm uppercase text-primary">Owner guide</span>
           <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Adding remote patrols to alarm monitoring</h1>
           <AuthorByline className="mt-6" />
+          <div className="mt-10 max-w-3xl">
+            <PhotoFigure src="/guide-adding-remote-patrols-to-alarm-monitoring.webp" alt="Illustration for this guide: the Camzify console and the cameras it runs on" priority />
+          </div>
           <div className="mt-10 grid items-start gap-10 lg:grid-cols-[3fr_2fr]">
             <p className="max-w-prose text-body text-muted-foreground">An alarm monitoring operation sells a response to a signal. A scheduled camera round sells a record that the site was checked and found in order, every hour, with a frame per item, whether or not anything signalled. They are different products on the same cameras, and the second is usually sold to clients the first already has. This guide is for the monitoring company or the installer with a monitoring desk that wants to add rounds without changing how alarms are handled.</p>
 

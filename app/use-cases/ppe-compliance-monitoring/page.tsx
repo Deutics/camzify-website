@@ -5,7 +5,7 @@ import { UseCasePage, type UseCaseContent } from '@/components/content/use-case-
 import Link from 'next/link';
 
 const pageMeta = {
-  title: "PPE Compliance Monitoring | Cameras, Not Clipboards",
+  title: "PPE Compliance Monitoring | Cameras Not Clipboards",
   description: "PPE compliance on existing cameras: hats, vests and gloves checked against each zone policy, a clip per violation, the site recorded on the round.",
   path: "/use-cases/ppe-compliance-monitoring",
 };

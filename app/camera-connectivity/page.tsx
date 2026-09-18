@@ -36,6 +36,7 @@ const faqs = [
   { question: 'Which route should I use?', answer: 'RTSP through the Connector for most IP cameras on a site network, RTSP direct for a stream already published to the internet, RTMP for encoders, HTTPS for web-delivered streams. Each guide covers one route.' },
   { question: 'Do I need to open ports?', answer: 'Not for the Connector, which relays outward, nor for RTMP, which pushes outward. Only a directly reachable RTSP stream needs the camera exposed, which is why the Connector exists.' },
   { question: 'What happens after a camera connects?', answer: 'Stream quality is detected automatically, and the camera is available for recording, detections, checklist items and patrol rounds like any other.' },
+  { question: "Is this IP camera cloud hosting?", answer: "In effect, yes. An IP camera's stream is carried to Camzify, directly if it is reachable or through the Camzify Connector if it is on a local network, and from there it is recorded, streamed live, detected on and patrolled in the cloud. Nothing is hosted on site." },
 ];
 
 export default function CameraConnectivityHub() {

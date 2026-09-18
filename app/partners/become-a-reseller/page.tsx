@@ -50,6 +50,7 @@ const faqs = [
     question: 'Is there a demo we can run for a prospect?',
     answer: 'Book a demo and we will run a live patrol round on real cameras with you, and again with your prospect if that helps. The interactive demonstration on the virtual patrolling page shows the manual round end to end, including the guard message and the before-and-after report, without a login.',
   },
+  { question: "Is this a dealer program?", answer: "It is the same thing under a plainer name: a reseller or dealer sells Camzify on the cameras their customers already own, with a login per customer, quote-based pricing for the portfolio and no hardware to stock. Terms are agreed in conversation rather than published as a program tier." },
 ];
 
 export default function BecomeAResellerPage() {

@@ -38,7 +38,7 @@ export default function Page() {
       <FeatureHero
         eyebrow="Categorized, Triaged, Acknowledged"
         title="Security alert management"
-        lede={<><strong className="font-semibold text-foreground">The Camzify notification system provides total events, unread count, critical alerts (weapons and fire/smoke), and average time to acknowledge.</strong> Filter by category, site, camera, severity, object type, and acknowledgment status. Every alert supports four states: Ack Required, Acknowledged, Escalated, and False Positive.</>}
+        lede={<><strong className="font-semibold text-foreground">Security alert management in Camzify starts on the Notifications screen, which shows total events, unread count, critical alerts (weapons and fire/smoke), and average time to acknowledge.</strong> Filter by category, site, camera, severity, object type, and acknowledgment status. Every alert supports four states: Ack Required, Acknowledged, Escalated, and False Positive.</>}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/guides/how-to-manage-security-alerts', label: 'How to work the alert queue' }}
         visual={<ProductShot

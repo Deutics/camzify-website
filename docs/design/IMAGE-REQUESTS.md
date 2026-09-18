@@ -6,63 +6,46 @@ background (the same device-frame style as the existing set); photographs at 160
 JPEG; console screenshots at 1600 × 1224 in both light and dark theme. Number a folder's
 images in page order from the top: 1 is the hero, 2 the first figure below it, and so on.
 
-## 1. New use-case pages that borrow another page's render (13)
+## Delivered 18 September 2026
 
-Each of these is one capability in one setting. Today each shows the general render for
-its capability; a render set in the actual setting would make the page its own.
+The 2026-09-18 zip covered: the thirteen use-case pages that borrowed another render;
+revised figure 2 for twelve AI features; the four earlier comparison pages and the
+guards comparison; the pricing hero (light and dark); trust; about; the author portrait
+and profile image (now the byline avatar); the RTSP, RTMP and HTTPS setup screens; and
+one hero render for each of the first 28 guides. All are staged and live on the pages.
 
-| Page | What to show |
-|---|---|
-| /use-cases/fall-detection-for-hospitals-and-care-homes | A hospital or care-home corridor, one person on the floor, the fall alert drawn on the frame |
-| /use-cases/weapons-detection-for-schools-and-public-buildings | A school entrance or civic-building lobby camera with a visible-weapon alert |
-| /use-cases/violence-detection-in-emergency-departments | An emergency-department waiting room or triage window with an altercation alert (the current image is a street scene) |
-| /use-cases/fire-and-smoke-detection-for-high-rise-buildings | A high-rise corridor, stairwell or parking level with smoke detected on the frame |
-| /use-cases/fire-exit-and-escape-route-monitoring | A fire exit with a pallet or trolley in the route, flagged on the round |
-| /use-cases/occupancy-limits-for-venues-and-public-spaces | A venue floor or lobby with people counted against a posted occupant load |
-| /use-cases/tracking-one-person-across-cameras | One person's path across three or four cameras laid out as a timeline |
-| /use-cases/virtual-patrolling-for-compliance-evidence | A patrol report page with the item, time, frame and person notified, as an auditor would see it |
-| /use-cases/tailgating-detection-for-data-centers-and-secure-entrances | A badge-controlled door with two people passing on one badge, counted on the frame |
-| /use-cases/car-theft-and-vandalism-in-parking-facilities | A parking garage at night with a person at a car boxed in red and the zone drawn |
-| /use-cases/fire-lane-and-emergency-access-enforcement | A fire lane or ambulance bay with a stopped vehicle flagged and the time shown |
-| /use-cases/cloud-video-backup-against-dvr-theft | A ransacked back office with the recorder gone, beside the cloud backup screen still holding the footage |
-| /use-cases/one-live-wall-for-every-brand-and-location | A live wall mixing camera brands and sites, each tile labeled with site and brand |
+**Not used: the roadmap image.** It shows loitering detection as "in development", and
+that feature shipped on 16 September. Please redo it with the mobile apps as the only
+item, or with whatever is on the roadmap at the time.
 
-## 2. Loitering detection: three more figures (1)
+## 1. Images still missing (checked 18 September 2026)
 
-The feature shipped and its page now has the full feature layout, but only image 1 (the
-hero render) was ever supplied, so the sections below the hero run without figures.
+Thirteen images are needed, plus the roadmap redo. Everything else on the site has its
+designed image. Numbering follows the usual rule: image 1 is the page hero.
 
-| Page | What to show |
-|---|---|
-| /ai-features/loitering-detection | Image 2: a sequence of frames from one camera in which a person stays in a drawn zone while the dwell timer counts up to the alert. Image 3: the configuration panel with a loitering zone drawn and the dwell-time and notification-window controls. Image 4: camera scenes where it applies: a rear entrance after closing, an ATM lobby, a fence line with a parked vehicle |
+| # | Page | Image | What to show |
+|---|---|---|---|
+| 1 | /roadmap | 1 | A redo of the delivered timeline without loitering detection (see above) |
+| 2 | /guides/what-is-vsaas | 1 | Guide hero in the style of the other 28: the console and the cameras it runs on, with a "service" framing |
+| 3 | /guides/hybrid-cloud-video-surveillance | 1 | Guide hero: a recorder on site beside the cloud, both recording the same cameras |
+| 4 | /guides/construction-site-security-checklist | 1 | Guide hero: a site gate at dusk with the checklist items ticked on a tablet |
+| 5 | /compare/camzify-vs-verkada | 1 | A "vs" pair in the style of the delivered comparison images: the Camzify console on the left, a neutral camera-and-cloud ecosystem on the right; no competitor logos or screenshots |
+| 6 | /compare/camzify-vs-rhombus | 1 | As above |
+| 7 | /compare/camzify-vs-solink | 1 | As above, with a restaurant or retail operations scene on the right |
+| 8 | /compare/camzify-vs-spot-ai | 1 | As above, with an AI assistant or chat-style scene on the right |
+| 9 | /compare/camzify-vs-coram-ai | 1 | As above, with an on-site appliance and recorder on the right |
+| 10 | /compare/camzify-vs-avigilon-alta | 1 | As above, with an integrator-installed enterprise system on the right |
+| 11 | /ai-features/loitering-detection | 2 | A sequence of frames from one camera in which a person stays in a drawn zone while the dwell timer counts up to the alert |
+| 12 | /ai-features/loitering-detection | 3 | The configuration panel with a loitering zone drawn and the dwell-time and notification-window controls |
+| 13 | /ai-features/loitering-detection | 4 | Scenes where it applies: a rear entrance after closing, an ATM lobby, a fence line with a parked vehicle |
 
-## 3. Pages that still have no image at all (a designed visual would help)
+Optional, only if the team has capacity: a hub visual for /glossary (the 30 term pages
+are text by design); a variant of the trust graphic for /security-and-compliance showing
+encryption in transit and at rest and the audit trail (the trust image can be reused as
+is); a visual of the four instance types (stream, detection, patrol, storage) for the
+pricing page; and a small visual for /book-a-demo and /contact, which can stay text-only.
 
-| Page | What to show |
-|---|---|
-| /about | The company: a team or office photograph, or a designed "who we are" visual |
-| /about/muhammad-talha | A portrait of the author for the byline pages |
-| /roadmap | A visual of what is shipping next (the roadmap items are on the page) |
-| /trust and /security-and-compliance | A visual of the security posture: encryption in transit and at rest, audit trail, the frameworks in progress (never shown as held) |
-| /pricing | A visual of how a quote is built: per camera, per feature instance, retention |
-| /roi-calculator | A hero visual for the calculator (guard hours against a per-camera quote) |
-| /book-a-demo, /contact, /free-trial | A small visual for the form pages if wanted; these can stay text-only |
-| /guides and /compare | Hub thumbnails: one small visual per guide (21) and per comparison (6) |
+## 2. Regional market pages (not yet built)
 
-## 3. Pages using a stand-in wall of camera frames
-
-| Page | What to show |
-|---|---|
-| /virtual-patrolling/how-it-works | A hero for the whole six-step round; the six step images exist and stay |
-| /virtual-patrolling/patrol-sequences | A hero showing a sequence being ordered across a site's cameras |
-
-## 4. Pages sharing one console screenshot
-
-| Pages | What to show |
-|---|---|
-| /camera-connectivity/rtsp-setup, /rtmp-setup, /hls-setup, /https-setup, /webrtc-setup, /camzify-connector | The Add Camera panel with the tab for that protocol selected, and the Connector's own screen for the connector page. All six use the general Configuration screenshot today. |
-
-## Not requested on purpose
-
-Privacy, terms, cookies, accessibility, FAQs, the sitemap page and the blog index stay
-text-only.
+The five declared markets need pages with facts from the business before any image is
+requested for them.

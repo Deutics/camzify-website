@@ -39,7 +39,7 @@ export default function Page() {
       <FeatureHero
         eyebrow="Plan & Usage"
         title="License & instance management"
-        lede={<><strong className="font-semibold text-foreground">The Plan & Usage page shows total instances per AI feature, how many are activated by you, how many are granted to sub-users, and how many remain available — plus a separate storage entitlement tracked in terabytes.</strong> Plan terms show start date, expiry, and days remaining. On the current Enterprise Plan, 96 instances are granted across 8 features, with 12 still available and 161 days left on the term.</>}
+        lede={<><strong className="font-semibold text-foreground">The Plan & Usage page is the console&apos;s license and instance management view: it shows total instances per AI feature, how many are activated by you, how many are granted to sub-users, and how many remain available, plus a separate storage entitlement tracked in terabytes.</strong> Plan terms show start date, expiry, and days remaining. On the current Enterprise Plan, 96 instances are granted across 8 features, with 12 still available and 161 days left on the term.</>}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/pricing', label: 'How licensing is priced' }}
         visual={<ProductShot

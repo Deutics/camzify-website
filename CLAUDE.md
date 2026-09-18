@@ -7,7 +7,7 @@ wrong here and expensive to get wrong. Full detail lives in [`docs/`](docs/).
 
 ## What this project is
 
-A 170-page statically prerendered Next.js 14 marketing site whose entire purpose is
+A 210-page statically prerendered Next.js 14 marketing site whose entire purpose is
 discoverability — organic search, AI answer engines (ChatGPT, Claude, Perplexity, Google
 AI Overviews), and conversion to demo requests. There is no application, no auth, no
 authenticated area. Treat every change as a change to a publication.
@@ -56,6 +56,8 @@ other.
 `app/sitemap.ts` must list every route. A page with no sitemap entry and no internal
 links is invisible. See `docs/ADDING-PAGES.md` for the checklist.
 
+**8. Never state a fact about a named competitor that did not come from that competitor's own site**, opened in the same run and listed in the page's Sources section. Never characterize competitor pricing beyond what their pricing page says.
+
 **7. Never unmount content to hide it.**
 Collapsed FAQ answers and closed nav menus stay in the DOM with `inert`. AI crawlers read
 rendered text, not just JSON-LD — unmounting content makes it invisible to them.
@@ -77,6 +79,7 @@ components/
   ui/                   shadcn primitives. Re-add more with `npx shadcn@latest add <x>`
 lib/
   site-config.ts        Identity + navigation. Single source of truth
+  glossary-terms.ts     The glossary: one entry renders one /glossary/<slug> page
   seo.ts                All schema.org builders
   page-utils.tsx        generatePageMeta — every page's <head> metadata
 docs/                   The documentation set. Keep it current
@@ -118,7 +121,7 @@ actually opened, quoted exactly, with its link.
 ## Running it
 
 `npm install && npm run dev` — that is all. **No database and no `.env` are required** to
-run or build the site; all 170 pages are static and `prisma generate` needs no live
+run or build the site; all 210 pages are static and `prisma generate` needs no live
 connection. Only the four `/api/*` form endpoints need `.env`. Do not stall trying to
 provision a database you do not need.
 
@@ -148,7 +151,8 @@ rendered result — do not ask the user to look for you.
   otherwise, so a deploy with no database still builds, and connecting the database is
   one variable plus a redeploy. Schema changes need a migration in `prisma/migrations`.
 - **Leads are emailed through ZeptoMail; the database is optional.** `lib/lead-mail.ts`
-  sends every form submission to `LEADS_TO_EMAIL` (default: the public contact address)
+  sends every form submission to `LEADS_TO_EMAIL` (default: the public contact address),
+  copying any addresses in `LEADS_CC_EMAIL`,
   using `ZEPTOMAIL_TOKEN` and `ZEPTOMAIL_FROM_ADDRESS`. Until the database is connected
   the email is the record of the lead, so a failed send fails the request. When
   `DATABASE_URL` is set the row is also written, non-fatally. `.env.example` is the
@@ -180,13 +184,13 @@ Add a photo, run `python3 scripts/optimise-images.py`, use `<SiteImage>` with a 
 mapped list, `priority={i === 0}` — not on every card.
 
 **Where the photographs come from.** The business supplies the image set as a zip
-("Camzify Website Images", latest 2026-09-11, in the owner's Downloads). It is staged into
+("Camzify Website Images", latest 2026-09-18, in the owner's Downloads). It is staged into
 `public/` under slug names by section: `hero-cam-*` (twelve real camera frames: homepage
 hero, camera walls, demo), `scene-*`, `product-*-{dark,light}` (console screenshots),
 `feature-<slug>-{1..4}` (AI features), `ai-security-for-<slug>` (industry hero, the
 designer's image 1) and `industry-<slug>-{2,3,4}` (the three figures), one render per
 use case, `vp-*` (virtual patrolling pages, risk-detection camera frames, the virtual
-guard render), `partner-gate-{opened,closed}` (the before-and-after pair on the partner pages). **The designer numbers a folder's images in page order, from the top:
+guard render), `partner-gate-{opened,closed}` (the before-and-after pair on the partner pages). The 2026-09-18 delivery added `guide-<slug>` (one hero render per guide), `compare-vs-*` (the comparison pairs), `configuration-{rtsp,rtmp,https}` (setup screenshots), `author-muhammad-talha` and `-profile` (the byline avatar), `about-camzify`, `trust-data-flow` and `product-pricing-plan-{light,dark}`. **The designer numbers a folder's images in page order, from the top:
 image 1 is the hero, 2 is the first figure below it, and so on. Keep that order.**
 Photographs are JPEG sources at 1600px or below. Renders on a transparent background
 (device mock-ups with a drop shadow, rounded screenshots) keep their alpha: small ones

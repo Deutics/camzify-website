@@ -60,7 +60,7 @@ export default function VsSecurityGuardsPage() {
             including where guards still win.</>}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/roi-calculator', label: 'Run your own numbers' }}
-        visual={<PhotoFigure src="/vp-vs-security-guards.jpg" alt="A security officer at a patrol car alongside an AI camera network, the blended model of guards and virtual rounds" priority />}
+        visual={<PhotoFigure src="/compare-vs-security-guards.webp" alt="A guard checking a virtual patrol on a tablet beside a security guard at a building entrance" priority />}
       />
 
       <section className="pb-16">

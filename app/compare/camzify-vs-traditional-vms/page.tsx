@@ -1,10 +1,10 @@
 import { generatePageMeta } from '@/lib/page-utils';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { ComparisonTable } from '@/components/content/comparison-table';
 import Link from 'next/link';
-import { ProductShot } from '@/components/content/product-shot';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -12,7 +12,7 @@ import { ProductShot } from '@/components/content/product-shot';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Camzify vs Traditional VMS | Cloud Video Management",
+  title: "Camzify vs Traditional VMS | Cloud vs Recorder",
   description: "Compare Camzify with traditional video management systems. See how AI-powered virtual patrolling goes beyond recording to active verification.",
   path: "/compare/camzify-vs-traditional-vms",
 };
@@ -38,17 +38,17 @@ export default function CamzifyVsTraditionalVmsPage() {
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Camzify vs traditional VMS</h1>
           <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            An honest comparison of camzify vs traditional vms across the dimensions that matter most to security decision-makers. Both approaches have strengths, this table helps you decide which fits your facility.
+            An honest comparison of Camzify vs traditional VMS across the dimensions that matter most to security decision-makers. Both approaches have strengths, and this table helps you decide which fits your facility. If the term is new, start with <Link href="/guides/what-is-a-video-management-system" className="text-primary hover:underline">what a video management system is</Link>.
           </p>
 
           <div className="mt-10 max-w-3xl">
-            <ProductShot src="/product-dashboard" alt="The Camzify dashboard: cameras live, critical events open, detections over time and the live alert feed" label="Dashboard" sizes="(max-width: 1024px) 100vw, 768px" />
+            <PhotoFigure src="/compare-vs-traditional-vms.webp" alt="Camzify on a laptop beside an operator at a wall of traditional VMS monitors" />
           </div>
 
           <div className="mt-12">
             <ScrollReveal>
               <ComparisonTable
-                columns={[sides?.[0] ?? 'Option A', sides?.[1] ?? 'Option B']}
+                columns={['Aspect', sides?.[0] ?? 'Option A', sides?.[1] ?? 'Option B']}
                 rows={[
                   { label: "Primary function", values: ["Active AI verification via patrol rounds", "Passive video recording and playback"] },
                   { label: "Detection", values: ["AI-powered: zone, line, motion, tampering, tracking", "Basic motion detection or none"] },

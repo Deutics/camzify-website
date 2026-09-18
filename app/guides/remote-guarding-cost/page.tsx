@@ -13,7 +13,7 @@ import { PhotoFigure } from '@/components/content/photo-figure';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Remote Guarding Cost | Pricing Guide",
+  title: "Remote Guarding & Video Monitoring Cost | Guide",
   description: "What does remote guarding cost? Compare virtual monitoring center rates with on-site guards and automated virtual patrolling.",
   path: "/guides/remote-guarding-cost",
 };
@@ -25,6 +25,7 @@ const faqs = [
   { question: 'How does virtual patrolling change the cost structure?', answer: 'The scheduled rounds run without an operator, so the operator cost attaches to failures rather than to watching. A monitoring company or agency can therefore cover more sites per desk, which is why the partner pages frame it as revenue rather than cost.' },
   { question: 'Does Camzify sell remote guarding?', answer: 'No. Camzify is the platform: the rounds, the detections, the notifications and the reports. The monitoring and the response are provided by you or by a security agency or monitoring company, several of which use Camzify to deliver them.' },
   { question: 'Where do I start with a number?', answer: "With your own: the ROI calculator has a site mode for what routine rounds cost today and an agency mode for what remote patrols would earn at your price. Camzify's cost is quoted against either." },
+  { question: "What does remote video monitoring cost?", answer: "Remote video monitoring is the same service under a different name, and it is priced the same way: per camera per month, set by the hours covered, the response included and whether cameras are bundled. Use the drivers on this page to compare quotes, and remember that a scheduled camera round from Camzify sits underneath a monitoring service rather than replacing the people in it." },
 ];
 
 export default function RemoteGuardingCostPage() {
@@ -37,7 +38,10 @@ export default function RemoteGuardingCostPage() {
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Remote guarding cost</h1>
           <AuthorByline className="mt-6" />
-          <p className="mt-6 max-w-prose text-body text-muted-foreground">Remote guarding cost is the price of having a human operator in a monitoring center watch your camera feeds and respond to alerts. It sits between on-site guarding (most expensive) and fully automated virtual patrolling (least expensive). Typical remote guarding services charge per camera per month, with rates varying by hours of coverage and response protocol.</p>
+          <div className="mt-10 max-w-3xl">
+            <PhotoFigure src="/guide-remote-guarding-cost.webp" alt="Illustration for this guide: the Camzify console and the cameras it runs on" priority />
+          </div>
+          <p className="mt-6 max-w-prose text-body text-muted-foreground">Remote guarding cost is the price of having a human operator in a video monitoring center watch your camera feeds and respond to alerts. It sits between on-site guarding (most expensive) and fully automated virtual patrolling (least expensive). Typical remote guarding services charge per camera per month, with rates varying by hours of coverage and response protocol.</p>
 
           <div className="mt-10 max-w-3xl">
             <PhotoFigure src="/vp-virtual-guard.png" alt="The Camzify dashboard on a laptop: cameras live, critical events open, detection events over time and the live alert feed" caption="The console the virtual guard runs on" />

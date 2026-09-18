@@ -29,7 +29,7 @@ const content: UseCaseContent = {
     A cold store that must show its doors were closed, a data center that must show its cage was not entered, a licensed premises that must show its exits were clear, a vacant building whose policy requires weekly inspection. Camzify runs the round, answers each item from the camera, and files a timestamped PDF with a frame per item.
   </>,
   facts: ['A frame behind every answer', 'Timestamped, filed, exportable by date', 'Rounds that run whether or not anyone is in'],
-  image: { src: '/guard-tour-verification.webp', alt: 'A guard at night reading a checklist on a tablet outside an office building, with a panel of six camera views above, five passed and one flagged' },
+  image: { src: '/virtual-patrolling-for-compliance-evidence.webp', alt: 'A guard at night reading a checklist on a tablet outside an office building, with a panel of six camera views above, five passed and one flagged' },
   secondary: { href: '/virtual-patrolling/patrol-reports', label: 'Patrol reports' },
   problem: {
     heading: 'The check was done; the evidence is a tick in a logbook',

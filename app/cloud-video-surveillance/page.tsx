@@ -36,6 +36,8 @@ const faqs = [
   { question: 'How long is footage kept?', answer: 'For as long as the retention window on that camera says, set in days or as a storage cap, camera by camera. A gate camera can keep ninety days while a corridor keeps seven. The video retention guide covers what different sectors typically require.' },
   { question: 'How is footage protected?', answer: 'Encrypted in transit over TLS 1.2 or higher and at rest with AES-256. Access follows the same permission groups as everything else in the console, so a user who cannot open a camera cannot open its recordings, and every action on the account is written to an audit trail. Compliance certifications are in progress and are listed as such on the trust page; none is claimed as held.' },
   { question: 'What does it cost?', answer: 'Camzify is priced per instance per month, a stream instance for each camera plus a detection instance for each AI feature on it and cloud storage, and quoted for the site. It starts from $5 per camera per month; the pricing page turns your counts into a quote request, and the ROI calculator lets you compare it against the guarding or recorder costs it replaces.' },
+  { question: "Is this VSaaS?", answer: "Yes. Video surveillance as a service, or VSaaS, is the market's name for the model on this page: cameras streamed to a subscription service that records, stores, streams and, on Camzify, detects and patrols, with no recorder on site. The subscription is per instance per month, from $5 per camera, quoted per site." },
+  { question: "Is it a commercial security system?", answer: "It is the video part of one, for a business rather than a home: recording and retention per camera, live view of every site, AI detections and scheduled patrol rounds on the cameras already installed. Alarm panels, access control and guards stay with whoever provides them today." },
 ];
 
 const comparisonRows = [
@@ -150,7 +152,7 @@ export default function CloudVideoSurveillancePage() {
               <span className="font-mono text-mono-sm uppercase text-primary">Cloud NVR alternative</span>
               <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">Against a recorder on site</h2>
               <p className="mt-5 max-w-prose text-body text-muted-foreground">
-                The last two rows are where the recorder wins. A site with poor upstream bandwidth, or a policy that footage never leaves the building, should keep its NVR. The longer version is on <Link href="/compare/cloud-vms-vs-on-premise" className="text-primary hover:underline">cloud VMS vs on-premise</Link>. For a named alternative, see <Link href="/compare/camzify-vs-eagle-eye-networks" className="text-primary hover:underline">Camzify vs Eagle Eye Networks</Link>.
+                The last two rows are where the recorder wins. A site with poor upstream bandwidth, or a policy that footage never leaves the building, should keep its NVR. The longer version is on <Link href="/compare/cloud-vms-vs-on-premise" className="text-primary hover:underline">cloud VMS vs on-premise</Link>. For a named alternative, see Camzify against <Link href="/compare/camzify-vs-eagle-eye-networks" className="text-primary hover:underline">Eagle Eye Networks</Link>, <Link href="/compare/camzify-vs-verkada" className="text-primary hover:underline">Verkada</Link>, <Link href="/compare/camzify-vs-rhombus" className="text-primary hover:underline">Rhombus</Link>, <Link href="/compare/camzify-vs-solink" className="text-primary hover:underline">Solink</Link>, <Link href="/compare/camzify-vs-spot-ai" className="text-primary hover:underline">Spot AI</Link>, <Link href="/compare/camzify-vs-coram-ai" className="text-primary hover:underline">Coram AI</Link> or <Link href="/compare/camzify-vs-avigilon-alta" className="text-primary hover:underline">Avigilon Alta</Link>.
               </p>
             </div>
           </ScrollReveal>
@@ -209,12 +211,12 @@ export default function CloudVideoSurveillancePage() {
             {[
               { href: '/guides/what-is-a-cloud-vms', title: 'What is a cloud VMS?', desc: 'The definition, and how it differs from an on-premise VMS.' },
               { href: '/guides/what-is-a-cloud-nvr', title: 'Cloud NVR explained', desc: 'Recording without a recorder, and when the box should stay.' },
-              { href: '/compare/cloud-vms-vs-on-premise', title: 'Cloud VMS vs on-premise', desc: 'The full comparison, including where on-premise wins.' },
+              { href: '/guides/what-is-vsaas', title: 'What is VSaaS?', desc: 'Video surveillance as a service, and what the subscription covers.' },
               { href: '/guides/cloud-vms-cost', title: 'Cloud VMS cost', desc: 'What drives the price, and the hidden fees to ask about.' },
               { href: '/guides/cloud-vms-bandwidth-requirements', title: 'Bandwidth requirements', desc: 'Whether your connection can carry your cameras.' },
               { href: '/guides/using-existing-cameras-with-a-cloud-vms', title: 'Your existing cameras', desc: 'Which cameras connect, and how to try one first.' },
               { href: '/guides/cloud-vms-for-multiple-sites', title: 'Cloud VMS for multiple sites', desc: 'Every location on one console, rolled out site by site.' },
-              { href: '/guides/video-retention-requirements', title: 'Video retention requirements', desc: 'How long different sectors typically keep footage.' },
+              { href: '/guides/hybrid-cloud-video-surveillance', title: 'Hybrid cloud video surveillance', desc: 'Keep the recorder, add the cloud, site by site.' },
             ].map((c) => (
               <Link key={c.href} href={c.href} className="group rounded-xl border border-border bg-card p-6 transition-all duration-normal hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
                 <h3 className="font-display text-base font-bold transition-colors group-hover:text-primary">{c.title}</h3>

@@ -48,7 +48,7 @@ export default function CloudVmsVsOnPremisePage() {
           <div className="mt-12">
             <ScrollReveal>
               <ComparisonTable
-                columns={[sides?.[0] ?? 'Option A', sides?.[1] ?? 'Option B']}
+                columns={['Aspect', sides?.[0] ?? 'Option A', sides?.[1] ?? 'Option B']}
                 rows={[
                   { label: "Upfront cost", values: ["Low — subscription per camera", "High — server hardware, NVR, licenses"] },
                   { label: "Maintenance", values: ["Managed by provider — updates automatic", "On-site IT team required for updates and repairs"] },

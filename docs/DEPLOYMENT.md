@@ -16,8 +16,8 @@ values directly in **Vercel → Project → Settings → Environment Variables**
 
 | Variable | Required? | Environments | What breaks without it |
 |---|---|---|---|
-| `ZEPTOMAIL_TOKEN`, `ZEPTOMAIL_FROM_ADDRESS` | **Yes, for forms** | Production, Preview | All four forms return `{"success": false}` and the visitor is told to email us. Every page still renders normally. |
-| `LEADS_TO_EMAIL`, `ZEPTOMAIL_FROM_NAME`, `ZEPTOMAIL_API_URL` | No | Production, Preview | Defaults: the public contact address, "Camzify website", the global ZeptoMail endpoint. |
+| `ZEPTOMAIL_TOKEN`, `ZEPTOMAIL_FROM_ADDRESS` | **Yes, for forms** | Production, Preview | All five forms return `{"success": false}` and the visitor is told to email us. Every page still renders normally. |
+| `LEADS_TO_EMAIL`, `LEADS_CC_EMAIL`, `ZEPTOMAIL_FROM_NAME`, `ZEPTOMAIL_API_URL` | No | Production, Preview | Defaults: the public contact address, "Camzify website", the global ZeptoMail endpoint. |
 | `DATABASE_URL` | No, until the lead database is connected | Production, Preview | Leads are emailed only; nothing is written. When set, each lead is also stored, normally. |
 
 That is the entire list. The site has no other runtime configuration.

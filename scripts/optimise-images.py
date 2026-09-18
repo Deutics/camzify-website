@@ -52,7 +52,9 @@ def main():
     for src in sources:
         size = os.path.getsize(src)
         is_logo = os.path.basename(src).startswith('camzify-logo-')
-        if size < MIN_BYTES and not is_logo:
+        # A WebP source is a designed render by definition and is always laddered; the
+        # size floor only skips small icons among the PNGs and JPEGs.
+        if size < MIN_BYTES and not is_logo and not src.endswith('.webp'):
             continue
         # RGBA wherever the source carries transparency; RGB for photographs. Never
         # `.convert('RGB')` an RGBA image: that drops alpha without compositing.

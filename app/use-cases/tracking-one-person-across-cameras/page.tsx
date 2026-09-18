@@ -29,7 +29,7 @@ const content: UseCaseContent = {
     Camzify does it from a description rather than a face. Attribute extraction records what each tracked person wore and carried, AI suspect search finds every appearance that matches, and the cross-camera journey map orders those appearances into one timeline with the coverage gaps shown.
   </>,
   facts: ['Search by description, not by face', 'Every appearance across every camera', 'One timeline with the gaps shown'],
-  image: { src: '/feature-cross-camera-journey-map-1.webp', alt: 'Four camera tiles in the Camzify console, each with the same subject outlined and labeled as tracked, from a building entrance to an internal corridor' },
+  image: { src: '/tracking-one-person-across-cameras.webp', alt: 'Four camera tiles in the Camzify console, each with the same subject outlined and labeled as tracked, from a building entrance to an internal corridor' },
   secondary: { href: '/ai-features/cross-camera-journey-map', label: 'Cross-camera journey map' },
   problem: {
     heading: 'Camera by camera, an afternoon per person',

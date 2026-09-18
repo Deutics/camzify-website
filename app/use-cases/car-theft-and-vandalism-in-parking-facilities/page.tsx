@@ -29,7 +29,7 @@ const content: UseCaseContent = {
     A garage records everything and watches nothing. Camzify treats the aisles, ramps and perimeter as zones and tripwires on the existing cameras, tracks people and vehicles as objects, notifies the person on duty within the hours you set, and runs a round after hours that records what it found.
   </>,
   facts: ['People and vehicles tracked as objects', 'Zones and tripwires on the cameras you own', 'An after-hours round with the frame recorded'],
-  image: { src: '/parking-lot-surveillance.webp', alt: 'A parking lot with each vehicle outlined, one person at the entrance and one car flagged in red' },
+  image: { src: '/car-theft-and-vandalism-in-parking-facilities.webp', alt: 'A parking lot with each vehicle outlined, one person at the entrance and one car flagged in red' },
   secondary: { href: '/use-cases/parking-lot-surveillance', label: 'Parking lot surveillance' },
   problem: {
     heading: 'Recorded in full, found in the morning',

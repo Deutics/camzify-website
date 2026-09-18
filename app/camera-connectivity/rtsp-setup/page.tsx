@@ -1,5 +1,5 @@
-import { ProductShot } from '@/components/content/product-shot';
 import Link from 'next/link';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
@@ -51,7 +51,7 @@ export default function RtspSetupPage() {
           </p>
 
           <div className="mt-10 max-w-3xl">
-            <ProductShot src="/product-configuration" alt="The Configuration screen in the console: adding a camera by its RTMP, RTSP or HTTPS address, with the cameras already on the site listed below" label="Configuration · Add camera" sizes="(max-width: 1024px) 100vw, 768px" />
+            <PhotoFigure src="/configuration-rtsp.jpg" alt="The Configuration screen in the console with the RTSP option selected for a new camera and the cameras already on the site listed below" />
           </div>
 
           <div className="mt-10 grid gap-4 sm:grid-cols-2">

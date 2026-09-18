@@ -1,4 +1,5 @@
 import { generatePageMeta } from '@/lib/page-utils';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { PageShell } from '@/components/layout/page-shell';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { personSchema } from '@/lib/seo';
@@ -60,6 +61,9 @@ export default function AuthorPage() {
               <p className="mt-2 font-mono text-mono-sm uppercase text-primary">
                 {role}, {siteConfig.name}
               </p>
+              <div className="mt-8 max-w-3xl">
+                <PhotoFigure src="/author-muhammad-talha.webp" alt={`${name}, ${role}`} priority />
+              </div>
             </div>
           </div>
 

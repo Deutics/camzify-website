@@ -35,6 +35,7 @@ const faqs = [
   { question: 'Who receives the notification?', answer: 'The person designated for that camera: a guard on site, a mobile patrol, a client contact or an operator in a monitoring room. Channels are set per camera and per detection, and each detection has a notification window, so a rule can detect all day and only notify in the hours nobody should be there.' },
   { question: 'Does it need new cameras?', answer: 'No. Any camera that produces an RTSP stream can be used, plus RTMP and HTTPS streams. Cameras on a private network connect through the Camzify Connector, a small application on a machine inside that network, without opening ports.' },
   { question: 'How is a virtual guard priced?', answer: 'Camzify is priced per instance per month, a stream instance for each camera plus a detection instance for each AI feature on it, and quoted for the site; it starts from $5 per camera per month and comes in lower for an annual term or more features per camera. The quote is measured against the guarding hours it replaces, which the ROI calculator lets you work out with your own figures before you talk to anyone.' },
+  { question: "Is a virtual guard the same as an AI security guard?", answer: "Yes, it is the same service under a newer name. An AI security guard is software that watches a site through its cameras, runs scheduled rounds, raises what it sees and messages a person; on Camzify that is virtual patrolling with the detections on the same cameras, and a person still attends what the software raises." },
 ];
 
 const comparisonRows = [

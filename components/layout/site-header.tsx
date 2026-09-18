@@ -25,7 +25,7 @@ function columnsFor(item: any): { columns: Column[]; footer: any[] } | null {
     return { columns: (item.groups as any[]).map((g) => ({ label: g?.label ?? '', items: g?.items ?? [] })), footer: [] };
   }
   const children: any[] = item?.children ?? [];
-  if (children.length <= WIDE_MENU_MIN) return null;
+  if (children.length <= WIDE_MENU_MIN || !children.some((c) => c?.section)) return null;
   const columns: Column[] = [];
   const footer: any[] = [];
   for (const child of children) {

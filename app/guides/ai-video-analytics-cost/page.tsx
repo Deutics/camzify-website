@@ -1,11 +1,11 @@
 import { generatePageMeta } from '@/lib/page-utils';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { articleSchema, personSchema } from '@/lib/seo';
 import { AuthorByline } from '@/components/content/author-byline';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
-import { ProductShot } from '@/components/content/product-shot';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -40,7 +40,7 @@ export default function AiVideoAnalyticsCostPage() {
           <p className="mt-6 max-w-prose text-body text-muted-foreground">AI video analytics cost is the price of adding automated detection, classification, and alerting capabilities to your existing camera infrastructure. Pricing models vary: per-camera subscriptions, per-channel licenses, or hardware-bundled solutions. Cloud-based analytics like Camzify typically offer the lowest entry cost with subscription pricing.</p>
 
           <div className="mt-10 max-w-3xl">
-            <ProductShot src="/product-license-plan" alt="The Plan and Usage screen: instances per feature, what is activated, granted to sub-users and still available" label="Plan and usage" sizes="(max-width: 1024px) 100vw, 768px" />
+            <PhotoFigure src="/guide-ai-video-analytics-cost.webp" alt="Illustration for this guide: the Camzify console and the cameras it runs on" priority />
           </div>
 
           <section className="mt-16">

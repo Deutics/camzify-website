@@ -5,7 +5,7 @@ import { UseCasePage, type UseCaseContent } from '@/components/content/use-case-
 import Link from 'next/link';
 
 const pageMeta = {
-  title: "Alarm Verification With Cameras",
+  title: "Video Alarm Verification & Monitoring With Cameras",
   description: "Alarm verification with cameras: the view, a snapshot and the live feed on the operator desk when an alarm comes in, so dispatch goes to a verified event.",
   path: "/use-cases/alarm-verification",
 };
@@ -19,14 +19,15 @@ const faqs = [
   { question: 'Can we tell the difference between a cat and a person?', answer: 'Detections fire on a tracked object of a chosen class. An animal is not classified as a person, so a person rule stays quiet for a cat crossing the yard. Motion detection, which fires on pixel change, is separate and used deliberately.' },
   { question: 'Is there a record of what the operator saw?', answer: 'Every detection is logged with camera, time and snapshot, every notification with who was told and whether it was acknowledged, and every patrol round with a frame per item. A dispatch decision can be shown against the frame it was made on.' },
   { question: 'Who holds the account, us or the installer?', answer: 'Whoever operates the console. A monitoring company usually holds it with each client or agency as a sub-user scoped to their sites; an installer can commission and hand over. The monitoring companies page covers both arrangements.' },
+  { question: "Is this video alarm monitoring?", answer: "It is the video side of it. When an alarm comes in, the operator sees the camera view and a snapshot at that moment, and detections and patrol rounds on the same cameras watch the site between alarms. The alarm panel, the receiving center and the response stay with whoever runs them today." },
 ];
 
 const content: UseCaseContent = {
   eyebrow: 'Use case · Monitoring',
   title: 'Alarm verification with cameras',
   lede: <>
-    <strong className="font-semibold text-foreground">Alarm verification is looking at the alarmed area before dispatching to it: the camera view, a snapshot of what triggered, and the live feed, on the operator&apos;s desk at the moment the alarm comes in.</strong>{' '}
-    Most alarm signals are not intrusions, and every dispatch to one costs a driver, a keyholder and credibility. Camzify puts the visual side on the cameras already at the site, with its own detections, alerts and record.
+    <strong className="font-semibold text-foreground">Video alarm verification is looking at the alarmed area before dispatching to it: the camera view, a snapshot of what triggered, and the live feed, on the operator&apos;s desk at the moment the alarm comes in.</strong>{' '}
+    Most alarm signals are not intrusions, and every dispatch to one costs a driver, a keyholder and credibility. Camzify puts the visual side of alarm monitoring on the cameras already at the site, with its own detections, alerts and record.
   </>,
   facts: ['Snapshot and live feed at the moment of the alarm', 'Person detections that stay quiet for a cat', 'A record of what the operator saw'],
   image: { src: '/alarm-verification.webp', alt: 'An operator desk with the alarmed site on screen: the camera view and the event details beside it' },

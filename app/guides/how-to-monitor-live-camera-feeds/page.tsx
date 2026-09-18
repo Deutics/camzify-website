@@ -1,11 +1,11 @@
 import { generatePageMeta } from '@/lib/page-utils';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { HowToSteps, HowToNote, type HowToStep } from '@/components/content/how-to-steps';
 import { howToSchema } from '@/lib/seo';
 import Link from 'next/link';
-import { ProductShot } from '@/components/content/product-shot';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -81,7 +81,7 @@ export default function Page() {
           </p>
 
           <div className="mt-10 max-w-3xl">
-            <ProductShot src="/product-live-streaming" alt="The live streaming wall in the console, cameras grouped by site with their online state" label="Live streaming" sizes="(max-width: 1024px) 100vw, 768px" />
+            <PhotoFigure src="/guide-how-to-monitor-live-camera-feeds.webp" alt="Illustration for this guide: the Camzify console and the cameras it runs on" priority />
           </div>
 
           <HowToSteps steps={steps} />

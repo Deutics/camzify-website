@@ -12,7 +12,7 @@ import { PhotoFigure } from '@/components/content/photo-figure';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "AI Video Analytics vs Motion Detection | Comparison",
+  title: "AI Video Analytics vs Motion Detection | Compared",
   description: "Understand the difference between AI video analytics and traditional motion detection. AI tracks objects; motion detection responds to pixel changes.",
   path: "/compare/ai-video-analytics-vs-motion-detection",
 };
@@ -48,7 +48,7 @@ export default function AiVideoAnalyticsVsMotionDetectionPage() {
           <div className="mt-12">
             <ScrollReveal>
               <ComparisonTable
-                columns={[sides?.[0] ?? 'Option A', sides?.[1] ?? 'Option B']}
+                columns={['Aspect', sides?.[0] ?? 'Option A', sides?.[1] ?? 'Option B']}
                 rows={[
                   { label: "How it works", values: ["Object detection + tracking on confirmed subjects", "Pixel change detection across frame regions"] },
                   { label: "False alarm rate", values: ["Low — triggers on confirmed objects only", "High — shadows, lighting, weather all trigger"] },

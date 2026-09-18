@@ -16,7 +16,7 @@ import { SiteImage } from '@/components/content/site-image';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "AI Security for Education Facilities",
+  title: "School & Campus Security Cameras | AI Patrols",
   description: "Camzify provides AI-powered virtual patrolling and video analytics for education facilities, automated patrols, real-time alerts, and compliance reports.",
   path: "/industries/education-facilities",
 };
@@ -36,6 +36,7 @@ const faqs = [
   { question: "Will Camzify flag normal after-hours activity like cleaning staff or evening classes?", answer: "Schedules and zone rules are configured around your actual campus calendar, so recurring activity like cleaning crews or evening classes can be scoped out of a check by time window or excluded zone, rather than treated as an anomaly." },
   { question: "How does Camzify handle privacy around students on camera?", answer: "Camzify processes the video feeds you already operate under your institution's own camera and data protection policy, and does not introduce new recording where none previously existed. Access to footage and alerts is controlled through role-based permissions, and retention follows your configured settings." },
   { question: "Does this replace our campus security officers?", answer: "For most campuses, it reduces the need to add or scale overnight and holiday-period coverage rather than removing an existing security team. Virtual patrolling checks every building on a fixed schedule, which complements a smaller on-site presence and covers hours or buildings a single officer cannot reach every round." },
+  { question: "Does this work as school security cameras?", answer: "On the cameras a school already has, yes. Entrances, playgrounds and grounds go on a scheduled round after the day ends, weapons detection watches the entrance cameras during it, and the report per round is the record a district asks for." },
 ];
 
 export default function EducationFacilitiesPage() {

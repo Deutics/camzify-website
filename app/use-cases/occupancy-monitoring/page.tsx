@@ -25,7 +25,7 @@ const content: UseCaseContent = {
   eyebrow: 'Use case · Operations',
   title: 'Occupancy monitoring',
   lede: <>
-    <strong className="font-semibold text-foreground">Occupancy monitoring is a live count of people per area, and a record of how that count moves through the day and the week, taken from the cameras already on the floor.</strong>{' '}
+    <strong className="font-semibold text-foreground">Occupancy monitoring from existing cameras is a live count of people per area, and a record of how that count moves through the day and the week, with no counting hardware added to the floor.</strong>{' '}
     It answers when a place is busiest and where, which decides staffing, cleaning and restocking windows and space planning. Camzify counts confirmed tracks per camera or zone, keeps the trend, and flags a pattern that departs from the usual one.
   </>,
   facts: ['Counts from confirmed tracks, per zone', 'Peak hours per zone and per site', 'No counting hardware'],

@@ -38,7 +38,7 @@ export default function Page() {
       <FeatureHero
         eyebrow="AI detection · Littering detection"
         title="Littering detection"
-        lede={<><strong className="font-semibold text-foreground">Trash tossed? We catch the moment.</strong> Littering detection flags items discarded outside designated
+        lede={<><strong className="font-semibold text-foreground">Trash tossed? We catch the moment.</strong> Littering detection on security cameras flags items discarded outside designated
             bins the instant it happens, with a timestamped clip for enforcement or site upkeep records.</>}
         facts={['Objects dropped or thrown by a confirmed subject outside a…', 'Litter left unclaimed on the ground in monitored outdoor areas', 'Repeated littering activity at the same location over time']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
@@ -71,7 +71,7 @@ export default function Page() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/feature-littering-detection-2.jpg" alt="Diagram showing an object separating from a tracked subject and remaining outside a marked bin zone" caption="Discard event logic" />
+            <PhotoFigure src="/feature-littering-detection-2.webp" alt="Diagram showing an object separating from a tracked subject and remaining outside a marked bin zone" caption="Discard event logic" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>

@@ -16,7 +16,7 @@ import { SiteImage } from '@/components/content/site-image';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Warehouse Security Cameras, Patrolled by AI",
+  title: "Warehouse & Logistics Security Cameras | AI",
   description: "Camzify runs patrol rounds on the security cameras a warehouse already has: dock doors, perimeter and cages checked overnight, the guard notified.",
   path: "/industries/warehouses",
 };
@@ -36,6 +36,7 @@ const faqs = [
   { question: 'How fast does a dock-door breach or after-hours entry get flagged?', answer: 'Alerts fire in near real time from the moment a confirmed event is detected, typically within seconds, and route to the assigned contact through the notification queue with a timestamped clip.' },
   { question: 'Can different zones of the warehouse have different patrol schedules?', answer: 'Yes. Patrol sequences, checklists, and detection schedules are configured per camera or zone, so a loading dock active during business hours and a fenced yard active only overnight can run entirely different rules on the same account.' },
   { question: 'What happens if a camera goes offline or is tampered with mid-shift?', answer: 'Camera Tampering Detection flags defocus, physical coverage, scene changes, and frozen feeds as they happen, and the affected camera is marked non-compliant in the patrol report until the feed is restored.' },
+  { question: "Does this cover a logistics yard or trucking depot?", answer: "Yes. Gates, yard rows, loading bays and the fence line go on the same round as the warehouse floor, with vehicles tracked at the gate and bays and a line rule on the perimeter. A freight operator with several depots runs a round per depot on one account." },
 ];
 
 export default function WarehousesPage() {
@@ -47,7 +48,7 @@ export default function WarehousesPage() {
       <FeatureHero
         eyebrow="Industry · warehouses"
         title="Warehouse security cameras, patrolled by AI"
-        lede={<><strong className="font-semibold text-foreground">Warehouses face security challenges that cameras alone cannot solve and manned guards cannot cover consistently.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.</>}
+        lede={<><strong className="font-semibold text-foreground">Warehouses and logistics facilities face security challenges that cameras alone cannot solve and manned guards cannot cover consistently.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras, checking every point, flagging failures, and notifying the right person.</>}
         facts={['Dock doors left unmonitored between scheduled deliveries', 'Perimeter fence lines with no continuous overnight coverage', 'High-value storage areas relying on a single nightly guard pass']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}

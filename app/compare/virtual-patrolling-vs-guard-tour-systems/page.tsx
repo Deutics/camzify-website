@@ -42,13 +42,13 @@ export default function VirtualPatrollingVsGuardTourSystemsPage() {
           </p>
 
           <div className="mt-10 max-w-3xl">
-            <PhotoFigure src="/guard-tour-verification.webp" alt="A guard with a tablet outside an office at night, checkpoints ticked on the map beside him" caption="Proof of the condition at each checkpoint, not of a tap" />
+            <PhotoFigure src="/compare-vs-guard-tour-systems.webp" alt="A guard checking a virtual patrol on a tablet beside a guard tapping a checkpoint tag" caption="Proof of the condition at each checkpoint, not of a tap" />
           </div>
 
           <div className="mt-12">
             <ScrollReveal>
               <ComparisonTable
-                columns={[sides?.[0] ?? 'Option A', sides?.[1] ?? 'Option B']}
+                columns={['Aspect', sides?.[0] ?? 'Option A', sides?.[1] ?? 'Option B']}
                 rows={[
                   { label: "What it verifies", values: ["The condition at each checkpoint — is the door closed, is the area clear", "That the guard was physically present at the checkpoint"] },
                   { label: "Requires on-site staff", values: ["No — runs on existing cameras remotely", "Yes — requires a guard to walk the route"] },

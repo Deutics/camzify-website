@@ -25,8 +25,8 @@ const content: UseCaseContent = {
   eyebrow: 'Use case · Closing time',
   title: 'Lock-up and closing checks',
   lede: <>
-    <strong className="font-semibold text-foreground">Lock-up verification is confirmation that a site was left as it should be at closing: doors locked, shutters down, lights off, safe closed, nobody inside.</strong>{' '}
-    It usually rests on the closing manager&apos;s memory and a phone call from the car. Camzify runs a closing round on the cameras, judges each item from the frame, messages the keyholder for anything wrong, and files the report the next morning starts with.
+    <strong className="font-semibold text-foreground">Lock-up and closing checks on cameras are confirmation that a site was left as it should be at closing: doors locked, shutters down, lights off, safe closed, nobody inside.</strong>{' '}
+    That confirmation usually rests on the closing manager&apos;s memory and a phone call from the car. Camzify runs a closing round on the cameras, judges each item from the frame, messages the keyholder for anything wrong, and files the report the next morning starts with.
   </>,
   facts: ['A closing round, manual or scheduled', 'A frame per item, not a tick', 'Keyholder messaged for anything wrong'],
   image: { src: '/lock-up-and-closing-checks.webp', alt: 'A monitor showing the live streaming wall of a site at night, every camera lit and labeled' },

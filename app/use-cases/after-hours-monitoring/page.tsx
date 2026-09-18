@@ -5,7 +5,7 @@ import { UseCasePage, type UseCaseContent } from '@/components/content/use-case-
 import Link from 'next/link';
 
 const pageMeta = {
-  title: "After-Hours Security Monitoring",
+  title: "After-Hours & 24/7 Video Monitoring",
   description: "After-hours monitoring without a night shift: scheduled rounds through the empty building, the guard messaged on a failed check, a report by morning.",
   path: "/use-cases/after-hours-monitoring",
 };
@@ -19,13 +19,14 @@ const faqs = [
   { question: 'What if nobody is on site to respond?', answer: 'Then the notification goes to whoever you designate: a mobile guard, a keyholder, a monitoring company. The round does not need anyone on site to run or to record. Many sites pair after-hours rounds with a security agency or monitoring company that receives the messages; both have their own pages here.' },
   { question: 'Is there a record in the morning?', answer: 'A report per round: every camera stop, every checklist result, the snapshot each was judged against, timestamps and a compliance percentage. A round that passed produces the report too, which is how you show that the building was checked at 23:00, 01:00, 03:00 and 05:00 and found in order.' },
   { question: 'Does the AI watch between rounds?', answer: 'If detections are enabled on those cameras, yes. Zone intrusion and line intrusion at entrances fire the moment a tracked person appears, independently of the round schedule, and each carries a notification window per camera so they notify after hours and stay quiet by day. Rounds give you the record; detections give you the event.' },
+  { question: "Is this 24/7 video monitoring?", answer: "The detections run around the clock and notify in the window you set per camera; the rounds run on the schedule you set, which for most sites is the closed hours. So the site is watched 24/7 and patrolled when it is empty, without a person watching a wall of screens." },
 ];
 
 const content: UseCaseContent = {
   eyebrow: 'Use case · Off-hours',
   title: 'After-hours security monitoring',
   lede: <>
-    <strong className="font-semibold text-foreground">After-hours monitoring is the surveillance and verification of a facility outside business hours: nights, weekends and holidays.</strong>{' '}
+    <strong className="font-semibold text-foreground">After-hours video monitoring is the surveillance and verification of a facility outside business hours: nights, weekends and holidays.</strong>{' '}
     It is the period when staffing is thinnest and when most incidents happen. Camzify covers it with scheduled patrol rounds that walk the cameras through the empty building on a checklist, message the guard when a check fails, and file a report per round so the morning starts with a record rather than a question.
   </>,
   facts: ['Rounds on a schedule, nobody in the loop', 'Checklist per camera, snapshot per item', 'A report per round by morning'],

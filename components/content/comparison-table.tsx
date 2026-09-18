@@ -31,13 +31,17 @@ export function ComparisonTable({
   columns?: string[];
 }) {
   const hasValues = (rows ?? [])?.[0]?.values !== undefined;
+  // The first heading belongs to the label column. A caller that passes only the two
+  // side names would otherwise shift every heading one column left, so pad it here.
+  const cellCount = hasValues ? (rows?.[0]?.values?.length ?? 0) : Math.min(3, (columns?.length ?? 4) - 1);
+  const heads = (columns ?? []).length === cellCount ? ['Aspect', ...(columns ?? [])] : (columns ?? []);
 
   return (
     <div className="overflow-x-auto rounded-xl border border-border shadow">
       <table className="w-full text-left text-sm">
         <thead>
           <tr className="border-b border-border bg-muted/50">
-            {(columns ?? []).map((col: string, i: number) => (
+            {heads.map((col: string, i: number) => (
               <th
                 key={i}
                 className={`px-5 py-3 font-display font-bold ${i === 1 ? 'text-primary' : ''}`}

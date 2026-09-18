@@ -25,7 +25,7 @@ const content: UseCaseContent = {
   eyebrow: 'Use case · Health and safety',
   title: 'Workplace safety monitoring',
   lede: <>
-    <strong className="font-semibold text-foreground">Workplace safety monitoring with cameras is the continuous watch for the events and conditions that injure people: a fall, a blocked exit, a person inside an exclusion zone, equipment not worn.</strong>{' '}
+    <strong className="font-semibold text-foreground">Workplace safety monitoring with AI cameras is the continuous watch for the events and conditions that injure people: a fall, a blocked exit, a person inside an exclusion zone, equipment not worn.</strong>{' '}
     Camzify raises the event when it happens, with a clip, and checks the conditions on a patrol round so the site is recorded as safe, or not, at each time. The cameras are the ones already installed for security.
   </>,
   facts: ['Falls raised in real time with a clip', 'Exits and exclusion zones on the checklist', 'The site recorded at each round'],

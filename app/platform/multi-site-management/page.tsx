@@ -38,7 +38,7 @@ export default function Page() {
       <FeatureHero
         eyebrow="Centralized Oversight"
         title="Multi-site video surveillance"
-        lede={<><strong className="font-semibold text-foreground">Multi-site management in Camzify provides a single console to oversee cameras, detection alerts, and patrol compliance across all locations.</strong> Each site is a separate entity with its own cameras, sequences, and operators, but the parent account has visibility into everything. This account runs 4 sites with 15 cameras configured and 6 of 9 AI features active, and every dashboard, live view, and notification feed can be filtered by site.</>}
+        lede={<><strong className="font-semibold text-foreground">Multi-site video surveillance management in Camzify provides a single console to oversee cameras, detection alerts, and patrol compliance across all locations.</strong> Each site is a separate entity with its own cameras, sequences, and operators, but the parent account has visibility into everything. This account runs 4 sites with 15 cameras configured and 6 of 9 AI features active, and every dashboard, live view, and notification feed can be filtered by site.</>}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/partners/for-security-agencies', label: 'For security agencies' }}
         visual={<div className="overflow-hidden rounded-xl">

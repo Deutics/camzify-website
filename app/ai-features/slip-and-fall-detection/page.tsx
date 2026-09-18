@@ -39,8 +39,8 @@ export default function Page() {
       <FeatureHero
         eyebrow="AI detection · Slip & fall detection"
         title="Slip & fall detection"
-        lede={<><strong className="font-semibold text-foreground">A fall happens, help gets notified fast.</strong> Slip and fall detection flags falls in real time and routes
-            an alert to the nearest guard — before an incident goes unnoticed and becomes an unresolved claim.</>}
+        lede={<><strong className="font-semibold text-foreground">A fall happens, help gets notified fast.</strong> Slip and fall detection on security cameras flags falls in real time and routes
+            an alert to the nearest guard, before an incident goes unnoticed and becomes an unresolved claim.</>}
         facts={['Rapid, uncontrolled posture changes consistent with a fall', 'A person remaining on the ground after a fall event', 'Falls in aisles, entrances, and walkways during business hours']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 23 detections' }}
@@ -78,7 +78,7 @@ export default function Page() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/feature-slip-and-fall-detection-2.jpg" alt="Diagram showing a tracked subject's posture change over time crossing the fall-detection threshold" caption="Fall pattern detection" />
+            <PhotoFigure src="/feature-slip-and-fall-detection-2.webp" alt="Diagram showing a tracked subject's posture change over time crossing the fall-detection threshold" caption="Fall pattern detection" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>

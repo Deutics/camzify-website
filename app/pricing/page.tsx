@@ -4,7 +4,7 @@ import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { SectionVisual } from '@/components/content/section-visual';
 import { FeatureHero } from '@/components/content/feature-hero';
-import { ProductShot } from '@/components/content/product-shot';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import Link from 'next/link';
 import { Camera, Cpu, HardDrive, Users, Building2, MessageSquare } from 'lucide-react';
 import { QuoteEstimator } from '@/components/content/quote-estimator';
@@ -79,13 +79,10 @@ export default function PricingPage() {
         primary={{ href: '#quote', label: 'Build your configuration and get a quote' }}
         secondary={{ href: '/roi-calculator', label: 'Run your numbers first' }}
         visual={
-          <ProductShot
-            src="/product-license-plan"
-            alt="The Plan and Usage screen in the Camzify console: instances per feature type, how many are activated, granted to sub-users and available, and the storage pool"
-            label="Plan and usage in the console"
-            priority
-            sizes="(max-width: 1024px) 100vw, 45vw"
-          />
+          <>
+            <PhotoFigure src="/product-pricing-plan-light.webp" alt="The Plan and Usage screen on a laptop, with a request to add stream instances open" priority className="dark:hidden" />
+            <PhotoFigure src="/product-pricing-plan-dark.webp" alt="The Plan and Usage screen on a laptop, with a request to add stream instances open" className="hidden dark:block" />
+          </>
         }
       />
 

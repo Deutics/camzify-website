@@ -5,7 +5,7 @@ import { UseCasePage, type UseCaseContent } from '@/components/content/use-case-
 import Link from 'next/link';
 
 const pageMeta = {
-  title: "AI Theft Prevention | Zone Monitoring",
+  title: "AI Theft & Loss Prevention | Zone Monitoring",
   description: "Theft prevention on existing cameras: stockrooms, cages and cash areas notified in the hours you set, entry flagged with a snapshot and checked on the round.",
   path: "/use-cases/theft-prevention",
 };
@@ -19,13 +19,14 @@ const faqs = [
   { question: 'What about the loading dock?', answer: 'The dock is where stock leaves, so most theft-prevention rounds include it. Dock doors closed outside the delivery window, no vehicle at the bay after hours, staging area clear. The loading dock monitoring page covers that part in detail.' },
   { question: 'Who gets the alert?', answer: 'The channels are set per alert category and the severity per camera per detection, so a zone alert in the cash office can be critical and reach the manager by SMS while a stockroom alert during trading hours is informational. A failed checklist item on a round messages the guard designated for that camera.' },
   { question: 'Is there something to show the loss-prevention team?', answer: 'Every detection is logged with camera, time and snapshot, and every round produces a report with the result of each item and its frame. When something is missing, AI suspect search takes a plain-language description and returns matching appearances across the indexed cameras and time window, which shortens the review considerably.' },
+  { question: "Is this a loss prevention tool?", answer: "For the part of loss prevention a camera can see, yes: stockrooms, cages and cash areas notified when they should be empty, entry flagged as it happens, and a patrol round that confirms the areas clear at close. It does not read the point of sale or reconcile stock; those systems stay in place beside it." },
 ];
 
 const content: UseCaseContent = {
   eyebrow: 'Use case · Stock and cash',
   title: 'AI theft prevention',
   lede: <>
-    <strong className="font-semibold text-foreground">Theft prevention through video analytics means detecting unauthorized presence and movement in the areas where stock and cash are kept, while it is happening, rather than reviewing footage after the loss is counted.</strong>{' '}
+    <strong className="font-semibold text-foreground">AI theft and loss prevention means detecting unauthorized presence and movement, on camera, in the areas where stock and cash are kept, while it is happening, rather than reviewing footage after the loss is counted.</strong>{' '}
     Camzify puts zones on stockrooms, cages, cash offices and docks, notifies in the hours each should be empty, flags entry with a snapshot, and runs a patrol round that checks the controlled areas are clear and records it.
   </>,
   facts: ['Zones on stock and cash areas', 'Entry in set hours flagged with a snapshot', 'Controlled areas checked on the round'],

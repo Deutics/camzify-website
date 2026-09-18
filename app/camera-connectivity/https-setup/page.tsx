@@ -1,9 +1,9 @@
 import { generatePageMeta } from '@/lib/page-utils';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
-import { ProductShot } from '@/components/content/product-shot';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -11,7 +11,7 @@ import { ProductShot } from '@/components/content/product-shot';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "HTTPS Camera Setup | Connect HLS and WebRTC Streams",
+  title: "HTTPS Camera Setup | HLS and WebRTC Streams",
   description: "Connect web-delivered streams over HTTPS: HLS playlists and WebRTC streams, added by address, no Connector needed, then recording, detections and rounds.",
   path: "/camera-connectivity/https-setup",
 };
@@ -79,7 +79,7 @@ export default function HttpsSetupPage() {
           </p>
 
           <div className="mt-10 max-w-3xl">
-            <ProductShot src="/product-configuration" alt="The Configuration screen in the console: adding a camera by its RTMP, RTSP or HTTPS address, with the cameras already on the site listed below" label="Configuration · Add camera" sizes="(max-width: 1024px) 100vw, 768px" />
+            <PhotoFigure src="/configuration-https.jpg" alt="The Configuration screen in the console with the HTTPS option selected for a new camera and the cameras already on the site listed below" />
           </div>
 
           <div className="mt-14">

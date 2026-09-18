@@ -16,7 +16,7 @@ import { SiteImage } from '@/components/content/site-image';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "AI Security for Waste Management",
+  title: "Waste, Scrap Yard & Recycling Security | AI",
   description: "Camzify provides AI-powered virtual patrolling and video analytics for waste management, automated patrols, real-time alerts, and compliance reports.",
   path: "/industries/waste-management",
 };
@@ -36,6 +36,7 @@ const faqs = [
   { question: 'Can the alerts and footage be used as evidence for enforcement action?', answer: 'Yes. Every confirmed detection is logged with a timestamped snapshot or clip and recorded in the patrol report, giving you a documented record of when and where an unauthorized vehicle or person was on site, useful for reporting illegal dumping or trespassing to the relevant authority.' },
   { question: 'How does Camzify handle sites with large, open yards and limited lighting?', answer: 'Camzify works with whatever camera feeds you already have covering the yard, gates, and perimeter. Detection zones and line rules are configured to the actual camera views, and patrol frequency can be increased for lower-visibility periods such as overnight or early-morning hours.' },
   { question: 'Is Camzify a realistic alternative to hiring a site guard for after-hours coverage?', answer: 'For most waste management and transfer sites, yes. A guard covers the property for one shift at a time. Camzify runs the same perimeter and zone checks continuously, across the entire site, at a lower ongoing cost, and many operators use it specifically to cover the overnight and weekend hours a guard schedule doesn\'t reach.' },
+  { question: "Does this work for a scrap yard or recycling center?", answer: "Yes. Scrap and recycling yards hold metal and equipment in the open behind a fence, which is exactly what a perimeter line rule, a yard zone after hours and a scheduled round are for. Fire and smoke detection on the yard cameras adds an early warning where material piles can ignite." },
 ];
 
 export default function WasteManagementPage() {

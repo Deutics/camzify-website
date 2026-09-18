@@ -1,11 +1,11 @@
 import { generatePageMeta } from '@/lib/page-utils';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { HowToSteps, HowToNote, type HowToStep } from '@/components/content/how-to-steps';
 import { howToSchema } from '@/lib/seo';
 import Link from 'next/link';
-import { ProductShot } from '@/components/content/product-shot';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -86,7 +86,7 @@ export default function Page() {
           </p>
 
           <div className="mt-10 max-w-3xl">
-            <ProductShot src="/product-user-management" alt="The user management screen: sub-users with their sites, permission groups and instances" label="User management" sizes="(max-width: 1024px) 100vw, 768px" />
+            <PhotoFigure src="/guide-how-to-manage-sub-users-and-quotas.webp" alt="Illustration for this guide: the Camzify console and the cameras it runs on" priority />
           </div>
 
           <HowToSteps steps={steps} />

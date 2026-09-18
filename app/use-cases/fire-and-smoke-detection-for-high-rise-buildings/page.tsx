@@ -29,7 +29,7 @@ const content: UseCaseContent = {
     The alarm is certified, required and stays. What the cameras add is a picture: where the smoke is, on which floor, before anyone has to go and look.
   </>,
   facts: ['Visual flame and smoke on the cameras already installed', 'Beside the fire alarm, never instead of it', 'A clip on the duty desk that names the floor'],
-  image: { src: '/feature-fire-and-smoke-detection-1.webp', alt: 'The console live view on a tablet, a warehouse floor with a fire on a pallet stack boxed and labeled Fire and Smoke Detected' },
+  image: { src: '/fire-and-smoke-detection-for-high-rise-buildings.webp', alt: 'The console live view on a tablet, a warehouse floor with a fire on a pallet stack boxed and labeled Fire and Smoke Detected' },
   secondary: { href: '/ai-features/fire-and-smoke-detection', label: 'Fire and smoke detection' },
   problem: {
     heading: 'The alarm says a floor. The camera says where.',

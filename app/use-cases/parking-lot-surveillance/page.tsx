@@ -26,7 +26,7 @@ const content: UseCaseContent = {
   title: 'AI surveillance for parking lot security cameras',
   lede: <>
     <strong className="font-semibold text-foreground">Parking lot surveillance is the monitoring of outdoor vehicle areas for people present after hours, vehicles in fire lanes or restricted bays, and activity between parked cars that should not be happening.</strong>{' '}
-    A lot is large, unevenly lit and generates more footage than anyone will review, which makes it the most common blind spot on a commercial site. Camzify tracks people and vehicles as objects on the existing cameras, notifies within the hours you set, and checks the lot on a patrol round.
+    A lot is large, unevenly lit and generates more footage than anyone will review, which makes it the most common blind spot on a commercial site. Camzify tracks people and vehicles as objects on the parking lot security cameras already in place, notifies within the hours you set, and checks the lot on a patrol round.
   </>,
   facts: ['People and vehicles tracked as objects', 'Fire lanes and restricted bays as rules', 'Lot checked and recorded on the round'],
   image: { src: '/parking-lot-surveillance.webp', alt: 'A parking lot with vehicles outlined, one person at the entrance and one car flagged in red' },

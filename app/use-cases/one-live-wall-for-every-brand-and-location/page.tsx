@@ -1,8 +1,8 @@
 import { generatePageMeta } from '@/lib/page-utils';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { PageShell } from '@/components/layout/page-shell';
 import { serviceSchema } from '@/lib/seo';
 import { UseCasePage, type UseCaseContent } from '@/components/content/use-case-page';
-import { ProductShot } from '@/components/content/product-shot';
 import Link from 'next/link';
 
 /**
@@ -32,18 +32,12 @@ const content: UseCaseContent = {
   eyebrow: 'Use case · Mixed brands, many sites',
   title: 'One live wall for every brand and location',
   lede: <>
-    <strong className="font-semibold text-foreground">One live wall for every brand and location is a single live view of every camera an operator is responsible for, whatever make it is and whichever site it is at, in place of a separate login for each recorder.</strong>{' '}
+    <strong className="font-semibold text-foreground">One live wall for every camera brand and site is a single live view of every camera an operator is responsible for, whatever make it is and whichever site it is at, in place of a separate login for each recorder.</strong>{' '}
     The cameras already speak a common language: ONVIF and RTSP are on effectively every IP camera and recorder sold in the last decade. Camzify puts them on one wall grouped by site, with a no-signal state that says which site has the problem, and reaches the cameras behind a router through the Connector.
   </>,
   facts: ['Any ONVIF or RTSP camera or recorder', 'Grouped by site, with an online count', 'Local networks through the Connector'],
   heroVisual: (
-    <ProductShot
-      src="/product-live-streaming"
-      alt="The Camzify live streaming screen: a grid of camera feeds grouped by site, with the site strip and per-site online counts along the top and a no-signal tile for a dropped camera"
-      label="Live streaming"
-      priority
-      sizes="(max-width: 1024px) 100vw, 45vw"
-    />
+    <PhotoFigure src="/one-live-wall-for-every-brand-and-location.webp" alt="A live wall of cameras from several brands and sites, each tile labeled with its site" priority />
   ),
   secondary: { href: '/platform/live-streaming', label: 'Live streaming' },
   problem: {

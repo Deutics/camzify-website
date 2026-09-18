@@ -38,7 +38,7 @@ export default function Page() {
       <FeatureHero
         eyebrow="Detection Data, Broken Down"
         title="Video surveillance analytics & reporting"
-        lede={<><strong className="font-semibold text-foreground">Camzify analytics provides detection breakdowns by feature, object type, site, and severity.</strong> Attribute trends track people vs vehicles with distributions, and the detection-confidence split shows High, Medium, and Low confidence levels across all alerts. Every AI feature also carries its own 7-day event trend against the prior week, plus how many of its licensed camera instances are actively running — so a feature quietly nearing its limit shows up before it becomes a blind spot. All data is exportable.</>}
+        lede={<><strong className="font-semibold text-foreground">Camzify video surveillance analytics and reporting provide detection breakdowns by feature, object type, site, and severity.</strong> Attribute trends track people vs vehicles with distributions, and the detection-confidence split shows High, Medium, and Low confidence levels across all alerts. Every AI feature also carries its own 7-day event trend against the prior week, plus how many of its licensed camera instances are actively running, so a feature quietly nearing its limit shows up before it becomes a blind spot. All data is exportable.</>}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/platform/dashboard', label: 'The dashboard' }}
         visual={<div className="overflow-hidden rounded-xl">

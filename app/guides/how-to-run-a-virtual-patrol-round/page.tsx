@@ -99,7 +99,7 @@ export default function HowToRunAVirtualPatrolRoundPage() {
           </p>
 
           <div className="mt-10 max-w-3xl">
-            <PhotoFigure src="/vp-overview-main.png" alt="The virtual patrolling screen with an active sequence, its next round and the Auto-Patrol schedule" caption="The round, as the operator sees it" />
+            <PhotoFigure src="/guide-how-to-run-a-virtual-patrol-round.webp" alt="Illustration for this guide: the Camzify console and the cameras it runs on" caption="The round, as the operator sees it" />
           </div>
 
           <div className="mt-10 rounded-xl border border-border bg-card p-6">

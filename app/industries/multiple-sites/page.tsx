@@ -16,7 +16,7 @@ import { SiteImage } from '@/components/content/site-image';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "AI Security for Multiple Sites | Video Surveillance",
+  title: "Multi-Site Security Cameras | One Console",
   description: "Camzify provides AI-powered virtual patrolling and video analytics for multiple sites, automated patrols, real-time alerts, and compliance reports.",
   path: "/industries/multiple-sites",
 };
@@ -36,6 +36,7 @@ const faqs = [
   { question: "Does detection accuracy vary between sites with different camera hardware?", answer: "Camzify works with any IP camera feed, but zone boundaries and detection sensitivity are tuned per camera during setup, so a site with older or lower-resolution cameras can be configured with thresholds appropriate to that hardware rather than a one-size-fits-all setting." },
   { question: "Can reporting be split out per site for local compliance or franchise requirements?", answer: "Yes. Patrol reports and compliance records are generated per site, so a franchise or regional operator can produce a location-specific report while still having a consolidated view across the full portfolio." },
   { question: "How does centralized virtual patrolling compare to managing separate guarding contracts per site?", answer: "Separate guarding contracts across many locations tend to produce inconsistent coverage and make it hard to compare one site against another. Centralized virtual patrolling runs the same scheduled checks and reporting format across every site from one dashboard, so gaps and patrol failures are visible portfolio-wide instead of buried in separate vendor reports." },
+  { question: "Does this suit a repair chain, a dealer group or a restaurant chain?", answer: "Yes. Any business with the same kind of site repeated in several places runs the same round and the same closing checklist at every branch, gets a report per branch, and gives each branch manager a view of their own site only. The automotive and restaurant industry pages cover two of those cases." },
 ];
 
 export default function MultipleSitesPage() {

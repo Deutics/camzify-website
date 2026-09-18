@@ -38,7 +38,7 @@ export default function Page() {
       <FeatureHero
         eyebrow="AI detection · Fire & smoke detection"
         title="Fire & smoke detection"
-        lede={<><strong className="font-semibold text-foreground">Catch smoke before it's a fire.</strong> Fire and smoke detection watches live camera feeds for visible flame
+        lede={<><strong className="font-semibold text-foreground">Catch smoke before it's a fire.</strong> Fire and smoke detection on security cameras watches the live feed for visible flame
             and smoke, often flagging an event before it reaches a fixed heat or particle sensor.</>}
         facts={["Visible flame anywhere in the camera's field of view", 'Visible smoke developing in storage, electrical, or…', 'Early-stage events in large or open spaces before a fixed…']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
@@ -72,7 +72,7 @@ export default function Page() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/feature-fire-and-smoke-detection-2.jpg" alt="Diagram showing a camera feed analyzed for flame and smoke visual signatures before a critical alert fires" caption="Visual signature matching" />
+            <PhotoFigure src="/feature-fire-and-smoke-detection-2.webp" alt="Diagram showing a camera feed analyzed for flame and smoke visual signatures before a critical alert fires" caption="Visual signature matching" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>

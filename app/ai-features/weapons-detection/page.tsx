@@ -13,7 +13,7 @@ import Link from 'next/link';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Weapons Detection on Cameras | Visible Only",
+  title: "Gun & Weapons Detection on Cameras | Visible Only",
   description: "Camzify weapons detection flags visible weapons in camera view the moment they appear, routing an alert before a threat escalates.",
   path: "/ai-features/weapons-detection",
 };
@@ -27,6 +27,7 @@ const faqs = [
   { question: 'Can it detect a concealed weapon?', answer: 'No. Weapons detection identifies weapons that are visibly brandished in the camera frame, it is a visual model, not a concealed-weapons scanner. A firearm or blade kept out of camera view, such as holstered or in a bag, will not trigger a detection.' },
   { question: 'How complex is setup for a new site?', answer: 'Setup follows the same pattern as other detection features, enable the capability per camera, and default critical-severity alerting applies immediately. No additional hardware, calibration, or per-camera training is required beyond a clear enough view of the monitored area.' },
   { question: 'How is this different from a metal-detector or checkpoint system?', answer: 'A metal detector or checkpoint screens people as they pass through a fixed point and requires that point to be staffed and enforced. Weapons detection works continuously across any monitored camera view, including areas with no physical checkpoint at all, and doesn\'t require anyone to walk through a designated screening line.' },
+  { question: "Is this gun detection?", answer: "Yes. Gun detection is the common name for it: a visibly held firearm or other weapon in the camera view is raised as a critical alert with the frame and a clip for a person to verify. A weapon inside a bag or under clothing is not visible to a camera and is not detected." },
 ];
 
 export default function Page() {
@@ -38,7 +39,7 @@ export default function Page() {
       <FeatureHero
         eyebrow="AI detection · Weapons detection"
         title="Weapons detection"
-        lede={<><strong className="font-semibold text-foreground">Spot a threat before it escalates.</strong> Weapons detection flags visible firearms and edged weapons the
+        lede={<><strong className="font-semibold text-foreground">Spot a threat before it escalates.</strong> Gun and weapons detection on cameras flags visible firearms and edged weapons the
             moment they enter frame, so the response starts before an incident develops rather than after.</>}
         facts={['Visibly brandished firearms in camera view', 'Visible edged weapons in camera view', 'Detections at entrances, lobbies, and public-facing areas']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
@@ -72,7 +73,7 @@ export default function Page() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/feature-weapons-detection-2.jpg" alt="Diagram showing a confirmed object track evaluated against trained weapon classes with a confidence threshold" caption="Weapon classification" />
+            <PhotoFigure src="/feature-weapons-detection-2.webp" alt="Diagram showing a confirmed object track evaluated against trained weapon classes with a confidence threshold" caption="Weapon classification" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>

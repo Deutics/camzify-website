@@ -73,7 +73,7 @@ export default function Page() {
           </div>
 
           <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
-            <PhotoFigure src="/feature-ppe-violation-detection-2.jpg" alt="Diagram showing a tracked person checked against a zone's required PPE list before an alert fires" caption="Ppe policy check" />
+            <PhotoFigure src="/feature-ppe-violation-detection-2.webp" alt="Diagram showing a tracked person checked against a zone's required PPE list before an alert fires" caption="Ppe policy check" />
             <ScrollReveal>
               <div>
                 <h2 className="font-display text-2xl font-bold">How it works</h2>

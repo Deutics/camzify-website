@@ -85,3 +85,92 @@ the SoftwareApplication schema (an AggregateOffer with only a lowPrice); a quote
 on the pricing page and the demo form that collects camera and feature counts without
 showing a figure; and list rates kept in `lib/pricing-estimates.ts` for the server to add
 an estimate to the team's lead email. The ROI calculator shows the reader's own figures.
+
+## Competitor keyword map (17 September 2026)
+
+`02-competitor-keywords.csv` lists the phrases the comparable vendors build pages for,
+taken from the sitemaps of Eagle Eye Networks, Solink, Spot AI, Coram AI, Rhombus,
+Verkada, Pro-Vigil, Cloudastructure and 3dEYE, and maps each to the Camzify page that
+carries it today or marks it as a gap with the action to take. Search volumes are
+"pending" because DataForSEO returned 402 again; rerun `keyword-fanout-map` on the
+`high` rows when credit is back, before writing anything.
+
+The patterns worth copying, in order: named comparison and "alternative" pages (Spot AI
+has more than forty, Solink and Rhombus have their own); a glossary of short
+definitional pages (Pro-Vigil, Solink and Coram all run one); industry pages for the
+segments three or more competitors target (auto dealerships, logistics, utilities and
+solar, cannabis, hospitality); and a construction site security checklist. Hardware,
+plate recognition, facial recognition, POS integration and white label are marked
+`skip` because Camzify does not sell them.
+
+## Competitor map, acted on (17 September 2026)
+
+From `02-competitor-keywords.csv`, three groups shipped the same day. Twenty existing pages
+took the phrases competitors rank for (titles where there was room, a FAQ that answers the
+phrase otherwise) and the automotive page was rewritten around repair shops and
+multi-branch groups after an inbound lead. Three guides were added (VSaaS, hybrid cloud
+video surveillance, construction site security checklist). Six sourced comparison pages
+were added (Verkada, Rhombus, Solink, Spot AI, Coram AI, Avigilon Alta), each with a
+Sources section of the competitor's own pages. A glossary silo of thirty short
+definitional pages with DefinedTerm schema was added at `/glossary`, driven by
+`lib/glossary-terms.ts`. Volumes for all of it are still pending DataForSEO credit.
+
+## Site-wide on-page audit (18 September 2026)
+
+A rendered pass over all 180 non-glossary routes found one H1, a canonical and FAQ schema
+on every content page (only the form and utility pages carry no FAQ, by design), and every
+title under 62 rendered characters. Fixed the same day: ten source titles that ran to 51
+or 52 characters, the seven industry titles still in the generic "AI Security for X" form
+(now the buyer's phrase, e.g. "Retail Store Security Cameras"), the glossary description,
+and 38 pages whose title phrase never appeared in their own opening paragraph (the lede
+now carries it once). The Eagle Eye comparison, written before the competitor-sourcing
+rule, was rewritten to the sourced format. Rerun `python3 scripts/check-pages.py` after
+any batch of new pages (static checks) and `--rendered` against the dev server on :3411.
+
+## Ranking check and keyword volumes (18 September 2026)
+
+With the DataForSEO account connected, the first ranked-keywords pull for camzify.com
+explained the gap between "we rank for virtual patrolling" and "we do not rank for cloud
+VMS". The domain ranks for 15 keywords, every one of them through two URLs from the old
+site: `/blog/what-is-video-management-software-vms/` ("vms system" 1,600 a month at
+position 34, "vms video management software" 480 at 19, plus "what is vms in cctv",
+"vms recording", "vms device") and
+`/blog/revolutionizing-security-how-ai-surveillance-is-changing-the-game/`. Both had
+returned 404 since the rebuild, so the only equity the domain had was draining. Fixed the
+same day: permanent redirects in `next.config.js` (the VMS post to the new
+`/guides/what-is-a-video-management-system`, the AI post to
+`/guides/what-is-intelligent-video-analytics`, any other `/blog/<slug>` to `/guides`),
+and the VMS guide itself, written to answer the queries the old post ranked for.
+
+The site has 39 backlinks from 36 referring domains, all to the homepage; nothing deep.
+The historical view shows the domain barely ranked before the rebuild either, so the
+baseline is close to zero and every page is a first attempt, not a recovery.
+
+Volumes and difficulty for 130 phrases are in `03-keyword-volumes.csv` (Google, United
+States, English, 12-month average; "no data" means the phrase is below Google's
+reporting threshold, which is also true of "virtual patrolling" itself). What matters:
+
+- **Head terms the site now owns a page for, with low difficulty:** "cloud based video
+  surveillance" 720 (KD 3), "business security camera system" 590 (KD 2), "retail
+  security cameras" 590 (KD 1), "warehouse security cameras" 1,000 (KD 7), "ai camera
+  system" 880 (KD 4), "ai security camera" 1,300 (KD 7), "apartment security" 1,300
+  (KD 6), "remote video monitoring" 210 (KD 1), "cloud nvr" 90 (KD 1), "video
+  surveillance software" 720 (KD 13). These are winnable with the pages that exist
+  and a handful of links.
+- **The VMS cluster is the largest informational demand the site can credibly answer:**
+  "vms" 60,500 (mixed with other meanings), "vms system" 1,600, "vms software" 1,300,
+  "video management system software" 1,000, "video management software" 1,000, "video
+  management system" 880, "cloud vms" 590 (KD 50, the hardest phrase in the set),
+  "cloud based vms" 480 (KD 12). The new VMS guide, the glossary entry and the cloud
+  VMS guide split this by intent: category definition, bare term, cloud form.
+- **Competitor-switch demand is small but expensive:** "verkada competitors" 260 and
+  "verkada alternative" 70 (CPC $71 to $79), "adt competitors" 390 and "adt
+  alternatives" 260. The other vendor "alternative" phrases return no volume, which
+  argues for one ADT alternative page and one Verkada alternative page before any other.
+- **Not worth a page:** "virtual patrol" 10 (KD 43), "remote patrol" 10, "security agency
+  software" 10, "guard company software" 10, "multi site video surveillance" 10,
+  "car dealership security cameras" 30. Keep these as phrases inside existing pages.
+- **"cloud vms" is partly a virtual-machine query.** The SERP mixes video and
+  virtualization results and the AI Overview cites a "best cloud VMS" listicle. A
+  buyer's-guide page that lists several vendors fairly is the format that ranks there;
+  a product page will not.

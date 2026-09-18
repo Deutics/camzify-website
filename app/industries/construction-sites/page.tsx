@@ -47,7 +47,7 @@ export default function ConstructionSitesPage() {
       <FeatureHero
         eyebrow="Industry · construction sites"
         title="Construction site security cameras, watched by AI"
-        lede={<><strong className="font-semibold text-foreground">Construction sites face security challenges that cameras alone cannot solve and manned guards cannot cover consistently.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.</>}
+        lede={<><strong className="font-semibold text-foreground">Construction sites face security challenges that cameras alone cannot solve and manned guards cannot cover consistently.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras: every point is watched, failures are flagged, and the right person is notified.</>}
         facts={['Open perimeters where temporary fencing panels can be moved…', 'Equipment and material storage areas relying on a single…', 'Site trailers and tool cribs left unmonitored overnight']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}
@@ -183,7 +183,7 @@ export default function ConstructionSitesPage() {
           <div className="mt-12">
             <ScrollReveal>
               <p className="text-muted-foreground">
-                See how the numbers work for your construction sites facility with the <Link href="/roi-calculator" className="text-primary hover:underline">ROI calculator</Link>, or review <Link href="/pricing" className="text-primary hover:underline">pricing</Link> to understand the per-instance licensing model. Recording and retention for the same cameras are covered on <Link href="/cloud-video-surveillance" className="text-primary hover:underline">cloud video surveillance</Link>.
+                See how the numbers work for your construction sites facility with the <Link href="/roi-calculator" className="text-primary hover:underline">ROI calculator</Link>, or review <Link href="/pricing" className="text-primary hover:underline">pricing</Link> to understand the per-instance licensing model. The <Link href="/guides/construction-site-security-checklist" className="text-primary hover:underline">construction site security checklist</Link> is the daily list a round runs. Recording and retention for the same cameras are covered on <Link href="/cloud-video-surveillance" className="text-primary hover:underline">cloud video surveillance</Link>.
               </p>
             </ScrollReveal>
           </div>

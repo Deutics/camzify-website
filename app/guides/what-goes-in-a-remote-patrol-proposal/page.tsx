@@ -43,6 +43,9 @@ export default function WhatGoesInARemotePatrolProposalPage() {
           <span className="font-mono text-mono-sm uppercase text-primary">Owner guide</span>
           <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">What goes in a remote patrol proposal</h1>
           <AuthorByline className="mt-6" />
+          <div className="mt-10 max-w-3xl">
+            <PhotoFigure src="/guide-what-goes-in-a-remote-patrol-proposal.webp" alt="Illustration for this guide: the Camzify console and the cameras it runs on" priority />
+          </div>
           <div className="mt-10 grid items-start gap-10 lg:grid-cols-[3fr_2fr]">
             <p className="max-w-prose text-body text-muted-foreground">A proposal for remote patrols is short if it is honest, because the service is concrete: these cameras, this checklist, this schedule, this report, this person notified when a check fails, this price per site per month. This guide lists the sections in the order a client reads them, with what each should say and what it should leave out. It assumes you sell guarding or monitoring already and are adding rounds to the offer.</p>
 

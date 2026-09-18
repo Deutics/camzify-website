@@ -43,6 +43,9 @@ export default function HowToSellVirtualPatrollingToClientsPage() {
           <span className="font-mono text-mono-sm uppercase text-primary">Owner guide</span>
           <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">How to sell virtual patrolling to your clients</h1>
           <AuthorByline className="mt-6" />
+          <div className="mt-10 max-w-3xl">
+            <PhotoFigure src="/guide-how-to-sell-virtual-patrolling-to-clients.webp" alt="Illustration for this guide: the Camzify console and the cameras it runs on" priority />
+          </div>
           <div className="mt-10 grid items-start gap-10 lg:grid-cols-[3fr_2fr]">
             <p className="max-w-prose text-body text-muted-foreground">Nobody who buys guarding has asked for virtual patrolling by name. They have asked, in other words, for the hours they cannot afford, the overnight checks nobody makes, and something to show the insurer. This guide is the conversation, in the order it tends to go, for an owner who sells guard hours and mobile patrols today and wants to add a monthly service without losing the contract they have.</p>
 

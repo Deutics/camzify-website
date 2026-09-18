@@ -1,11 +1,11 @@
 import { generatePageMeta } from '@/lib/page-utils';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { articleSchema, personSchema } from '@/lib/seo';
 import { AuthorByline } from '@/components/content/author-byline';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
-import { ProductShot } from '@/components/content/product-shot';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -40,7 +40,7 @@ export default function VideoRetentionRequirementsPage() {
           <p className="mt-6 max-w-prose text-body text-muted-foreground">Video retention requirements define how long security camera footage must be stored before it can be deleted. Requirements vary by jurisdiction, industry, and insurance policy. Getting retention wrong, too short and you lose evidence; too long and storage costs escalate.</p>
 
           <div className="mt-10 max-w-3xl">
-            <ProductShot src="/product-video-backup" alt="The video backup screen: recording mode and retention set per camera, storage by site above" label="Video backup and retention" sizes="(max-width: 1024px) 100vw, 768px" />
+            <PhotoFigure src="/guide-video-retention-requirements.webp" alt="Illustration for this guide: the Camzify console and the cameras it runs on" priority />
           </div>
 
           <section className="mt-16">

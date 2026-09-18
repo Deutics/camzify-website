@@ -1,11 +1,11 @@
 import { generatePageMeta } from '@/lib/page-utils';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { articleSchema, personSchema } from '@/lib/seo';
 import { AuthorByline } from '@/components/content/author-byline';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PointList } from '@/components/content/point-list';
-import { ProductShot } from '@/components/content/product-shot';
 import Link from 'next/link';
 
 /**
@@ -59,7 +59,7 @@ export default function WhatIsACloudVmsPage() {
           </p>
 
           <div className="mt-10 max-w-3xl">
-            <ProductShot src="/product-video-backup" alt="The video backup screen of a cloud VMS: recording mode and retention set per camera, with storage by site above" label="Video backup and retention" sizes="(max-width: 1024px) 100vw, 768px" />
+            <PhotoFigure src="/guide-what-is-a-cloud-vms.webp" alt="Illustration for this guide: the Camzify console and the cameras it runs on" priority />
           </div>
 
           <section className="mt-16">
@@ -160,7 +160,9 @@ export default function WhatIsACloudVmsPage() {
           <section className="mt-20 rounded-xl bg-card p-8 shadow">
             <h2 className="font-display text-xl font-bold">Related guides</h2>
             <div className="mt-4 flex flex-wrap gap-3">
+              <Link href="/guides/what-is-a-video-management-system" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">What Is a VMS?</Link>
               <Link href="/guides/what-is-a-cloud-nvr" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">What Is a Cloud NVR?</Link>
+              <Link href="/guides/what-is-vsaas" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">What Is VSaaS?</Link>
               <Link href="/guides/cloud-vms-cost" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">Cloud VMS Cost</Link>
               <Link href="/guides/cloud-vms-bandwidth-requirements" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">Cloud VMS Bandwidth Requirements</Link>
               <Link href="/guides/onvif-and-rtsp-explained" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">ONVIF and RTSP Explained</Link>

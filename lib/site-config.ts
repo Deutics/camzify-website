@@ -281,7 +281,7 @@ export const navItems = [
           { label: 'Manufacturing', href: '/industries/manufacturing', description: 'Plant floors, PPE zones and perimeters' },
           { label: 'Construction Sites', href: '/industries/construction-sites', description: 'Open sites, plant and material theft' },
           { label: 'Energy', href: '/industries/energy', description: 'Substations, plants and remote assets' },
-          { label: 'Automotive', href: '/industries/automotive', description: 'Dealership lots, yards and workshops' },
+          { label: 'Automotive', href: '/industries/automotive', description: 'Repair shops, service bays and lots' },
         ],
       },
       {
@@ -328,6 +328,7 @@ export const navItems = [
       { label: 'Supported Cameras', href: '/supported-cameras', description: 'Compatible camera database' },
       { label: 'Camera Connectivity', href: '/camera-connectivity', description: 'Setup guides by protocol' },
       { label: 'FAQs', href: '/faqs', description: 'Common questions answered' },
+      { label: 'Glossary', href: '/glossary', description: 'Security video terms, defined' },
       { label: 'Blog', href: '/blog', description: 'Latest insights and updates' },
       { label: 'Roadmap', href: '/roadmap', description: 'What we are building next' },
     ],

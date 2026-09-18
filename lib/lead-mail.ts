@@ -11,8 +11,9 @@ import { siteConfig } from '@/lib/site-config';
  * Configuration (see .env.example): ZEPTOMAIL_TOKEN is the "Send Mail Token" from the
  * Mail Agent in the ZeptoMail console; ZEPTOMAIL_FROM_ADDRESS must be an address on a
  * domain verified in that account; LEADS_TO_EMAIL is where the leads land (defaults to
- * the public contact address). ZEPTOMAIL_API_URL only changes for the EU or India data
- * centres (api.zeptomail.eu, api.zeptomail.in).
+ * the public contact address); LEADS_CC_EMAIL is an optional comma-separated list of
+ * addresses copied on every lead. ZEPTOMAIL_API_URL only changes for the EU or India
+ * data centres (api.zeptomail.eu, api.zeptomail.in).
  */
 export type LeadKind = 'contact' | 'book-demo' | 'free-trial' | 'newsletter' | 'quote';
 
@@ -38,6 +39,10 @@ export async function sendLeadEmail(kind: LeadKind, fields: Record<string, strin
   const from = (process.env.ZEPTOMAIL_FROM_ADDRESS || '').trim();
   if (!token || !from) throw new Error('ZeptoMail is not configured: set ZEPTOMAIL_TOKEN and ZEPTOMAIL_FROM_ADDRESS');
   const to = process.env.LEADS_TO_EMAIL || siteConfig.email;
+  const cc = (process.env.LEADS_CC_EMAIL || '')
+    .split(/[,;]/)
+    .map((a) => a.trim())
+    .filter((a) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(a) && a.toLowerCase() !== to.toLowerCase());
   const url = process.env.ZEPTOMAIL_API_URL || 'https://api.zeptomail.com/v1.1/email';
 
   const rows = Object.entries(fields).filter(([, v]) => v !== undefined && v !== '');
@@ -53,6 +58,7 @@ export async function sendLeadEmail(kind: LeadKind, fields: Record<string, strin
   const payload: Record<string, unknown> = {
     from: { address: from, name: process.env.ZEPTOMAIL_FROM_NAME || `${siteConfig.name} website` },
     to: [{ email_address: { address: to, name: `${siteConfig.name} leads` } }],
+    ...(cc.length ? { cc: cc.map((address) => ({ email_address: { address, name: address } })) } : {}),
     subject: `[${siteConfig.name}] ${label}${fields.name ? `: ${fields.name}` : ''}${fields.company ? ` (${fields.company})` : ''}`,
     textbody,
     htmlbody,

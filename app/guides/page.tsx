@@ -42,6 +42,7 @@ const items = [
   { slug: 'adding-remote-patrols-to-alarm-monitoring', title: 'Adding Remote Patrols to Alarm Monitoring' },
   { slug: 'security-audit-checklist', title: 'Security Audit Checklist' },
   { slug: 'video-retention-requirements', title: 'Video Retention Requirements' },
+  { slug: 'what-is-a-video-management-system', title: 'What Is a Video Management System (VMS)?' },
   { slug: 'what-is-a-cloud-vms', title: 'What Is a Cloud VMS?' },
   { slug: 'what-is-a-cloud-nvr', title: 'Cloud NVR Explained' },
   { slug: 'cloud-vms-cost', title: 'Cloud VMS Cost' },
@@ -49,12 +50,15 @@ const items = [
   { slug: 'using-existing-cameras-with-a-cloud-vms', title: 'Using Existing Cameras with a Cloud VMS' },
   { slug: 'cloud-vms-for-multiple-sites', title: 'Cloud VMS for Multiple Sites' },
   { slug: 'cloud-vms-for-security-agencies', title: 'Cloud VMS for Security Agencies' },
+  { slug: 'what-is-vsaas', title: 'What Is VSaaS?' },
+  { slug: 'hybrid-cloud-video-surveillance', title: 'Hybrid Cloud Video Surveillance' },
+  { slug: 'construction-site-security-checklist', title: 'Construction Site Security Checklist' },
 ];
 
 const faqs = [
   { question: 'Who are the guides written for?', answer: 'Two readers: the person configuring the console, who gets step-by-step guides with a HowTo schema, and the owner or manager deciding whether and how to buy, who gets the explainers, the cost guides and the owner guides for partners.' },
   { question: 'Are the how-to guides based on the real product?', answer: 'Yes. Each was written by running the steps in the console, and the screenshots on the product pages are the real screens. Where a step differs by plan we say so.' },
-  { question: 'Why do the cost guides not give a price?', answer: "Because a guide is not a quote. Camzify starts from $5 per camera per month and the rest is quoted per site; the guides give the reader's side of the sum and the ranges that exist in the market, and the pricing page turns your counts into a quote request. They give the reader's side of the sum and the ranges that exist in the market, and the ROI calculator turns your own numbers into a figure a quote is measured against." },
+  { question: 'Why do the cost guides not give a price?', answer: "Because a guide is not a quote. Camzify starts from $5 per camera per month and the rest is quoted per site; the guides give the reader's side of the sum and the ranges that exist in the market, and the pricing page turns your counts into a quote request." },
   { question: 'Who writes them?', answer: "Muhammad Talha, Camzify's product manager and CTO, with nine years in computer vision and automated surveillance. Each guide carries the byline." },
 ];
 

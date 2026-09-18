@@ -37,6 +37,31 @@ const nextConfig = {
         destination: '/virtual-patrolling/vs-security-guards',
         permanent: true,
       },
+      {
+        // The old site's only ranking page (DataForSEO, September 2026: "vms system",
+        // "vms video management software", "what is vms in cctv", "vms recording").
+        // The rebuild dropped it and it 404ed for months. The guide is the direct
+        // replacement, so the redirect is permanent to carry the equity across.
+        source: '/blog/what-is-video-management-software-vms',
+        destination: '/guides/what-is-a-video-management-system',
+        permanent: true,
+      },
+      {
+        // The old site's other ranking post. The intelligent video analytics guide
+        // answers the same query ("how AI surveillance works") in the new voice.
+        source: '/blog/revolutionizing-security-how-ai-surveillance-is-changing-the-game',
+        destination: '/guides/what-is-intelligent-video-analytics',
+        permanent: true,
+      },
+      {
+        // Any other old blog slug: the posts were not carried over, and the guides
+        // hub is where their subjects now live. A 308 to the hub beats a 404 for the
+        // reader and for any inbound link we never catalogued. /blog itself still
+        // renders its own page, so this only matches deeper paths.
+        source: '/blog/:slug+',
+        destination: '/guides',
+        permanent: true,
+      },
     ];
   },
   webpack: (config, { isServer }) => {

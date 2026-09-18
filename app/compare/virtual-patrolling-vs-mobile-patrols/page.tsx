@@ -59,12 +59,12 @@ export default function VsMobilePatrolsPage() {
           </p>
 
           <div className="mt-10 max-w-3xl">
-            <PhotoFigure src="/vp-vs-security-guards.jpg" alt="A security officer at a patrol car alongside an AI camera network, the blended model of guards and virtual rounds" caption="Guards and virtual rounds, side by side" />
+            <PhotoFigure src="/compare-vs-mobile-patrols.webp" alt="A guard checking a virtual patrol on a tablet beside a mobile patrol unit at a gate" caption="Guards and virtual rounds, side by side" />
           </div>
 
           <div className="mt-12">
             <ScrollReveal>
-              <ComparisonTable columns={['Virtual patrolling', 'Mobile patrols']} rows={rows} />
+              <ComparisonTable columns={['Aspect', 'Virtual patrolling', 'Mobile patrols']} rows={rows} />
             </ScrollReveal>
           </div>
 
