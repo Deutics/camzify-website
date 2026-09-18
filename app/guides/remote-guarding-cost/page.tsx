@@ -41,7 +41,7 @@ export default function RemoteGuardingCostPage() {
           <div className="mt-10 max-w-3xl">
             <PhotoFigure src="/guide-remote-guarding-cost.webp" alt="Illustration for this guide: the Camzify console and the cameras it runs on" priority />
           </div>
-          <p className="mt-6 max-w-prose text-body text-muted-foreground">Remote guarding cost is the price of having a human operator in a monitoring center watch your camera feeds and respond to alerts. It sits between on-site guarding (most expensive) and fully automated virtual patrolling (least expensive). Typical remote guarding services charge per camera per month, with rates varying by hours of coverage and response protocol.</p>
+          <p className="mt-6 max-w-prose text-body text-muted-foreground">Remote guarding cost is the price of having a human operator in a video monitoring center watch your camera feeds and respond to alerts. It sits between on-site guarding (most expensive) and fully automated virtual patrolling (least expensive). Typical remote guarding services charge per camera per month, with rates varying by hours of coverage and response protocol.</p>
 
           <div className="mt-10 max-w-3xl">
             <PhotoFigure src="/vp-virtual-guard.png" alt="The Camzify dashboard on a laptop: cameras live, critical events open, detection events over time and the live alert feed" caption="The console the virtual guard runs on" />

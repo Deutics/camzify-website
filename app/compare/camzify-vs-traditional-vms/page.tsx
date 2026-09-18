@@ -12,7 +12,7 @@ import Link from 'next/link';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Camzify vs Traditional VMS | Cloud Video Management",
+  title: "Camzify vs Traditional VMS | Cloud vs Recorder",
   description: "Compare Camzify with traditional video management systems. See how AI-powered virtual patrolling goes beyond recording to active verification.",
   path: "/compare/camzify-vs-traditional-vms",
 };

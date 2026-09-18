@@ -26,8 +26,8 @@ const content: UseCaseContent = {
   eyebrow: 'Use case · Monitoring',
   title: 'Alarm verification with cameras',
   lede: <>
-    <strong className="font-semibold text-foreground">Alarm verification is looking at the alarmed area before dispatching to it: the camera view, a snapshot of what triggered, and the live feed, on the operator&apos;s desk at the moment the alarm comes in.</strong>{' '}
-    Most alarm signals are not intrusions, and every dispatch to one costs a driver, a keyholder and credibility. Camzify puts the visual side on the cameras already at the site, with its own detections, alerts and record.
+    <strong className="font-semibold text-foreground">Video alarm verification is looking at the alarmed area before dispatching to it: the camera view, a snapshot of what triggered, and the live feed, on the operator&apos;s desk at the moment the alarm comes in.</strong>{' '}
+    Most alarm signals are not intrusions, and every dispatch to one costs a driver, a keyholder and credibility. Camzify puts the visual side of alarm monitoring on the cameras already at the site, with its own detections, alerts and record.
   </>,
   facts: ['Snapshot and live feed at the moment of the alarm', 'Person detections that stay quiet for a cat', 'A record of what the operator saw'],
   image: { src: '/alarm-verification.webp', alt: 'An operator desk with the alarmed site on screen: the camera view and the event details beside it' },

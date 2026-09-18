@@ -47,7 +47,7 @@ export default function EnergyPage() {
       <FeatureHero
         eyebrow="Industry · energy"
         title="AI security for energy"
-        lede={<><strong className="font-semibold text-foreground">Energy facilities face security challenges that cameras alone cannot solve and manned guards cannot cover consistently.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.</>}
+        lede={<><strong className="font-semibold text-foreground">Energy and utility facilities face security challenges that cameras alone cannot solve and manned guards cannot cover consistently.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras, checking every point, flagging failures, and notifying the right person.</>}
         facts={['Unmanned substations sitting without any on-site presence…', 'Solar and wind farm perimeters spanning acres with no…', 'Remote sites relying on infrequent, scheduled maintenance…']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}

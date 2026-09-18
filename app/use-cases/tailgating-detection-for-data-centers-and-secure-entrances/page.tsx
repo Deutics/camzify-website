@@ -25,7 +25,7 @@ const content: UseCaseContent = {
   eyebrow: 'Use case · Badge-controlled doors',
   title: 'Tailgating detection for data centers and secure entrances',
   lede: <>
-    <strong className="font-semibold text-foreground">Tailgating detection for data centers and secure entrances is the camera-side check that one badge admitted one person, at the doors where the badge log is otherwise the only record: data halls and cages, labs, records rooms and corporate lobbies.</strong>{' '}
+    <strong className="font-semibold text-foreground">Tailgating detection for data centers and lobbies is the camera-side check that one badge admitted one person, at the doors where the badge log is otherwise the only record: data halls and cages, labs, records rooms and the corporate lobby.</strong>{' '}
     The access control system logs a valid credential and nothing about the second person who walked in behind it. Camzify watches the door, counts the people who crossed on each entry event, and messages the person designated for that door when the count is more than one.
   </>,
   facts: ['One badge, one person, counted on camera', 'No access-control integration required', 'Every event logged with its frame'],

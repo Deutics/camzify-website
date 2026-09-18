@@ -11,7 +11,7 @@ import { siteConfig, formattedAddress } from '@/lib/site-config';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "About Camzify | AI Video Surveillance from Singapore",
+  title: "About Camzify | AI Video Surveillance, Singapore",
   description: "Camzify is an AI video analytics and virtual patrolling platform by Camzify Global Pte Ltd, headquartered in Singapore, serving customers since 2023.",
   path: "/about",
 };

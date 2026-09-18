@@ -69,8 +69,8 @@ export default function ForMonitoringCentresPage() {
         title="Remote video monitoring software for monitoring companies"
         lede={<>
           <strong className="font-semibold text-foreground">
-            A monitoring company watches on the agency&apos;s behalf and sends the guard when
-            something is wrong.
+            A central monitoring station (CMS) or alarm receiving center (ARC) watches on the
+            agency&apos;s behalf and sends the guard when something is wrong.
           </strong>{' '}
           Camzify is built for exactly that shape of operation: one account for the company
           that runs the console, a scoped login for every agency it monitors for, guards

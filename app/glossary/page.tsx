@@ -12,7 +12,7 @@ import { GLOSSARY_TERMS } from '@/lib/glossary-terms';
  */
 const pageMeta = {
   title: "Security Video Glossary | Terms Defined",
-  description: "Plain definitions of the terms used in video surveillance and virtual patrolling: VMS, NVR, VSaaS, remote video monitoring, virtual guard, ONVIF, RTSP and more.",
+  description: "Plain definitions of the terms used in video surveillance and virtual patrolling: VMS, NVR, VSaaS, remote video monitoring, virtual guard, ONVIF.",
   path: "/glossary",
 };
 

@@ -16,7 +16,7 @@ import { SiteImage } from '@/components/content/site-image';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "AI Security for Multiple Sites | Video Surveillance",
+  title: "Multi-Site Security Cameras | One Console",
   description: "Camzify provides AI-powered virtual patrolling and video analytics for multiple sites, automated patrols, real-time alerts, and compliance reports.",
   path: "/industries/multiple-sites",
 };

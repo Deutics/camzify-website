@@ -13,7 +13,7 @@ import Link from 'next/link';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Security Audit Checklist | Site Security Assessment",
+  title: "Security Audit Checklist | Site Assessment",
   description: "A security audit checklist for a site: perimeter, doors, cameras, lighting, alarms and the record of each check, so nothing is missed.",
   path: "/guides/security-audit-checklist",
 };

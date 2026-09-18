@@ -38,7 +38,7 @@ export default function Page() {
       <FeatureHero
         eyebrow="Central Operations Screen"
         title="Video surveillance dashboard"
-        lede={<><strong className="font-semibold text-foreground">The Camzify dashboard is the first screen every operator sees: cameras online with uptime percentage, AI alerts across all detection models, patrol compliance, retention coverage, and a critical-event acknowledgment queue.</strong> It combines your own sites with sub-user sites in one combined view when you need it, and refreshes live from every 1 second to every 1 minute.</>}
+        lede={<><strong className="font-semibold text-foreground">The Camzify video surveillance dashboard is the first screen every operator sees: cameras online with uptime percentage, AI alerts across all detection models, patrol compliance, retention coverage, and a critical-event acknowledgment queue.</strong> It combines your own sites with sub-user sites in one combined view when you need it, and refreshes live from every 1 second to every 1 minute.</>}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/platform/live-streaming', label: 'Live streaming' }}
         visual={<ProductShot

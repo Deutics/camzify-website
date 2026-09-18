@@ -47,7 +47,7 @@ export default function RestaurantsPage() {
       <FeatureHero
         eyebrow="Industry · restaurants"
         title="AI security for restaurants"
-        lede={<><strong className="font-semibold text-foreground">Restaurants face security challenges that cameras alone cannot solve and manned guards cannot cover consistently.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.</>}
+        lede={<><strong className="font-semibold text-foreground">Restaurants and quick service restaurant (QSR) locations face security challenges that cameras alone cannot solve and manned guards cannot cover consistently.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras, checking every point, flagging failures, and notifying the right person.</>}
         facts={['Back doors and delivery entrances left unmonitored between…', 'Closing procedures relying on whoever locks up that night to…', 'Walk-in cooler and freezer doors left ajar overnight']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}

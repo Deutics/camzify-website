@@ -12,7 +12,7 @@ import { PhotoFigure } from '@/components/content/photo-figure';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "AI Video Analytics vs Motion Detection | Comparison",
+  title: "AI Video Analytics vs Motion Detection | Compared",
   description: "Understand the difference between AI video analytics and traditional motion detection. AI tracks objects; motion detection responds to pixel changes.",
   path: "/compare/ai-video-analytics-vs-motion-detection",
 };

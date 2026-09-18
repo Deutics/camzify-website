@@ -32,7 +32,7 @@ const content: UseCaseContent = {
   eyebrow: 'Use case · Break-ins and stolen recorders',
   title: 'Cloud video backup against DVR theft',
   lede: <>
-    <strong className="font-semibold text-foreground">Cloud video backup against DVR theft is the recording of a site&apos;s cameras to storage outside the building, so the footage of a break-in survives when the recorder is stolen, smashed or unplugged on the way out.</strong>{' '}
+    <strong className="font-semibold text-foreground">Cloud video backup against DVR and NVR theft is the recording of a site&apos;s cameras to storage outside the building, so the footage of a break-in survives when the recorder is stolen, smashed or unplugged on the way out.</strong>{' '}
     The recorder is the one box that holds every camera&apos;s evidence, and it sits in the building being burgled. Camzify records each camera to its own off-site storage as the frames arrive, with retention set per camera, and camera tampering detection raises the moment a camera goes dark.
   </>,
   facts: ['Footage stored off site as it is captured', 'Retention by days or GB, per camera', 'A camera going dark raises at once'],

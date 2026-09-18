@@ -26,7 +26,7 @@ const content: UseCaseContent = {
   eyebrow: 'Use case · Off-hours',
   title: 'After-hours security monitoring',
   lede: <>
-    <strong className="font-semibold text-foreground">After-hours monitoring is the surveillance and verification of a facility outside business hours: nights, weekends and holidays.</strong>{' '}
+    <strong className="font-semibold text-foreground">After-hours video monitoring is the surveillance and verification of a facility outside business hours: nights, weekends and holidays.</strong>{' '}
     It is the period when staffing is thinnest and when most incidents happen. Camzify covers it with scheduled patrol rounds that walk the cameras through the empty building on a checklist, message the guard when a check fails, and file a report per round so the morning starts with a record rather than a question.
   </>,
   facts: ['Rounds on a schedule, nobody in the loop', 'Checklist per camera, snapshot per item', 'A report per round by morning'],

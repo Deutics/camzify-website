@@ -25,7 +25,7 @@ const content: UseCaseContent = {
   eyebrow: 'Use case · Schools and civic buildings',
   title: 'Weapons detection for schools and public buildings',
   lede: <>
-    <strong className="font-semibold text-foreground">Weapons detection for schools and public buildings is the visual detection of a firearm or an edged weapon that is visibly held in a camera frame, raised as a critical alert with a clip to a person who verifies it.</strong>{' '}
+    <strong className="font-semibold text-foreground">Weapons detection for schools and civic buildings is the visual detection of a firearm or an edged weapon that is visibly held in a camera frame, raised as a critical alert with a clip to a person who verifies it.</strong>{' '}
     It runs on the entrance, corridor, lobby and parking cameras a school, a campus, a courthouse or a city hall already has. It is not a screening system, and it does not decide anything: a person looks at the clip and starts the building&apos;s own procedure.
   </>,
   facts: ['Visible firearms and blades, raised as critical', 'On the cameras already at the doors', 'Not a scanner, not facial recognition'],

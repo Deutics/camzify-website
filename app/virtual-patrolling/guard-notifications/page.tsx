@@ -41,7 +41,7 @@ export default function GuardNotificationsPage() {
       <FeatureHero
         eyebrow="Automatic Escalation"
         title="Guard notifications"
-        lede={<>A guard notification is an automatic alert sent to the security guard assigned to a specific camera
+        lede={<>An automated guard notification is an alert sent to the security guard assigned to a specific camera
             when a <Link href="/virtual-patrolling/patrol-checklists" className="text-primary hover:underline">checklist item</Link> is
             marked Not Compliant during a <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrol</Link> round.
             Each notification carries a predefined message explaining what was found and what action is expected.</>}

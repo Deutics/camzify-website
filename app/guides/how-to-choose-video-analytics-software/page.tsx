@@ -13,7 +13,7 @@ import Link from 'next/link';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "How to Choose Video Analytics Software | Buyer Guide",
+  title: "How to Choose Video Analytics Software | Guide",
   description: "A practical guide to evaluating AI video analytics software, what to look for, what to avoid, and how to make the right decision for your facility.",
   path: "/guides/how-to-choose-video-analytics-software",
 };

@@ -39,8 +39,8 @@ export default function Page() {
       <FeatureHero
         eyebrow="AI detection · Slip & fall detection"
         title="Slip & fall detection"
-        lede={<><strong className="font-semibold text-foreground">A fall happens, help gets notified fast.</strong> Slip and fall detection flags falls in real time and routes
-            an alert to the nearest guard — before an incident goes unnoticed and becomes an unresolved claim.</>}
+        lede={<><strong className="font-semibold text-foreground">A fall happens, help gets notified fast.</strong> Slip and fall detection on security cameras flags falls in real time and routes
+            an alert to the nearest guard, before an incident goes unnoticed and becomes an unresolved claim.</>}
         facts={['Rapid, uncontrolled posture changes consistent with a fall', 'A person remaining on the ground after a fall event', 'Falls in aisles, entrances, and walkways during business hours']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 23 detections' }}

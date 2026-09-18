@@ -64,7 +64,7 @@ export default function ForSecurityIntegratorsPage() {
         title="Camzify for CCTV and alarm installers"
         lede={<>
           <strong className="font-semibold text-foreground">
-            Installers are usually the reason a site&apos;s cameras exist in the first place.
+            CCTV and alarm installers are usually the reason a site&apos;s cameras exist in the first place.
           </strong>{' '}
           Camzify attaches to the systems you have already installed, including ones several
           years old, over RTSP, RTMP or HTTPS. Nothing you specified is displaced: the recorder

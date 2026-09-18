@@ -43,7 +43,7 @@ export default function Page() {
       <FeatureHero
         eyebrow="Role-Based, Site-Scoped Access"
         title="Security system user management"
-        lede={<><strong className="font-semibold text-foreground">User management in Camzify supports sub-users with permission groups — a per-module View, Edit, Delete matrix.</strong> Site-level access control limits which locations a user can see. AI feature instance grants let a parent account allocate detection capacity to child accounts.</>}
+        lede={<><strong className="font-semibold text-foreground">Security system user management in Camzify supports sub-users with permission groups: a per-module View, Edit, Delete matrix.</strong> Site-level access control limits which locations a user can see. AI feature instance grants let a parent account allocate detection capacity to child accounts.</>}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/guides/how-to-manage-sub-users-and-quotas', label: 'How to delegate access' }}
         visual={<ProductShot

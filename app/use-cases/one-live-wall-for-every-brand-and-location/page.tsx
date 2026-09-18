@@ -32,7 +32,7 @@ const content: UseCaseContent = {
   eyebrow: 'Use case · Mixed brands, many sites',
   title: 'One live wall for every brand and location',
   lede: <>
-    <strong className="font-semibold text-foreground">One live wall for every brand and location is a single live view of every camera an operator is responsible for, whatever make it is and whichever site it is at, in place of a separate login for each recorder.</strong>{' '}
+    <strong className="font-semibold text-foreground">One live wall for every camera brand and site is a single live view of every camera an operator is responsible for, whatever make it is and whichever site it is at, in place of a separate login for each recorder.</strong>{' '}
     The cameras already speak a common language: ONVIF and RTSP are on effectively every IP camera and recorder sold in the last decade. Camzify puts them on one wall grouped by site, with a no-signal state that says which site has the problem, and reaches the cameras behind a router through the Connector.
   </>,
   facts: ['Any ONVIF or RTSP camera or recorder', 'Grouped by site, with an online count', 'Local networks through the Connector'],

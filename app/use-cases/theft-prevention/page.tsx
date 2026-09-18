@@ -26,7 +26,7 @@ const content: UseCaseContent = {
   eyebrow: 'Use case · Stock and cash',
   title: 'AI theft prevention',
   lede: <>
-    <strong className="font-semibold text-foreground">Theft prevention through video analytics means detecting unauthorized presence and movement in the areas where stock and cash are kept, while it is happening, rather than reviewing footage after the loss is counted.</strong>{' '}
+    <strong className="font-semibold text-foreground">AI theft and loss prevention means detecting unauthorized presence and movement, on camera, in the areas where stock and cash are kept, while it is happening, rather than reviewing footage after the loss is counted.</strong>{' '}
     Camzify puts zones on stockrooms, cages, cash offices and docks, notifies in the hours each should be empty, flags entry with a snapshot, and runs a patrol round that checks the controlled areas are clear and records it.
   </>,
   facts: ['Zones on stock and cash areas', 'Entry in set hours flagged with a snapshot', 'Controlled areas checked on the round'],

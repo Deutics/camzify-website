@@ -14,7 +14,7 @@ import Link from 'next/link';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Heatmap Anomalies | AI Foot Traffic Pattern Software",
+  title: "Heatmap Anomalies | Foot Traffic Pattern Alerts",
   description: "Camzify heatmap anomalies maps foot traffic patterns across a site and flags when a pattern looks unusual compared to the established baseline.",
   path: "/ai-features/heatmap-anomalies",
 };

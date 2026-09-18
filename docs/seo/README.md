@@ -114,3 +114,16 @@ were added (Verkada, Rhombus, Solink, Spot AI, Coram AI, Avigilon Alta), each wi
 Sources section of the competitor's own pages. A glossary silo of thirty short
 definitional pages with DefinedTerm schema was added at `/glossary`, driven by
 `lib/glossary-terms.ts`. Volumes for all of it are still pending DataForSEO credit.
+
+## Site-wide on-page audit (18 September 2026)
+
+A rendered pass over all 180 non-glossary routes found one H1, a canonical and FAQ schema
+on every content page (only the form and utility pages carry no FAQ, by design), and every
+title under 62 rendered characters. Fixed the same day: ten source titles that ran to 51
+or 52 characters, the seven industry titles still in the generic "AI Security for X" form
+(now the buyer's phrase, e.g. "Retail Store Security Cameras"), the glossary description,
+and 38 pages whose title phrase never appeared in their own opening paragraph (the lede
+now carries it once). The Eagle Eye comparison, written before the competitor-sourcing
+rule, was rewritten to the sourced format. Check to rerun after any batch of new pages:
+`scripts/` has no audit script yet; the checks are in the session transcript and worth
+promoting to `scripts/check-pages.py`.

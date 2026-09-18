@@ -39,7 +39,7 @@ export default function Page() {
       <FeatureHero
         eyebrow="AI detection · Vehicle damage report"
         title="Vehicle damage report"
-        lede={<><strong className="font-semibold text-foreground">A dent, a scratch, documented.</strong> Vehicle damage report captures the exterior condition of vehicles
+        lede={<><strong className="font-semibold text-foreground">A dent, a scratch, documented.</strong> Vehicle damage report captures the exterior condition of vehicles from camera frames
             as they enter or leave a site, timestamped and logged automatically for later comparison.</>}
         facts={['Visible dents and scratches on vehicles at entry or exit points', 'A timestamped condition record attached to each vehicle event', 'Side-by-side comparison between entry and exit records for…']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}

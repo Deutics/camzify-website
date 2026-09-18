@@ -11,7 +11,7 @@ import Link from 'next/link';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "HTTPS Camera Setup | Connect HLS and WebRTC Streams",
+  title: "HTTPS Camera Setup | HLS and WebRTC Streams",
   description: "Connect web-delivered streams over HTTPS: HLS playlists and WebRTC streams, added by address, no Connector needed, then recording, detections and rounds.",
   path: "/camera-connectivity/https-setup",
 };

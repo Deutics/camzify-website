@@ -25,7 +25,7 @@ const content: UseCaseContent = {
   eyebrow: 'Use case · Docks and bays',
   title: 'Loading dock security monitoring',
   lede: <>
-    <strong className="font-semibold text-foreground">Loading dock monitoring is the continuous verification of dock doors, staging areas and vehicle bays: doors closed when not in use, vehicles present only in their window, and staging areas clear.</strong>{' '}
+    <strong className="font-semibold text-foreground">Loading dock security monitoring is the continuous verification of dock doors, staging areas and vehicle bays: doors closed when not in use, vehicles present only in their window, and staging areas clear.</strong>{' '}
     A dock combines stock, vehicle access and a door that opens forty times a day, which makes it the most common route for goods to leave a building. Camzify checks it on a round against the delivery schedule and tracks what arrives at the bay between rounds.
   </>,
   facts: ['Door status checked against the schedule', 'Vehicles tracked at the bay, not plates', 'Staging areas clear on the round'],

@@ -51,7 +51,7 @@ export default function AutomotivePage() {
       <FeatureHero
         eyebrow="Industry · automotive"
         title="Security cameras for auto repair shops and dealerships, patrolled by AI"
-        lede={<><strong className="font-semibold text-foreground">Repair shops, service centers and dealerships hold other people&apos;s cars overnight, in bays and yards that nobody watches after the last technician leaves.</strong> Camzify&apos;s <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</Link> runs a scheduled round on the cameras already on site, checks every bay door, yard row and gate, messages the person on call when a check fails, and files a report per branch.</>}
+        lede={<><strong className="font-semibold text-foreground">Repair shops, service centers and dealerships hold other people&apos;s cars overnight, in bays and yards that nobody watches after the last technician leaves.</strong> Camzify&apos;s <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</Link> runs a scheduled round on the security cameras already on site, checks every bay door, yard row and gate, messages the person on call when a check fails, and files a report per branch.</>}
         facts={['Bays, yards and lots checked on a schedule after close', 'One console and one report per branch', 'Runs on the cameras already installed']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}

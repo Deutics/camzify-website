@@ -16,7 +16,7 @@ import { SiteImage } from '@/components/content/site-image';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "AI Security for Financial Services",
+  title: "Bank & Branch Security Cameras | AI Patrols",
   description: "Camzify provides AI-powered virtual patrolling and video analytics for financial services, automated patrols, real-time alerts, and compliance reports.",
   path: "/industries/financial-services",
 };
@@ -47,7 +47,7 @@ export default function FinancialServicesPage() {
       <FeatureHero
         eyebrow="Industry · financial services"
         title="AI security for financial services"
-        lede={<><strong className="font-semibold text-foreground">Financial services face security challenges that cameras alone cannot solve and manned guards cannot cover consistently.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.</>}
+        lede={<><strong className="font-semibold text-foreground">Bank branches and financial services sites face security challenges that cameras alone cannot solve and manned guards cannot cover consistently.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.</>}
         facts={['Vault corridors and cash-handling areas left unchecked…', 'ATM vestibules with no continuous after-hours monitoring', 'Branch perimeters relying on a single closing-time walk-through']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}
