@@ -11,6 +11,7 @@ import { ExitIntentModal } from '@/components/layout/exit-intent-modal';
 import { JsonLd } from '@/components/system/json-ld';
 import { siteConfig } from '@/lib/site-config';
 import { graph, organizationSchema, websiteSchema, softwareApplicationSchema } from '@/lib/seo';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata, Viewport } from 'next';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans', display: 'swap' });
@@ -117,6 +118,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <ExitIntentModal />
           <Toaster />
           <ChunkLoadErrorHandler />
+          <SpeedInsights />
         </ThemeProvider>
       </body>
     </html>
