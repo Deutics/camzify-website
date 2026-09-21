@@ -128,6 +128,20 @@
   h1, h2, h3, h4, h5, h6 {
     text-wrap: balance;
   }
+  /*
+   * Links inside running text are underlined, faintly, so they are distinguishable
+   * without color (WCAG 1.4.1). Navigation, cards and buttons are not affected: the
+   * rule only reaches anchors inside paragraphs and list items within <main> and the
+   * footer's own paragraphs.
+   */
+  main p a, main li a, main dd a, footer p a {
+    text-decoration-line: underline;
+    text-decoration-color: hsl(var(--primary) / 0.35);
+    text-underline-offset: 0.2em;
+  }
+  main p a:hover, main li a:hover, main dd a:hover, footer p a:hover {
+    text-decoration-color: currentColor;
+  }
 }
 
 @layer utilities {

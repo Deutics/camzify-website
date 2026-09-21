@@ -96,7 +96,7 @@ export function PatrolSweepHero() {
       : `Patrol round in progress, stop ${i + 1} of ${STOPS.length}, ${stop.loc}. ${message}`;
 
   return (
-    <figure
+    <div
       className="console-panel corner-ticks w-full min-w-0 max-w-full overflow-hidden [contain:inline-size]"
       role="img"
       aria-label={label}
@@ -136,6 +136,8 @@ export function PatrolSweepHero() {
             >
               <img
                 src={`/hero-cam-${s.frame}-640.webp`}
+                srcSet={`/hero-cam-${s.frame}-320.webp 320w, /hero-cam-${s.frame}-640.webp 640w`}
+                sizes="(max-width: 640px) 42vw, 240px"
                 alt=""
                 width={640}
                 height={360}
@@ -202,6 +204,6 @@ export function PatrolSweepHero() {
         )}
       </div>
       <figcaption className="sr-only">{label}</figcaption>
-    </figure>
+    </div>
   );
 }

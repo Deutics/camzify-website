@@ -89,12 +89,13 @@ export function PlatformModules() {
         </div>
 
         <div className="mt-14 grid gap-10 lg:grid-cols-[minmax(0,340px)_1fr] lg:gap-14">
-          <ul className="flex flex-col gap-1.5" role="tablist" aria-label="Platform modules">
+          <div>
+          <div className="flex flex-col gap-1.5" role="tablist" aria-label="Platform modules">
             {modules.map((m, i) => {
               const selected = i === active;
               return (
-                <li key={m.href}>
                   <button
+                    key={m.href}
                     type="button"
                     role="tab"
                     aria-selected={selected}
@@ -122,19 +123,18 @@ export function PlatformModules() {
                     >
                       {m.desc}
                     </span>
-                    {selected && (
-                      <Link
-                        href={m.href}
-                        className="mt-3 inline-flex items-center gap-1.5 rounded text-sm font-semibold text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                      >
-                        Open module page <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
-                      </Link>
-                    )}
                   </button>
-                </li>
               );
             })}
-          </ul>
+          </div>
+          {/* The link lives outside the tab list, which may only own tabs. */}
+          <Link
+            href={current.href}
+            className="ml-5 mt-3 inline-flex min-h-11 items-center gap-1.5 rounded px-1 text-sm font-semibold text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            Open {current.title} <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+          </Link>
+          </div>
 
           <div className="lg:sticky lg:top-28 lg:self-start">
             <ProductShot

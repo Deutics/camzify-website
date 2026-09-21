@@ -147,8 +147,9 @@ const config: Config = {
           '50%': { opacity: '0.4' },
         },
         'hero-grid-pan': {
-          '0%': { backgroundPosition: '0px 0px' },
-          '100%': { backgroundPosition: '120px 120px' },
+          // Two 48px cells, so the loop point lands on the tile boundary and never jumps.
+          '0%': { transform: 'translate3d(0, 0, 0)' },
+          '100%': { transform: 'translate3d(96px, 96px, 0)' },
         },
         'hero-glow-drift-a': {
           '0%, 100%': { transform: 'translate(-6%, -4%) scale(1)', opacity: '0.55' },

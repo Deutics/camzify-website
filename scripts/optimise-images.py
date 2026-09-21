@@ -54,15 +54,17 @@ def main():
         is_logo = os.path.basename(src).startswith('camzify-logo-')
         # A WebP source is a designed render by definition and is always laddered; the
         # size floor only skips small icons among the PNGs and JPEGs.
-        if size < MIN_BYTES and not is_logo and not src.endswith('.webp'):
+        stem = os.path.splitext(os.path.basename(src))[0]
+        if size < MIN_BYTES and not is_logo and not src.endswith('.webp') and not stem.startswith('scene-'):
             continue
         # RGBA wherever the source carries transparency; RGB for photographs. Never
         # `.convert('RGB')` an RGBA image: that drops alpha without compositing.
         im = Image.open(src)
         has_alpha = im.mode in ('RGBA', 'LA') or (im.mode == 'P' and 'transparency' in im.info)
         im = im.convert('RGBA') if (is_logo or has_alpha) else im.convert('RGB')
-        stem = os.path.splitext(os.path.basename(src))[0]
-        ladder = [300, 600] if is_logo else WIDTHS
+        # Hero camera tiles render at a fifth of the viewport on a phone, so they get a
+        # 320px step the rest of the ladder does not need.
+        ladder = [300, 600] if is_logo else ([320] + WIDTHS if stem.startswith('hero-cam-') else WIDTHS)
         widths = [w for w in ladder if w < im.width] + ([im.width] if not is_logo else [])
         widths = widths or [im.width]
         before += size
