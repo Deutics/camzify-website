@@ -5,7 +5,7 @@ import { articleSchema, personSchema } from '@/lib/seo';
 import { AuthorByline } from '@/components/content/author-byline';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PointList } from '@/components/content/point-list';
-import { ProductShot } from '@/components/content/product-shot';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import Link from 'next/link';
 
 /**
@@ -72,7 +72,7 @@ export default function HybridCloudVideoSurveillancePage() {
           </p>
 
           <div className="mt-10 max-w-3xl">
-            <ProductShot src="/product-video-backup" alt="The video backup screen in the Camzify console: each cloud-connected camera with its recording mode and retention limit, and the account's storage totals above" label="Video backup and retention" sizes="(max-width: 1024px) 100vw, 768px" />
+            <PhotoFigure src="/guide-hybrid-cloud-video-surveillance.webp" alt="Illustration for this guide: the Camzify console and the cameras it runs on" priority />
           </div>
 
           <section className="mt-16">

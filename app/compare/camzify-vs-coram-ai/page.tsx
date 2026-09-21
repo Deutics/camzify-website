@@ -3,6 +3,7 @@ import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { ComparisonTable } from '@/components/content/comparison-table';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { PointList } from '@/components/content/point-list';
 import { ProductShot } from '@/components/content/product-shot';
 import Link from 'next/link';
@@ -62,6 +63,10 @@ export default function CamzifyVsCoramAiPage() {
           <p className="mt-4 max-w-2xl text-body text-muted-foreground">
             The two are not the same product with different labels. Coram sells cameras, the recorder, door readers and mobile units alongside the software, and lists face recognition and license plate reading among its AI features. Camzify sells no hardware, identifies nobody, and instead adds <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</Link>: a scheduled round through the cameras that checks a list at each one and files a timestamped compliance record.
           </p>
+
+          <div className="mt-10 max-w-3xl">
+            <PhotoFigure src="/compare-vs-coram-ai.webp" alt="The Camzify console on a laptop beside an on-site recorder appliance, a neutral stand-in for a site-installed AI NVR" />
+          </div>
 
           <p className="mt-4 max-w-2xl text-body text-muted-foreground">
             The table below sets the two side by side on nine points, from what you buy to who each one fits. The Coram column repeats what Coram&apos;s own pages say, and the Camzify column repeats what this site says elsewhere. Neither column scores the other, and a row where one side has nothing says so.

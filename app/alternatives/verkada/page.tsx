@@ -3,6 +3,7 @@ import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { ComparisonTable } from '@/components/content/comparison-table';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { PointList } from '@/components/content/point-list';
 import { ProductShot } from '@/components/content/product-shot';
 import Link from 'next/link';
@@ -115,6 +116,10 @@ export default function VerkadaAlternativePage() {
           <p className="mt-4 max-w-2xl text-body text-muted-foreground">
             That means three questions: what you keep, what you give up, and how the move works. Every statement about Verkada comes from a Verkada page opened on 18 September 2026 and listed at the bottom. Where their pages did not describe something, the row says so.
           </p>
+
+          <div className="mt-10 max-w-3xl">
+            <PhotoFigure src="/alternatives-verkada.webp" alt="The Camzify console on a laptop beside a wall of existing cameras staying exactly where they are" />
+          </div>
 
           <div className="mt-10 max-w-3xl">
             <ProductShot src="/product-video-backup" alt="Video backup and retention in the Camzify console: a retention window per camera, the storage pool it draws from and the recordings available for playback" label="Video backup and retention" sizes="(max-width: 1024px) 100vw, 768px" />

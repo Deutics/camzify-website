@@ -66,6 +66,10 @@ export default function AiVideoAnalyticsVsMotionDetectionPage() {
           </p>
 
           <div className="mt-10 max-w-3xl">
+            <PhotoFigure src="/compare-vs-motion-detection.webp" alt="A camera frame split down the middle: AI video analytics drawing a box around a person on one side, plain motion detection flagging the whole frame as changed on the other" />
+          </div>
+
+          <div className="mt-10 max-w-3xl">
             <PhotoFigure src="/feature-motion-detection-1.webp" alt="The console live view with a motion detection alert drawn on the camera frame" caption="Motion detection on a live frame" />
           </div>
 

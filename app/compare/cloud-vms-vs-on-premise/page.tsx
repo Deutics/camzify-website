@@ -3,6 +3,7 @@ import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { ComparisonTable } from '@/components/content/comparison-table';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { PointList } from '@/components/content/point-list';
 import Link from 'next/link';
 import { ProductShot } from '@/components/content/product-shot';
@@ -67,6 +68,10 @@ export default function CloudVmsVsOnPremisePage() {
           <p className="mt-4 max-w-2xl text-body text-muted-foreground">
             The two record the same cameras and differ on where the footage lives, who maintains the equipment, and how anyone outside the building reaches it. This page sets out how each works, where the recorder remains the right choice, and what a cloud system asks of a site in return for what it removes.
           </p>
+
+          <div className="mt-10 max-w-3xl">
+            <PhotoFigure src="/compare-vs-on-premise.webp" alt="An on-premise recorder in a server rack beside the Camzify console open on a laptop, the same camera feeds on both" />
+          </div>
 
           <div className="mt-10 max-w-3xl">
             <ProductShot src="/product-video-backup" alt="The video backup screen: recording mode and retention set per camera, storage by site above" label="Video backup and retention" sizes="(max-width: 1024px) 100vw, 768px" />
