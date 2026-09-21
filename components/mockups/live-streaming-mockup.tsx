@@ -147,7 +147,7 @@ export function LiveStreamingMockup() {
                   <>
                     <img
                       src={cam.frame}
-                      alt=""
+                      alt={`${cam.name} camera`}
                       aria-hidden="true"
                       width={480}
                       height={270}

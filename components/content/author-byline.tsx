@@ -27,7 +27,7 @@ export function AuthorByline({ className = '', updated }: { className?: string; 
       {/* The author's own portrait, supplied by the business 2026-09-18, replacing the initials fallback. */}
       <SiteImage
         src="/author-muhammad-talha-profile.webp"
-        alt=""
+        alt={`Portrait of ${name}`}
         width={80}
         height={80}
         sizes="40px"

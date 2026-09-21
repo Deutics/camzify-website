@@ -61,7 +61,7 @@ function Route() {
           <span className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-primary/40 bg-card font-mono text-sm text-primary tabular-nums">
             {String(i + 1).padStart(2, '0')}
           </span>
-          <img src={s.frame} alt="" aria-hidden="true" width={96} height={54} loading="lazy" className="h-9 w-16 shrink-0 rounded-md border border-border object-cover sm:h-12 sm:w-[84px]" />
+          <img src={s.frame} alt={`${s.loc} camera`} aria-hidden="true" width={96} height={54} loading="lazy" className="h-9 w-16 shrink-0 rounded-md border border-border object-cover sm:h-12 sm:w-[84px]" />
           <span className="min-w-0 flex-1">
             <span className="block font-mono text-mono-sm uppercase text-muted-foreground">{s.id}</span>
             <span className="block truncate text-sm font-medium">{s.loc}</span>
@@ -139,7 +139,7 @@ function Report() {
         <div className="mt-2.5 flex flex-wrap gap-2">
           {[['/cam-06.jpg', 'Before'], ['/cam-06-after.jpg', 'After']].map(([src, cap]) => (
             <figure key={cap} className="w-[calc(50%-4px)] sm:w-28">
-              <img src={src} alt="" aria-hidden="true" width={112} height={63} loading="lazy" className="h-[63px] w-full rounded-md border border-border object-cover" />
+              <img src={src} alt={`Gate camera, ${cap.toLowerCase()} the fix`} aria-hidden="true" width={112} height={63} loading="lazy" className="h-[63px] w-full rounded-md border border-border object-cover" />
               <figcaption className="mt-1 text-center font-mono text-[9px] uppercase tracking-wider text-muted-foreground">{cap}</figcaption>
             </figure>
           ))}
