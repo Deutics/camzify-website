@@ -113,6 +113,9 @@ const config: Config = {
         'mono-sm': ['11px', { lineHeight: '1.4', letterSpacing: '0.1em' }],
         'mono-md': ['13px', { lineHeight: '1.4', letterSpacing: '0.1em' }],
       },
+      transitionTimingFunction: {
+        'out-expo': 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
       keyframes: {
         'accordion-down': {
           from: { height: '0' },
@@ -145,6 +148,14 @@ const config: Config = {
         'pulse-dot': {
           '0%, 100%': { opacity: '1' },
           '50%': { opacity: '0.4' },
+        },
+        'hero-copy-in': {
+          '0%': { transform: 'translateY(20px)' },
+          '100%': { transform: 'translateY(0)' },
+        },
+        'hero-panel-in': {
+          '0%': { transform: 'scale(0.96)' },
+          '100%': { transform: 'scale(1)' },
         },
         'hero-grid-pan': {
           // Two 48px cells, so the loop point lands on the tile boundary and never jumps.
@@ -188,6 +199,8 @@ const config: Config = {
         'patrol-sweep': 'patrol-sweep 14s linear infinite',
         'slide-in-right': 'slide-in-right 0.4s ease-out',
         'pulse-dot': 'pulse-dot 2s ease-in-out infinite',
+        'hero-copy-in': 'hero-copy-in 0.5s cubic-bezier(0.16,1,0.3,1) both',
+        'hero-panel-in': 'hero-panel-in 0.6s cubic-bezier(0.16,1,0.3,1) 0.1s both',
         'hero-grid-pan': 'hero-grid-pan 26s linear infinite',
         'hero-glow-drift-a': 'hero-glow-drift-a 16s ease-in-out infinite',
         'hero-glow-drift-b': 'hero-glow-drift-b 19s ease-in-out infinite',
