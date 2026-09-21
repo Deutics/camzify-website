@@ -73,6 +73,8 @@ rendered text, not just JSON-LD — unmounting content makes it invisible to the
 app/                    Routes. One folder per URL segment, each with page.tsx
   _components/          Homepage-only sections
   api/                  Four lead-capture POST routes (the only dynamic routes)
+  wp-json/, feed/, tag/, category/, wp-admin/, wp-content/, wp-includes/, wdt_headers/, author/, xmlrpc.php
+                        410 Gone handlers for WordPress-era paths (lib/gone.ts); do not remove them
 components/
   layout/               Header, footer, PageShell, breadcrumbs, CTA band
   content/              Reusable content blocks — most new work goes here
