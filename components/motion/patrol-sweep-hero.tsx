@@ -137,7 +137,7 @@ export function PatrolSweepHero() {
               <img
                 src={`/hero-cam-${s.frame}-640.webp`}
                 srcSet={`/hero-cam-${s.frame}-320.webp 320w, /hero-cam-${s.frame}-640.webp 640w`}
-                sizes="(max-width: 640px) 42vw, 240px"
+                sizes="(max-width: 640px) 27vw, (max-width: 1024px) 18vw, 240px"
                 alt=""
                 width={640}
                 height={360}
