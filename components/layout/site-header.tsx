@@ -262,7 +262,7 @@ export function SiteHeader() {
                       aria-expanded={isOpen}
                       aria-controls={menuId}
                       aria-label={`${label} menu`}
-                      className={`-ml-1.5 rounded-md p-0.5 pr-1.5 transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${isOpen ? 'text-primary' : 'text-foreground/80'}`}
+                      className={`flex h-9 w-6 items-center justify-center rounded-md transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${isOpen ? 'text-primary' : 'text-foreground/80'}`}
                     >
                       <ChevronDown
                         className={`h-3.5 w-3.5 transition-transform duration-fast ${isOpen ? 'rotate-180' : ''}`}
