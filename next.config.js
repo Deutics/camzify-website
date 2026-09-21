@@ -71,6 +71,13 @@ const nextConfig = {
         permanent: true,
       },
       {
+        // WordPress served the homepage at /home/ as well as /; Search Console still
+        // holds that URL. Permanent, to the real homepage.
+        source: '/home',
+        destination: '/',
+        permanent: true,
+      },
+      {
         // The old WordPress site published Yoast sitemaps at these paths, and Search
         // Console still holds them as submitted sitemaps. Point them at the one real
         // sitemap so the old submissions resolve instead of 404ing.
