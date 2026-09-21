@@ -183,6 +183,12 @@ SITE=https://www.camzify.com python3 scripts/seo-audit.py   # against production
 
 # Glossary integrity
 python3 scripts/check-glossary.py
+
+# Whole-site verification against the live host: every sitemap route 200 with a matching
+# canonical, one H1, title, description, valid JSON-LD, no image without alt text, and
+# every internal link resolving. Exits non-zero on any failure; run after every deploy.
+python3 scripts/verify-site.py
+SITE=http://localhost:3412 python3 scripts/verify-site.py   # against a local production start
 ```
 
 DataForSEO (MCP connector "dfs-mcp"). The calls that matter, by API path:

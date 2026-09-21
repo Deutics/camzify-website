@@ -69,7 +69,7 @@ export function HeroPlaceholder({
             >
               <img
                 src={f.src}
-                alt=""
+                alt={`${f.loc.charAt(0)}${f.loc.slice(1).toLowerCase()} camera`}
                 aria-hidden="true"
                 width={480}
                 height={270}
