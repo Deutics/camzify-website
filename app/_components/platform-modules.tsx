@@ -130,7 +130,7 @@ export function PlatformModules() {
           {/* The link lives outside the tab list, which may only own tabs. */}
           <Link
             href={current.href}
-            className="ml-5 mt-3 inline-flex min-h-11 items-center gap-1.5 rounded px-1 text-sm font-semibold text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            className="ml-5 mt-3 inline-flex min-h-[44px] items-center gap-1.5 rounded px-1 text-sm font-semibold text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
             Open {current.title} <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
           </Link>
