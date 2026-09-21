@@ -3,6 +3,7 @@ import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { RoadmapBadge } from '@/components/content/roadmap-badge';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import Link from 'next/link';
 import { Smartphone } from 'lucide-react';
 
@@ -48,6 +49,10 @@ export default function RoadmapPage() {
           <p className="mt-4 max-w-2xl text-muted-foreground">
             For capabilities available today, see the <Link href="/ai-features" className="text-primary hover:underline">detection hub</Link> and <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</Link> system.
           </p>
+
+          <div className="mt-10 max-w-3xl">
+            <PhotoFigure src="/roadmap-mobile-apps.webp" alt="A phone showing the Camzify mobile app alongside the browser console, the one item currently on the roadmap" />
+          </div>
 
           <div className="mt-14 space-y-8">
             {roadmapItems.map((item, i) => (

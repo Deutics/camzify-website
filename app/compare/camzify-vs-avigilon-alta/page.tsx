@@ -3,6 +3,7 @@ import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { ComparisonTable } from '@/components/content/comparison-table';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { PointList } from '@/components/content/point-list';
 import { ProductShot } from '@/components/content/product-shot';
 import Link from 'next/link';
@@ -65,6 +66,10 @@ export default function CamzifyVsAvigilonAltaPage() {
           <p className="mt-4 max-w-2xl text-body text-muted-foreground">
             If you are looking for an Avigilon alternative because you want to keep your cameras and add detections and patrol rounds without an integrator project, Camzify is built for that case. If you want cameras, doors, sensors and video from one vendor, with a partner to install and support it, Avigilon Alta is the more complete system, and this page says so. Everything stated here about Avigilon Alta comes from its own pages, listed at the end.
           </p>
+
+          <div className="mt-10 max-w-3xl">
+            <PhotoFigure src="/compare-vs-avigilon-alta.webp" alt="The Camzify console on a laptop beside a rack of enterprise security equipment, a neutral stand-in for an integrator-installed system" />
+          </div>
 
           <div className="mt-10 max-w-3xl">
             <ProductShot src="/product-patrol-sequence" alt="A patrol sequence in the Camzify console: ordered camera stops, the checklist at each stop and the schedule the round runs on" label="Patrol sequence" sizes="(max-width: 1024px) 100vw, 768px" />

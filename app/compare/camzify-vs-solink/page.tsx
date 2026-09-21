@@ -3,6 +3,7 @@ import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { ComparisonTable } from '@/components/content/comparison-table';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { PointList } from '@/components/content/point-list';
 import { ProductShot } from '@/components/content/product-shot';
 import Link from 'next/link';
@@ -148,6 +149,10 @@ export default function CamzifyVsSolinkPage() {
           <p className="mt-6 max-w-2xl text-body text-muted-foreground">
             Camzify and Solink are both cloud video services that run on the cameras a business already owns, and they go in different directions from there. Solink connects video to point-of-sale and operations data so that a flagged transaction opens the clip behind it. Camzify runs scheduled virtual patrol rounds across the same cameras and files a compliance report for each round. If you are looking for a Solink alternative because you need scheduled rounds with a report, rather than transactions matched to video, this page sets out the difference plainly.
           </p>
+          <div className="mt-10 max-w-3xl">
+            <PhotoFigure src="/compare-vs-solink.webp" alt="The Camzify console on a laptop beside a restaurant counter under camera coverage, a neutral stand-in for retail and restaurant operations" />
+          </div>
+
           <div className="mt-10 max-w-3xl">
             <ProductShot src="/product-live-streaming" alt="The live streaming wall in the Camzify console, cameras grouped by site with their online state" label="Live streaming" sizes="(max-width: 1024px) 100vw, 768px" />
           </div>

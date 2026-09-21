@@ -54,7 +54,7 @@ export default function ConstructionSiteSecurityChecklistPage() {
           </p>
 
           <div className="mt-10 max-w-3xl">
-            <PhotoFigure src="/ai-security-for-construction-sites.webp" alt="A construction site under camera coverage, with workers, plant and the material compound outlined as the cameras track them" caption="The gate, the compound and the boundary are the three views every jobsite checklist depends on." />
+            <PhotoFigure src="/guide-construction-site-security-checklist.webp" alt="A construction site gate at dusk with the day's checklist items ticked off on a tablet" caption="The gate, the compound and the boundary are the three views every jobsite checklist depends on." priority />
           </div>
 
           <section className="mt-16">

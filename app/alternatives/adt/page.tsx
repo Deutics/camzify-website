@@ -3,6 +3,7 @@ import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { ComparisonTable } from '@/components/content/comparison-table';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { PointList } from '@/components/content/point-list';
 import { ProductShot } from '@/components/content/product-shot';
 import Link from 'next/link';
@@ -118,6 +119,10 @@ export default function AdtAlternativePage() {
           <p className="mt-4 max-w-2xl text-body text-muted-foreground">
             This page sets out what ADT&apos;s business pages describe, what Camzify does differently, and who should stay with ADT. Every statement about ADT comes from a page on adt.com listed at the bottom. Where those pages do not describe something, the row says so.
           </p>
+
+          <div className="mt-10 max-w-3xl">
+            <PhotoFigure src="/alternatives-adt.webp" alt="The Camzify console on a laptop beside a business entrance under camera coverage, a neutral stand-in for a monitored storefront" />
+          </div>
 
           <div className="mt-10 max-w-3xl">
             <ProductShot src="/product-live-streaming" alt="The Camzify live streaming wall: cameras from several sites in one grid, each with its site label and online state" label="Live streaming · Camzify console" sizes="(max-width: 1024px) 100vw, 768px" />

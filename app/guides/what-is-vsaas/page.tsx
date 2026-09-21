@@ -5,7 +5,7 @@ import { articleSchema, personSchema } from '@/lib/seo';
 import { AuthorByline } from '@/components/content/author-byline';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { PointList } from '@/components/content/point-list';
-import { ProductShot } from '@/components/content/product-shot';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import Link from 'next/link';
 
 /**
@@ -61,7 +61,7 @@ export default function WhatIsVsaasPage() {
           </p>
 
           <div className="mt-10 max-w-3xl">
-            <ProductShot src="/product-video-backup" alt="The video backup screen of a VSaaS console: recording mode and retention set per camera, with cloud storage by site above" label="Video backup and retention" sizes="(max-width: 1024px) 100vw, 768px" />
+            <PhotoFigure src="/guide-what-is-vsaas.webp" alt="Illustration for this guide: the Camzify console and the cameras it runs on" priority />
           </div>
 
           <section className="mt-16">

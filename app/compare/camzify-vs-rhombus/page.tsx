@@ -3,6 +3,7 @@ import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { ComparisonTable } from '@/components/content/comparison-table';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { PointList } from '@/components/content/point-list';
 import { ProductShot } from '@/components/content/product-shot';
 import Link from 'next/link';
@@ -63,6 +64,10 @@ export default function CamzifyVsRhombusPage() {
           <p className="mt-4 max-w-2xl text-body text-muted-foreground">
             If you are looking for a Rhombus alternative because you do not want to take working cameras off the wall, this page sets out that case. If you are replacing cameras anyway, or you want doors, sensors and a monitoring center from one vendor, Rhombus is the fuller system and the sections below say so. Both are cloud video management systems run from one console across any number of sites; the difference is what each asks you to buy. Every statement about Rhombus here was read from its own pages, listed at the end.
           </p>
+
+          <div className="mt-10 max-w-3xl">
+            <PhotoFigure src="/compare-vs-rhombus.webp" alt="The Camzify console on a laptop beside a wall of newly installed cameras, a neutral stand-in for a camera-and-cloud ecosystem" />
+          </div>
 
           <div className="mt-10 max-w-3xl">
             <ProductShot src="/product-live-streaming" alt="The live streaming wall in the Camzify console, cameras grouped by site with their online state" label="Live streaming" sizes="(max-width: 1024px) 100vw, 768px" />

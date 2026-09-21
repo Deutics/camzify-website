@@ -3,6 +3,7 @@ import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { ComparisonTable } from '@/components/content/comparison-table';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { PointList } from '@/components/content/point-list';
 import { ProductShot } from '@/components/content/product-shot';
 import Link from 'next/link';
@@ -89,6 +90,10 @@ export default function CamzifyVsVerkadaPage() {
           <p className="mt-4 max-w-2xl text-body text-muted-foreground">
             Both are cloud systems with AI detections, alerts and multi-site management, so the table concentrates on where they differ. Every Verkada statement comes from a Verkada page opened on 17 September 2026 and listed at the bottom. Where their pages did not describe something, the row says so.
           </p>
+
+          <div className="mt-10 max-w-3xl">
+            <PhotoFigure src="/compare-vs-verkada.webp" alt="The Camzify console on a laptop beside a wall of newly installed cameras, a neutral stand-in for a camera-and-cloud ecosystem" />
+          </div>
 
           <div className="mt-10 max-w-3xl">
             <ProductShot src="/product-patrol-sequence" alt="A patrol sequence in the Camzify console: ordered camera stops, the checklist at each stop and the schedule the round runs on" label="Patrol sequence" sizes="(max-width: 1024px) 100vw, 768px" />

@@ -3,6 +3,7 @@ import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { ComparisonTable } from '@/components/content/comparison-table';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { PointList } from '@/components/content/point-list';
 import { ProductShot } from '@/components/content/product-shot';
 import Link from 'next/link';
@@ -79,6 +80,10 @@ export default function CamzifyVsSpotAiPage() {
             <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</Link>{' '}
             runs a round on a schedule, checks a list at each camera, and files a timestamped report. The sections below say where each one wins.
           </p>
+
+          <div className="mt-10 max-w-3xl">
+            <PhotoFigure src="/compare-vs-spot-ai.webp" alt="The Camzify console on a laptop beside a chat-style AI assistant panel, a neutral stand-in for an always-on AI camera system" />
+          </div>
 
           <div className="mt-10 max-w-3xl">
             <ProductShot src="/product-live-streaming" alt="The live streaming wall in the Camzify console, cameras grouped by site with their online state" label="Live streaming" sizes="(max-width: 1024px) 100vw, 768px" />
