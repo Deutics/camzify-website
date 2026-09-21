@@ -15,6 +15,23 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        // Vercel serves the production build on its own *.vercel.app aliases as well as
+        // on the custom domain, and unlike preview deployments those aliases carry no
+        // noindex header. Search Console saw them as duplicates of every page. Send the
+        // production aliases to the canonical host; preview deployments keep their own
+        // hostnames (and their noindex) so a pull request can still be reviewed.
+        source: '/:path*',
+        has: [{ type: 'host', value: 'camzify-website-eight.vercel.app' }],
+        destination: 'https://camzify.com/:path*',
+        permanent: true,
+      },
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'camzify-website-talha3khan-5577s-projects.vercel.app' }],
+        destination: 'https://camzify.com/:path*',
+        permanent: true,
+      },
+      {
         // The roadmap "Behavioral Analytics" page was superseded by the shipping
         // Behavioral Anomaly Detection feature, which works differently enough to
         // warrant its own slug. Permanent so any existing link equity follows.
