@@ -281,7 +281,7 @@ export function SiteHeader() {
                       width: wide ? `min(${panelWidth}px, calc(100vw - 2rem))` : NARROW_PANEL_WIDTH,
                       left: menuShift,
                     }}
-                    className={`absolute top-full z-50 origin-top pt-2.5 transition-[opacity,transform,visibility] duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                    className={`absolute top-full z-50 origin-top pt-2.5 transition-[opacity,transform,visibility] duration-200 ease-out-expo ${
                       isOpen
                         ? 'visible translate-y-0 scale-100 opacity-100'
                         : 'invisible pointer-events-none -translate-y-1 scale-[0.98] opacity-0'

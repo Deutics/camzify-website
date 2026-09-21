@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { ArrowRight, Calculator, MousePointerClick } from 'lucide-react';
 import { PatrolSweepHero } from '@/components/motion/patrol-sweep-hero';
 import { HeroBgAnimation } from '@/components/motion/hero-bg-animation';
-import { motion } from 'framer-motion';
 
 /**
  * The hero.
@@ -29,11 +28,14 @@ export function HeroSection() {
       <div className="relative z-10 mx-auto max-w-site px-6">
         <div className="grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14">
           {/* Left: Copy */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          >
+          {/*
+            No entrance fade on the copy: this block holds the Largest Contentful Paint
+            element, and an opacity-0 start kept it invisible until JavaScript hydrated and
+            the animation ran, which PageSpeed measured as a two-second render delay. The
+            rise is a transform-only CSS animation, so the text paints at full opacity in
+            the server HTML and merely settles into place.
+          */}
+          <div className="motion-safe:animate-hero-copy-in">
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm">
               <span className="h-2 w-2 animate-pulse-dot rounded-full bg-live" />
               <span className="font-mono text-mono-sm text-primary uppercase">Cloud VMS with virtual patrolling</span>
@@ -83,16 +85,12 @@ export function HeroSection() {
                 Security agency, monitoring company or installer? <span className="font-semibold text-primary">See how partners sell it</span>
               </a>
             </p>
-          </motion.div>
+          </div>
 
-          {/* Right: Patrol Sweep Animation */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          >
+          {/* Right: Patrol Sweep Animation. Same rule: scale only, never opacity from zero. */}
+          <div className="motion-safe:animate-hero-panel-in">
             <PatrolSweepHero />
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

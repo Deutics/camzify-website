@@ -199,7 +199,17 @@ export function InteractiveChecklistDemo() {
               className="p-5"
             >
               <div className="relative mb-4 overflow-hidden rounded-lg border border-border">
-                <img src={currentCam.frame} alt={currentCam.frameAlt} width={480} height={270} className="w-full" />
+                <img
+                  src={currentCam.frame}
+                  srcSet={`${currentCam.frame.replace(/-640\.webp$/, '')}-320.webp 320w, ${currentCam.frame} 640w, ${currentCam.frame.replace(/-640\.webp$/, '')}-960.webp 960w`}
+                  sizes="(max-width: 768px) 100vw, 480px"
+                  loading="lazy"
+                  decoding="async"
+                  alt={currentCam.frameAlt}
+                  width={480}
+                  height={270}
+                  className="w-full"
+                />
                 <div className="pointer-events-none absolute inset-x-0 top-0 flex items-center justify-between p-2.5">
                   <span className="flex items-center gap-1.5 rounded bg-background/75 px-2 py-1 font-mono text-[10px] uppercase tracking-wider text-live backdrop-blur-sm">
                     <span className="h-1.5 w-1.5 rounded-full bg-live motion-safe:animate-pulse-dot" />
@@ -431,14 +441,14 @@ export function InteractiveChecklistDemo() {
 
                         <div className="mt-2 flex gap-2">
                           <figure className="relative w-28 shrink-0">
-                            <img src={cam.frame} alt={cam.frameAlt} width={112} height={64} className="h-[64px] w-full rounded-md border border-border object-cover" />
+                            <img src={cam.frame.replace(/-640\.webp$/, '-320.webp')} loading="lazy" decoding="async" alt={cam.frameAlt} width={112} height={64} className="h-[64px] w-full rounded-md border border-border object-cover" />
                             <figcaption className="mt-1 text-center font-mono text-[9px] uppercase tracking-wider text-muted-foreground">
                               {anyFixed ? 'Before' : 'Proof'}
                             </figcaption>
                           </figure>
                           {anyFixed && (
                             <figure className="relative w-28 shrink-0">
-                              <img src={cam.afterFrame} alt={cam.afterAlt} width={112} height={64} className="h-[64px] w-full rounded-md border border-border object-cover" />
+                              <img src={cam.afterFrame.replace(/-640\.webp$/, '-320.webp')} loading="lazy" decoding="async" alt={cam.afterAlt} width={112} height={64} className="h-[64px] w-full rounded-md border border-border object-cover" />
                               <figcaption className="mt-1 text-center font-mono text-[9px] uppercase tracking-wider text-muted-foreground">
                                 After · demo
                               </figcaption>

@@ -25,6 +25,7 @@ from PIL import Image
 
 WIDTHS = [640, 960, 1280, 1600]
 QUALITY = 82
+HERO_CAM_QUALITY = 72
 MIN_BYTES = 60 * 1024  # below this a variant ladder costs more in complexity than it saves
 
 def main():
@@ -71,7 +72,9 @@ def main():
         for w in widths:
             out = os.path.join(pub, f'{stem}-{w}.webp')
             resized = im if w == im.width else im.resize((w, round(im.height * w / im.width)), Image.LANCZOS)
-            resized.save(out, 'WEBP', quality=QUALITY, method=6)
+            # Hero camera tiles are busy CCTV frames shown small; a lighter quality is
+            # invisible at their display size and takes a fifth off the bytes.
+            resized.save(out, 'WEBP', quality=HERO_CAM_QUALITY if stem.startswith('hero-cam-') else QUALITY, method=6)
             after += os.path.getsize(out)
         converted.append((stem, im.width, im.height, widths))
 
