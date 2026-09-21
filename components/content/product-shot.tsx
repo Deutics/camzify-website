@@ -71,9 +71,9 @@ export function ProductShot({
       <SiteImage
         {...shared}
         src={`${base}-dark.jpg`}
-        // Empty alt on the duplicate: the light variant above already carries the
-        // description, and announcing the same image twice is noise for screen readers.
-        alt=""
+        // Same alt as the light variant above. This copy is display:none, so a screen
+        // reader never meets it twice; Bing Webmaster Tools flags an empty alt as missing.
+        alt={alt}
         aria-hidden="true"
         className="hidden w-full transition-transform duration-slow ease-out dark:block motion-safe:group-hover:scale-[1.015]"
       />

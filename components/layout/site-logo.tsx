@@ -43,7 +43,7 @@ export function SiteLogo({
       <SiteImage
         {...shared}
         src="/camzify-logo-dark.png"
-        alt=""
+        alt={siteConfig.name}
         aria-hidden="true"
         className={`hidden ${className} dark:block`}
       />
