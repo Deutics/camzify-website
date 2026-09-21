@@ -74,7 +74,7 @@ export function LogoMarquee({
           {/* Second pass: the thing that makes the loop seamless, and nothing a reader needs. */}
           {items.map((b) => (
             <li key={`${b.name}-loop`} aria-hidden="true" className="motion-reduce:hidden">
-              <Mark name="" logo={b.logo} />
+              <Mark name={b.name} logo={b.logo} />
             </li>
           ))}
         </ul>
