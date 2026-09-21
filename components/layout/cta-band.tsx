@@ -17,12 +17,6 @@ export function CTABand({
   secondaryHref?: string;
 }) {
   return (
-    {/*
-      The white button uses the surface shade of the brand red (--primary), not the
-      text shade (`text-primary` maps to --primary-text, which is lightened for dark
-      mode and only reaches 3:1 on white). The surface shade is the same in both themes
-      and gives 7:1 here.
-    */}
     <section className="bg-primary py-16 sm:py-20">
       <div className="mx-auto max-w-site px-6 text-center">
         <h2 className="font-display text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">
@@ -34,6 +28,8 @@ export function CTABand({
         <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <Link
             href={primaryHref}
+            // Surface shade of the brand red, not `text-primary` (--primary-text), which is
+            // lightened for dark mode and only reaches 3:1 on this white button. This holds 7:1.
             className="inline-flex items-center gap-2 rounded-lg bg-white px-8 py-3.5 font-semibold text-[hsl(var(--primary))] transition-all duration-fast hover:bg-white/90 hover:shadow-lg"
           >
             {primaryLabel}
