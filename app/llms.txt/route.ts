@@ -96,22 +96,32 @@ ${siteConfig.name} is operated by ${siteConfig.legalName}, headquartered in Sing
 - It does not claim zero false alarms
 - It does not publish customer counts, uptime percentages, or patrol-volume statistics that have not been independently verified
 
+## Company
+
+${siteConfig.name} is operated by ${siteConfig.legalName}, headquartered in Singapore, and has been serving customers for three years. This is the only operating figure the business publishes; see the section below for what it deliberately does not.
+
+## What ${siteConfig.name} does not claim
+
+- It does not replace all security guards at all facilities — it replaces the routine patrol round
+- It does not claim zero false alarms
+- It does not publish customer counts, uptime percentages, or patrol-volume statistics that have not been independently verified
+
 ## Key pages
 
-- Virtual patrolling overview: ${siteConfig.url}/virtual-patrolling
-- How it works: ${siteConfig.url}/virtual-patrolling/how-it-works
-- Virtual guard, the service model: ${siteConfig.url}/virtual-guard
-- Cloud video surveillance: ${siteConfig.url}/cloud-video-surveillance
-- AI features index: ${siteConfig.url}/ai-features
-- Platform overview: ${siteConfig.url}/platform
-- Pricing: ${siteConfig.url}/pricing
-- Glossary (two-sentence definitions of VMS, NVR, VSaaS, remote video monitoring, virtual guard and the rest): ${siteConfig.url}/glossary
-- ROI calculator: ${siteConfig.url}/roi-calculator
-- Buyer guides: ${siteConfig.url}/guides
-- Comparisons: ${siteConfig.url}/compare
-- Switching guides (Camzify as an ADT or Verkada alternative): ${siteConfig.url}/alternatives
-- Best cloud VMS, eight platforms compared from their own pages: ${siteConfig.url}/guides/best-cloud-vms
-- Book a demo: ${siteConfig.url}/book-a-demo
+- [Virtual patrolling](${siteConfig.url}/virtual-patrolling): scheduled AI patrol rounds on existing cameras, with a checklist per camera and a report per round
+- [How virtual patrolling works](${siteConfig.url}/virtual-patrolling/how-it-works): the round, the checks, the alert on failure and the compliance report
+- [Virtual guard](${siteConfig.url}/virtual-guard): the service model, for buyers comparing it with on-site guards
+- [Cloud video surveillance](${siteConfig.url}/cloud-video-surveillance): the category pillar: cloud recording, retention per camera, no recorder on site
+- [AI features](${siteConfig.url}/ai-features): the 23 detections, each on its own page
+- [Platform](${siteConfig.url}/platform): dashboard, live streaming, backup and retention, alerts, users and licensing
+- [Pricing](${siteConfig.url}/pricing): per instance per month, from $5 per camera per month, quote per site
+- [Glossary](${siteConfig.url}/glossary): two-sentence definitions of VMS, NVR, VSaaS, remote video monitoring, virtual guard and the rest
+- [ROI calculator](${siteConfig.url}/roi-calculator): the reader's own guarding cost against remote patrol coverage
+- [Buyer guides](${siteConfig.url}/guides): definitional and how-to guides, each with a named author and an updated date
+- [Comparisons](${siteConfig.url}/compare): Camzify against named vendors and against category alternatives, every vendor fact sourced
+- [Alternatives](${siteConfig.url}/alternatives): switching guides for buyers already on ADT or Verkada
+- [Best cloud VMS](${siteConfig.url}/guides/best-cloud-vms): eight platforms compared from their own pages, Camzify included with a disclosure
+- [Book a demo](${siteConfig.url}/book-a-demo): a demo on the reader's own cameras
 
 ## Company
 
@@ -120,7 +130,7 @@ ${siteConfig.name} is operated by ${siteConfig.legalName}, headquartered in Sing
 - **Headquarters:** ${formattedAddress}
 - **Phone:** ${siteConfig.phone}
 - **Email:** ${siteConfig.email}
-- **Website:** ${siteConfig.url}
+- **Website:** [${siteConfig.url}](${siteConfig.url})
 - **Profiles:** ${siteConfig.social.map((p) => `${p.label} ${p.href}`).join(' · ')}
 `;
 

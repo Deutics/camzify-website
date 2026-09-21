@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { SiteImage } from '@/components/content/site-image';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Eye, Camera, CheckCircle, HelpCircle } from 'lucide-react';
 
@@ -56,11 +57,12 @@ export function SceneObservation() {
         <p className="mt-1 text-sm font-medium">One snapshot per stop</p>
 
         <div className="relative mt-4 overflow-hidden rounded-lg border border-border">
-          <img
-            src="/scene-single-frame.jpg"
+          <SiteImage
+            src="/scene-single-frame"
             alt="Corridor camera showing a person mid-corridor"
             width={480}
             height={270}
+            sizes="(max-width: 768px) 100vw, 480px"
             className="w-full"
           />
           <span className="absolute right-2 top-2 rounded bg-background/80 px-2 py-1 font-mono text-[10px] uppercase tracking-wider text-muted-foreground backdrop-blur-sm">

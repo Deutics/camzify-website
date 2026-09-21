@@ -1,29 +1,23 @@
 export function HeroBgAnimation() {
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-      {/* Hidden SVG grade filter — subtle contrast/warmth pass, mirrors a video color-grade LUT */}
-      <svg className="absolute h-0 w-0 overflow-hidden">
-        <defs>
-          <filter id="heroGrade" colorInterpolationFilters="sRGB">
-            <feComponentTransfer>
-              <feFuncR type="gamma" amplitude="1" exponent="0.92" offset="0.01" />
-              <feFuncG type="gamma" amplitude="1" exponent="0.97" offset="0" />
-              <feFuncB type="gamma" amplitude="0.94" exponent="1.04" offset="0" />
-            </feComponentTransfer>
-          </filter>
-        </defs>
-      </svg>
-
-      {/* Plate 1: drifting security-grid texture, graded */}
-      <div
-        className="absolute inset-0 animate-hero-grid-pan opacity-[0.16]"
-        style={{
-          filter: 'url(#heroGrade)',
-          backgroundImage:
-            'linear-gradient(rgba(199,27,28,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(199,27,28,0.5) 1px, transparent 1px)',
-          backgroundSize: '48px 48px',
-        }}
-      />
+      {/*
+        Plate 1: drifting security-grid texture. The layer is oversized by two grid
+        cells and moved with a transform, so the browser composites it on the GPU
+        instead of repainting a background-position change sixty times a second. The
+        earlier version also ran an SVG color filter on this layer, which forced a full
+        re-rasterization on every frame and pushed the mobile Speed Index past 14s.
+      */}
+      <div className="absolute inset-0 overflow-hidden opacity-[0.16]">
+        <div
+          className="absolute -inset-24 animate-hero-grid-pan will-change-transform"
+          style={{
+            backgroundImage:
+              'linear-gradient(rgba(199,27,28,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(199,27,28,0.5) 1px, transparent 1px)',
+            backgroundSize: '48px 48px',
+          }}
+        />
+      </div>
 
       {/* Plate 2: soft additive glows, lifted lower-right — the "bg2" pass */}
       <div className="absolute inset-0 mix-blend-plus-lighter [mask-image:linear-gradient(180deg,transparent_0%,#000_55%)]">
