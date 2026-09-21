@@ -142,7 +142,7 @@ export function PlatformModules() {
               src={current.shot}
               alt={current.alt}
               label={`${current.title} · Camzify console`}
-              sizes="(max-width: 1024px) 100vw, 62vw"
+              sizes="(max-width: 1024px) 100vw, 620px"
             />
             <p className="mt-4 text-xs text-muted-foreground">
               Console screens shown with sample sites and cameras. Figures are interface
