@@ -160,8 +160,9 @@ Run these against the production URL after the first deploy:
       ```
 - [ ] Submit the contact form and confirm the email lands in the leads inbox (and, if `DATABASE_URL` is set, the row in `ContactSubmission`)
 - [ ] Submit Google Search Console verification and the sitemap
-- [ ] When the site leaves maintenance, remove the `<MaintenanceNotice />` mount from
+- [x] When the site leaves maintenance, remove the `<MaintenanceNotice />` mount from
       `app/layout.tsx` and redeploy; the component and its cookie-policy row stay
+      (done 2026-09-22)
 - [ ] Confirm `ZEPTOMAIL_TOKEN` and `ZEPTOMAIL_FROM_ADDRESS` are set on the production project, or every form returns an error
 
 `main` is production and `development` is the working branch; merge by pull request so
