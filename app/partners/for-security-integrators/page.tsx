@@ -22,6 +22,7 @@ const pageMeta = {
   title: "For CCTV & Alarm Installers | Monthly Service",
   description: "Attach virtual patrolling to camera systems you already install. RTSP, RTMP or HTTPS, a Connector for LAN cameras, nothing replaced, a clean hand-over.",
   path: "/partners/for-security-integrators",
+  hreflang: { 'de-DE': '/de/fuer-installateure', 'en-US': '/partners/for-security-integrators', 'x-default': '/partners/for-security-integrators' },
 };
 
 export const metadata = generatePageMeta({ ...pageMeta });
@@ -59,6 +60,11 @@ export default function ForSecurityIntegratorsPage() {
       { label: 'Partners', href: '/partners' },
       { label: 'For CCTV & Alarm Installers' },
     ]}>
+      <div className="mx-auto max-w-site px-6 text-right text-sm">
+        <Link href="/de/fuer-installateure" hrefLang="de-DE" className="text-muted-foreground hover:text-primary hover:underline">
+          Auf Deutsch
+        </Link>
+      </div>
       <FeatureHero
         eyebrow="CCTV and alarm installers · integrators"
         title="Camzify for CCTV and alarm installers"

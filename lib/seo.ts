@@ -231,6 +231,7 @@ export function articleSchema({
   datePublished,
   dateModified,
   image,
+  inLanguage = 'en',
 }: {
   headline: string;
   description: string;
@@ -238,6 +239,7 @@ export function articleSchema({
   datePublished: string;
   dateModified?: string;
   image?: string;
+  inLanguage?: string;
 }) {
   return {
     '@type': 'Article',
@@ -254,7 +256,7 @@ export function articleSchema({
     publisher: { '@id': ORG_ID },
     image: absoluteUrl(image ?? siteConfig.ogImage),
     isPartOf: { '@id': WEBSITE_ID },
-    inLanguage: 'en',
+    inLanguage,
   };
 }
 
@@ -336,10 +338,12 @@ export function webPageSchema({
   name,
   description,
   path,
+  inLanguage = 'en',
 }: {
   name: string;
   description: string;
   path: string;
+  inLanguage?: string;
 }) {
   return {
     '@type': 'WebPage',
@@ -349,7 +353,7 @@ export function webPageSchema({
     description,
     isPartOf: { '@id': WEBSITE_ID },
     about: { '@id': ORG_ID },
-    inLanguage: 'en',
+    inLanguage,
   };
 }
 

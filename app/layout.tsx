@@ -43,7 +43,10 @@ export const metadata: Metadata = {
     'CCTV analytics',
     'video management system',
   ],
-  alternates: { canonical: '/' },
+  // Only the homepage reaches this — every other route defines its own `alternates`
+  // via generatePageMeta(), which fully replaces this object for that route. The German
+  // pilot hub (/de) pairs with the homepage, so its hreflang lives here.
+  alternates: { canonical: '/', languages: { 'de-DE': '/de', 'en-US': '/', 'x-default': '/' } },
   // No `icons` key: app/icon.png and app/apple-icon.png are picked up by Next's file
   // convention and emit the tags automatically. Declaring icons here would override them.
   // No `images` key on purpose: app/opengraph-image.tsx and app/twitter-image.tsx are
