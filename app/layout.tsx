@@ -5,12 +5,14 @@ import { MaintenanceNotice } from '@/components/system/maintenance-notice';
 import { BackToTop } from '@/components/system/back-to-top';
 import { Toaster } from '@/components/ui/sonner';
 import { ChunkLoadErrorHandler } from '@/components/system/chunk-load-error-handler';
+import { AnalyticsConsent } from '@/components/system/analytics-consent';
 import { SiteHeader } from '@/components/layout/site-header';
 import { SiteFooter } from '@/components/layout/site-footer';
 import { ExitIntentModal } from '@/components/layout/exit-intent-modal';
 import { JsonLd } from '@/components/system/json-ld';
 import { siteConfig } from '@/lib/site-config';
 import { graph, organizationSchema, websiteSchema, softwareApplicationSchema } from '@/lib/seo';
+import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata, Viewport } from 'next';
 
@@ -44,7 +46,10 @@ export const metadata: Metadata = {
     'CCTV analytics',
     'video management system',
   ],
-  alternates: { canonical: '/' },
+  // Only the homepage reaches this — every other route defines its own `alternates`
+  // via generatePageMeta(), which fully replaces this object for that route. The German
+  // pilot hub (/de) pairs with the homepage, so its hreflang lives here.
+  alternates: { canonical: '/', languages: { 'de-DE': '/de', 'en-US': '/', 'x-default': '/' } },
   // No `icons` key: app/icon.png and app/apple-icon.png are picked up by Next's file
   // convention and emit the tags automatically. Declaring icons here would override them.
   // No `images` key on purpose: app/opengraph-image.tsx and app/twitter-image.tsx are
@@ -118,6 +123,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <ExitIntentModal />
           <Toaster />
           <ChunkLoadErrorHandler />
+          <AnalyticsConsent />
+          <Analytics />
           <SpeedInsights />
         </ThemeProvider>
       </body>

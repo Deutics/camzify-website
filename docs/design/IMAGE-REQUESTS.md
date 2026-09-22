@@ -14,36 +14,38 @@ guards comparison; the pricing hero (light and dark); trust; about; the author p
 and profile image (now the byline avatar); the RTSP, RTMP and HTTPS setup screens; and
 one hero render for each of the first 28 guides. All are staged and live on the pages.
 
-**Not used: the roadmap image.** It shows loitering detection as "in development", and
-that feature shipped on 16 September. Please redo it with the mobile apps as the only
-item, or with whatever is on the roadmap at the time.
+**Not used: the roadmap image.** It showed loitering detection as "in development", and
+that feature had already shipped. Redone in the next delivery below.
 
-## 1. Images still missing (checked 18 September 2026)
+## Delivered 21 September 2026
 
-Thirteen images are needed, plus the roadmap redo. Everything else on the site has its
-designed image. Numbering follows the usual rule: image 1 is the page hero.
+This zip was a full redesign pass, not just the gap-fill it also covered: nearly every
+photographic and rendered image on the site was replaced, including the homepage hero
+camera set, every AI feature and industry page, all 35 use-case heroes, the Platform
+hub's eleven module thumbnails, and the full Virtual Patrolling page set. On top of the
+redesign it closed every item this doc had been tracking as missing:
 
-| # | Page | Image | What to show |
-|---|---|---|---|
-| 1 | /roadmap | 1 | A redo of the delivered timeline without loitering detection (see above) |
-| 2 | /guides/what-is-vsaas | 1 | Guide hero in the style of the other 28: the console and the cameras it runs on, with a "service" framing |
-| 3 | /guides/hybrid-cloud-video-surveillance | 1 | Guide hero: a recorder on site beside the cloud, both recording the same cameras |
-| 4 | /guides/construction-site-security-checklist | 1 | Guide hero: a site gate at dusk with the checklist items ticked on a tablet |
-| 5 | /compare/camzify-vs-verkada | 1 | A "vs" pair in the style of the delivered comparison images: the Camzify console on the left, a neutral camera-and-cloud ecosystem on the right; no competitor logos or screenshots |
-| 6 | /compare/camzify-vs-rhombus | 1 | As above |
-| 7 | /compare/camzify-vs-solink | 1 | As above, with a restaurant or retail operations scene on the right |
-| 8 | /compare/camzify-vs-spot-ai | 1 | As above, with an AI assistant or chat-style scene on the right |
-| 9 | /compare/camzify-vs-coram-ai | 1 | As above, with an on-site appliance and recorder on the right |
-| 10 | /compare/camzify-vs-avigilon-alta | 1 | As above, with an integrator-installed enterprise system on the right |
-| 11 | /ai-features/loitering-detection | 2 | A sequence of frames from one camera in which a person stays in a drawn zone while the dwell timer counts up to the alert |
-| 12 | /ai-features/loitering-detection | 3 | The configuration panel with a loitering zone drawn and the dwell-time and notification-window controls |
-| 13 | /ai-features/loitering-detection | 4 | Scenes where it applies: a rear entrance after closing, an ATM lobby, a fence line with a parked vehicle |
+- The roadmap redo, now showing the mobile apps as the only roadmap item.
+- Guide heroes for `what-is-vsaas`, `hybrid-cloud-video-surveillance` and
+  `construction-site-security-checklist`, matching the style of the other 28.
+- "Vs" pairs for `camzify-vs-verkada`, `camzify-vs-rhombus`, `camzify-vs-solink`,
+  `camzify-vs-spot-ai`, `camzify-vs-coram-ai` and `camzify-vs-avigilon-alta`, plus two
+  more the team supplied beyond the ask: `ai-video-analytics-vs-motion-detection` and
+  `cloud-vms-vs-on-premise`, and hero art for the `/alternatives/adt` and
+  `/alternatives/verkada` switching pages.
+- Figures 2, 3 and 4 for `/ai-features/loitering-detection` (the dwell-timer sequence,
+  the configuration panel, and the applicable-scenes figure).
 
-Optional, only if the team has capacity: a hub visual for /glossary (the 30 term pages
-are text by design); a variant of the trust graphic for /security-and-compliance showing
-encryption in transit and at rest and the audit trail (the trust image can be reused as
-is); a visual of the four instance types (stream, detection, patrol, storage) for the
-pricing page; and a small visual for /book-a-demo and /contact, which can stay text-only.
+Everything tracked below is resolved. Nothing is currently outstanding except the
+optional, capacity-permitting items and the regional market pages.
+
+## 1. Optional, only if the team has capacity
+
+A hub visual for /glossary (the 30 term pages are text by design); a variant of the
+trust graphic for /security-and-compliance showing encryption in transit and at rest
+and the audit trail (the trust image can be reused as is); a visual of the four
+instance types (stream, detection, patrol, storage) for the pricing page; and a small
+visual for /book-a-demo and /contact, which can stay text-only.
 
 ## 2. Regional market pages (not yet built)
 

@@ -23,6 +23,7 @@ const pageMeta = {
   title: "Virtual Guard | AI Virtual Security Guard Software",
   description: "A virtual guard watches a site through its cameras, not from it: scheduled AI rounds, detections between rounds, a person notified, a report filed.",
   path: "/virtual-guard",
+  hreflang: { 'de-DE': '/de/virtueller-waechterrundgang', 'en-US': '/virtual-guard', 'x-default': '/virtual-guard' },
 };
 
 export const metadata = generatePageMeta({ ...pageMeta });
@@ -55,6 +56,11 @@ export default function VirtualGuardPage() {
       schema={[serviceSchema({ name: 'Virtual Guard', description: pageMeta.description, path: pageMeta.path })]}
       breadcrumbs={[{ label: 'Virtual Guard' }]}
     >
+      <div className="mx-auto max-w-site px-6 text-right text-sm">
+        <Link href="/de/virtueller-waechterrundgang" hrefLang="de-DE" className="text-muted-foreground hover:text-primary hover:underline">
+          Auf Deutsch
+        </Link>
+      </div>
       <FeatureHero
         eyebrow="Virtual guard"
         title="A virtual guard watches the site through its cameras"

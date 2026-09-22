@@ -24,6 +24,7 @@ export function PageShell({
   ctaProps,
   faqs,
   schema,
+  inLanguage,
 }: {
   path?: string;
   title?: string;
@@ -35,11 +36,13 @@ export function PageShell({
   faqs?: QA[];
   /** Extra schema.org nodes for this page, e.g. Service, Article, HowTo. */
   schema?: object[];
+  /** WebPage schema language, e.g. 'de'. Defaults to 'en' inside webPageSchema. */
+  inLanguage?: string;
 }) {
   const nodes: object[] = [];
 
   if (path && title) {
-    nodes.push(webPageSchema({ name: title, description: description ?? '', path }));
+    nodes.push(webPageSchema({ name: title, description: description ?? '', path, inLanguage }));
   }
   if (faqs?.length) {
     nodes.push(faqSchema(faqs, path));

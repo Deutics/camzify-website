@@ -190,13 +190,13 @@ Add a photo, run `python3 scripts/optimise-images.py`, use `<SiteImage>` with a 
 mapped list, `priority={i === 0}` — not on every card.
 
 **Where the photographs come from.** The business supplies the image set as a zip
-("Camzify Website Images", latest 2026-09-18, in the owner's Downloads). It is staged into
+("Camzify Website Images", latest 2026-09-21, in the owner's Downloads). It is staged into
 `public/` under slug names by section: `hero-cam-*` (twelve real camera frames: homepage
 hero, camera walls, demo), `scene-*`, `product-*-{dark,light}` (console screenshots),
 `feature-<slug>-{1..4}` (AI features), `ai-security-for-<slug>` (industry hero, the
 designer's image 1) and `industry-<slug>-{2,3,4}` (the three figures), one render per
 use case, `vp-*` (virtual patrolling pages, risk-detection camera frames, the virtual
-guard render), `partner-gate-{opened,closed}` (the before-and-after pair on the partner pages). The 2026-09-18 delivery added `guide-<slug>` (one hero render per guide), `compare-vs-*` (the comparison pairs), `configuration-{rtsp,rtmp,https}` (setup screenshots), `author-muhammad-talha` and `-profile` (the byline avatar), `about-camzify`, `trust-data-flow` and `product-pricing-plan-{light,dark}`. **The designer numbers a folder's images in page order, from the top:
+guard render), `partner-gate-{opened,closed}` (the before-and-after pair on the partner pages). The 2026-09-18 delivery added `guide-<slug>` (one hero render per guide), `compare-vs-*` (the comparison pairs), `configuration-{rtsp,rtmp,https}` (setup screenshots), `author-muhammad-talha` and `-profile` (the byline avatar), `about-camzify`, `trust-data-flow` and `product-pricing-plan-{light,dark}`. The 2026-09-21 delivery was a full redesign pass over nearly every photograph and render on the site under those same slug conventions, plus it closed every gap `docs/design/IMAGE-REQUESTS.md` was tracking: the roadmap redo, three more guide heroes, eight `compare-vs-*`/`alternatives-*` pairs, and loitering-detection figures 2–4. Check `docs/design/IMAGE-REQUESTS.md` for what, if anything, is still outstanding. **The designer numbers a folder's images in page order, from the top:
 image 1 is the hero, 2 is the first figure below it, and so on. Keep that order.**
 Photographs are JPEG sources at 1600px or below. Renders on a transparent background
 (device mock-ups with a drop shadow, rounded screenshots) keep their alpha: small ones
@@ -230,3 +230,10 @@ object, so never restate the name, role or credential anywhere else.
 - There is **no test suite**. The gates are `tsc`, the build, and the SSR lint.
 - `/api/newsletter` is posted to by the footer's `NewsletterForm`; the privacy and cookie
   policies describe it, so keep the three in step.
+- **The responsive image ladder has no rung between 1600px and a large source's own
+  width.** `scripts/optimise-images.py`'s `WIDTHS` list tops out at 1600; a source wider
+  than that (the 8000px industry figures) only gets one variant above it: its own full
+  width. A high-DPI desktop viewport's `srcset` selection can land on that full-size
+  variant instead of something closer to what the layout actually needs. Pre-existing,
+  not introduced by any one image delivery — widening the shared ladder is a site-wide
+  change and needs a deliberate decision, not a silent fix inside an unrelated task.

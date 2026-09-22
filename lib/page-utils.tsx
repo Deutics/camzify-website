@@ -18,6 +18,8 @@ export function generatePageMeta({
   publishedTime,
   modifiedTime,
   noIndex = false,
+  locale = siteConfig.locale,
+  hreflang,
 }: {
   title: string;
   description: string;
@@ -27,6 +29,14 @@ export function generatePageMeta({
   publishedTime?: string;
   modifiedTime?: string;
   noIndex?: boolean;
+  /** OpenGraph locale for this page, e.g. 'de_DE'. Defaults to the site's own locale. */
+  locale?: string;
+  /**
+   * hreflang alternates for a page with a translated counterpart, keyed by BCP-47 tag
+   * plus 'x-default', e.g. { 'de-DE': '/de/...', 'en-US': '/...', 'x-default': '/...' }.
+   * Omitted for every page with no translated sibling.
+   */
+  hreflang?: Record<string, string>;
 }): Metadata {
   const url = absoluteUrl(path);
   // The root app/opengraph-image.tsx card is only attached to the root segment's own
@@ -39,13 +49,18 @@ export function generatePageMeta({
   return {
     title,
     description,
-    alternates: { canonical: url },
+    alternates: {
+      canonical: url,
+      ...(hreflang
+        ? { languages: Object.fromEntries(Object.entries(hreflang).map(([lang, p]) => [lang, absoluteUrl(p)])) }
+        : {}),
+    },
     openGraph: {
       title,
       description,
       url,
       siteName: siteConfig.name,
-      locale: siteConfig.locale,
+      locale,
       type,
       images: [{ url: ogImage, width: 1200, height: 630, alt: title }],
       ...(publishedTime ? { publishedTime } : {}),

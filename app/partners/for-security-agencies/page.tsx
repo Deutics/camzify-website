@@ -16,6 +16,7 @@ const pageMeta = {
   title: "Remote Guarding Software for Security Companies",
   description: "Add virtual patrolling to a guarding offer: client sites covered overnight, a scoped login and reports per client, guards sent to verified events.",
   path: "/partners/for-security-agencies",
+  hreflang: { 'de-DE': '/de/fuer-sicherheitsdienste', 'en-US': '/partners/for-security-agencies', 'x-default': '/partners/for-security-agencies' },
 };
 
 export const metadata = generatePageMeta({ ...pageMeta });
@@ -55,6 +56,11 @@ export default function ForSecurityAgenciesPage() {
     ]}>
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
+          <div className="text-right text-sm">
+            <Link href="/de/fuer-sicherheitsdienste" hrefLang="de-DE" className="text-muted-foreground hover:text-primary hover:underline">
+              Auf Deutsch
+            </Link>
+          </div>
           <span className="font-mono text-mono-sm uppercase text-primary">Partner Program</span>
           <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Remote guarding software for security agencies</h1>
           <p className="mt-6 max-w-prose text-body text-muted-foreground">

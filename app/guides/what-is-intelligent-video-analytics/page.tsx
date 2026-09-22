@@ -20,6 +20,7 @@ const pageMeta = {
   title: "What Is Intelligent Video Analytics? | Guide",
   description: "Intelligent video analytics reads camera footage for objects and events and raises the ones that matter. What it detects, how it works, its limits.",
   path: "/guides/what-is-intelligent-video-analytics",
+  hreflang: { 'de-DE': '/de/ki-videoanalyse', 'en-US': '/guides/what-is-intelligent-video-analytics', 'x-default': '/guides/what-is-intelligent-video-analytics' },
 };
 
 const published = '2026-09-07';
@@ -56,6 +57,11 @@ export default function WhatIsIntelligentVideoAnalyticsPage() {
     >
       <article className="pb-16">
         <div className="mx-auto max-w-site px-6">
+          <div className="text-right text-sm">
+            <Link href="/de/ki-videoanalyse" hrefLang="de-DE" className="text-muted-foreground hover:text-primary hover:underline">
+              Auf Deutsch
+            </Link>
+          </div>
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">What is intelligent video analytics?</h1>
           <AuthorByline className="mt-6" />
           <div className="mt-10 max-w-3xl">

@@ -283,6 +283,21 @@ const company = group(
   'monthly'
 );
 
+// German-language pilot (docs/INTERNATIONAL-EXPANSION.md). Six pages, each with an
+// English counterpart declared via hreflang on both sides of the pair.
+const de = group(
+  [
+    '/de',
+    '/de/virtueller-waechterrundgang',
+    '/de/cloud-videomanagementsystem',
+    '/de/ki-videoanalyse',
+    '/de/fuer-sicherheitsdienste',
+    '/de/fuer-installateure',
+  ],
+  0.7,
+  'monthly'
+);
+
 const allEntries: Entry[] = [
   ...core,
   ...conversion,
@@ -301,6 +316,7 @@ const allEntries: Entry[] = [
   ...connectivity,
   ...partners,
   ...company,
+  ...de,
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
