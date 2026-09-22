@@ -5,6 +5,7 @@ import { MaintenanceNotice } from '@/components/system/maintenance-notice';
 import { BackToTop } from '@/components/system/back-to-top';
 import { Toaster } from '@/components/ui/sonner';
 import { ChunkLoadErrorHandler } from '@/components/system/chunk-load-error-handler';
+import { AnalyticsConsent } from '@/components/system/analytics-consent';
 import { SiteHeader } from '@/components/layout/site-header';
 import { SiteFooter } from '@/components/layout/site-footer';
 import { ExitIntentModal } from '@/components/layout/exit-intent-modal';
@@ -122,6 +123,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <ExitIntentModal />
           <Toaster />
           <ChunkLoadErrorHandler />
+          <AnalyticsConsent />
           <Analytics />
           <SpeedInsights />
         </ThemeProvider>

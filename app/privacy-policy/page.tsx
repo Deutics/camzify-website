@@ -8,12 +8,15 @@ import Link from 'next/link';
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
  * <head> tags, and by `PageShell` for the on-page structured data.
  *
- * Written from what the site actually does, checked in code on 2026-09-07: four forms
- * that email what a visitor types to the team (and store it once the database is connected), no analytics or advertising
- * scripts, a theme preference and two session flags in browser storage, and no
- * emails sent by the site. Company details come from lib/site-config.ts. This is a
- * draft for counsel to review before the site leaves maintenance; the review date
- * below is the date it was written, not the date it was approved.
+ * Written from what the site actually does, checked in code on 2026-09-22: four forms
+ * that email what a visitor types to the team (and store it once the database is
+ * connected); cookieless Vercel Web Analytics and Speed Insights, always on; Google
+ * Analytics and Microsoft Clarity, which only load once the cookie banner is accepted
+ * (components/system/analytics-consent.tsx); a theme preference and two session flags
+ * in browser storage; and no emails sent by the site beyond replies to a form.
+ * Company details come from lib/site-config.ts. This is a draft for counsel to review
+ * before the site leaves maintenance; the review date below is the date it was
+ * written, not the date it was approved.
  */
 const pageMeta = {
   title: "Privacy Policy",
@@ -23,11 +26,11 @@ const pageMeta = {
 
 export const metadata = generatePageMeta({ ...pageMeta });
 
-const UPDATED = '7 September 2026';
+const UPDATED = '22 September 2026';
 
 const faqs = [
   { question: 'Does this policy cover the Camzify product, or just the website?', answer: 'Just this website. Video, detections, patrol reports and account data in the Camzify console are processed under the customer agreement for that account, and the security and compliance page describes how that data is protected. This policy covers what happens when you read these pages or send us a form.' },
-  { question: 'Do you sell or share my details with advertisers?', answer: 'No. There are no advertising networks or analytics services on this site. What you send us is stored with our hosting and database providers so we can reply, and is not sold, rented or shared for marketing by anyone else.' },
+  { question: 'Do you sell or share my details with advertisers?', answer: 'No. There are no advertising networks on this site. Analytics tools measure how the site is used, not who you are: Vercel Web Analytics and Speed Insights are cookieless and cannot identify a visitor; Google Analytics and Microsoft Clarity only run if you accept the cookie banner, and the cookie policy lists exactly what each one sets. None of it is sold, rented or shared for marketing by anyone else.' },
   { question: 'How do I get my details deleted?', answer: 'Email us at the address on this page from the address you used, and say what you want removed. We will confirm when it is done. You can also ask what we hold about you and have it corrected.' },
   { question: 'Why did I receive an email from Camzify when I never filled in a form?', answer: 'Because we contact businesses that we believe would benefit from the product, using business contact details from public or licensed business sources, on the basis of legitimate interest. Every such email says who we are and how to stop further ones, and a single reply asking us to stop is enough.' },
 ];
@@ -71,7 +74,8 @@ export default function PrivacyPolicyPage() {
             <strong className="font-semibold text-foreground">What your browser sends.</strong> Like any website, ours is served by a hosting provider that records the technical details of each request, such as your IP address, browser type, the page requested and the time. We use those records to keep the site running and secure, not to profile you.
           </P>
           <P>
-            <strong className="font-semibold text-foreground">What we do not collect.</strong> There are no analytics services, advertising networks or tracking pixels on this site. We do not build profiles of visitors, and we do not know who you are unless you tell us.
+            <strong className="font-semibold text-foreground">Analytics.</strong> Vercel Web Analytics and Vercel Speed Insights measure page visits and load performance in aggregate; both are cookieless and cannot identify your browser across visits. If you accept the cookie banner shown on every page, Google Analytics and Microsoft Clarity also run: Google Analytics measures traffic and where visitors come from, and Microsoft Clarity records session playback and heatmaps of how pages are used. Neither runs until you accept, and the{' '}
+            <Link href="/cookie-policy" className="text-primary hover:underline">cookie policy</Link> lists exactly what each one sets. There are no advertising networks or tracking pixels on this site, and we do not build advertising profiles of visitors.
           </P>
 
           <H2>Why we use it, and on what basis</H2>
@@ -94,8 +98,8 @@ export default function PrivacyPolicyPage() {
 
           <H2>Cookies and browser storage</H2>
           <P>
-            This site sets no advertising or analytics cookies. It keeps a small amount of information in your browser to remember your light or dark theme choice and whether you have dismissed a notice during your visit. The{' '}
-            <Link href="/cookie-policy" className="text-primary hover:underline">cookie policy</Link> lists each item.
+            Beyond a theme preference and two session flags, the only cookies this site sets are the analytics ones described above, and only once you accept them. There are no advertising cookies. The{' '}
+            <Link href="/cookie-policy" className="text-primary hover:underline">cookie policy</Link> lists every item by name, what it does and how long it lasts, and explains how to change your choice.
           </P>
 
           <H2>Your rights</H2>
@@ -109,7 +113,7 @@ export default function PrivacyPolicyPage() {
 
           <H2>Changes</H2>
           <P>
-            If we change what the site collects, for example by adding an analytics service, we will update this policy first and change the date at the top. This version was written on {UPDATED} from the site as it was on that day.
+            This version reflects the addition of Vercel Web Analytics, Vercel Speed Insights, Google Analytics and Microsoft Clarity, described above. If we change what the site collects again, we will update this policy first and change the date at the top. This version was written on {UPDATED} from the site as it was on that day.
           </P>
 
           <H2>Contact</H2>
