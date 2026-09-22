@@ -71,8 +71,12 @@ than a separate download.
 for the term families that had none (virtual guard, cloud video surveillance,
 intelligent video analytics, remote video monitoring).
 
-**Phase 2 (decisions):** German pilot of the partner track; country pages for US, UK and Germany naming local terms (ARC, NSL,
-Werkschutz) and the compliance posture honestly.
+**Phase 2 (decisions):** German pilot of the partner track; country pages for US, UK and
+Germany naming local terms and the compliance posture honestly — UK: ARC, NSI, SSAIB,
+RVR/RVRC (not "NSL," a parking-enforcement company, not an industry term); Germany:
+Werkschutz, Fernüberwachung, Videomanagementsystem. Corrected 2026-09-22 against
+verified sources; see `docs/INTERNATIONAL-EXPANSION.md` for the full research, which
+also now covers Australia and Saudi Arabia.
 
 **Phase 3 (after first conversions):** further languages only if German moves; case
 studies only when a partner agrees to be named; a partner area only if partners ask.
