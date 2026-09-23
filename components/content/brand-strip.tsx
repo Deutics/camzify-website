@@ -41,15 +41,21 @@ function BrandMark({ brand }: { brand: CameraBrand }) {
 }
 
 export function BrandStrip({
+  brands: brandList = cameraBrands,
   limit,
   showNotes = false,
   className = '',
+  protocolClaim = 'ONVIF-conformant cameras interoperate with Camzify over RTSP',
 }: {
+  /** Defaults to the ONVIF/RTSP camera list; pass a different array (e.g. rtmpStreamingBrands) to render that instead. */
+  brands?: CameraBrand[];
   limit?: number;
   showNotes?: boolean;
   className?: string;
+  /** The interoperability fact the disclaimer states, since it differs by list — e.g. ONVIF/RTSP vs native RTMP push. */
+  protocolClaim?: string;
 }) {
-  const brands = limit ? cameraBrands.slice(0, limit) : cameraBrands;
+  const brands = limit ? brandList.slice(0, limit) : brandList;
 
   return (
     <div className={className}>
@@ -69,7 +75,7 @@ export function BrandStrip({
       </ul>
       <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
         Brand names and logos are trademarks of their respective owners. Listing a manufacturer
-        states that its ONVIF-conformant cameras interoperate with Camzify; it does not imply
+        states that its {protocolClaim}; it does not imply
         partnership, endorsement or certification by that manufacturer.
       </p>
     </div>
