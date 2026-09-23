@@ -3,6 +3,8 @@ import { PhotoFigure } from '@/components/content/photo-figure';
 import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
+import { BrandStrip } from '@/components/content/brand-strip';
+import { rtmpStreamingBrands } from '@/lib/camera-brands';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -78,6 +80,20 @@ export default function RtmpSetupPage() {
               </li>
             </ScrollReveal>
           </ol>
+
+          <div className="mt-16 max-w-3xl">
+            <h2 className="font-display text-2xl font-bold">Cameras that push RTMP directly</h2>
+            <p className="mt-3 text-muted-foreground">
+              Most IP cameras serve RTSP and need an encoder to push RTMP, which is why the RTSP route is simpler for an ordinary security camera. PTZ and live-streaming cameras built for platforms like YouTube Live and Twitch are the exception: native RTMP output is the point of the product, so they push straight to Camzify with no separate encoder.
+            </p>
+            <div className="mt-6">
+              <BrandStrip
+                brands={rtmpStreamingBrands}
+                showNotes
+                protocolClaim="cameras push RTMP directly to Camzify, with no separate encoder"
+              />
+            </div>
+          </div>
         </div>
       </section>
       <FaqSection items={faqs} />

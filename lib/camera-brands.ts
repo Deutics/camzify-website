@@ -64,4 +64,24 @@ export const cameraBrands: CameraBrand[] = [
   { name: 'Lorex', logo: null, note: 'RTSP on IP models' },
   { name: 'Milesight', logo: null, note: 'ONVIF conformant IP cameras' },
   { name: 'Tiandy', logo: null, note: 'ONVIF and RTSP on IP models' },
+  { name: 'Panasonic', logo: null, note: 'ONVIF Profile S on i-PRO IP ranges' },
+];
+
+/**
+ * PTZ and streaming cameras that push RTMP directly, no separate encoder needed.
+ *
+ * A different claim from the ONVIF/RTSP list above, and deliberately a separate array:
+ * ordinary IP cameras generally do not push RTMP on their own (see
+ * app/camera-connectivity/rtmp-setup, which is explicit that most sources need an
+ * encoder to convert an RTSP stream to a push). The brands here are conferencing and
+ * live-streaming PTZ cameras built for platforms like YouTube Live and Twitch, where
+ * native RTMP output is the point of the product, not an add-on. Same trademark rule
+ * as above: listing a manufacturer here states a protocol fact, not a partnership.
+ */
+export const rtmpStreamingBrands: CameraBrand[] = [
+  { name: 'PTZOptics', logo: null, note: 'PTZ cameras built for direct RTMP streaming' },
+  { name: 'Marshall Electronics', logo: null, note: 'PTZ cameras with built-in RTMP output' },
+  { name: 'Vaddio', logo: null, note: 'PTZ cameras with native RTMP streaming' },
+  { name: 'AVer', logo: null, note: 'PTZ conferencing cameras with RTMP on select models' },
+  { name: 'BirdDog', logo: null, note: 'NDI-first PTZ cameras with RTMP support' },
 ];
