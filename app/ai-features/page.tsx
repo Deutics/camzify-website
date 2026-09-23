@@ -24,29 +24,29 @@ const pageMeta = {
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const liveDetections = [
-  { icon: <Crosshair className="h-5 w-5" />, title: 'Line Intrusion Detection', desc: 'Virtual tripwire across any area with directional control. Fires on confirmed object tracks, not pixel motion.', href: '/ai-features/line-intrusion-detection' },
-  { icon: <Shield className="h-5 w-5" />, title: 'Zone Intrusion Detection', desc: 'Polygonal restricted zones. Any confirmed object track entering triggers an alert regardless of entry direction.', href: '/ai-features/zone-intrusion-detection' },
-  { icon: <ClockIcon className="h-5 w-5" />, title: 'Loitering Detection', desc: 'A person or vehicle that stays in a zone beyond a dwell time you set. Brief visits ignored, lingering subjects raised.', href: '/ai-features/loitering-detection' },
-  { icon: <Activity className="h-5 w-5" />, title: 'Motion Detection', desc: 'Background-subtraction detection that filters camera noise, lighting shifts, and environmental change.', href: '/ai-features/motion-detection' },
-  { icon: <Camera className="h-5 w-5" />, title: 'Camera Tampering Detection', desc: 'Five modes: sudden defocus, physical coverage, rapid scene change, abnormal brightness shift, frozen frames.', href: '/ai-features/camera-tampering-detection' },
-  { icon: <Users className="h-5 w-5" />, title: 'Multi-Object Tracking', desc: 'Persistent track identity per subject. Survives brief occlusions and re-entries with clean track histories.', href: '/ai-features/multi-object-tracking' },
-  { icon: <Brain className="h-5 w-5" />, title: 'AI Attribute Extraction', desc: 'A vision-language model reads the scene and attaches structured attributes, clothing, object type, behavior.', href: '/ai-features/ai-attribute-extraction' },
-  { icon: <UserSearch className="h-5 w-5" />, title: 'AI Suspect Search', desc: 'Describe a person in plain language and retrieve every matching appearance across indexed cameras and time windows.', href: '/ai-features/forensic-video-search' },
-  { icon: <Route className="h-5 w-5" />, title: 'Cross-Camera Journey Map', desc: 'One subject, one stitched timeline across every camera on-site, the full path, not isolated clips.', href: '/ai-features/cross-camera-journey-map' },
-  { icon: <DoorClosed className="h-5 w-5" />, title: 'Tailgating Detection', desc: 'One badge, one person. Flags a second person entering on a single access credential.', href: '/ai-features/tailgating-detection' },
-  { icon: <ShieldAlert className="h-5 w-5" />, title: 'Weapons Detection', desc: 'Visible weapons flagged the moment they enter frame, before a threat escalates.', href: '/ai-features/weapons-detection' },
-  { icon: <Swords className="h-5 w-5" />, title: 'Aggression & Fight Detection', desc: 'Physical altercations flagged the moment they start, not after someone reviews the footage.', href: '/ai-features/aggression-and-fight-detection' },
-  { icon: <Eye className="h-5 w-5" />, title: 'Behavioral Anomaly Detection', desc: 'Describe the behavior to watch for in plain language, fights, smoking, vandalism, trespassing, and it monitors for exactly that.', href: '/ai-features/behavioral-anomaly-detection' },
-  { icon: <HardHat className="h-5 w-5" />, title: 'PPE Violation Detection', desc: 'Missing helmets, vests, or gloves flagged automatically against your site’s required PPE policy.', href: '/ai-features/ppe-violation-detection' },
-  { icon: <Flame className="h-5 w-5" />, title: 'Fire & Smoke Detection', desc: 'Visual smoke and flame spotted directly from camera feeds, often before a heat sensor would trigger.', href: '/ai-features/fire-and-smoke-detection' },
-  { icon: <PersonStanding className="h-5 w-5" />, title: 'Slip & Fall Detection', desc: 'Falls detected in real time and routed to the nearest guard, before they become a liability claim.', href: '/ai-features/slip-and-fall-detection' },
-  { icon: <PackageX className="h-5 w-5" />, title: 'Abandoned Object Detection', desc: 'Unattended bags and packages flagged the moment they’re left behind and stay unclaimed.', href: '/ai-features/abandoned-object-detection' },
-  { icon: <Trash2 className="h-5 w-5" />, title: 'Littering Detection', desc: 'Items discarded outside designated bins caught the moment it happens, with a timestamped clip.', href: '/ai-features/littering-detection' },
-  { icon: <CircleParking className="h-5 w-5" />, title: 'Illegal Parking Detection', desc: 'Vehicles blocking fire lanes, loading zones, or reserved spots flagged instantly.', href: '/ai-features/illegal-parking-detection' },
-  { icon: <Navigation className="h-5 w-5" />, title: 'Wrong-Way Vehicle Detection', desc: 'Vehicles travelling against a defined direction of traffic alerted before a collision.', href: '/ai-features/wrong-way-vehicle-detection' },
-  { icon: <CarFront className="h-5 w-5" />, title: 'Vehicle Damage Report', desc: 'Dents and scratches on vehicles entering or leaving a site, timestamped and logged automatically.', href: '/ai-features/vehicle-damage-report' },
-  { icon: <Thermometer className="h-5 w-5" />, title: 'Heatmap Anomalies', desc: 'Foot traffic patterns mapped across a site and flagged when a pattern looks unusual.', href: '/ai-features/heatmap-anomalies' },
-  { icon: <TrendingUp className="h-5 w-5" />, title: 'Occupancy & Peak Hour Trends', desc: 'Busiest hours and zones identified automatically from live camera counts, not guesswork.', href: '/ai-features/occupancy-and-peak-hour-trends' },
+  { icon: <Crosshair className="h-5 w-5" />, title: 'Line Intrusion Detection', desc: 'Virtual tripwire across any area with directional control. Fires on confirmed object tracks, not pixel motion.', href: '/ai-features/line-intrusion-detection', typicalUse: 'Perimeter fence lines, restricted loading zones, one-way gates' },
+  { icon: <Shield className="h-5 w-5" />, title: 'Zone Intrusion Detection', desc: 'Polygonal restricted zones. Any confirmed object track entering triggers an alert regardless of entry direction.', href: '/ai-features/zone-intrusion-detection', typicalUse: 'Server rooms, electrical closets, hazardous storage areas' },
+  { icon: <ClockIcon className="h-5 w-5" />, title: 'Loitering Detection', desc: 'A person or vehicle that stays in a zone beyond a dwell time you set. Brief visits ignored, lingering subjects raised.', href: '/ai-features/loitering-detection', typicalUse: 'Rear entrances after closing, gates, ATM lobbies, stairwells' },
+  { icon: <Activity className="h-5 w-5" />, title: 'Motion Detection', desc: 'Background-subtraction detection that filters camera noise, lighting shifts, and environmental change.', href: '/ai-features/motion-detection', typicalUse: 'Driveways and loading zones during closed hours' },
+  { icon: <Camera className="h-5 w-5" />, title: 'Camera Tampering Detection', desc: 'Five modes: sudden defocus, physical coverage, rapid scene change, abnormal brightness shift, frozen frames.', href: '/ai-features/camera-tampering-detection', typicalUse: 'Any camera, continuously, so footage stays usable for review' },
+  { icon: <Users className="h-5 w-5" />, title: 'Multi-Object Tracking', desc: 'Persistent track identity per subject. Survives brief occlusions and re-entries with clean track histories.', href: '/ai-features/multi-object-tracking', typicalUse: 'The confirmed-track input every other detection rule runs on' },
+  { icon: <Brain className="h-5 w-5" />, title: 'AI Attribute Extraction', desc: 'A vision-language model reads the scene and attaches structured attributes, clothing, object type, behavior.', href: '/ai-features/ai-attribute-extraction', typicalUse: 'Tagging alerts and footage for search and reporting' },
+  { icon: <UserSearch className="h-5 w-5" />, title: 'AI Suspect Search', desc: 'Describe a person in plain language and retrieve every matching appearance across indexed cameras and time windows.', href: '/ai-features/forensic-video-search', typicalUse: 'Post-incident investigation across a site or multiple sites' },
+  { icon: <Route className="h-5 w-5" />, title: 'Cross-Camera Journey Map', desc: 'One subject, one stitched timeline across every camera on-site, the full path, not isolated clips.', href: '/ai-features/cross-camera-journey-map', typicalUse: 'Multi-camera sites needing one subject’s full path' },
+  { icon: <DoorClosed className="h-5 w-5" />, title: 'Tailgating Detection', desc: 'One badge, one person. Flags a second person entering on a single access credential.', href: '/ai-features/tailgating-detection', typicalUse: 'Single-entry access points behind a badge reader' },
+  { icon: <ShieldAlert className="h-5 w-5" />, title: 'Weapons Detection', desc: 'Visible weapons flagged the moment they enter frame, before a threat escalates.', href: '/ai-features/weapons-detection', typicalUse: 'Entrances, lobbies, public-facing areas' },
+  { icon: <Swords className="h-5 w-5" />, title: 'Aggression & Fight Detection', desc: 'Physical altercations flagged the moment they start, not after someone reviews the footage.', href: '/ai-features/aggression-and-fight-detection', typicalUse: 'Queues, entrances, and common areas' },
+  { icon: <Eye className="h-5 w-5" />, title: 'Behavioral Anomaly Detection', desc: 'Describe the behavior to watch for in plain language, fights, smoking, vandalism, trespassing, and it monitors for exactly that.', href: '/ai-features/behavioral-anomaly-detection', typicalUse: 'Any camera, for a custom behavior with no zones to draw' },
+  { icon: <HardHat className="h-5 w-5" />, title: 'PPE Violation Detection', desc: 'Missing helmets, vests, or gloves flagged automatically against your site’s required PPE policy.', href: '/ai-features/ppe-violation-detection', typicalUse: 'Active work floors and hazardous-material zones' },
+  { icon: <Flame className="h-5 w-5" />, title: 'Fire & Smoke Detection', desc: 'Visual smoke and flame spotted directly from camera feeds, often before a heat sensor would trigger.', href: '/ai-features/fire-and-smoke-detection', typicalUse: 'Storage, electrical rooms, and large open spaces' },
+  { icon: <PersonStanding className="h-5 w-5" />, title: 'Slip & Fall Detection', desc: 'Falls detected in real time and routed to the nearest guard, before they become a liability claim.', href: '/ai-features/slip-and-fall-detection', typicalUse: 'Aisles, entrances, and walkways during business hours' },
+  { icon: <PackageX className="h-5 w-5" />, title: 'Abandoned Object Detection', desc: 'Unattended bags and packages flagged the moment they’re left behind and stay unclaimed.', href: '/ai-features/abandoned-object-detection', typicalUse: 'Lobbies, entrances, and public waiting areas' },
+  { icon: <Trash2 className="h-5 w-5" />, title: 'Littering Detection', desc: 'Items discarded outside designated bins caught the moment it happens, with a timestamped clip.', href: '/ai-features/littering-detection', typicalUse: 'Monitored outdoor areas' },
+  { icon: <CircleParking className="h-5 w-5" />, title: 'Illegal Parking Detection', desc: 'Vehicles blocking fire lanes, loading zones, or reserved spots flagged instantly.', href: '/ai-features/illegal-parking-detection', typicalUse: 'Fire lanes, loading zones, reserved parking' },
+  { icon: <Navigation className="h-5 w-5" />, title: 'Wrong-Way Vehicle Detection', desc: 'Vehicles travelling against a defined direction of traffic alerted before a collision.', href: '/ai-features/wrong-way-vehicle-detection', typicalUse: 'Parking garage ramps, gated entry and exit lanes' },
+  { icon: <CarFront className="h-5 w-5" />, title: 'Vehicle Damage Report', desc: 'Dents and scratches on vehicles entering or leaving a site, timestamped and logged automatically.', href: '/ai-features/vehicle-damage-report', typicalUse: 'Vehicle entry and exit points' },
+  { icon: <Thermometer className="h-5 w-5" />, title: 'Heatmap Anomalies', desc: 'Foot traffic patterns mapped across a site and flagged when a pattern looks unusual.', href: '/ai-features/heatmap-anomalies', typicalUse: 'Site-wide foot-traffic pattern monitoring' },
+  { icon: <TrendingUp className="h-5 w-5" />, title: 'Occupancy & Peak Hour Trends', desc: 'Busiest hours and zones identified automatically from live camera counts, not guesswork.', href: '/ai-features/occupancy-and-peak-hour-trends', typicalUse: 'Site-wide occupancy and peak-hour reporting' },
 ];
 
 const faqs = [
@@ -76,6 +76,38 @@ export default function DetectionHubPage() {
                   <FeatureCard icon={d?.icon} title={d?.title ?? ''} description={d?.desc ?? ''} href={d?.href ?? '/'} image={{ src: `/feature-${(d?.href ?? '').split('/').pop()}-1.webp`, alt: `${d?.title ?? ''} in the console live view` }} />
                 </ScrollReveal>
               ))}
+            </div>
+          </div>
+
+          <div className="mt-16">
+            <h2 className="font-display text-2xl font-bold">Detection catalog</h2>
+            <p className="mt-3 max-w-2xl text-muted-foreground">
+              Every detection at a glance: what it is, where it&apos;s typically used, and how it&apos;s
+              licensed. Each is its own instance, so a camera carries only the detections it needs.
+            </p>
+            <div className="mt-6 overflow-x-auto rounded-xl border border-border">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-border bg-muted/50 text-left">
+                    <th className="px-4 py-3 font-semibold">Detection</th>
+                    <th className="px-4 py-3 font-semibold">What it does</th>
+                    <th className="px-4 py-3 font-semibold">Typical use</th>
+                    <th className="px-4 py-3 font-semibold">Licensing</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {liveDetections.map((d) => (
+                    <tr key={d.href} className="border-b border-border align-top last:border-0">
+                      <td className="px-4 py-3 font-medium">
+                        <Link href={d.href} className="text-primary hover:underline">{d.title}</Link>
+                      </td>
+                      <td className="px-4 py-3 text-muted-foreground">{d.desc}</td>
+                      <td className="px-4 py-3 text-muted-foreground">{d.typicalUse}</td>
+                      <td className="px-4 py-3 whitespace-nowrap text-muted-foreground">Licensed per camera</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
 
