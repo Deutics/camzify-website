@@ -20,18 +20,29 @@
  *   4. Brands with no artwork keep rendering as wordmarks, so a partial set is fine.
  *
  * ARTWORK PROVENANCE
- *   The eight marks below were retrieved from Wikimedia Commons through the Wikipedia
+ *   The first eight marks were retrieved from Wikimedia Commons through the Wikipedia
  *   API on 2026-09-03 and visually verified against each vendor's current branding
  *   before being committed. Commons hosts company logos under trademark notices; the
  *   use here is nominative — identifying whose cameras interoperate — and both
  *   placements carry a visible disclaimer saying exactly that.
  *
- *   The remaining brands have no logo file on Wikipedia and keep their wordmark. They
- *   were deliberately not scraped from vendor websites: those pages serve logos through
- *   JavaScript and sprite sheets, and what comes back is inconsistent, frequently
- *   outdated, and of unclear provenance. Several of these companies have rebranded
- *   (Hanwha Vision was Hanwha Techwin, and Wisenet before that), so a stale mark is a
- *   live risk. A clean wordmark beats a wrong logo.
+ *   A further eight marks (Bosch, Vivotek, Pelco, i-PRO, Reolink, Lorex, AVer, Marshall
+ *   Electronics) were added 2026-09-24, same standard: Commons first (Bosch, Vivotek,
+ *   Pelco, i-PRO, Reolink, Lorex), each fetched via the Wikipedia API and visually
+ *   checked against current branding; AVer and Marshall Electronics had no current
+ *   Commons file, so their marks came from each company's own official brand-assets
+ *   page instead (aver.com's logo guidelines page; marshall-usa.com's logos.php), not
+ *   scraped from a marketing homepage. Panasonic's security-camera business was spun
+ *   off in 2019 into an independent company, i-PRO Co., Ltd. — that is the current
+ *   brand, so the entry is named and marked as i-PRO, not Panasonic.
+ *
+ *   The remaining brands have no logo of confirmed current provenance and keep their
+ *   wordmark. They were deliberately not scraped from vendor marketing pages or
+ *   third-party logo-aggregator sites: those sources are inconsistent, frequently
+ *   outdated, and of unclear provenance. Several companies in this industry have
+ *   rebranded (Hanwha Vision was Hanwha Techwin, and Wisenet before that; Panasonic's
+ *   camera business is now i-PRO), so a stale mark is a live risk. A clean wordmark
+ *   beats a wrong logo.
  *
  * @see components/content/brand-strip.tsx for how a mark is rendered.
  */
@@ -52,19 +63,19 @@ export const cameraBrands: CameraBrand[] = [
   { name: 'Hikvision', logo: '/brands/hikvision.svg', note: 'ONVIF and RTSP on standard IP models' },
   { name: 'Dahua', logo: '/brands/dahua.svg', note: 'ONVIF and RTSP on standard IP models' },
   { name: 'Hanwha Vision', logo: '/brands/hanwha-vision.svg', note: 'Formerly Wisenet; ONVIF conformant' },
-  { name: 'Bosch', logo: null, note: 'ONVIF Profile S and T on IP ranges' },
+  { name: 'Bosch', logo: '/brands/bosch.svg', note: 'ONVIF Profile S and T on IP ranges' },
   { name: 'Uniview', logo: '/brands/uniview.png', note: 'ONVIF and RTSP on standard IP models' },
-  { name: 'Vivotek', logo: null, note: 'ONVIF conformant IP cameras' },
+  { name: 'Vivotek', logo: '/brands/vivotek.png', note: 'ONVIF conformant IP cameras' },
   { name: 'Honeywell', logo: '/brands/honeywell.svg', note: 'ONVIF on commercial IP ranges' },
-  { name: 'Pelco', logo: null, note: 'ONVIF Profile S on Sarix and later' },
-  { name: 'Reolink', logo: null, note: 'RTSP on most models; ONVIF on many' },
+  { name: 'Pelco', logo: '/brands/pelco.svg', note: 'ONVIF Profile S on Sarix and later' },
+  { name: 'Reolink', logo: '/brands/reolink.jpg', note: 'RTSP on most models; ONVIF on many' },
   { name: 'TP-Link VIGI', logo: '/brands/tp-link-vigi.svg', note: 'ONVIF and RTSP on the VIGI range' },
   { name: 'Ubiquiti', logo: '/brands/ubiquiti.svg', note: 'RTSP on UniFi Protect cameras' },
   { name: 'Amcrest', logo: null, note: 'ONVIF and RTSP on IP models' },
-  { name: 'Lorex', logo: null, note: 'RTSP on IP models' },
+  { name: 'Lorex', logo: '/brands/lorex.png', note: 'RTSP on IP models' },
   { name: 'Milesight', logo: null, note: 'ONVIF conformant IP cameras' },
   { name: 'Tiandy', logo: null, note: 'ONVIF and RTSP on IP models' },
-  { name: 'Panasonic', logo: null, note: 'ONVIF Profile S on i-PRO IP ranges' },
+  { name: 'i-PRO', logo: '/brands/i-pro.png', note: 'ONVIF Profile S on i-PRO IP ranges; formerly Panasonic Security' },
 ];
 
 /**
@@ -80,8 +91,8 @@ export const cameraBrands: CameraBrand[] = [
  */
 export const rtmpStreamingBrands: CameraBrand[] = [
   { name: 'PTZOptics', logo: null, note: 'PTZ cameras built for direct RTMP streaming' },
-  { name: 'Marshall Electronics', logo: null, note: 'PTZ cameras with built-in RTMP output' },
+  { name: 'Marshall Electronics', logo: '/brands/marshall-electronics.png', note: 'PTZ cameras with built-in RTMP output' },
   { name: 'Vaddio', logo: null, note: 'PTZ cameras with native RTMP streaming' },
-  { name: 'AVer', logo: null, note: 'PTZ conferencing cameras with RTMP on select models' },
+  { name: 'AVer', logo: '/brands/aver.png', note: 'PTZ conferencing cameras with RTMP on select models' },
   { name: 'BirdDog', logo: null, note: 'NDI-first PTZ cameras with RTMP support' },
 ];
