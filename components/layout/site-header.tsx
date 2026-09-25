@@ -169,8 +169,9 @@ function FeatureLink({ feature, compact = false }: { feature: NavFeature; compac
  *    full link set reaches the mobile crawler too. See the coverage rule in
  *    lib/site-config.ts: this header is the main internal-link path to the deep pages.
  *
- * The logo keeps a fixed gap from the nav (`ml-*` on the nav) instead of whatever
- * space `justify-between` leaves over, which is what used to squeeze it on laptops.
+ * Layout is a three-column grid with the nav centered. The logo's distance from the
+ * nav is then fixed by the grid, not by whatever space `justify-between` leaves over,
+ * which is what used to squeeze it on laptops.
  */
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
@@ -237,7 +238,12 @@ export function SiteHeader() {
     return () => document.removeEventListener('keydown', onKeyDown);
   }, [activeMenu, closeAll]);
 
-  /** Open a menu; its panel is shifted left just enough to stay inside the viewport. */
+  /**
+   * Open a menu. The nav is centered, so its panel is centered on the viewport too
+   * (clamped to a 16px margin) rather than hanging off its trigger, which left wide
+   * panels hugging the right edge. The pointer arrow compensates and stays under the
+   * trigger.
+   */
   const openMenu = useCallback((menu: NavMenu) => {
     cancelClose();
     setActiveMenu(menu.label);
@@ -246,8 +252,8 @@ export function SiteHeader() {
     const margin = 16;
     const width = Math.min(panelWidthFor(menu), window.innerWidth - margin * 2);
     const rect = el.getBoundingClientRect();
-    const overflow = rect.left + width - (window.innerWidth - margin);
-    setMenuShift(overflow > 0 ? -Math.min(overflow, rect.left - margin) : 0);
+    const centeredLeft = Math.max(margin, Math.min((window.innerWidth - width) / 2, window.innerWidth - margin - width));
+    setMenuShift(Math.round(centeredLeft - rect.left));
   }, [cancelClose]);
 
   /** Close the group when focus moves entirely outside it. */
@@ -269,17 +275,23 @@ export function SiteHeader() {
         scrolled ? 'bg-background/90 shadow-md backdrop-blur-xl py-2' : 'bg-transparent py-4'
       }`}
     >
-      <div className="mx-auto flex max-w-site items-center px-4 xl:px-6">
+      {/*
+        Three columns, 1fr | auto | 1fr, so the nav sits at the true center of the bar
+        whatever the widths of the logo and the actions. Each child is pinned to its
+        column: on small screens the nav is display:none, and without explicit
+        placement the actions would fall into the middle column.
+      */}
+      <div className="mx-auto grid max-w-site grid-cols-[1fr_auto_1fr] items-center px-4 xl:px-6">
         <Link
           href="/"
-          className="flex flex-shrink-0 items-center rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          className="col-start-1 flex flex-shrink-0 items-center justify-self-start rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           aria-label={`${siteConfig.name} home`}
         >
           <SiteLogo className="h-8 w-auto" priority />
         </Link>
 
         {/* Desktop nav */}
-        <nav className="ml-8 hidden items-center gap-1 lg:flex xl:ml-12" aria-label="Main">
+        <nav className="col-start-2 hidden items-center gap-1 lg:flex" aria-label="Main">
           {navItems.map((entry) => {
             if (!isNavMenu(entry)) {
               return (
@@ -376,7 +388,7 @@ export function SiteHeader() {
         </nav>
 
         {/* Right actions */}
-        <div className="ml-auto flex flex-shrink-0 items-center gap-2">
+        <div className="col-start-3 flex flex-shrink-0 items-center gap-2 justify-self-end">
           {/* On phones the theme toggle moves into the menu, so the bar keeps room for the demo button. */}
           <div className="hidden sm:block">
             <ThemeToggle />
