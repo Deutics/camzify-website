@@ -11,14 +11,9 @@ const pageMeta = {
   title: 'KI-Videoanalyse auf vorhandenen Kameras',
   description: 'KI-Videoanalyse erkennt Ereignisse auf den Kamerabildern selbst, statt nur aufzuzeichnen: Perimeterschutz, Sabotage, Personen- und Fahrzeugerkennung und mehr.',
   path: '/de/ki-videoanalyse',
-  hreflang: {
-    'de-DE': '/de/ki-videoanalyse',
-    'en-US': '/guides/what-is-intelligent-video-analytics',
-    'x-default': '/guides/what-is-intelligent-video-analytics',
-  },
 };
 
-export const metadata = generatePageMeta({ ...pageMeta, locale: 'de_DE' });
+export const metadata = generatePageMeta(pageMeta);
 
 const faqs = [
   {
@@ -27,7 +22,7 @@ const faqs = [
   },
   {
     question: 'Läuft die Analyse auf jeder Kamera automatisch?',
-    answer: 'Nein — jede KI-Funktion wird pro Kamera einzeln aktiviert und ist eine eigene Instanz in der Abrechnung. Eine Kamera kann mehrere Funktionen gleichzeitig haben, etwa Perimeterschutz und Sabotageerkennung.',
+    answer: 'Nein – jede KI-Funktion wird pro Kamera einzeln aktiviert und ist eine eigene Instanz in der Abrechnung. Eine Kamera kann mehrere Funktionen gleichzeitig haben, etwa Perimeterschutz und Sabotageerkennung.',
   },
   {
     question: 'Wie unterscheidet sich das vom virtuellen Wächterrundgang?',
@@ -35,7 +30,7 @@ const faqs = [
   },
   {
     question: 'Wird bei jeder Meldung ein Alarm ausgelöst?',
-    answer: 'Nur innerhalb des eingestellten Meldefensters. Eine Zone kann rund um die Uhr erkennen, aber nur außerhalb der Geschäftszeiten tatsächlich eine Meldung auslösen — das Fenster wird pro Kamera und pro Detektionsart festgelegt.',
+    answer: 'Nur innerhalb des eingestellten Meldefensters. Eine Zone kann rund um die Uhr erkennen, aber nur außerhalb der Geschäftszeiten tatsächlich eine Meldung auslösen – das Fenster wird pro Kamera und pro Detektionsart festgelegt.',
   },
 ];
 
@@ -44,9 +39,8 @@ export default function KiVideoanalysePage() {
     <PageShell
       {...pageMeta}
       faqs={faqs}
-      inLanguage="de"
-      schema={[serviceSchema({ name: 'KI-Videoanalyse', description: pageMeta.description, path: pageMeta.path })]}
-      breadcrumbs={[{ label: 'Deutsch', href: '/de' }, { label: 'KI-Videoanalyse' }]}
+            schema={[serviceSchema({ name: 'KI-Videoanalyse', description: pageMeta.description, path: pageMeta.path })]}
+      breadcrumbs={[{ label: 'KI-Videoanalyse' }]}
     >
       <section className="pb-16 pt-4">
         <div className="mx-auto max-w-site px-6">
@@ -75,11 +69,11 @@ export default function KiVideoanalysePage() {
               <span className="font-mono text-mono-sm uppercase text-primary">Meldung, nicht Dauerbeschuss</span>
               <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">Ein Meldefenster je Detektion</h2>
               <p className="mt-5 max-w-prose text-body text-muted-foreground">
-                Eine Zone kann rund um die Uhr erkennen, aber nur in dem Zeitfenster tatsächlich eine Meldung auslösen, das für sie eingestellt ist — eine Laderampe meldet nachts, bleibt tagsüber während des Betriebs still. Die Meldung geht mit dem zugehörigen Bild an die Person, die für diese Kamera festgelegt ist.
+                Eine Zone kann rund um die Uhr erkennen, aber nur in dem Zeitfenster tatsächlich eine Meldung auslösen, das für sie eingestellt ist – eine Laderampe meldet nachts, bleibt tagsüber während des Betriebs still. Die Meldung geht mit dem zugehörigen Bild an die Person, die für diese Kamera festgelegt ist.
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
-              <SectionVisual
+              <SectionVisual locale="de"
                 variant="flow"
                 steps={['Ereignis auf der Kamera', 'Prüfung gegen Zeitfenster', 'Meldung mit Bild', 'Person entscheidet']}
                 caption="Ablauf einer KI-Detektion vom Ereignis bis zur Meldung."

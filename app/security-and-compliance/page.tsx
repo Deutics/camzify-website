@@ -82,8 +82,9 @@ export default function SecurityCompliancePage() {
                 ))}
               </ul>
               <p className="mt-6 text-sm text-muted-foreground">
-                Target dates are not published because we will not commit to a date we cannot
-                guarantee. If your procurement process needs current status in writing,{' '}
+                Beyond the end-of-2026 target for all four, no per-framework dates are published,
+                because we will not commit to a date we cannot guarantee. If your procurement
+                process needs current status in writing,{' '}
                 <Link href="/contact" className="text-primary hover:underline">contact us</Link> and
                 we will tell you exactly where each item stands.
               </p>

@@ -14,7 +14,7 @@ import Link from 'next/link';
  */
 const pageMeta = {
   title: "PPE Violation Detection | Hats, Vests, Gloves",
-  description: "Camzify PPE violation detection automatically flags missing helmets, vests, or gloves against your site\\'s required safety gear policy.",
+  description: "Camzify PPE violation detection automatically flags missing helmets, vests, or gloves against your site's required safety gear policy.",
   path: "/ai-features/ppe-violation-detection",
 };
 

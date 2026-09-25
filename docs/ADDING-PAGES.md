@@ -310,6 +310,14 @@ sets; adding one means editing that table first.
 
 ---
 
+### German page — `/de/<slug>`
+
+A German page is a translation of an English one, never a page of its own. Declare the
+pair in `lib/i18n.ts`, write the page to the rules in [`I18N.md`](I18N.md), and stamp it
+with `python3 scripts/check-translations.py --stamp /de/<slug>`. hreflang and the sitemap
+entry follow from the registry; the German header and footer are hand-kept lists in
+`navItemsDe` and `site-footer.tsx`, so add the page there too.
+
 ## Content rules that decide whether the page ranks
 
 These are the ones that matter most. Full reasoning in [`SEO-GEO.md`](SEO-GEO.md).

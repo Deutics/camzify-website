@@ -14,7 +14,7 @@ import Link from 'next/link';
  */
 const pageMeta = {
   title: "Abandoned Object Detection | Unattended Bags",
-  description: "Camzify abandoned object detection flags unattended bags and packages the moment they\\'re left behind and remain unclaimed.",
+  description: "Camzify abandoned object detection flags unattended bags and packages the moment they're left behind and remain unclaimed.",
   path: "/ai-features/abandoned-object-detection",
 };
 

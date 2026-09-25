@@ -19,7 +19,6 @@ import { HomepageFaq, homepageFaqs } from './_components/homepage-faq';
 import { CTABand } from '@/components/layout/cta-band';
 import { JsonLd } from '@/components/system/json-ld';
 import { graph, webPageSchema, faqSchema } from '@/lib/seo';
-import Link from 'next/link';
 
 /**
  * Homepage.
@@ -49,12 +48,6 @@ export default function HomePage() {
   return (
     <>
       <JsonLd data={pageGraph} />
-      {/* Positioned just below the fixed header (about 68px tall at the top of the page) and above the hero's eyebrow pill; in normal flow it sat underneath the header. */}
-      <div className="relative mx-auto max-w-site">
-        <Link href="/de" hrefLang="de-DE" className="absolute right-6 top-[72px] z-10 text-sm text-muted-foreground hover:text-primary hover:underline">
-          Auf Deutsch
-        </Link>
-      </div>
       <HeroSection />
       <TrustBand />
       {/* Real customers, supplied by the business. Renders nothing while the list is empty. */}

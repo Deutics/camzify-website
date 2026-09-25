@@ -1,14 +1,19 @@
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import type { Locale } from '@/lib/i18n';
+import { t } from '@/lib/ui-strings';
 
 export function CTABand({
-  title = 'Ready to patrol your site 24/7?',
-  description = 'Book a 15-minute demo and see a live patrol run on your own cameras.',
-  primaryLabel = 'Book a Demo',
+  locale = 'en',
+  title = t(locale).cta.title,
+  description = t(locale).cta.description,
+  primaryLabel = t(locale).cta.primaryLabel,
   primaryHref = '/book-a-demo',
-  secondaryLabel = 'Calculate Your Savings',
+  secondaryLabel = t(locale).cta.secondaryLabel,
   secondaryHref = '/roi-calculator',
 }: {
+  /** Chooses the default copy. Links stay on the English demo and calculator pages, which have no German version. */
+  locale?: Locale;
   title?: string;
   description?: string;
   primaryLabel?: string;

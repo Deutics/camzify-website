@@ -141,8 +141,9 @@ export function absoluteUrl(path = '/'): string {
 
 
 /*
- * Primary navigation: four top-level entries. Product, Solutions and Resources open a
- * mega-menu; Pricing is a plain link.
+ * Primary navigation: five top-level entries. Product, Solutions, Industries and
+ * Resources open a mega-menu; Pricing is a plain link. German pages use `navItemsDe`
+ * below instead, which links only pages that exist in German.
  *
  * A menu is a row of columns. A column's `href` makes its heading a real link (the hub
  * page, e.g. /virtual-patrolling), which keeps those hubs linked from every page with
@@ -151,7 +152,7 @@ export function absoluteUrl(path = '/'): string {
  *
  * COVERAGE RULE. The header is the site's main internal-link path from the homepage to
  * the deep pages: 36 referring domains, all to the homepage, per
- * docs/seo/AUDIT-2026-09-18.md. Every page linked here before the four-menu redesign is
+ * docs/seo/AUDIT-2026-09-18.md. Every page linked here before the mega-menu redesign is
  * still linked here. Removing an entry means that page loses a link from every page on
  * the site, so do it deliberately, never to tidy a column.
  */
@@ -277,6 +278,13 @@ export const navItems: NavEntry[] = [
           ] },
         ],
       },
+    ],
+    feature: { label: 'ROI calculator', href: '/roi-calculator', description: 'Your guard cost, or your partner revenue', icon: 'calculator' },
+  },
+  {
+    label: 'Industries',
+    href: '/industries',
+    columns: [
       {
         label: 'By Industry',
         href: '/industries',
@@ -335,7 +343,6 @@ export const navItems: NavEntry[] = [
         more: { label: 'All 35 use cases', href: '/use-cases' },
       },
     ],
-    feature: { label: 'ROI calculator', href: '/roi-calculator', description: 'Your guard cost, or your partner revenue', icon: 'calculator' },
   },
   { label: 'Pricing', href: '/pricing' },
   {
@@ -362,3 +369,165 @@ export const navItems: NavEntry[] = [
     feature: { label: 'Roadmap', href: '/roadmap', description: 'What we are building next', icon: 'roadmap' },
   },
 ];
+
+/*
+ * Navigation on German pages. Only pages that exist in German are linked (see the
+ * registry in lib/i18n.ts), so a German reader is never dropped onto an English page
+ * from the header without knowing it; the language menu in the top bar is the way back
+ * to the English site.
+ */
+export const navItemsDe: NavEntry[] = [
+  {
+    label: 'Produkt',
+    href: '/de/plattform',
+    columns: [
+      {
+        label: 'KI-Wächterrundgang',
+        href: '/de/ki-waechterrundgang',
+        sections: [
+          { label: 'So läuft ein Rundgang', items: [
+            { label: 'So funktioniert es', href: '/de/ki-waechterrundgang/so-funktioniert-es' },
+            { label: 'Checklisten', href: '/de/ki-waechterrundgang/checklisten' },
+            { label: 'Automatische Planung', href: '/de/ki-waechterrundgang/automatische-planung' },
+          ] },
+          { label: 'Was ein Rundgang liefert', items: [
+            { label: 'Kontrollprotokolle', href: '/de/ki-waechterrundgang/kontrollprotokolle' },
+            { label: 'Benachrichtigungen', href: '/de/ki-waechterrundgang/benachrichtigungen' },
+            { label: 'Risikoerkennung', href: '/de/ki-waechterrundgang/risikoerkennung' },
+            { label: 'Digitales Wachbuch', href: '/de/ki-waechterrundgang/digitales-wachbuch' },
+          ] },
+          { label: 'Im Vergleich', items: [
+            { label: 'Vergleich mit Wachpersonal', href: '/de/ki-waechterrundgang/vergleich-wachpersonal' },
+            { label: 'Virtueller Wächterrundgang', href: '/de/virtueller-waechterrundgang' },
+          ] },
+        ],
+      },
+      {
+        label: 'Plattform',
+        href: '/de/plattform',
+        sections: [
+          { label: 'Video', items: [
+            { label: 'Cloud-Videomanagementsystem', href: '/de/cloud-videomanagementsystem' },
+            { label: 'Live-Streaming', href: '/de/plattform/live-streaming' },
+            { label: 'Videospeicherung', href: '/de/plattform/videospeicherung' },
+          ] },
+          { label: 'Betrieb', items: [
+            { label: 'Alarme und Benachrichtigungen', href: '/de/plattform/alarme-und-benachrichtigungen' },
+            { label: 'Benutzerverwaltung', href: '/de/plattform/benutzerverwaltung' },
+            { label: 'Mehrere Standorte', href: '/de/plattform/mehrere-standorte' },
+          ] },
+        ],
+      },
+      {
+        label: 'KI-Funktionen',
+        href: '/de/ki-funktionen',
+        sections: [
+          { label: 'Erkennungen', items: [
+            { label: 'Bereichsüberwachung', href: '/de/ki-funktionen/bereichsueberwachung' },
+            { label: 'Linienüberschreitung', href: '/de/ki-funktionen/linienueberschreitung' },
+            { label: 'Verweilerkennung', href: '/de/ki-funktionen/verweilerkennung' },
+            { label: 'Feuer- und Raucherkennung', href: '/de/ki-funktionen/feuer-und-rauch-erkennung' },
+            { label: 'PSA-Erkennung', href: '/de/ki-funktionen/psa-erkennung' },
+            { label: 'Kamerasabotage', href: '/de/ki-funktionen/sabotageerkennung' },
+          ] },
+          { label: 'Grundlagen', items: [
+            { label: 'KI-Videoanalyse', href: '/de/ki-videoanalyse' },
+          ] },
+        ],
+        more: { label: 'Alle 23 Erkennungen', href: '/de/ki-funktionen' },
+      },
+    ],
+  },
+  {
+    label: 'Lösungen',
+    href: '/de/partner',
+    columns: [
+      {
+        label: 'Nach Rolle',
+        href: '/de/partner',
+        sections: [
+          { items: [
+            { label: 'Sicherheitsdienste', href: '/de/fuer-sicherheitsdienste', description: 'Nachtabdeckung, die sich nicht besetzen lässt' },
+            { label: 'Leitstellen', href: '/de/fuer-leitstellen', description: 'Rundgänge für die Sicherheitsdienste, die Sie betreuen' },
+            { label: 'Errichter und Installateure', href: '/de/fuer-installateure', description: 'Ein Monatsdienst auf den Kameras, die Sie verbauen' },
+            { label: 'Managed Service Provider', href: '/de/fuer-managed-service-provider', description: 'Ein Konto, ein Zugang pro Kunde' },
+          ] },
+          { label: 'Partner', items: [
+            { label: 'Reseller werden', href: '/de/reseller-werden' },
+          ] },
+        ],
+      },
+      {
+        label: 'Nach Branche',
+        href: '/de/branchen',
+        sections: [
+          { items: [
+            { label: 'Industrie und Produktion', href: '/de/branchen/industrie-und-produktion' },
+            { label: 'Lager und Logistik', href: '/de/branchen/lager-und-logistik' },
+            { label: 'Baustellen', href: '/de/branchen/baustellen' },
+          ] },
+        ],
+        more: { label: 'Alle Branchen', href: '/de/branchen' },
+      },
+    ],
+  },
+  { label: 'Preise', href: '/de/preise' },
+  {
+    label: 'Ressourcen',
+    href: '/de/unterstuetzte-kameras',
+    mobileFlat: true,
+    columns: [
+      { label: 'Einrichten', sections: [{ items: [
+        { label: 'Unterstützte Kameras', href: '/de/unterstuetzte-kameras' },
+        { label: 'Camzify Connector', href: '/de/camzify-connector' },
+      ] }] },
+      { label: 'Vertrauen', sections: [{ items: [
+        { label: 'Sicherheit und Datenschutz', href: '/de/sicherheit-und-datenschutz' },
+        { label: 'KI-Videoanalyse erklärt', href: '/de/ki-videoanalyse' },
+      ] }] },
+    ],
+  },
+];
+
+/*
+ * The announcement in the header's top bar, per language. Set a locale to null to show
+ * none. `id` is what a visitor's dismissal is remembered against, so give a new
+ * announcement a new id or it will stay hidden for everyone who closed the last one.
+ * `until` (optional, YYYY-MM-DD) hides it after that day; the check runs in the
+ * browser after hydration, so no rebuild is needed when it lapses.
+ *
+ * Only put facts here the business has confirmed (CLAUDE.md rule 2): an offer needs its
+ * real terms and end date before it goes in.
+ */
+export type Announcement = {
+  id: string;
+  tag: string;
+  text: string;
+  /** Shorter wording for phones, where the full line would be cut off. */
+  shortText?: string;
+  linkLabel: string;
+  href: string;
+  /** Set when the link goes to a page in another language. */
+  hrefLang?: string;
+  until?: string;
+};
+
+export const announcements: Record<'en' | 'de', Announcement | null> = {
+  en: {
+    id: 'german-launch-2026-09',
+    tag: 'New',
+    text: 'Camzify is now available in German',
+    shortText: 'Now in German',
+    linkLabel: 'Auf Deutsch',
+    href: '/de',
+    hrefLang: 'de-DE',
+  },
+  de: {
+    id: 'german-launch-2026-09-de',
+    tag: 'Neu',
+    text: 'Camzify gibt es jetzt auf Deutsch',
+    shortText: 'Jetzt auf Deutsch',
+    linkLabel: 'Zur Übersicht',
+    href: '/de',
+  },
+};

@@ -10,14 +10,9 @@ const pageMeta = {
   title: 'Cloud-VMS für CCTV- und Alarmanlagen-Installateure',
   description: 'Verkaufen Sie ein monatlich abgerechnetes Cloud-Videomanagementsystem auf bereits verbauten Kameras, statt nur einmalig zu installieren.',
   path: '/de/fuer-installateure',
-  hreflang: {
-    'de-DE': '/de/fuer-installateure',
-    'en-US': '/partners/for-security-integrators',
-    'x-default': '/partners/for-security-integrators',
-  },
 };
 
-export const metadata = generatePageMeta({ ...pageMeta, locale: 'de_DE' });
+export const metadata = generatePageMeta(pageMeta);
 
 const faqs = [
   {
@@ -26,7 +21,7 @@ const faqs = [
   },
   {
     question: 'Was hat das mit VdS 2366 zu tun?',
-    answer: 'VdS 2366 ist die Zertifizierung der VdS Schadenverhütung für Errichter von Sicherheitsanlagen — vergleichbar mit einer Art Gütesiegel, auf das größere gewerbliche Kunden bei der Auswahl eines Errichters achten. Camzify hält VdS 2366 nicht selbst; die Zertifizierung betrifft den Errichter, nicht den Softwareanbieter. Für einen VdS-2366-zertifizierten Errichter ist ein Cloud-VMS ein zusätzliches Angebot, das sich in ein bestehendes Kundenverhältnis einfügt, ohne die Zertifizierung selbst zu berühren.',
+    answer: 'VdS 2366 ist die Zertifizierung der VdS Schadenverhütung für Errichter von Sicherheitsanlagen – vergleichbar mit einer Art Gütesiegel, auf das größere gewerbliche Kunden bei der Auswahl eines Errichters achten. Camzify hält VdS 2366 nicht selbst; die Zertifizierung betrifft den Errichter, nicht den Softwareanbieter. Für einen VdS-2366-zertifizierten Errichter ist ein Cloud-VMS ein zusätzliches Angebot, das sich in ein bestehendes Kundenverhältnis einfügt, ohne die Zertifizierung selbst zu berühren.',
   },
   {
     question: 'Wie funktioniert die Abrechnung?',
@@ -43,9 +38,8 @@ export default function FuerInstallateurePage() {
     <PageShell
       {...pageMeta}
       faqs={faqs}
-      inLanguage="de"
-      schema={[serviceSchema({ name: 'Cloud-VMS für Installateure', description: pageMeta.description, path: pageMeta.path, audience: 'CCTV- und Alarmanlagen-Installateure' })]}
-      breadcrumbs={[{ label: 'Deutsch', href: '/de' }, { label: 'Für Installateure' }]}
+            schema={[serviceSchema({ name: 'Cloud-VMS für Installateure', description: pageMeta.description, path: pageMeta.path, audience: 'CCTV- und Alarmanlagen-Installateure' })]}
+      breadcrumbs={[{ label: 'Für Installateure' }]}
     >
       <section className="pb-16 pt-4">
         <div className="mx-auto max-w-site px-6">
@@ -71,7 +65,7 @@ export default function FuerInstallateurePage() {
               <span className="font-mono text-mono-sm uppercase text-primary">Ohne neue Hardware</span>
               <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">Auf den bereits verbauten Kameras</h2>
               <p className="mt-5 max-w-prose text-body text-muted-foreground">
-                Jede Kamera, die einen RTSP-, RTMP- oder HTTPS-Stream liefert, wird direkt angebunden. Kameras in einem privaten Netzwerk laufen über den Camzify Connector, ohne dass am Router etwas geöffnet werden muss — der Aufwand bleibt auf die Einrichtung des Kontos beschränkt, nicht auf einen erneuten Vor-Ort-Termin für neue Geräte.
+                Jede Kamera, die einen RTSP-, RTMP- oder HTTPS-Stream liefert, wird direkt angebunden. Kameras in einem privaten Netzwerk laufen über den Camzify Connector, ohne dass am Router etwas geöffnet werden muss – der Aufwand bleibt auf die Einrichtung des Kontos beschränkt, nicht auf einen erneuten Vor-Ort-Termin für neue Geräte.
               </p>
             </div>
           </ScrollReveal>
@@ -85,7 +79,7 @@ export default function FuerInstallateurePage() {
               <span className="font-mono text-mono-sm uppercase text-primary">Für zertifizierte Errichter</span>
               <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">Ein Zusatzangebot, keine neue Zertifizierung</h2>
               <p className="mt-5 max-w-prose text-body text-muted-foreground">
-                Größere gewerbliche Kunden wählen ihren Errichter häufig auch nach dessen VdS-2366-Zertifizierung aus. Ein Cloud-VMS lässt sich als zusätzliches, monatlich abgerechnetes Angebot in dieses bestehende Kundenverhältnis einfügen, ohne die Zertifizierung selbst zu berühren — sie betrifft den Errichter, nicht die hier angebotene Software.
+                Größere gewerbliche Kunden wählen ihren Errichter häufig auch nach dessen VdS-2366-Zertifizierung aus. Ein Cloud-VMS lässt sich als zusätzliches, monatlich abgerechnetes Angebot in dieses bestehende Kundenverhältnis einfügen, ohne die Zertifizierung selbst zu berühren – sie betrifft den Errichter, nicht die hier angebotene Software.
               </p>
             </div>
           </ScrollReveal>

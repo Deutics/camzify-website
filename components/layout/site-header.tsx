@@ -3,8 +3,10 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, ChevronDown, ArrowRight, ArrowUpRight, MousePointerClick, Calculator, Milestone } from 'lucide-react';
-import { navItems, siteConfig, isNavMenu, type NavMenu, type NavColumn, type NavSection, type NavFeature } from '@/lib/site-config';
+import { Menu, X, ChevronDown, ArrowRight, ArrowUpRight, MousePointerClick, Calculator, Milestone, Globe, Check } from 'lucide-react';
+import { navItems, navItemsDe, announcements, siteConfig, isNavMenu, type Announcement, type NavMenu, type NavColumn, type NavSection, type NavFeature } from '@/lib/site-config';
+import { localeFromPath, counterpartOf, LOCALES, type Locale } from '@/lib/i18n';
+import { t, ui, type UiStrings } from '@/lib/ui-strings';
 import { ThemeToggle } from '@/components/system/theme-toggle';
 import { SiteLogo } from '@/components/layout/site-logo';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -153,9 +155,194 @@ function FeatureLink({ feature, compact = false }: { feature: NavFeature; compac
   );
 }
 
+/** DOM-safe id fragment from a menu label, which may carry umlauts on German pages. */
+function slugId(label: string): string {
+  return label
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
+const ANNOUNCEMENT_KEY = 'camzify-announcement-dismissed';
+
 /**
- * Primary site navigation: logo, four top-level entries, and the actions (theme,
- * console sign-in, book a demo).
+ * The announcement strip. Server-rendered visible so crawlers and first-time visitors
+ * see it; a visitor who dismissed this `id` gets it hidden after hydration. Hidden with
+ * the `hidden` attribute, not unmounted (CLAUDE.md rule 7).
+ */
+function AnnouncementStrip({ announcement, strings, onVisibleChange }: { announcement: Announcement; strings: UiStrings; onVisibleChange: (visible: boolean) => void }) {
+  const [dismissed, setDismissed] = useState(false);
+
+  useEffect(() => {
+    let hide = false;
+    try {
+      hide = window.localStorage.getItem(ANNOUNCEMENT_KEY) === announcement.id;
+    } catch {
+      // Storage blocked: show it; the dismiss button still works for this page view.
+    }
+    // Compared in the browser after hydration, so a lapsed announcement disappears
+    // without a rebuild and the server render stays deterministic.
+    if (announcement.until && new Date().toISOString().slice(0, 10) > announcement.until) hide = true;
+    setDismissed(hide);
+  }, [announcement.id, announcement.until]);
+
+  useEffect(() => onVisibleChange(!dismissed), [dismissed, onVisibleChange]);
+
+  const dismiss = () => {
+    setDismissed(true);
+    try {
+      window.localStorage.setItem(ANNOUNCEMENT_KEY, announcement.id);
+    } catch {
+      // Not remembered across pages; nothing else to do.
+    }
+  };
+
+  const linkLang = announcement.hrefLang ? announcement.hrefLang.split('-')[0] : undefined;
+
+  return (
+    <div hidden={dismissed} className="min-w-0 flex-1">
+      <div className="flex min-w-0 items-center gap-2">
+        <span className="shrink-0 rounded bg-primary px-1.5 py-0.5 text-[10px] font-semibold uppercase leading-none tracking-wide text-primary-foreground">
+          {announcement.tag}
+        </span>
+        <span className="min-w-0 truncate font-medium text-foreground">
+          {announcement.shortText ? (
+            <>
+              <span className="sm:hidden">{announcement.shortText}</span>
+              <span className="hidden sm:inline">{announcement.text}</span>
+            </>
+          ) : (
+            announcement.text
+          )}
+        </span>
+        <Link
+          href={announcement.href}
+          hrefLang={announcement.hrefLang}
+          lang={linkLang}
+          className="inline-flex shrink-0 items-center gap-1 rounded font-semibold text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          {announcement.linkLabel}
+          <ArrowRight className="h-3 w-3" aria-hidden="true" />
+        </Link>
+        <button
+          type="button"
+          onClick={dismiss}
+          aria-label={strings.dismiss}
+          className="ml-1 flex h-6 w-6 shrink-0 items-center justify-center rounded text-muted-foreground transition-colors hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          <X className="h-3.5 w-3.5" aria-hidden="true" />
+        </button>
+      </div>
+    </div>
+  );
+}
+
+/** Where each language option goes from this page: its counterpart, else that language's home. */
+function languageOptions(pathname: string, current: Locale) {
+  return (Object.keys(LOCALES) as Locale[]).map((locale) => {
+    const counterpart = locale === current ? pathname : counterpartOf(pathname, locale);
+    return {
+      locale,
+      href: counterpart ?? LOCALES[locale].home,
+      current: locale === current,
+      hint: locale === current ? '' : counterpart ? ui[locale].languageSamePage : ui[locale].languageHomeFallback,
+    };
+  });
+}
+
+/**
+ * Language menu for the top bar. The panel stays in the DOM (inert while closed), so
+ * every English page carries a crawlable link to its German counterpart and back.
+ */
+function LanguageMenu({ pathname, locale, strings }: { pathname: string; locale: Locale; strings: UiStrings }) {
+  const [open, setOpen] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const onDown = (e: MouseEvent) => {
+      if (!rootRef.current?.contains(e.target as Node)) setOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setOpen(false);
+        buttonRef.current?.focus();
+      }
+    };
+    document.addEventListener('mousedown', onDown);
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('mousedown', onDown);
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [open]);
+
+  useEffect(() => setOpen(false), [pathname]);
+
+  return (
+    <div
+      ref={rootRef}
+      className="relative"
+      onBlur={(e) => {
+        if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setOpen(false);
+      }}
+    >
+      <button
+        ref={buttonRef}
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+        aria-controls="language-menu"
+        aria-label={`${strings.languageMenu}: ${LOCALES[locale].label}`}
+        className="inline-flex h-7 items-center gap-1.5 rounded-md px-2 text-xs font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+      >
+        <Globe className="h-3.5 w-3.5" aria-hidden="true" />
+        {LOCALES[locale].short}
+        <ChevronDown className={`h-3 w-3 transition-transform duration-fast ${open ? 'rotate-180' : ''}`} aria-hidden="true" />
+      </button>
+      <div
+        id="language-menu"
+        {...({ inert: open ? undefined : '' } as Record<string, unknown>)}
+        className={`absolute right-0 top-full z-50 mt-1.5 w-60 origin-top-right rounded-xl border border-border bg-card p-1.5 shadow-2xl transition-[opacity,transform,visibility] duration-150 ${
+          open ? 'visible scale-100 opacity-100' : 'invisible pointer-events-none scale-95 opacity-0'
+        }`}
+      >
+        <ul>
+          {languageOptions(pathname, locale).map((o) => (
+            <li key={o.locale}>
+              <Link
+                href={o.href}
+                hrefLang={LOCALES[o.locale].hreflang}
+                lang={LOCALES[o.locale].htmlLang}
+                aria-current={o.current ? 'true' : undefined}
+                className={`flex items-center justify-between gap-3 rounded-lg px-3 py-2 text-sm transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${o.current ? 'bg-muted/60' : ''}`}
+              >
+                <span className="min-w-0">
+                  <span className="block font-medium">{LOCALES[o.locale].label}</span>
+                  {o.hint && <span className="block text-xs text-muted-foreground">{o.hint}</span>}
+                </span>
+                {o.current && <Check className="h-4 w-4 shrink-0 text-primary" aria-hidden="true" />}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
+
+/**
+ * Primary site navigation, in two tiers:
+ *
+ *   - a top bar with the announcement on the left and the utilities (language, theme,
+ *     console sign-in) on the right. It scrolls away: once the page moves, only the
+ *     main bar stays pinned.
+ *   - the main bar: logo, the top-level menus, and Book a Demo.
+ *
+ * On German paths (/de/...) it renders `navItemsDe` and German labels; see lib/i18n.ts.
  *
  * Two properties this component has to hold simultaneously:
  *
@@ -182,7 +369,12 @@ export function SiteHeader() {
   const [mobileOpenItem, setMobileOpenItem] = useState<string | null>(null);
   const [mobileOpenColumn, setMobileOpenColumn] = useState<string | null>(null);
 
-  const pathname = usePathname();
+  const pathname = usePathname() ?? '/';
+  const locale = localeFromPath(pathname);
+  const strings = t(locale);
+  const items = locale === 'de' ? navItemsDe : navItems;
+  const announcement = announcements[locale];
+  const [announcementVisible, setAnnouncementVisible] = useState(true);
   const triggerRefs = useRef<Record<string, HTMLButtonElement | null>>({});
   const wrapperRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
@@ -265,34 +457,78 @@ export function SiteHeader() {
     href === '/' ? pathname === '/' : pathname === href || Boolean(pathname?.startsWith(`${href}/`));
 
   const topLinkClass = (active: boolean) =>
-    `whitespace-nowrap rounded-md py-2 pl-3 text-sm font-medium transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
+    `whitespace-nowrap rounded-md py-2 pl-3.5 text-[15px] font-medium transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
       active ? 'text-primary' : 'text-foreground/80'
     }`;
 
+  const showAnnouncement = Boolean(announcement) && announcementVisible;
+
   return (
     <header
+      lang={LOCALES[locale].htmlLang}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-normal ${
-        scrolled ? 'bg-background/90 shadow-md backdrop-blur-xl py-2' : 'bg-transparent py-4'
+        scrolled ? 'bg-background/90 shadow-md backdrop-blur-xl' : 'bg-transparent'
       }`}
     >
       {/*
-        Three columns, 1fr | auto | 1fr, so the nav sits at the true center of the bar
-        whatever the widths of the logo and the actions. Each child is pinned to its
-        column: on small screens the nav is display:none, and without explicit
+        Top bar. Collapses once the page scrolls (and goes inert, so its links leave the
+        tab order while hidden). overflow-hidden only while collapsed: open, it must not
+        clip the language menu's panel. On phones it carries only the announcement, and
+        is not drawn at all when there is none to show; the utilities live in the menu.
+      */}
+      <div
+        {...({ inert: scrolled ? '' : undefined } as Record<string, unknown>)}
+        className={`relative z-20 border-b bg-muted/70 backdrop-blur-xl transition-[max-height,opacity,border-color] duration-normal ${
+          scrolled ? 'max-h-0 overflow-hidden border-transparent opacity-0' : 'max-h-12 border-border/60 opacity-100'
+        } ${showAnnouncement ? '' : 'hidden lg:block'}`}
+      >
+        <div className="mx-auto flex h-9 max-w-site items-center gap-4 px-4 text-xs xl:px-6">
+          {announcement ? (
+            <AnnouncementStrip announcement={announcement} strings={strings} onVisibleChange={setAnnouncementVisible} />
+          ) : (
+            <span className="flex-1" />
+          )}
+          <div className="ml-auto hidden shrink-0 items-center gap-1 lg:flex">
+            <LanguageMenu pathname={pathname} locale={locale} strings={strings} />
+            <span className="mx-1 h-3.5 w-px bg-border" aria-hidden="true" />
+            <ThemeToggle compact label={strings.theme} />
+            <span className="mx-1 h-3.5 w-px bg-border" aria-hidden="true" />
+            {/*
+              Sign-in and booking a demo are different intents, so they are different
+              controls: an existing customer should not have to open a menu labelled
+              "Book a Demo" to reach the product.
+            */}
+            <a
+              href={siteConfig.appUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-7 items-center gap-1 rounded-md px-2 text-xs font-semibold text-foreground/80 transition-colors hover:bg-accent hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              {strings.signIn}
+              <ArrowUpRight className="h-3 w-3" aria-hidden="true" />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/*
+        Main bar. Three columns, 1fr | auto | 1fr, so the nav sits at the true center of
+        the bar whatever the widths of the logo and the actions. Each child is pinned to
+        its column: on small screens the nav is display:none, and without explicit
         placement the actions would fall into the middle column.
       */}
-      <div className="mx-auto grid max-w-site grid-cols-[1fr_auto_1fr] items-center px-4 xl:px-6">
+      <div className={`relative z-10 mx-auto grid max-w-site grid-cols-[1fr_auto_1fr] items-center px-4 transition-[padding] duration-normal xl:px-6 ${scrolled ? 'py-2' : 'py-3.5'}`}>
         <Link
-          href="/"
+          href={LOCALES[locale].home}
           className="col-start-1 flex flex-shrink-0 items-center justify-self-start rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-          aria-label={`${siteConfig.name} home`}
+          aria-label={strings.homeLabel}
         >
           <SiteLogo className="h-8 w-auto" priority />
         </Link>
 
         {/* Desktop nav */}
-        <nav className="col-start-2 hidden items-center gap-1 lg:flex" aria-label="Main">
-          {navItems.map((entry) => {
+        <nav className="col-start-2 hidden items-center gap-1.5 lg:flex" aria-label={strings.mainNav}>
+          {items.map((entry) => {
             if (!isNavMenu(entry)) {
               return (
                 <Link
@@ -307,7 +543,7 @@ export function SiteHeader() {
             }
 
             const menu = entry;
-            const menuId = `nav-menu-${menu.label.toLowerCase()}`;
+            const menuId = `nav-menu-${slugId(menu.label)}`;
             const isOpen = activeMenu === menu.label;
             const active = hrefsFor(menu).some(isActivePath);
             const width = panelWidthFor(menu);
@@ -336,7 +572,7 @@ export function SiteHeader() {
                     onClick={() => (isOpen ? closeAll() : openMenu(menu))}
                     aria-expanded={isOpen}
                     aria-controls={menuId}
-                    aria-label={`${menu.label} menu`}
+                    aria-label={`${menu.label} ${strings.menuSuffix}`}
                     className={`flex h-9 w-7 items-center justify-center rounded-md transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
                       active || isOpen ? 'text-primary' : 'text-foreground/70'
                     }`}
@@ -387,40 +623,21 @@ export function SiteHeader() {
           })}
         </nav>
 
-        {/* Right actions */}
+        {/* Right actions. Theme, language and sign-in live in the top bar (desktop) or the menu (phones). */}
         <div className="col-start-3 flex flex-shrink-0 items-center gap-2 justify-self-end">
-          {/* On phones the theme toggle moves into the menu, so the bar keeps room for the demo button. */}
-          <div className="hidden sm:block">
-            <ThemeToggle />
-          </div>
-          {/*
-            Two distinct actions rather than one dropdown. Sign-in and booking a demo
-            are different intents — an existing customer should not have to open a menu
-            labelled "Book a Demo" to reach the product.
-          */}
-          <a
-            href={siteConfig.appUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden items-center gap-1.5 whitespace-nowrap rounded-lg border border-border px-3.5 py-2 text-[13px] font-semibold lg:inline-flex transition-colors duration-fast hover:border-primary/40 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-          >
-            Sign in
-            <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
-          </a>
-
           {/* Visible at every width: on a phone this is the one action that matters most. */}
           <Link
             href="/book-a-demo"
-            className="inline-flex items-center whitespace-nowrap rounded-lg bg-primary px-3 py-1.5 text-xs font-semibold text-primary-foreground transition-all duration-fast hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:py-2 sm:text-[13px] xl:px-4"
+            className="inline-flex items-center whitespace-nowrap rounded-lg bg-primary px-3 py-1.5 text-xs font-semibold text-primary-foreground transition-all duration-fast hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:px-4 sm:py-2.5 sm:text-sm"
           >
-            Book a Demo
+            {strings.bookDemo}
           </Link>
 
           <button
             type="button"
             onClick={() => setMobileOpen(!mobileOpen)}
             className="rounded-md p-2 text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring lg:hidden"
-            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+            aria-label={mobileOpen ? strings.closeMenu : strings.openMenu}
             aria-expanded={mobileOpen}
             aria-controls="mobile-menu"
           >
@@ -439,8 +656,8 @@ export function SiteHeader() {
             exit={{ opacity: 0, height: 0 }}
             className="overflow-hidden border-t border-border bg-background lg:hidden"
           >
-            <nav aria-label="Mobile" className="mx-auto max-h-[calc(100vh-72px)] max-w-site overflow-y-auto px-6 py-4">
-              {navItems.map((entry) => {
+            <nav aria-label={strings.mobileNav} className="mx-auto max-h-[calc(100vh-110px)] max-w-site overflow-y-auto px-6 py-4">
+              {items.map((entry) => {
                 if (!isNavMenu(entry)) {
                   return (
                     <Link
@@ -454,7 +671,7 @@ export function SiteHeader() {
                 }
 
                 const menu = entry;
-                const itemId = `mobile-item-${menu.label.toLowerCase()}`;
+                const itemId = `mobile-item-${slugId(menu.label)}`;
                 const itemOpen = mobileOpenItem === menu.label;
 
                 return (
@@ -494,7 +711,7 @@ export function SiteHeader() {
                             );
                           }
                           const colKey = `${menu.label}-${column.label}`;
-                          const colId = `mobile-col-${colKey}`.replace(/\s+/g, '-').toLowerCase();
+                          const colId = `mobile-col-${slugId(colKey)}`;
                           const colOpen = mobileOpenColumn === colKey;
                           return (
                             <div key={column.label}>
@@ -523,7 +740,7 @@ export function SiteHeader() {
                                     href={column.href}
                                     className="flex items-center gap-1 px-3 py-1.5 text-xs font-medium text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                                   >
-                                    {column.label} overview
+                                    {column.label} {strings.overview}
                                     <ArrowRight className="h-3 w-3" aria-hidden="true" />
                                   </Link>
                                 )}
@@ -548,7 +765,7 @@ export function SiteHeader() {
                   href="/book-a-demo"
                   className="block w-full rounded-lg bg-primary px-5 py-3 text-center text-sm font-semibold text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 >
-                  Book a Demo
+                  {strings.bookDemo}
                 </Link>
                 <a
                   href={siteConfig.appUrl}
@@ -556,12 +773,31 @@ export function SiteHeader() {
                   rel="noopener noreferrer"
                   className="flex w-full items-center justify-center gap-1.5 rounded-lg border border-border px-5 py-3 text-center text-sm font-semibold transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 >
-                  Sign in to the console
+                  {strings.signInConsole}
                   <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
                 </a>
-                <div className="flex items-center justify-between px-3 pt-1 text-sm text-muted-foreground sm:hidden">
-                  Theme
-                  <ThemeToggle />
+                <div className="flex items-center justify-between px-3 pt-2 text-sm text-muted-foreground">
+                  {strings.language}
+                  <ul className="flex overflow-hidden rounded-lg border border-border text-xs font-semibold">
+                    {languageOptions(pathname, locale).map((o) => (
+                      <li key={o.locale}>
+                        <Link
+                          href={o.href}
+                          hrefLang={LOCALES[o.locale].hreflang}
+                          lang={LOCALES[o.locale].htmlLang}
+                          aria-current={o.current ? 'true' : undefined}
+                          aria-label={o.current ? LOCALES[o.locale].label : `${LOCALES[o.locale].label}: ${o.hint}`}
+                          className={`block px-3 py-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${o.current ? 'bg-primary text-primary-foreground' : 'text-foreground hover:bg-accent'}`}
+                        >
+                          {LOCALES[o.locale].short}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="flex items-center justify-between px-3 text-sm text-muted-foreground">
+                  {strings.theme}
+                  <ThemeToggle label={strings.theme} />
                 </div>
               </div>
             </nav>

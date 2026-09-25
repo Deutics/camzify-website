@@ -29,6 +29,7 @@ export function HeroPlaceholder({
   alt,
   frames = DEFAULT_FRAMES,
   active = 0,
+  locale = 'en',
 }: {
   /** Chrome-bar label, e.g. "Patrol sequence · Perimeter round". */
   label: string;
@@ -36,6 +37,8 @@ export function HeroPlaceholder({
   frames?: { src: string; id: string; loc: string }[];
   /** Which tile is highlighted as the current stop. */
   active?: number;
+  /** Language of the footnote. Pass 'de' on German pages. */
+  locale?: 'en' | 'de';
 }) {
   return (
     <figure
@@ -92,7 +95,9 @@ export function HeroPlaceholder({
       </div>
 
       <figcaption className="border-t border-border px-4 py-2 text-[11px] text-muted-foreground">
-        Console view with sample cameras. Interface illustration, not customer footage.
+        {locale === 'de'
+          ? 'Konsolenansicht mit Beispielkameras. Darstellung der Oberfläche, keine Kundenaufnahmen.'
+          : 'Console view with sample cameras. Interface illustration, not customer footage.'}
       </figcaption>
     </figure>
   );

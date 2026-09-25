@@ -143,6 +143,10 @@ Run all three before declaring anything done:
 npx tsc --noEmit && NEXT_DIST_DIR=.next-probe npx next build && npx eslint -c eslint.ssr.config.mjs .
 ```
 
+If the change touches a page that has a German counterpart, also run
+`python3 scripts/check-translations.py` and carry the change into the German page
+(`docs/I18N.md`).
+
 For visual changes, start the dev server through the preview tooling and check the
 rendered result — do not ask the user to look for you.
 
@@ -190,13 +194,13 @@ Add a photo, run `python3 scripts/optimise-images.py`, use `<SiteImage>` with a 
 mapped list, `priority={i === 0}` — not on every card.
 
 **Where the photographs come from.** The business supplies the image set as a zip
-("Camzify Website Images", latest 2026-09-21, in the owner's Downloads). It is staged into
+("Camzify Website Images", latest 2026-09-25, in the owner's Downloads). It is staged into
 `public/` under slug names by section: `hero-cam-*` (twelve real camera frames: homepage
 hero, camera walls, demo), `scene-*`, `product-*-{dark,light}` (console screenshots),
 `feature-<slug>-{1..4}` (AI features), `ai-security-for-<slug>` (industry hero, the
 designer's image 1) and `industry-<slug>-{2,3,4}` (the three figures), one render per
 use case, `vp-*` (virtual patrolling pages, risk-detection camera frames, the virtual
-guard render), `partner-gate-{opened,closed}` (the before-and-after pair on the partner pages). The 2026-09-18 delivery added `guide-<slug>` (one hero render per guide), `compare-vs-*` (the comparison pairs), `configuration-{rtsp,rtmp,https}` (setup screenshots), `author-muhammad-talha` and `-profile` (the byline avatar), `about-camzify`, `trust-data-flow` and `product-pricing-plan-{light,dark}`. The 2026-09-21 delivery was a full redesign pass over nearly every photograph and render on the site under those same slug conventions, plus it closed every gap `docs/design/IMAGE-REQUESTS.md` was tracking: the roadmap redo, three more guide heroes, eight `compare-vs-*`/`alternatives-*` pairs, and loitering-detection figures 2–4. Check `docs/design/IMAGE-REQUESTS.md` for what, if anything, is still outstanding. **The designer numbers a folder's images in page order, from the top:
+guard render), `partner-gate-{opened,closed}` (the before-and-after pair on the partner pages). The 2026-09-18 delivery added `guide-<slug>` (one hero render per guide), `compare-vs-*` (the comparison pairs), `configuration-{rtsp,rtmp,https}` (setup screenshots), `author-muhammad-talha` and `-profile` (the byline avatar), `about-camzify`, `trust-data-flow` and `product-pricing-plan-{light,dark}`. The 2026-09-21 delivery was a full redesign pass over nearly every photograph and render on the site under those same slug conventions, plus it closed every gap `docs/design/IMAGE-REQUESTS.md` was tracking: the roadmap redo, three more guide heroes, eight `compare-vs-*`/`alternatives-*` pairs, and loitering-detection figures 2–4. The 2026-09-25 delivery added card thumbnails (`guide-thumb-<slug>`, `industry-thumb-<slug>`), the partner page heroes (`partner-hero-<slug>`) and more camera-brand logos. Check `docs/design/IMAGE-REQUESTS.md` for what, if anything, is still outstanding. **The designer numbers a folder's images in page order, from the top:
 image 1 is the hero, 2 is the first figure below it, and so on. Keep that order.**
 Photographs are JPEG sources at 1600px or below. Renders on a transparent background
 (device mock-ups with a drop shadow, rounded screenshots) keep their alpha: small ones
@@ -209,6 +213,14 @@ and use case now has its own images; `PlaceholderVisual` remains only where no i
 was ever supplied.
 `components/content/photo-figure.tsx` is the figure for any of these: a card frame for
 photographs, no frame for renders.
+
+## German pages
+
+Forty pages have a German counterpart under `/de`. The pairs are declared once, in
+`lib/i18n.ts`; hreflang, the sitemap's German group, the header's language menu and the
+stale-translation check all read that list, so never write hreflang by hand. The rules
+for writing a German page (facts, terms, style) are in `docs/I18N.md`. The German copy
+is AI-drafted and awaits native review.
 
 ## Author identity
 

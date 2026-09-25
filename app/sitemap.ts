@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next';
+import { germanPaths } from '@/lib/i18n';
 import { siteConfig } from '@/lib/site-config';
 import { GLOSSARY_TERMS } from '@/lib/glossary-terms';
 
@@ -283,17 +284,10 @@ const company = group(
   'monthly'
 );
 
-// German-language pilot (docs/INTERNATIONAL-EXPANSION.md). Six pages, each with an
-// English counterpart declared via hreflang on both sides of the pair.
+// German pages (docs/I18N.md). The list is the translation registry in lib/i18n.ts,
+// so a German page cannot exist without its sitemap entry and hreflang pair.
 const de = group(
-  [
-    '/de',
-    '/de/virtueller-waechterrundgang',
-    '/de/cloud-videomanagementsystem',
-    '/de/ki-videoanalyse',
-    '/de/fuer-sicherheitsdienste',
-    '/de/fuer-installateure',
-  ],
+  germanPaths,
   0.7,
   'monthly'
 );

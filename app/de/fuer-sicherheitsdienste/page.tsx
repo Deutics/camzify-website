@@ -8,13 +8,8 @@ import { ArrowRight } from 'lucide-react';
 
 const pageMeta = {
   title: 'Virtueller Wächterrundgang für Sicherheitsdienste',
-  description: 'Bieten Sie Kunden einen virtuellen Wächterrundgang als zusätzliche, abrechenbare Leistung an — für Standorte und Nächte, die personell nicht abgedeckt werden können.',
+  description: 'Bieten Sie Kunden den virtuellen Wächterrundgang als zusätzliche, abrechenbare Leistung an: für Standorte und Nächte, die personell nicht abzudecken sind.',
   path: '/de/fuer-sicherheitsdienste',
-  hreflang: {
-    'de-DE': '/de/fuer-sicherheitsdienste',
-    'en-US': '/partners/for-security-agencies',
-    'x-default': '/partners/for-security-agencies',
-  },
 };
 
 export const metadata = generatePageMeta({ ...pageMeta, locale: 'de_DE', type: 'website' });
@@ -34,11 +29,11 @@ const faqs = [
   },
   {
     question: 'Was hat das mit DIN 77200 zu tun?',
-    answer: 'DIN 77200 regelt Qualitätsanforderungen an Sicherheitsdienstleistungen und wird zunehmend in Ausschreibungen gefordert; Streifendienst und dessen Dokumentation sind Teil dieser Anforderungen. Camzify hält DIN 77200 nicht selbst — die Norm richtet sich an Sicherheitsdienstleister, nicht an Softwareanbieter —, aber der dokumentierte Rundgang mit Bild pro Kontrollpunkt liefert genau die Nachweise, die ein Kunde für seine eigene DIN-77200-konforme Dokumentation braucht.',
+    answer: 'DIN 77200 regelt Qualitätsanforderungen an Sicherheitsdienstleistungen und wird zunehmend in Ausschreibungen gefordert; Streifendienst und dessen Dokumentation sind Teil dieser Anforderungen. Camzify hält DIN 77200 nicht selbst – die Norm richtet sich an Sicherheitsdienstleister, nicht an Softwareanbieter –, aber der dokumentierte Rundgang mit Bild pro Kontrollpunkt liefert genau die Nachweise, die ein Kunde für seine eigene DIN-77200-konforme Dokumentation braucht.',
   },
   {
     question: 'Ist das ein wachsender Markt in Deutschland?',
-    answer: 'Eine Studie von Lünendonk & Hossenfelder mit dem BDSW (Oktober 2025) fand, dass die Hälfte der 25 größten deutschen Sicherheitsdienstleister bereits Robotik oder digitale Lösungen einsetzt, KI-gestützte Videoüberwachung eingeschlossen, bei 7,5 % Umsatz- und 2,2 % Personalwachstum im Jahr 2024 — getrieben vor allem durch Fachkräftemangel.',
+    answer: 'Eine Studie von Lünendonk & Hossenfelder mit dem BDSW (Oktober 2025) fand, dass die Hälfte der 25 größten deutschen Sicherheitsdienstleister bereits Robotik oder digitale Lösungen einsetzt, KI-gestützte Videoüberwachung eingeschlossen, bei 7,5 % Umsatz- und 2,2 % Personalwachstum im Jahr 2024 – getrieben vor allem durch Fachkräftemangel.',
   },
 ];
 
@@ -47,9 +42,8 @@ export default function FuerSicherheitsdienstePage() {
     <PageShell
       {...pageMeta}
       faqs={faqs}
-      inLanguage="de"
-      schema={[serviceSchema({ name: 'Virtueller Wächterrundgang für Sicherheitsdienste', description: pageMeta.description, path: pageMeta.path, audience: 'Sicherheitsdienste und Bewachungsunternehmen' })]}
-      breadcrumbs={[{ label: 'Deutsch', href: '/de' }, { label: 'Für Sicherheitsdienste' }]}
+            schema={[serviceSchema({ name: 'Virtueller Wächterrundgang für Sicherheitsdienste', description: pageMeta.description, path: pageMeta.path, audience: 'Sicherheitsdienste und Bewachungsunternehmen' })]}
+      breadcrumbs={[{ label: 'Für Sicherheitsdienste' }]}
     >
       <section className="pb-16 pt-4">
         <div className="mx-auto max-w-site px-6">
@@ -58,7 +52,7 @@ export default function FuerSicherheitsdienstePage() {
             Ein virtueller Wächterrundgang, den Sie Ihren Kunden anbieten
           </h1>
           <p className="mt-6 max-w-prose text-body text-muted-foreground">
-            Der Fachkräftemangel trifft die Branche direkt: Standorte und Nächte, die sich mit Wachpersonal nicht mehr wirtschaftlich abdecken lassen. Ein virtueller Wächterrundgang auf den vorhandenen Kameras des Kunden ist eine zusätzliche, monatlich abgerechnete Leistung — verkauft pro Kamera, nicht pro Stunde.
+            Der Fachkräftemangel trifft die Branche direkt: Standorte und Nächte, die sich mit Wachpersonal nicht mehr wirtschaftlich abdecken lassen. Ein virtueller Wächterrundgang auf den vorhandenen Kameras des Kunden ist eine zusätzliche, monatlich abgerechnete Leistung – verkauft pro Kamera, nicht pro Stunde.
           </p>
           <div className="mt-8">
             <Link href="/book-a-demo" className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 font-semibold text-primary-foreground transition-colors hover:bg-primary/90">
@@ -75,7 +69,7 @@ export default function FuerSicherheitsdienstePage() {
               <span className="font-mono text-mono-sm uppercase text-primary">Ein Konto, mehrere Kunden</span>
               <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">Standorte sind die Grundeinheit</h2>
               <p className="mt-5 max-w-prose text-body text-muted-foreground">
-                Jeder Kunde bekommt ein eigenes Unterkonto, abgegrenzt auf seine eigenen Standorte und Kameras. Sie weisen Instanzen für Rundgänge, KI-Funktionen und Speicher aus Ihrem eigenen Kontingent zu, und ein Kunde sieht ausschließlich seine eigenen Berichte — nie die eines anderen Kunden.
+                Jeder Kunde bekommt ein eigenes Unterkonto, abgegrenzt auf seine eigenen Standorte und Kameras. Sie weisen Instanzen für Rundgänge, KI-Funktionen und Speicher aus Ihrem eigenen Kontingent zu, und ein Kunde sieht ausschließlich seine eigenen Berichte – nie die eines anderen Kunden.
               </p>
             </div>
           </ScrollReveal>
@@ -89,7 +83,7 @@ export default function FuerSicherheitsdienstePage() {
               <span className="font-mono text-mono-sm uppercase text-primary">DIN 77200 und Dokumentation</span>
               <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">Nachweise statt Logbuch</h2>
               <p className="mt-5 max-w-prose text-body text-muted-foreground">
-                Ein klassisches Wachbuch bestätigt, dass ein Kontrollpunkt erreicht wurde — nicht, was dort tatsächlich zu sehen war. Ein virtueller Rundgang prüft einen definierten Zustand je Kamera und speichert das dabei geprüfte Bild, sodass der Bericht zeigt, dass das Tor tatsächlich geschlossen war, statt nur, dass jemand daneben stand. Für die eigene DIN-77200-Dokumentation eines Kunden ist genau das der relevante Unterschied.
+                Ein klassisches Wachbuch bestätigt, dass ein Kontrollpunkt erreicht wurde – nicht, was dort tatsächlich zu sehen war. Ein virtueller Rundgang prüft einen definierten Zustand je Kamera und speichert das dabei geprüfte Bild, sodass der Bericht zeigt, dass das Tor tatsächlich geschlossen war, statt nur, dass jemand daneben stand. Für die eigene DIN-77200-Dokumentation eines Kunden ist genau das der relevante Unterschied.
               </p>
             </div>
           </ScrollReveal>
