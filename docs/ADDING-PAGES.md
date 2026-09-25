@@ -96,7 +96,7 @@ export default function ExamplePage() {
 The largest silo (23 pages). One detection capability per page.
 
 **Schema:** none extra — `PageShell` handles WebPage + FAQPage.
-**Nav:** `lib/site-config.ts` → `AI Features` → the right `groups[].items[]`.
+**Nav:** `lib/site-config.ts` → `Product` → the `AI Features` column → the right `sections[].items[]`.
 **Sitemap:** `aiFeatures` group.
 
 **Required sections, in order:**
@@ -119,7 +119,7 @@ existing pages do this — copy `app/ai-features/loitering-detection/page.tsx`.
 ### Industry — `/industries/<slug>`
 
 **Schema:** add `serviceSchema` with an `audience`.
-**Nav:** `Industries` → the right `groups[].items[]`.
+**Nav:** `Solutions` → the `By Industry` column → the right `sections[].items[]`.
 **Sitemap:** `industries` group.
 
 ```tsx
@@ -172,7 +172,7 @@ One page per name the market uses for what Camzify sells: `/virtual-guard` and
 shows a term family with no page. `FeatureHero`, a definition sentence in bold, sections
 that say where the alternative wins, a `ComparisonTable`, a limits section, four
 "read next" cards, `FaqSection`. `serviceSchema` without `audience`. Sitemap group
-`pillars`; nav under the nearest menu (Virtual Patrolling or Platform); the footer's
+`pillars`; nav under `Product`, in the Virtual Patrolling or Platform column; the footer's
 Product column; the key-pages list in `app/llms.txt/route.ts`.
 
 ---
@@ -297,7 +297,7 @@ Channel pages, and since 2026-09-06 also customer pages: security agencies and
 monitoring companies buy the product and resell the service. Describe how the account
 model works structurally. **Do not publish margins, discount tiers or commercial terms**;
 there is no certified-installer program, partner portal or white-label, and the pages
-say so. Sitemap group `partners`; nav under "Solutions".
+say so. Sitemap group `partners`; nav under `Solutions` → the `By Role` column.
 
 ---
 
@@ -309,6 +309,14 @@ date when the text changes. The cookie policy lists every browser-storage key th
 sets; adding one means editing that table first.
 
 ---
+
+### German page — `/de/<slug>`
+
+A German page is a translation of an English one, never a page of its own. Declare the
+pair in `lib/i18n.ts`, write the page to the rules in [`I18N.md`](I18N.md), and stamp it
+with `python3 scripts/check-translations.py --stamp /de/<slug>`. hreflang and the sitemap
+entry follow from the registry; the German header and footer are hand-kept lists in
+`navItemsDe` and `site-footer.tsx`, so add the page there too.
 
 ## Content rules that decide whether the page ranks
 

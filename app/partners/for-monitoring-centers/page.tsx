@@ -2,6 +2,7 @@ import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { FeatureHero } from '@/components/content/feature-hero';
 import { BeforeAfter } from '@/components/content/before-after';
 import { SectionVisual } from '@/components/content/section-visual';
@@ -80,15 +81,20 @@ export default function ForMonitoringCentresPage() {
         facts={['One account, a login per agency', 'Guards notified from the round', 'A report per round, per client']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/partners/for-security-agencies', label: 'For security agencies' }}
-        visual={
-          <BeforeAfter
-            priority
+        visual={<PhotoFigure src="/partner-hero-for-monitoring-centers.webp" alt="Operators in a monitoring center at their desks, facing a video wall of camera feeds" priority />}
+      />
+
+      <section className="pb-16">
+        <div className="mx-auto max-w-site px-6">
+          <div className="max-w-3xl">
+            <BeforeAfter
             before={{ src: '/partner-gate-opened.jpg', label: 'Found open · guard notified', alt: 'A yard gate camera: the sliding gate standing open with nobody at it, the state the round found' }}
             after={{ src: '/partner-gate-closed.jpg', label: 'Closed · verified', alt: 'The same gate camera minutes later: a guard in a high-visibility vest pushing the gate shut' }}
             caption="The record every fixed item carries: the frame the round found, and the frame after the guard dealt with it."
           />
-        }
-      />
+          </div>
+        </div>
+      </section>
 
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">

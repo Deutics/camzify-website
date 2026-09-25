@@ -95,7 +95,7 @@ rather than nothing — see `components/motion/patrol-sweep-hero.tsx`.
 | Component | Notes |
 |---|---|
 | `PageShell` | The page scaffold. Props: `path`, `title`, `description`, `breadcrumbs`, `faqs`, `schema`, `showCTA`, `ctaProps`. Emits page structured data. |
-| `SiteHeader` | Fixed nav. Hover **and** focus **and** click operable; submenus stay mounted with `inert`. |
+| `SiteHeader` | Fixed, two tiers. **Top bar**: the announcement (`announcements` in `lib/site-config.ts`, dismissible, optional `until` date) on the left; language menu, theme and console sign-in on the right. It collapses on scroll, and on phones it keeps only the announcement. **Main bar**: logo, five top-level entries (Product, Solutions, Industries, Pricing, Resources) centered, Book a Demo. The menus are mega-menus of columns built from `navItems`; German paths use `navItemsDe` and German labels (docs/I18N.md). Hover **and** focus **and** click operable; submenus and the language panel stay mounted with `inert`. Every page it linked before the mega-menu redesign is still linked; see the coverage rule above `navItems`. |
 | `SiteFooter` | Link columns + NAP block derived from `siteConfig`. |
 | `Breadcrumbs` | Trail + `BreadcrumbList` schema with absolute URLs. |
 | `CTABand` | Closing CTA. Rendered automatically by `PageShell`. |

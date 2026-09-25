@@ -11,10 +11,9 @@ const pageMeta = {
   title: 'Virtueller Wächterrundgang: Definition und Ablauf',
   description: 'Ein virtueller Wächterrundgang prüft jede Kamera einer Route nach Zeitplan gegen eine Checkliste und meldet jeden Fehler sofort an die zuständige Person.',
   path: '/de/virtueller-waechterrundgang',
-  hreflang: { 'de-DE': '/de/virtueller-waechterrundgang', 'en-US': '/virtual-guard', 'x-default': '/virtual-guard' },
 };
 
-export const metadata = generatePageMeta({ ...pageMeta, locale: 'de_DE' });
+export const metadata = generatePageMeta(pageMeta);
 
 const faqs = [
   {
@@ -27,11 +26,11 @@ const faqs = [
   },
   {
     question: 'Ersetzt der virtuelle Wächterrundgang den Sicherheitsdienst?',
-    answer: 'Er ersetzt die wiederkehrende Kontrollrunde und die Zeit, die auf einem leeren Gelände mit der Beobachtung der Kameras verbracht würde — nicht die Person, die vor Ort eingreifen kann. Wenn eine Prüfung fehlschlägt, wird eine Person benachrichtigt und entscheidet über das weitere Vorgehen; wird ein Eingreifen vor Ort benötigt, bleibt weiterhin eine Person in Reichweite des Standorts nötig.',
+    answer: 'Er ersetzt die wiederkehrende Kontrollrunde und die Zeit, die auf einem leeren Gelände mit der Beobachtung der Kameras verbracht würde – nicht die Person, die vor Ort eingreifen kann. Wenn eine Prüfung fehlschlägt, wird eine Person benachrichtigt und entscheidet über das weitere Vorgehen; wird ein Eingreifen vor Ort benötigt, bleibt weiterhin eine Person in Reichweite des Standorts nötig.',
   },
   {
     question: 'Wie unterscheidet sich das von Videofernüberwachung mit Aufschaltung?',
-    answer: 'Videofernüberwachung mit Live-Aufschaltung reagiert typischerweise auf einen ausgelösten Alarm: Ein Ereignis löst eine Prüfung durch eine Leitstelle aus. Der virtuelle Wächterrundgang läuft umgekehrt nach festem Zeitplan, unabhängig davon, ob ein Alarm vorliegt — jede Kamera der Route wird zur festgelegten Zeit geprüft und das Ergebnis dokumentiert.',
+    answer: 'Videofernüberwachung mit Live-Aufschaltung reagiert typischerweise auf einen ausgelösten Alarm: Ein Ereignis löst eine Prüfung durch eine Leitstelle aus. Der virtuelle Wächterrundgang läuft umgekehrt nach festem Zeitplan, unabhängig davon, ob ein Alarm vorliegt – jede Kamera der Route wird zur festgelegten Zeit geprüft und das Ergebnis dokumentiert.',
   },
   {
     question: 'Wer erhält die Meldung bei einem fehlgeschlagenen Punkt?',
@@ -44,9 +43,8 @@ export default function VirtuellerWaechterrundgangPage() {
     <PageShell
       {...pageMeta}
       faqs={faqs}
-      inLanguage="de"
-      schema={[serviceSchema({ name: 'Virtueller Wächterrundgang', description: pageMeta.description, path: pageMeta.path })]}
-      breadcrumbs={[{ label: 'Deutsch', href: '/de' }, { label: 'Virtueller Wächterrundgang' }]}
+            schema={[serviceSchema({ name: 'Virtueller Wächterrundgang', description: pageMeta.description, path: pageMeta.path })]}
+      breadcrumbs={[{ label: 'Virtueller Wächterrundgang' }]}
     >
       <section className="pb-16 pt-4">
         <div className="mx-auto max-w-site px-6">
@@ -75,11 +73,11 @@ export default function VirtuellerWaechterrundgangPage() {
               <span className="font-mono text-mono-sm uppercase text-primary">Der Ablauf</span>
               <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">Ein Kontrollpunkt der Route</h2>
               <p className="mt-5 max-w-prose text-body text-muted-foreground">
-                Jeder Punkt der Checkliste wird anhand des Kamerabilds zu diesem Zeitpunkt bewertet und mit dem Bild gespeichert — nicht nur, dass eine Kamera geprüft wurde, sondern was zu sehen war.
+                Jeder Punkt der Checkliste wird anhand des Kamerabilds zu diesem Zeitpunkt bewertet und mit dem Bild gespeichert – nicht nur, dass eine Kamera geprüft wurde, sondern was zu sehen war.
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
-              <SectionVisual
+              <SectionVisual locale="de"
                 variant="checklist"
                 label="KAM 03 · Rampe"
                 guard="Nachtwache, mobil"
@@ -99,7 +97,7 @@ export default function VirtuellerWaechterrundgangPage() {
               <span className="font-mono text-mono-sm uppercase text-primary">Grenzen</span>
               <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">Was der virtuelle Wächterrundgang nicht leistet</h2>
               <p className="mt-5 max-w-prose text-body text-muted-foreground">
-                Er greift nicht vor Ort ein. Er sieht nichts außerhalb des Kamerabilds, weshalb &bdquo;Kamerasicht frei&ldquo; auf jeder Route ein eigener Prüfpunkt ist. Und er entscheidet nicht über das weitere Vorgehen — er meldet einer Person, mit dem Bild, und die Entscheidung liegt bei ihr.
+                Er greift nicht vor Ort ein. Er sieht nichts außerhalb des Kamerabilds, weshalb &bdquo;Kamerasicht frei&ldquo; auf jeder Route ein eigener Prüfpunkt ist. Und er entscheidet nicht über das weitere Vorgehen – er meldet einer Person, mit dem Bild, und die Entscheidung liegt bei ihr.
               </p>
             </div>
           </ScrollReveal>

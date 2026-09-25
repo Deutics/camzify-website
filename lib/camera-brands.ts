@@ -36,6 +36,12 @@
  *   off in 2019 into an independent company, i-PRO Co., Ltd. — that is the current
  *   brand, so the entry is named and marked as i-PRO, not Panasonic.
  *
+ *   The business's own image delivery of 2026-09-25 supplied transparent marks for
+ *   Milesight and Tiandy (both previously wordmarks) and a transparent Reolink mark that
+ *   replaced the earlier flattened JPEG. Its Amcrest file is the hexagon icon alone,
+ *   without the wordmark; at strip size an unlabelled icon would not identify the brand,
+ *   so Amcrest stays a wordmark until a full lockup is supplied.
+ *
  *   The remaining brands have no logo of confirmed current provenance and keep their
  *   wordmark. They were deliberately not scraped from vendor marketing pages or
  *   third-party logo-aggregator sites: those sources are inconsistent, frequently
@@ -68,13 +74,13 @@ export const cameraBrands: CameraBrand[] = [
   { name: 'Vivotek', logo: '/brands/vivotek.png', note: 'ONVIF conformant IP cameras' },
   { name: 'Honeywell', logo: '/brands/honeywell.svg', note: 'ONVIF on commercial IP ranges' },
   { name: 'Pelco', logo: '/brands/pelco.svg', note: 'ONVIF Profile S on Sarix and later' },
-  { name: 'Reolink', logo: '/brands/reolink.jpg', note: 'RTSP on most models; ONVIF on many' },
+  { name: 'Reolink', logo: '/brands/reolink.png', note: 'RTSP on most models; ONVIF on many' },
   { name: 'TP-Link VIGI', logo: '/brands/tp-link-vigi.svg', note: 'ONVIF and RTSP on the VIGI range' },
   { name: 'Ubiquiti', logo: '/brands/ubiquiti.svg', note: 'RTSP on UniFi Protect cameras' },
   { name: 'Amcrest', logo: null, note: 'ONVIF and RTSP on IP models' },
   { name: 'Lorex', logo: '/brands/lorex.png', note: 'RTSP on IP models' },
-  { name: 'Milesight', logo: null, note: 'ONVIF conformant IP cameras' },
-  { name: 'Tiandy', logo: null, note: 'ONVIF and RTSP on IP models' },
+  { name: 'Milesight', logo: '/brands/milesight.png', note: 'ONVIF conformant IP cameras' },
+  { name: 'Tiandy', logo: '/brands/tiandy.png', note: 'ONVIF and RTSP on IP models' },
   { name: 'i-PRO', logo: '/brands/i-pro.png', note: 'ONVIF Profile S on i-PRO IP ranges; formerly Panasonic Security' },
 ];
 

@@ -14,7 +14,7 @@ import Link from 'next/link';
  */
 const pageMeta = {
   title: "Cross-Camera Journey Map | Path Reconstruction",
-  description: "Camzify cross-camera journey map stitches one subject\\'s path across every camera on-site into a single timeline, built from confirmed object tracks.",
+  description: "Camzify cross-camera journey map stitches one subject's path across every camera on-site into a single timeline, built from confirmed object tracks.",
   path: "/ai-features/cross-camera-journey-map",
 };
 

@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { siteConfig, absoluteUrl } from '@/lib/site-config';
+import { alternatesFor, localeFromPath, LOCALES } from '@/lib/i18n';
 
 /**
  * Builds page metadata with the parts that are easy to forget and expensive to omit:
@@ -18,7 +19,7 @@ export function generatePageMeta({
   publishedTime,
   modifiedTime,
   noIndex = false,
-  locale = siteConfig.locale,
+  locale,
   hreflang,
 }: {
   title: string;
@@ -29,16 +30,18 @@ export function generatePageMeta({
   publishedTime?: string;
   modifiedTime?: string;
   noIndex?: boolean;
-  /** OpenGraph locale for this page, e.g. 'de_DE'. Defaults to the site's own locale. */
+  /** OpenGraph locale, e.g. 'de_DE'. Derived from the path (/de/... is German) when omitted. */
   locale?: string;
   /**
-   * hreflang alternates for a page with a translated counterpart, keyed by BCP-47 tag
-   * plus 'x-default', e.g. { 'de-DE': '/de/...', 'en-US': '/...', 'x-default': '/...' }.
-   * Omitted for every page with no translated sibling.
+   * hreflang alternates, keyed by BCP-47 tag plus 'x-default'. Derived from the
+   * translation registry in lib/i18n.ts when omitted, which is the normal case: declare
+   * the pair there, not here, so both sides always agree.
    */
   hreflang?: Record<string, string>;
 }): Metadata {
   const url = absoluteUrl(path);
+  const ogLocale = locale ?? (localeFromPath(path) === 'de' ? LOCALES.de.og : siteConfig.locale);
+  const languages = hreflang ?? alternatesFor(path);
   // The root app/opengraph-image.tsx card is only attached to the root segment's own
   // metadata. A page that exports its own `metadata` (every page but the homepage)
   // replaces the openGraph object and loses the card, so social shares and AI answer
@@ -51,8 +54,8 @@ export function generatePageMeta({
     description,
     alternates: {
       canonical: url,
-      ...(hreflang
-        ? { languages: Object.fromEntries(Object.entries(hreflang).map(([lang, p]) => [lang, absoluteUrl(p)])) }
+      ...(languages
+        ? { languages: Object.fromEntries(Object.entries(languages).map(([lang, p]) => [lang, absoluteUrl(p)])) }
         : {}),
     },
     openGraph: {
@@ -60,7 +63,7 @@ export function generatePageMeta({
       description,
       url,
       siteName: siteConfig.name,
-      locale,
+      locale: ogLocale,
       type,
       images: [{ url: ogImage, width: 1200, height: 630, alt: title }],
       ...(publishedTime ? { publishedTime } : {}),

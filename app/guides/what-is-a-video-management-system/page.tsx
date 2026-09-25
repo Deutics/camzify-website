@@ -1,5 +1,5 @@
 import { generatePageMeta } from '@/lib/page-utils';
-import { ProductShot } from '@/components/content/product-shot';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { articleSchema, personSchema } from '@/lib/seo';
@@ -61,7 +61,7 @@ export default function WhatIsAVideoManagementSystemPage() {
           </p>
 
           <div className="mt-10 max-w-3xl">
-            <ProductShot src="/product-live-streaming" alt="The live streaming screen of a VMS: a wall of camera views grouped by site, with each camera's online state shown" label="Live streaming" sizes="(max-width: 1024px) 100vw, 768px" />
+            <PhotoFigure src="/guide-what-is-a-video-management-system.webp" alt="The live streaming screen of a VMS: a wall of camera views grouped by site, each tile a live feed" priority />
           </div>
 
           <section className="mt-16">

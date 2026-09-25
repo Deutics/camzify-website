@@ -11,15 +11,14 @@ const pageMeta = {
   title: 'Cloud-Videomanagementsystem für IP-Kameras',
   description: 'Aufzeichnung, Speicherung und Wiedergabe für IP-Kameras in der Cloud statt am NVR vor Ort, mit Aufbewahrung pro Kamera und Zugriff über den Browser.',
   path: '/de/cloud-videomanagementsystem',
-  hreflang: { 'de-DE': '/de/cloud-videomanagementsystem', 'en-US': '/cloud-video-surveillance', 'x-default': '/cloud-video-surveillance' },
 };
 
-export const metadata = generatePageMeta({ ...pageMeta, locale: 'de_DE' });
+export const metadata = generatePageMeta(pageMeta);
 
 const faqs = [
   {
     question: 'Was ist ein cloud-basiertes Videomanagementsystem?',
-    answer: 'Ein Videomanagementsystem (VMS) nimmt die Streams der IP-Kameras eines Standorts entgegen, zeichnet sie auf und macht sie live und im Rückblick verfügbar. Bei einem Cloud-VMS liegt die Aufzeichnung und Speicherung nicht auf einem Rekorder vor Ort, sondern in der Cloud — der Zugriff erfolgt über den Browser, von jedem Standort aus.',
+    answer: 'Ein Videomanagementsystem (VMS) nimmt die Streams der IP-Kameras eines Standorts entgegen, zeichnet sie auf und macht sie live und im Rückblick verfügbar. Bei einem Cloud-VMS liegt die Aufzeichnung und Speicherung nicht auf einem Rekorder vor Ort, sondern in der Cloud – der Zugriff erfolgt über den Browser, von jedem Standort aus.',
   },
   {
     question: 'Muss der vorhandene NVR ersetzt werden?',
@@ -27,7 +26,7 @@ const faqs = [
   },
   {
     question: 'Wo werden die Aufnahmen gespeichert?',
-    answer: 'In der AWS-Region, die den Kamerastandorten am nächsten liegt — für deutsche Kunden ist das in der Regel die AWS-Region Frankfurt. Es wird kein pauschales Herkunftsland zugesichert; maßgeblich ist die tatsächliche Nähe zum Standort.',
+    answer: 'In Amazon S3, in der AWS-Region, die den Kamerastandorten am nächsten liegt. Maßgeblich ist die tatsächliche Nähe zum Standort; ein bestimmtes Land wird nicht pauschal zugesichert.',
   },
   {
     question: 'Wie wird die Aufbewahrungsdauer festgelegt?',
@@ -35,7 +34,7 @@ const faqs = [
   },
   {
     question: 'Was kostet ein Cloud-VMS im Vergleich zu einem NVR vor Ort?',
-    answer: 'Camzify wird pro Instanz und Monat abgerechnet — eine Stream-Instanz je Kamera, eine Detektions-Instanz je aktivierter KI-Funktion und Kamera, sowie Cloud-Speicher pro Terabyte. Ein Angebot wird pro Standort erstellt; es werden keine pauschalen Listenpreise veröffentlicht.',
+    answer: 'Camzify wird pro Instanz und Monat abgerechnet – eine Stream-Instanz je Kamera, eine Detektions-Instanz je aktivierter KI-Funktion und Kamera, sowie Cloud-Speicher pro Terabyte. Ein Angebot wird pro Standort erstellt; es werden keine pauschalen Listenpreise veröffentlicht.',
   },
 ];
 
@@ -44,9 +43,8 @@ export default function CloudVideomanagementsystemPage() {
     <PageShell
       {...pageMeta}
       faqs={faqs}
-      inLanguage="de"
-      schema={[serviceSchema({ name: 'Cloud-Videomanagementsystem', description: pageMeta.description, path: pageMeta.path })]}
-      breadcrumbs={[{ label: 'Deutsch', href: '/de' }, { label: 'Cloud-Videomanagementsystem' }]}
+            schema={[serviceSchema({ name: 'Cloud-Videomanagementsystem', description: pageMeta.description, path: pageMeta.path })]}
+      breadcrumbs={[{ label: 'Cloud-Videomanagementsystem' }]}
     >
       <section className="pb-16 pt-4">
         <div className="mx-auto max-w-site px-6">
@@ -60,7 +58,7 @@ export default function CloudVideomanagementsystemPage() {
                 <strong className="font-semibold text-foreground">
                   Aufzeichnung, Speicherung und Wiedergabe für IP-Kameras, die in der Cloud statt auf einem Rekorder vor Ort laufen:
                 </strong>{' '}
-                Jede Kamera verbindet sich direkt oder über den Camzify Connector, die Aufnahme wird nach der pro Kamera eingestellten Frist aufbewahrt, und der Zugriff erfolgt live und im Rückblick über den Browser — von jedem Standort aus, mit einem Login pro Nutzer.
+                Jede Kamera verbindet sich direkt oder über den Camzify Connector, die Aufnahme wird nach der pro Kamera eingestellten Frist aufbewahrt, und der Zugriff erfolgt live und im Rückblick über den Browser – von jedem Standort aus, mit einem Login pro Nutzer.
               </p>
               <div className="mt-8">
                 <Link href="/book-a-demo" className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 font-semibold text-primary-foreground transition-colors hover:bg-primary/90">
@@ -86,7 +84,7 @@ export default function CloudVideomanagementsystemPage() {
               <span className="font-mono text-mono-sm uppercase text-primary">Datenschutz und Speicherort</span>
               <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">Wo die Daten liegen</h2>
               <p className="mt-5 max-w-prose text-body text-muted-foreground">
-                Videoaufnahmen, auf denen Personen erkennbar sind, sind personenbezogene Daten im Sinne der DSGVO; § 4 BDSG regelt zusätzlich die Beobachtung öffentlich zugänglicher Räume — etwa Eingänge, Parkflächen oder Verkaufsflächen, wie sie Camzify-Kunden typischerweise überwachen. Camzify legt fest, dass die Aufnahmen in der AWS-Region gespeichert werden, die den Kamerastandorten am nächsten liegt; für deutsche Standorte ist das die AWS-Region Frankfurt, in Betrieb seit 2014.
+                Videoaufnahmen, auf denen Personen erkennbar sind, sind personenbezogene Daten im Sinne der DSGVO; § 4 BDSG regelt zusätzlich die Beobachtung öffentlich zugänglicher Räume – etwa Eingänge, Parkflächen oder Verkaufsflächen, wie sie Camzify-Kunden typischerweise überwachen. Camzify legt fest, dass die Aufnahmen in der AWS-Region gespeichert werden, die den Kamerastandorten am nächsten liegt.
               </p>
             </div>
           </ScrollReveal>

@@ -258,11 +258,15 @@ sell a different thing — bundled alarm response — not a VMS purchase.
    DIN 77200 (guarding quality — increasingly tender-required), and VdS certification
    (2366 installers / 3138 monitoring centres / 2172 intervention) as industry context —
    Camzify holds none of these and should reference them only as context, not claim them.
-4. State the AWS-Frankfurt / BSI-C5 story plainly; it already answers the "prefer
-   Germany" preference without a new commitment.
+4. ~~State the AWS-Frankfurt / BSI-C5 story plainly.~~ **Superseded 2026-09-26.**
+   CLAUDE.md rule 2 says footage is stored in the AWS region nearest the customer's
+   sites and never names a country or city. "Nearest" is not always Frankfurt (for a
+   site in southern Germany it can be Zurich), so naming Frankfurt would be a claim the
+   business has not made. The German pages state the policy as written and nothing more.
 5. Target GIT-Sicherheit and PROTECTOR first for citations/PR — both actively cover
    cloud VMS and AI video. Security-Insider.de is a secondary fit.
-6. **Fund the pilot.** A 6–8 page German pilot split by persona — guarding companies via
+6. **Fund the pilot.** *(Done: six pages shipped September 2026, expanded to a
+   forty-page German core on 2026-09-26; see docs/I18N.md.)* A 6–8 page German pilot split by persona — guarding companies via
    DIN 77200/Streifendienst language, installers via VdS 2366/Videomanagementsystem
    language — tests the term-cluster hypothesis directly, against the largest single
    country in the outreach list.

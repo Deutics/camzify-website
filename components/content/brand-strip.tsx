@@ -45,7 +45,8 @@ export function BrandStrip({
   limit,
   showNotes = false,
   className = '',
-  protocolClaim = 'ONVIF-conformant cameras interoperate with Camzify over RTSP',
+  protocolClaim,
+  locale = 'en',
 }: {
   /** Defaults to the ONVIF/RTSP camera list; pass a different array (e.g. rtmpStreamingBrands) to render that instead. */
   brands?: CameraBrand[];
@@ -54,7 +55,12 @@ export function BrandStrip({
   className?: string;
   /** The interoperability fact the disclaimer states, since it differs by list — e.g. ONVIF/RTSP vs native RTMP push. */
   protocolClaim?: string;
+  /** Language of the trademark disclaimer. On a German page pass 'de' and a German `protocolClaim`. */
+  locale?: 'en' | 'de';
 }) {
+  const claim = protocolClaim ?? (locale === 'de'
+    ? 'ONVIF-konformen Kameras über RTSP mit Camzify zusammenarbeiten'
+    : 'ONVIF-conformant cameras interoperate with Camzify over RTSP');
   const brands = limit ? brandList.slice(0, limit) : brandList;
 
   return (
@@ -73,11 +79,19 @@ export function BrandStrip({
           </li>
         ))}
       </ul>
-      <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
-        Brand names and logos are trademarks of their respective owners. Listing a manufacturer
-        states that its {protocolClaim}; it does not imply
-        partnership, endorsement or certification by that manufacturer.
-      </p>
+      {locale === 'de' ? (
+        <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
+          Markennamen und Logos sind Marken ihrer jeweiligen Inhaber. Die Nennung eines Herstellers
+          besagt, dass seine {claim}; sie bedeutet keine Partnerschaft, Empfehlung oder
+          Zertifizierung durch diesen Hersteller.
+        </p>
+      ) : (
+        <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
+          Brand names and logos are trademarks of their respective owners. Listing a manufacturer
+          states that its {claim}; it does not imply
+          partnership, endorsement or certification by that manufacturer.
+        </p>
+      )}
     </div>
   );
 }

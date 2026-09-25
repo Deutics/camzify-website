@@ -151,13 +151,15 @@ export function softwareApplicationSchema() {
 }
 
 /** BreadcrumbList with absolute `item` URLs. Home is always position 1. */
-export function breadcrumbSchema(items: Crumb[], currentPath?: string) {
+export function breadcrumbSchema(items: Crumb[], currentPath?: string, locale: 'en' | 'de' = 'en') {
   const trail = items ?? [];
+  // A German trail starts at the German home, so the first crumb matches the visible one.
+  const home = locale === 'de' ? { name: 'Startseite', item: absoluteUrl('/de') } : { name: 'Home', item: siteConfig.url };
   return {
     '@type': 'BreadcrumbList',
     '@id': `${absoluteUrl(currentPath ?? '/')}#breadcrumb`,
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: siteConfig.url },
+      { '@type': 'ListItem', position: 1, ...home },
       ...trail.map((item, i) => ({
         '@type': 'ListItem',
         position: i + 2,
