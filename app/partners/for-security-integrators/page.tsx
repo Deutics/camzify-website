@@ -2,6 +2,7 @@ import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { FeatureHero } from '@/components/content/feature-hero';
 import { ProductShot } from '@/components/content/product-shot';
 import { SectionVisual } from '@/components/content/section-visual';
@@ -22,7 +23,6 @@ const pageMeta = {
   title: "For CCTV & Alarm Installers | Monthly Service",
   description: "Attach virtual patrolling to camera systems you already install. RTSP, RTMP or HTTPS, a Connector for LAN cameras, nothing replaced, a clean hand-over.",
   path: "/partners/for-security-integrators",
-  hreflang: { 'de-DE': '/de/fuer-installateure', 'en-US': '/partners/for-security-integrators', 'x-default': '/partners/for-security-integrators' },
 };
 
 export const metadata = generatePageMeta({ ...pageMeta });
@@ -60,11 +60,6 @@ export default function ForSecurityIntegratorsPage() {
       { label: 'Partners', href: '/partners' },
       { label: 'For CCTV & Alarm Installers' },
     ]}>
-      <div className="mx-auto max-w-site px-6 text-right text-sm">
-        <Link href="/de/fuer-installateure" hrefLang="de-DE" className="text-muted-foreground hover:text-primary hover:underline">
-          Auf Deutsch
-        </Link>
-      </div>
       <FeatureHero
         eyebrow="CCTV and alarm installers · integrators"
         title="Camzify for CCTV and alarm installers"
@@ -80,10 +75,16 @@ export default function ForSecurityIntegratorsPage() {
         facts={['Any RTSP, RTMP or HTTPS stream', 'Connector for LAN cameras, no port forwarding', 'Hand-over by sub-user and permission group']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/supported-cameras', label: 'Supported cameras' }}
-        visual={
-          <ProductShot src="/product-configuration" alt="The Configuration screen in the console: adding a camera by its RTMP, RTSP or HTTPS address, with the cameras already on the site listed below" label="Configuration · Add camera" priority sizes="(max-width: 1024px) 100vw, 45vw" />
-        }
+        visual={<PhotoFigure src="/partner-hero-for-security-integrators.webp" alt="An installer mounting a dome camera on a brick wall beside an alarm panel" priority />}
       />
+
+      <section className="pb-16">
+        <div className="mx-auto max-w-site px-6">
+          <div className="max-w-3xl">
+            <ProductShot src="/product-configuration" alt="The Configuration screen in the console: adding a camera by its RTMP, RTSP or HTTPS address, with the cameras already on the site listed below" label="Configuration · Add camera" sizes="(max-width: 1024px) 100vw, 45vw" />
+          </div>
+        </div>
+      </section>
 
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">

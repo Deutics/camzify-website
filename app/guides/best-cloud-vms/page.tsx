@@ -1,4 +1,5 @@
 import { generatePageMeta } from '@/lib/page-utils';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { articleSchema, personSchema } from '@/lib/seo';
@@ -149,6 +150,10 @@ export default function BestCloudVmsPage() {
             records and manages camera video as a service rather than on a server in the building, and the eight products here fit that definition in different ways. Some keep a recorder on site; some send every stream off site; some sell the cameras, some take yours. There is no best overall, only a best fit for a given buyer, so each section ends with the situation it suits. What a per-camera subscription is built from is covered in{' '}
             <Link href="/guides/cloud-vms-cost" className="text-primary hover:underline">cloud VMS cost</Link>.
           </p>
+
+          <div className="mt-10 max-w-3xl">
+            <PhotoFigure src="/guide-best-cloud-vms.webp" alt="A cloud VMS live view: camera feeds from several sites on one screen in the Camzify console" priority />
+          </div>
 
           <section className="mt-16">
             <ScrollReveal>

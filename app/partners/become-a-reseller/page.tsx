@@ -2,6 +2,7 @@ import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { FeatureHero } from '@/components/content/feature-hero';
 import { ProductShot } from '@/components/content/product-shot';
 import { SectionVisual } from '@/components/content/section-visual';
@@ -74,10 +75,16 @@ export default function BecomeAResellerPage() {
         facts={['Software only, nothing to stock', 'Quote-based pricing, terms agreed in conversation', 'A page you can quote for every claim']}
         primary={{ href: '/contact', label: 'Talk to us about reselling' }}
         secondary={{ href: '/virtual-patrolling', label: 'What you would be selling' }}
-        visual={
-          <ProductShot src="/product-license-plan" alt="The Plan and Usage screen: instances per feature, what is activated, granted to sub-users and still available" label="Plan and usage" priority sizes="(max-width: 1024px) 100vw, 45vw" />
-        }
+        visual={<PhotoFigure src="/partner-hero-become-a-reseller.webp" alt="A partner at a laptop working in the Camzify console" priority />}
       />
+
+      <section className="pb-16">
+        <div className="mx-auto max-w-site px-6">
+          <div className="max-w-3xl">
+            <ProductShot src="/product-license-plan" alt="The Plan and Usage screen: instances per feature, what is activated, granted to sub-users and still available" label="Plan and usage" sizes="(max-width: 1024px) 100vw, 45vw" />
+          </div>
+        </div>
+      </section>
 
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
