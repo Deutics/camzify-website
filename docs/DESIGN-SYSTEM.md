@@ -95,7 +95,7 @@ rather than nothing — see `components/motion/patrol-sweep-hero.tsx`.
 | Component | Notes |
 |---|---|
 | `PageShell` | The page scaffold. Props: `path`, `title`, `description`, `breadcrumbs`, `faqs`, `schema`, `showCTA`, `ctaProps`. Emits page structured data. |
-| `SiteHeader` | Fixed nav. Hover **and** focus **and** click operable; submenus stay mounted with `inert`. |
+| `SiteHeader` | Fixed nav: four top-level entries (Product, Solutions, Pricing, Resources); the three menus are mega-menus of columns built from `navItems` in `lib/site-config.ts`. Hover **and** focus **and** click operable; submenus stay mounted with `inert`. Every page it linked before the four-menu redesign is still linked; see the coverage rule above `navItems`. |
 | `SiteFooter` | Link columns + NAP block derived from `siteConfig`. |
 | `Breadcrumbs` | Trail + `BreadcrumbList` schema with absolute URLs. |
 | `CTABand` | Closing CTA. Rendered automatically by `PageShell`. |

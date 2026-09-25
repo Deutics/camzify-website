@@ -49,8 +49,9 @@ export default function HomePage() {
   return (
     <>
       <JsonLd data={pageGraph} />
-      <div className="mx-auto max-w-site px-6 pt-4 text-right text-sm">
-        <Link href="/de" hrefLang="de-DE" className="text-muted-foreground hover:text-primary hover:underline">
+      {/* Positioned just below the fixed header (about 68px tall at the top of the page) and above the hero's eyebrow pill; in normal flow it sat underneath the header. */}
+      <div className="relative mx-auto max-w-site">
+        <Link href="/de" hrefLang="de-DE" className="absolute right-6 top-[72px] z-10 text-sm text-muted-foreground hover:text-primary hover:underline">
           Auf Deutsch
         </Link>
       </div>

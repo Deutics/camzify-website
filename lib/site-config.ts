@@ -141,197 +141,224 @@ export function absoluteUrl(path = '/'): string {
 
 
 /*
- * `section` on a child groups it under a column heading in the desktop menu. Menus with
- * more than eight children render as a columned panel instead of one tall list, so they
- * fit a laptop viewport; children without a section (the hub link) sit in the panel's
- * footer row. The mobile accordion ignores sections and lists children in order.
+ * Primary navigation: four top-level entries. Product, Solutions and Resources open a
+ * mega-menu; Pricing is a plain link.
+ *
+ * A menu is a row of columns. A column's `href` makes its heading a real link (the hub
+ * page, e.g. /virtual-patrolling), which keeps those hubs linked from every page with
+ * their own name as anchor text. `span: 2` gives a long column two sub-columns. Each
+ * menu can carry one `feature` card, rendered in the panel's footer row.
+ *
+ * COVERAGE RULE. The header is the site's main internal-link path from the homepage to
+ * the deep pages: 36 referring domains, all to the homepage, per
+ * docs/seo/AUDIT-2026-09-18.md. Every page linked here before the four-menu redesign is
+ * still linked here. Removing an entry means that page loses a link from every page on
+ * the site, so do it deliberately, never to tidy a column.
  */
-export const navItems = [
+export type NavLink = { label: string; href: string; description?: string };
+export type NavSection = { label?: string; items: NavLink[] };
+export type NavColumn = { label: string; href?: string; span?: 1 | 2; sections: NavSection[]; more?: NavLink };
+export type NavFeature = { label: string; href: string; description: string; icon: 'demo' | 'calculator' | 'roadmap' };
+export type NavMenu = { label: string; href: string; columns: NavColumn[]; feature?: NavFeature; mobileFlat?: boolean };
+export type NavEntry = NavMenu | NavLink;
+
+export const isNavMenu = (entry: NavEntry): entry is NavMenu => 'columns' in entry;
+
+export const navItems: NavEntry[] = [
   {
-    label: 'Virtual Patrolling',
-    href: '/virtual-patrolling',
-    children: [
-      { label: 'Overview', href: '/virtual-patrolling', description: 'Automated AI patrol rounds on your cameras' },
-      { label: 'How It Works', href: '/virtual-patrolling/how-it-works', section: 'How it works', description: 'Step-by-step patrol system walkthrough' },
-      { label: 'Patrol Sequences', href: '/virtual-patrolling/patrol-sequences', section: 'How it works', description: 'Ordered camera routes across sites' },
-      { label: 'Patrol Checklists', href: '/virtual-patrolling/patrol-checklists', section: 'How it works', description: 'Per-camera compliance checks' },
-      { label: 'Automated Scheduling', href: '/virtual-patrolling/automated-patrol-scheduling', section: 'How it works', description: 'Set frequency, hours, and days' },
-      { label: 'Patrol Reports', href: '/virtual-patrolling/patrol-reports', section: 'What a round produces', description: 'PDF reports for every round' },
-      { label: 'Guard Notifications', href: '/virtual-patrolling/guard-notifications', section: 'What a round produces', description: 'Automatic alerts to assigned guards' },
-      { label: 'Risk Detection', href: '/virtual-patrolling/risk-detection', section: 'What a round produces', description: 'Hazards flagged beyond the checklist' },
-      { label: 'Compliance Tracking', href: '/virtual-patrolling/patrol-compliance-tracking', section: 'What a round produces', description: 'Rounds completed vs scheduled' },
-      { label: 'vs Security Guards', href: '/virtual-patrolling/vs-security-guards', section: 'In context', description: 'Compare AI patrols to manned guarding' },
-      { label: 'Virtual Guard', href: '/virtual-guard', section: 'In context', description: 'The service model, in the market\'s words' },
-      { label: 'Multi-Site Operations', href: '/virtual-patrolling/for-multi-site-operations', section: 'In context', description: 'Patrol across distributed locations' },
+    label: 'Product',
+    href: '/platform',
+    columns: [
+      {
+        label: 'Virtual Patrolling',
+        href: '/virtual-patrolling',
+        sections: [
+          { label: 'How it works', items: [
+            { label: 'How It Works', href: '/virtual-patrolling/how-it-works' },
+            { label: 'Patrol Sequences', href: '/virtual-patrolling/patrol-sequences' },
+            { label: 'Patrol Checklists', href: '/virtual-patrolling/patrol-checklists' },
+            { label: 'Automated Scheduling', href: '/virtual-patrolling/automated-patrol-scheduling' },
+          ] },
+          { label: 'What a round produces', items: [
+            { label: 'Patrol Reports', href: '/virtual-patrolling/patrol-reports' },
+            { label: 'Guard Notifications', href: '/virtual-patrolling/guard-notifications' },
+            { label: 'Risk Detection', href: '/virtual-patrolling/risk-detection' },
+            { label: 'Compliance Tracking', href: '/virtual-patrolling/patrol-compliance-tracking' },
+          ] },
+          { label: 'In context', items: [
+            { label: 'vs Security Guards', href: '/virtual-patrolling/vs-security-guards' },
+            { label: 'Virtual Guard', href: '/virtual-guard' },
+            { label: 'Multi-Site Operations', href: '/virtual-patrolling/for-multi-site-operations' },
+          ] },
+        ],
+      },
+      {
+        label: 'Platform',
+        href: '/platform',
+        sections: [
+          { label: 'Video', items: [
+            { label: 'Cloud Video Surveillance', href: '/cloud-video-surveillance' },
+            { label: 'Live Streaming', href: '/platform/live-streaming' },
+            { label: 'Video Backup', href: '/platform/video-backup-and-retention' },
+          ] },
+          { label: 'Operations', items: [
+            { label: 'Dashboard', href: '/platform/dashboard' },
+            { label: 'Notifications', href: '/platform/notifications-and-alerts' },
+            { label: 'Analytics', href: '/platform/analytics-and-reporting' },
+          ] },
+          { label: 'Scale and control', items: [
+            { label: 'User Management', href: '/platform/user-management' },
+            { label: 'Multi-Site', href: '/platform/multi-site-management' },
+            { label: 'AI Architecture', href: '/platform/ai-architecture' },
+          ] },
+        ],
+      },
+      {
+        label: 'AI Features',
+        href: '/ai-features',
+        span: 2,
+        sections: [
+          { label: 'Perimeter & Access', items: [
+            { label: 'Line Intrusion Detection', href: '/ai-features/line-intrusion-detection' },
+            { label: 'Zone Intrusion Detection', href: '/ai-features/zone-intrusion-detection' },
+            { label: 'Loitering Detection', href: '/ai-features/loitering-detection' },
+            { label: 'Motion Detection', href: '/ai-features/motion-detection' },
+            { label: 'Tailgating Detection', href: '/ai-features/tailgating-detection' },
+          ] },
+          { label: 'Threat & Incident', items: [
+            { label: 'Behavioral Anomaly Detection', href: '/ai-features/behavioral-anomaly-detection' },
+            { label: 'Weapons Detection', href: '/ai-features/weapons-detection' },
+            { label: 'Aggression & Fight Detection', href: '/ai-features/aggression-and-fight-detection' },
+            { label: 'Slip & Fall Detection', href: '/ai-features/slip-and-fall-detection' },
+            { label: 'Fire & Smoke Detection', href: '/ai-features/fire-and-smoke-detection' },
+          ] },
+          { label: 'Analytics & Insights', items: [
+            { label: 'Heatmap Anomalies', href: '/ai-features/heatmap-anomalies' },
+            { label: 'Occupancy & Peak Hour Trends', href: '/ai-features/occupancy-and-peak-hour-trends' },
+          ] },
+          { label: 'Site Compliance', items: [
+            { label: 'PPE Violation Detection', href: '/ai-features/ppe-violation-detection' },
+            { label: 'Abandoned Object Detection', href: '/ai-features/abandoned-object-detection' },
+            { label: 'Littering Detection', href: '/ai-features/littering-detection' },
+            { label: 'Camera Tampering Detection', href: '/ai-features/camera-tampering-detection' },
+          ] },
+          { label: 'Vehicle & Parking', items: [
+            { label: 'Illegal Parking Detection', href: '/ai-features/illegal-parking-detection' },
+            { label: 'Wrong-Way Vehicle Detection', href: '/ai-features/wrong-way-vehicle-detection' },
+            { label: 'Vehicle Damage Report', href: '/ai-features/vehicle-damage-report' },
+          ] },
+          { label: 'Investigation & Tracking', items: [
+            { label: 'AI Suspect Search', href: '/ai-features/forensic-video-search' },
+            { label: 'Cross-Camera Journey Map', href: '/ai-features/cross-camera-journey-map' },
+            { label: 'Multi-Object Tracking', href: '/ai-features/multi-object-tracking' },
+            { label: 'AI Attribute Extraction', href: '/ai-features/ai-attribute-extraction' },
+          ] },
+        ],
+      },
     ],
+    feature: { label: 'Interactive demo', href: '/#patrol-demo', description: 'Run a patrol round in your browser, no login', icon: 'demo' },
   },
   {
     label: 'Solutions',
     href: '/partners',
-    children: [
-      { label: 'For Security Agencies', href: '/partners/for-security-agencies', description: 'Sell overnight coverage you cannot staff' },
-      { label: 'For Monitoring Companies', href: '/partners/for-monitoring-centers', description: 'Run rounds for the agencies you monitor for' },
-      { label: 'For CCTV & Alarm Installers', href: '/partners/for-security-integrators', description: 'A monthly service on cameras you install' },
-      { label: 'For Managed Service Providers', href: '/partners/for-managed-service-providers', description: 'One account, a login per customer' },
-      { label: 'Become a Reseller', href: '/partners/become-a-reseller', description: 'Software only, quote-based pricing' },
-      { label: 'ROI Calculator', href: '/roi-calculator', description: 'Your guard cost, or your partner revenue' },
-    ],
-  },
-  {
-    label: 'Platform',
-    href: '/platform',
-    children: [
-      { label: 'Overview', href: '/platform', description: 'Unified video management platform' },
-      { label: 'Cloud Video Surveillance', href: '/cloud-video-surveillance', section: 'Video', description: 'Cloud VMS, no recorder on site' },
-      { label: 'Dashboard', href: '/platform/dashboard', section: 'Operations', description: 'Real-time operations overview' },
-      { label: 'Live Streaming', href: '/platform/live-streaming', section: 'Video', description: 'Multi-camera live view' },
-      { label: 'Video Backup', href: '/platform/video-backup-and-retention', section: 'Video', description: 'Retention and playback management' },
-      { label: 'Notifications', href: '/platform/notifications-and-alerts', section: 'Operations', description: 'Alert management and escalation' },
-      { label: 'Analytics', href: '/platform/analytics-and-reporting', section: 'Operations', description: 'Detection trends and insights' },
-      { label: 'User Management', href: '/platform/user-management', section: 'Scale and control', description: 'Roles and access control' },
-      { label: 'Multi-Site', href: '/platform/multi-site-management', section: 'Scale and control', description: 'Centralized multi-location control' },
-      { label: 'AI Architecture', href: '/platform/ai-architecture', section: 'Scale and control', description: 'Six-layer AI processing pipeline' },
-    ],
-  },
-  {
-    label: 'AI Features',
-    href: '/ai-features',
-    groups: [
+    columns: [
       {
-        label: 'Perimeter & Access',
-        items: [
-          { label: 'Line Intrusion Detection', href: '/ai-features/line-intrusion-detection', description: 'Directional tripwire, confirmed tracks' },
-          { label: 'Zone Intrusion Detection', href: '/ai-features/zone-intrusion-detection', description: 'Polygonal restricted areas, any entry' },
-          { label: 'Loitering Detection', href: '/ai-features/loitering-detection', description: 'Lingering past a set dwell time' },
-          { label: 'Motion Detection', href: '/ai-features/motion-detection', description: 'Track-based motion, not pixel change' },
-          { label: 'Tailgating Detection', href: '/ai-features/tailgating-detection', description: 'Two people in on one badge' },
+        label: 'By Role',
+        href: '/partners',
+        sections: [
+          { items: [
+            { label: 'Security Agencies', href: '/partners/for-security-agencies', description: 'Sell overnight coverage you cannot staff' },
+            { label: 'Monitoring Companies', href: '/partners/for-monitoring-centers', description: 'Run rounds for the agencies you monitor for' },
+            { label: 'CCTV & Alarm Installers', href: '/partners/for-security-integrators', description: 'A monthly service on cameras you install' },
+            { label: 'Managed Service Providers', href: '/partners/for-managed-service-providers', description: 'One account, a login per customer' },
+          ] },
+          { label: 'Partners', items: [
+            { label: 'Become a Reseller', href: '/partners/become-a-reseller' },
+          ] },
         ],
       },
       {
-        label: 'Threat & Incident',
-        items: [
-          { label: 'Behavioral Anomaly Detection', href: '/ai-features/behavioral-anomaly-detection', description: 'Describe the behavior to watch for' },
-          { label: 'Weapons Detection', href: '/ai-features/weapons-detection', description: 'A visible weapon flagged as seen' },
-          { label: 'Aggression & Fight Detection', href: '/ai-features/aggression-and-fight-detection', description: 'Altercations flagged as they start' },
-          { label: 'Slip & Fall Detection', href: '/ai-features/slip-and-fall-detection', description: 'A person down, raised in real time' },
-          { label: 'Fire & Smoke Detection', href: '/ai-features/fire-and-smoke-detection', description: 'Visual flame and smoke on camera' },
+        label: 'By Industry',
+        href: '/industries',
+        span: 2,
+        sections: [
+          { label: 'Industrial & Logistics', items: [
+            { label: 'Warehouses', href: '/industries/warehouses' },
+            { label: 'Manufacturing', href: '/industries/manufacturing' },
+            { label: 'Construction Sites', href: '/industries/construction-sites' },
+            { label: 'Energy', href: '/industries/energy' },
+            { label: 'Automotive', href: '/industries/automotive' },
+          ] },
+          { label: 'Retail & Commercial', items: [
+            { label: 'Retail', href: '/industries/retail' },
+            { label: 'Restaurants', href: '/industries/restaurants' },
+            { label: 'Financial Services', href: '/industries/financial-services' },
+          ] },
+          { label: 'Healthcare & Education', items: [
+            { label: 'Healthcare', href: '/industries/healthcare' },
+            { label: 'Education Facilities', href: '/industries/education-facilities' },
+          ] },
+          { label: 'Property & Community', items: [
+            { label: 'Property Management', href: '/industries/property-management' },
+            { label: 'Residential', href: '/industries/residential' },
+            { label: 'Self-Storage', href: '/industries/self-storage' },
+            { label: 'Waste Management', href: '/industries/waste-management' },
+          ] },
+          { label: 'Multi-Site Operations', items: [
+            { label: 'Multiple Sites', href: '/industries/multiple-sites' },
+            { label: 'Remote Sites', href: '/industries/remote-sites' },
+          ] },
         ],
       },
       {
-        label: 'Site Compliance',
-        items: [
-          { label: 'PPE Violation Detection', href: '/ai-features/ppe-violation-detection', description: 'Missing helmets, vests or gloves' },
-          { label: 'Abandoned Object Detection', href: '/ai-features/abandoned-object-detection', description: 'Bags and packages left unattended' },
-          { label: 'Littering Detection', href: '/ai-features/littering-detection', description: 'Items dropped outside the bins' },
-          { label: 'Camera Tampering Detection', href: '/ai-features/camera-tampering-detection', description: 'Covered, moved, defocused or frozen' },
+        label: 'By Use Case',
+        href: '/use-cases',
+        sections: [
+          { label: 'Sites and perimeters', items: [
+            { label: 'Perimeter Security', href: '/use-cases/perimeter-security' },
+            { label: 'After-Hours Monitoring', href: '/use-cases/after-hours-monitoring' },
+            { label: 'Remote Site Monitoring', href: '/use-cases/remote-site-monitoring' },
+            { label: 'Lock-Up & Closing Checks', href: '/use-cases/lock-up-and-closing-checks' },
+          ] },
+          { label: 'Assets and operations', items: [
+            { label: 'Guard Tour Verification', href: '/use-cases/guard-tour-verification' },
+            { label: 'Theft Prevention', href: '/use-cases/theft-prevention' },
+            { label: 'Loading Dock Monitoring', href: '/use-cases/loading-dock-monitoring' },
+            { label: 'Remote Video Monitoring', href: '/use-cases/remote-video-monitoring' },
+          ] },
+          { label: 'Life safety', items: [
+            { label: 'Fire & Smoke Monitoring', href: '/use-cases/fire-and-smoke-monitoring' },
+            { label: 'Fall Detection in Care Settings', href: '/use-cases/fall-detection-for-hospitals-and-care-homes' },
+            { label: 'Weapons Detection for Schools', href: '/use-cases/weapons-detection-for-schools-and-public-buildings' },
+          ] },
         ],
-      },
-      {
-        label: 'Vehicle & Parking',
-        items: [
-          { label: 'Illegal Parking Detection', href: '/ai-features/illegal-parking-detection', description: 'Fire lanes, loading zones, bays' },
-          { label: 'Wrong-Way Vehicle Detection', href: '/ai-features/wrong-way-vehicle-detection', description: 'Vehicles against the defined direction' },
-          { label: 'Vehicle Damage Report', href: '/ai-features/vehicle-damage-report', description: 'Dents and scratches logged at the gate' },
-        ],
-      },
-      {
-        label: 'Investigation & Tracking',
-        items: [
-          { label: 'AI Suspect Search', href: '/ai-features/forensic-video-search', description: 'Find a person from a description' },
-          { label: 'Cross-Camera Journey Map', href: '/ai-features/cross-camera-journey-map', description: 'One subject, one cross-camera path' },
-          { label: 'Multi-Object Tracking', href: '/ai-features/multi-object-tracking', description: 'Persistent identity per subject' },
-          { label: 'AI Attribute Extraction', href: '/ai-features/ai-attribute-extraction', description: 'Structured attributes from the scene' },
-        ],
-      },
-      {
-        label: 'Analytics & Insights',
-        items: [
-          { label: 'Heatmap Anomalies', href: '/ai-features/heatmap-anomalies', description: 'Foot-traffic patterns flagged as unusual' },
-          { label: 'Occupancy & Peak Hour Trends', href: '/ai-features/occupancy-and-peak-hour-trends', description: 'Busiest hours and zones by count' },
-        ],
+        more: { label: 'All 35 use cases', href: '/use-cases' },
       },
     ],
-  },
-  {
-    label: 'Use Cases',
-    href: '/use-cases',
-    children: [
-      { label: 'All Use Cases', href: '/use-cases', description: 'Security scenarios we address' },
-      { label: 'Perimeter Security', href: '/use-cases/perimeter-security', section: 'Sites and perimeters', description: 'Fence-line and boundary protection' },
-      { label: 'After-Hours Monitoring', href: '/use-cases/after-hours-monitoring', section: 'Sites and perimeters', description: 'Night and off-hours coverage' },
-      { label: 'Guard Tour Verification', href: '/use-cases/guard-tour-verification', section: 'Assets and operations', description: 'Verify guard rounds remotely' },
-      { label: 'Theft Prevention', href: '/use-cases/theft-prevention', section: 'Assets and operations', description: 'Shrinkage and loss reduction' },
-      { label: 'Loading Dock Monitoring', href: '/use-cases/loading-dock-monitoring', section: 'Assets and operations', description: 'Dock and logistics security' },
-      { label: 'Remote Site Monitoring', href: '/use-cases/remote-site-monitoring', section: 'Sites and perimeters', description: 'Unmanned location oversight' },
-      { label: 'Remote Video Monitoring', href: '/use-cases/remote-video-monitoring', section: 'Assets and operations', description: 'Rounds and detections from a monitoring room' },
-      { label: 'Lock-Up & Closing Checks', href: '/use-cases/lock-up-and-closing-checks', section: 'Sites and perimeters', description: 'A closing round from the cameras' },
-      { label: 'Fire & Smoke Monitoring', href: '/use-cases/fire-and-smoke-monitoring', section: 'Life safety', description: 'Visual early warning on any camera' },
-      { label: 'Fall Detection in Care Settings', href: '/use-cases/fall-detection-for-hospitals-and-care-homes', section: 'Life safety', description: 'A person on the floor, raised in seconds' },
-      { label: 'Weapons Detection for Schools', href: '/use-cases/weapons-detection-for-schools-and-public-buildings', section: 'Life safety', description: 'A visible weapon raised as critical' },
-    ],
-  },
-  {
-    label: 'Industries',
-    href: '/industries',
-    groups: [
-      {
-        label: 'Industrial & Logistics',
-        items: [
-          { label: 'Warehouses', href: '/industries/warehouses', description: 'Docks, aisles and yards after hours' },
-          { label: 'Manufacturing', href: '/industries/manufacturing', description: 'Plant floors, PPE zones and perimeters' },
-          { label: 'Construction Sites', href: '/industries/construction-sites', description: 'Open sites, plant and material theft' },
-          { label: 'Energy', href: '/industries/energy', description: 'Substations, plants and remote assets' },
-          { label: 'Automotive', href: '/industries/automotive', description: 'Repair shops, service bays and lots' },
-        ],
-      },
-      {
-        label: 'Retail & Commercial',
-        items: [
-          { label: 'Retail', href: '/industries/retail', description: 'Stores, stockrooms and closing checks' },
-          { label: 'Restaurants', href: '/industries/restaurants', description: 'Kitchens, back doors and closing' },
-          { label: 'Financial Services', href: '/industries/financial-services', description: 'Branches, ATMs and after hours' },
-        ],
-      },
-      {
-        label: 'Healthcare & Education',
-        items: [
-          { label: 'Healthcare', href: '/industries/healthcare', description: 'Corridors, entrances and fall detection' },
-          { label: 'Education Facilities', href: '/industries/education-facilities', description: 'Campuses, gates and after hours' },
-        ],
-      },
-      {
-        label: 'Property & Community',
-        items: [
-          { label: 'Property Management', href: '/industries/property-management', description: 'Lobbies, parking and common areas' },
-          { label: 'Residential', href: '/industries/residential', description: 'Gates, parking and shared spaces' },
-          { label: 'Self-Storage', href: '/industries/self-storage', description: 'Gates, corridors and unit access' },
-          { label: 'Waste Management', href: '/industries/waste-management', description: 'Yards, plant and after-hours access' },
-        ],
-      },
-      {
-        label: 'Multi-Site Operations',
-        items: [
-          { label: 'Multiple Sites', href: '/industries/multiple-sites', description: 'One console, every location' },
-          { label: 'Remote Sites', href: '/industries/remote-sites', description: 'Unmanned sites on the same rounds' },
-        ],
-      },
-    ],
+    feature: { label: 'ROI calculator', href: '/roi-calculator', description: 'Your guard cost, or your partner revenue', icon: 'calculator' },
   },
   { label: 'Pricing', href: '/pricing' },
   {
     label: 'Resources',
     href: '/guides',
-    children: [
-      { label: 'Buyer Guides', href: '/guides', section: 'Learn', description: 'In-depth security guides' },
-      { label: 'Glossary', href: '/glossary', section: 'Learn', description: 'Security video terms, defined' },
-      { label: 'FAQs', href: '/faqs', section: 'Learn', description: 'Common questions answered' },
-      { label: 'Blog', href: '/blog', section: 'Learn', description: 'Latest insights and updates' },
-      { label: 'Compare', href: '/compare', section: 'Decide', description: 'Side-by-side comparisons' },
-      { label: 'Alternatives', href: '/alternatives', section: 'Decide', description: 'Switching from ADT or Verkada' },
-      { label: 'ROI Calculator', href: '/roi-calculator', section: 'Decide', description: 'Calculate your savings' },
-      { label: 'Supported Cameras', href: '/supported-cameras', section: 'Set up', description: 'Compatible camera database' },
-      { label: 'Camera Connectivity', href: '/camera-connectivity', section: 'Set up', description: 'Setup guides by protocol' },
-      { label: 'Roadmap', href: '/roadmap', description: 'What we are building next' },
+    mobileFlat: true,
+    columns: [
+      { label: 'Learn', sections: [{ items: [
+        { label: 'Buyer Guides', href: '/guides' },
+        { label: 'Glossary', href: '/glossary' },
+        { label: 'FAQs', href: '/faqs' },
+        { label: 'Blog', href: '/blog' },
+      ] }] },
+      { label: 'Decide', sections: [{ items: [
+        { label: 'Compare', href: '/compare' },
+        { label: 'Alternatives', href: '/alternatives' },
+        { label: 'ROI Calculator', href: '/roi-calculator' },
+      ] }] },
+      { label: 'Set Up', sections: [{ items: [
+        { label: 'Supported Cameras', href: '/supported-cameras' },
+        { label: 'Camera Connectivity', href: '/camera-connectivity' },
+      ] }] },
     ],
+    feature: { label: 'Roadmap', href: '/roadmap', description: 'What we are building next', icon: 'roadmap' },
   },
-] as const;
+];
