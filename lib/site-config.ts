@@ -147,7 +147,7 @@ export function absoluteUrl(path = '/'): string {
  *
  * A menu is a row of columns. A column's `href` makes its heading a real link (the hub
  * page, e.g. /virtual-patrolling), which keeps those hubs linked from every page with
- * their own name as anchor text. `span: 2` gives a long column two sub-columns. Each
+ * their own name as anchor text. `span: 2` or `3` gives a long column that many sub-columns. Each
  * menu can carry one `feature` card, rendered in the panel's footer row.
  *
  * COVERAGE RULE. The header is the site's main internal-link path from the homepage to
@@ -158,7 +158,7 @@ export function absoluteUrl(path = '/'): string {
  */
 export type NavLink = { label: string; href: string; description?: string };
 export type NavSection = { label?: string; items: NavLink[] };
-export type NavColumn = { label: string; href?: string; span?: 1 | 2; sections: NavSection[]; more?: NavLink };
+export type NavColumn = { label: string; href?: string; span?: 1 | 2 | 3; sections: NavSection[]; more?: NavLink };
 export type NavFeature = { label: string; href: string; description: string; icon: 'demo' | 'calculator' | 'roadmap' };
 export type NavMenu = { label: string; href: string; columns: NavColumn[]; feature?: NavFeature; mobileFlat?: boolean };
 export type NavEntry = NavMenu | NavLink;
@@ -288,33 +288,33 @@ export const navItems: NavEntry[] = [
       {
         label: 'By Industry',
         href: '/industries',
-        span: 2,
+        span: 3,
         sections: [
           { label: 'Industrial & Logistics', items: [
-            { label: 'Warehouses', href: '/industries/warehouses' },
-            { label: 'Manufacturing', href: '/industries/manufacturing' },
-            { label: 'Construction Sites', href: '/industries/construction-sites' },
-            { label: 'Energy', href: '/industries/energy' },
-            { label: 'Automotive', href: '/industries/automotive' },
+            { label: 'Warehouses', href: '/industries/warehouses', description: 'Docks, fence lines and cages' },
+            { label: 'Manufacturing', href: '/industries/manufacturing', description: 'Machinery, yards and stock' },
+            { label: 'Construction Sites', href: '/industries/construction-sites', description: 'Fencing, equipment, trailers' },
+            { label: 'Energy', href: '/industries/energy', description: 'Substations, solar and wind' },
+            { label: 'Automotive', href: '/industries/automotive', description: 'Bays, yards and lots after close' },
           ] },
           { label: 'Retail & Commercial', items: [
-            { label: 'Retail', href: '/industries/retail' },
-            { label: 'Restaurants', href: '/industries/restaurants' },
-            { label: 'Financial Services', href: '/industries/financial-services' },
+            { label: 'Retail', href: '/industries/retail', description: 'Stockrooms and back doors' },
+            { label: 'Restaurants', href: '/industries/restaurants', description: 'Back doors and closing checks' },
+            { label: 'Financial Services', href: '/industries/financial-services', description: 'Vaults, ATMs and branches' },
           ] },
           { label: 'Healthcare & Education', items: [
-            { label: 'Healthcare', href: '/industries/healthcare' },
-            { label: 'Education Facilities', href: '/industries/education-facilities' },
+            { label: 'Healthcare', href: '/industries/healthcare', description: 'Pharmacies, wings and exits' },
+            { label: 'Education Facilities', href: '/industries/education-facilities', description: 'Entrances, labs and parking' },
           ] },
           { label: 'Property & Community', items: [
-            { label: 'Property Management', href: '/industries/property-management' },
-            { label: 'Residential', href: '/industries/residential' },
-            { label: 'Self-Storage', href: '/industries/self-storage' },
-            { label: 'Waste Management', href: '/industries/waste-management' },
+            { label: 'Property Management', href: '/industries/property-management', description: 'Common areas and garages' },
+            { label: 'Residential', href: '/industries/residential', description: 'Gates, pools and amenities' },
+            { label: 'Self-Storage', href: '/industries/self-storage', description: 'Gates, hallways and units' },
+            { label: 'Waste Management', href: '/industries/waste-management', description: 'Dumping and unmanned gates' },
           ] },
           { label: 'Multi-Site Operations', items: [
-            { label: 'Multiple Sites', href: '/industries/multiple-sites' },
-            { label: 'Remote Sites', href: '/industries/remote-sites' },
+            { label: 'Multiple Sites', href: '/industries/multiple-sites', description: 'The same rounds everywhere' },
+            { label: 'Remote Sites', href: '/industries/remote-sites', description: 'Stations, towers, fence lines' },
           ] },
         ],
       },
