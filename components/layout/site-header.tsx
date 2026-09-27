@@ -457,7 +457,7 @@ export function SiteHeader() {
     href === '/' ? pathname === '/' : pathname === href || Boolean(pathname?.startsWith(`${href}/`));
 
   const topLinkClass = (active: boolean) =>
-    `whitespace-nowrap rounded-md py-2 pl-3.5 text-[15px] font-medium transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
+    `whitespace-nowrap rounded-md py-2 pl-2.5 text-sm font-medium transition-colors xl:pl-3.5 xl:text-[15px] hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
       active ? 'text-primary' : 'text-foreground/80'
     }`;
 
@@ -527,14 +527,14 @@ export function SiteHeader() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="col-start-2 hidden items-center gap-1.5 lg:flex" aria-label={strings.mainNav}>
+        <nav className="col-start-2 hidden items-center gap-0.5 lg:flex xl:gap-1.5" aria-label={strings.mainNav}>
           {items.map((entry) => {
             if (!isNavMenu(entry)) {
               return (
                 <Link
                   key={entry.label}
                   href={entry.href}
-                  className={`${topLinkClass(isActivePath(entry.href))} pr-3`}
+                  className={`${topLinkClass(isActivePath(entry.href))} pr-2.5 xl:pr-3.5`}
                   aria-current={pathname === entry.href ? 'page' : undefined}
                 >
                   {entry.label}
@@ -573,7 +573,7 @@ export function SiteHeader() {
                     aria-expanded={isOpen}
                     aria-controls={menuId}
                     aria-label={`${menu.label} ${strings.menuSuffix}`}
-                    className={`flex h-9 w-7 items-center justify-center rounded-md transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
+                    className={`flex h-9 w-6 items-center justify-center rounded-md transition-colors xl:w-7 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
                       active || isOpen ? 'text-primary' : 'text-foreground/70'
                     }`}
                   >

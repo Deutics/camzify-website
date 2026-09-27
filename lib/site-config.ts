@@ -141,8 +141,8 @@ export function absoluteUrl(path = '/'): string {
 
 
 /*
- * Primary navigation: five top-level entries. Product, Solutions, Industries and
- * Resources open a mega-menu; Pricing is a plain link. German pages use `navItemsDe`
+ * Primary navigation: six top-level entries. Product, Solutions, Industries, Use Cases
+ * and Resources open a mega-menu; Pricing is a plain link. German pages use `navItemsDe`
  * below instead, which links only pages that exist in German.
  *
  * A menu is a row of columns. A column's `href` makes its heading a real link (the hub
@@ -318,26 +318,72 @@ export const navItems: NavEntry[] = [
           ] },
         ],
       },
+    ],
+  },
+  {
+    label: 'Use Cases',
+    href: '/use-cases',
+    columns: [
       {
-        label: 'By Use Case',
+        label: 'By Goal',
         href: '/use-cases',
+        span: 2,
         sections: [
-          { label: 'Sites and perimeters', items: [
+          { label: 'Keep people out', items: [
             { label: 'Perimeter Security', href: '/use-cases/perimeter-security' },
+            { label: 'Trespassing Detection', href: '/use-cases/trespassing-detection' },
+            { label: 'Unauthorized Access', href: '/use-cases/unauthorized-access-detection' },
             { label: 'After-Hours Monitoring', href: '/use-cases/after-hours-monitoring' },
-            { label: 'Remote Site Monitoring', href: '/use-cases/remote-site-monitoring' },
-            { label: 'Lock-Up & Closing Checks', href: '/use-cases/lock-up-and-closing-checks' },
+            { label: 'Night Security', href: '/use-cases/night-security' },
           ] },
-          { label: 'Assets and operations', items: [
-            { label: 'Guard Tour Verification', href: '/use-cases/guard-tour-verification' },
+          { label: 'Protect what is inside', items: [
             { label: 'Theft Prevention', href: '/use-cases/theft-prevention' },
             { label: 'Loading Dock Monitoring', href: '/use-cases/loading-dock-monitoring' },
-            { label: 'Remote Video Monitoring', href: '/use-cases/remote-video-monitoring' },
+            { label: 'Vandalism Prevention', href: '/use-cases/vandalism-prevention' },
+            { label: 'Parking Lot Surveillance', href: '/use-cases/parking-lot-surveillance' },
+            { label: 'Vehicle Monitoring', href: '/use-cases/vehicle-monitoring' },
           ] },
-          { label: 'Life safety', items: [
+          { label: 'Prove it and reconstruct it', items: [
+            { label: 'Guard Tour Verification', href: '/use-cases/guard-tour-verification' },
+            { label: 'Remote Site Monitoring', href: '/use-cases/remote-site-monitoring' },
+            { label: 'Remote Video Monitoring', href: '/use-cases/remote-video-monitoring' },
+            { label: 'Incident Investigation', href: '/use-cases/incident-investigation' },
+            { label: 'Lock-Up & Closing Checks', href: '/use-cases/lock-up-and-closing-checks' },
+            { label: 'Alarm Verification', href: '/use-cases/alarm-verification' },
+            { label: 'Camera Health Monitoring', href: '/use-cases/camera-health-monitoring' },
+          ] },
+          { label: 'Keep people safe', items: [
             { label: 'Fire & Smoke Monitoring', href: '/use-cases/fire-and-smoke-monitoring' },
+            { label: 'Workplace Safety', href: '/use-cases/workplace-safety-monitoring' },
+            { label: 'PPE Compliance', href: '/use-cases/ppe-compliance-monitoring' },
+            { label: 'Violence & Weapons Detection', href: '/use-cases/violence-and-weapons-detection' },
+            { label: 'Occupancy Monitoring', href: '/use-cases/occupancy-monitoring' },
+          ] },
+        ],
+      },
+      {
+        label: 'By Setting',
+        href: '/use-cases',
+        span: 2,
+        sections: [
+          { label: 'Hospitals, schools & venues', items: [
             { label: 'Fall Detection in Care Settings', href: '/use-cases/fall-detection-for-hospitals-and-care-homes' },
             { label: 'Weapons Detection for Schools', href: '/use-cases/weapons-detection-for-schools-and-public-buildings' },
+            { label: 'Violence in the ER', href: '/use-cases/violence-detection-in-emergency-departments' },
+            { label: 'Fire & Smoke in High-Rises', href: '/use-cases/fire-and-smoke-detection-for-high-rise-buildings' },
+            { label: 'Fire Exits & Escape Routes', href: '/use-cases/fire-exit-and-escape-route-monitoring' },
+            { label: 'Occupancy Limits for Venues', href: '/use-cases/occupancy-limits-for-venues-and-public-spaces' },
+          ] },
+          { label: 'Parking & vehicles', items: [
+            { label: 'Car Theft in Parking Facilities', href: '/use-cases/car-theft-and-vandalism-in-parking-facilities' },
+            { label: 'Fire Lanes & Emergency Access', href: '/use-cases/fire-lane-and-emergency-access-enforcement' },
+          ] },
+          { label: 'Evidence & multi-site', items: [
+            { label: 'Backup Against DVR Theft', href: '/use-cases/cloud-video-backup-against-dvr-theft' },
+            { label: 'One Live Wall for Every Brand', href: '/use-cases/one-live-wall-for-every-brand-and-location' },
+            { label: 'Tracking One Person', href: '/use-cases/tracking-one-person-across-cameras' },
+            { label: 'Compliance Evidence', href: '/use-cases/virtual-patrolling-for-compliance-evidence' },
+            { label: 'Tailgating at Secure Entrances', href: '/use-cases/tailgating-detection-for-data-centers-and-secure-entrances' },
           ] },
         ],
         more: { label: 'All 35 use cases', href: '/use-cases' },
