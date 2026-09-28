@@ -158,7 +158,11 @@ export function absoluteUrl(path = '/'): string {
  */
 export type NavLink = { label: string; href: string; description?: string };
 export type NavSection = { label?: string; items: NavLink[] };
-export type NavColumn = { label: string; href?: string; span?: 1 | 2 | 3; sections: NavSection[]; more?: NavLink };
+/**
+ * `hideHeading`: for a column that is the menu's only one, where a heading would just
+ * repeat the menu's name. The hub link then belongs in `more`, at the foot of the panel.
+ */
+export type NavColumn = { label: string; href?: string; span?: 1 | 2 | 3; hideHeading?: boolean; sections: NavSection[]; more?: NavLink };
 export type NavFeature = { label: string; href: string; description: string; icon: 'demo' | 'calculator' | 'roadmap' };
 export type NavMenu = { label: string; href: string; columns: NavColumn[]; feature?: NavFeature; mobileFlat?: boolean };
 export type NavEntry = NavMenu | NavLink;
@@ -294,6 +298,7 @@ export const navItems: NavEntry[] = [
         label: 'By Industry',
         href: '/industries',
         span: 3,
+        hideHeading: true,
         sections: [
           { label: 'Industrial & Logistics', items: [
             { label: 'Warehouses', href: '/industries/warehouses', description: 'Docks, fence lines and cages' },
@@ -322,6 +327,7 @@ export const navItems: NavEntry[] = [
             { label: 'Remote Sites', href: '/industries/remote-sites', description: 'Stations, towers, fence lines' },
           ] },
         ],
+        more: { label: 'All 16 industries', href: '/industries' },
       },
     ],
   },

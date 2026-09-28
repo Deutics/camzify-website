@@ -103,7 +103,7 @@ function PanelColumn({ column }: { column: NavColumn }) {
   const stacks = packSections(column.sections, span);
   return (
     <div className="min-w-0">
-      {column.href ? (
+      {column.hideHeading ? null : column.href ? (
         <Link
           href={column.href}
           className="group mb-2 inline-flex items-center gap-1 rounded-md px-2 py-1 text-sm font-semibold text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
@@ -805,7 +805,21 @@ export function SiteHeader() {
                       className="overflow-hidden"
                     >
                       <div className="pb-3 pl-3">
-                        {menu.columns.map((column) => {
+                        {menu.columns.length === 1 && !menu.mobileFlat && (
+                          <div className="pt-1">
+                            {menu.columns[0].href && !menu.columns[0].more && (
+                              <Link
+                                href={menu.columns[0].href}
+                                className="flex items-center gap-1 px-3 py-1.5 text-xs font-medium text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                              >
+                                {menu.label} {strings.overview}
+                                <ArrowRight className="h-3 w-3" aria-hidden="true" />
+                              </Link>
+                            )}
+                            <MobileSections column={menu.columns[0]} />
+                          </div>
+                        )}
+                        {menu.columns.length > 1 || menu.mobileFlat ? menu.columns.map((column) => {
                           if (menu.mobileFlat) {
                             return (
                               <div key={column.label} className="pt-1">
@@ -852,7 +866,7 @@ export function SiteHeader() {
                               </motion.div>
                             </div>
                           );
-                        })}
+                        }) : null}
                         {menu.feature && (
                           <div className="mt-2">
                             <FeatureLink feature={menu.feature} compact />
