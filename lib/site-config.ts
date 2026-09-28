@@ -165,12 +165,18 @@ export type NavSection = { label?: string; items: NavLink[] };
 export type NavColumn = { label: string; href?: string; span?: 1 | 2 | 3; hideHeading?: boolean; sections: NavSection[]; more?: NavLink };
 export type NavFeature = { label: string; href: string; description: string; icon: 'demo' | 'calculator' | 'roadmap' };
 /**
+ * `compact`: the menu is a catalog (Product, Use Cases): 35-plus links scanned by name,
+ * so item descriptions are not shown there. Short menus, where a line helps someone
+ * choose (Solutions, Industries, Resources), show them. Headings, rows and the footer
+ * strip are the same either way; the descriptions stay in the data for the pages and
+ * the mobile menu to use later.
+ *
  * `all`: the menu's "see everything" link (e.g. "All 35 use cases"). It always renders
  * in the panel's footer strip, beside the feature card if there is one, so every menu
  * puts it in the same place. Column-level `more` is for a link that belongs to one
  * column only, such as the AI Features column inside Product.
  */
-export type NavMenu = { label: string; href: string; columns: NavColumn[]; feature?: NavFeature; all?: NavLink; mobileFlat?: boolean };
+export type NavMenu = { label: string; href: string; columns: NavColumn[]; feature?: NavFeature; all?: NavLink; compact?: boolean; mobileFlat?: boolean };
 export type NavEntry = NavMenu | NavLink;
 
 export const isNavMenu = (entry: NavEntry): entry is NavMenu => 'columns' in entry;
@@ -179,6 +185,7 @@ export const navItems: NavEntry[] = [
   {
     label: 'Product',
     href: '/platform',
+    compact: true,
     columns: [
       {
         label: 'Virtual Patrolling',
@@ -228,7 +235,7 @@ export const navItems: NavEntry[] = [
       {
         label: 'AI Features',
         href: '/ai-features',
-        span: 3,
+        span: 2,
         sections: [
           { label: 'Perimeter & Access', items: [
             { label: 'Line Intrusion Detection', href: '/ai-features/line-intrusion-detection', description: 'A virtual tripwire with direction' },
@@ -344,6 +351,7 @@ export const navItems: NavEntry[] = [
   {
     label: 'Use Cases',
     href: '/use-cases',
+    compact: true,
     columns: [
       {
         label: 'By Goal',
@@ -446,6 +454,7 @@ export const navItemsDe: NavEntry[] = [
   {
     label: 'Produkt',
     href: '/de/plattform',
+    compact: true,
     columns: [
       {
         label: 'KI-Wächterrundgang',

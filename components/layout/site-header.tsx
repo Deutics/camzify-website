@@ -78,7 +78,7 @@ function packSections(sections: NavSection[], n: number): NavSection[][] {
   return packed;
 }
 
-function SectionList({ section }: { section: NavSection }) {
+function SectionList({ section, compact = false }: { section: NavSection; compact?: boolean }) {
   return (
     <div>
       {section.label && (
@@ -89,10 +89,10 @@ function SectionList({ section }: { section: NavSection }) {
           <li key={link.href}>
             <Link
               href={link.href}
-              className="group block rounded-md px-2 py-[3px] transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className={`group block rounded-md px-2 transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${compact ? 'py-1' : 'py-[3px]'}`}
             >
               <span className="block text-[13px] font-medium leading-tight group-hover:text-primary">{link.label}</span>
-              {link.description && (
+              {link.description && !compact && (
                 <span className="mt-px block truncate text-xs leading-tight text-muted-foreground">{link.description}</span>
               )}
             </Link>
@@ -103,7 +103,7 @@ function SectionList({ section }: { section: NavSection }) {
   );
 }
 
-function PanelColumn({ column }: { column: NavColumn }) {
+function PanelColumn({ column, compact = false }: { column: NavColumn; compact?: boolean }) {
   const span = column.span ?? 1;
   const stacks = packSections(column.sections, span);
   return (
@@ -123,7 +123,7 @@ function PanelColumn({ column }: { column: NavColumn }) {
         {stacks.map((stack, i) => (
           <div key={stack[0]?.label ?? i} className="space-y-2">
             {stack.map((section, j) => (
-              <SectionList key={section.label ?? j} section={section} />
+              <SectionList key={section.label ?? j} section={section} compact={compact} />
             ))}
           </div>
         ))}
@@ -713,7 +713,7 @@ export function SiteHeader() {
                     >
                       {menu.columns.map((column, i) => (
                         <div key={column.label} className={i > 0 ? 'border-l border-border pl-5' : ''}>
-                          <PanelColumn column={column} />
+                          <PanelColumn column={column} compact={menu.compact} />
                         </div>
                       ))}
                     </div>
