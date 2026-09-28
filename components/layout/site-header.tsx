@@ -364,8 +364,22 @@ export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
-  /** Horizontal offset (px) that keeps a wide panel inside the viewport. */
-  const [menuShift, setMenuShift] = useState(0);
+  /*
+   * A mouse click on a chevron arrives just after hover (or the focus from mousedown)
+   * has already opened that menu, and a plain toggle then closed it again: the menu
+   * seemed not to open on click. So a click within CLICK_GRACE ms of the menu opening
+   * keeps it open; a later click on an open menu still closes it.
+   */
+  const activeMenuRef = useRef<string | null>(null);
+  const openedAtRef = useRef(0);
+  const CLICK_GRACE = 500;
+
+  /**
+   * Where the open panel sits, relative to its trigger's wrapper: `shift` moves it
+   * left or right, `arrow` places the pointer under the trigger, `width` caps it to
+   * the page width.
+   */
+  const [panelPos, setPanelPos] = useState({ shift: 0, arrow: 28, width: 0 });
   const [mobileOpenItem, setMobileOpenItem] = useState<string | null>(null);
   const [mobileOpenColumn, setMobileOpenColumn] = useState<string | null>(null);
 
@@ -378,6 +392,21 @@ export function SiteHeader() {
   const configured = announcements[locale];
   const announcement = configured && configured.href !== pathname ? configured : null;
   const [announcementVisible, setAnnouncementVisible] = useState(true);
+
+  /*
+   * Whether the full desktop nav fits. The lg breakpoint is in pixels, but the nav's
+   * width is in rem: a visitor with a larger default font size (Chrome's font-size
+   * setting, Safari text zoom) gets a wider nav at the same window width, and at 1024-
+   * 1200px it ran into the logo. So the bar measures itself: if the logo, the nav and
+   * the actions do not fit with MIN_GAP on each side, it switches to the menu button.
+   * The nav stays in the DOM either way (absolutely placed and invisible when compact),
+   * which keeps its natural width measurable and its links in the HTML.
+   */
+  const [compact, setCompact] = useState(false);
+  const barRef = useRef<HTMLDivElement>(null);
+  const logoRef = useRef<HTMLAnchorElement>(null);
+  const navRef = useRef<HTMLElement>(null);
+  const bookRef = useRef<HTMLAnchorElement>(null);
   const triggerRefs = useRef<Record<string, HTMLButtonElement | null>>({});
   const wrapperRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
@@ -393,6 +422,7 @@ export function SiteHeader() {
 
   const closeAll = useCallback(() => {
     cancelClose();
+    activeMenuRef.current = null;
     setActiveMenu(null);
   }, [cancelClose]);
 
@@ -403,7 +433,10 @@ export function SiteHeader() {
    */
   const scheduleClose = useCallback(() => {
     cancelClose();
-    closeTimer.current = setTimeout(() => setActiveMenu(null), 140);
+    closeTimer.current = setTimeout(() => {
+      activeMenuRef.current = null;
+      setActiveMenu(null);
+    }, 140);
   }, [cancelClose]);
 
   useEffect(() => cancelClose, [cancelClose]);
@@ -434,22 +467,79 @@ export function SiteHeader() {
   }, [activeMenu, closeAll]);
 
   /**
-   * Open a menu. The nav is centered, so its panel is centered on the viewport too
-   * (clamped to a 16px margin) rather than hanging off its trigger, which left wide
-   * panels hugging the right edge. The pointer arrow compensates and stays under the
-   * trigger.
+   * Open a menu. The panel is centered under its own trigger, then clamped so it stays
+   * 16px inside the page on both sides: a narrow panel (Solutions) sits directly below
+   * its item, and a wide one (Product) slides only as far as it must to fit. Widths come
+   * from documentElement.clientWidth, which excludes the scrollbar; window.innerWidth
+   * does not, and let a clamped panel run under it. The pointer arrow is placed under
+   * the trigger's center wherever the panel ends up.
    */
   const openMenu = useCallback((menu: NavMenu) => {
     cancelClose();
+    if (activeMenuRef.current !== menu.label) openedAtRef.current = Date.now();
+    activeMenuRef.current = menu.label;
     setActiveMenu(menu.label);
     const el = wrapperRefs.current[menu.label];
     if (!el) return;
     const margin = 16;
-    const width = Math.min(panelWidthFor(menu), window.innerWidth - margin * 2);
+    const pageWidth = document.documentElement.clientWidth;
+    const width = Math.min(panelWidthFor(menu), pageWidth - margin * 2);
     const rect = el.getBoundingClientRect();
-    const centeredLeft = Math.max(margin, Math.min((window.innerWidth - width) / 2, window.innerWidth - margin - width));
-    setMenuShift(Math.round(centeredLeft - rect.left));
+    const triggerCenter = rect.left + rect.width / 2;
+    const left = Math.max(margin, Math.min(triggerCenter - width / 2, pageWidth - margin - width));
+    setPanelPos({
+      shift: Math.round(left - rect.left),
+      arrow: Math.round(Math.min(Math.max(triggerCenter - left - 6, 16), width - 28)),
+      width,
+    });
   }, [cancelClose]);
+
+  useEffect(() => {
+    const bar = barRef.current;
+    if (!bar || typeof ResizeObserver === 'undefined') return;
+    const MIN_GAP = 40;
+    const measure = () => {
+      const nav = navRef.current;
+      const logo = logoRef.current;
+      const book = bookRef.current;
+      if (!nav || !logo || !book) return;
+      // Below lg the nav is display:none by CSS; the phone layout is already compact.
+      if (getComputedStyle(nav).display === 'none') return setCompact(false);
+      const cs = getComputedStyle(bar);
+      const inner = bar.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+      // The nav is centered, so each side column must hold the wider of logo and actions.
+      const side = Math.max(logo.offsetWidth, book.offsetWidth);
+      // The nav's natural width is the sum of its items plus the gaps between them. Not
+      // nav.offsetWidth (the grid squeezes the column when space runs short, so it would
+      // always appear to fit) and not scrollWidth (the closed mega-menu panels hang off
+      // the nav and would count).
+      const items = Array.from(nav.children) as HTMLElement[];
+      const gap = parseFloat(getComputedStyle(nav).columnGap) || 0;
+      const natural = items.reduce((sum, el) => sum + el.offsetWidth, 0) + gap * Math.max(items.length - 1, 0);
+      setCompact(natural + 2 * (side + MIN_GAP) > inner);
+    };
+    measure();
+    // The observer catches text-size changes (the nav grows, the bar does not); the
+    // resize listener catches window and browser-zoom changes, and fonts.ready the
+    // moment the web font replaces the fallback and the nav's width shifts.
+    const ro = new ResizeObserver(measure);
+    ro.observe(bar);
+    if (navRef.current) ro.observe(navRef.current);
+    window.addEventListener('resize', measure);
+    document.fonts?.ready.then(measure).catch(() => {});
+    return () => {
+      ro.disconnect();
+      window.removeEventListener('resize', measure);
+    };
+  }, []);
+
+  // A panel positioned for one window width is wrong at another: close it on resize.
+  useEffect(() => {
+    if (!activeMenu) return;
+    const onResize = () => closeAll();
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, [activeMenu, closeAll]);
 
   /** Close the group when focus moves entirely outside it. */
   const handleBlurOut = (e: React.FocusEvent<HTMLElement>, close: () => void) => {
@@ -520,8 +610,9 @@ export function SiteHeader() {
         its column: on small screens the nav is display:none, and without explicit
         placement the actions would fall into the middle column.
       */}
-      <div className={`relative z-10 mx-auto grid max-w-site grid-cols-[1fr_auto_1fr] items-center px-4 transition-[padding] duration-normal xl:px-6 ${scrolled ? 'py-2' : 'py-3.5'}`}>
+      <div ref={barRef} className={`relative z-10 mx-auto grid max-w-site grid-cols-[1fr_auto_1fr] items-center gap-x-6 px-4 transition-[padding] duration-normal xl:px-6 ${scrolled ? 'py-2' : 'py-3.5'}`}>
         <Link
+          ref={logoRef}
           href={LOCALES[locale].home}
           className="col-start-1 flex flex-shrink-0 items-center justify-self-start rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           aria-label={strings.homeLabel}
@@ -530,7 +621,13 @@ export function SiteHeader() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="col-start-2 hidden items-center gap-0.5 lg:flex xl:gap-1.5" aria-label={strings.mainNav}>
+        <nav
+          ref={navRef}
+          {...({ inert: compact ? '' : undefined } as Record<string, unknown>)}
+          aria-hidden={compact || undefined}
+          className={`col-start-2 hidden items-center gap-0.5 lg:flex xl:gap-1.5 ${compact ? 'pointer-events-none invisible absolute left-0 top-0 -z-10' : ''}`}
+          aria-label={strings.mainNav}
+        >
           {items.map((entry) => {
             if (!isNavMenu(entry)) {
               return (
@@ -572,7 +669,10 @@ export function SiteHeader() {
                     ref={(el) => {
                       triggerRefs.current[menu.label] = el;
                     }}
-                    onClick={() => (isOpen ? closeAll() : openMenu(menu))}
+                    onClick={() => {
+                      if (isOpen && Date.now() - openedAtRef.current > CLICK_GRACE) closeAll();
+                      else openMenu(menu);
+                    }}
                     aria-expanded={isOpen}
                     aria-controls={menuId}
                     aria-label={`${menu.label} ${strings.menuSuffix}`}
@@ -587,18 +687,18 @@ export function SiteHeader() {
                 <div
                   id={menuId}
                   {...({ inert: isOpen ? undefined : '' } as Record<string, unknown>)}
-                  style={{ width: `min(${width}px, calc(100vw - 2rem))`, left: menuShift }}
+                  style={{ width: isOpen && panelPos.width ? panelPos.width : `min(${width}px, calc(100vw - 2rem))`, left: isOpen ? panelPos.shift : 0 }}
                   className={`absolute top-full z-50 origin-top pt-2.5 transition-[opacity,transform,visibility] duration-200 ease-out-expo ${
                     isOpen
                       ? 'visible translate-y-0 scale-100 opacity-100'
                       : 'invisible pointer-events-none -translate-y-1 scale-[0.98] opacity-0'
                   }`}
                 >
-                  {/* Pointer under the trigger; it stays put when the panel is shifted left to fit the viewport. */}
+                  {/* Pointer under the trigger's center, wherever the panel had to sit to fit. */}
                   <span
                     aria-hidden="true"
                     className="absolute top-[5px] z-10 h-3 w-3 rotate-45 rounded-sm border-l border-t border-border bg-card"
-                    style={{ left: 28 - menuShift }}
+                    style={{ left: isOpen ? panelPos.arrow : 28 }}
                   />
                   {/* Solid, not translucent: at this size a see-through panel lets the hero headline read through the links. */}
                   <div className="max-h-[calc(100vh-6rem)] overflow-y-auto rounded-xl border border-border bg-card shadow-2xl">
@@ -630,6 +730,7 @@ export function SiteHeader() {
         <div className="col-start-3 flex flex-shrink-0 items-center gap-2 justify-self-end">
           {/* Visible at every width: on a phone this is the one action that matters most. */}
           <Link
+            ref={bookRef}
             href="/book-a-demo"
             className="inline-flex items-center whitespace-nowrap rounded-lg bg-primary px-3 py-1.5 text-xs font-semibold text-primary-foreground transition-all duration-fast hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:px-4 sm:py-2.5 sm:text-sm"
           >
@@ -639,7 +740,7 @@ export function SiteHeader() {
           <button
             type="button"
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="rounded-md p-2 text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring lg:hidden"
+            className={`rounded-md p-2 text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${compact ? '' : 'lg:hidden'}`}
             aria-label={mobileOpen ? strings.closeMenu : strings.openMenu}
             aria-expanded={mobileOpen}
             aria-controls="mobile-menu"
@@ -657,7 +758,7 @@ export function SiteHeader() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="overflow-hidden border-t border-border bg-background lg:hidden"
+            className={`overflow-hidden border-t border-border bg-background ${compact ? '' : 'lg:hidden'}`}
           >
             <nav aria-label={strings.mobileNav} className="mx-auto max-h-[calc(100vh-110px)] max-w-site overflow-y-auto px-6 py-4">
               {items.map((entry) => {
