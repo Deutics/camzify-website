@@ -1,0 +1,32 @@
+# Submit the URLs a release changed to IndexNow (Bing and the engines that share
+# IndexNow submissions) once Vercel reports the production deployment live.
+#
+# Vercel's GitHub integration creates a GitHub deployment per push and marks it
+# `success` in the `Production` environment when the release is serving on
+# camzify.com, which is the moment the new pages (and the key file) are fetchable.
+# Preview deployments are ignored. See scripts/indexnow.mjs for what gets submitted.
+name: IndexNow
+
+on:
+  deployment_status:
+
+permissions:
+  contents: read
+
+jobs:
+  submit:
+    if: github.event.deployment_status.state == 'success' && github.event.deployment.environment == 'Production'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.deployment.sha }}
+          fetch-depth: 2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      # The first parent of the deployed commit is the previous state of main, so the
+      # diff is exactly what this release changed (a merged PR's full set of changes).
+      - name: Submit changed URLs
+        run: node scripts/indexnow.mjs --base "${{ github.event.deployment.sha }}^1" --head "${{ github.event.deployment.sha }}"
