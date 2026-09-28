@@ -214,6 +214,11 @@ The SEO skills installed in this workspace (`keyword-fanout-map`, `seo-content-w
 
 ---
 
+
+**IndexNow.** Every production release submits its changed URLs to IndexNow automatically
+(`.github/workflows/indexnow.yml`, `scripts/indexnow.mjs`; see `docs/DEPLOYMENT.md`). Bing
+Webmaster Tools shows the submissions under IndexNow. Bing's index also feeds Copilot and
+other answer engines, so fast Bing recrawls matter for the AEO goal, not just for Bing.
 ## 6. Cadence
 
 **Monthly** (first week):
