@@ -82,18 +82,18 @@ function SectionList({ section }: { section: NavSection }) {
   return (
     <div>
       {section.label && (
-        <p className="mb-1 px-2 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">{section.label}</p>
+        <p className="mb-0.5 px-2 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">{section.label}</p>
       )}
       <ul className="grid">
         {section.items.map((link) => (
           <li key={link.href}>
             <Link
               href={link.href}
-              className="group block rounded-md px-2 py-1.5 transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="group block rounded-md px-2 py-[3px] transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
-              <span className="block text-[13px] font-medium leading-snug group-hover:text-primary">{link.label}</span>
+              <span className="block text-[13px] font-medium leading-tight group-hover:text-primary">{link.label}</span>
               {link.description && (
-                <span className="mt-0.5 block text-xs leading-snug text-muted-foreground">{link.description}</span>
+                <span className="mt-px block truncate text-xs leading-tight text-muted-foreground">{link.description}</span>
               )}
             </Link>
           </li>
@@ -111,17 +111,17 @@ function PanelColumn({ column }: { column: NavColumn }) {
       {column.hideHeading ? null : column.href ? (
         <Link
           href={column.href}
-          className="group mb-2 inline-flex items-center gap-1 rounded-md px-2 py-1 text-sm font-semibold text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          className="group mb-1 inline-flex items-center gap-1 rounded-md px-2 py-1 text-sm font-semibold text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
           {column.label}
           <ArrowRight className="h-3.5 w-3.5 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:text-primary" aria-hidden="true" />
         </Link>
       ) : (
-        <p className="mb-2 px-2 py-1 text-sm font-semibold text-foreground">{column.label}</p>
+        <p className="mb-1 px-2 py-1 text-sm font-semibold text-foreground">{column.label}</p>
       )}
       <div className="grid gap-x-3" style={{ gridTemplateColumns: `repeat(${stacks.length}, minmax(0, 1fr))` }}>
         {stacks.map((stack, i) => (
-          <div key={stack[0]?.label ?? i} className="space-y-3">
+          <div key={stack[0]?.label ?? i} className="space-y-2">
             {stack.map((section, j) => (
               <SectionList key={section.label ?? j} section={section} />
             ))}
@@ -708,7 +708,7 @@ export function SiteHeader() {
                   {/* Solid, not translucent: at this size a see-through panel lets the hero headline read through the links. */}
                   <div className="max-h-[calc(100vh-6rem)] overflow-y-auto rounded-xl border border-border bg-card shadow-2xl">
                     <div
-                      className="grid gap-x-5 p-4"
+                      className="grid gap-x-5 px-4 py-3"
                       style={{ gridTemplateColumns: menu.columns.map((c) => `minmax(0, ${c.span ?? 1}fr)`).join(' ') }}
                     >
                       {menu.columns.map((column, i) => (

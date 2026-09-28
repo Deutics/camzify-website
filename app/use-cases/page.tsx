@@ -15,7 +15,7 @@ import { Shield, Moon, KeyRound, UserX, Paintbrush, ShoppingBag, Truck, ParkingC
  */
 const pageMeta = {
   title: "Security Use Cases | What a Patrol Round Checks",
-  description: "Twenty-one security and safety scenarios and what Camzify does in each: the detections that apply, the checklist a round runs, and where it stops.",
+  description: "35 security and safety scenarios and what Camzify does in each: the detections that apply, the checklist a round runs, and where it stops.",
   path: "/use-cases",
 };
 
@@ -122,7 +122,7 @@ export default function UseCasesHub() {
     <PageShell {...pageMeta} faqs={faqs} schema={[serviceSchema({ name: "Use Cases", description: pageMeta.description, path: "/use-cases" })]} breadcrumbs={[{ label: 'Use Cases' }]}>
       <FeatureHero
         eyebrow="Use cases"
-        title="Twenty-one situations, one set of rounds"
+        title="35 situations, one set of rounds"
         lede={<>
           <strong className="font-semibold text-foreground">
             A use case is a situation a security manager is responsible for, and the checklist,
