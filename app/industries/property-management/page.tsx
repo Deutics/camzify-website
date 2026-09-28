@@ -47,7 +47,7 @@ export default function PropertyManagementPage() {
       <FeatureHero
         eyebrow="Industry · property management"
         title="AI security for property management"
-        lede={<><strong className="font-semibold text-foreground">Property management companies face security challenges that cameras alone cannot solve and manned guards cannot cover consistently.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.</>}
+        lede={<><strong className="font-semibold text-foreground">Property managers cover common areas, parking garages and rooftop access across several buildings, usually with one roaming person and coverage only in business hours.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> runs scheduled rounds on the cameras already on site, checks common areas, garages and mechanical access points across the portfolio, messages the right person when a check fails, and keeps a timestamped record of every round.</>}
         facts={['Common areas and hallways monitored only during staffed…', 'Parking garages and structures with no continuous overnight…', 'Rooftop and mechanical access points left unverified between…']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}

@@ -47,7 +47,7 @@ export default function FinancialServicesPage() {
       <FeatureHero
         eyebrow="Industry · financial services"
         title="AI security for financial services"
-        lede={<><strong className="font-semibold text-foreground">Bank branches and financial services sites face security challenges that cameras alone cannot solve and manned guards cannot cover consistently.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.</>}
+        lede={<><strong className="font-semibold text-foreground">Bank branches have vault corridors, cash-handling areas and ATM vestibules that go unchecked between staffed hours, with a closing walk-through often the only check.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> runs scheduled rounds on the cameras already on site, checks vault corridors, ATM vestibules, server rooms and the branch perimeter, messages the right person when a check fails, and keeps a timestamped record of every round.</>}
         facts={['Vault corridors and cash-handling areas left unchecked…', 'ATM vestibules with no continuous after-hours monitoring', 'Branch perimeters relying on a single closing-time walk-through']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}

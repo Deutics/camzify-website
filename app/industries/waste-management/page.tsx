@@ -48,7 +48,7 @@ export default function WasteManagementPage() {
       <FeatureHero
         eyebrow="Industry · waste management"
         title="AI security for waste management"
-        lede={<><strong className="font-semibold text-foreground">Waste management sites face security challenges that cameras alone cannot solve and manned guards cannot cover consistently.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.</>}
+        lede={<><strong className="font-semibold text-foreground">Waste and recycling sites are large, open and unstaffed after hours, which is when illegal dumping, vehicles through unmanned gates and theft from stockpiles happen.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> runs scheduled rounds on the cameras already on site, checks gates, fence lines and material stockpiles, messages the right person when a check fails, and keeps a timestamped record of every round.</>}
         facts={['Illegal dumping after hours going undetected until the next…', 'Perimeter fence lines with no continuous coverage across…', 'Unauthorized vehicles entering through unmanned or unstaffed…']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}

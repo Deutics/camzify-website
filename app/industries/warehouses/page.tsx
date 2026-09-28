@@ -48,7 +48,7 @@ export default function WarehousesPage() {
       <FeatureHero
         eyebrow="Industry · warehouses"
         title="Warehouse security cameras, patrolled by AI"
-        lede={<><strong className="font-semibold text-foreground">Warehouses and logistics facilities face security challenges that cameras alone cannot solve and manned guards cannot cover consistently.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras, checking every point, flagging failures, and notifying the right person.</>}
+        lede={<><strong className="font-semibold text-foreground">Warehouses and logistics yards are exposed at the dock doors between deliveries and along the fence line overnight, with high-value storage often checked by a single guard pass a night.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> runs scheduled rounds on the cameras already on site, checks dock doors, fence lines and high-value storage, messages the right person when a check fails, and keeps a timestamped record of every round.</>}
         facts={['Dock doors left unmonitored between scheduled deliveries', 'Perimeter fence lines with no continuous overnight coverage', 'High-value storage areas relying on a single nightly guard pass']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}

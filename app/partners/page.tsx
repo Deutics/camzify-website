@@ -41,7 +41,7 @@ export default function PartnersHub() {
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Partners</h1>
           <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            Camzify works with security integrators, resellers, monitoring centers, and MSPs to bring <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</Link> to facilities worldwide.
+            The Camzify partner program is for companies that already serve sites with cameras: security agencies, CCTV and alarm installers, monitoring companies, managed service providers and resellers. Each adds <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</Link> and cloud video to the service it already sells, on the cameras its clients already have.
           </p>
           <div className="mt-14 grid gap-6 sm:grid-cols-2">
             {partnerTypes.map((p, i) => (

@@ -38,8 +38,7 @@ export default function Page() {
       <FeatureHero
         eyebrow="AI detection · Tailgating detection"
         title="Tailgating detection"
-        lede={<><strong className="font-semibold text-foreground">One badge, one person, no exceptions.</strong> Tailgating detection watches secure entry points and flags
-            the moment a second person follows an authorized badge holder through a controlled door.</>}
+        lede={<><strong className="font-semibold text-foreground">Tailgating detection watches secure entry points and flags the moment a second person follows an authorized badge holder through a controlled door.</strong></>}
         facts={['A second, unbadged person entering directly behind an…', 'Multiple people passing through a single-entry access point…', 'Door-held-open events that allow entry without a fresh badge…']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 23 detections' }}

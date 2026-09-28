@@ -70,7 +70,7 @@ export const translations: TranslationPair[] = [
   // Platform
   { en: '/platform', de: '/de/plattform', sourceHash: 'e15bcf891f3f' },
   { en: '/platform/live-streaming', de: '/de/plattform/live-streaming', sourceHash: 'ff03ca91ad98' },
-  { en: '/platform/video-backup-and-retention', de: '/de/plattform/videospeicherung', sourceHash: 'a8508d62c54d' },
+  { en: '/platform/video-backup-and-retention', de: '/de/plattform/videospeicherung', sourceHash: '55f033e829bc' },
   { en: '/platform/multi-site-management', de: '/de/plattform/mehrere-standorte', sourceHash: '58009f121a5c' },
   { en: '/platform/notifications-and-alerts', de: '/de/plattform/alarme-und-benachrichtigungen', sourceHash: 'd68cdc050e98' },
   { en: '/platform/deployment-options', de: '/de/plattform/bereitstellung', sourceHash: '6c152eebef5c' },
@@ -81,22 +81,22 @@ export const translations: TranslationPair[] = [
   { en: '/ai-features/zone-intrusion-detection', de: '/de/ki-funktionen/bereichsueberwachung', sourceHash: '264f6a75a6bb' },
   { en: '/ai-features/line-intrusion-detection', de: '/de/ki-funktionen/linienueberschreitung', sourceHash: 'c6bb271fbbf9' },
   { en: '/ai-features/loitering-detection', de: '/de/ki-funktionen/verweilerkennung', sourceHash: '2cd739d014a3' },
-  { en: '/ai-features/fire-and-smoke-detection', de: '/de/ki-funktionen/feuer-und-rauch-erkennung', sourceHash: '66328764f027' },
-  { en: '/ai-features/ppe-violation-detection', de: '/de/ki-funktionen/psa-erkennung', sourceHash: '673f7443364e' },
+  { en: '/ai-features/fire-and-smoke-detection', de: '/de/ki-funktionen/feuer-und-rauch-erkennung', sourceHash: 'f917bf1828de' },
+  { en: '/ai-features/ppe-violation-detection', de: '/de/ki-funktionen/psa-erkennung', sourceHash: '105c926cbfad' },
   { en: '/ai-features/camera-tampering-detection', de: '/de/ki-funktionen/sabotageerkennung', sourceHash: '848c1b7e1d17' },
   { en: '/ai-features/custom-detections', de: '/de/ki-funktionen/individuelle-erkennungen', sourceHash: 'c448812ec067' },
 
   // Partners
-  { en: '/partners', de: '/de/partner', sourceHash: '4c3be1f2f850' },
+  { en: '/partners', de: '/de/partner', sourceHash: '07fba1fca9f0' },
   { en: '/partners/for-monitoring-centers', de: '/de/fuer-leitstellen', sourceHash: '8da3fa4a24e3' },
   { en: '/partners/for-managed-service-providers', de: '/de/fuer-managed-service-provider', sourceHash: 'fc827b4e4c9d' },
   { en: '/partners/become-a-reseller', de: '/de/reseller-werden', sourceHash: '8e28a60bfc09' },
 
   // Industries
   { en: '/industries', de: '/de/branchen', sourceHash: '853a71a55248' },
-  { en: '/industries/manufacturing', de: '/de/branchen/industrie-und-produktion', sourceHash: 'c97177f62ac8' },
-  { en: '/industries/warehouses', de: '/de/branchen/lager-und-logistik', sourceHash: '9b1b9ad1a5a2' },
-  { en: '/industries/construction-sites', de: '/de/branchen/baustellen', sourceHash: 'faa826eb928c' },
+  { en: '/industries/manufacturing', de: '/de/branchen/industrie-und-produktion', sourceHash: 'fdaa16b9d900' },
+  { en: '/industries/warehouses', de: '/de/branchen/lager-und-logistik', sourceHash: '5f42b24ca62c' },
+  { en: '/industries/construction-sites', de: '/de/branchen/baustellen', sourceHash: '0cb2a969af6f' },
 
   // Buying and trust
   { en: '/pricing', de: '/de/preise', sourceHash: '59e579252dad' },

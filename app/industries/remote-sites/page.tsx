@@ -47,7 +47,7 @@ export default function RemoteSitesPage() {
       <FeatureHero
         eyebrow="Industry · remote sites"
         title="AI security for remote sites"
-        lede={<><strong className="font-semibold text-foreground">Remote sites face security challenges that cameras alone cannot solve and manned guards cannot cover consistently.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.</>}
+        lede={<><strong className="font-semibold text-foreground">Pump stations, towers and other remote sites sit unchecked between maintenance visits, far from any staffed location, so theft or a dead camera is found only at the next visit.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> runs scheduled rounds on the cameras already on site, checks fence lines, gates and equipment, messages the right person when a check fails, and keeps a timestamped record of every round.</>}
         facts={['Unmanned substations, pump stations, or towers sitting…', 'Perimeter fence lines with no continuous coverage far from…', 'Equipment and material theft going undetected until the next…']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}

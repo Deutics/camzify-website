@@ -38,8 +38,7 @@ export default function Page() {
       <FeatureHero
         eyebrow="AI detection · Abandoned object detection"
         title="Abandoned object detection"
-        lede={<><strong className="font-semibold text-foreground">A bag left behind? We notice.</strong> Abandoned object detection flags unattended bags and packages the
-            moment they separate from their carrier and stay unclaimed past a configurable dwell time.</>}
+        lede={<><strong className="font-semibold text-foreground">Abandoned object detection flags unattended bags and packages the moment they separate from their carrier and stay unclaimed past a configurable dwell time.</strong></>}
         facts={['Bags or packages separated from the person who was carrying them', 'Objects remaining unclaimed past a configurable dwell-time…', 'Unattended items in lobbies, entrances, and public waiting areas']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 23 detections' }}

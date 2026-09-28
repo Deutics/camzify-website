@@ -122,7 +122,7 @@ export function softwareApplicationSchema() {
     name: siteConfig.name,
     applicationCategory: 'SecurityApplication',
     applicationSubCategory: 'Video Surveillance and Virtual Patrolling',
-    operatingSystem: 'Web-based, iOS, Android',
+    operatingSystem: 'Web browser (desktop and mobile)',
     url: siteConfig.url,
     description:
       'Camzify runs scheduled AI patrol rounds across existing IP cameras, checking a per-camera compliance checklist at every point, flagging failures, notifying the assigned guard, and generating a timestamped PDF report.',

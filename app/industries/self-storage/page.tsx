@@ -47,7 +47,7 @@ export default function SelfStoragePage() {
       <FeatureHero
         eyebrow="Industry · self-storage"
         title="AI security for self-storage"
-        lede={<><strong className="font-semibold text-foreground">Self-storage facilities face security challenges that cameras alone cannot solve and manned guards cannot cover consistently.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.</>}
+        lede={<><strong className="font-semibold text-foreground">Self-storage facilities run without staff most of the day, so gates, hallways and drive-up aisles go unwatched, and a unit break-in is often found only at the tenant's next visit.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> runs scheduled rounds on the cameras already on site, checks gates, hallways and drive-up aisles, messages the right person when a check fails, and keeps a timestamped record of every round.</>}
         facts={['Unmanned office hours leaving hallways and gate access…', 'Gate codes shared or tailgated by vehicles that never checked in', "Unit break-ins that go unnoticed until the tenant's next visit"]}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}

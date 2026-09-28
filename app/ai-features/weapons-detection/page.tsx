@@ -39,8 +39,7 @@ export default function Page() {
       <FeatureHero
         eyebrow="AI detection · Weapons detection"
         title="Weapons detection"
-        lede={<><strong className="font-semibold text-foreground">Spot a threat before it escalates.</strong> Gun and weapons detection on cameras flags visible firearms and edged weapons the
-            moment they enter frame, so the response starts before an incident develops rather than after.</>}
+        lede={<><strong className="font-semibold text-foreground">Gun and weapons detection on cameras flags visible firearms and edged weapons the moment they enter frame, so the response starts before an incident develops rather than after.</strong></>}
         facts={['Visibly brandished firearms in camera view', 'Visible edged weapons in camera view', 'Detections at entrances, lobbies, and public-facing areas']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 23 detections' }}

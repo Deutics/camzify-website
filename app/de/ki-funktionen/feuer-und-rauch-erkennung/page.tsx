@@ -40,8 +40,7 @@ export default function DeFeuerUndRauchErkennungPage() {
       <FeatureHero
         eyebrow="KI-Erkennung · Feuer- und Raucherkennung"
         title="Feuer- und Raucherkennung"
-        lede={<><strong className="font-semibold text-foreground">Rauch erkennen, bevor daraus ein Feuer wird.</strong> Die Feuer- und Raucherkennung auf Sicherheitskameras überwacht das Live-Bild auf sichtbare Flammen
-            und sichtbaren Rauch und meldet ein Ereignis oft, bevor es einen fest installierten Wärme- oder Rauchsensor erreicht.</>}
+        lede={<><strong className="font-semibold text-foreground">Die Feuer- und Raucherkennung auf Sicherheitskameras überwacht das Live-Bild auf sichtbare Flammen und sichtbaren Rauch und meldet ein Ereignis oft, bevor es einen fest installierten Wärme- oder Rauchsensor erreicht.</strong></>}
         facts={['Sichtbare Flammen im gesamten Sichtfeld der Kamera', 'Sichtbarer Rauch in Lager-, Elektro- oder Industriebereichen', 'Frühe Ereignisse in großen oder offenen Räumen']}
         primary={{ href: '/book-a-demo', label: 'Demo anfragen' }}
         secondary={{ href: '/de/ki-funktionen', label: 'Alle 23 Erkennungen' }}

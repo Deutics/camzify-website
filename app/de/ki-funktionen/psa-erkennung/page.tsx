@@ -34,9 +34,7 @@ export default function DePsaErkennungPage() {
       <FeatureHero
         eyebrow="KI-Erkennung · PSA-Erkennung"
         title="PSA-Erkennung"
-        lede={<><strong className="font-semibold text-foreground">Schutzausrüstung, automatisch geprüft.</strong> Die PSA-Erkennung prüft jede bestätigte Person im Bild
-            gegen die persönliche Schutzausrüstung (PSA), die für diesen Bereich vorgeschrieben ist, und meldet fehlende Helme, Warnwesten
-            oder Handschuhe, sobald sie auffallen.</>}
+        lede={<><strong className="font-semibold text-foreground">Die PSA-Erkennung prüft jede bestätigte Person im Bild gegen die persönliche Schutzausrüstung (PSA), die für diesen Bereich vorgeschrieben ist, und meldet fehlende Helme, Warnwesten oder Handschuhe, sobald sie auffallen.</strong></>}
         facts={['Fehlende Schutzhelme, wo Kopfschutz vorgeschrieben ist', 'Fehlende Warnwesten auf aktiven Arbeitsflächen', 'Fehlende Handschuhe beim Umgang mit Gefahrstoffen']}
         primary={{ href: '/book-a-demo', label: 'Demo anfragen' }}
         secondary={{ href: '/de/ki-funktionen', label: 'Alle 23 Erkennungen' }}

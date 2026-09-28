@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { siteConfig, formattedAddress } from '@/lib/site-config';
+import { germanPaths } from '@/lib/i18n';
 
 /**
  * /llms.txt — the GEO surface.
@@ -125,6 +126,7 @@ ${siteConfig.name} is operated by ${siteConfig.legalName}, headquartered in Sing
 - [Alternatives](${siteConfig.url}/alternatives): switching guides for buyers already on ADT or Verkada
 - [Best cloud VMS](${siteConfig.url}/guides/best-cloud-vms): eight platforms compared from their own pages, Camzify included with a disclosure
 - [Book a demo](${siteConfig.url}/book-a-demo): a demo on the reader's own cameras
+- [Camzify auf Deutsch](${siteConfig.url}/de): German versions of ${germanPaths.length} pages, from the homepage to pricing, the platform and the core detections; every other page is in English
 
 ## Company
 

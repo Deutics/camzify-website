@@ -47,7 +47,7 @@ export default function ManufacturingPage() {
       <FeatureHero
         eyebrow="Industry · manufacturing"
         title="AI security for manufacturing"
-        lede={<><strong className="font-semibold text-foreground">Manufacturing facilities face security challenges that cameras alone cannot solve and manned guards cannot cover consistently.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.</>}
+        lede={<><strong className="font-semibold text-foreground">Manufacturing plants are most exposed after the last shift: restricted machinery zones, outdoor yards and material storage, often covered by a single nightly pass.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> runs scheduled rounds on the cameras already on site, checks machinery zones, fence lines, storage and loading areas, messages the right person when a check fails, and keeps a timestamped record of every round.</>}
         facts={['Restricted machinery zones accessed after shift with no one…', 'Perimeter fence lines and outdoor yards without continuous…', 'Raw materials and finished goods storage relying on a single…']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}

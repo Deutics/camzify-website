@@ -74,7 +74,7 @@ export default function DeIndustrieUndProduktionPage() {
       <FeatureHero
         eyebrow="Branche · Industrie und Produktion"
         title="KI-Sicherheit für Industrie und Produktion"
-        lede={<><strong className="font-semibold text-foreground">Produktionsbetriebe haben Sicherheitsprobleme, die Kameras allein nicht lösen und die Wachpersonal nicht lückenlos abdecken kann.</strong> Der <Link href="/de/ki-waechterrundgang" className="text-primary hover:underline">KI-gestützte Wächterrundgang</Link> von Camzify führt automatische KI-Rundgänge auf Ihren vorhandenen Kameras durch: Er prüft jeden Punkt, meldet Fehler und benachrichtigt die richtige Person.</>}
+        lede={<><strong className="font-semibold text-foreground">Produktionsbetriebe sind nach der letzten Schicht am stärksten gefährdet: Sperrbereiche an Maschinen, Außenflächen und Materiallager deckt oft nur ein einziger nächtlicher Kontrollgang ab.</strong> Der <Link href="/de/ki-waechterrundgang" className="text-primary hover:underline">KI-gestützte Wächterrundgang</Link> von Camzify führt geplante Rundgänge über die Kameras vor Ort durch, prüft Maschinenbereiche, Zaunlinien, Lager- und Verladebereiche, benachrichtigt bei einer fehlgeschlagenen Prüfung die zuständige Person und hält jeden Rundgang mit Zeitstempel fest.</>}
         facts={['Sperrbereiche nach Schichtende unbeobachtet', 'Zaunlinien nachts ohne Abdeckung', 'Lager mit nur einem Kontrollgang pro Nacht']}
         primary={{ href: '/book-a-demo', label: 'Demo anfragen' }}
         secondary={{ href: '/de/ki-waechterrundgang/so-funktioniert-es', label: 'So läuft ein Rundgang ab' }}

@@ -71,7 +71,7 @@ export default function DeBaustellenPage() {
       <FeatureHero
         eyebrow="Branche · Baustellen"
         title="Sicherheitskameras für Baustellen, von KI überwacht"
-        lede={<><strong className="font-semibold text-foreground">Baustellen haben Sicherheitsprobleme, die Kameras allein nicht lösen und die Wachpersonal nicht lückenlos abdecken kann.</strong> Der <Link href="/de/ki-waechterrundgang" className="text-primary hover:underline">KI-gestützte Wächterrundgang</Link> von Camzify führt automatische KI-Rundgänge auf Ihren vorhandenen Kameras durch: Jeder Punkt wird beobachtet, Fehler werden gemeldet, und die richtige Person wird benachrichtigt.</>}
+        lede={<><strong className="font-semibold text-foreground">Baustellen verändern sich von Woche zu Woche: Bauzaunfelder werden versetzt, Geräte und Material lagern im Freien, und Baucontainer und Werkzeuglager bleiben nachts unbeobachtet.</strong> Der <Link href="/de/ki-waechterrundgang" className="text-primary hover:underline">KI-gestützte Wächterrundgang</Link> von Camzify führt geplante Rundgänge über die Kameras vor Ort durch, prüft Zaunlinien, Geräte- und Materiallager, Baucontainer und Werkzeuglager, benachrichtigt bei einer fehlgeschlagenen Prüfung die zuständige Person und hält jeden Rundgang mit Zeitstempel fest.</>}
         facts={['Offene Perimeter mit versetzbaren Bauzaunfeldern', 'Geräte- und Materiallager mit nur einer Schlusskontrolle', 'Baucontainer und Werkzeuglager nachts unbeobachtet']}
         primary={{ href: '/book-a-demo', label: 'Demo anfragen' }}
         secondary={{ href: '/de/ki-waechterrundgang/so-funktioniert-es', label: 'So läuft ein Rundgang ab' }}

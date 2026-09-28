@@ -38,8 +38,7 @@ export default function Page() {
       <FeatureHero
         eyebrow="AI detection · Wrong-Way vehicle detection"
         title="Wrong-Way vehicle detection"
-        lede={<><strong className="font-semibold text-foreground">Going the wrong way? Alerted in seconds.</strong> Wrong-way vehicle detection watches one-way lanes and ramps
-            and fires an alert the moment a vehicle travels against the defined direction of traffic.</>}
+        lede={<><strong className="font-semibold text-foreground">Wrong-way vehicle detection watches one-way lanes and ramps and fires an alert the moment a vehicle travels against the defined direction of traffic.</strong></>}
         facts={['Vehicles travelling against the defined direction on a…', 'Wrong-way entries on parking garage ramps', 'Wrong-way movement through gated entry or exit lanes']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 23 detections' }}

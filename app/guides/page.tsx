@@ -70,7 +70,7 @@ export default function GuidesHub() {
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Guides</h1>
           <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            Practical, honest guides on <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a>, security costs, camera technology, and best practices. Written to help you make informed decisions — including where Camzify is not the right answer.
+            These guides explain how <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> and cloud video surveillance work in practice: what they cost against guarding, which cameras they run on, how to set them up and how to sell them. Each is written to help you decide, including where Camzify is not the right answer.
           </p>
           <AuthorByline className="mt-8" />
 

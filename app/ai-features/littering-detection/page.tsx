@@ -38,8 +38,7 @@ export default function Page() {
       <FeatureHero
         eyebrow="AI detection · Littering detection"
         title="Littering detection"
-        lede={<><strong className="font-semibold text-foreground">Trash tossed? We catch the moment.</strong> Littering detection on security cameras flags items discarded outside designated
-            bins the instant it happens, with a timestamped clip for enforcement or site upkeep records.</>}
+        lede={<><strong className="font-semibold text-foreground">Littering detection on security cameras flags items discarded outside designated bins the instant it happens, with a timestamped clip for enforcement or site upkeep records.</strong></>}
         facts={['Objects dropped or thrown by a confirmed subject outside a…', 'Litter left unclaimed on the ground in monitored outdoor areas', 'Repeated littering activity at the same location over time']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 23 detections' }}

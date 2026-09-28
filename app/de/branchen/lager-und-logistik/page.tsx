@@ -72,7 +72,7 @@ export default function DeLagerUndLogistikPage() {
       <FeatureHero
         eyebrow="Branche · Lager und Logistik"
         title="Sicherheitskameras für Lager, von KI kontrolliert"
-        lede={<><strong className="font-semibold text-foreground">Lager- und Logistikstandorte haben Sicherheitsprobleme, die Kameras allein nicht lösen und die Wachpersonal nicht lückenlos abdecken kann.</strong> Der <Link href="/de/ki-waechterrundgang" className="text-primary hover:underline">KI-gestützte Wächterrundgang</Link> von Camzify führt automatische KI-Rundgänge auf Ihren vorhandenen Kameras durch: Er prüft jeden Punkt, meldet Fehler und benachrichtigt die richtige Person.</>}
+        lede={<><strong className="font-semibold text-foreground">Lager- und Logistikstandorte sind an den Rampentoren zwischen Anlieferungen und nachts entlang der Zaunlinie gefährdet, und Lager für hochwertige Ware prüft oft nur ein einziger nächtlicher Kontrollgang.</strong> Der <Link href="/de/ki-waechterrundgang" className="text-primary hover:underline">KI-gestützte Wächterrundgang</Link> von Camzify führt geplante Rundgänge über die Kameras vor Ort durch, prüft Rampentore, Zaunlinien und Lager für hochwertige Ware, benachrichtigt bei einer fehlgeschlagenen Prüfung die zuständige Person und hält jeden Rundgang mit Zeitstempel fest.</>}
         facts={['Rampentore zwischen Anlieferungen unbeobachtet', 'Zaunlinien nachts ohne durchgehende Abdeckung', 'Wertlager mit nur einem Kontrollgang pro Nacht']}
         primary={{ href: '/book-a-demo', label: 'Demo anfragen' }}
         secondary={{ href: '/de/ki-waechterrundgang/so-funktioniert-es', label: 'So läuft ein Rundgang ab' }}

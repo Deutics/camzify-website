@@ -86,7 +86,9 @@ def audit(route):
     title = html.unescape(p.title.strip()); h1s = [h.strip() for h in p.h['h1'] if h.strip()]
     first = next((re.sub(r'\s+', ' ', x).strip() for x in p.paras if len(x.split()) > 12), '')
     subject = re.sub(r'\s*\|.*$', '', title).lower()
-    definition = bool(re.match(r'^(a|an|the)?\s*[\w\s\-()]{2,60}\b(is|are|means|refers to)\b', first.lower())) or first.lower().startswith(subject.split()[0]) if first else False
+    # English and German definitional openings ("X is ...", "X ist ..."); German pages
+    # were all flagged before this learned "ist/sind/bezeichnet".
+    definition = bool(re.match(r"^(a|an|the|ein|eine|einen|der|die|das)?\s*[\w\s\-(),'’]{2,90}\b(is|are|means|refers to|flags|detects|watches|maps|checks|reads|records|builds|stitches|identifies|maintains|monitors|alerts|captures|uses|ist|sind|bezeichnet|heißt|meint|überwacht|prüft|erkennt|meldet|liest|zeichnet)\b", first.lower())) or first.lower().startswith(subject.split()[0]) if first else False
     sources = 'sources' in ' '.join(p.h['h2']).lower()
     canonical_ok = p.canonical.rstrip('/').endswith(route.rstrip('/')) if route != '/' else p.canonical.rstrip('/').endswith('camzify.com')
     return dict(route=route, title=title, title_len=len(title), desc_len=len(p.desc), h1_count=len(h1s), h1=h1s[0] if h1s else '',

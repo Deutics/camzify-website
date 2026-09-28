@@ -47,7 +47,7 @@ export default function RetailPage() {
       <FeatureHero
         eyebrow="Industry · retail"
         title="AI security for retail"
-        lede={<><strong className="font-semibold text-foreground">Retail environments face security challenges that cameras alone cannot solve and manned guards cannot cover consistently.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.</>}
+        lede={<><strong className="font-semibold text-foreground">In retail the exposure sits behind the sales floor: stockrooms left unchecked in busy hours, back doors propped open for deliveries and never re-secured, and stores with nobody on site after close.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> runs scheduled rounds on the cameras already on site, checks stockrooms, back doors and after-hours entry points, messages the right person when a check fails, and keeps a timestamped record of every round.</>}
         facts={['Stockrooms and back-of-house areas left unchecked during…', 'Back doors propped open for deliveries and never re-secured', 'Fitting rooms and blind aisles with inconsistent camera coverage']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}
