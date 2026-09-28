@@ -65,8 +65,8 @@ No `text-emerald-400`, `bg-red-500`, `text-gray-900`. Use the semantic tokens:
 other.
 
 **6. Never leave a page out of the sitemap.**
-`app/sitemap.ts` must list every route. A page with no sitemap entry and no internal
-links is invisible. See `docs/ADDING-PAGES.md` for the checklist.
+`lib/routes.ts` must list every route. It feeds both `sitemap.xml` (`app/sitemap.ts`) and
+the human site map at `/sitemap-page`. A page with no entry and no internal links is invisible. See `docs/ADDING-PAGES.md` for the checklist.
 
 **8. Never state a fact about a named competitor that did not come from that competitor's own site**, opened in the same run and listed in the page's Sources section. Never characterize competitor pricing beyond what their pricing page says. This covers the `/compare` pages, the `/alternatives` switching pages and the multi-vendor buyer's guide at `/guides/best-cloud-vms`.
 

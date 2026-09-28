@@ -14,7 +14,7 @@ which is the same as not existing.
 |---|---|---|
 | 1 | Create the route with the category template | `app/<silo>/<slug>/page.tsx` |
 | 2 | Add it to the navigation | `lib/site-config.ts` → `navItems` |
-| 3 | Add it to the sitemap | `app/sitemap.ts` → the matching group (`core`, `conversion`, `legal`, `hubs`, `pillars`, `virtualPatrolling`, `platform`, `aiFeatures`, `useCases`, `industries`, `compare`, `guides`, `connectivity`, `partners`, `company`) |
+| 3 | Add it to the sitemap | `lib/routes.ts` → the matching group (it feeds both `sitemap.xml` and `/sitemap-page`) (`core`, `conversion`, `legal`, `hubs`, `pillars`, `virtualPatrolling`, `platform`, `aiFeatures`, `useCases`, `industries`, `compare`, `guides`, `connectivity`, `partners`, `company`) |
 | 4 | Link to it from **at least two** existing pages | the relevant hub + a sibling |
 | 5 | Verify | `tsc` → build → SSR lint → check the rendered `<head>` |
 
