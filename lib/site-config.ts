@@ -254,6 +254,9 @@ export const navItems: NavEntry[] = [
             { label: 'Multi-Object Tracking', href: '/ai-features/multi-object-tracking' },
             { label: 'AI Attribute Extraction', href: '/ai-features/ai-attribute-extraction' },
           ] },
+          { label: 'Beyond the catalog', items: [
+            { label: 'Custom Detections', href: '/ai-features/custom-detections' },
+          ] },
         ],
       },
     ],
@@ -478,6 +481,7 @@ export const navItemsDe: NavEntry[] = [
           ] },
           { label: 'Grundlagen', items: [
             { label: 'KI-Videoanalyse', href: '/de/ki-videoanalyse' },
+            { label: 'Individuelle Erkennungen', href: '/de/ki-funktionen/individuelle-erkennungen' },
           ] },
         ],
         more: { label: 'Alle 23 Erkennungen', href: '/de/ki-funktionen' },

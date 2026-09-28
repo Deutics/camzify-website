@@ -56,6 +56,7 @@ const faqs = [
   { question: 'Muss ich jede Erkennung einzeln lizenzieren?', answer: 'Nein. KI-Funktionen werden pro Kamera-Instanz lizenziert, sodass jede Kamera nur die Erkennungen trägt, die sie tatsächlich nutzt. Die meisten Standorte beginnen mit Eindringerkennung, Bereichsüberwachung und Kamerasabotage und erweitern dann Kamera für Kamera.' },
   { question: 'Was haben alle Erkennungen gemeinsam?', answer: 'Sie lösen bei bestätigten Objekt-Tracks aus dem Multi-Object-Tracking aus, nicht bei Pixelveränderungen, und jeder Alarm enthält einen Schnappschuss oder Clip, einen Konfidenzwert und ein Benachrichtigungszeitfenster pro Kamera. Keine von ihnen identifiziert Personen.' },
   { question: 'Welche Erkennungen sind noch nicht verfügbar?', answer: 'Jede Erkennung auf dieser Seite ist heute verfügbar, auch die Verweilerkennung. Der einzige Punkt auf der Roadmap sind die nativen Mobil-Apps, aufgeführt auf der Roadmap-Seite; mobil greifen Sie heute über den Browser zu.' },
+  { question: 'Kann Camzify eine Erkennung entwickeln, die hier nicht aufgeführt ist?', answer: 'Ja. Deckt keine der 23 Erkennungen ab, was ein Standort braucht, entwickelt Camzify die Erkennung auf Bestellung. Für Kunden entstanden sind bisher unter anderem Kennzeichenerkennung, Gesichtserkennung, Erkennung von Essen und Trinken sowie Ladendiebstahlerkennung. Es fallen ein einmaliger Entwicklungspreis und danach die übliche Lizenz pro Kamera an; betrieben wird sie in der Cloud oder vor Ort. Gesichtserkennung entsteht nur auf Anfrage, für Kunden mit einer Rechtsgrundlage für ihren Einsatz; keine der Standard-Erkennungen identifiziert Personen.' },
   { question: 'Wie hängen Erkennungen und Rundgänge zusammen?', answer: 'Ein Rundgang prüft Zustände nach Zeitplan; Erkennungen überwachen zwischen den Rundgängen durchgehend. Bei einem automatisierten Rundgang löst die KI zusätzlich eine kritische Benachrichtigung aus, wenn sie ein Risiko sieht, nach dem die Checkliste nicht gefragt hat.' },
 ];
 
@@ -132,6 +133,17 @@ export default function DeKiFunktionenPage() {
                   ))}
                 </tbody>
               </table>
+            </div>
+            <div className="mt-6 flex flex-col gap-4 rounded-xl border border-border bg-card p-6 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <h3 className="font-display text-base font-bold">Ihre Erkennung ist nicht dabei?</h3>
+                <p className="mt-1 max-w-2xl text-sm text-muted-foreground">
+                  Camzify entwickelt sie auf Bestellung: Kennzeichenerkennung, Erkennung von Essen und Trinken sowie Ladendiebstahlerkennung sind für Kunden bereits entstanden. Ein einmaliger Entwicklungspreis, danach die Lizenz pro Kamera wie bei den 23 oben.
+                </p>
+              </div>
+              <Link href="/de/ki-funktionen/individuelle-erkennungen" className="inline-flex shrink-0 items-center gap-1 text-sm font-semibold text-primary hover:underline">
+                Individuelle Erkennungen →
+              </Link>
             </div>
           </div>
         </div>

@@ -27,9 +27,9 @@ export const metadata = generatePageMeta(pageMeta);
 const faqs = [
   { question: 'Ist Camzify nach SOC 2 oder ISO 27001 zertifiziert?', answer: 'Noch nicht. Beide sind in Vorbereitung und nicht erteilt; in Vorbereitung ist ebenso die Ausrichtung an PDPA und DSGVO. Ziel ist, alle vier bis Ende 2026 abzuschließen. Diese Seite beschreibt den aktuellen Stand und ändert sich erst, wenn ein Zertifikat tatsächlich vorliegt.' },
   { question: 'Wie werden Videodaten bei der Übertragung und im Speicher geschützt?', answer: 'Streams werden über TLS 1.2 oder höher übertragen, gespeicherte Aufnahmen sind mit AES-256 verschlüsselt. Der Zugriff ist rollenbasiert über Berechtigungsgruppen geregelt, und jede Aktion im Konto wird protokolliert.' },
-  { question: 'Wo werden die Aufnahmen gespeichert?', answer: 'In Amazon S3, in der AWS-Region, die den Standorten des Kunden am nächsten liegt.' },
+  { question: 'Wo werden die Aufnahmen gespeichert?', answer: 'In der Cloud-Variante in Amazon S3, in der AWS-Region, die den Standorten des Kunden am nächsten liegt. Müssen die Aufnahmen in den eigenen Räumen bleiben, wird Camzify vor Ort (On-Premises) betrieben.' },
   { question: 'Wer sieht bei einem mandantenfähigen Konto die Aufnahmen eines Kunden?', answer: 'Nur Logins, die auf die Standorte dieses Kunden beschränkt sind. Ein Unterkonto sieht seine eigenen Kameras, Alarme und Protokolle; das übergeordnete Konto sieht alles, was darunter liegt. Das Audit-Protokoll hält fest, wer was geöffnet hat.' },
-  { question: 'Identifiziert die KI Personen?', answer: 'Nein. Die Merkmalserkennung beschreibt Kleidung, mitgeführte Gegenstände und Bewegungsrichtung; nichts auf der Plattform erkennt Gesichter oder benennt Personen, und wir sagen das auf jeder Seite, auf der man es vermuten könnte.' },
+  { question: 'Identifiziert die KI Personen?', answer: 'Die Standard-Erkennungen nicht. Die Merkmalserkennung beschreibt Kleidung, mitgeführte Gegenstände und Bewegungsrichtung; keine der 23 Standard-Erkennungen erkennt Gesichter oder benennt Personen, und wir sagen das auf jeder Seite, auf der man es vermuten könnte. Gesichtserkennung gibt es nur als individuelle Entwicklung, auf Anfrage und nur für Kunden mit einer Rechtsgrundlage für ihren Einsatz.' },
 ];
 
 const frameworks = [
@@ -76,8 +76,9 @@ export default function DeSicherheitUndDatenschutzPage() {
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Speicherort</h2>
               <p className="mt-4 text-muted-foreground">
-                Die Aufnahmen liegen in Amazon S3, in der AWS-Region, die den Standorten des Kunden
-                am nächsten liegt. Videoaufnahmen, auf denen Personen erkennbar sind, sind
+                In der Cloud-Variante liegen die Aufnahmen in Amazon S3, in der AWS-Region, die den
+                Standorten des Kunden am nächsten liegt. Müssen sie aus Datenschutzgründen in den
+                eigenen Räumen bleiben, wird Camzify vor Ort (On-Premises) betrieben. Videoaufnahmen, auf denen Personen erkennbar sind, sind
                 personenbezogene Daten im Sinne der DSGVO; § 4 BDSG regelt zusätzlich die
                 Beobachtung öffentlich zugänglicher Räume – etwa Eingänge, Parkflächen oder
                 Verkaufsflächen, wie sie Camzify-Kunden typischerweise überwachen.

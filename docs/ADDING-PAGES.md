@@ -93,7 +93,7 @@ export default function ExamplePage() {
 
 ### AI Feature — `/ai-features/<slug>`
 
-The largest silo (23 pages). One detection capability per page.
+The largest silo: 23 detection pages, one capability each, plus `custom-detections` (the build-to-order offer, not a detection).
 
 **Schema:** none extra — `PageShell` handles WebPage + FAQPage.
 **Nav:** `lib/site-config.ts` → `Product` → the `AI Features` column → the right `sections[].items[]`.

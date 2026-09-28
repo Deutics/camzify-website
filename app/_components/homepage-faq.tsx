@@ -21,7 +21,7 @@ export const homepageFaqs = [
   {
     question: 'Is Camzify a cloud video management system or an on-premise one?',
     answer:
-      'Cloud. There is no server or NVR to install: cameras stream to the platform, footage is stored in the cloud with a retention window set per camera, and everything is managed from a browser. The only on-site software is the optional Camzify Connector, a small application for a Windows, macOS or Linux machine that relays cameras on a private network without port forwarding. Cameras that are already reachable over the internet need nothing installed at all.',
+      'Cloud by default, and on premises where footage has to stay on site. In the cloud deployment there is no server or NVR to install: cameras stream to the platform, footage is stored in the cloud with a retention window set per camera, and everything is managed from a browser. The only on-site software is the optional Camzify Connector, a small application for a Windows, macOS or Linux machine that relays cameras on a private network without port forwarding. Cameras that are already reachable over the internet need nothing installed at all. For clients whose footage must stay on their own premises for privacy reasons, Camzify is also deployed on premises.',
   },
   {
     question: 'Does Camzify work with the cameras I already have?',

@@ -68,7 +68,7 @@ export const translations: TranslationPair[] = [
   { en: '/virtual-patrolling/vs-security-guards', de: '/de/ki-waechterrundgang/vergleich-wachpersonal', sourceHash: '3d5730175beb' },
 
   // Platform
-  { en: '/platform', de: '/de/plattform', sourceHash: '51f06fba40ba' },
+  { en: '/platform', de: '/de/plattform', sourceHash: '0c772ee456a8' },
   { en: '/platform/live-streaming', de: '/de/plattform/live-streaming', sourceHash: 'ff03ca91ad98' },
   { en: '/platform/video-backup-and-retention', de: '/de/plattform/videospeicherung', sourceHash: 'a8508d62c54d' },
   { en: '/platform/multi-site-management', de: '/de/plattform/mehrere-standorte', sourceHash: '58009f121a5c' },
@@ -76,13 +76,14 @@ export const translations: TranslationPair[] = [
   { en: '/platform/user-management', de: '/de/plattform/benutzerverwaltung', sourceHash: 'e1e8e9e7e506' },
 
   // AI detections
-  { en: '/ai-features', de: '/de/ki-funktionen', sourceHash: '7854e73fd878' },
+  { en: '/ai-features', de: '/de/ki-funktionen', sourceHash: 'b58da48eddc3' },
   { en: '/ai-features/zone-intrusion-detection', de: '/de/ki-funktionen/bereichsueberwachung', sourceHash: '264f6a75a6bb' },
   { en: '/ai-features/line-intrusion-detection', de: '/de/ki-funktionen/linienueberschreitung', sourceHash: 'c6bb271fbbf9' },
   { en: '/ai-features/loitering-detection', de: '/de/ki-funktionen/verweilerkennung', sourceHash: '2cd739d014a3' },
   { en: '/ai-features/fire-and-smoke-detection', de: '/de/ki-funktionen/feuer-und-rauch-erkennung', sourceHash: '66328764f027' },
   { en: '/ai-features/ppe-violation-detection', de: '/de/ki-funktionen/psa-erkennung', sourceHash: '673f7443364e' },
   { en: '/ai-features/camera-tampering-detection', de: '/de/ki-funktionen/sabotageerkennung', sourceHash: '848c1b7e1d17' },
+  { en: '/ai-features/custom-detections', de: '/de/ki-funktionen/individuelle-erkennungen', sourceHash: '3edca28000d3' },
 
   // Partners
   { en: '/partners', de: '/de/partner', sourceHash: '4c3be1f2f850' },
@@ -98,7 +99,7 @@ export const translations: TranslationPair[] = [
 
   // Buying and trust
   { en: '/pricing', de: '/de/preise', sourceHash: '59e579252dad' },
-  { en: '/security-and-compliance', de: '/de/sicherheit-und-datenschutz', sourceHash: 'ddc693f7d484' },
+  { en: '/security-and-compliance', de: '/de/sicherheit-und-datenschutz', sourceHash: 'b6ae1839138b' },
   { en: '/supported-cameras', de: '/de/unterstuetzte-kameras', sourceHash: 'b6daf26a15e7' },
   { en: '/camzify-connector', de: '/de/camzify-connector', sourceHash: '76cce2afb081' },
 ];

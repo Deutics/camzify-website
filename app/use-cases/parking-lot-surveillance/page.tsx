@@ -14,7 +14,7 @@ export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
   { question: 'Can it detect vehicles as well as people?', answer: 'Yes. Multi-object tracking follows people and vehicles as separate classes, so a zone rule can be about either. Illegal parking detection covers a vehicle stopped in a fire lane or a restricted bay beyond the time allowed, and wrong-way vehicle detection a vehicle moving against a lane’s direction.' },
-  { question: 'Does it read license plates?', answer: 'No. Vehicles are tracked as objects. There is no license plate recognition, so it cannot match a vehicle to a permit list; it can tell that a vehicle is in a bay it should not be in, or has been there longer than the rule allows.' },
+  { question: 'Does it read license plates?', answer: 'Not with the standard detections. Vehicles are tracked as objects, so on its own it cannot match a vehicle to a permit list; it can tell that a vehicle is in a bay it should not be in, or has been there longer than the rule allows. License plate recognition is available as a custom build.' },
   { question: 'Does it work in a dark lot?', answer: 'It works on the image the camera produces. Lots with infrared cameras or reasonable lighting give the tracker a usable image; a camera showing a black frame gives it nothing. A camera health item on the patrol round catches the ones that have gone dark.' },
   { question: 'What counts as an after-hours event?', answer: 'Whatever the notification window on that camera says. Every detection carries a window per camera, so a person in the lot between midnight and 5am notifies on a staff car park and does not on a residential one. Zones on different cameras carry different windows, and outside the window the detection stays quiet.' },
   { question: 'Who is notified?', answer: 'Alert channels are set per category, email, SMS, WhatsApp or push, and the severity per camera per detection. A failed checklist item on a round messages the guard designated for that camera with the snapshot. On an automated round that happens on its own.' },
@@ -82,7 +82,7 @@ const content: UseCaseContent = {
     paras: [
       'Four limits apply on a lot, starting with plates.',
       { points: [
-        'It will not read plates or match vehicles to a permit list.',
+        'The standard detections will not read plates or match vehicles to a permit list; plate recognition is a custom build.',
         'It will not identify people.',
         'It will not see a corner without a camera or through a camera that has gone dark.',
         'It will not move the car from the fire lane; it tells the person designated for that camera and keeps the frame.',

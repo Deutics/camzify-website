@@ -33,8 +33,14 @@ constants). List rates live only in
 `lib/pricing-estimates.ts`, are used on the server to add an estimate to lead emails, and must
 never be imported into a client component or typed into a page. All four compliance frameworks
 (PDPA, GDPR, SOC 2 Type II, ISO 27001) are **in progress and not held**, targeted for the end
-of 2026 — never render them as current. Footage lives in Amazon S3 in the AWS region nearest
-the customer's sites; say that, and never name a country of residency. If you need a number you do not have, write around it honestly; do not
+of 2026 — never render them as current. In the cloud deployment, footage lives in Amazon S3 in the AWS region nearest
+the customer's sites; say that, and never name a country of residency. Camzify is also deployed on premises
+for clients whose footage must stay on site (stated by the business 2026-09-28); until the business supplies the
+details, say only that, with no hardware, air-gap or pricing specifics. Beyond the 23 standard detections,
+detections are built to order (`/ai-features/custom-detections`): a one-off build price plus the normal
+per-instance license, build footage deleted afterwards. None of the standard detections identifies anyone;
+facial recognition exists only as a custom build for a customer with the legal basis to use it, so never write
+that Camzify "does no facial recognition" or "no plate reading", and never present either as a standard feature. If you need a number you do not have, write around it honestly; do not
 estimate. `/trust` and `/llms.txt` both state this policy publicly, so violating it makes
 the site self-contradictory.
 
@@ -216,7 +222,7 @@ photographs, no frame for renders.
 
 ## German pages
 
-Forty pages have a German counterpart under `/de`. The pairs are declared once, in
+Forty-one pages have a German counterpart under `/de`. The pairs are declared once, in
 `lib/i18n.ts`; hreflang, the sitemap's German group, the header's language menu and the
 stale-translation check all read that list, so never write hreflang by hand. The rules
 for writing a German page (facts, terms, style) are in `docs/I18N.md`. The German copy

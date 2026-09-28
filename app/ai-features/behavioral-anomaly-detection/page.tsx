@@ -183,7 +183,9 @@ export default function BehavioralAnomalyDetectionPage() {
                   Historically the only options were to accept the gap or commission a custom model.
                   Describing the behavior in a sentence removes that trade-off, and it means the
                   system can be adjusted by the person who understands the site rather than by the
-                  vendor.
+                  vendor. Where a sentence is not enough, a{' '}
+                  <Link href="/ai-features/custom-detections" className="text-primary hover:underline">custom detection</Link>{' '}
+                  can still be built to order.
                 </p>
               </div>
             </ScrollReveal>

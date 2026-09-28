@@ -34,7 +34,7 @@ const faqs = [
   },
   {
     question: 'Wo bleiben die Videodaten?',
-    answer: 'In Amazon S3, in der AWS-Region, die den Standorten des Kunden am nächsten liegt. Welche Region das ist, richtet sich nach den tatsächlichen Standorten der Kameras; ein bestimmtes Land wird nicht pauschal zugesichert.',
+    answer: 'In der Cloud-Variante in Amazon S3, in der AWS-Region, die den Standorten des Kunden am nächsten liegt. Müssen die Aufnahmen aus Datenschutzgründen in den eigenen Räumen bleiben, wird Camzify vor Ort (On-Premises) betrieben. Welche Region das ist, richtet sich nach den tatsächlichen Standorten der Kameras; ein bestimmtes Land wird nicht pauschal zugesichert.',
   },
   {
     question: 'Ersetzt das den Werkschutz oder den Sicherheitsdienst vor Ort?',

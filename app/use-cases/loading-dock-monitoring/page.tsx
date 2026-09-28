@@ -15,7 +15,7 @@ export const metadata = generatePageMeta({ ...pageMeta });
 const faqs = [
   { question: 'Can it tell whether a dock door is open or closed?', answer: 'A checklist item on a patrol round asks exactly that, "dock door closed", and the AI judges it from the frame at each stop; on an automated round it can watch the scene for a short period first. Between rounds, a zone rule across the opening fires on a tracked person or vehicle passing through it when the door should be down.' },
   { question: 'Can monitoring differ between delivery hours and after hours?', answer: 'Yes. Every detection on a camera carries a notification window, and patrol sequences have active hours and active days. A dock camera can stay quiet during the delivery window and notify outside it, with a separate after-hours sequence that checks every bay is down and every staging area is clear.' },
-  { question: 'Does it read the truck’s number plate?', answer: 'No. Vehicles are tracked as objects: present, moving, at the bay, in the yard. There is no license plate recognition, and we say so on the vehicle monitoring page too. Illegal parking detection covers a vehicle stopped where it should not be for longer than it should.' },
+  { question: 'Does it read the truck’s number plate?', answer: 'Not with the standard detections. Vehicles are tracked as objects: present, moving, at the bay, in the yard. License plate recognition is available as a custom build, and the vehicle monitoring page says the same. Illegal parking detection covers a vehicle stopped where it should not be for longer than it should.' },
   { question: 'What about forklifts and site vehicles?', answer: 'Wrong-way vehicle detection covers a vehicle moving against the defined direction of a lane, and zone rules can keep pedestrians and vehicles out of each other’s areas. PPE violation detection applies on docks where high-visibility clothing is mandatory. None of these replaces a traffic management plan; they enforce parts of one.' },
   { question: 'Who is notified when a bay is found open at night?', answer: 'The guard designated for that camera, on the configured channel, with the snapshot. On an automated round that happens on its own. The item stays Pending until someone marks it Fixed, which captures the after frame, and both appear in the round’s report.' },
   { question: 'Is there a record for the logistics manager?', answer: 'A report per round with every bay, every checklist result and the frame it was judged against, plus a compliance percentage. Detection events are logged with camera, time and snapshot. Both are exportable and neither is edited after the fact.' },
@@ -75,7 +75,7 @@ const content: UseCaseContent = {
     paras: [
       'The limits are about what a frame can show and what a person still has to do.',
       { points: [
-        'It will not read plates, so it cannot tell a scheduled carrier from an unscheduled one by registration; it can tell that a vehicle is at the bay outside the window.',
+        'The standard detections will not read plates, so they cannot tell a scheduled carrier from an unscheduled one by registration (plate recognition is a custom build); they can tell that a vehicle is at the bay outside the window.',
         'It will not count pallets or verify a manifest.',
         'It will not close the door; it tells the guard designated for that camera and keeps the frame.',
       ] },

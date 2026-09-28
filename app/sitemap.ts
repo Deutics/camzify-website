@@ -112,6 +112,7 @@ const aiFeatures = group(
     '/ai-features/littering-detection',
     '/ai-features/illegal-parking-detection',
     '/ai-features/wrong-way-vehicle-detection',
+    '/ai-features/custom-detections',
     '/ai-features/vehicle-damage-report',
     '/ai-features/heatmap-anomalies',
     '/ai-features/occupancy-and-peak-hour-trends',
