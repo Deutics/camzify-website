@@ -10,15 +10,18 @@ import { ScrollReveal } from '@/components/motion/scroll-reveal';
  * publishing numbers the business has not verified — so the page was contradicting
  * its own stated policy in its largest type.
  *
- * The guard-side figures below are retained because they are attributed to published
- * industry averages and the page says so. The Camzify side stays quote-based, and the
- * reader is sent to the ROI calculator to run their own numbers, which is a stronger
- * close than an unverifiable percentage.
+ * The guard side is stated as orders of magnitude only ("tens of thousands a year",
+ * "about three times that" for 24/7), the same wording as the guard cost guide, which
+ * deliberately quotes no rate. The dollar figures that used to sit here ($15-$30 an
+ * hour, ~$35,000 and ~$105,000 a year) had no source and did not even agree with each
+ * other. Camzify's row carries the one public price, "from $5 per camera per month",
+ * and no bar: a bar would imply a ratio to guard cost that nothing supports. The reader
+ * is sent to the ROI calculator for real numbers.
  */
-const rows = [
-  { label: 'One guard, one 8-hour shift, every day', cost: '~$35,000/yr', width: '33%', tone: 'critical' },
-  { label: '24/7 cover, three shifts', cost: '~$105,000/yr', width: '100%', tone: 'critical' },
-  { label: 'Camzify virtual patrolling', cost: 'Quoted per instance', width: '14%', tone: 'primary' },
+const rows: { label: string; cost: string; width?: string; tone: 'critical' | 'primary' }[] = [
+  { label: 'One guard, one 8-hour shift, every day', cost: 'Tens of thousands a year', width: '33%', tone: 'critical' },
+  { label: '24/7 cover of the same post', cost: 'About three times that', width: '100%', tone: 'critical' },
+  { label: 'Camzify virtual patrolling', cost: 'From $5 per camera per month', tone: 'primary' },
 ];
 
 export function CostVsGuards() {
@@ -34,10 +37,9 @@ export function CostVsGuards() {
               </h2>
               <div className="mt-5 max-w-prose space-y-4 text-body text-muted-foreground">
                 <p>
-                  A security guard costs roughly $15–$30 an hour depending on the market, and one
-                  staffed post is not one guard. Allowing for leave, sickness and breaks,
-                  continuous cover of a single post typically needs four to five people on the
-                  roster.
+                  A guard&apos;s hourly rate varies widely by market and contract, and one staffed
+                  post is not one guard. Allowing for leave, sickness and breaks, continuous cover
+                  of a single post takes several people on the roster.
                 </p>
                 <p>
                   Most of those paid hours go on the routine round: walking the same route,
@@ -119,22 +121,19 @@ export function CostVsGuards() {
                         {r.cost}
                       </span>
                     </div>
-                    <div className="mt-2.5 h-2.5 overflow-hidden rounded-full bg-muted">
-                      <div
-                        className={`h-full rounded-full ${
-                          r.tone === 'primary' ? 'bg-primary' : 'bg-critical/70'
-                        }`}
-                        style={{ width: r.width }}
-                      />
-                    </div>
+                    {r.width && (
+                      <div className="mt-2.5 h-2.5 overflow-hidden rounded-full bg-muted">
+                        <div className="h-full rounded-full bg-critical/70" style={{ width: r.width }} />
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
               <p className="mt-8 border-t border-border pt-5 text-xs leading-relaxed text-muted-foreground">
-                Guard figures are order-of-magnitude estimates from published industry averages and
-                vary widely by market and contract. Camzify is priced per instance per month, so the
-                comparable figure depends on your camera count rather than headcount, and the ROI
-                calculator works it out against your own site.
+                Guard figures are orders of magnitude, explained in the guard cost guide, and vary
+                widely by market and contract. Camzify is priced per instance per month and quoted
+                per site, so the comparable figure depends on your camera count rather than
+                headcount; the ROI calculator works it out against your own site.
               </p>
             </div>
           </ScrollReveal>

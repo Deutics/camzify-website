@@ -31,7 +31,7 @@ export const homepageFaqs = [
   {
     question: 'Where is footage stored, and for how long?',
     answer:
-      'In the cloud, under a retention policy set per camera rather than once for the account, by a number of days or by a storage cap. Recording runs continuously or on a schedule you define, so an interior camera watching an empty office overnight does not have to consume storage doing it. Footage past its window is deleted automatically, and any clip can be exported for a chosen time range.',
+      'In the cloud deployment, in Amazon S3 in the AWS region nearest your sites, under a retention policy set per camera rather than once for the account, by a number of days or by a storage cap. Recording runs continuously or on a schedule you define, so an interior camera watching an empty office overnight does not have to consume storage doing it. Footage past its window is deleted automatically, and any clip can be exported for a chosen time range. Where footage has to stay on your premises, Camzify is deployed on premises or as a hybrid instead.',
   },
   {
     question: 'How is the platform secured?',
@@ -77,6 +77,11 @@ export const homepageFaqs = [
     question: 'How is this different from motion detection?',
     answer:
       'Motion detection responds to pixel change, so it triggers on shadows, headlights, rain and moving foliage. Camzify detections operate on confirmed object tracks: the system maintains a persistent identity for each subject across frames and evaluates rules against that track. The practical difference is alert volume — object-track detection removes most of the noise that makes conventional motion alerts unusable.',
+  },
+  {
+    question: 'Can Camzify detect something that is not in the 23 detections?',
+    answer:
+      'Often, yes. Behavioral anomaly detection, one of the 23, lets you describe the behavior to watch for in your own words. Where that is not enough, Camzify builds the detection to order: license plate recognition for US and Singapore plates, eating and drinking detection and shoplifting detection have been built for customers so far. A custom detection costs a one-off build price and is then licensed per camera like the rest, in the cloud or on premises.',
   },
   {
     question: 'Which industries use Camzify?',
