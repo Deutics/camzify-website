@@ -31,10 +31,15 @@ function panelWidthFor(menu: NavMenu): number {
 
 /** Every href a menu reaches, so the top-level item can show as active on any of its pages. */
 function hrefsFor(menu: NavMenu): string[] {
-  return menu.columns.flatMap((col) => [
-    ...(col.href ? [col.href] : []),
-    ...col.sections.flatMap((s) => s.items.map((i) => i.href)),
-  ]);
+  return [
+    menu.href,
+    ...(menu.all ? [menu.all.href] : []),
+    ...menu.columns.flatMap((col) => [
+      ...(col.href ? [col.href] : []),
+      ...(col.more ? [col.more.href] : []),
+      ...col.sections.flatMap((s) => s.items.map((i) => i.href)),
+    ]),
+  ];
 }
 
 /**
@@ -712,11 +717,22 @@ export function SiteHeader() {
                         </div>
                       ))}
                     </div>
-                    {menu.feature && (
-                      <div className="rounded-b-xl border-t border-border bg-muted/40 p-2">
-                        <div className="max-w-md">
-                          <FeatureLink feature={menu.feature} />
-                        </div>
+                    {(menu.feature || menu.all) && (
+                      <div className="flex items-center justify-between gap-4 rounded-b-xl border-t border-border bg-muted/40 p-2">
+                        {menu.feature && (
+                          <div className="min-w-0 max-w-md flex-1">
+                            <FeatureLink feature={menu.feature} />
+                          </div>
+                        )}
+                        {menu.all && (
+                          <Link
+                            href={menu.all.href}
+                            className="group inline-flex shrink-0 items-center gap-1.5 rounded-md px-3 py-2 text-sm font-semibold text-primary transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                          >
+                            {menu.all.label}
+                            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+                          </Link>
+                        )}
                       </div>
                     )}
                   </div>
@@ -807,7 +823,7 @@ export function SiteHeader() {
                       <div className="pb-3 pl-3">
                         {menu.columns.length === 1 && !menu.mobileFlat && (
                           <div className="pt-1">
-                            {menu.columns[0].href && !menu.columns[0].more && (
+                            {menu.columns[0].href && !menu.columns[0].more && !menu.all && (
                               <Link
                                 href={menu.columns[0].href}
                                 className="flex items-center gap-1 px-3 py-1.5 text-xs font-medium text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
@@ -871,6 +887,15 @@ export function SiteHeader() {
                           <div className="mt-2">
                             <FeatureLink feature={menu.feature} compact />
                           </div>
+                        )}
+                        {menu.all && (
+                          <Link
+                            href={menu.all.href}
+                            className="mt-1 flex items-center gap-1 px-3 py-1.5 text-xs font-medium text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                          >
+                            {menu.all.label}
+                            <ArrowRight className="h-3 w-3" aria-hidden="true" />
+                          </Link>
                         )}
                       </div>
                     </motion.div>

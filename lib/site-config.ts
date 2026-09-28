@@ -164,7 +164,13 @@ export type NavSection = { label?: string; items: NavLink[] };
  */
 export type NavColumn = { label: string; href?: string; span?: 1 | 2 | 3; hideHeading?: boolean; sections: NavSection[]; more?: NavLink };
 export type NavFeature = { label: string; href: string; description: string; icon: 'demo' | 'calculator' | 'roadmap' };
-export type NavMenu = { label: string; href: string; columns: NavColumn[]; feature?: NavFeature; mobileFlat?: boolean };
+/**
+ * `all`: the menu's "see everything" link (e.g. "All 35 use cases"). It always renders
+ * in the panel's footer strip, beside the feature card if there is one, so every menu
+ * puts it in the same place. Column-level `more` is for a link that belongs to one
+ * column only, such as the AI Features column inside Product.
+ */
+export type NavMenu = { label: string; href: string; columns: NavColumn[]; feature?: NavFeature; all?: NavLink; mobileFlat?: boolean };
 export type NavEntry = NavMenu | NavLink;
 
 export const isNavMenu = (entry: NavEntry): entry is NavMenu => 'columns' in entry;
@@ -327,9 +333,9 @@ export const navItems: NavEntry[] = [
             { label: 'Remote Sites', href: '/industries/remote-sites', description: 'Stations, towers, fence lines' },
           ] },
         ],
-        more: { label: 'All 16 industries', href: '/industries' },
       },
     ],
+    all: { label: 'All 16 industries', href: '/industries' },
   },
   {
     label: 'Use Cases',
@@ -337,7 +343,6 @@ export const navItems: NavEntry[] = [
     columns: [
       {
         label: 'By Goal',
-        href: '/use-cases',
         span: 2,
         sections: [
           { label: 'Keep people out', items: [
@@ -374,7 +379,6 @@ export const navItems: NavEntry[] = [
       },
       {
         label: 'By Setting',
-        href: '/use-cases',
         span: 2,
         sections: [
           { label: 'Hospitals, schools & venues', items: [
@@ -397,9 +401,9 @@ export const navItems: NavEntry[] = [
             { label: 'Tailgating at Secure Entrances', href: '/use-cases/tailgating-detection-for-data-centers-and-secure-entrances' },
           ] },
         ],
-        more: { label: 'All 35 use cases', href: '/use-cases' },
       },
     ],
+    all: { label: 'All 35 use cases', href: '/use-cases' },
   },
   { label: 'Pricing', href: '/pricing' },
   {
