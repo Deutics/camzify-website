@@ -373,7 +373,10 @@ export function SiteHeader() {
   const locale = localeFromPath(pathname);
   const strings = t(locale);
   const items = locale === 'de' ? navItemsDe : navItems;
-  const announcement = announcements[locale];
+  // An announcement that links to the page being viewed says nothing there (the German
+  // one points at /de), so it is not shown on its own target.
+  const configured = announcements[locale];
+  const announcement = configured && configured.href !== pathname ? configured : null;
   const [announcementVisible, setAnnouncementVisible] = useState(true);
   const triggerRefs = useRef<Record<string, HTMLButtonElement | null>>({});
   const wrapperRefs = useRef<Record<string, HTMLDivElement | null>>({});

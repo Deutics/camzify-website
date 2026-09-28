@@ -2,6 +2,7 @@ import { EyeOff, VideoOff, BellOff } from 'lucide-react';
 import { Stagger, StaggerItem } from '@/components/motion/stagger';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { SectionAtmosphere } from '@/components/motion/section-atmosphere';
+import type { Locale } from '@/lib/i18n';
 
 /**
  * The problem statement.
@@ -11,31 +12,61 @@ import { SectionAtmosphere } from '@/components/motion/section-atmosphere';
  * part of the rule rather than as a card ornament — the device stays unique to this
  * section.
  */
-const problems = [
-  {
-    icon: EyeOff,
-    lead: 'A guard covers one place at a time.',
-    body: 'Your sites run around the clock across multiple zones. One person walking a route reaches any given point for a few minutes an hour, and attention measurably degrades after the first.',
-    stat: '1 of 12',
-    statLabel: 'cameras watched at once',
-  },
-  {
-    icon: VideoOff,
-    lead: 'Cameras record. They do not check.',
-    body: 'Conventional CCTV captures everything and reviews nothing. Footage is consulted only once an incident has been reported, by which point it is evidence rather than prevention.',
-    stat: 'After',
-    statLabel: 'the fact, every time',
-  },
-  {
-    icon: BellOff,
-    lead: 'Alerts arrive with nobody attached.',
-    body: 'Pixel-based motion floods an inbox with events carrying no context, no owner and no record that anyone acted. Teams stop reading them, or turn sensitivity down until real events are missed too.',
-    stat: 'No owner',
-    statLabel: 'no acknowledgment trail',
-  },
-];
+const icons = [EyeOff, VideoOff, BellOff];
 
-export function ProblemBand() {
+const COPY = {
+  en: {
+    eyebrow: 'The gap',
+    heading: 'Cameras everywhere. Nobody watching.',
+    problems: [
+      {
+        lead: 'A guard covers one place at a time.',
+        body: 'Your sites run around the clock across multiple zones. One person walking a route reaches any given point for a few minutes an hour, and attention measurably degrades after the first.',
+        stat: '1 of 12',
+        statLabel: 'cameras watched at once',
+      },
+      {
+        lead: 'Cameras record. They do not check.',
+        body: 'Conventional CCTV captures everything and reviews nothing. Footage is consulted only once an incident has been reported, by which point it is evidence rather than prevention.',
+        stat: 'After',
+        statLabel: 'the fact, every time',
+      },
+      {
+        lead: 'Alerts arrive with nobody attached.',
+        body: 'Pixel-based motion floods an inbox with events carrying no context, no owner and no record that anyone acted. Teams stop reading them, or turn sensitivity down until real events are missed too.',
+        stat: 'No owner',
+        statLabel: 'no acknowledgment trail',
+      },
+    ],
+  },
+  de: {
+    eyebrow: 'Die Lücke',
+    heading: 'Überall Kameras. Niemand schaut hin.',
+    problems: [
+      {
+        lead: 'Eine Wachperson ist immer nur an einem Ort.',
+        body: 'Ihre Standorte laufen rund um die Uhr über mehrere Bereiche hinweg. Eine Person, die eine Route abgeht, erreicht jeden einzelnen Punkt nur für wenige Minuten pro Stunde, und ihre Aufmerksamkeit lässt nach der ersten Stunde messbar nach.',
+        stat: '1 von 12',
+        statLabel: 'Kameras gleichzeitig im Blick',
+      },
+      {
+        lead: 'Kameras zeichnen auf. Sie prüfen nicht.',
+        body: 'Herkömmliche Videoüberwachung zeichnet alles auf und wertet nichts aus. Aufnahmen werden erst gesichtet, wenn ein Vorfall gemeldet wurde – dann sind sie Beweismittel statt Prävention.',
+        stat: 'Im Nachhinein',
+        statLabel: 'jedes Mal',
+      },
+      {
+        lead: 'Alarme kommen an, aber niemand ist zuständig.',
+        body: 'Pixelbasierte Bewegungserkennung flutet den Posteingang mit Ereignissen ohne Kontext, ohne Zuständigen und ohne Nachweis, dass jemand reagiert hat. Teams lesen sie nicht mehr oder senken die Empfindlichkeit, bis auch echte Ereignisse übersehen werden.',
+        stat: 'Niemand zuständig',
+        statLabel: 'kein Nachweis der Quittierung',
+      },
+    ],
+  },
+} as const;
+
+export function ProblemBand({ locale = 'en' }: { locale?: Locale }) {
+  const c = COPY[locale];
   return (
     <section className="relative overflow-hidden py-20 sm:py-24">
       <SectionAtmosphere variant="left" intensity="subtle" />
@@ -43,16 +74,16 @@ export function ProblemBand() {
       <div className="relative z-10 mx-auto max-w-site px-6">
         <ScrollReveal>
           <div className="max-w-3xl">
-            <span className="font-mono text-mono-sm uppercase text-primary">The gap</span>
+            <span className="font-mono text-mono-sm uppercase text-primary">{c.eyebrow}</span>
             <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">
-              Cameras everywhere. Nobody watching.
+              {c.heading}
             </h2>
           </div>
         </ScrollReveal>
 
         <Stagger className="mt-14 grid gap-8 lg:grid-cols-3 lg:gap-10">
-          {problems.map((p) => {
-            const Icon = p.icon;
+          {c.problems.map((p, i) => {
+            const Icon = icons[i];
             return (
               <StaggerItem key={p.lead}>
                 <div className="group relative h-full pl-7">

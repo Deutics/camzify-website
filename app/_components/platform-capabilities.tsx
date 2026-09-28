@@ -5,6 +5,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import {
   Cable, MonitorPlay, HardDrive, ScanEye, Route, ShieldAlert, Search, BellRing,
 } from 'lucide-react';
+import { hrefFor, isForeignFor, type Locale } from '@/lib/i18n';
 
 /**
  * The capability inventory, placed before the virtual patrolling deep-dive.
@@ -22,80 +23,129 @@ import {
  *
  * Every line below is a verified capability with its own page. Nothing here is a
  * roadmap item, and there are no numbers that cannot be checked.
+ *
+ * The words switch by `locale`. On the German side a card whose page has no German
+ * counterpart keeps the English link and is marked "(EN)".
  */
-const layers = [
-  {
-    icon: Cable,
-    title: 'Connect',
-    desc: 'Any ONVIF or RTSP camera, plus RTMP and HTTPS streams. Local networks relay through the Connector with no port forwarding.',
-    href: '/camera-connectivity',
-  },
-  {
-    icon: MonitorPlay,
-    title: 'Live streaming',
-    desc: 'A multi-camera wall grouped by site, saved camera sets, explicit offline states, and PTZ control where the camera supports it.',
-    href: '/platform/live-streaming',
-  },
-  {
-    icon: HardDrive,
-    title: 'Cloud backup & retention',
-    desc: 'Continuous or scheduled recording, retention per camera by days or storage cap, playback, and clip export for a chosen window.',
-    href: '/platform/video-backup-and-retention',
-  },
-  {
-    icon: ScanEye,
-    title: 'AI detection',
-    desc: '23 shipping models on confirmed object tracks, intrusion, tampering, weapons, fire, PPE, behavior described in plain language.',
-    href: '/ai-features',
-  },
-  {
-    icon: Route,
-    title: 'Virtual patrolling',
-    desc: 'Scheduled rounds with a checklist per camera, before-and-after evidence on anything fixed, and a compliance report every time.',
-    href: '/virtual-patrolling',
-  },
-  {
-    icon: ShieldAlert,
-    title: 'Risk detection',
-    desc: 'Safety and security risks assessed at every patrol stop, and flagged even where no checklist item asked about them.',
-    href: '/virtual-patrolling/risk-detection',
-  },
-  {
-    icon: Search,
-    title: 'Investigation',
-    desc: 'Describe a person in plain language and retrieve every appearance across cameras. Journey maps and attribute extraction, no photo needed.',
-    href: '/ai-features/forensic-video-search',
-  },
-  {
-    icon: BellRing,
-    title: 'Notify & manage',
-    desc: 'One alert queue with acknowledgment over email, SMS, WhatsApp and push. Sub-users, permission groups, audit trail, many sites.',
-    href: '/platform/notifications-and-alerts',
-  },
+const layerMeta = [
+  { icon: Cable, href: '/camera-connectivity' },
+  { icon: MonitorPlay, href: '/platform/live-streaming' },
+  { icon: HardDrive, href: '/platform/video-backup-and-retention' },
+  { icon: ScanEye, href: '/ai-features' },
+  { icon: Route, href: '/virtual-patrolling' },
+  { icon: ShieldAlert, href: '/virtual-patrolling/risk-detection' },
+  { icon: Search, href: '/ai-features/forensic-video-search' },
+  { icon: BellRing, href: '/platform/notifications-and-alerts' },
 ];
 
-export function PlatformCapabilities() {
+const COPY = {
+  en: {
+    eyebrow: 'The platform',
+    heading: 'One system, from the camera to the record',
+    body: 'Video management, AI detection and virtual patrolling are one product on one login, not three integrations. Eight layers, in the order the platform runs them.',
+    explorePlatform: 'Explore the platform',
+    explore: 'Explore',
+    layers: [
+      {
+        title: 'Connect',
+        desc: 'Any ONVIF or RTSP camera, plus RTMP and HTTPS streams. Local networks relay through the Connector with no port forwarding.',
+      },
+      {
+        title: 'Live streaming',
+        desc: 'A multi-camera wall grouped by site, saved camera sets, explicit offline states, and PTZ control where the camera supports it.',
+      },
+      {
+        title: 'Cloud backup & retention',
+        desc: 'Continuous or scheduled recording, retention per camera by days or storage cap, playback, and clip export for a chosen window.',
+      },
+      {
+        title: 'AI detection',
+        desc: '23 shipping models on confirmed object tracks, intrusion, tampering, weapons, fire, PPE, behavior described in plain language.',
+      },
+      {
+        title: 'Virtual patrolling',
+        desc: 'Scheduled rounds with a checklist per camera, before-and-after evidence on anything fixed, and a compliance report every time.',
+      },
+      {
+        title: 'Risk detection',
+        desc: 'Safety and security risks assessed at every patrol stop, and flagged even where no checklist item asked about them.',
+      },
+      {
+        title: 'Investigation',
+        desc: 'Describe a person in plain language and retrieve every appearance across cameras. Journey maps and attribute extraction, no photo needed.',
+      },
+      {
+        title: 'Notify & manage',
+        desc: 'One alert queue with acknowledgment over email, SMS, WhatsApp and push. Sub-users, permission groups, audit trail, many sites.',
+      },
+    ],
+  },
+  de: {
+    eyebrow: 'Die Plattform',
+    heading: 'Ein System, von der Kamera bis zum Nachweis',
+    body: 'Videomanagement, KI-Erkennung und KI-gestützter Wächterrundgang sind ein Produkt mit einem Login, nicht drei Integrationen. Acht Ebenen, in der Reihenfolge, in der die Plattform sie ausführt.',
+    explorePlatform: 'Plattform entdecken',
+    explore: 'Mehr erfahren',
+    layers: [
+      {
+        title: 'Verbinden',
+        desc: 'Jede ONVIF- oder RTSP-Kamera, dazu RTMP- und HTTPS-Streams. Lokale Netzwerke werden über den Connector weitergeleitet, ohne Portweiterleitung.',
+      },
+      {
+        title: 'Live-Streaming',
+        desc: 'Eine Kamerawand nach Standort gruppiert, gespeicherte Kamerasets, eindeutige Offline-Zustände und PTZ-Steuerung, wo die Kamera sie unterstützt.',
+      },
+      {
+        title: 'Cloud-Speicherung & Aufbewahrung',
+        desc: 'Kontinuierliche oder geplante Aufzeichnung, Aufbewahrungsdauer pro Kamera nach Tagen oder Speicherlimit, Wiedergabe und Clip-Export für ein gewähltes Zeitfenster.',
+      },
+      {
+        title: 'KI-Erkennung',
+        desc: '23 einsatzbereite Modelle auf bestätigten Objektspuren: Eindringen, Sabotage, Waffen, Feuer, PSA, Verhalten in Alltagssprache beschrieben.',
+      },
+      {
+        title: 'KI-gestützter Wächterrundgang',
+        desc: 'Geplante Rundgänge mit einer Checkliste pro Kamera, Vorher-nachher-Nachweis für alles Behobene und jedes Mal ein Kontrollprotokoll als Nachweis.',
+      },
+      {
+        title: 'Risikoerkennung',
+        desc: 'Sicherheits- und Arbeitsschutzrisiken werden an jedem Kontrollpunkt bewertet und gemeldet, auch wenn kein Checklistenpunkt danach gefragt hat.',
+      },
+      {
+        title: 'Ermittlung',
+        desc: 'Beschreiben Sie eine Person in Alltagssprache und finden Sie jedes Auftreten über alle Kameras hinweg. Bewegungsverläufe und Merkmalserkennung, kein Foto nötig.',
+      },
+      {
+        title: 'Alarme & Verwaltung',
+        desc: 'Eine Alarm-Warteschlange mit Quittierung per E-Mail, SMS, WhatsApp und Push. Unterkonten, Berechtigungsgruppen, Audit-Trail, viele Standorte.',
+      },
+    ],
+  },
+} as const;
+
+export function PlatformCapabilities({ locale = 'en' }: { locale?: Locale }) {
   const reduceMotion = useReducedMotion();
+  const c = COPY[locale];
+  const layers = layerMeta.map((m, i) => ({ ...m, ...c.layers[i] }));
 
   return (
     <section className="border-t border-border bg-muted/20 py-20 sm:py-28" aria-labelledby="platform-capabilities">
       <div className="mx-auto max-w-site px-6">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-3xl">
-            <span className="font-mono text-mono-sm uppercase text-primary">The platform</span>
+            <span className="font-mono text-mono-sm uppercase text-primary">{c.eyebrow}</span>
             <h2 id="platform-capabilities" className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">
-              One system, from the camera to the record
+              {c.heading}
             </h2>
             <p className="mt-5 max-w-prose text-body text-muted-foreground">
-              Video management, AI detection and virtual patrolling are one product on one
-              login, not three integrations. Eight layers, in the order the platform runs them.
+              {c.body}
             </p>
           </div>
           <Link
-            href="/platform"
+            href={hrefFor('/platform', locale)}
             className="rounded font-semibold text-primary transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
-            Explore the platform <span aria-hidden="true">→</span>
+            {c.explorePlatform} <span aria-hidden="true">→</span>
           </Link>
         </div>
 
@@ -131,7 +181,8 @@ export function PlatformCapabilities() {
                     />
                   )}
                   <Link
-                    href={layer.href}
+                    href={hrefFor(layer.href, locale)}
+                    hrefLang={isForeignFor(layer.href, locale) ? 'en-US' : undefined}
                     className="group flex h-full flex-col rounded-xl border border-border bg-card p-6 transition-all duration-normal hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                   >
                     <div className="flex items-center justify-between">
@@ -144,10 +195,11 @@ export function PlatformCapabilities() {
                     </div>
                     <h3 className="mt-4 font-display text-lg font-bold transition-colors group-hover:text-primary">
                       {layer.title}
+                      {isForeignFor(layer.href, locale) && ' (EN)'}
                     </h3>
                     <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{layer.desc}</p>
                     <span className="mt-4 text-sm font-semibold text-primary opacity-0 transition-opacity duration-normal group-hover:opacity-100">
-                      Explore <span aria-hidden="true">→</span>
+                      {c.explore} <span aria-hidden="true">→</span>
                     </span>
                   </Link>
                 </motion.li>

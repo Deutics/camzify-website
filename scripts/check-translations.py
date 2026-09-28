@@ -14,6 +14,8 @@ now says.
 
 The hash covers the English page.tsx only, not the components it imports: a change to a
 shared component shows up on both languages at once, so it needs no translation step.
+The homepage is the exception: its copy lives in app/_components, so those files are
+hashed with it (see EXTRA_SOURCES).
 Stamp only after the German page has been updated; see docs/I18N.md.
 """
 import hashlib
@@ -31,9 +33,25 @@ def page_file(path):
     return os.path.join(ROOT, rel)
 
 
+# The homepage's copy lives in its section components, not in app/page.tsx, and those
+# components carry the German copy for /de beside the English. Hash them all for '/'.
+EXTRA_SOURCES = {'/': ['app/_components']}
+
+
+def source_files(path):
+    files = [page_file(path)]
+    for d in EXTRA_SOURCES.get(path, []):
+        full = os.path.join(ROOT, d)
+        files += sorted(os.path.join(full, n) for n in os.listdir(full) if n.endswith('.tsx'))
+    return files
+
+
 def source_hash(path):
-    with open(page_file(path), 'rb') as f:
-        return hashlib.sha256(f.read()).hexdigest()[:12]
+    h = hashlib.sha256()
+    for name in source_files(path):
+        with open(name, 'rb') as f:
+            h.update(f.read())
+    return h.hexdigest()[:12]
 
 
 def load():

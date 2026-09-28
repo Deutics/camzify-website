@@ -49,7 +49,7 @@ export interface TranslationPair {
 
 export const translations: TranslationPair[] = [
   // Pilot, September 2026
-  { en: '/', de: '/de', sourceHash: '733b7094bebc' },
+  { en: '/', de: '/de', sourceHash: '0418913979af' },
   { en: '/virtual-guard', de: '/de/virtueller-waechterrundgang', sourceHash: '0c55e683e5cf' },
   { en: '/cloud-video-surveillance', de: '/de/cloud-videomanagementsystem', sourceHash: '4eba2e37e2b2' },
   { en: '/guides/what-is-intelligent-video-analytics', de: '/de/ki-videoanalyse', sourceHash: '9ef9cd0f0dfb' },
@@ -135,3 +135,24 @@ export function alternatesFor(path: string): Record<string, string> | undefined 
 
 /** Every German path, in registry order, for the sitemap. */
 export const germanPaths: string[] = translations.map((t) => t.de);
+
+/**
+ * The link target for `href` on a page in `locale`: its German counterpart when the
+ * registry has one, otherwise `href` unchanged (an English-only page). Hash fragments
+ * are kept. Use it in shared components that render in both languages.
+ */
+export function hrefFor(href: string, locale: Locale): string {
+  if (locale === 'en') return href;
+  const [path, hash] = href.split('#');
+  const target = counterpartOf(path || '/', locale);
+  if (!target) return href;
+  return hash ? `${target}#${hash}` : target;
+}
+
+/** True when `href` has no page in `locale`, so a German page links out to English. */
+export function isForeignFor(href: string, locale: Locale): boolean {
+  if (locale === 'en') return false;
+  const path = href.split('#')[0] || '/';
+  if (!path.startsWith('/')) return false;
+  return counterpartOf(path, locale) === null;
+}
