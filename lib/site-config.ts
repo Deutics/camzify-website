@@ -211,6 +211,7 @@ export const navItems: NavEntry[] = [
             { label: 'User Management', href: '/platform/user-management' },
             { label: 'Multi-Site', href: '/platform/multi-site-management' },
             { label: 'AI Architecture', href: '/platform/ai-architecture' },
+            { label: 'Deployment Options', href: '/platform/deployment-options' },
           ] },
         ],
       },
@@ -256,6 +257,7 @@ export const navItems: NavEntry[] = [
           ] },
           { label: 'Beyond the catalog', items: [
             { label: 'Custom Detections', href: '/ai-features/custom-detections' },
+            { label: 'License Plate Recognition', href: '/ai-features/license-plate-recognition' },
           ] },
         ],
       },
@@ -464,6 +466,7 @@ export const navItemsDe: NavEntry[] = [
             { label: 'Alarme und Benachrichtigungen', href: '/de/plattform/alarme-und-benachrichtigungen' },
             { label: 'Benutzerverwaltung', href: '/de/plattform/benutzerverwaltung' },
             { label: 'Mehrere Standorte', href: '/de/plattform/mehrere-standorte' },
+            { label: 'Bereitstellung', href: '/de/plattform/bereitstellung' },
           ] },
         ],
       },

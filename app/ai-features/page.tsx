@@ -114,7 +114,7 @@ export default function DetectionHubPage() {
               <div>
                 <h3 className="font-display text-base font-bold">Need a detection that is not listed?</h3>
                 <p className="mt-1 max-w-2xl text-sm text-muted-foreground">
-                  Camzify builds it to order: license plate recognition, eating and drinking detection and shoplifting detection have been built for customers already. A one-off build price, then licensed per camera like the 23 above.
+                  Camzify builds it to order: <Link href="/ai-features/license-plate-recognition" className="text-primary hover:underline">license plate recognition</Link>, eating and drinking detection and shoplifting detection have been built for customers already. A one-off build price, then licensed per camera like the 23 above.
                 </p>
               </div>
               <Link href="/ai-features/custom-detections" className="inline-flex shrink-0 items-center gap-1 text-sm font-semibold text-primary hover:underline">

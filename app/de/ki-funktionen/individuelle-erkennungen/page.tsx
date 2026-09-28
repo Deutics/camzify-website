@@ -30,7 +30,7 @@ const faqs = [
 ];
 
 const built = [
-  { name: 'Kennzeichenerkennung', desc: 'Liest Fahrzeugkennzeichen aus dem Kamerabild, für Tore, Rampen und Parkflächen, an denen das Kennzeichen mehr zählt als das Fahrzeug.' },
+  { name: 'Kennzeichenerkennung', desc: 'Liest US- und Singapur-Kennzeichen aus dem Kamerabild und alarmiert bei Kennzeichen auf einer Beobachtungsliste, für Tore und Parkflächen, an denen das Kennzeichen mehr zählt als das Fahrzeug. Deutsche Kennzeichen werden noch nicht gelesen.' },
   { name: 'Gesichtserkennung', desc: 'Nur auf Anfrage, für Kunden mit einer Rechtsgrundlage für ihren Einsatz. Nie Teil der Standard-Erkennungen; siehe unten.' },
   { name: 'Erkennung von Essen und Trinken', desc: 'Meldet Essen oder Trinken in Bereichen eines Standorts, in denen es nicht erlaubt ist.' },
   { name: 'Ladendiebstahlerkennung', desc: 'Meldet Ladendiebstahlverhalten auf Filialkameras, über das hinaus, worauf die Standard-Erkennungen achten.' },
@@ -128,7 +128,8 @@ export default function DeIndividuelleErkennungenPage() {
             <div>
               <h2 className="font-display text-2xl font-bold">Wo sie läuft</h2>
               <p className="mt-4 text-muted-foreground">
-                In der Cloud oder vor Ort (On-Premises), mit derselben Wahl wie beim Rest der Plattform. Ein Standort, der seine Aufnahmen auf eigenen Servern hält, kann eine individuelle Erkennung auch dort betreiben. Die für die Entwicklung genutzten Aufnahmen werden gelöscht, sobald sie abgeschlossen ist.
+                In der Cloud oder vor Ort (On-Premises), mit derselben Wahl wie beim Rest der{' '}
+                <Link href="/de/plattform/bereitstellung" className="text-primary hover:underline">Plattform</Link>. Ein Standort, der seine Aufnahmen auf eigenen Servern hält, kann eine individuelle Erkennung auch dort betreiben. Die für die Entwicklung genutzten Aufnahmen werden gelöscht, sobald sie abgeschlossen ist.
               </p>
             </div>
           </ScrollReveal>

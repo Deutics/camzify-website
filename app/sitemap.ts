@@ -87,6 +87,7 @@ const platform = group(
     '/platform/multi-site-management',
     '/platform/mobile-access',
     '/platform/ai-architecture',
+    '/platform/deployment-options',
   ],
   0.7,
   'monthly'
@@ -113,6 +114,7 @@ const aiFeatures = group(
     '/ai-features/illegal-parking-detection',
     '/ai-features/wrong-way-vehicle-detection',
     '/ai-features/custom-detections',
+    '/ai-features/license-plate-recognition',
     '/ai-features/vehicle-damage-report',
     '/ai-features/heatmap-anomalies',
     '/ai-features/occupancy-and-peak-hour-trends',

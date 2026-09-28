@@ -39,6 +39,12 @@ redesign it closed every item this doc had been tracking as missing:
 Everything tracked below is resolved. Nothing is currently outstanding except the
 optional, capacity-permitting items and the regional market pages.
 
+## Requested 28 September 2026
+
+- **`/ai-features/license-plate-recognition` hero** (1229 × 692 render, transparent background, like the other feature heroes): a gate or entry-lane camera frame with a plate read and a watchlist match shown in the console. The page currently uses a plain step illustration because no existing image shows plate reading.
+- **`/platform/deployment-options` hero**: the three options (cloud, on premises, hybrid) as one render, e.g. a server rack on site and the cloud console side by side. Currently a step illustration.
+- **`/ai-features/custom-detections` hero**: optional; a step illustration stands in.
+
 ## Delivered 25 September 2026
 
 Staged 2026-09-26. New and revised:

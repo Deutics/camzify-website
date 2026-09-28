@@ -26,7 +26,7 @@ const content: UseCaseContent = {
   title: 'Vehicle monitoring',
   lede: <>
     <strong className="font-semibold text-foreground">Vehicle monitoring through video analytics means detecting, tracking and alerting on vehicle presence and movement in defined areas: entry gates, loading bays, yards, parking zones and restricted perimeters.</strong>{' '}
-    The standard detections are not license plate recognition, which is available as a custom build. Camzify tracks vehicles as objects in the frame, applies rules about where and when they may be and which way they may move, and checks the yard on a patrol round.
+    The standard detections are not license plate recognition, which is available as a <Link href="/ai-features/license-plate-recognition" className="text-primary hover:underline">custom detection for US and Singapore plates</Link>. Camzify tracks vehicles as objects in the frame, applies rules about where and when they may be and which way they may move, and checks the yard on a patrol round.
   </>,
   facts: ['Vehicles tracked as objects, not plates', 'Notified in set hours at gates, yards and bays', 'Wrong-way and overstay as their own detections'],
   image: { src: '/vehicle-monitoring.webp', alt: 'An aerial view of a yard with zones colored red, yellow and blue and each vehicle outlined' },

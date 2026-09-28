@@ -41,7 +41,7 @@ const faqs = [
 ];
 
 const built = [
-  { name: 'License plate recognition', desc: 'Reads vehicle license plates from the camera image, for the gates, bays and car parks where a plate matters more than the vehicle.' },
+  { name: 'License plate recognition', desc: 'Reads US and Singapore plates from the camera image and alerts on a watchlist, for the gates and car parks where a plate matters more than the vehicle.', href: '/ai-features/license-plate-recognition' },
   { name: 'Facial recognition', desc: 'Built only on request, for a customer with the legal basis to use it. Never part of the standard detections; see below.' },
   { name: 'Eating and drinking detection', desc: 'Flags eating or drinking in the areas of a site where it is not allowed.' },
   { name: 'Shoplifting detection', desc: 'Flags shoplifting behavior on store cameras, beyond what the standard detections look for.' },
@@ -80,7 +80,9 @@ export default function CustomDetectionsPage() {
             <ul className="mt-8 grid gap-4 sm:grid-cols-2">
               {built.map((b) => (
                 <li key={b.name} className="rounded-xl border border-border bg-card p-6">
-                  <h3 className="font-display text-base font-bold">{b.name}</h3>
+                  <h3 className="font-display text-base font-bold">
+                    {'href' in b && b.href ? <Link href={b.href} className="hover:text-primary hover:underline">{b.name}</Link> : b.name}
+                  </h3>
                   <p className="mt-2 text-sm text-muted-foreground">{b.desc}</p>
                 </li>
               ))}
@@ -138,7 +140,8 @@ export default function CustomDetectionsPage() {
             <div>
               <h2 className="font-display text-2xl font-bold">Where it runs</h2>
               <p className="mt-4 text-muted-foreground">
-                In the cloud or on premises, the same choice as the rest of the platform. A site that keeps its footage on its own servers can run a custom detection there too. The footage used to build the detection is deleted once the build is finished.
+                In the cloud or on premises, the same choice as the rest of the{' '}
+                <Link href="/platform/deployment-options" className="text-primary hover:underline">platform</Link>. A site that keeps its footage on its own servers can run a custom detection there too. The footage used to build the detection is deleted once the build is finished.
               </p>
             </div>
           </ScrollReveal>
