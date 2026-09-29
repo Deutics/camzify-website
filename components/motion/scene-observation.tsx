@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { SiteImage } from '@/components/content/site-image';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Eye, Camera, CheckCircle, HelpCircle } from 'lucide-react';
+import type { Locale } from '@/lib/i18n';
 
 /**
  * Scene observation, shown rather than described.
@@ -25,11 +26,51 @@ import { Eye, Camera, CheckCircle, HelpCircle } from 'lucide-react';
  * The loop is driven from useEffect, never from render — a timer read during render is
  * a hydration mismatch. With prefers-reduced-motion the sequence is not animated at
  * all: it renders in its resolved state, which is the state that carries the meaning.
+ *
+ * `locale="de"` switches the explanatory prose and alt text to German (the German home
+ * passes it through AutoPatrolSection). The default is English, so every other page that
+ * uses this component renders exactly as before. The timestamps are not prose.
  */
 const TICKS = 4;
 const TICK_MS = 1300;
 
-export function SceneObservation() {
+const COPY = {
+  en: {
+    singleLabel: 'Single frame',
+    singleTitle: 'One snapshot per stop',
+    singleAlt: 'Corridor camera showing a person mid-corridor',
+    singleLead: 'Someone is in the corridor.',
+    singleRest:
+      ' Passing through, or standing there? One frame cannot tell you, so it either wakes a guard for nothing or lets a real one go.',
+    watchLabel: 'Watch for a while',
+    watchTitle: 'A few seconds of live video per stop',
+    watchAltCleared: 'The same corridor a few seconds later, the person walking out',
+    watchAltTracked: 'Corridor camera showing a person mid-corridor, tracked',
+    resolvedLead: 'Walked through and left.',
+    resolvedRest:
+      ' Corridor clear, checklist item passed, nobody woken. The same watch window is what catches the person who does not leave.',
+    observing: 'Observing the scene before deciding…',
+  },
+  de: {
+    singleLabel: 'Einzelbild',
+    singleTitle: 'Ein Standbild je Kontrollpunkt',
+    singleAlt: 'Flurkamera mit einer Person in der Mitte des Flurs',
+    singleLead: 'Jemand ist im Flur.',
+    singleRest:
+      ' Geht die Person durch, oder steht sie dort? Ein einzelnes Bild kann das nicht sagen: Es weckt entweder eine Wachperson umsonst oder lässt einen echten Vorfall durch.',
+    watchLabel: 'Eine Weile beobachten',
+    watchTitle: 'Einige Sekunden Live-Video je Kontrollpunkt',
+    watchAltCleared: 'Derselbe Flur einige Sekunden später, die Person geht hinaus',
+    watchAltTracked: 'Flurkamera mit einer Person in der Mitte des Flurs, verfolgt',
+    resolvedLead: 'Durchgegangen und hinaus.',
+    resolvedRest:
+      ' Flur frei, Checklistenpunkt erfüllt, niemand geweckt. Dasselbe Beobachtungsfenster erfasst auch die Person, die nicht wieder geht.',
+    observing: 'Die Szene wird beobachtet, bevor entschieden wird…',
+  },
+} as const;
+
+export function SceneObservation({ locale = 'en' }: { locale?: Locale } = {}) {
+  const c = COPY[locale];
   const reduceMotion = useReducedMotion();
   const [tick, setTick] = useState(0);
 
@@ -52,14 +93,14 @@ export function SceneObservation() {
       <div className="rounded-2xl border border-border bg-card p-5">
         <div className="flex items-center gap-2">
           <Camera className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
-          <span className="font-mono text-mono-sm uppercase text-muted-foreground">Single frame</span>
+          <span className="font-mono text-mono-sm uppercase text-muted-foreground">{c.singleLabel}</span>
         </div>
-        <p className="mt-1 text-sm font-medium">One snapshot per stop</p>
+        <p className="mt-1 text-sm font-medium">{c.singleTitle}</p>
 
         <div className="relative mt-4 overflow-hidden rounded-lg border border-border">
           <SiteImage
             src="/scene-single-frame"
-            alt="Corridor camera showing a person mid-corridor"
+            alt={c.singleAlt}
             width={480}
             height={270}
             sizes="(max-width: 768px) 100vw, 480px"
@@ -73,9 +114,7 @@ export function SceneObservation() {
         <div className="mt-4 flex items-start gap-2 rounded-lg border border-warn/30 bg-warn/5 p-3">
           <HelpCircle className="mt-0.5 h-4 w-4 shrink-0 text-warn" aria-hidden="true" />
           <p className="text-xs leading-relaxed text-muted-foreground">
-            <span className="font-medium text-warn">Someone is in the corridor.</span> Passing
-            through, or standing there? One frame cannot tell you, so it either wakes a guard for
-            nothing or lets a real one go.
+            <span className="font-medium text-warn">{c.singleLead}</span>{c.singleRest}
           </p>
         </div>
       </div>
@@ -84,14 +123,14 @@ export function SceneObservation() {
       <div className="rounded-2xl border border-primary/30 bg-card p-5 shadow-lg shadow-primary/5">
         <div className="flex items-center gap-2">
           <Eye className="h-4 w-4 text-primary" aria-hidden="true" />
-          <span className="font-mono text-mono-sm uppercase text-primary">Watch for a while</span>
+          <span className="font-mono text-mono-sm uppercase text-primary">{c.watchLabel}</span>
         </div>
-        <p className="mt-1 text-sm font-medium">A few seconds of live video per stop</p>
+        <p className="mt-1 text-sm font-medium">{c.watchTitle}</p>
 
         <div className="relative mt-4 overflow-hidden rounded-lg border border-border">
           <img
             src={`/scene-watch-0${elapsed + 1}-640.webp`}
-            alt={cleared ? 'The same corridor a few seconds later, the person walking out' : 'Corridor camera showing a person mid-corridor, tracked'}
+            alt={cleared ? c.watchAltCleared : c.watchAltTracked}
             width={480}
             height={270}
             className="w-full"
@@ -134,12 +173,10 @@ export function SceneObservation() {
           <p className="text-xs leading-relaxed text-muted-foreground">
             {resolved ? (
               <>
-                <span className="font-medium text-live">Walked through and left.</span> Corridor
-                clear, checklist item passed, nobody woken. The same watch window is what catches
-                the person who does not leave.
+                <span className="font-medium text-live">{c.resolvedLead}</span>{c.resolvedRest}
               </>
             ) : (
-              <>Observing the scene before deciding&hellip;</>
+              <>{c.observing}</>
             )}
           </p>
         </div>

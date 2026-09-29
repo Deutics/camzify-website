@@ -14,7 +14,7 @@ import Link from 'next/link';
  */
 const pageMeta = {
   title: "PPE Violation Detection | Hats, Vests, Gloves",
-  description: "Camzify PPE violation detection automatically flags missing helmets, vests, or gloves against your site\\'s required safety gear policy.",
+  description: "Camzify PPE violation detection automatically flags missing helmets, vests, or gloves against your site's required safety gear policy.",
   path: "/ai-features/ppe-violation-detection",
 };
 
@@ -38,9 +38,7 @@ export default function Page() {
       <FeatureHero
         eyebrow="AI detection · PPE violation detection"
         title="PPE violation detection"
-        lede={<><strong className="font-semibold text-foreground">Safety gear, verified automatically.</strong> PPE violation detection checks every confirmed person in frame
-            against the required personal protective equipment for that zone, flagging missing helmets, vests,
-            or gloves the moment they're spotted.</>}
+        lede={<><strong className="font-semibold text-foreground">PPE violation detection checks every confirmed person in frame against the required personal protective equipment for that zone, flagging missing helmets, vests, or gloves the moment they're spotted.</strong></>}
         facts={['Missing hard hats in zones where head protection is required', 'Missing high-visibility vests on active work floors', 'Missing gloves in zones handling hazardous materials or…']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 23 detections' }}

@@ -1,5 +1,7 @@
 import type { ReactNode } from 'react';
 import { FAQAccordion, type FAQItem } from '@/components/content/faq-accordion';
+import type { Locale } from '@/lib/i18n';
+import { t } from '@/lib/ui-strings';
 
 /*
  * The one FAQ treatment for the whole site.
@@ -14,7 +16,8 @@ import { FAQAccordion, type FAQItem } from '@/components/content/faq-accordion';
  */
 export function FaqSection({
   items,
-  heading = 'Frequently asked questions',
+  locale = 'en',
+  heading = t(locale).faqHeading,
   eyebrow = 'FAQ',
   id = 'faq',
   inline = false,
@@ -22,6 +25,8 @@ export function FaqSection({
   className = '',
 }: {
   items: FAQItem[];
+  /** Chooses the default heading; pass 'de' on German pages. */
+  locale?: Locale;
   heading?: string;
   eyebrow?: string;
   id?: string;

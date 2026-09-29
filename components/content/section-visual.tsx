@@ -26,7 +26,7 @@ export type SectionVisualVariant =
   | 'compliance'
   | 'sites';
 
-function Frame({ children, caption, alt }: { children: React.ReactNode; caption: string; alt: string }) {
+function Frame({ children, caption, alt, locale = 'en' }: { children: React.ReactNode; caption: string; alt: string; locale?: 'en' | 'de' }) {
   return (
     <figure role="img" aria-label={alt} className="console-panel corner-ticks w-full min-w-0 max-w-full overflow-hidden">
       <div className="flex items-center gap-2 border-b border-border bg-muted/30 px-4 py-2.5">
@@ -39,7 +39,9 @@ function Frame({ children, caption, alt }: { children: React.ReactNode; caption:
       </div>
       <div className="p-5">{children}</div>
       <figcaption className="border-t border-border px-4 py-2 text-[11px] text-muted-foreground">
-        Interface illustration with sample data, not customer records.
+        {locale === 'de'
+          ? 'Darstellung der Oberfläche mit Beispieldaten, keine Kundendaten.'
+          : 'Interface illustration with sample data, not customer records.'}
       </figcaption>
     </figure>
   );
@@ -87,7 +89,7 @@ const DEFAULT_ROWS: ChecklistRow[] = [
  * it is describing rather than a generic loading dock. Defaults keep every existing
  * call site rendering exactly as before.
  */
-function Checklist({ rows = DEFAULT_ROWS, label = 'CAM 04 · Loading dock', guard = 'Priya R.' }: { rows?: ChecklistRow[]; label?: string; guard?: string }) {
+function Checklist({ rows = DEFAULT_ROWS, label = 'CAM 04 · Loading dock', guard = 'Priya R.', locale = 'en' }: { rows?: ChecklistRow[]; label?: string; guard?: string; locale?: 'en' | 'de' }) {
   return (
     <div>
       {/* Wrapping, not truncation: a nowrap label still counts its full width toward the
@@ -112,7 +114,11 @@ function Checklist({ rows = DEFAULT_ROWS, label = 'CAM 04 · Loading dock', guar
           </li>
         ))}
       </ul>
-      <p className="mt-3 text-xs text-muted-foreground">A failed item is resolved as Fixed or Pending before the round can close.</p>
+      <p className="mt-3 text-xs text-muted-foreground">
+        {locale === 'de'
+          ? 'Ein nicht erfüllter Punkt wird als Fixed oder Pending abgeschlossen, bevor der Rundgang enden kann.'
+          : 'A failed item is resolved as Fixed or Pending before the round can close.'}
+      </p>
     </div>
   );
 }
@@ -287,6 +293,7 @@ export function SectionVisual({
   label,
   guard,
   className = '',
+  locale = 'en',
 }: {
   variant: SectionVisualVariant;
   caption: string;
@@ -298,20 +305,22 @@ export function SectionVisual({
   label?: string;
   guard?: string;
   className?: string;
+  /** Language of the frame's own sentences (footnote, default flow steps). Pass 'de' on German pages. */
+  locale?: 'en' | 'de';
 }) {
   const body =
     variant === 'route' ? <Route /> :
-    variant === 'checklist' ? <Checklist rows={items} label={label} guard={guard} /> :
+    variant === 'checklist' ? <Checklist rows={items} label={label} guard={guard} locale={locale} /> :
     variant === 'report' ? <Report /> :
     variant === 'notification' ? <Notification /> :
     variant === 'schedule' ? <Schedule /> :
     variant === 'compliance' ? <Compliance /> :
     variant === 'sites' ? <Sites /> :
-    <Flow steps={steps ?? ['Round starts', 'Stop evaluated', 'Failure notified', 'Report filed']} />;
+    <Flow steps={steps ?? (locale === 'de' ? ['Rundgang startet', 'Kontrollpunkt geprüft', 'Fehler gemeldet', 'Protokoll abgelegt'] : ['Round starts', 'Stop evaluated', 'Failure notified', 'Report filed'])} />;
 
   return (
     <div className={className}>
-      <Frame caption={caption} alt={alt}>{body}</Frame>
+      <Frame caption={caption} alt={alt} locale={locale}>{body}</Frame>
     </div>
   );
 }

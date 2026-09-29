@@ -1,84 +1,87 @@
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
+import { SITEMAP_ENTRIES } from '@/lib/routes';
+import { GLOSSARY_TERMS } from '@/lib/glossary-terms';
+import { siteConfig } from '@/lib/site-config';
 import Link from 'next/link';
 
 /**
- * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
- * <head> tags, and by `PageShell` for the on-page structured data. Keeping it in one
- * const is what stops the meta description and the schema drifting apart.
+ * The human site map. Built from the same route list as sitemap.xml (lib/routes.ts), so
+ * every indexed page is listed here and nothing is maintained by hand. It used to be a
+ * hand-kept list that had fallen to 56 of 267 pages.
+ *
+ * Link labels are each page's own title, read from its `pageMeta` at build time (this
+ * page is statically prerendered, so the source files are read once, during the build).
+ * Sections are assigned by path prefix; a route that matches no section still appears,
+ * under "More".
  */
 const pageMeta = {
-  title: "Sitemap | Every Page on Camzify",
-  description: "Every page on the Camzify website in one list: virtual patrolling, platform, AI detections, use cases, industries, guides and comparisons.",
-  path: "/sitemap-page",
+  title: 'Sitemap | Every Page on Camzify',
+  description: 'Every page on the Camzify website in one list: virtual patrolling, platform, AI detections, use cases, industries, guides, comparisons and the German pages.',
+  path: '/sitemap-page',
 };
 
-export const metadata = generatePageMeta({ ...pageMeta });
+export const metadata = generatePageMeta(pageMeta);
 
-const sections = [
-  { title: 'Virtual Patrolling', links: [
-    { href: '/virtual-patrolling', label: 'Virtual Patrolling' },
-    { href: '/virtual-patrolling/how-it-works', label: 'How It Works' },
-    { href: '/virtual-patrolling/patrol-sequences', label: 'Patrol Sequences' },
-    { href: '/virtual-patrolling/patrol-checklists', label: 'Patrol Checklists' },
-    { href: '/virtual-patrolling/automated-patrol-scheduling', label: 'Automated Scheduling' },
-    { href: '/virtual-patrolling/patrol-reports', label: 'Patrol Reports' },
-    { href: '/virtual-patrolling/guard-notifications', label: 'Guard Notifications' },
-    { href: '/virtual-patrolling/patrol-compliance-tracking', label: 'Compliance Tracking' },
-    { href: '/virtual-patrolling/vs-security-guards', label: 'VS Security Guards' },
-    { href: '/virtual-patrolling/for-multi-site-operations', label: 'Multi-Site Operations' },
-  ]},
-  { title: 'Platform', links: [
-    { href: '/platform', label: 'Platform Overview' },
-    { href: '/platform/dashboard', label: 'Dashboard' },
-    { href: '/platform/live-streaming', label: 'Live Streaming' },
-    { href: '/platform/video-backup-and-retention', label: 'Video Backup' },
-    { href: '/platform/notifications-and-alerts', label: 'Notifications' },
-    { href: '/platform/analytics-and-reporting', label: 'Analytics' },
-    { href: '/platform/user-management', label: 'User Management' },
-    { href: '/platform/permission-groups', label: 'Permission Groups' },
-    { href: '/platform/multi-site-management', label: 'Multi-Site' },
-    { href: '/platform/mobile-access', label: 'Mobile Access' },
-    { href: '/platform/ai-architecture', label: 'AI Architecture' },
-  ]},
-  { title: 'AI Features', links: [
-    { href: '/ai-features', label: 'AI Features Overview' },
-    { href: '/ai-features/line-intrusion-detection', label: 'Line Intrusion' },
-    { href: '/ai-features/zone-intrusion-detection', label: 'Zone Intrusion' },
-    { href: '/ai-features/motion-detection', label: 'Motion Detection' },
-    { href: '/ai-features/camera-tampering-detection', label: 'Camera Tampering' },
-    { href: '/ai-features/multi-object-tracking', label: 'Multi-Object Tracking' },
-    { href: '/ai-features/ai-attribute-extraction', label: 'AI Attribute Extraction' },
-    { href: '/ai-features/forensic-video-search', label: 'AI Suspect Search' },
-    { href: '/ai-features/cross-camera-journey-map', label: 'Cross-Camera Journey Map' },
-    { href: '/ai-features/tailgating-detection', label: 'Tailgating Detection' },
-    { href: '/ai-features/weapons-detection', label: 'Weapons Detection' },
-    { href: '/ai-features/aggression-and-fight-detection', label: 'Aggression & Fight Detection' },
-    { href: '/ai-features/ppe-violation-detection', label: 'PPE Violation Detection' },
-    { href: '/ai-features/fire-and-smoke-detection', label: 'Fire & Smoke Detection' },
-    { href: '/ai-features/slip-and-fall-detection', label: 'Slip & Fall Detection' },
-    { href: '/ai-features/abandoned-object-detection', label: 'Abandoned Object Detection' },
-    { href: '/ai-features/littering-detection', label: 'Littering Detection' },
-    { href: '/ai-features/illegal-parking-detection', label: 'Illegal Parking Detection' },
-    { href: '/ai-features/wrong-way-vehicle-detection', label: 'Wrong-Way Vehicle Detection' },
-    { href: '/ai-features/vehicle-damage-report', label: 'Vehicle Damage Report' },
-    { href: '/ai-features/heatmap-anomalies', label: 'Heatmap Anomalies' },
-    { href: '/ai-features/occupancy-and-peak-hour-trends', label: 'Occupancy & Peak Hour Trends' },
-  ]},
-  { title: 'Company', links: [
-    { href: '/about', label: 'About' },
-    { href: '/pricing', label: 'Pricing' },
-    { href: '/contact', label: 'Contact' },
-    { href: '/book-a-demo', label: 'Book a Demo' },
-    { href: '/free-trial', label: 'Free Trial' },
-    { href: '/faqs', label: 'FAQs' },
-    { href: '/blog', label: 'Blog' },
-    { href: '/roadmap', label: 'Roadmap' },
-    { href: '/partners', label: 'Partners' },
-    { href: '/trust', label: 'Trust' },
-    { href: '/guides', label: 'Guides' },
-  ]},
+const SECTIONS: { title: string; match: (p: string) => boolean }[] = [
+  { title: 'Start here', match: (p) => ['/', '/pricing', '/book-a-demo', '/free-trial', '/roi-calculator', '/contact'].includes(p) },
+  { title: 'Virtual patrolling', match: (p) => p.startsWith('/virtual-patrolling') || p === '/virtual-guard' },
+  { title: 'Platform', match: (p) => p.startsWith('/platform') || p === '/cloud-video-surveillance' || p === '/camzify-connector' },
+  { title: 'AI features', match: (p) => p.startsWith('/ai-features') },
+  { title: 'Use cases', match: (p) => p.startsWith('/use-cases') },
+  { title: 'Industries', match: (p) => p.startsWith('/industries') },
+  { title: 'Partners', match: (p) => p.startsWith('/partners') },
+  { title: 'Cameras and connectivity', match: (p) => p.startsWith('/camera-connectivity') || p === '/supported-cameras' },
+  { title: 'Guides', match: (p) => p.startsWith('/guides') },
+  { title: 'Comparisons and alternatives', match: (p) => p.startsWith('/compare') || p.startsWith('/alternatives') },
+  { title: 'Glossary', match: (p) => p.startsWith('/glossary') },
+  { title: 'Company and trust', match: (p) => ['/faqs', '/trust', '/security-and-compliance', '/roadmap', '/blog'].includes(p) || p.startsWith('/about') },
+  { title: 'Legal', match: (p) => ['/privacy-policy', '/terms-of-service', '/cookie-policy', '/accessibility'].includes(p) },
+  { title: 'Deutsch', match: (p) => p === '/de' || p.startsWith('/de/') },
 ];
+
+const glossaryNames = new Map(GLOSSARY_TERMS.map((t) => [`/glossary/${t.slug}`, t.term]));
+
+/** The page's own title from its pageMeta, without the " | ..." qualifier. */
+function titleFor(route: string): string {
+  if (route === '/') return 'Home';
+  const term = glossaryNames.get(route);
+  if (term) return term;
+  // The author page builds its title from siteConfig rather than a literal.
+  if (route === `/about/${siteConfig.author.slug}`) return siteConfig.author.name;
+  try {
+    const file = path.join(process.cwd(), 'app', route === '/' ? '' : route, 'page.tsx');
+    const source = readFileSync(file, 'utf8');
+    const meta = source.match(/const pageMeta\s*=\s*\{[\s\S]*?title:\s*(['"`])(.+?)\1/);
+    const title = meta?.[2] ?? source.match(/title:\s*(['"`])(.+?)\1/)?.[2];
+    // A title assembled from variables cannot be read from source; fall back to the slug.
+    if (title && !title.includes('${')) return title.split(' | ')[0].replace(/\\'/g, "'").trim();
+  } catch {
+    // No readable source: fall back to the slug.
+  }
+  const slug = route.split('/').filter(Boolean).pop() ?? route;
+  return slug.replace(/-/g, ' ').replace(/^\w/, (c) => c.toUpperCase());
+}
+
+// Hoisted to module scope: computed once while the page is prerendered, never in render.
+const GROUPS = (() => {
+  const routes = SITEMAP_ENTRIES.map((e) => e.path).filter((p) => p !== pageMeta.path);
+  const seen = new Set<string>();
+  const groups = SECTIONS.map((s) => {
+    const links = routes.filter((p) => !seen.has(p) && s.match(p)).map((p) => {
+      seen.add(p);
+      return { href: p, label: titleFor(p) };
+    });
+    return { title: s.title, links };
+  });
+  const rest = routes.filter((p) => !seen.has(p)).map((p) => ({ href: p, label: titleFor(p) }));
+  if (rest.length) groups.push({ title: 'More', links: rest });
+  return groups.filter((g) => g.links.length > 0);
+})();
+
+const TOTAL = GROUPS.reduce((n, g) => n + g.links.length, 0);
 
 export default function SitemapPage() {
   return (
@@ -86,13 +89,22 @@ export default function SitemapPage() {
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Sitemap</h1>
-          <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-            {sections.map(s => (
-              <div key={s.title}>
-                <h2 className="font-display text-lg font-bold">{s.title}</h2>
-                <ul className="mt-3 space-y-2">
-                  {s.links.map(l => (
-                    <li key={l.href}><Link href={l.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">{l.label}</Link></li>
+          <p className="mt-4 max-w-prose text-muted-foreground">
+            Every page on the site, {TOTAL} in all, grouped by section. The German pages are listed under Deutsch.
+          </p>
+          <div className="mt-12 gap-x-10 sm:columns-2 lg:columns-3 xl:columns-4">
+            {GROUPS.map((g) => (
+              <div key={g.title} className="mb-10 break-inside-avoid">
+                <h2 className="font-display text-lg font-bold">
+                  {g.title} <span className="font-mono text-mono-sm font-normal text-muted-foreground">{g.links.length}</span>
+                </h2>
+                <ul className="mt-3 space-y-2" lang={g.title === 'Deutsch' ? 'de' : undefined}>
+                  {g.links.map((l) => (
+                    <li key={l.href}>
+                      <Link href={l.href} className="text-sm text-muted-foreground transition-colors hover:text-primary">
+                        {l.label}
+                      </Link>
+                    </li>
                   ))}
                 </ul>
               </div>

@@ -48,7 +48,7 @@ export default function HealthcarePage() {
       <FeatureHero
         eyebrow="Industry · healthcare"
         title="AI security for healthcare"
-        lede={<><strong className="font-semibold text-foreground">Healthcare facilities face security challenges that cameras alone cannot solve and manned guards cannot cover consistently.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.</>}
+        lede={<><strong className="font-semibold text-foreground">Hospitals and clinics run around the clock, but pharmacy storage, restricted wings and emergency exits get far less oversight overnight, when security and clinical staff both thin out.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> runs scheduled rounds on the cameras already on site, checks controlled doors, restricted corridors and emergency exits, messages the right person when a check fails, and keeps a timestamped record of every round. Coverage is drawn around facility zones, not patient-care areas.</>}
         facts={['Pharmacy and medication storage rooms with no continuous…', 'Ward corridors and restricted wings relying on infrequent…', 'Emergency exits used or blocked without anyone noticing in…']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}

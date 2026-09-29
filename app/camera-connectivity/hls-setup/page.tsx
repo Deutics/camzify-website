@@ -34,9 +34,8 @@ export default function HlsSetupPage() {
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">HLS camera setup</h1>
           <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            Follow these steps to connect your camera to Camzify using HLS. HLS is one of the two
-            stream formats handled by the <a href="/camera-connectivity/https-setup" className="text-primary hover:underline">HTTPS connection type</a>;
-            <a href="/camera-connectivity/webrtc-setup" className="text-primary hover:underline">WebRTC</a> is the other.
+            HLS (HTTP Live Streaming) is one of the two stream formats handled by the <a href="/camera-connectivity/https-setup" className="text-primary hover:underline">HTTPS connection type</a>;{' '}
+            <a href="/camera-connectivity/webrtc-setup" className="text-primary hover:underline">WebRTC</a> is the other. Follow these steps to connect a camera to Camzify over HLS.
           </p>
 
           <div className="mt-10 max-w-3xl">

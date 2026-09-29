@@ -521,7 +521,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
       { href: "/ai-features/cross-camera-journey-map", label: "Cross-camera journey map" },
     ],
     faqs: [
-      { question: "Is multi-object tracking facial recognition?", answer: "No. It follows a subject as a track within a camera view; it does not identify who the person is, and Camzify does no facial recognition." },
+      { question: "Is multi-object tracking facial recognition?", answer: "No. It follows a subject as a track within a camera view; it does not identify who the person is, and none of Camzify's standard detections does facial recognition." },
       { question: "Why does it matter for false alarms?", answer: "Because a rule evaluated on tracks fires only for a recognized subject. Rain, shadows and headlights produce no track and therefore no alert." },
     ],
   },

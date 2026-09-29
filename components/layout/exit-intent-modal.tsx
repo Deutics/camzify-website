@@ -9,8 +9,9 @@ export function ExitIntentModal() {
   const [show, setShow] = useState(false);
   const pathname = usePathname();
 
-  const excludedPaths = ['/contact', '/book-a-demo', '/free-trial'];
-  const isExcluded = excludedPaths?.some((p: string) => pathname?.startsWith(p));
+  // German pages are excluded too: the modal's copy is English-only.
+  const excludedPaths = ['/contact', '/book-a-demo', '/free-trial', '/de'];
+  const isExcluded = excludedPaths?.some((p: string) => pathname === p || pathname?.startsWith(`${p}/`));
 
   const handleMouseLeave = useCallback(
     (e: MouseEvent) => {

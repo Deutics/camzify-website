@@ -170,6 +170,22 @@ Vercel builds a preview first.
 
 ---
 
+## IndexNow (automatic)
+
+After every successful **production** deployment, `.github/workflows/indexnow.yml` runs
+`scripts/indexnow.mjs`, which submits the URLs that release changed to IndexNow. Bing and
+the other engines that share IndexNow submissions then recrawl them within minutes instead
+of on their own schedule. What counts as changed (a page's own file, the homepage sections,
+the glossary data, `llms.txt`) is documented in the script; nav and layout changes submit
+nothing on purpose.
+
+- The key is `public/<key>.txt` and the `KEY` constant in the script. It is public by
+  design: the engines fetch it from `https://camzify.com/<key>.txt` to verify the host.
+- Preview this before a release: `node scripts/indexnow.mjs --base origin/main --head HEAD --dry-run`.
+- Results show in Bing Webmaster Tools under IndexNow. A 403 means the key file is not
+  reachable on camzify.com; a 429 means too many submissions.
+- Google does not use IndexNow; it keeps reading `sitemap.xml`.
+
 ## Rollback
 
 Vercel keeps every deployment. Promote a previous one from the dashboard

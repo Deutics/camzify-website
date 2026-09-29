@@ -26,6 +26,17 @@ const nextConfig = {
           { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=(), payment=()' },
         ],
       },
+      {
+        // German pages share the root layout, so their static HTML says <html lang="en">
+        // until hydration (docs/I18N.md). The HTTP header states the language up front
+        // for crawlers that read it, Bing among them.
+        source: '/de',
+        headers: [{ key: 'Content-Language', value: 'de' }],
+      },
+      {
+        source: '/de/:path*',
+        headers: [{ key: 'Content-Language', value: 'de' }],
+      },
     ];
   },
   async redirects() {

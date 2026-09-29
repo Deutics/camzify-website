@@ -48,7 +48,7 @@ export default function MultipleSitesPage() {
       <FeatureHero
         eyebrow="Industry · multiple sites"
         title="AI security for multiple sites"
-        lede={<><strong className="font-semibold text-foreground">Multi-site operators face security challenges that cameras alone cannot solve and manned guards cannot cover consistently.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.</>}
+        lede={<><strong className="font-semibold text-foreground">Operators with many locations get patrol coverage that varies with each local team, and no central view of which sites were actually checked overnight.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> runs scheduled rounds on the cameras already on site, checks every location against the same checklist, messages the right person when a check fails, and keeps a timestamped record of every round.</>}
         facts={['Inconsistent patrol coverage across locations run by…', 'No centralized visibility into which sites had checks…', 'Camera outages at remote sites going unnoticed for days']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}

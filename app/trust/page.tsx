@@ -40,7 +40,7 @@ export default function TrustPage() {
           <div className="mt-16 space-y-12 max-w-prose">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Data handling</h2>
-              <p className="mt-4 text-muted-foreground">Camera feeds are processed for AI detection and patrol verification. Video footage is stored according to your configured retention policy and encrypted at rest. Footage is written to cloud object storage (Amazon S3) in the AWS region nearest the customer's sites, so retrieval stays fast and data stays close to where it was recorded. We do not sell, share, or use customer video data for model training without explicit consent.</p>
+              <p className="mt-4 text-muted-foreground">Camera feeds are processed for AI detection and patrol verification. Video footage is stored according to your configured retention policy and encrypted at rest. In the cloud deployment, footage is written to cloud object storage (Amazon S3) in the AWS region nearest the customer's sites, so retrieval stays fast and data stays close to where it was recorded. Clients whose footage must stay on their own premises can run Camzify on premises instead. We do not sell, share, or use customer video data for model training without explicit consent.</p>
             </ScrollReveal>
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Account actions are logged</h2>

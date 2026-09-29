@@ -1,4 +1,5 @@
 import { generatePageMeta } from '@/lib/page-utils';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { articleSchema, personSchema } from '@/lib/seo';
@@ -150,6 +151,10 @@ export default function BestCloudVmsPage() {
             <Link href="/guides/cloud-vms-cost" className="text-primary hover:underline">cloud VMS cost</Link>.
           </p>
 
+          <div className="mt-10 max-w-3xl">
+            <PhotoFigure src="/guide-best-cloud-vms.webp" alt="A cloud VMS live view: camera feeds from several sites on one screen in the Camzify console" priority />
+          </div>
+
           <section className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">How to read this guide</h2>
@@ -178,7 +183,7 @@ export default function BestCloudVmsPage() {
               </div>
               <PointList items={[
                 <>Cameras: bring your own. Any ONVIF or RTSP camera connects over RTSP, RTMP or HTTPS, and a camera on a private network is relayed by the Camzify Connector without port forwarding. No hardware is sold.</>,
-                <>Storage and retention: cloud only, encrypted in transit and at rest. Recording runs continuously or on a schedule, and retention is set per camera by days or by storage cap.</>,
+                <>Storage and retention: cloud by default, encrypted in transit and at rest, with an on-premises deployment for clients whose footage must stay on site. Recording runs continuously or on a schedule, and retention is set per camera by days or by storage cap.</>,
                 <>Analytics: 23 detection models that fire on confirmed object tracks, plus virtual patrolling, a scheduled round that checks a list at each camera and files a compliance report. PDPA, GDPR, SOC 2 Type II and ISO 27001 work is in progress; none is held.</>,
                 <>Pricing as its own pages state it: per instance per month, from $5 per camera per month for a stream instance with motion and camera tampering detection included. Every other rate is quoted per site.</>,
               ]} />
@@ -353,7 +358,7 @@ export default function BestCloudVmsPage() {
                   columns={['Aspect', 'Camzify', 'Eagle Eye', 'Verkada', 'Rhombus']}
                   rows={[
                     { feature: 'Cameras', values: ['Bring your own, ONVIF or RTSP', 'Own or existing, via bridge or Camera Direct', 'Own; third-party via Command Connector', 'Own; third-party via Relay Core N100'] },
-                    { feature: 'Storage location', values: ['Cloud', 'Cloud, on premise, or both', 'On camera and in cloud', 'On camera; cloud archiving by license'] },
+                    { feature: 'Storage location', values: ['Cloud, or on premises', 'Cloud, on premise, or both', 'On camera and in cloud', 'On camera; cloud archiving by license'] },
                     { feature: 'Retention control', values: ['Per camera, days or storage cap', 'By edition: 30 or 90 day options', 'Onboard 30 to 365 days by model', 'By camera model, 20 to 90 days'] },
                     { feature: 'Analytics', values: ['23 detections plus virtual patrolling', 'Gun, face, plates, person and vehicle, search', 'Search, face search, alerts, operational analytics', 'Search, face, plates, occupancy, deterrence'] },
                     { feature: 'Doors, alarms, sensors', values: ['None', 'Brivo access, intrusion and sensors', 'Own access, alarms, sensors, intercom', 'Own access, sensors, alarm monitoring'] },
@@ -392,7 +397,7 @@ export default function BestCloudVmsPage() {
                 <>A mixed estate with analog cameras that must reach the cloud through an on-site bridge, with access control in the same interface: Eagle Eye Networks with the Brivo suite.</>,
                 <>A site that wants a recorder it owns on premises, cloud access to it, and no camera purchase: Coram AI, and Spot AI where AI agents on a supplied recorder matter more than doors.</>,
                 <>An organization with an existing Avigilon or Motorola estate buying through an integrator: Avigilon Alta, with Unity for the sites that must stay on premise.</>,
-                <>A site that cannot carry its cameras upstream: not a cloud-only option; Coram AI, Spot AI, Rhombus and Verkada each keep a local copy on a recorder or camera.</>,
+                <>A site that cannot carry its cameras upstream: not a cloud-only option; Coram AI, Spot AI, Rhombus and Verkada each keep a local copy on a recorder or camera, and Camzify is also deployed on premises.</>,
               ]} />
             </ScrollReveal>
           </section>

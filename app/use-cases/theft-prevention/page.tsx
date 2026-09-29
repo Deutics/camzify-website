@@ -86,7 +86,7 @@ const content: UseCaseContent = {
     paras: [
       'It works on presence, movement and objects against rules you define, and describes what it saw.',
       { points: [
-        'It will not see concealment, and it will not identify people; it does not recognize faces or name anyone.',
+        'The standard detections will not see concealment, and they will not identify people; they do not recognize faces or name anyone. Shoplifting detection is available as a custom build.',
         'It will not cover an area without a camera on it.',
         'It will not stop the person in the cage; it puts the snapshot in front of whoever you designate.',
       ] },

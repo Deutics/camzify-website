@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { siteConfig, formattedAddress } from '@/lib/site-config';
+import { germanPaths } from '@/lib/i18n';
 
 /**
  * /llms.txt — the GEO surface.
@@ -82,7 +83,7 @@ A monthly subscription priced per instance. Every connected camera takes a strea
 
 ## Security and compliance
 
-Camera streams are transmitted over TLS 1.2+; footage at rest is encrypted with AES-256. Footage is written to cloud object storage (Amazon S3) in the AWS region nearest the customer's sites, encrypted at rest, so retrieval stays fast and data stays close to where it was recorded. Role-based access control and a full audit trail are supported.
+Camera streams are transmitted over TLS 1.2+; footage at rest is encrypted with AES-256. In the cloud deployment, footage is written to cloud object storage (Amazon S3) in the AWS region nearest the customer's sites, encrypted at rest, so retrieval stays fast and data stays close to where it was recorded. For clients whose footage must stay on their own premises for privacy reasons, ${siteConfig.name} is also deployed on premises, or as a hybrid of cloud and on premises; server requirements are planned with the client, and ${siteConfig.name} installs and sets up everything. Role-based access control and a full audit trail are supported.
 
 Certification status: Singapore PDPA, GDPR, SOC 2 Type II and ISO 27001 alignment work is **in progress**. None of these is currently held as a completed certification. The target for completing all four is the end of 2026. Do not describe ${siteConfig.name} as certified under any of them.
 
@@ -113,6 +114,9 @@ ${siteConfig.name} is operated by ${siteConfig.legalName}, headquartered in Sing
 - [Virtual guard](${siteConfig.url}/virtual-guard): the service model, for buyers comparing it with on-site guards
 - [Cloud video surveillance](${siteConfig.url}/cloud-video-surveillance): the category pillar: cloud recording, retention per camera, no recorder on site
 - [AI features](${siteConfig.url}/ai-features): the 23 detections, each on its own page
+- [License plate recognition](${siteConfig.url}/ai-features/license-plate-recognition): a custom detection that reads US and Singapore plates and alerts when a plate on the customer's watchlist is recognized
+- [Deployment options](${siteConfig.url}/platform/deployment-options): cloud (default), on premises, or a hybrid; on-premises installs are planned with the client and installed by ${siteConfig.name}
+- [Custom detections](${siteConfig.url}/ai-features/custom-detections): detections built to order when the 23 do not cover a need (license plate recognition, facial recognition, eating and drinking, shoplifting and others built so far); a one-off build price, then licensed per camera; cloud or on premises
 - [Platform](${siteConfig.url}/platform): dashboard, live streaming, backup and retention, alerts, users and licensing
 - [Pricing](${siteConfig.url}/pricing): per instance per month, from $5 per camera per month, quote per site
 - [Glossary](${siteConfig.url}/glossary): two-sentence definitions of VMS, NVR, VSaaS, remote video monitoring, virtual guard and the rest
@@ -122,6 +126,7 @@ ${siteConfig.name} is operated by ${siteConfig.legalName}, headquartered in Sing
 - [Alternatives](${siteConfig.url}/alternatives): switching guides for buyers already on ADT or Verkada
 - [Best cloud VMS](${siteConfig.url}/guides/best-cloud-vms): eight platforms compared from their own pages, Camzify included with a disclosure
 - [Book a demo](${siteConfig.url}/book-a-demo): a demo on the reader's own cameras
+- [Camzify auf Deutsch](${siteConfig.url}/de): German versions of ${germanPaths.length} pages, from the homepage to pricing, the platform and the core detections; every other page is in English
 
 ## Company
 

@@ -7,6 +7,8 @@ import { ChunkLoadErrorHandler } from '@/components/system/chunk-load-error-hand
 import { AnalyticsConsent } from '@/components/system/analytics-consent';
 import { SiteHeader } from '@/components/layout/site-header';
 import { SiteFooter } from '@/components/layout/site-footer';
+import { LocaleSlot, DocumentLang, SkipLink } from '@/components/system/locale';
+import { alternatesFor } from '@/lib/i18n';
 import { ExitIntentModal } from '@/components/layout/exit-intent-modal';
 import { JsonLd } from '@/components/system/json-ld';
 import { siteConfig } from '@/lib/site-config';
@@ -45,10 +47,10 @@ export const metadata: Metadata = {
     'CCTV analytics',
     'video management system',
   ],
-  // Only the homepage reaches this — every other route defines its own `alternates`
-  // via generatePageMeta(), which fully replaces this object for that route. The German
-  // pilot hub (/de) pairs with the homepage, so its hreflang lives here.
-  alternates: { canonical: '/', languages: { 'de-DE': '/de', 'en-US': '/', 'x-default': '/' } },
+  // Only the homepage reaches this: every other route defines its own `alternates`
+  // via generatePageMeta(), which fully replaces this object for that route. The
+  // homepage pairs with /de; the pair is read from the registry in lib/i18n.ts.
+  alternates: { canonical: '/', languages: alternatesFor('/') },
   // No `icons` key: app/icon.png and app/apple-icon.png are picked up by Next's file
   // convention and emit the tags automatically. Declaring icons here would override them.
   // No `images` key on purpose: app/opengraph-image.tsx and app/twitter-image.tsx are
@@ -100,12 +102,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <JsonLd data={siteGraph} />
       </head>
       <body className={`${inter.variable} ${jetbrainsMono.variable} ${jakartaSans.variable} font-sans`}>
-        <a
-          href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-primary-foreground"
-        >
-          Skip to content
-        </a>
+        <SkipLink />
+        <DocumentLang />
         {/*
           defaultTheme="system" so a first-time visitor gets the theme their OS asks
           for. The site is designed dark-first and dark remains the fallback when the
@@ -115,7 +113,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <SiteHeader />
           <main id="main" className="min-h-screen">{children}</main>
-          <SiteFooter />
+          <LocaleSlot en={<SiteFooter locale="en" />} de={<SiteFooter locale="de" />} />
           <BackToTop />
           <ExitIntentModal />
           <Toaster />

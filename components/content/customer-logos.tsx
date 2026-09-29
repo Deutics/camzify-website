@@ -1,4 +1,5 @@
 import { LogoMarquee } from '@/components/motion/logo-marquee';
+import type { Locale } from '@/lib/i18n';
 
 /**
  * Customer logo strip.
@@ -40,22 +41,39 @@ export const customerLogos: CustomerLogo[] = [
   { name: '10 Evelyn', logo: '/customers/10-evelyn.webp' },
 ];
 
+const COPY = {
+  en: {
+    ariaLabel: 'Customers',
+    heading: 'Sites and operations teams running Camzify',
+    trademark: 'Customer names and logos are trademarks of their respective owners and are shown with permission.',
+  },
+  de: {
+    ariaLabel: 'Kunden',
+    heading: 'Standorte und Betriebsteams, die Camzify einsetzen',
+    trademark: 'Kundennamen und Logos sind Marken ihrer jeweiligen Inhaber und werden mit Genehmigung gezeigt.',
+  },
+} as const;
+
 export function CustomerLogos({
-  heading = 'Sites and operations teams running Camzify',
+  heading,
   className = '',
+  locale = 'en',
 }: {
   heading?: string;
   className?: string;
+  /** Language of the heading, section label and trademark note. Customer names stay as they are. */
+  locale?: Locale;
 }) {
   if (customerLogos.length === 0) return null;
+  const c = COPY[locale];
 
   return (
-    <section aria-label="Customers" className={`border-y border-border bg-card/30 py-12 ${className}`}>
+    <section aria-label={c.ariaLabel} className={`border-y border-border bg-card/30 py-12 ${className}`}>
       <div className="mx-auto max-w-site px-6">
-        <p className="text-center font-mono text-mono-sm uppercase text-muted-foreground">{heading}</p>
+        <p className="text-center font-mono text-mono-sm uppercase text-muted-foreground">{heading ?? c.heading}</p>
         <LogoMarquee items={customerLogos} direction="right" className="mt-7" />
         <p className="mt-6 text-center text-xs text-muted-foreground">
-          Customer names and logos are trademarks of their respective owners and are shown with permission.
+          {c.trademark}
         </p>
       </div>
     </section>

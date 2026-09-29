@@ -39,8 +39,7 @@ export default function Page() {
       <FeatureHero
         eyebrow="AI detection · Occupancy & peak hour trends"
         title="Occupancy & peak hour trends"
-        lede={<><strong className="font-semibold text-foreground">Know when it's busiest, plan around it.</strong> Occupancy and peak hour trends identifies the busiest hours
-            and zones automatically from live camera counts, so staffing and planning decisions aren't guesswork.</>}
+        lede={<><strong className="font-semibold text-foreground">Occupancy and peak hour trends identifies the busiest hours and zones automatically from live camera counts, so staffing and planning decisions aren't guesswork.</strong></>}
         facts={['Live occupancy counts per camera, zone, or site', 'Historical peak-hour and peak-day trends over time', 'Zone-by-zone comparison across a single site']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 23 detections' }}

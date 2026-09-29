@@ -1,6 +1,7 @@
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import { ProductShot } from '@/components/content/product-shot';
 import { SectionAtmosphere } from '@/components/motion/section-atmosphere';
+import type { Locale } from '@/lib/i18n';
 
 /**
  * How it works — a four-step sequence.
@@ -12,48 +13,105 @@ import { SectionAtmosphere } from '@/components/motion/section-atmosphere';
  *
  * Rows alternate side on wide viewports, which is what breaks the uniform card rhythm
  * the rest of the page had.
+ *
+ * Renders on the English home and the German home (`locale="de"`). The step prose and
+ * the screenshot alt text switch; the ProductShot labels and the "Round in progress"
+ * panel are faux console UI and stay English, as the console is.
  */
-const steps = [
-  {
-    title: 'Connect the cameras you already have',
-    desc: 'An RTSP stream that is reachable online connects directly; cameras on a private network relay through the Camzify Connector with no port forwarding. RTMP and HTTPS streams are supported too. Sites and cameras are grouped as you organize them operationally.',
-    shot: '/product-configuration',
-    alt: 'Camzify configuration screen showing four sites with per-site camera counts and seven-day event trends',
-    label: 'Configuration · Camzify console',
-  },
-  {
-    title: 'Build the patrol sequence',
-    desc: 'Set the camera order for the round, write the checklist each camera is checked against, and name the guard responsible for each stop. Then choose the frequency, the active hours and the active days.',
-    shot: '/product-virtual-patrolling',
-    alt: 'Camzify patrol sequence configuration showing auto-patrol frequency, active hours, active days and reporting settings',
-    label: 'Patrol setup · Camzify console',
-  },
-  {
-    title: 'The AI runs the round',
-    desc: 'On schedule or on demand, Camzify steps through every camera in the sequence, evaluates each checklist item against what the camera can see, and records a result per item. It does not skip stops and it does not get tired at 04:00.',
-    shot: null,
-    alt: '',
-    label: '',
-  },
-  {
-    title: 'Failures reach the person responsible',
-    desc: 'Any non-compliant item notifies the guard assigned to that camera with a message explaining what was found. The completed round is emailed as a PDF with every check, the compliance percentage, and who was notified.',
-    shot: '/product-notifications',
-    alt: 'Camzify notifications screen showing a critical acknowledgment banner, severity breakdown and per-event detail',
-    label: 'Notifications · Camzify console',
-  },
-];
+interface Step {
+  title: string;
+  desc: string;
+  shot: string | null;
+  alt: string;
+  label: string;
+}
 
-export function HowItWorks() {
+const STEPS: Record<Locale, Step[]> = {
+  en: [
+    {
+      title: 'Connect the cameras you already have',
+      desc: 'An RTSP stream that is reachable online connects directly; cameras on a private network relay through the Camzify Connector with no port forwarding. RTMP and HTTPS streams are supported too. Sites and cameras are grouped as you organize them operationally.',
+      shot: '/product-configuration',
+      alt: 'Camzify configuration screen showing four sites with per-site camera counts and seven-day event trends',
+      label: 'Configuration · Camzify console',
+    },
+    {
+      title: 'Build the patrol sequence',
+      desc: 'Set the camera order for the round, write the checklist each camera is checked against, and name the guard responsible for each stop. Then choose the frequency, the active hours and the active days.',
+      shot: '/product-virtual-patrolling',
+      alt: 'Camzify patrol sequence configuration showing auto-patrol frequency, active hours, active days and reporting settings',
+      label: 'Patrol setup · Camzify console',
+    },
+    {
+      title: 'The AI runs the round',
+      desc: 'On schedule or on demand, Camzify steps through every camera in the sequence, evaluates each checklist item against what the camera can see, and records a result per item. It does not skip stops and it does not get tired at 04:00.',
+      shot: null,
+      alt: '',
+      label: '',
+    },
+    {
+      title: 'Failures reach the person responsible',
+      desc: 'Any non-compliant item notifies the guard assigned to that camera with a message explaining what was found. The completed round is emailed as a PDF with every check, the compliance percentage, and who was notified.',
+      shot: '/product-notifications',
+      alt: 'Camzify notifications screen showing a critical acknowledgment banner, severity breakdown and per-event detail',
+      label: 'Notifications · Camzify console',
+    },
+  ],
+  de: [
+    {
+      title: 'Vorhandene Kameras verbinden',
+      desc: 'Ein online erreichbarer RTSP-Stream wird direkt verbunden; Kameras in einem privaten Netzwerk werden über den Camzify Connector angebunden, ohne Portweiterleitung. RTMP- und HTTPS-Streams werden ebenfalls unterstützt. Standorte und Kameras werden so gruppiert, wie Sie sie im Betrieb organisieren.',
+      shot: '/product-configuration',
+      alt: 'Camzify-Konfigurationsbildschirm mit vier Standorten, der Kameraanzahl pro Standort und den Ereignistrends der letzten sieben Tage',
+      label: 'Configuration · Camzify console',
+    },
+    {
+      title: 'Den Rundgangsablauf erstellen',
+      desc: 'Legen Sie die Reihenfolge der Kameras für den Rundgang fest, schreiben Sie die Checkliste, gegen die jede Kamera geprüft wird, und benennen Sie für jeden Kontrollpunkt die zuständige Wachperson. Wählen Sie dann Häufigkeit, aktive Stunden und aktive Tage.',
+      shot: '/product-virtual-patrolling',
+      alt: 'Konfiguration eines Rundgangsablaufs in Camzify mit Auto-Patrol-Häufigkeit, aktiven Stunden, aktiven Tagen und Protokolleinstellungen',
+      label: 'Patrol setup · Camzify console',
+    },
+    {
+      title: 'Die KI führt den Rundgang durch',
+      desc: 'Nach Zeitplan oder auf Abruf geht Camzify jede Kamera des Rundgangsablaufs durch, bewertet jeden Checklistenpunkt anhand dessen, was die Kamera sieht, und hält für jeden Punkt ein Ergebnis fest. Es lässt keinen Kontrollpunkt aus und wird um 04:00 Uhr nicht müde.',
+      shot: null,
+      alt: '',
+      label: '',
+    },
+    {
+      title: 'Fehler erreichen die zuständige Person',
+      desc: 'Jeder nicht erfüllte Punkt benachrichtigt die Wachperson, die dieser Kamera zugeordnet ist, mit einer Nachricht, die erklärt, was festgestellt wurde. Der abgeschlossene Rundgang wird als PDF per E-Mail verschickt, mit jeder Prüfung, dem Erfüllungsgrad in Prozent und den benachrichtigten Personen.',
+      shot: '/product-notifications',
+      alt: 'Camzify-Benachrichtigungsbildschirm mit einem Banner zur Bestätigung kritischer Ereignisse, einer Aufschlüsselung nach Schweregrad und Details zu jedem Ereignis',
+      label: 'Notifications · Camzify console',
+    },
+  ],
+};
+
+const COPY = {
+  en: {
+    eyebrow: 'How it works',
+    heading: 'Four steps from cameras to a compliance record',
+  },
+  de: {
+    eyebrow: 'So funktioniert es',
+    heading: 'Vier Schritte von den Kameras zum Nachweis',
+  },
+} as const;
+
+export function HowItWorks({ locale = 'en' }: { locale?: Locale } = {}) {
+  const c = COPY[locale];
+  const steps = STEPS[locale];
   return (
     <section className="relative overflow-hidden py-20 sm:py-24">
       <SectionAtmosphere variant="center" intensity="subtle" />
       <div className="relative z-10 mx-auto max-w-site px-6">
         <ScrollReveal>
           <div className="max-w-3xl">
-            <span className="font-mono text-mono-sm uppercase text-primary">How it works</span>
+            <span className="font-mono text-mono-sm uppercase text-primary">{c.eyebrow}</span>
             <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">
-              Four steps from cameras to a compliance record
+              {c.heading}
             </h2>
           </div>
         </ScrollReveal>

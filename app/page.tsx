@@ -19,7 +19,6 @@ import { HomepageFaq, homepageFaqs } from './_components/homepage-faq';
 import { CTABand } from '@/components/layout/cta-band';
 import { JsonLd } from '@/components/system/json-ld';
 import { graph, webPageSchema, faqSchema } from '@/lib/seo';
-import Link from 'next/link';
 
 /**
  * Homepage.
@@ -49,11 +48,6 @@ export default function HomePage() {
   return (
     <>
       <JsonLd data={pageGraph} />
-      <div className="mx-auto max-w-site px-6 pt-4 text-right text-sm">
-        <Link href="/de" hrefLang="de-DE" className="text-muted-foreground hover:text-primary hover:underline">
-          Auf Deutsch
-        </Link>
-      </div>
       <HeroSection />
       <TrustBand />
       {/* Real customers, supplied by the business. Renders nothing while the list is empty. */}

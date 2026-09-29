@@ -15,7 +15,7 @@ import { Shield, Moon, KeyRound, UserX, Paintbrush, ShoppingBag, Truck, ParkingC
  */
 const pageMeta = {
   title: "Security Use Cases | What a Patrol Round Checks",
-  description: "Twenty-one security and safety scenarios and what Camzify does in each: the detections that apply, the checklist a round runs, and where it stops.",
+  description: "35 security and safety scenarios and what Camzify does in each: the detections that apply, the checklist a round runs, and where it stops.",
   path: "/use-cases",
 };
 
@@ -66,7 +66,7 @@ const groups = [
       { title: 'Loading dock monitoring', href: '/use-cases/loading-dock-monitoring', icon: Truck, desc: 'Door status, staging areas and vehicles at the bay, checked against the delivery window.', image: '/loading-dock-security.webp' },
       { title: 'Vandalism prevention', href: '/use-cases/vandalism-prevention', icon: Paintbrush, desc: 'Presence near walls, windows and equipment off-hours, raised while intervention is possible.', image: '/vandalism-prevention.png' },
       { title: 'Parking lot surveillance', href: '/use-cases/parking-lot-surveillance', icon: ParkingCircle, desc: 'People after hours, fire lanes, restricted bays and vehicles left where they should not be.', image: '/parking-lot-surveillance.webp' },
-      { title: 'Vehicle monitoring', href: '/use-cases/vehicle-monitoring', icon: Car, desc: 'Vehicles tracked as objects at gates, yards and bays. Not plate reading.', image: '/vehicle-monitoring.webp' },
+      { title: 'Vehicle monitoring', href: '/use-cases/vehicle-monitoring', icon: Car, desc: 'Vehicles tracked as objects at gates, yards and bays. Plate reading is a custom build.', image: '/vehicle-monitoring.webp' },
     ],
   },
   {
@@ -122,7 +122,7 @@ export default function UseCasesHub() {
     <PageShell {...pageMeta} faqs={faqs} schema={[serviceSchema({ name: "Use Cases", description: pageMeta.description, path: "/use-cases" })]} breadcrumbs={[{ label: 'Use Cases' }]}>
       <FeatureHero
         eyebrow="Use cases"
-        title="Twenty-one situations, one set of rounds"
+        title="35 situations, one set of rounds"
         lede={<>
           <strong className="font-semibold text-foreground">
             A use case is a situation a security manager is responsible for, and the checklist,

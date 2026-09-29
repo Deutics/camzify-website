@@ -2,6 +2,8 @@ import Link from 'next/link';
 import { ChevronRight, Home } from 'lucide-react';
 import { JsonLd } from '@/components/system/json-ld';
 import { graph, breadcrumbSchema, type Crumb } from '@/lib/seo';
+import { LOCALES, type Locale } from '@/lib/i18n';
+import { t } from '@/lib/ui-strings';
 
 export type BreadcrumbItem = Crumb;
 
@@ -12,17 +14,18 @@ export type BreadcrumbItem = Crumb;
  * node a unique `@id`; the trail renders fine without it, but passing it keeps every
  * page's breadcrumb node distinct in the entity graph.
  */
-export function Breadcrumbs({ items, path }: { items: BreadcrumbItem[]; path?: string }) {
+export function Breadcrumbs({ items, path, locale = 'en' }: { items: BreadcrumbItem[]; path?: string; locale?: Locale }) {
   const trail = items ?? [];
+  const strings = t(locale);
 
   return (
     <nav aria-label="Breadcrumb" className="py-4">
-      <JsonLd data={graph(breadcrumbSchema(trail, path))} />
+      <JsonLd data={graph(breadcrumbSchema(trail, path, locale))} />
       <ol className="flex flex-wrap items-center gap-1.5 text-sm text-muted-foreground">
         <li>
-          <Link href="/" className="flex items-center gap-1 rounded transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+          <Link href={LOCALES[locale].home} className="flex items-center gap-1 rounded transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
             <Home className="h-3.5 w-3.5" />
-            <span className="sr-only">Home</span>
+            <span className="sr-only">{strings.home}</span>
           </Link>
         </li>
         {trail.map((item: BreadcrumbItem, i: number) => {

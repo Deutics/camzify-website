@@ -18,7 +18,7 @@ const faqs = [
   { question: 'What is a heatmap anomaly?', answer: 'A departure from the normal pattern of activity in a zone: a corridor that is usually empty at 2pm and is not, a queue forming where none forms. Heatmap anomalies learns the usual pattern per zone and flags the unusual one, with a notification window so a known busy period does not notify.' },
   { question: 'Can I compare zones and sites?', answer: 'Yes. Occupancy is tracked per camera or zone, so trends compare zone by zone within a site and roll up across a multi-site account. A chain reads peak hours per branch in one place.' },
   { question: 'Is this a people-counting product?', answer: 'It is a use of the tracking that already runs for security. If the account has cameras on the floor for intrusion or patrol rounds, occupancy and peak hours come from the same feeds at no additional hardware. It is not built as a dedicated retail-analytics product and does not claim the precision of one.' },
-  { question: 'Does it identify anyone?', answer: 'No. It counts tracks. Attribute extraction, a separate detection, can describe a person\'s clothing and carried objects; nothing on the platform recognizes faces or names anyone.' },
+  { question: 'Does it identify anyone?', answer: 'No. It counts tracks. Attribute extraction, a separate detection, can describe a person\'s clothing and carried objects; none of the standard detections recognizes faces or names anyone.' },
 ];
 
 const content: UseCaseContent = {

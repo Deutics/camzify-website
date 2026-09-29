@@ -33,8 +33,17 @@ constants). List rates live only in
 `lib/pricing-estimates.ts`, are used on the server to add an estimate to lead emails, and must
 never be imported into a client component or typed into a page. All four compliance frameworks
 (PDPA, GDPR, SOC 2 Type II, ISO 27001) are **in progress and not held**, targeted for the end
-of 2026 — never render them as current. Footage lives in Amazon S3 in the AWS region nearest
-the customer's sites; say that, and never name a country of residency. If you need a number you do not have, write around it honestly; do not
+of 2026 — never render them as current. In the cloud deployment, footage lives in Amazon S3 in the AWS region nearest
+the customer's sites; say that, and never name a country of residency. Camzify is also deployed on premises
+for clients whose footage must stay on site, or as a hybrid (stated by the business 2026-09-28): server
+requirements are planned with each client, and Camzify installs and sets up everything. No hardware spec,
+air-gap or on-prem pricing was given; do not add any (`/platform/deployment-options`). Beyond the 23 standard detections,
+detections are built to order (`/ai-features/custom-detections`): a one-off build price plus the normal
+per-instance license, build footage deleted afterwards. License plate recognition
+(`/ai-features/license-plate-recognition`) reads US and Singapore plates only and alerts on a watchlist; no
+accuracy, distance or approved-list rule was given. None of the standard detections identifies anyone;
+facial recognition exists only as a custom build for a customer with the legal basis to use it, so never write
+that Camzify "does no facial recognition" or "no plate reading", and never present either as a standard feature. If you need a number you do not have, write around it honestly; do not
 estimate. `/trust` and `/llms.txt` both state this policy publicly, so violating it makes
 the site self-contradictory.
 
@@ -56,8 +65,8 @@ No `text-emerald-400`, `bg-red-500`, `text-gray-900`. Use the semantic tokens:
 other.
 
 **6. Never leave a page out of the sitemap.**
-`app/sitemap.ts` must list every route. A page with no sitemap entry and no internal
-links is invisible. See `docs/ADDING-PAGES.md` for the checklist.
+`lib/routes.ts` must list every route. It feeds both `sitemap.xml` (`app/sitemap.ts`) and
+the human site map at `/sitemap-page`. A page with no entry and no internal links is invisible. See `docs/ADDING-PAGES.md` for the checklist.
 
 **8. Never state a fact about a named competitor that did not come from that competitor's own site**, opened in the same run and listed in the page's Sources section. Never characterize competitor pricing beyond what their pricing page says. This covers the `/compare` pages, the `/alternatives` switching pages and the multi-vendor buyer's guide at `/guides/best-cloud-vms`.
 
@@ -143,6 +152,10 @@ Run all three before declaring anything done:
 npx tsc --noEmit && NEXT_DIST_DIR=.next-probe npx next build && npx eslint -c eslint.ssr.config.mjs .
 ```
 
+If the change touches a page that has a German counterpart, also run
+`python3 scripts/check-translations.py` and carry the change into the German page
+(`docs/I18N.md`).
+
 For visual changes, start the dev server through the preview tooling and check the
 rendered result — do not ask the user to look for you.
 
@@ -190,13 +203,13 @@ Add a photo, run `python3 scripts/optimise-images.py`, use `<SiteImage>` with a 
 mapped list, `priority={i === 0}` — not on every card.
 
 **Where the photographs come from.** The business supplies the image set as a zip
-("Camzify Website Images", latest 2026-09-21, in the owner's Downloads). It is staged into
+("Camzify Website Images", latest 2026-09-25, in the owner's Downloads). It is staged into
 `public/` under slug names by section: `hero-cam-*` (twelve real camera frames: homepage
 hero, camera walls, demo), `scene-*`, `product-*-{dark,light}` (console screenshots),
 `feature-<slug>-{1..4}` (AI features), `ai-security-for-<slug>` (industry hero, the
 designer's image 1) and `industry-<slug>-{2,3,4}` (the three figures), one render per
 use case, `vp-*` (virtual patrolling pages, risk-detection camera frames, the virtual
-guard render), `partner-gate-{opened,closed}` (the before-and-after pair on the partner pages). The 2026-09-18 delivery added `guide-<slug>` (one hero render per guide), `compare-vs-*` (the comparison pairs), `configuration-{rtsp,rtmp,https}` (setup screenshots), `author-muhammad-talha` and `-profile` (the byline avatar), `about-camzify`, `trust-data-flow` and `product-pricing-plan-{light,dark}`. The 2026-09-21 delivery was a full redesign pass over nearly every photograph and render on the site under those same slug conventions, plus it closed every gap `docs/design/IMAGE-REQUESTS.md` was tracking: the roadmap redo, three more guide heroes, eight `compare-vs-*`/`alternatives-*` pairs, and loitering-detection figures 2–4. Check `docs/design/IMAGE-REQUESTS.md` for what, if anything, is still outstanding. **The designer numbers a folder's images in page order, from the top:
+guard render), `partner-gate-{opened,closed}` (the before-and-after pair on the partner pages). The 2026-09-18 delivery added `guide-<slug>` (one hero render per guide), `compare-vs-*` (the comparison pairs), `configuration-{rtsp,rtmp,https}` (setup screenshots), `author-muhammad-talha` and `-profile` (the byline avatar), `about-camzify`, `trust-data-flow` and `product-pricing-plan-{light,dark}`. The 2026-09-21 delivery was a full redesign pass over nearly every photograph and render on the site under those same slug conventions, plus it closed every gap `docs/design/IMAGE-REQUESTS.md` was tracking: the roadmap redo, three more guide heroes, eight `compare-vs-*`/`alternatives-*` pairs, and loitering-detection figures 2–4. The 2026-09-25 delivery added card thumbnails (`guide-thumb-<slug>`, `industry-thumb-<slug>`), the partner page heroes (`partner-hero-<slug>`) and more camera-brand logos. Check `docs/design/IMAGE-REQUESTS.md` for what, if anything, is still outstanding. **The designer numbers a folder's images in page order, from the top:
 image 1 is the hero, 2 is the first figure below it, and so on. Keep that order.**
 Photographs are JPEG sources at 1600px or below. Renders on a transparent background
 (device mock-ups with a drop shadow, rounded screenshots) keep their alpha: small ones
@@ -209,6 +222,14 @@ and use case now has its own images; `PlaceholderVisual` remains only where no i
 was ever supplied.
 `components/content/photo-figure.tsx` is the figure for any of these: a card frame for
 photographs, no frame for renders.
+
+## German pages
+
+Forty-two pages have a German counterpart under `/de`. The pairs are declared once, in
+`lib/i18n.ts`; hreflang, the sitemap's German group, the header's language menu and the
+stale-translation check all read that list, so never write hreflang by hand. The rules
+for writing a German page (facts, terms, style) are in `docs/I18N.md`. The German copy
+is AI-drafted and awaits native review.
 
 ## Author identity
 

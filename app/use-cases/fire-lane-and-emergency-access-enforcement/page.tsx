@@ -87,7 +87,7 @@ const content: UseCaseContent = {
     paras: [
       'On a fire lane the limits are the camera\'s view and the fact that a record is not a tow truck.',
       { points: [
-        'It will not tow, ticket or identify the driver; there is no license plate recognition, and the record is the frame, the time and the dwell.',
+        'It will not tow, ticket or identify the driver. The standard detections do not read plates, so the record is the frame, the time and the dwell; license plate recognition is available as a custom build.',
         'It will not tell a delivery from a dumped car; the grace period and the person reading the alert do that.',
         'It will not certify compliance with IFC 503 or NFPA 1; it shows what the camera saw at each time, and the fire code official decides.',
         'It will not see a lane the camera does not; a curved access road or a long dock may need more than one camera.',

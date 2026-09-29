@@ -129,7 +129,7 @@ cut:
 - [ ] `tsc --noEmit` clean
 - [ ] Production build succeeds; the new route shows as `○ (Static)`
 - [ ] SSR lint clean
-- [ ] New page is in `app/sitemap.ts` and `lib/site-config.ts` navigation
+- [ ] New page is in `lib/routes.ts` (sitemap.xml and /sitemap-page) and `lib/site-config.ts` navigation
 - [ ] New page has inbound links from at least two existing pages
 - [ ] `og:title` on the new page is the page's own, not the homepage's
 - [ ] No broken internal links (script at the end of `ADDING-PAGES.md`)

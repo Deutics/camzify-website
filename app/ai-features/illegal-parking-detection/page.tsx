@@ -38,8 +38,7 @@ export default function Page() {
       <FeatureHero
         eyebrow="AI detection · Illegal parking detection"
         title="Illegal parking detection"
-        lede={<><strong className="font-semibold text-foreground">Parked where it shouldn't be? Flagged instantly.</strong> Illegal parking detection watches fire lanes,
-            loading zones, and reserved spots, and alerts the moment a vehicle overstays a restricted area.</>}
+        lede={<><strong className="font-semibold text-foreground">Illegal parking detection watches fire lanes, loading zones, and reserved spots, and alerts the moment a vehicle overstays a restricted area.</strong></>}
         facts={['Vehicles blocking marked fire lanes or emergency access routes', 'Vehicles occupying loading zones or reserved parking beyond…', 'Unauthorized vehicles in gated or accessible-only spots']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 23 detections' }}

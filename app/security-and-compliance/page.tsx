@@ -20,8 +20,9 @@ export const metadata = generatePageMeta({ ...pageMeta });
 const faqs = [
   { question: 'Is Camzify SOC 2 or ISO 27001 certified?', answer: 'Not yet. Both are in progress, as are PDPA and GDPR alignment. The target for completing all four is the end of 2026. This page states the current posture and will change when a certificate is held, not before.' },
   { question: 'How is video protected in transit and at rest?', answer: 'Streams are carried over TLS 1.2 or higher and footage at rest is encrypted with AES-256. Access is role-based through permission groups, and every action on the account is logged.' },
+  { question: 'Where is footage stored?', answer: 'In the cloud deployment, in Amazon S3 in the AWS region nearest the customer\'s sites. For clients whose footage must stay on their own premises for privacy reasons, Camzify is also deployed on premises.' },
   { question: "Who can see a client's footage on a multi-tenant account?", answer: "Only logins scoped to that client's sites. A sub-user sees its own cameras, alerts and reports; the parent account sees everything under it. The audit trail records who opened what." },
-  { question: 'Does the AI identify people?', answer: 'No. Attribute extraction describes clothing, carried objects and direction of travel; nothing on the platform recognises faces or names anyone, and we say so on every page where it could be assumed.' },
+  { question: 'Does the AI identify people?', answer: 'Not the standard detections. Attribute extraction describes clothing, carried objects and direction of travel; none of the 23 standard detections recognizes faces or names anyone, and we say so on every page where it could be assumed. Facial recognition exists only as a custom build, made on request for a customer with the legal basis to use it.' },
 ];
 
 export default function SecurityCompliancePage() {
@@ -82,8 +83,9 @@ export default function SecurityCompliancePage() {
                 ))}
               </ul>
               <p className="mt-6 text-sm text-muted-foreground">
-                Target dates are not published because we will not commit to a date we cannot
-                guarantee. If your procurement process needs current status in writing,{' '}
+                Beyond the end-of-2026 target for all four, no per-framework dates are published,
+                because we will not commit to a date we cannot guarantee. If your procurement
+                process needs current status in writing,{' '}
                 <Link href="/contact" className="text-primary hover:underline">contact us</Link> and
                 we will tell you exactly where each item stands.
               </p>

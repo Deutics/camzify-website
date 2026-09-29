@@ -60,7 +60,7 @@ export default function IndustriesHub() {
               <ScrollReveal key={ind.slug} delay={i * 0.04}>
                 <Link href={`/industries/${ind.slug}`} className="group flex flex-col items-center overflow-hidden rounded-xl border border-border bg-card pb-6 text-center shadow-md transition-all hover:shadow-lg hover:-translate-y-0.5">
                   <div className="mb-5 aspect-video w-full overflow-hidden border-b border-border">
-                    <SiteImage src={`/ai-security-for-${ind.slug}.webp`} alt={`${ind.name}: the setting Camzify watches, with people and vehicles outlined`} width={1600} height={900} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="h-full w-full object-cover" />
+                    <SiteImage src={`/industry-thumb-${ind.slug}.webp`} alt={`${ind.name}: the kind of site Camzify watches`} width={1600} height={900} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="h-full w-full object-cover" />
                   </div>
                   <ind.icon className="h-8 w-8 text-primary" />
                   <h2 className="mt-3 font-display text-base font-bold">{ind.name}</h2>

@@ -1,9 +1,9 @@
 import { generatePageMeta } from '@/lib/page-utils';
+import { SiteImage } from '@/components/content/site-image';
 import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
-import { BookOpen } from 'lucide-react';
 import { AuthorByline } from '@/components/content/author-byline';
 
 /**
@@ -70,18 +70,21 @@ export default function GuidesHub() {
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Guides</h1>
           <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            Practical, honest guides on <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a>, security costs, camera technology, and best practices. Written to help you make informed decisions — including where Camzify is not the right answer.
+            These guides explain how <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> and cloud video surveillance work in practice: what they cost against guarding, which cameras they run on, how to set them up and how to sell them. Each is written to help you decide, including where Camzify is not the right answer.
           </p>
           <AuthorByline className="mt-8" />
 
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {items.map((item, i) => (
               <ScrollReveal key={item.slug} delay={i * 0.05}>
-                <Link href={`/guides/${item.slug}`} className="group flex items-start gap-4 rounded-xl bg-card p-6 shadow-md transition-all hover:shadow-lg hover:-translate-y-0.5">
-                  <BookOpen className="mt-0.5 h-6 w-6 shrink-0 text-primary" />
-                  <div>
-                    <h2 className="font-display text-base font-bold">{item.title}</h2>
-                    <span className="mt-2 block text-sm font-semibold text-primary">Read guide →</span>
+                <Link href={`/guides/${item.slug}`} className="group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card shadow-md transition-all hover:shadow-lg hover:-translate-y-0.5">
+                  {/* The designer's card thumbnail for each guide (2026-09-25 delivery). */}
+                  <div className="aspect-video w-full overflow-hidden border-b border-border bg-muted/30">
+                    <SiteImage src={`/guide-thumb-${item.slug}.webp`} alt={`Cover illustration for the guide ${item.title}`} width={821} height={462} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" priority={i === 0} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]" />
+                  </div>
+                  <div className="flex flex-1 flex-col p-6">
+                    <h2 className="font-display text-base font-bold group-hover:text-primary">{item.title}</h2>
+                    <span className="mt-auto pt-3 text-sm font-semibold text-primary">Read guide →</span>
                   </div>
                 </Link>
               </ScrollReveal>

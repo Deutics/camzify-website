@@ -4,6 +4,9 @@ import { useEffect, useState } from 'react';
 import Script from 'next/script';
 import { useMounted } from '@/components/system/client-only';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { localeFromPath, LOCALES } from '@/lib/i18n';
+import { t } from '@/lib/ui-strings';
 
 /**
  * Cookie-gated analytics: a small consent banner, then Google Analytics and
@@ -59,6 +62,8 @@ export function resetConsent() {
 
 export function AnalyticsConsent() {
   const mounted = useMounted();
+  const locale = localeFromPath(usePathname());
+  const c = t(locale).cookies;
   const [consent, setConsent] = useState<Consent | null>(null);
 
   useEffect(() => {
@@ -101,16 +106,17 @@ export function AnalyticsConsent() {
   return (
     <div
       role="region"
-      aria-label="Cookie consent"
+      lang={LOCALES[locale].htmlLang}
+      aria-label={c.region}
       className="fixed inset-x-4 bottom-4 z-40 mx-auto max-w-md rounded-xl border border-border bg-card p-4 shadow-2xl sm:inset-x-auto sm:left-6 sm:bottom-6"
     >
-      <p className="text-sm font-semibold">Cookies on this site</p>
+      <p className="text-sm font-semibold">{c.title}</p>
       <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-        With your permission we&apos;d like to use analytics cookies to see how the site is used, so we can improve it. See the{' '}
+        {c.bodyBefore}{' '}
         <Link href="/cookie-policy" className="text-primary hover:underline">
-          cookie policy
-        </Link>{' '}
-        for exactly what that sets.
+          {c.policy}
+        </Link>
+        {c.bodyAfter === '.' ? '.' : ` ${c.bodyAfter}`}
       </p>
       <div className="mt-3 flex gap-2">
         <button
@@ -121,7 +127,7 @@ export function AnalyticsConsent() {
           }}
           className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
         >
-          Accept
+          {c.accept}
         </button>
         <button
           type="button"
@@ -131,7 +137,7 @@ export function AnalyticsConsent() {
           }}
           className="rounded-lg border border-border px-4 py-2 text-sm font-semibold transition-colors hover:bg-muted/40"
         >
-          Reject
+          {c.reject}
         </button>
       </div>
     </div>

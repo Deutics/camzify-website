@@ -38,8 +38,7 @@ export default function Page() {
       <FeatureHero
         eyebrow="AI detection · Aggression & fight detection"
         title="Aggression & fight detection"
-        lede={<><strong className="font-semibold text-foreground">A fight breaks out, security knows first.</strong> Aggression and fight detection flags physical altercations
-            the moment they start, so a response can begin in real time instead of after footage is reviewed.</>}
+        lede={<><strong className="font-semibold text-foreground">Aggression and fight detection flags physical altercations the moment they start, so a response can begin in real time instead of after footage is reviewed.</strong></>}
         facts={['Rapid, aggressive multi-person body movement consistent with…', 'Sustained pushing, striking, or grappling between confirmed…', 'Escalating confrontations in queues, entrances, and common areas']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 23 detections' }}

@@ -53,6 +53,7 @@ const faqs = [
   { question: 'Do I have to license every detection?', answer: 'No. AI features are licensed per camera instance, so each camera carries only the detections it uses. Most sites start with intrusion, zones and camera tampering and add by camera.' },
   { question: 'What do all the detections have in common?', answer: 'They fire on confirmed object tracks from multi-object tracking, not on pixel change, and every alert carries a snapshot or clip, a confidence score, and a notification window per camera. None of them identifies people.' },
   { question: 'Which detections are not yet available?', answer: 'Every detection on this page ships today, loitering detection included. The only roadmap item is the native mobile apps, listed on the roadmap page; mobile access today is the browser.' },
+  { question: 'Can Camzify build a detection that is not on this page?', answer: 'Yes. When none of the 23 covers what a site needs, Camzify builds the detection to order. License plate recognition, facial recognition, eating and drinking detection and shoplifting detection have been built for customers so far. It costs a one-off build price, then the normal per-camera license, and runs in the cloud or on premises. Facial recognition is built only on request, for a customer with the legal basis to use it; none of the standard detections identifies anyone.' },
   { question: 'How do detections relate to patrol rounds?', answer: 'A round checks conditions on a schedule; detections watch continuously between rounds. On an automated round the AI also raises a critical notification for a risk it sees that the checklist did not ask about.' },
 ];
 
@@ -108,6 +109,17 @@ export default function DetectionHubPage() {
                   ))}
                 </tbody>
               </table>
+            </div>
+            <div className="mt-6 flex flex-col gap-4 rounded-xl border border-border bg-card p-6 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <h3 className="font-display text-base font-bold">Need a detection that is not listed?</h3>
+                <p className="mt-1 max-w-2xl text-sm text-muted-foreground">
+                  Camzify builds it to order: <Link href="/ai-features/license-plate-recognition" className="text-primary hover:underline">license plate recognition</Link>, eating and drinking detection and shoplifting detection have been built for customers already. A one-off build price, then licensed per camera like the 23 above.
+                </p>
+              </div>
+              <Link href="/ai-features/custom-detections" className="inline-flex shrink-0 items-center gap-1 text-sm font-semibold text-primary hover:underline">
+                Custom detections →
+              </Link>
             </div>
           </div>
 

@@ -14,7 +14,7 @@ import Link from 'next/link';
  */
 const pageMeta = {
   title: "Cross-Camera Journey Map | Path Reconstruction",
-  description: "Camzify cross-camera journey map stitches one subject\\'s path across every camera on-site into a single timeline, built from confirmed object tracks.",
+  description: "Camzify cross-camera journey map stitches one subject's path across every camera on-site into a single timeline, built from confirmed object tracks.",
   path: "/ai-features/cross-camera-journey-map",
 };
 
@@ -38,9 +38,7 @@ export default function Page() {
       <FeatureHero
         eyebrow="AI detection · Cross-Camera journey map"
         title="Cross-Camera journey map"
-        lede={<><strong className="font-semibold text-foreground">One person, every camera, one timeline.</strong> Cross-camera journey map stitches a subject's path across
-            every camera on-site into a single reconstructed route — replacing hours of manually cross-referencing
-            footage from camera to camera.</>}
+        lede={<><strong className="font-semibold text-foreground">Cross-camera journey map stitches a subject's path across every camera on-site into a single reconstructed route — replacing hours of manually cross-referencing footage from camera to camera.</strong></>}
         facts={['A single stitched timeline of one subject across every…', 'Ordered, timestamped hand-offs between cameras with…', 'A route map view showing where a subject entered, moved, and…']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/ai-features', label: 'All 23 detections' }}

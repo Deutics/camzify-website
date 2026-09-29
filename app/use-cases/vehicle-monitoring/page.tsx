@@ -13,7 +13,7 @@ const pageMeta = {
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
-  { question: 'Does Camzify read license plates?', answer: 'No. Vehicles are tracked as objects using multi-object tracking, which follows each vehicle across frames and classifies it. There is no optical character recognition on plates, so it cannot match a vehicle to a registration. It can tell that a vehicle is present, where, for how long, and which way it is moving.' },
+  { question: 'Does Camzify read license plates?', answer: 'Not with the standard detections. Vehicles are tracked as objects using multi-object tracking, which follows each vehicle across frames and classifies it; the standard detections do no optical character recognition on plates, so they cannot match a vehicle to a registration. They can tell that a vehicle is present, where, for how long, and which way it is moving. License plate recognition is available as a custom build.' },
   { question: 'Can day and night carry different rules?', answer: 'Yes. Every detection on a camera carries a notification window, so the yard gate camera can stay quiet during shifts and notify on any vehicle crossing after them. Patrol sequences have their own active hours and active days on top of that.' },
   { question: 'What does wrong-way detection actually catch?', answer: 'A tracked vehicle moving against the direction defined for a lane, ramp or gate. It is a safety rule as much as a security one: a truck reversing into a one-way dock lane or a car entering through the exit.' },
   { question: 'Can it flag a vehicle that has been sitting too long?', answer: 'Illegal parking detection covers a vehicle stopped in a defined area beyond the time allowed, a fire lane, a loading bay after the window, a visitor space overnight. The time and the area are yours to set per camera.' },
@@ -26,7 +26,7 @@ const content: UseCaseContent = {
   title: 'Vehicle monitoring',
   lede: <>
     <strong className="font-semibold text-foreground">Vehicle monitoring through video analytics means detecting, tracking and alerting on vehicle presence and movement in defined areas: entry gates, loading bays, yards, parking zones and restricted perimeters.</strong>{' '}
-    It is not license plate recognition. Camzify tracks vehicles as objects in the frame, applies rules about where and when they may be and which way they may move, and checks the yard on a patrol round.
+    The standard detections are not license plate recognition, which is available as a <Link href="/ai-features/license-plate-recognition" className="text-primary hover:underline">custom detection for US and Singapore plates</Link>. Camzify tracks vehicles as objects in the frame, applies rules about where and when they may be and which way they may move, and checks the yard on a patrol round.
   </>,
   facts: ['Vehicles tracked as objects, not plates', 'Notified in set hours at gates, yards and bays', 'Wrong-way and overstay as their own detections'],
   image: { src: '/vehicle-monitoring.webp', alt: 'An aerial view of a yard with zones colored red, yellow and blue and each vehicle outlined' },

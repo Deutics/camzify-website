@@ -49,7 +49,7 @@ export default function CompareHub() {
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Comparisons</h1>
           <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            Honest, side-by-side comparisons to help you evaluate <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> against alternative approaches to physical security.
+            Each comparison here puts <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> or Camzify side by side with one alternative: manned guards, mobile patrols, guard tour systems, on-premises VMS, or a named cloud VMS vendor. The vendor comparisons draw only on each vendor&apos;s own published pages, listed as sources, and say where the other product is the better fit.
           </p>
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {items.map((item, i) => (

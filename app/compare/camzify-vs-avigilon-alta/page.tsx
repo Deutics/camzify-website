@@ -48,7 +48,7 @@ const faqs = [
   { question: 'Can I keep my existing cameras with either?', answer: 'Yes, with a difference in what goes on site. Camzify connects any ONVIF or RTSP camera directly or through the Camzify Connector, an application on a PC on the local network. Avigilon Alta connects existing IP cameras through an Alta Cloud Connector, a hardware appliance sized for up to 75 or up to 200 cameras. What does not move between platforms is the recorded archive, which stays under the old retention.' },
   { question: 'How do the prices compare?', answer: 'We do not characterize Avigilon pricing here. Avigilon publishes no price list and sells through certified partners and a quote form, so any figure we gave would be a guess. The one public Camzify figure is the floor of $5 per camera per month; the rest is quoted per site, within one business day, from your camera and feature counts.' },
   { question: 'Does Avigilon Alta run virtual patrol rounds?', answer: 'Its pages do not describe scheduled rounds with a checklist per camera or a report per round. Alta Video offers rule-based smart alerts with thumbnails, an AI timeline and appearance search for review. A Camzify round checks a defined list at each camera on a schedule, notifies the assigned guard on a failure, and files a timestamped PDF report with a compliance percentage.' },
-  { question: 'Which has the deeper analytics?', answer: 'Avigilon Alta lists facial recognition and license plate recognition, which Camzify does not offer, alongside appearance search, unusual motion, crowd, object and PPE detection. Camzify runs 23 detections on confirmed object tracks, including weapons, aggression, fire and smoke, slip and fall, and a behavioral anomaly detection you describe in a sentence. Which is deeper depends on whether you need to identify people or verify conditions.' },
+  { question: 'Which has the deeper analytics?', answer: 'Avigilon Alta lists facial recognition and license plate recognition, which Camzify builds only to order as custom detections, alongside appearance search, unusual motion, crowd, object and PPE detection. Camzify runs 23 detections on confirmed object tracks, including weapons, aggression, fire and smoke, slip and fall, and a behavioral anomaly detection you describe in a sentence. Which is deeper depends on whether you need to identify people or verify conditions.' },
 ];
 
 export default function CamzifyVsAvigilonAltaPage() {
@@ -121,8 +121,8 @@ export default function CamzifyVsAvigilonAltaPage() {
               <PointList items={[
                 'You want one vendor for cameras, video, access control and sensors: Alta Video and Alta Access are unified on one platform, and Camzify does not do access control at all.',
                 'You are specifying new cameras: Avigilon builds its own line, more than 100 models by its own count, and Camzify sells none.',
-                'You need facial recognition or license plate recognition: both are listed on the Alta pages, and neither is among the Camzify detections.',
-                'Recording may have to stay on premises: the Unity line covers that, and Camzify is cloud only.',
+                'You need facial recognition or license plate recognition as standard: both are listed on the Alta pages, while Camzify builds them only to order as custom detections.',
+                'Recording has to stay on premises and you want it inside Avigilon: the Unity line covers that. Camzify is also deployed on premises, so compare the two on that basis.',
                 'You want a native mobile app now: Alta Video has one for Android and iOS, and Camzify mobile access is the browser until its native apps ship.',
               ]} />
             </ScrollReveal>

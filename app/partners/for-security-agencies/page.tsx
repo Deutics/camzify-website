@@ -16,7 +16,6 @@ const pageMeta = {
   title: "Remote Guarding Software for Security Companies",
   description: "Add virtual patrolling to a guarding offer: client sites covered overnight, a scoped login and reports per client, guards sent to verified events.",
   path: "/partners/for-security-agencies",
-  hreflang: { 'de-DE': '/de/fuer-sicherheitsdienste', 'en-US': '/partners/for-security-agencies', 'x-default': '/partners/for-security-agencies' },
 };
 
 export const metadata = generatePageMeta({ ...pageMeta });
@@ -56,11 +55,6 @@ export default function ForSecurityAgenciesPage() {
     ]}>
       <section className="pb-16">
         <div className="mx-auto max-w-site px-6">
-          <div className="text-right text-sm">
-            <Link href="/de/fuer-sicherheitsdienste" hrefLang="de-DE" className="text-muted-foreground hover:text-primary hover:underline">
-              Auf Deutsch
-            </Link>
-          </div>
           <span className="font-mono text-mono-sm uppercase text-primary">Partner Program</span>
           <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Remote guarding software for security agencies</h1>
           <p className="mt-6 max-w-prose text-body text-muted-foreground">
@@ -73,7 +67,7 @@ export default function ForSecurityAgenciesPage() {
           </p>
 
           <div className="mt-10 max-w-3xl">
-            <PhotoFigure src="/vp-vs-security-guards.jpg" alt="A security officer at a patrol car alongside an AI camera network, the blended model of guards and virtual rounds" caption="Guards and virtual rounds, side by side" />
+            <PhotoFigure src="/partner-hero-for-security-agencies.webp" alt="A security officer in a control room watching a wall of camera feeds" caption="Guards and virtual rounds, side by side" priority />
           </div>
 
           <div className="mt-14">

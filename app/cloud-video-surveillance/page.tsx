@@ -24,7 +24,6 @@ const pageMeta = {
   title: "Cloud Video Surveillance | Cloud CCTV, No NVR",
   description: "Cloud video surveillance for the cameras you already own: recording per camera, live view, AI detections and patrol rounds, with no NVR on site.",
   path: "/cloud-video-surveillance",
-  hreflang: { 'de-DE': '/de/cloud-videomanagementsystem', 'en-US': '/cloud-video-surveillance', 'x-default': '/cloud-video-surveillance' },
 };
 
 export const metadata = generatePageMeta({ ...pageMeta });
@@ -61,11 +60,6 @@ export default function CloudVideoSurveillancePage() {
       schema={[serviceSchema({ name: 'Cloud Video Surveillance', description: pageMeta.description, path: pageMeta.path })]}
       breadcrumbs={[{ label: 'Cloud Video Surveillance' }]}
     >
-      <div className="mx-auto max-w-site px-6 text-right text-sm">
-        <Link href="/de/cloud-videomanagementsystem" hrefLang="de-DE" className="text-muted-foreground hover:text-primary hover:underline">
-          Auf Deutsch
-        </Link>
-      </div>
       <FeatureHero
         eyebrow="Cloud video surveillance"
         title="Cloud video surveillance for the cameras you already own"

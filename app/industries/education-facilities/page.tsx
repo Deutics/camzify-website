@@ -48,7 +48,7 @@ export default function EducationFacilitiesPage() {
       <FeatureHero
         eyebrow="Industry · education facilities"
         title="AI security for education facilities"
-        lede={<><strong className="font-semibold text-foreground">Education facilities face security challenges that cameras alone cannot solve and manned guards cannot cover consistently.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system runs automated AI patrol rounds on your existing cameras — checking every point, flagging failures, and notifying the right person.</>}
+        lede={<><strong className="font-semibold text-foreground">A school or campus has many entrances and no single point of control, and its labs, gyms and grounds are checked after hours by one evening walkthrough, if at all.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> runs scheduled rounds on the cameras already on site, checks entrances, after-hours rooms and parking areas, messages the right person when a check fails, and keeps a timestamped record of every round.</>}
         facts={['Multiple entrances across a campus with no single point of…', 'After-hours access to labs, gyms, and equipment rooms going…', 'Campus grounds and parking areas relying on a single evening…']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}

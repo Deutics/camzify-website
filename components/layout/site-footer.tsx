@@ -14,6 +14,7 @@ function XLogo({ className }: { className?: string }) {
 
 const SOCIAL_ICON = { linkedin: Linkedin, x: XLogo, youtube: Youtube, facebook: Facebook, instagram: Instagram } as const;
 import { siteConfig, formattedAddress } from '@/lib/site-config';
+import { LOCALES, type Locale } from '@/lib/i18n';
 
 /*
  * The footer. It follows the theme like the rest of the page (a deeper neutral than
@@ -32,7 +33,9 @@ import { siteConfig, formattedAddress } from '@/lib/site-config';
  * Identity, address, phone and email all read from siteConfig so they cannot disagree
  * with the Organization schema or /llms.txt.
  */
-const columns: { title: string; links: { label: string; href: string }[]; all?: { label: string; href: string } }[] = [
+type FooterColumn = { title: string; links: { label: string; href: string }[]; all?: { label: string; href: string } };
+
+const columnsEn: FooterColumn[] = [
   {
     title: 'Product',
     links: [
@@ -97,13 +100,106 @@ const columns: { title: string; links: { label: string; href: string }[]; all?: 
   },
 ];
 
-const legal = [
+/*
+ * German pages get German columns that link German pages only, plus one way back to
+ * the English site. The legal pages exist in English only, and the German footer says so.
+ */
+const columnsDe: FooterColumn[] = [
+  {
+    title: 'Produkt',
+    links: [
+      { label: 'KI-Wächterrundgang', href: '/de/ki-waechterrundgang' },
+      { label: 'Virtueller Wächterrundgang', href: '/de/virtueller-waechterrundgang' },
+      { label: 'So funktioniert ein Rundgang', href: '/de/ki-waechterrundgang/so-funktioniert-es' },
+      { label: 'Plattform', href: '/de/plattform' },
+      { label: 'Cloud-Videomanagementsystem', href: '/de/cloud-videomanagementsystem' },
+      { label: 'KI-Funktionen', href: '/de/ki-funktionen' },
+      { label: 'Unterstützte Kameras', href: '/de/unterstuetzte-kameras' },
+      { label: 'Camzify Connector', href: '/de/camzify-connector' },
+    ],
+  },
+  {
+    title: 'Lösungen für',
+    links: [
+      { label: 'Sicherheitsdienste', href: '/de/fuer-sicherheitsdienste' },
+      { label: 'Leitstellen', href: '/de/fuer-leitstellen' },
+      { label: 'Errichter und Installateure', href: '/de/fuer-installateure' },
+      { label: 'Managed Service Provider', href: '/de/fuer-managed-service-provider' },
+      { label: 'Reseller', href: '/de/reseller-werden' },
+    ],
+  },
+  {
+    title: 'Plattform',
+    links: [
+      { label: 'Live-Streaming', href: '/de/plattform/live-streaming' },
+      { label: 'Videospeicherung', href: '/de/plattform/videospeicherung' },
+      { label: 'Alarme und Benachrichtigungen', href: '/de/plattform/alarme-und-benachrichtigungen' },
+      { label: 'Benutzerverwaltung', href: '/de/plattform/benutzerverwaltung' },
+      { label: 'Mehrere Standorte', href: '/de/plattform/mehrere-standorte' },
+    ],
+  },
+  {
+    title: 'Branchen',
+    links: [
+      { label: 'Industrie und Produktion', href: '/de/branchen/industrie-und-produktion' },
+      { label: 'Lager und Logistik', href: '/de/branchen/lager-und-logistik' },
+      { label: 'Baustellen', href: '/de/branchen/baustellen' },
+    ],
+    all: { label: 'Alle Branchen', href: '/de/branchen' },
+  },
+  {
+    title: 'Unternehmen',
+    links: [
+      { label: 'Preise', href: '/de/preise' },
+      { label: 'Sicherheit und Datenschutz', href: '/de/sicherheit-und-datenschutz' },
+      { label: 'KI-Videoanalyse', href: '/de/ki-videoanalyse' },
+      { label: 'Partnerprogramm', href: '/de/partner' },
+    ],
+    all: { label: 'English website', href: '/' },
+  },
+];
+
+const legalEn = [
   { label: 'Privacy', href: '/privacy-policy' },
   { label: 'Terms', href: '/terms-of-service' },
   { label: 'Cookies', href: '/cookie-policy' },
   { label: 'Accessibility', href: '/accessibility' },
   { label: 'Sitemap', href: '/sitemap-page' },
 ];
+
+const legalDe = [
+  { label: 'Datenschutz', href: '/privacy-policy' },
+  { label: 'Nutzungsbedingungen', href: '/terms-of-service' },
+  { label: 'Cookies', href: '/cookie-policy' },
+  { label: 'Barrierefreiheit', href: '/accessibility' },
+];
+
+const COPY = {
+  en: {
+    tagline: 'Cloud VMS with virtual patrolling, for the cameras you already own.',
+    office: 'Head office',
+    phone: 'Phone',
+    email: 'Email',
+    signIn: 'Sign in to the console',
+    footerNav: 'Footer',
+    rights: 'All rights reserved. Registered in Singapore.',
+    legalNote: '',
+    social: 'Camzify on social media',
+    on: 'on',
+  },
+  de: {
+    tagline: 'Cloud-VMS mit KI-gestütztem Wächterrundgang, für die Kameras, die Sie bereits haben.',
+    office: 'Hauptsitz',
+    phone: 'Telefon',
+    email: 'E-Mail',
+    signIn: 'In der Konsole anmelden',
+    footerNav: 'Fußzeile',
+    rights: 'Alle Rechte vorbehalten. Eingetragen in Singapur.',
+    legalNote: 'Rechtstexte auf Englisch:',
+    social: 'Camzify in sozialen Medien',
+    on: 'auf',
+  },
+} as const;
 
 /**
  * Evaluated once, at module load. The footer is a server component inside a statically
@@ -113,42 +209,45 @@ const legal = [
  */
 const COPYRIGHT_YEAR = new Date().getFullYear();
 
-export function SiteFooter() {
+export function SiteFooter({ locale = 'en' }: { locale?: Locale }) {
+  const c = COPY[locale];
+  const columns = locale === 'de' ? columnsDe : columnsEn;
+  const legal = locale === 'de' ? legalDe : legalEn;
   return (
-    <footer className="border-t border-border bg-muted/40 dark:bg-card">
+    <footer lang={LOCALES[locale].htmlLang} className="border-t border-border bg-muted/40 dark:bg-card">
       {/* Brand row */}
       <div className="mx-auto max-w-site px-6 pt-16 pb-14">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-5">
-            <Link href="/" className="inline-flex items-center" aria-label={`${siteConfig.name} home`}>
+            <Link href={LOCALES[locale].home} className="inline-flex items-center" aria-label={`${siteConfig.name} ${locale === 'de' ? 'Startseite' : 'home'}`}>
               <SiteLogo className="h-9 w-auto" />
             </Link>
             <p className="mt-6 max-w-sm text-body leading-relaxed text-muted-foreground">
-              Cloud VMS with virtual patrolling, for the cameras you already own.
+              {c.tagline}
             </p>
             <dl className="mt-8 grid gap-4 text-sm">
               <div className="flex gap-3">
-                <dt className="sr-only">Head office</dt>
+                <dt className="sr-only">{c.office}</dt>
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground" aria-hidden="true" />
                 <dd className="text-muted-foreground"><span className="text-foreground">{siteConfig.legalName}</span><br />{formattedAddress}</dd>
               </div>
               <div className="flex gap-3">
-                <dt className="sr-only">Phone</dt>
+                <dt className="sr-only">{c.phone}</dt>
                 <Phone className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground" aria-hidden="true" />
                 <dd><a href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`} className="rounded text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">{siteConfig.phone}</a></dd>
               </div>
               <div className="flex gap-3">
-                <dt className="sr-only">Email</dt>
+                <dt className="sr-only">{c.email}</dt>
                 <Mail className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground" aria-hidden="true" />
                 <dd><a href={`mailto:${siteConfig.email}`} className="rounded text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">{siteConfig.email}</a></dd>
               </div>
             </dl>
             <a href={siteConfig.appUrl} target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-primary/40 hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
-              Sign in to the console <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+              {c.signIn} <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
             </a>
           </div>
           <div className="lg:col-span-6 lg:col-start-7">
-            <NewsletterForm />
+            <NewsletterForm locale={locale} />
           </div>
         </div>
       </div>
@@ -156,7 +255,7 @@ export function SiteFooter() {
       {/* Link columns */}
       <div className="border-t border-border">
         <div className="mx-auto max-w-site px-6 py-14">
-          <nav aria-label="Footer" className="grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-3 lg:grid-cols-5">
+          <nav aria-label={c.footerNav} className="grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-3 lg:grid-cols-5">
             {columns.map((col) => (
               <div key={col.title}>
                 <h3 className="font-mono text-mono-sm uppercase tracking-wider text-muted-foreground">{col.title}</h3>
@@ -183,16 +282,17 @@ export function SiteFooter() {
       {/* Bottom bar */}
       <div className="border-t border-border">
         <div className="mx-auto flex max-w-site flex-col gap-5 px-6 py-6 text-xs text-muted-foreground lg:flex-row lg:items-center lg:justify-between">
-          <p>© {COPYRIGHT_YEAR} {siteConfig.legalName}. All rights reserved. Registered in Singapore.</p>
+          <p>© {COPYRIGHT_YEAR} {siteConfig.legalName}. {c.rights}</p>
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
             <ul className="flex flex-wrap items-center gap-x-5 gap-y-2">
+              {c.legalNote && <li className="text-muted-foreground/80">{c.legalNote}</li>}
               {legal.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="transition-colors hover:text-foreground">{l.label}</Link>
+                  <Link href={l.href} hrefLang={locale === 'de' ? 'en-US' : undefined} className="transition-colors hover:text-foreground">{l.label}</Link>
                 </li>
               ))}
             </ul>
-            <ul className="flex items-center gap-1 sm:border-l sm:border-border sm:pl-6" aria-label="Camzify on social media">
+            <ul className="flex items-center gap-1 sm:border-l sm:border-border sm:pl-6" aria-label={c.social}>
               {siteConfig.social.map((p) => {
                 const Icon = SOCIAL_ICON[p.icon];
                 return (
@@ -201,7 +301,7 @@ export function SiteFooter() {
                       href={p.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label={`${siteConfig.name} on ${p.label}`}
+                      aria-label={`${siteConfig.name} ${c.on} ${p.label}`}
                       title={p.label}
                       className="flex h-8 w-8 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                     >
