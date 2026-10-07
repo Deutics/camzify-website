@@ -28,7 +28,25 @@ REGISTRY = os.path.join(ROOT, 'lib', 'i18n.ts')
 PAIR_RE = re.compile(r"\{ en: '([^']*)', de: '([^']*)', sourceHash: '([0-9a-f]*)' \}")
 
 
+# Routes rendered by one template from a data file (the camera brand guides) have no
+# page.tsx of their own: map them to the template, and hash the data file with it.
+TEMPLATES = {
+    '/supported-cameras/': ('app/supported-cameras/[brand]/page.tsx', 'lib/camera-brand-guides.ts'),
+    '/de/unterstuetzte-kameras/': ('app/de/unterstuetzte-kameras/[marke]/page.tsx', 'lib/camera-brand-guides-de.ts'),
+}
+
+
+def template_for(path):
+    for prefix, files in TEMPLATES.items():
+        if path.startswith(prefix):
+            return files
+    return None
+
+
 def page_file(path):
+    t = template_for(path)
+    if t:
+        return os.path.join(ROOT, t[0])
     rel = 'app/page.tsx' if path == '/' else f'app{path}/page.tsx'
     return os.path.join(ROOT, rel)
 
@@ -40,6 +58,9 @@ EXTRA_SOURCES = {'/': ['app/_components']}
 
 def source_files(path):
     files = [page_file(path)]
+    t = template_for(path)
+    if t:
+        files.append(os.path.join(ROOT, t[1]))
     for d in EXTRA_SOURCES.get(path, []):
         full = os.path.join(ROOT, d)
         files += sorted(os.path.join(full, n) for n in os.listdir(full) if n.endswith('.tsx'))

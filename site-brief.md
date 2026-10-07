@@ -39,7 +39,6 @@
 
 **Money pages** (internal links should be prioritized towards these):
 - https://camzify.com/book-a-demo — the primary conversion target
-- https://camzify.com/free-trial
 - https://camzify.com/pricing
 - https://camzify.com/roi-calculator — the highest-intent assist page; 44 inbound links already
 - https://camzify.com/virtual-patrolling — the flagship category page

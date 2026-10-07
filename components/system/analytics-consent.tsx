@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { localeFromPath, LOCALES } from '@/lib/i18n';
 import { t } from '@/lib/ui-strings';
+import { isProductionHost } from '@/lib/production-host';
 
 /**
  * Cookie-gated analytics: a small consent banner, then Google Analytics and
@@ -65,6 +66,11 @@ export function AnalyticsConsent() {
   const locale = localeFromPath(usePathname());
   const c = t(locale).cookies;
   const [consent, setConsent] = useState<Consent | null>(null);
+  // Whether this is camzify.com itself, read after mount (window is not available in render).
+  const [live, setLive] = useState(false);
+  useEffect(() => {
+    setLive(isProductionHost(window.location.hostname));
+  }, []);
 
   useEffect(() => {
     if (mounted) setConsent(readConsent());
@@ -74,7 +80,11 @@ export function AnalyticsConsent() {
   if (!GA_ID && !CLARITY_ID) return null;
   if (!mounted) return null;
 
+  // Only the live site loads Google Analytics and Clarity: preview deployments and local
+  // builds are the team testing, and counting them skewed both dashboards. The banner
+  // still shows there, so its behavior can be checked before a release.
   if (consent === 'accepted') {
+    if (!live) return null;
     return (
       <>
         {GA_ID && (

@@ -76,7 +76,7 @@ export default function TermsOfServicePage() {
           <H2>Forms and what you send us</H2>
           <P>
             When you send a form, you confirm that the details are yours or that you are authorised to give them, and you agree to our handling of them as described in the{' '}
-            <Link href="/privacy-policy" className="text-primary hover:underline">privacy policy</Link>. A demo or trial request is a request, not an order; nothing is agreed until a quote or agreement says so.
+            <Link href="/privacy-policy" className="text-primary hover:underline">privacy policy</Link>. A demo or quote request is a request, not an order; nothing is agreed until a quote or agreement says so.
           </P>
 
           <H2>Links to other sites</H2>

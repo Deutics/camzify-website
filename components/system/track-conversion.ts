@@ -15,7 +15,7 @@ import { track } from '@vercel/analytics';
  * message text leaves the site through analytics. Call it from event handlers only;
  * it touches `window` and must not run during render.
  */
-export type ConversionForm = 'book-demo' | 'contact' | 'free-trial' | 'quote' | 'newsletter';
+export type ConversionForm = 'book-demo' | 'contact' | 'quote' | 'newsletter';
 
 type Gtag = (command: 'event', name: string, params: Record<string, string>) => void;
 
@@ -37,5 +37,5 @@ export function trackConversion(form: ConversionForm): void {
 /** The form name for a FormWrapper endpoint, e.g. '/api/book-demo' -> 'book-demo'. */
 export function formFromEndpoint(endpoint: string): ConversionForm | null {
   const name = endpoint.replace(/^\/api\//, '').replace(/\/$/, '');
-  return (['book-demo', 'contact', 'free-trial', 'quote', 'newsletter'] as const).find((f) => f === name) ?? null;
+  return (['book-demo', 'contact', 'quote', 'newsletter'] as const).find((f) => f === name) ?? null;
 }

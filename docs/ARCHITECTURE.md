@@ -96,7 +96,7 @@ Prisma + PostgreSQL, used **only** to capture leads. Four tables, all write-only
 |---|---|
 | `DemoRequest` | `POST /api/book-demo` |
 | `ContactSubmission` | `POST /api/contact` |
-| `FreeTrialRequest` | `POST /api/free-trial` |
+| `FreeTrialRequest` | nothing since 2026-10-08: the trial form and `/api/free-trial` were retired (there is no self-serve trial); the table stays until a migration drops it |
 | `NewsletterSubscription` | `POST /api/newsletter` (no UI currently posts to this) |
 
 Nothing in the site reads from the database, and nothing is notified when a lead arrives.

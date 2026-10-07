@@ -41,7 +41,8 @@ air-gap or on-prem pricing was given; do not add any (`/platform/deployment-opti
 detections are built to order (`/ai-features/custom-detections`): a one-off build price plus the normal
 per-instance license, build footage deleted afterwards. License plate recognition
 (`/ai-features/license-plate-recognition`) reads US and Singapore plates only and alerts on a watchlist; no
-accuracy, distance or approved-list rule was given. None of the standard detections identifies anyone;
+accuracy, distance or approved-list rule was given. Alerts reach the assigned contact within seconds of a confirmed detection (confirmed by the business
+2026-10-08); no other latency figure was given. None of the standard detections identifies anyone;
 facial recognition exists only as a custom build for a customer with the legal basis to use it, so never write
 that Camzify "does no facial recognition" or "no plate reading", and never present either as a standard feature. If you need a number you do not have, write around it honestly; do not
 estimate. `/trust` and `/llms.txt` both state this policy publicly, so violating it makes
@@ -234,7 +235,7 @@ photographs, no frame for renders.
 
 ## German pages
 
-Forty-two pages have a German counterpart under `/de`. The pairs are declared once, in
+Forty-three pages have a German counterpart under `/de` (the newest, the Reolink setup guide, renders from `lib/camera-brand-guides-de.ts`). The pairs are declared once, in
 `lib/i18n.ts`; hreflang, the sitemap's German group, the header's language menu and the
 stale-translation check all read that list, so never write hreflang by hand. The rules
 for writing a German page (facts, terms, style) are in `docs/I18N.md`. The German copy
@@ -252,8 +253,8 @@ object, so never restate the name, role or credential anywhere else.
   `app/layout.tsx` after the footer. Remove the mount when the site leaves maintenance.
 - **Legal pages are drafts.** Privacy, terms, cookies and accessibility each carry a
   "last reviewed" date and are awaiting counsel. Do not describe them as reviewed.
-- **`/free-trial` describes a self-serve trial nobody has confirmed exists.** Retire it or
-  confirm the offer before pointing traffic at it.
+- **There is no self-serve trial** (confirmed 2026-10-08). `/free-trial` was retired and
+  redirects to `/book-a-demo`; never offer or mention a trial.
 
 ## Known gaps worth flagging, not silently fixing
 

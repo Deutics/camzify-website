@@ -42,6 +42,8 @@ export default function PartnersHub() {
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Partners</h1>
           <p className="mt-6 max-w-2xl text-body text-muted-foreground">
             The Camzify partner program is for companies that already serve sites with cameras: security agencies, CCTV and alarm installers, monitoring companies, managed service providers and resellers. Each adds <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</Link> and cloud video to the service it already sells, on the cameras its clients already have.
+            In Singapore, Camzify&rsquo;s local partner is Nettbox; see{' '}
+            <Link href="/singapore" className="text-primary hover:underline">Camzify in Singapore</Link>.
           </p>
           <div className="mt-14 grid gap-6 sm:grid-cols-2">
             {partnerTypes.map((p, i) => (

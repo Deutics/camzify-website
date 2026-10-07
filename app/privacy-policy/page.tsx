@@ -26,7 +26,7 @@ const pageMeta = {
 
 export const metadata = generatePageMeta({ ...pageMeta });
 
-const UPDATED = '7 October 2026';
+const UPDATED = '8 October 2026';
 
 const faqs = [
   { question: 'Does this policy cover the Camzify product, or just the website?', answer: 'Just this website. Video, detections, patrol reports and account data in the Camzify console are processed under the customer agreement for that account, and the security and compliance page describes how that data is protected. This policy covers what happens when you read these pages or send us a form.' },
@@ -68,7 +68,7 @@ export default function PrivacyPolicyPage() {
 
           <H2>What we collect</H2>
           <P>
-            <strong className="font-semibold text-foreground">What you send us.</strong> The site has four forms. The contact form stores your name, email address, a subject and your message. The demo request and trial request forms store your name, email address, your company name if you give it, and the number of cameras you tell us about. The newsletter form stores your email address. Nothing on these forms is required beyond your name, your email address and, for the contact form, your message.
+            <strong className="font-semibold text-foreground">What you send us.</strong> The site has four forms. The contact form stores your name, email address, a subject and your message. The demo request form stores your name, email address, your company name if you give it, and the number of cameras you tell us about. The quote form on the pricing page stores your name, email address, your company name and a message if you give them, and the camera and feature counts you configured. The newsletter form stores your email address. Nothing on these forms is required beyond your name, your email address and, for the contact form, your message.
           </P>
           <P>
             <strong className="font-semibold text-foreground">What your browser sends.</strong> Like any website, ours is served by a hosting provider that records the technical details of each request, such as your IP address, browser type, the page requested and the time. We use those records to keep the site running and secure, not to profile you.
@@ -80,7 +80,7 @@ export default function PrivacyPolicyPage() {
 
           <H2>Why we use it, and on what basis</H2>
           <P>
-            We use what you send through a form to do what you asked: reply to your message, arrange a demo or a trial, send the newsletter you subscribed to, and prepare a quote if you want one. The legal basis is that you asked us to, and, for follow-up about the product you enquired about, our legitimate interest in answering that enquiry properly. Under Singapore&apos;s Personal Data Protection Act this is consent given by your submission; under the GDPR, for visitors in the European Economic Area and the United Kingdom, it is performance of steps at your request and legitimate interest.
+            We use what you send through a form to do what you asked: reply to your message, arrange a demo, send the newsletter you subscribed to, and prepare a quote if you want one. The legal basis is that you asked us to, and, for follow-up about the product you enquired about, our legitimate interest in answering that enquiry properly. Under Singapore&apos;s Personal Data Protection Act this is consent given by your submission; under the GDPR, for visitors in the European Economic Area and the United Kingdom, it is performance of steps at your request and legitimate interest.
           </P>
           <P>
             We also contact businesses we have not met, using business contact details from public or licensed business sources, to tell them about the product. We do this on the basis of legitimate interest, only to business addresses, and every such message says who we are and how to stop further ones. If you tell us to stop, we stop.

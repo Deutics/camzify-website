@@ -22,8 +22,8 @@ from html.parser import HTMLParser
 
 SITE = os.environ.get('SITE', 'http://localhost:3411').rstrip('/')
 OUT = 'docs/seo/04-site-audit.csv'
-NO_FAQ_BY_DESIGN = {'/about', '/about/muhammad-talha', '/blog', '/book-a-demo', '/contact', '/free-trial', '/sitemap-page', '/privacy-policy', '/terms-of-service', '/cookie-policy', '/accessibility', '/', '/llms.txt'}
-THIN_OK = {'/blog', '/book-a-demo', '/contact', '/free-trial', '/sitemap-page', '/'}
+NO_FAQ_BY_DESIGN = {'/about', '/about/muhammad-talha', '/blog', '/book-a-demo', '/contact', '/sitemap-page', '/privacy-policy', '/terms-of-service', '/cookie-policy', '/accessibility', '/', '/llms.txt'}
+THIN_OK = {'/blog', '/book-a-demo', '/contact', '/sitemap-page', '/'}
 CITE_KINDS = ('/compare/camzify-vs-', '/alternatives/', '/guides/best-')  # pages that name a vendor must list Sources
 
 

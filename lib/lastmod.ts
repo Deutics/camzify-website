@@ -99,6 +99,7 @@ function sourcesFor(route: string): string[] {
   if (route.startsWith('/glossary/')) return ['lib/glossary-terms.ts']; // one data file renders every term page
   // Camera brand guides: one data file and one template render every brand page.
   if (route.startsWith('/supported-cameras/')) return ['lib/camera-brand-guides.ts', 'app/supported-cameras/[brand]/page.tsx'];
+  if (route.startsWith('/de/unterstuetzte-kameras/')) return ['lib/camera-brand-guides-de.ts', 'app/de/unterstuetzte-kameras/[marke]/page.tsx'];
   const page = route === '/' ? 'app/page.tsx' : `app${route}/page.tsx`;
   const files = [page];
   // The homepage's copy lives in its section components, in both languages.
