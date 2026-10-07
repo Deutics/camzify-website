@@ -81,7 +81,7 @@ export default function PlatformPage() {
         lede={
           <>
             <strong className="font-semibold text-foreground">
-              The Camzify platform is an AI-powered cloud video management system: live streaming,
+              The Camzify platform is an AI-powered cloud <Link href="/guides/what-is-a-video-management-system" className="text-primary hover:underline">video management system</Link>: live streaming,
               cloud backup and retention, alerts, analytics, user and license management and
               multi-site control on one login
             </strong>{' '}

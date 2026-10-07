@@ -75,7 +75,7 @@ export default function WhatIsACloudNvrPage() {
               <h2 className="font-display text-2xl font-bold">Does a cloud NVR exist, and what is it?</h2>
               <div className="mt-4 max-w-prose space-y-4 text-muted-foreground">
                 <p>
-                  Yes, although few products call themselves one. A cloud NVR is the recording function of a cloud video management system: cameras send their streams to storage outside the building, and the recording, retention, playback and export that a recorder used to do on a disk happen there instead. Cloud NVR is what buyers type; cloud CCTV, cloud camera storage and cloud VMS describe the same shift from the other side.
+                  Yes, although few products call themselves one. A cloud NVR is the recording function of a cloud <Link href="/guides/what-is-a-video-management-system" className="text-primary hover:underline">video management system</Link>: cameras send their streams to storage outside the building, and the recording, retention, playback and export that a recorder used to do on a disk happen there instead. Cloud NVR is what buyers type; cloud CCTV, cloud camera storage and cloud VMS describe the same shift from the other side.
                 </p>
                 <p>
                   The distinction that matters is where footage is written. A recorder writes every camera to one disk in one building, and that disk is the single point of failure for all of them. A cloud NVR writes each camera to its own off-site storage as the frames arrive, so a camera going offline is shown as offline while recording of the others continues.

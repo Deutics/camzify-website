@@ -51,13 +51,13 @@ export const translations: TranslationPair[] = [
   // Pilot, September 2026
   { en: '/', de: '/de', sourceHash: '0418913979af' },
   { en: '/virtual-guard', de: '/de/virtueller-waechterrundgang', sourceHash: '0c55e683e5cf' },
-  { en: '/cloud-video-surveillance', de: '/de/cloud-videomanagementsystem', sourceHash: 'a85dfd1fc8dc' },
+  { en: '/cloud-video-surveillance', de: '/de/cloud-videomanagementsystem', sourceHash: '14898866a575' },
   { en: '/guides/what-is-intelligent-video-analytics', de: '/de/ki-videoanalyse', sourceHash: '9ef9cd0f0dfb' },
   { en: '/partners/for-security-agencies', de: '/de/fuer-sicherheitsdienste', sourceHash: '523d760b2ff8' },
   { en: '/partners/for-security-integrators', de: '/de/fuer-installateure', sourceHash: '7508ad8aad42' },
 
   // Virtual patrolling
-  { en: '/virtual-patrolling', de: '/de/ki-waechterrundgang', sourceHash: 'e7fd8e745439' },
+  { en: '/virtual-patrolling', de: '/de/ki-waechterrundgang', sourceHash: '96968963d01a' },
   { en: '/virtual-patrolling/how-it-works', de: '/de/ki-waechterrundgang/so-funktioniert-es', sourceHash: '15dd9f7b9e4c' },
   { en: '/virtual-patrolling/automated-patrol-scheduling', de: '/de/ki-waechterrundgang/automatische-planung', sourceHash: '5cea897fdc37' },
   { en: '/virtual-patrolling/patrol-checklists', de: '/de/ki-waechterrundgang/checklisten', sourceHash: 'b3d6dcf89d92' },
@@ -68,7 +68,7 @@ export const translations: TranslationPair[] = [
   { en: '/virtual-patrolling/vs-security-guards', de: '/de/ki-waechterrundgang/vergleich-wachpersonal', sourceHash: '3d5730175beb' },
 
   // Platform
-  { en: '/platform', de: '/de/plattform', sourceHash: 'e15bcf891f3f' },
+  { en: '/platform', de: '/de/plattform', sourceHash: 'a66f894dd58e' },
   { en: '/platform/live-streaming', de: '/de/plattform/live-streaming', sourceHash: 'ff03ca91ad98' },
   { en: '/platform/video-backup-and-retention', de: '/de/plattform/videospeicherung', sourceHash: '55f033e829bc' },
   { en: '/platform/multi-site-management', de: '/de/plattform/mehrere-standorte', sourceHash: '58009f121a5c' },
@@ -101,7 +101,7 @@ export const translations: TranslationPair[] = [
   // Buying and trust
   { en: '/pricing', de: '/de/preise', sourceHash: '59e579252dad' },
   { en: '/security-and-compliance', de: '/de/sicherheit-und-datenschutz', sourceHash: 'b6ae1839138b' },
-  { en: '/supported-cameras', de: '/de/unterstuetzte-kameras', sourceHash: '4099c0a3ffcd' },
+  { en: '/supported-cameras', de: '/de/unterstuetzte-kameras', sourceHash: '1079b3cc9765' },
   { en: '/supported-cameras/reolink', de: '/de/unterstuetzte-kameras/reolink', sourceHash: 'dcdafcf21ea2' },
   { en: '/camzify-connector', de: '/de/camzify-connector', sourceHash: '76cce2afb081' },
 ];

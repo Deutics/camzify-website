@@ -44,6 +44,7 @@ const columnsEn: FooterColumn[] = [
       { label: 'How a round works', href: '/virtual-patrolling/how-it-works' },
       { label: 'Platform', href: '/platform' },
       { label: 'Cloud video surveillance', href: '/cloud-video-surveillance' },
+      { label: 'Business security cameras', href: '/business-security-cameras' },
       { label: 'AI detections', href: '/ai-features' },
       { label: 'Camera connectivity', href: '/camera-connectivity' },
       { label: 'Supported cameras', href: '/supported-cameras' },
@@ -96,6 +97,7 @@ const columnsEn: FooterColumn[] = [
       { label: 'Trust', href: '/trust' },
       { label: 'Security & compliance', href: '/security-and-compliance' },
       { label: 'About', href: '/about' },
+      { label: 'Camzify in Singapore', href: '/singapore' },
     ],
   },
 ];
@@ -115,6 +117,7 @@ const columnsDe: FooterColumn[] = [
       { label: 'Cloud-Videomanagementsystem', href: '/de/cloud-videomanagementsystem' },
       { label: 'KI-Funktionen', href: '/de/ki-funktionen' },
       { label: 'Unterstützte Kameras', href: '/de/unterstuetzte-kameras' },
+      { label: 'Reolink einrichten', href: '/de/unterstuetzte-kameras/reolink' },
       { label: 'Camzify Connector', href: '/de/camzify-connector' },
     ],
   },

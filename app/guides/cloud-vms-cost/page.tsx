@@ -19,7 +19,7 @@ import Link from 'next/link';
  */
 const pageMeta = {
   title: "VMS Cost: What Cloud Video Management Costs",
-  description: "What a video management system costs to run: cameras, detections, retention, bandwidth and sites, the ongoing fees in each pricing model, and the hidden costs.",
+  description: "What a video management system costs to run: cameras, detections, retention, bandwidth and sites, the ongoing fees in each pricing model, and hidden costs.",
   path: "/guides/cloud-vms-cost",
 };
 
@@ -54,7 +54,7 @@ export default function CloudVmsCostPage() {
             <PhotoFigure src="/guide-cloud-vms-cost.webp" alt="Illustration for this guide: the Camzify console and the cameras it runs on" priority />
           </div>
           <p className="mt-6 max-w-prose text-body text-muted-foreground">
-            Cloud VMS cost is the recurring fee for video management software that the vendor hosts,
+            Cloud VMS cost is the recurring fee for <Link href="/guides/what-is-a-video-management-system" className="text-primary hover:underline">video management software</Link> that the vendor hosts,
             and it is set by what your site asks the service to do: how many cameras stream to it,
             how much footage it keeps, and which detections run on which cameras. There is no
             recorder to buy, so the number is built from counts you already have or can gather in
