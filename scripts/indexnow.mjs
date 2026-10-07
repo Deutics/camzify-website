@@ -15,6 +15,7 @@
  *   - app/<route>/page.tsx          -> that route (deleted pages too, so they drop out)
  *   - app/_components/*             -> / and /de (the homepage sections render both)
  *   - lib/glossary-terms.ts         -> /glossary and every /glossary/<slug>
+ *   - lib/camera-brand-guides.ts    -> every /supported-cameras/<brand> guide
  *   - app/llms.txt/route.ts         -> /llms.txt
  * A change to shared chrome (header, footer, site-config) touches every page but
  * changes none of them in substance, so it submits nothing: resubmitting 270 URLs on
@@ -71,6 +72,12 @@ function glossaryUrls(head) {
   return ['/glossary', ...slugs.map((s) => `/glossary/${s}`)];
 }
 
+function brandGuideUrls(head) {
+  const source = git('show', `${head}:lib/camera-brand-guides.ts`);
+  const slugs = [...source.matchAll(/^\s*slug:\s*['"]([^'"]+)['"]/gm)].map((x) => x[1]);
+  return slugs.map((s) => `/supported-cameras/${s}`);
+}
+
 function collect(base, head) {
   const paths = new Set();
   for (const { file } of changedFiles(base, head)) {
@@ -78,6 +85,7 @@ function collect(base, head) {
     if (route) paths.add(route);
     else if (file.startsWith('app/_components/')) { paths.add('/'); paths.add('/de'); }
     else if (file === 'lib/glossary-terms.ts') glossaryUrls(head).forEach((p) => paths.add(p));
+    else if (file === 'lib/camera-brand-guides.ts' || file === 'app/supported-cameras/[brand]/page.tsx') brandGuideUrls(head).forEach((p) => paths.add(p));
     else if (file === 'app/llms.txt/route.ts') paths.add('/llms.txt');
   }
   return [...paths].sort().map((p) => (p === '/' ? ORIGIN : ORIGIN + p)).slice(0, MAX_URLS);

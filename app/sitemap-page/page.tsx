@@ -4,6 +4,7 @@ import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { SITEMAP_ENTRIES } from '@/lib/routes';
 import { GLOSSARY_TERMS } from '@/lib/glossary-terms';
+import { CAMERA_BRAND_GUIDES } from '@/lib/camera-brand-guides';
 import { siteConfig } from '@/lib/site-config';
 import Link from 'next/link';
 
@@ -33,7 +34,7 @@ const SECTIONS: { title: string; match: (p: string) => boolean }[] = [
   { title: 'Use cases', match: (p) => p.startsWith('/use-cases') },
   { title: 'Industries', match: (p) => p.startsWith('/industries') },
   { title: 'Partners', match: (p) => p.startsWith('/partners') },
-  { title: 'Cameras and connectivity', match: (p) => p.startsWith('/camera-connectivity') || p === '/supported-cameras' },
+  { title: 'Cameras and connectivity', match: (p) => p.startsWith('/camera-connectivity') || p.startsWith('/supported-cameras') },
   { title: 'Guides', match: (p) => p.startsWith('/guides') },
   { title: 'Comparisons and alternatives', match: (p) => p.startsWith('/compare') || p.startsWith('/alternatives') },
   { title: 'Glossary', match: (p) => p.startsWith('/glossary') },
@@ -43,11 +44,12 @@ const SECTIONS: { title: string; match: (p: string) => boolean }[] = [
 ];
 
 const glossaryNames = new Map(GLOSSARY_TERMS.map((t) => [`/glossary/${t.slug}`, t.term]));
+const brandGuideNames = new Map(CAMERA_BRAND_GUIDES.map((g) => [`/supported-cameras/${g.slug}`, `${g.brand} camera setup`]));
 
 /** The page's own title from its pageMeta, without the " | ..." qualifier. */
 function titleFor(route: string): string {
   if (route === '/') return 'Home';
-  const term = glossaryNames.get(route);
+  const term = glossaryNames.get(route) ?? brandGuideNames.get(route);
   if (term) return term;
   // The author page builds its title from siteConfig rather than a literal.
   if (route === `/about/${siteConfig.author.slug}`) return siteConfig.author.name;

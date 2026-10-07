@@ -101,7 +101,7 @@ export const translations: TranslationPair[] = [
   // Buying and trust
   { en: '/pricing', de: '/de/preise', sourceHash: '59e579252dad' },
   { en: '/security-and-compliance', de: '/de/sicherheit-und-datenschutz', sourceHash: 'b6ae1839138b' },
-  { en: '/supported-cameras', de: '/de/unterstuetzte-kameras', sourceHash: 'b6daf26a15e7' },
+  { en: '/supported-cameras', de: '/de/unterstuetzte-kameras', sourceHash: '4099c0a3ffcd' },
   { en: '/camzify-connector', de: '/de/camzify-connector', sourceHash: '76cce2afb081' },
 ];
 

@@ -4,7 +4,8 @@ import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
 import { BrandStrip } from '@/components/content/brand-strip';
-import { cameraBrands } from '@/lib/camera-brands';
+import { cameraBrands, type CameraBrand } from '@/lib/camera-brands';
+import { guideFor } from '@/lib/camera-brand-guides';
 
 /**
  * German counterpart of /supported-cameras.
@@ -42,11 +43,19 @@ const brandsDe = cameraBrands.map((b) => ({ ...b, note: noteDe[b.note] ?? b.note
 
 const faqs = [
   { question: 'Funktioniert Camzify mit ONVIF- und RTSP-Kameras?', answer: 'Ja. Camzify bindet jede IP-Kamera an, die einen RTSP-Stream bereitstellt, darunter ONVIF-konforme Kameras aller großen Hersteller. Außerdem nimmt Camzify RTMP-Streams von Encodern und HTTPS-Streams (HLS und WebRTC) entgegen. Eine proprietäre Kamera ist nicht nötig und wird auch nicht verkauft: Die Kameras, die ein Standort bereits hat, sind die Kameras, auf denen Camzify läuft.' },
-  { question: 'Mein Hersteller steht nicht auf der Liste. Funktionieren meine Kameras trotzdem?', answer: 'Sehr wahrscheinlich, sofern sie einen RTSP-Stream liefern, und das tut fast jede IP-Kamera der letzten zehn Jahre. Die Liste nennt Hersteller, deren ONVIF-konforme Kameras bekanntermaßen zusammenarbeiten; sie ist nicht abschließend.' },
+  { question: 'Mein Hersteller steht nicht auf der Liste. Funktionieren meine Kameras trotzdem?', answer: 'Sehr wahrscheinlich. Camzify ist nicht auf die genannten Hersteller beschränkt: Jede Kamera, die einen RTSP-Stream bereitstellt (das tut jede Kamera nach ONVIF Profile S), per RTMP sendet oder über HTTPS als HLS oder WebRTC streamt, lässt sich anbinden. Die Liste nennt die häufigsten Hersteller; sie ist nicht abschließend.' },
   { question: 'Müssen die Kameras aus dem Internet erreichbar sein?', answer: 'Nein. Kameras in einem lokalen Netzwerk werden über den Camzify Connector auf einem PC in diesem Netzwerk angebunden, ohne Portweiterleitung.' },
   { question: 'Bedeutet die Nennung eines Herstellers eine Partnerschaft?', answer: 'Nein. Markennamen und Logos sind Marken ihrer Inhaber. Die Nennung besagt, dass die ONVIF-konformen Kameras des Herstellers mit Camzify zusammenarbeiten, und bedeutet weder eine Partnerschaft noch eine Empfehlung.' },
   { question: 'Wie sieht es mit Encodern und Webstreams aus?', answer: 'Encoder senden RTMP an eine private Empfangsadresse; über das Web ausgelieferte Streams werden per HTTPS als HLS oder WebRTC angebunden. Die Seiten zur Kameraanbindung beschreiben jeden dieser Wege.' },
 ];
+
+/** Wie auf /supported-cameras: Hersteller mit Anleitung verlinken dorthin, alle anderen auf die RTSP-Anleitung (beide Englisch). */
+function brandLinkDe(b: CameraBrand) {
+  const g = guideFor(b.name);
+  return g
+    ? { href: `/supported-cameras/${g.slug}`, label: `Einrichtung für ${b.name} (EN)` }
+    : { href: '/camera-connectivity/rtsp-setup', label: 'Über RTSP anbinden (EN)' };
+}
 
 export default function DeUnterstuetzteKamerasPage() {
   return (
@@ -62,7 +71,24 @@ export default function DeUnterstuetzteKamerasPage() {
             einen RTSP-Stream, funktioniert sie mit Camzify und dem{' '}
             <Link href="/de/ki-waechterrundgang" className="text-primary hover:underline">KI-gestützten Wächterrundgang</Link>.
           </p>
-          <p className="mt-4 text-muted-foreground">
+          <div className="mt-8 max-w-prose rounded-xl border border-primary/30 bg-primary/5 p-6">
+            <h2 className="font-display text-lg font-bold">Nicht auf die genannten Hersteller beschränkt</h2>
+            <p className="mt-2 text-muted-foreground">
+              Die unten genannten Hersteller sind die, die am häufigsten vorkommen, nicht die Grenze dessen, was
+              funktioniert. Camzify läuft auf jeder Kamera jedes Herstellers, die eines von drei Dingen kann:
+            </p>
+            <ul className="mt-3 list-disc space-y-1 pl-5 text-muted-foreground">
+              <li>einen <Link href="/camera-connectivity/rtsp-setup" hrefLang="en-US" className="text-primary hover:underline">RTSP-Stream</Link> bereitstellen, wie es jede Kamera nach ONVIF Profile S tut;</li>
+              <li>per <Link href="/camera-connectivity/rtmp-setup" hrefLang="en-US" className="text-primary hover:underline">RTMP</Link> an einen Server senden, direkt oder über einen Encoder;</li>
+              <li>über <Link href="/camera-connectivity/https-setup" hrefLang="en-US" className="text-primary hover:underline">HTTPS</Link> streamen, als HLS oder WebRTC.</li>
+            </ul>
+            <p className="mt-3 text-muted-foreground">
+              Bei den KI-Funktionen ist es genauso: Die 23 Standard-Erkennungen sind ein Ausgangspunkt, alles Weitere
+              wird <Link href="/de/ki-funktionen/individuelle-erkennungen" className="text-primary hover:underline">auf Anfrage entwickelt</Link>.
+              Die Einrichtungsanleitungen sind auf Englisch.
+            </p>
+          </div>
+          <p className="mt-6 text-muted-foreground">
             Neu bei Kameraprotokollen? Der Leitfaden{' '}
             <Link href="/guides/onvif-and-rtsp-explained" className="text-primary hover:underline">ONVIF und RTSP erklärt</Link>{' '}
             (auf Englisch) führt verständlich in das Thema ein.
@@ -111,7 +137,7 @@ export default function DeUnterstuetzteKamerasPage() {
                 Orientierungshilfe für alle, die nach Marke suchen, keine Kompatibilitätsmatrix, und
                 fehlt ein Hersteller, sagt das nichts darüber aus, ob seine Kameras funktionieren.
               </p>
-              <BrandStrip className="mt-8" brands={brandsDe} showNotes locale="de" />
+              <BrandStrip className="mt-8" brands={brandsDe} showNotes locale="de" linkFor={brandLinkDe} />
             </ScrollReveal>
           </div>
 

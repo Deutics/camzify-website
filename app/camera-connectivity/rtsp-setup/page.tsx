@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { CAMERA_BRAND_GUIDES } from '@/lib/camera-brand-guides';
 import { PhotoFigure } from '@/components/content/photo-figure';
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
@@ -114,6 +115,22 @@ export default function RtspSetupPage() {
               </li>
             </ScrollReveal>
           </ol>
+        </div>
+      </section>
+
+      <section className="pb-12">
+        <div className="mx-auto max-w-site px-6">
+          <h2 className="font-display text-xl font-bold">RTSP URL formats by camera brand</h2>
+          <p className="mt-2 max-w-prose text-muted-foreground">
+            Each manufacturer formats the stream path its own way. These guides give the format from the manufacturer&rsquo;s documentation and where to switch RTSP and ONVIF on:
+          </p>
+          <ul className="mt-4 flex flex-wrap gap-2">
+            {CAMERA_BRAND_GUIDES.map((g) => (
+              <li key={g.slug}>
+                <Link href={`/supported-cameras/${g.slug}`} className="inline-block rounded-lg border border-border bg-card px-3 py-1.5 no-underline text-sm transition-colors hover:border-primary/30 hover:text-primary">{g.brand} RTSP URL</Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 

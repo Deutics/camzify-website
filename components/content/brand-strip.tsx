@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { cameraBrands, type CameraBrand } from '@/lib/camera-brands';
 
 /**
@@ -35,8 +36,30 @@ function BrandMark({ brand }: { brand: CameraBrand }) {
       alt={brand.name}
       width={180}
       height={44}
-      className="max-h-11 w-auto max-w-[180px] object-contain"
+      className="max-h-11 w-auto max-w-[min(180px,100%)] object-contain"
     />
+  );
+}
+
+function BrandTile({ brand, link, showNotes }: { brand: CameraBrand; link?: { href: string; label: string }; showNotes: boolean }) {
+  const body = (
+    <>
+      <span className="brand-plate flex h-20 items-center justify-center px-5">
+        <BrandMark brand={brand} />
+      </span>
+      {showNotes && (
+        <span className="block px-5 py-3 text-xs leading-snug text-muted-foreground">
+          {brand.note}
+          {link && <span className="mt-1 block font-medium text-primary group-hover:underline">{link.label} &rarr;</span>}
+        </span>
+      )}
+    </>
+  );
+  if (!link) return body;
+  return (
+    <Link href={link.href} className="group flex h-full flex-col no-underline transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring">
+      {body}
+    </Link>
   );
 }
 
@@ -47,6 +70,7 @@ export function BrandStrip({
   className = '',
   protocolClaim,
   locale = 'en',
+  linkFor,
 }: {
   /** Defaults to the ONVIF/RTSP camera list; pass a different array (e.g. rtmpStreamingBrands) to render that instead. */
   brands?: CameraBrand[];
@@ -57,6 +81,12 @@ export function BrandStrip({
   protocolClaim?: string;
   /** Language of the trademark disclaimer. On a German page pass 'de' and a German `protocolClaim`. */
   locale?: 'en' | 'de';
+  /**
+   * Where each tile links, or undefined to leave it plain. Clarity (October 2026) showed
+   * visitors clicking the logos on /supported-cameras and getting nothing: they want to
+   * know how *their* brand connects. A tile is a link only when a page answers that.
+   */
+  linkFor?: (brand: CameraBrand) => { href: string; label: string } | undefined;
 }) {
   const claim = protocolClaim ?? (locale === 'de'
     ? 'ONVIF-konformen Kameras über RTSP mit Camzify zusammenarbeiten'
@@ -68,14 +98,7 @@ export function BrandStrip({
       <ul className="grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-3 lg:grid-cols-4">
         {brands.map((b) => (
           <li key={b.name} className="flex flex-col bg-card">
-            <span className="brand-plate flex h-20 items-center justify-center px-5">
-              <BrandMark brand={b} />
-            </span>
-            {showNotes && (
-              <span className="block px-5 py-3 text-xs leading-snug text-muted-foreground">
-                {b.note}
-              </span>
-            )}
+            <BrandTile brand={b} link={linkFor?.(b)} showNotes={showNotes} />
           </li>
         ))}
       </ul>

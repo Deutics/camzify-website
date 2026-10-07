@@ -233,3 +233,13 @@ about ADT. And the pricing decision, delegated to the site editor: one typical b
 to $90 per camera per month depending on detections and patrol rounds, storage per
 terabyte extra", now beside the $5 floor on /pricing, in llms.txt and in the four cost
 guides, because every page engines cited for cost queries carried a per-camera range.
+
+## Promotion research and camera brand guides (7 October 2026)
+
+`PROMOTION-RESEARCH-2026-10-07.md` records what to promote, from DataForSEO and the five
+dashboards: license plate recognition, the VMS cluster, business and commercial security
+cameras, parking, construction and apartments lead on demand; competitor gaps and the
+almost-there list are there with their numbers. Built on it the same day: setup guides
+per camera brand at `/supported-cameras/<brand>` (lib/camera-brand-guides.ts), every
+brand fact cited to the manufacturer's own documentation, for the setup searches
+("reolink rtsp", "hikvision rtsp url") that installers make.
