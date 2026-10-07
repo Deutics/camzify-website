@@ -11,8 +11,9 @@ import Link from 'next/link';
  * Written from what the site actually does, checked in code on 2026-09-22: four forms
  * that email what a visitor types to the team (and store it once the database is
  * connected); cookieless Vercel Web Analytics and Speed Insights, always on; Google
- * Analytics and Microsoft Clarity, which only load once the cookie banner is accepted
- * (components/system/analytics-consent.tsx); a theme preference and two session flags
+ * Analytics and Microsoft Clarity, which since 2026-10-08 load on every visit unless the
+ * visitor turns analytics off on the cookie policy page (components/system/analytics-consent.tsx,
+ * REQUIRE_CONSENT = false; with it true they wait for the cookie banner instead); a theme preference and two session flags
  * in browser storage; and no emails sent by the site beyond replies to a form.
  * Company details come from lib/site-config.ts. This is a draft for counsel to review
  * before the site leaves maintenance; the review date below is the date it was
@@ -30,7 +31,7 @@ const UPDATED = '8 October 2026';
 
 const faqs = [
   { question: 'Does this policy cover the Camzify product, or just the website?', answer: 'Just this website. Video, detections, patrol reports and account data in the Camzify console are processed under the customer agreement for that account, and the security and compliance page describes how that data is protected. This policy covers what happens when you read these pages or send us a form.' },
-  { question: 'Do you sell or share my details with advertisers?', answer: 'No. There are no advertising networks on this site. Analytics tools measure how the site is used, not who you are: Vercel Web Analytics and Speed Insights are cookieless and cannot identify a visitor; Google Analytics and Microsoft Clarity only run if you accept the cookie banner, and the cookie policy lists exactly what each one sets. None of it is sold, rented or shared for marketing by anyone else.' },
+  { question: 'Do you sell or share my details with advertisers?', answer: 'No. There are no advertising networks on this site. Analytics tools measure how the site is used, not who you are: Vercel Web Analytics and Speed Insights are cookieless and cannot identify a visitor; Google Analytics and Microsoft Clarity set cookies, you can turn them off for your browser on the cookie policy page, and that page lists exactly what each one sets. None of it is sold, rented or shared for marketing by anyone else.' },
   { question: 'How do I get my details deleted?', answer: 'Email us at the address on this page from the address you used, and say what you want removed. We will confirm when it is done. You can also ask what we hold about you and have it corrected.' },
   { question: 'Why did I receive an email from Camzify when I never filled in a form?', answer: 'Because we contact businesses that we believe would benefit from the product, using business contact details from public or licensed business sources, on the basis of legitimate interest. Every such email says who we are and how to stop further ones, and a single reply asking us to stop is enough.' },
 ];
@@ -74,7 +75,7 @@ export default function PrivacyPolicyPage() {
             <strong className="font-semibold text-foreground">What your browser sends.</strong> Like any website, ours is served by a hosting provider that records the technical details of each request, such as your IP address, browser type, the page requested and the time. We use those records to keep the site running and secure, not to profile you.
           </P>
           <P>
-            <strong className="font-semibold text-foreground">Analytics.</strong> Vercel Web Analytics and Vercel Speed Insights measure page visits and load performance in aggregate; both are cookieless and cannot identify your browser across visits. Vercel Web Analytics also counts each completed form submission, recording only which form it was (for example, the demo request), never what you typed. If you accept the cookie banner shown on every page, Google Analytics and Microsoft Clarity also run: Google Analytics measures traffic and where visitors come from, including when a form is completed (again, which form, not its contents), and Microsoft Clarity records session playback and heatmaps of how pages are used. Neither runs until you accept, and the{' '}
+            <strong className="font-semibold text-foreground">Analytics.</strong> Vercel Web Analytics and Vercel Speed Insights measure page visits and load performance in aggregate; both are cookieless and cannot identify your browser across visits. Vercel Web Analytics also counts each completed form submission, recording only which form it was (for example, the demo request), never what you typed. Google Analytics and Microsoft Clarity also run: Google Analytics measures traffic and where visitors come from, including when a form is completed (again, which form, not its contents), and Microsoft Clarity records session playback and heatmaps of how pages are used. You can turn both off for your browser at any time on the cookie policy page, and the{' '}
             <Link href="/cookie-policy" className="text-primary hover:underline">cookie policy</Link> lists exactly what each one sets. There are no advertising networks or tracking pixels on this site, and we do not build advertising profiles of visitors.
           </P>
 
@@ -98,8 +99,8 @@ export default function PrivacyPolicyPage() {
 
           <H2>Cookies and browser storage</H2>
           <P>
-            Beyond a theme preference and two session flags, the only cookies this site sets are the analytics ones described above, and only once you accept them. There are no advertising cookies. The{' '}
-            <Link href="/cookie-policy" className="text-primary hover:underline">cookie policy</Link> lists every item by name, what it does and how long it lasts, and explains how to change your choice.
+            Beyond a theme preference and two session flags, the only cookies this site sets are the analytics ones described above, which you can turn off for your browser. There are no advertising cookies. The{' '}
+            <Link href="/cookie-policy" className="text-primary hover:underline">cookie policy</Link> lists every item by name, what it does and how long it lasts, and has the switch to turn analytics off.
           </P>
 
           <H2>Your rights</H2>
