@@ -16,11 +16,16 @@ import path from 'node:path';
  * parent, so on main a page's date is the day its change was merged, i.e. went live,
  * not the day it was written on a branch.
  *
- * SHALLOW CLONES. Vercel builds from a shallow clone unless VERCEL_DEEP_CLONE=true is
- * set. At the edge of a shallow history git reports every file as added in the
- * boundary commit, so a date found there is not a real change date. Those pages get no
- * lastmod at all: an omitted lastmod is honest, a wrong one is not. With no git (or no
- * history) every page is omitted.
+ * SHALLOW CLONES. At the edge of a shallow history git reports every file as added in
+ * the boundary commit, so a date found there is not a real change date. Those pages get
+ * no lastmod at all: an omitted lastmod is honest, a wrong one is not.
+ *
+ * VERCEL HAS NO HISTORY. Vercel clones the repo and then deletes `.git/`, because
+ * `.vercelignore` lists it (the history is ~580 MB, and the file exists to keep CLI
+ * uploads small). So production builds read lib/lastmod-dates.json instead: the same
+ * dates, computed from full history by scripts/update-lastmod.ts and committed to main by
+ * .github/workflows/lastmod.yml after every merge. Locally, with history present, git
+ * is used directly and the file is ignored. A route missing from both gets no lastmod.
  */
 
 const ROOT = process.cwd();
@@ -64,6 +69,16 @@ function fileDates(): Map<string, string | null> {
 
 const DATES = fileDates();
 
+/** route -> ISO date, committed by the lastmod workflow; used only when git has no history. */
+const COMMITTED: Record<string, string> = (() => {
+  if (DATES.size > 0) return {};
+  try {
+    return JSON.parse(readFileSync(path.join(ROOT, 'lib', 'lastmod-dates.json'), 'utf8'));
+  } catch {
+    return {};
+  }
+})();
+
 function latest(files: string[]): string | undefined {
   let best: string | undefined;
   for (const f of files) {
@@ -96,5 +111,9 @@ function sourcesFor(route: string): string[] {
 
 /** ISO date of the route's last content change, or undefined when git cannot say. */
 export function lastModifiedFor(route: string): string | undefined {
+  if (DATES.size === 0) return COMMITTED[route];
   return latest(sourcesFor(route));
 }
+
+/** Whether dates come from git history (true) or the committed file (false). */
+export const datesFromGit = (): boolean => DATES.size > 0;
