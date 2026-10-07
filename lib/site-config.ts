@@ -436,7 +436,7 @@ export const navItems: NavEntry[] = [
         { label: 'ROI Calculator', href: '/roi-calculator', description: 'Your numbers, two calculators' },
       ] }] },
       { label: 'Set Up', sections: [{ items: [
-        { label: 'Supported Cameras', href: '/supported-cameras', description: 'ONVIF and RTSP camera brands' },
+        { label: 'Supported Cameras', href: '/supported-cameras', description: 'Any RTSP camera, setup by brand' },
         { label: 'Camera Connectivity', href: '/camera-connectivity', description: 'RTSP, RTMP and HTTPS setup' },
       ] }] },
     ],
@@ -557,6 +557,7 @@ export const navItemsDe: NavEntry[] = [
     columns: [
       { label: 'Einrichten', sections: [{ items: [
         { label: 'Unterstützte Kameras', href: '/de/unterstuetzte-kameras', description: 'ONVIF- und RTSP-Hersteller' },
+        { label: 'Reolink einrichten', href: '/de/unterstuetzte-kameras/reolink', description: 'RTSP-URL und ONVIF-Ports' },
         { label: 'Camzify Connector', href: '/de/camzify-connector', description: 'Kameras im lokalen Netz' },
       ] }] },
       { label: 'Vertrauen', sections: [{ items: [

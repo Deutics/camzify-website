@@ -21,7 +21,7 @@ import {
  */
 const pageMeta = {
   title: "Virtual Patrolling | Automated Guard Tour System",
-  description: "Virtual patrolling is an automated guard tour on your cameras: scheduled AI rounds, a checklist at each stop, the guard notified on failure, a report per round.",
+  description: "Virtual patrolling is an automated guard tour on your cameras: scheduled AI rounds, a checklist at each stop, guard notified on failure, a report per round.",
   path: "/virtual-patrolling",
 };
 

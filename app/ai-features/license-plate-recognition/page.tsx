@@ -22,7 +22,7 @@ import Link from 'next/link';
  */
 const pageMeta = {
   title: 'License Plate Reader (LPR) Software for Cameras',
-  description: 'License plate reader software (LPR, ALPR) for the security cameras you already have: reads US and Singapore plates and alerts when a watchlisted plate arrives.',
+  description: 'License plate reader software (LPR, ALPR) for security cameras you already have: reads US and Singapore plates and alerts when a watchlisted plate arrives.',
   path: '/ai-features/license-plate-recognition',
 };
 

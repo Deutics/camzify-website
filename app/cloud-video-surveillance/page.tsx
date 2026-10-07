@@ -66,7 +66,7 @@ export default function CloudVideoSurveillancePage() {
         lede={
           <>
             <strong className="font-semibold text-foreground">
-              Cloud video surveillance sends a site&apos;s cameras to a video management system in the cloud instead of a recorder on site:
+              Cloud video surveillance sends a site&apos;s cameras to a <Link href="/guides/what-is-a-video-management-system" className="text-primary hover:underline">video management system</Link> in the cloud instead of a recorder on site:
             </strong>{' '}
             footage recorded and kept under a retention window set per camera, live view and playback from a browser, every site on one login, and on Camzify the AI detections and scheduled patrol rounds that turn recording into watching. Nothing new is mounted. The NVR is what goes. For a business weighing its cameras, see{' '}
             <Link href="/business-security-cameras" className="text-primary hover:underline">business security cameras</Link>.

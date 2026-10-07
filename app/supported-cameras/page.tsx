@@ -14,7 +14,7 @@ import { guideFor } from '@/lib/camera-brand-guides';
  */
 const pageMeta = {
   title: "Supported Cameras | ONVIF and RTSP Brands",
-  description: "Camzify works with any ONVIF, RTSP or RTMP camera, not only the brands listed: Axis, Hikvision, Dahua, Reolink, Amcrest and more, with a setup guide per brand.",
+  description: "Camzify works with any ONVIF, RTSP or RTMP camera, not only the brands listed: Axis, Hikvision, Dahua, Reolink, Amcrest and more, with setup guides by brand.",
   path: "/supported-cameras",
 };
 

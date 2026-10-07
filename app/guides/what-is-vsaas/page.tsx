@@ -57,7 +57,7 @@ export default function WhatIsVsaasPage() {
           <p className="mt-4 max-w-prose text-body text-muted-foreground">
             The acronym is the analyst and vendor name for the model buyers more often call{' '}
             <Link href="/cloud-video-surveillance" className="text-primary hover:underline">cloud video surveillance</Link>, and the software that delivers it is a{' '}
-            <Link href="/guides/what-is-a-cloud-vms" className="text-primary hover:underline">cloud VMS</Link>. The three terms describe one thing from three angles: the market category, the buying model and the software. This guide takes the buyer&apos;s angle: what the subscription includes and leaves out, how it is priced, what to check before signing, and when it is the wrong purchase.
+            <Link href="/guides/what-is-a-cloud-vms" className="text-primary hover:underline">cloud VMS</Link>. The three terms describe one thing from three angles: the market category, the buying model and the software, a <Link href="/guides/what-is-a-video-management-system" className="text-primary hover:underline">video management system (VMS)</Link>. This guide takes the buyer&apos;s angle: what the subscription includes and leaves out, how it is priced, what to check before signing, and when it is the wrong purchase.
           </p>
 
           <div className="mt-10 max-w-3xl">
