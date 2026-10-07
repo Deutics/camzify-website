@@ -15,9 +15,11 @@ import Link from 'next/link';
  *
  * Facts used and where they come from:
  * - Headquarters, legal name, address, phone: siteConfig (CLAUDE.md rule 1).
- * - Local partner Nettbox: stated by the business on 2026-10-08. Nothing else about
- *   Nettbox was given and no official Nettbox site was found, so the page names the
- *   partnership and nothing more: no services, no link, no claims on Nettbox's behalf.
+ * - Local partner Nettbox: stated by the business on 2026-10-08; its site,
+ *   https://www.nettbox.com.sg/, supplied by the business on 2026-10-08. What Nettbox does
+ *   is described only as Nettbox describes itself there (integrated security and smart
+ *   systems in Singapore, a Singapore-based team), and attributed to Nettbox. Its own
+ *   claims about clients and certifications are not repeated here.
  * - Singapore plates: license plate recognition reads US and Singapore plates (rule 2).
  * - PDPA: work in progress, not held, targeted for the end of 2026 (rule 2).
  * - Footage: S3 in the AWS region nearest the customer's sites; never name a country.
@@ -34,7 +36,7 @@ export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
   { question: 'Is Camzify a Singapore company?', answer: `Yes. Camzify is built by ${siteConfig.legalName}, headquartered in Singapore at ${formattedAddress}.` },
-  { question: 'Who is Camzify\'s partner in Singapore?', answer: 'Nettbox is Camzify\'s local partner in Singapore. Contact Camzify and we will bring Nettbox in where a site needs a partner on the ground.' },
+  { question: 'Who is Camzify\'s partner in Singapore?', answer: 'Nettbox (nettbox.com.sg) is Camzify\'s local partner in Singapore. Nettbox describes itself as an integrated security and smart systems company in Singapore, covering CCTV and video analytics, access control, smart communities, fleet monitoring and IoT, with a Singapore-based team. Contact Camzify and we will bring Nettbox in where a site needs a partner on the ground.' },
   { question: 'Does it work with the CCTV we already have?', answer: 'Yes, if the cameras offer a standard RTSP stream, ONVIF, an RTMP push or an HTTPS stream, which most IP cameras do. Cameras on the site\'s network connect through the Camzify Connector, with no port forwarding.' },
   { question: 'Can it read Singapore car plates?', answer: 'Yes. Camzify\'s license plate recognition reads US and Singapore plates and alerts the people you choose when a plate on your watchlist is seen. It is a custom detection, set up per site.' },
   { question: 'Is Camzify PDPA compliant?', answer: 'Work toward the Personal Data Protection Act, alongside GDPR, SOC 2 Type II and ISO 27001, is in progress and targeted for the end of 2026; none of the four is held today. The security and compliance page sets out what is in place now.' },
@@ -140,7 +142,10 @@ export default function SingaporePage() {
               <span className="font-mono text-mono-sm uppercase text-primary">Local partner</span>
               <h2 className="mt-3 font-display text-2xl font-bold sm:text-3xl">Working with Nettbox</h2>
               <p className="mt-4 max-w-prose text-body text-muted-foreground">
-                Nettbox is Camzify&rsquo;s local partner in Singapore. Talk to us first, by phone on{' '}
+                <a href="https://www.nettbox.com.sg/" className="text-primary hover:underline" rel="noopener" target="_blank">Nettbox</a> is Camzify&rsquo;s local partner in Singapore. On its own site, Nettbox describes itself as an integrated security and smart systems company in Singapore, connecting CCTV and video analytics, access control, smart communities, fleet monitoring and IoT, with a Singapore-based team.
+              </p>
+              <p className="mt-4 max-w-prose text-body text-muted-foreground">
+                Talk to us first, by phone on{' '}
                 <a href={`tel:${siteConfig.phone.replace(/\s/g, '')}`} className="text-primary hover:underline">{siteConfig.phone}</a> or through the{' '}
                 <Link href="/contact" className="text-primary hover:underline">contact page</Link>, and we will bring Nettbox in where a site needs a partner on the ground. Security and installation companies that want to offer Camzify themselves can start with the{' '}
                 <Link href="/partners" className="text-primary hover:underline">partner program</Link>.
