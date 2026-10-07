@@ -1,0 +1,46 @@
+# Refresh lib/lastmod-dates.json after every push to main.
+#
+# sitemap.xml dates each page by its last content change, from git (lib/lastmod.ts).
+# Vercel's builds have no git history (.vercelignore removes .git/, which is ~580 MB),
+# so production reads this committed file instead. This job recomputes it from full
+# history and commits it back to main when it changed; that commit redeploys with the
+# fresh dates. The paths filter keeps the job from re-triggering on its own commit.
+name: Sitemap lastmod
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'lib/lastmod-dates.json'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: lastmod
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Recompute dates from full history
+        run: npx -y tsx scripts/update-lastmod.ts
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- lib/lastmod-dates.json; then
+            echo "lastmod dates unchanged"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add lib/lastmod-dates.json
+          git commit -m "Refresh sitemap lastmod dates"
+          git push
