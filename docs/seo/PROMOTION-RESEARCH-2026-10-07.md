@@ -131,3 +131,36 @@ system #32–33 (170 each, `/cloud-video-surveillance`).
 - No vendor owns "virtual patrolling" in ChatGPT answers: it is open ground.
 - ChatGPT reads "cloud VMS" as cloud virtual machines; in copy aimed at AI answers say
   "cloud video management system" or "cloud video surveillance".
+
+---
+
+## Regions (added the same day)
+
+Search Console, last 90 days, impressions by country: United States 13,537 (59%), United
+Kingdom 1,936, India 1,075, Australia 672, Canada 515, Germany 430, Singapore 308, UAE
+225. Vercel's large Singapore and Pakistan visitor shares are mostly the team's own
+offices, not buyers.
+
+Wording by market (DataForSEO keyword overview, monthly):
+- **US:** "security cameras", "license plate reader / LPR / ALPR" (60,500 / 9,900),
+  "virtual guard", "remote video monitoring", "video management software".
+- **UK:** "CCTV" throughout: "commercial CCTV" 720, "remote CCTV monitoring" 390, "CCTV
+  monitoring" 1,600. Plates are "ANPR camera" (9,900); Camzify reads only US and
+  Singapore plates, so UK plate demand is not one to court until UK plates are built.
+- **Australia:** "security cameras" for products, "ANPR" for plates.
+- **Singapore and India:** "CCTV" and "CCTV camera". Singapore searches are local-service
+  ("cctv singapore" 1,900, "cctv installation singapore" 880, "security company
+  singapore" 1,600); plate and AI searches tied to Singapore are near zero.
+
+Camera brands by market ("<brand> camera", monthly): US Reolink 40,500, Lorex 18,100,
+UniFi 14,800, Hikvision 12,100, Axis 9,900; UK Hikvision and Reolink 9,900 each, then EZVIZ
+2,900; Australia Reolink 8,100, Dahua 5,400, Swann 4,400; Canada Lorex 6,600; India
+Hikvision 49,500, Imou 18,100, EZVIZ 12,100; Germany "reolink kamera" 33,100.
+
+Done from this: setup guides added for Lorex, Hanwha Vision, Swann and EZVIZ (nine
+in all); Swann, EZVIZ and Imou added to the brand list; "commercial CCTV" and "remote
+CCTV monitoring" wording on the business and remote monitoring pages. Held back: UniFi
+(Ubiquiti's help center does not document the per-camera RTSP switch) and Imou (no RTSP
+URL documented). Open questions for the business: whether to build a Singapore page (the
+company is there, but the searches are for local installers), and whether German brand
+guides are wanted (Reolink's German demand is large).

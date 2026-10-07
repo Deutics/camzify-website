@@ -59,8 +59,8 @@ export default function CameraBrandGuidePage({ params }: { params: { brand: stri
           </h1>
           <p className="mt-6 max-w-prose text-body leading-relaxed text-muted-foreground">
             <strong className="font-semibold text-foreground">
-              {g.brand} IP cameras connect to Camzify over RTSP, so the cameras already installed can run AI
-              detections, virtual patrol rounds and cloud recording without being replaced.
+              {g.opening ??
+                `${g.brand} IP cameras connect to Camzify over RTSP, so the cameras already installed can run AI detections, virtual patrol rounds and cloud recording without being replaced.`}
             </strong>{' '}
             {g.intro}
           </p>

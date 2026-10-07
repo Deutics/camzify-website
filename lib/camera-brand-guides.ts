@@ -45,7 +45,12 @@ export type CameraBrandGuide = {
   title: string;
   /** Meta description, 163 characters or fewer. */
   description: string;
-  /** Two or three sentences after the standard opening: what is specific to this brand. */
+  /**
+   * Replaces the standard bold opening ("<Brand> IP cameras connect to Camzify over RTSP ...")
+   * where that would overclaim: brands that offer RTSP on some products only.
+   */
+  opening?: string;
+  /** Two or three sentences after the opening: what is specific to this brand. */
   intro: string;
   /** RTSP stream URL formats, as documented. */
   streams: StreamUrl[];
@@ -180,6 +185,43 @@ export const CAMERA_BRAND_GUIDES: CameraBrandGuide[] = [
     checked: '7 October 2026',
   },
   {
+    slug: 'hanwha-vision',
+    brand: 'Hanwha Vision',
+    title: 'Hanwha Vision RTSP URL and ONVIF Setup',
+    description: 'The Hanwha Vision (Wisenet) RTSP URL for cameras, multi-sensor models and NVR channels, ONVIF that is always on, and running AI patrols on Hanwha cameras.',
+    intro:
+      'Hanwha Vision, formerly Wisenet, numbers its streams as video profiles rather than main and sub streams, and keeps ONVIF switched on at all times. Hanwha itself treats RTSP as the fallback when its own API or ONVIF is not an option; for Camzify, RTSP is the direct route.',
+    streams: [
+      { label: 'IP camera', url: 'rtsp://<username>:<password>@<camera-ip>:<port>/profile<number>/media.smp', note: "554 is the default RTSP port and can be changed in the device's Network section. In Hanwha's VMS guidance, profile 2 is the camera's default H.264 stream and profile 3 its default H.265 stream." },
+      { label: 'Multi-sensor camera or encoder', url: 'rtsp://<camera-ip>:<port>/<sensor>/profile2/media.smp', note: '<sensor> is the sensor (or encoder channel) number.' },
+      { label: 'Through a Hanwha NVR', url: 'rtsp://<nvr-ip>:<port>/LiveChannel/<channel>/media.smp', note: 'Channels are numbered from 0. On an NVR the RTSP port is the last Device Port set on the unit: with 554–558, it is 558.' },
+    ],
+    enable: [
+      'Hanwha says its devices always have ONVIF enabled, so there is no switch to turn on. What it does ask is that the time, date, daylight saving time and time zone match between the camera and the system connecting to it.',
+      'For the stream itself, Hanwha\'s advice is to create a user account for the connection and not to give it admin rights.',
+    ],
+    rtmp:
+      "Hanwha documents no native RTMP push from its cameras: its own RTMP guide relays the camera's RTSP stream through FFmpeg running on a PC. For Camzify, RTSP is the direct route.",
+    notes: [
+      "Hanwha notes that a camera's own web page plays H.265 only up to 720p, and for one third-party playback problem its advice is to use H.264 or a lower resolution.",
+    ],
+    faqs: [
+      { question: 'What is the RTSP URL for a Hanwha Vision camera?', answer: 'rtsp://<username>:<password>@<camera-ip>:<port>/profile<number>/media.smp, on the default port 554. Profile 2 is the default H.264 stream and profile 3 the default H.265 stream.' },
+      { question: 'How do I get one camera from a Hanwha NVR over RTSP?', answer: 'rtsp://<nvr-ip>:<port>/LiveChannel/<channel>/media.smp, with channels numbered from 0 and the port set to the last Device Port on the NVR.' },
+      { question: 'Do I need to enable ONVIF on a Hanwha camera?', answer: 'No. Hanwha devices always have ONVIF enabled; keep the time and time zone in step with the system connecting to them.' },
+      { question: 'Can Camzify run AI detections and patrols on Hanwha cameras?', answer: "Yes. Once the stream is added, Camzify runs virtual patrol rounds, its AI detections and cloud recording on a Hanwha camera like any other. The detections are Camzify's own and do not depend on the camera's built-in analytics." },
+    ],
+    sources: [
+      { title: 'Hanwha Vision: What are the RTSP URLs of Hanwha Devices?', url: 'https://support.hanwhavision.com/hc/en-001/articles/47257361792659-What-are-the-RTSP-URLs-of-Hanwha-Devices' },
+      { title: 'Hanwha Vision: Camera - RTSP URL', url: 'https://support.hanwhavision.com/hc/en-001/articles/47782445700243-Camera-RTSP-URL' },
+      { title: 'Hanwha Vision: How to use Hanwha cameras with exacqVision', url: 'https://support.hanwhavision.com/hc/en-001/articles/47256874514195-How-to-use-Hanwha-cameras-with-exacqVision' },
+      { title: 'Hanwha Vision: ONVIF: Supported VMS and Device Firmware Versions', url: 'https://support.hanwhavision.com/hc/en-001/articles/47257214896659-ONVIF-Supported-VMS-and-Device-Firmware-Versions' },
+      { title: 'Hanwha Vision: How Do I RTMP Stream to my YouTube Channel?', url: 'https://support.hanwhavision.com/hc/en-001/articles/47257257619347-How-Do-I-RTMP-Stream-to-my-YouTube-Channel' },
+      { title: 'Hanwha Vision: Camera video playback by Genetec not working', url: 'https://support.hanwhavision.com/hc/en-001/articles/47257365975571-Camera-video-playback-by-Genetec-not-working' },
+    ],
+    checked: '7 October 2026',
+  },
+  {
     slug: 'reolink',
     brand: 'Reolink',
     title: 'Reolink RTSP URL and ONVIF Setup for AI',
@@ -218,6 +260,112 @@ export const CAMERA_BRAND_GUIDES: CameraBrandGuide[] = [
       { title: 'Reolink: Which Reolink Products Support CGI/RTSP/ONVIF', url: 'https://support.reolink.com/articles/900000617826-Which-Reolink-Products-Support-CGI-RTSP-ONVIF/' },
       { title: 'Reolink: Introduction to Real-Time Messaging Protocol (RTMP)', url: 'https://support.reolink.com/articles/23528840063769-Introduction-to-Real-Time-Messaging-Protocol-RTMP/' },
       { title: 'Reolink: Reolink RTSP/ONVIF/RTMP Not Working', url: 'https://support.reolink.com/articles/900002151566-Reolink-RTSP-ONVIF-RTMP-Not-Working/' },
+    ],
+    checked: '7 October 2026',
+  },
+  {
+    slug: 'lorex',
+    brand: 'Lorex',
+    title: 'Lorex RTSP URL and ONVIF Setup for AI',
+    description: 'The Lorex RTSP URL for its NVRs and DVRs by series, turning RTSP on for LNK7000 recorders, ONVIF on X Series, and running AI patrols on Lorex cameras.',
+    opening:
+      'Lorex recorders and cameras that offer RTSP connect to Camzify over it, so the cameras already installed can run AI detections, virtual patrol rounds and cloud recording without being replaced.',
+    intro:
+      "Lorex says third-party RTSP streaming is available on certain models of its DVRs, NVRs and IP cameras, and the address depends on the series. The formats below are from Lorex's own manuals, so check which series your recorder belongs to.",
+    streams: [
+      { label: 'Lorex NVR or DVR (NR810 and DV800 series manuals)', url: 'rtsp://<username>:<password>@<recorder-ip>:<port>/cam/realmonitor?channel=<channel>&subtype=<stream>', note: 'subtype=0 is the main stream and subtype=1 the sub stream; 554 is the default RTSP port.' },
+      { label: 'Lorex LNK7000 series NVR', url: 'rtsp://<recorder-ip>:<port>/ch<channel>/<stream>', note: 'Channel as two digits (01 for channel 1); stream 0 is the main stream, 1 the sub stream and 2 the mobile stream, which must be enabled before it can be used.' },
+    ],
+    enable: [
+      'On the LNK7000 series, RTSP is switched on in the recorder: under Settings, click Network, open the RTSP tab, set RTSP Enable and Verify to Enable, change the RTSP port there if needed, and save.',
+      "Lorex's help for its X Series X5 4K PoE bullet camera states that the camera supports ONVIF and RTSP, while recommending a Lorex NVR for full feature support.",
+    ],
+    rtmp: null,
+    notes: [
+      "Lorex's manuals note that viewing the RTSP stream over the internet needs the RTSP port forwarded on the router. With Camzify, cameras on a local network can use the Connector instead, with no port forwarding.",
+      'Lorex says it cannot provide support for third-party software, so RTSP questions go to the receiving software\'s vendor.',
+    ],
+    faqs: [
+      { question: 'What is the RTSP URL for a Lorex NVR?', answer: 'It depends on the series. Lorex\'s NR810 and DV800 manuals give rtsp://<username>:<password>@<recorder-ip>:<port>/cam/realmonitor?channel=<channel>&subtype=<stream>; the LNK7000 series uses rtsp://<recorder-ip>:<port>/ch<channel>/<stream>.' },
+      { question: 'How do I turn on RTSP on a Lorex LNK7000 NVR?', answer: 'Settings > Network > RTSP tab: set RTSP Enable and Verify to Enable, and save.' },
+      { question: 'Do Lorex cameras support ONVIF?', answer: 'Some do: Lorex states that its X Series X5 4K PoE bullet camera supports ONVIF and RTSP. Check the model\'s own documentation for others.' },
+      { question: 'Can Camzify run AI detections and patrols on Lorex cameras?', answer: "Yes, on any Lorex camera or recorder channel that offers an RTSP stream. Camzify then runs virtual patrol rounds, its AI detections and cloud recording on it like any other camera." },
+    ],
+    sources: [
+      { title: 'Lorex: IP Cameras: Using Real Time Streaming Protocol (RTSP) with your DVR / NVR', url: 'https://www.lorex.com/blogs/help/ip-cameras-using-real-time-streaming-protocol-rtsp-with-your-dvr-nvr' },
+      { title: 'Lorex NR810 Series manual: RTSP Streaming (Advanced)', url: 'https://www.lorextechnology.com/downloads/security-nvr/NR810-Series/NR810_HTML_EN/sect1sect19.html' },
+      { title: 'Lorex DV800 Series manual: RTSP Streaming (Advanced)', url: 'https://www.lorextechnology.com/downloads/security-dvr/DV800-Series/manual-EN/sect1sect21.html' },
+      { title: 'Lorex LNK7000 manual: Configuring RTSP Streaming (Advanced)', url: 'https://www.lorextechnology.com/downloads/security-nvr/LNK7000-LS/manual/sect1sect13.html' },
+      { title: 'Lorex: X Series X5 4K PoE Bullet Camera FAQs', url: 'https://www.lorex.com/blogs/help/x-series-lorex-connect-x5-4k-poe-bullet-camera-faqs-troubleshooting' },
+    ],
+    checked: '7 October 2026',
+  },
+  {
+    slug: 'swann',
+    brand: 'Swann',
+    title: 'Swann RTSP Support and URL Setup',
+    description: 'Which Swann recorders offer RTSP, where to find the setting, the EliteX stream URL, and how to run AI detections and patrols on Swann cameras that stream.',
+    opening:
+      'Swann recorders that offer RTSP connect to Camzify over it, so the cameras on them can run AI detections, virtual patrol rounds and cloud recording; not every Swann product does.',
+    intro:
+      "Swann states that not every Swann product supports RTSP, and that if a product's manual or specifications do not mention RTSP, it is not officially supported. Its own RTSP article lists which systems do.",
+    streams: [
+      { label: 'Swann EliteX system', url: 'rtsp://admin:<recorder-password>@<recorder-ip>:554/<channel><stream>', note: 'Channel starts at 0 for channel 1; stream is 0 for main and 1 for sub, so /00 is channel 1\'s main stream. Swann calls this format undocumented but acknowledges EliteX is RTSP capable.' },
+    ],
+    enable: [
+      "On Swann's DVRs and NVRs (including the 8580, 8600 and 8780), SecureAlert (NVW-800), AllSecure (NVW-650/800) and AdvancedX systems, the RTSP setting is under Network > Port Configuration, where the model supports it. Swann's recorders use port 554 for RTSP by default, and it can be changed.",
+      'Some Swann NVRs can add a camera with its Protocol set to ONVIF, but Swann notes that not all recorders support ONVIF.',
+    ],
+    rtmp: null,
+    notes: [
+      'Swann lists its standalone cameras and the MaxRanger4K Base Station as not supporting RTSP. The MaxRanger4K Power Hub supports it, but its battery-powered cameras do not.',
+      "Swann describes RTSP as designed for a trusted local network and says its technical support does not assist with RTSP or third-party software. For cameras on a local network, the Camzify Connector relays the stream without exposing it to the internet.",
+    ],
+    faqs: [
+      { question: 'Do Swann cameras support RTSP?', answer: "Some Swann recorders do; standalone Swann cameras do not. Swann says that if a product's manual or specifications do not mention RTSP, it is not officially supported." },
+      { question: 'Where is the RTSP setting on a Swann NVR?', answer: 'On the DVRs and NVRs that support it, under Network > Port Configuration. The default RTSP port is 554.' },
+      { question: 'What is the RTSP URL for a Swann EliteX system?', answer: 'rtsp://admin:<recorder-password>@<recorder-ip>:554/<channel><stream>, with channel 0 for channel 1 and stream 0 for main or 1 for sub.' },
+      { question: 'Can Camzify run AI detections and patrols on Swann cameras?', answer: 'Yes, on cameras whose Swann recorder offers an RTSP stream. Camzify then runs virtual patrol rounds, its AI detections and cloud recording on them like any other camera.' },
+    ],
+    sources: [
+      { title: 'Swann: Access Your Swann Camera Using RTSP', url: 'https://support.swann.com/hc/en-us/articles/60259789314713-Access-Your-Swann-Camera-Using-RTSP' },
+      { title: 'Swann: Still no mobile access to my NVR system even after changing the RTSP port number 554 to 1085', url: 'https://support.swann.com/hc/en-us/articles/4803301185817-Still-no-mobile-access-to-my-NVR-system-even-after-changing-the-RTSP-port-number-554-to-1085' },
+      { title: "Swann: Camera FAQ's - NHD-855/856 Connection Guide", url: 'https://support.swann.com/hc/en-us/articles/4658181385497-Camera-FAQ-s-NHD-855-856-Connection-Guide' },
+    ],
+    checked: '7 October 2026',
+  },
+  {
+    slug: 'ezviz',
+    brand: 'EZVIZ',
+    title: 'EZVIZ RTSP URL and ONVIF Setup',
+    description: 'The EZVIZ RTSP URL, which password the stream uses, which EZVIZ cameras and recorders support ONVIF, and running AI detections and patrols on EZVIZ cameras.',
+    opening:
+      'EZVIZ cameras that offer RTSP connect to Camzify over it, so they can run AI detections, virtual patrol rounds and cloud recording without being replaced.',
+    intro:
+      "EZVIZ documents RTSP and ONVIF only in places: the stream address below, the password it uses, and a list of camera models that support ONVIF from a given firmware version. Check the model before relying on either.",
+    streams: [
+      { label: 'Main stream (from EZVIZ\'s C6N, TY1 and TY2 guide)', url: 'rtsp://admin:<verification-code>@<camera-ip>:554/ch1/main', note: 'The verification code is the six capital letters on the device label, unless a different encryption password has been set (see below). EZVIZ documents no sub-stream path.' },
+    ],
+    enable: [
+      'EZVIZ uses one password for the stream: the one set when the device is added to an account, which serves as both the video encryption password and the login for local features including RTSP and ONVIF. It is changed in the EZVIZ app under Device > Settings > Privacy Settings > Change Encryption Password.',
+      'ONVIF is supported on the EZVIZ X5S and X5C recorders, on DVR/NVR kits such as the X4 with the latest firmware, and on a published list of camera models, including outdoor pan-tilt models such as the H8c, H8 and C8W, each from a minimum firmware version.',
+    ],
+    rtmp: null,
+    notes: [
+      "EZVIZ's smart video doorphone supports neither RTSP nor ONVIF.",
+      'Because one password protects both the stream and the video encryption, changing it in the EZVIZ app changes both; update it in Camzify at the same time.',
+    ],
+    faqs: [
+      { question: 'What is the RTSP URL for an EZVIZ camera?', answer: "EZVIZ's documented format is rtsp://admin:<verification-code>@<camera-ip>:554/ch1/main, where the verification code is the six-letter code on the device label, or the encryption password if one has been set." },
+      { question: 'What password does the EZVIZ RTSP stream use?', answer: 'The password set when the device was added to an account, which EZVIZ calls the encryption password; it is also the login for ONVIF. It is changed in the app under Device > Settings > Privacy Settings.' },
+      { question: 'Do EZVIZ cameras support ONVIF?', answer: 'Some do: EZVIZ publishes a list of camera models with ONVIF from a minimum firmware version, and its X5S and X5C recorders support it. The smart video doorphone does not.' },
+      { question: 'Can Camzify run AI detections and patrols on EZVIZ cameras?', answer: "Yes, on EZVIZ cameras that offer an RTSP stream. Camzify then runs virtual patrol rounds, its AI detections and cloud recording on them like any other camera." },
+    ],
+    sources: [
+      { title: 'EZVIZ: How to set up C6N/TY1/TY2 as a webcam?', url: 'https://support.ezviz.com/faq/article/How-to-set-up-C6N-TY1-TY2-as-a-webcam' },
+      { title: 'EZVIZ: How should I set/change the login password for local connectivity features', url: 'https://support.ezviz.com/faq/article/How-should-I-set-the-login-password-for-local-connectivity-features-supported' },
+      { title: 'EZVIZ: Whether EZVIZ devices support ONVIF protocol', url: 'https://support.ezviz.com/faq/article/Whether-EZVIZ-devices-support-ONVIF-protocol' },
+      { title: 'EZVIZ: Does the smart video doorphone support RTSP or ONVIF?', url: 'https://support.ezviz.com/faq/article/Does-the-smart-video-doorphone-support-RTSP-or-ONVIF' },
     ],
     checked: '7 October 2026',
   },

@@ -82,6 +82,9 @@ export const cameraBrands: CameraBrand[] = [
   { name: 'Milesight', logo: '/brands/milesight.png', note: 'ONVIF conformant IP cameras' },
   { name: 'Tiandy', logo: '/brands/tiandy.png', note: 'ONVIF and RTSP on IP models' },
   { name: 'i-PRO', logo: '/brands/i-pro.png', note: 'ONVIF Profile S on i-PRO IP ranges; formerly Panasonic Security' },
+  { name: 'Swann', logo: null, note: 'RTSP on selected recorders only' },
+  { name: 'EZVIZ', logo: null, note: 'ONVIF on listed models; RTSP with the device password' },
+  { name: 'Imou', logo: null, note: 'ONVIF on many mains-powered models, not battery models' },
 ];
 
 /**

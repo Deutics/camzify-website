@@ -37,6 +37,9 @@ const noteDe: Record<string, string> = {
   'ONVIF and RTSP on IP models': 'ONVIF und RTSP bei IP-Modellen',
   'RTSP on IP models': 'RTSP bei IP-Modellen',
   'ONVIF Profile S on i-PRO IP ranges; formerly Panasonic Security': 'ONVIF Profile S in den IP-Serien von i-PRO; früher Panasonic Security',
+  'RTSP on selected recorders only': 'RTSP nur bei ausgewählten Rekordern',
+  'ONVIF on listed models; RTSP with the device password': 'ONVIF bei den aufgeführten Modellen; RTSP mit dem Gerätepasswort',
+  'ONVIF on many mains-powered models, not battery models': 'ONVIF bei vielen netzbetriebenen Modellen, nicht bei Akkumodellen',
 };
 
 const brandsDe = cameraBrands.map((b) => ({ ...b, note: noteDe[b.note] ?? b.note }));

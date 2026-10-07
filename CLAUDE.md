@@ -94,6 +94,10 @@ components/
 lib/
   site-config.ts        Identity + navigation. Single source of truth
   glossary-terms.ts     The glossary: one entry renders one /glossary/<slug> page
+  camera-brand-guides.ts  One entry renders one /supported-cameras/<brand> setup guide. Every
+                        brand fact comes from that manufacturer's own documentation, opened
+                        and listed in the entry's sources; where the docs are silent, so is
+                        the page (UniFi and Imou are held back for that reason)
   seo.ts                All schema.org builders
   page-utils.tsx        generatePageMeta — every page's <head> metadata
 docs/                   The documentation set. Keep it current
