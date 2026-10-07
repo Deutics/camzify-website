@@ -13,8 +13,8 @@ import Link from 'next/link';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "AI Attribute Extraction | Describe Who Was Seen",
-  description: "Camzify AI attribute extraction uses a vision-language model to attach structured attributes, clothing, object type, behavior, to every detection.",
+  title: "AI Attribute Extraction Software for CCTV",
+  description: "AI attribute extraction tags every detection with clothing, object type and behavior, so investigators can later find footage by plain-language description.",
   path: "/ai-features/ai-attribute-extraction",
 };
 

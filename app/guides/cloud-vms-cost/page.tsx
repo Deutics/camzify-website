@@ -18,8 +18,8 @@ import Link from 'next/link';
  * dollar figure appears here for Camzify or for any other vendor.
  */
 const pageMeta = {
-  title: "Cloud VMS Cost | What Drives the Price",
-  description: "What drives cloud VMS cost: cameras, detections per camera, retention, bandwidth, sites and users, the pricing models to compare and the hidden fees.",
+  title: "VMS Cost: What Cloud Video Management Costs",
+  description: "What a video management system costs to run: cameras, detections, retention, bandwidth and sites, the ongoing fees in each pricing model, and the hidden costs.",
   path: "/guides/cloud-vms-cost",
 };
 

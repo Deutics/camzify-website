@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next';
 import { siteConfig } from '@/lib/site-config';
 import { SITEMAP_ENTRIES } from '@/lib/routes';
+import { lastModifiedFor } from '@/lib/lastmod';
 
 /**
  * Static sitemap, generated at build time from the route list in lib/routes.ts, which the
@@ -10,14 +11,19 @@ import { SITEMAP_ENTRIES } from '@/lib/routes';
  * extension every crawl of it) to render dynamically. Canonical host now comes from
  * `siteConfig.url`, matching the canonical tags — a sitemap whose URLs disagree with
  * the page canonicals is a self-inflicted duplicate-content signal.
+ *
+ * `lastmod` is each page's last real content change, from git (lib/lastmod.ts), not the
+ * build time: stamping every page with the build date told crawlers all 267 pages
+ * changed on every release. A page whose date git cannot establish has no lastmod.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date();
-
-  return SITEMAP_ENTRIES.map(({ path, priority, changeFrequency }) => ({
-    url: `${siteConfig.url}${path === '/' ? '' : path}`,
-    lastModified,
-    changeFrequency,
-    priority,
-  }));
+  return SITEMAP_ENTRIES.map(({ path, priority, changeFrequency }) => {
+    const lastModified = lastModifiedFor(path);
+    return {
+      url: `${siteConfig.url}${path === '/' ? '' : path}`,
+      ...(lastModified ? { lastModified } : {}),
+      changeFrequency,
+      priority,
+    };
+  });
 }

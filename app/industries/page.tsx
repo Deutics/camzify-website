@@ -53,7 +53,8 @@ export default function IndustriesHub() {
         <div className="mx-auto max-w-site px-6">
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Industries</h1>
           <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-            Every facility is different, but the security challenge is the same: cameras record, guards can't be everywhere, and nobody checks what needs checking. Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system is configured per environment to address industry-specific risks.
+            Every facility is different, but the security challenge is the same: cameras record, guards can't be everywhere, and nobody checks what needs checking. Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> system is configured per environment to address industry-specific risks. For what any business needs from its cameras, start with{' '}
+            <a href="/business-security-cameras" className="text-primary hover:underline">business security cameras</a>.
           </p>
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {items.map((ind, i) => (

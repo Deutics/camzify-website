@@ -4,7 +4,8 @@ import { FaqSection } from '@/components/content/faq-section';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
 import { BrandStrip } from '@/components/content/brand-strip';
-import { cameraBrands } from '@/lib/camera-brands';
+import { cameraBrands, type CameraBrand } from '@/lib/camera-brands';
+import { guideFor } from '@/lib/camera-brand-guides';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -13,7 +14,7 @@ import { cameraBrands } from '@/lib/camera-brands';
  */
 const pageMeta = {
   title: "Supported Cameras | ONVIF and RTSP Brands",
-  description: "Camzify works with any ONVIF or RTSP-compatible IP camera: Axis, Hikvision, Dahua, Hanwha, Uniview and more. Check yours before a demo.",
+  description: "Camzify works with any ONVIF, RTSP or RTMP camera, not only the brands listed: Axis, Hikvision, Dahua, Reolink, Amcrest and more, with a setup guide per brand.",
   path: "/supported-cameras",
 };
 
@@ -22,11 +23,19 @@ export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
   { question: 'Does Camzify work with ONVIF and RTSP cameras?', answer: 'Yes. Camzify connects any IP camera that publishes an RTSP stream, which includes ONVIF-conformant cameras from every major manufacturer, and it also accepts RTMP pushes from encoders and HTTPS streams (HLS and WebRTC). No proprietary camera is required and none is sold: the cameras a site already owns are the cameras Camzify runs on.' },
-  { question: 'My brand is not on the list. Will my cameras work?', answer: 'Very likely, if they produce an RTSP stream, which almost every IP camera made in the last decade does. The list names manufacturers whose ONVIF-conformant cameras are known to interoperate; it is not an exclusive list.' },
+  { question: 'My brand is not on the list. Will my cameras work?', answer: 'Very likely. Camzify is not limited to the brands listed: any camera that offers an RTSP stream (every ONVIF Profile S camera does), pushes RTMP, or streams over HTTPS as HLS or WebRTC can be connected. The list names the manufacturers seen most often; it is not an exclusive list.' },
   { question: 'Do cameras need to be reachable from the internet?', answer: 'No. Cameras on a local network connect through the Camzify Connector on a PC inside that network, with no port forwarding.' },
   { question: 'Does listing a brand mean a partnership?', answer: "No. Brand names and logos are their owners' trademarks. Listing states that the manufacturer's ONVIF-conformant cameras interoperate with Camzify and implies no partnership or endorsement." },
   { question: 'What about encoders and web streams?', answer: 'Encoders push RTMP to a private ingest address; web-delivered streams connect over HTTPS as HLS or WebRTC. The camera connectivity pages cover each route.' },
 ];
+
+/** A brand with a setup guide links to it; every other tile links to the RTSP setup guide. */
+function brandLink(b: CameraBrand) {
+  const g = guideFor(b.name);
+  return g
+    ? { href: `/supported-cameras/${g.slug}`, label: `${b.name} setup guide` }
+    : { href: '/camera-connectivity/rtsp-setup', label: 'Connect over RTSP' };
+}
 
 export default function SupportedCamerasPage() {
   return (
@@ -37,7 +46,23 @@ export default function SupportedCamerasPage() {
           <p className="mt-6 max-w-prose text-body text-muted-foreground">
             Camzify connects to any IP camera that supports ONVIF or RTSP, which covers effectively every IP camera made in the last decade, whoever made it. A camera is added over one of three connection types: RTSP, RTMP or HTTPS. Compatibility is decided by the protocol rather than the brand, so if your camera exposes an RTSP stream it will work with Camzify and the <Link href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</Link> system.
           </p>
-          <p className="mt-4 text-muted-foreground">
+          <div className="mt-8 max-w-prose rounded-xl border border-primary/30 bg-primary/5 p-6">
+            <h2 className="font-display text-lg font-bold">Not limited to the brands on this page</h2>
+            <p className="mt-2 text-muted-foreground">
+              The manufacturers listed below are the ones seen most often, not the limit of what works. Camzify runs on
+              any camera, from any maker, that does one of three things:
+            </p>
+            <ul className="mt-3 list-disc space-y-1 pl-5 text-muted-foreground">
+              <li>offers an <Link href="/camera-connectivity/rtsp-setup" className="text-primary hover:underline">RTSP stream</Link>, which every ONVIF Profile S camera does;</li>
+              <li>pushes <Link href="/camera-connectivity/rtmp-setup" className="text-primary hover:underline">RTMP</Link> to a server, natively or through an encoder;</li>
+              <li>streams over <Link href="/camera-connectivity/https-setup" className="text-primary hover:underline">HTTPS</Link>, as HLS or WebRTC.</li>
+            </ul>
+            <p className="mt-3 text-muted-foreground">
+              It works the same way as the AI detections: the 23 standard ones are a starting point, and anything else
+              is <Link href="/ai-features/custom-detections" className="text-primary hover:underline">built to order</Link>.
+            </p>
+          </div>
+          <p className="mt-6 text-muted-foreground">
             New to camera protocols? Read <Link href="/guides/onvif-and-rtsp-explained" className="text-primary hover:underline">ONVIF and RTSP explained</Link> for a plain-language guide.
           </p>
 
@@ -83,7 +108,7 @@ export default function SupportedCamerasPage() {
                 who search by brand, it is not a compatibility matrix, and a manufacturer&rsquo;s
                 absence from it says nothing about whether its cameras work.
               </p>
-              <BrandStrip className="mt-8" showNotes />
+              <BrandStrip className="mt-8" showNotes linkFor={brandLink} />
             </ScrollReveal>
           </div>
 

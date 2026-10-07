@@ -19,6 +19,7 @@ export const metadata = generatePageMeta({ ...pageMeta });
 
 const faqs = [
   { question: 'What is remote video monitoring?', answer: 'Watching a site through its cameras from somewhere else, usually a monitoring room or a security agency, and acting on what is seen. On Camzify it has two parts: AI detections that watch each camera in the notification window set for it, and scheduled patrol rounds that check a list at every camera and file a report, whether or not an operator is looking at that site at the time.' },
+  { question: 'Is remote video monitoring the same as remote CCTV monitoring?', answer: 'Yes. Remote CCTV monitoring is the usual name in the UK and much of the Commonwealth, remote video monitoring the usual name in the US; both mean watching a site through its cameras from somewhere else and acting on what is seen.' },
   { question: 'How is it different from alarm monitoring?', answer: 'Alarm monitoring waits for a sensor to trip and then looks. Remote video monitoring with rounds looks on a schedule as well: a round at 22:00 finds the dock door left open before anyone has a reason to trip a sensor, records the frame and messages the guard. The alarm still comes through; the round is what runs when nothing has happened yet.' },
   { question: 'Does someone have to watch the screen?', answer: 'Not for the round to happen. An automated round runs on schedule, answers each checklist item from the frame and notifies the designated person on a failure. An operator can also run a round by hand and make each judgment themselves. Most monitoring companies run the automated rounds and put operators on what the rounds and detections raise.' },
   { question: 'Who is notified, and how?', answer: 'The person designated for that camera, on the channels set for that camera and severity: a guard on site, a mobile patrol, the client, or the monitoring room itself. Every detection feature has a notification window, so a rule can detect all day and only notify overnight.' },
@@ -30,7 +31,7 @@ const content: UseCaseContent = {
   eyebrow: 'Use case · Monitored from elsewhere',
   title: 'Remote video monitoring',
   lede: <>
-    <strong className="font-semibold text-foreground">Remote video monitoring is the watching of a site through its cameras from somewhere else, and acting on what is seen.</strong>{' '}
+    <strong className="font-semibold text-foreground">Remote video monitoring, or remote CCTV monitoring, is the watching of a site through its cameras from somewhere else, and acting on what is seen.</strong>{' '}
     Most of it is alarm-driven: nothing happens until a sensor trips. Camzify adds the round. Scheduled patrols step through the cameras, answer a checklist at each one from the frame, message the guard on a failure and file a report, while the AI detections watch between rounds in the hours you set.
   </>,
   facts: ['Rounds on schedule, operator or not', 'Detections in the window you set', 'A report per round, per client'],

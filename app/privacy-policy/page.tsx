@@ -26,7 +26,7 @@ const pageMeta = {
 
 export const metadata = generatePageMeta({ ...pageMeta });
 
-const UPDATED = '22 September 2026';
+const UPDATED = '7 October 2026';
 
 const faqs = [
   { question: 'Does this policy cover the Camzify product, or just the website?', answer: 'Just this website. Video, detections, patrol reports and account data in the Camzify console are processed under the customer agreement for that account, and the security and compliance page describes how that data is protected. This policy covers what happens when you read these pages or send us a form.' },
@@ -74,7 +74,7 @@ export default function PrivacyPolicyPage() {
             <strong className="font-semibold text-foreground">What your browser sends.</strong> Like any website, ours is served by a hosting provider that records the technical details of each request, such as your IP address, browser type, the page requested and the time. We use those records to keep the site running and secure, not to profile you.
           </P>
           <P>
-            <strong className="font-semibold text-foreground">Analytics.</strong> Vercel Web Analytics and Vercel Speed Insights measure page visits and load performance in aggregate; both are cookieless and cannot identify your browser across visits. If you accept the cookie banner shown on every page, Google Analytics and Microsoft Clarity also run: Google Analytics measures traffic and where visitors come from, and Microsoft Clarity records session playback and heatmaps of how pages are used. Neither runs until you accept, and the{' '}
+            <strong className="font-semibold text-foreground">Analytics.</strong> Vercel Web Analytics and Vercel Speed Insights measure page visits and load performance in aggregate; both are cookieless and cannot identify your browser across visits. Vercel Web Analytics also counts each completed form submission, recording only which form it was (for example, the demo request), never what you typed. If you accept the cookie banner shown on every page, Google Analytics and Microsoft Clarity also run: Google Analytics measures traffic and where visitors come from, including when a form is completed (again, which form, not its contents), and Microsoft Clarity records session playback and heatmaps of how pages are used. Neither runs until you accept, and the{' '}
             <Link href="/cookie-policy" className="text-primary hover:underline">cookie policy</Link> lists exactly what each one sets. There are no advertising networks or tracking pixels on this site, and we do not build advertising profiles of visitors.
           </P>
 
@@ -113,7 +113,7 @@ export default function PrivacyPolicyPage() {
 
           <H2>Changes</H2>
           <P>
-            This version reflects the addition of Vercel Web Analytics, Vercel Speed Insights, Google Analytics and Microsoft Clarity, described above. If we change what the site collects again, we will update this policy first and change the date at the top. This version was written on {UPDATED} from the site as it was on that day.
+            This version reflects the addition of Vercel Web Analytics, Vercel Speed Insights, Google Analytics and Microsoft Clarity, and the counting of completed form submissions, described above. If we change what the site collects again, we will update this policy first and change the date at the top. This version was written on {UPDATED} from the site as it was on that day.
           </P>
 
           <H2>Contact</H2>

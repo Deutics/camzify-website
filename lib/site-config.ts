@@ -216,6 +216,7 @@ export const navItems: NavEntry[] = [
         sections: [
           { label: 'Video', items: [
             { label: 'Cloud Video Surveillance', href: '/cloud-video-surveillance', description: 'Cloud recording and live view' },
+            { label: 'Business Security Cameras', href: '/business-security-cameras', description: 'AI on the cameras you own' },
             { label: 'Live Streaming', href: '/platform/live-streaming', description: 'A camera wall grouped by site' },
             { label: 'Video Backup', href: '/platform/video-backup-and-retention', description: 'Retention per camera, off site' },
           ] },

@@ -486,8 +486,8 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
   {
     slug: "camera-tampering",
     term: "Camera tampering",
-    title: "Camera Tampering, Defined | Video Glossary",
-    description: "Camera tampering is anything that stops a camera seeing what it should: covered, moved, defocused or frozen. How it is detected and why it matters.",
+    title: "Camera Tampering: Meaning, Signs, Detection",
+    description: "Camera tampering means anything that stops a camera seeing its scene: covered, moved, defocused or frozen. The signs, and how detection catches it.",
     definition: "Camera tampering is any interference that stops a camera from seeing what it should: the lens covered or sprayed, the camera turned away, the focus knocked out, the scene changed, or the feed frozen. Tampering detection raises it as it happens, so a blinded camera is not discovered days later when its footage is needed.",
     body: [
       "The failure it prevents is silent. A camera that has been covered still reports as online and still records, and nobody notices until an incident sends someone to the footage.",
@@ -635,8 +635,8 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
   {
     slug: "video-retention",
     term: "Video retention",
-    title: "What Is Video Retention? | Video Glossary",
-    description: "Video retention is how long recorded footage is kept before it is deleted. Set by law, sector, insurer and storage, and on Camzify per camera.",
+    title: "Video Retention: Meaning and How Long to Keep",
+    description: "Video retention means how long footage is kept before deletion, such as 3, 30 or 90 days. What sets it (law, sector, insurer) and how to set it.",
     definition: "Video retention is the period for which recorded footage is kept before it is automatically deleted, set by the rules that apply to the site, the sector and the insurer, and by the storage available. On a cloud VMS it is a setting per camera, in days or as a storage cap, rather than a property of a recorder's disks.",
     body: [
       "The obligation across the major privacy regimes has a common shape: a stated purpose for recording, retention no longer than that purpose needs, a defined period that the system actually enforces, and rights for the people recorded. The number itself varies by sector and contract.",

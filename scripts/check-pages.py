@@ -50,7 +50,9 @@ def static_checks(P):
             issues['description outside 70-163'].append((r, len(p['desc'])))
         if p['title'] and titles[p['title']] > 1:
             issues['duplicate title'].append(r)
-        if inbound[r] < 2 and not r.startswith('/glossary'):
+        # A dynamic template (e.g. /supported-cameras/[brand]) is not a URL; its rendered
+        # pages are linked by their own slugs, which this source scan cannot see.
+        if inbound[r] < 2 and not r.startswith('/glossary') and '[' not in r:
             issues['fewer than 2 inbound links'].append((r, inbound[r]))
         head = html.unescape(p['title'].split('|')[0]).strip().lower().replace('&', 'and')
         body = html.unescape(re.sub(r'<[^>]+>', ' ', p['src'][p['src'].find('const pageMeta'):])).lower().replace('&apos;', "'")

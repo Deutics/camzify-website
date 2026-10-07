@@ -1,5 +1,6 @@
 import { germanPaths } from '@/lib/i18n';
 import { GLOSSARY_TERMS } from '@/lib/glossary-terms';
+import { CAMERA_BRAND_GUIDES } from '@/lib/camera-brand-guides';
 
 /**
  * Every route on the site, in one list: the single source for sitemap.xml (app/sitemap.ts)
@@ -50,7 +51,7 @@ const hubs = group(
 );
 
 // Category pillars: the market's names for what the site sells, one page each.
-const pillars = group(['/virtual-guard', '/cloud-video-surveillance'], 0.8, 'weekly');
+const pillars = group(['/virtual-guard', '/cloud-video-surveillance', '/business-security-cameras'], 0.8, 'weekly');
 
 // Tier 3 — the flagship cluster. Highest-intent commercial content after the hubs.
 const virtualPatrolling = group(
@@ -264,6 +265,9 @@ const connectivity = group(
   'monthly'
 );
 
+// One setup guide per camera brand people search by name (lib/camera-brand-guides.ts).
+const cameraBrandGuides = group(CAMERA_BRAND_GUIDES.map((g) => `/supported-cameras/${g.slug}`), 0.6, 'monthly');
+
 const partners = group(
   [
     '/partners/become-a-reseller',
@@ -307,6 +311,7 @@ export const SITEMAP_ENTRIES: SitemapEntry[] = [
   ...guides,
   ...glossary,
   ...connectivity,
+  ...cameraBrandGuides,
   ...partners,
   ...company,
   ...de,

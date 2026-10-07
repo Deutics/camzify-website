@@ -16,8 +16,8 @@ import { SiteImage } from '@/components/content/site-image';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Multifamily & Residential Security Cameras | AI",
-  description: "Camzify provides AI-powered virtual patrolling and video analytics for residential, automated patrols, real-time alerts, and compliance reports.",
+  title: "Apartment Security Cameras | AI for Multifamily",
+  description: "AI for apartment and multifamily security cameras: gates, pools, parking and shared amenities checked on a schedule after hours, and the right person alerted.",
   path: "/industries/residential",
 };
 
@@ -33,22 +33,24 @@ const faqs = [
   { question: "Is Camzify suitable for a small residential community?", answer: "Yes. Pricing is per camera, so small communities with 4-10 cameras pay only for what they use. The ROI is strongest when compared to the cost of a nightly guard." },
   { question: "Will residents know they're being monitored by AI instead of a guard?", answer: "That's up to the HOA or property manager to communicate, the same way any CCTV or guard patrol would typically be disclosed. Camzify doesn't change what's visible to residents, just how the existing cameras are checked." },
   { question: "Can Camzify tell the difference between a resident and a visitor?", answer: "Camzify's standard detections don't identify individuals. It detects activity in a defined zone at a defined time, for example, anyone present at the pool after closing, regardless of who they are, which is what a guard's round would check for too." },
-  { question: "How quickly does someone get notified if the gate is left open?", answer: "Alerts fire in near real time from the moment a confirmed event is detected and route to the assigned contact through the notification queue with a timestamped clip, typically within seconds." },
+  { question: "How quickly does someone get notified if the gate is left open?", answer: "Alerts fire in near real time from the moment a confirmed event is detected and route to the assigned contact through the notification queue with a timestamped clip." },
   { question: "Does this replace our community's guard service entirely?", answer: "For most communities, it reduces reliance on guards for routine overnight rounds rather than eliminating a guard presence outright. Many communities run virtual patrols alongside a smaller guard team to cover blind spots and off-hours checks a single guard can't reach every hour." },
   { question: "Can different areas of the community have different rules?", answer: "Yes. Zones, schedules, and detection rules are configured per camera, so an entry gate active around the clock and a pool area active only outside posted hours can run entirely different rules on the same account." },
+  { question: "What are the best security cameras for an apartment complex?", answer: "Usually the ones the building already has, if they cover the gates, parking, lobbies and amenities and give a clear picture. What most apartment camera systems lack is not cameras but someone checking them: Camzify connects the existing cameras over RTSP, whatever the brand, and adds scheduled patrol rounds, AI detections and cloud recording. New cameras are only needed where a place that matters has none." },
+  { question: "Does it work with the cameras our building already has?", answer: "Yes, if they offer a standard RTSP stream or ONVIF, which most commercial IP cameras do. Cameras on the building's network connect through the Camzify Connector, with no port forwarding." },
   { question: "Does this suit a multifamily property?", answer: "Yes. Multifamily is where it fits best: gates, parking, lobbies, corridors and shared amenities on a scheduled round after hours, with a report per building and a manager who sees only their property through permission groups." },
 ];
 
 export default function ResidentialPage() {
   return (
-    <PageShell {...pageMeta} schema={[serviceSchema({ name: "AI Security for Residential", description: "Camzify provides AI-powered virtual patrolling and video analytics for residential, automated patrols, real-time alerts, and compliance reports.", path: "/industries/residential", audience: "Residential" })]} faqs={faqs} breadcrumbs={[
+    <PageShell {...pageMeta} schema={[serviceSchema({ name: "AI Security for Residential", description: "AI for apartment and multifamily security cameras: gates, pools, parking and shared amenities checked on a schedule after hours, and the right person alerted.", path: "/industries/residential", audience: "Residential" })]} faqs={faqs} breadcrumbs={[
       { label: 'Industries', href: '/industries' },
       { label: 'Residential' },
     ]}>
       <FeatureHero
         eyebrow="Industry · residential"
-        title="AI security for residential"
-        lede={<><strong className="font-semibold text-foreground">Multifamily properties and gated communities have entry gates, pools and amenity areas that go unwatched between staffed shifts, with one nightly guard pass covering the whole footprint.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> runs scheduled rounds on the cameras already on site, checks entry gates, amenity areas and common areas, messages the right person when a check fails, and keeps a timestamped record of every round.</>}
+        title="AI security for apartments and residential communities"
+        lede={<><strong className="font-semibold text-foreground">Apartment complexes, multifamily properties and gated communities have entry gates, pools and amenity areas that go unwatched between staffed shifts, with one nightly guard pass covering the whole footprint.</strong> Camzify's <a href="/virtual-patrolling" className="text-primary hover:underline">virtual patrolling</a> runs scheduled rounds on the cameras already on site, checks entry gates, amenity areas and common areas, messages the right person when a check fails, and keeps a timestamped record of every round.</>}
         facts={['Gated entry points left unwatched between staffed shifts', 'Pool and amenity areas used after posted closing hours', 'Visitor and delivery vehicles left unverified against…']}
         primary={{ href: '/book-a-demo', label: 'Book a demo' }}
         secondary={{ href: '/virtual-patrolling/how-it-works', label: 'How a round works' }}

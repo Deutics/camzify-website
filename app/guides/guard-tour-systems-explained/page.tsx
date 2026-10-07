@@ -19,7 +19,7 @@ import { PhotoFigure } from '@/components/content/photo-figure';
  * guide that pretends a camera can smell gas would not deserve to be cited.
  */
 const pageMeta = {
-  title: "Guard Tour Systems Explained",
+  title: "What Is a Guard Tour System? How It Works",
   description: "What is a guard tour system? How NFC/QR guard tour systems work, their limitations, and how virtual patrolling offers a different approach.",
   path: "/guides/guard-tour-systems-explained",
 };

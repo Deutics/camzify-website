@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
+import { trackConversion } from '@/components/system/track-conversion';
 
 /*
  * The newsletter block in the footer's brand row, and the one place the newsletter
@@ -64,7 +65,9 @@ export function NewsletterForm({ className = '', locale = 'en' }: { className?: 
     try {
       const res = await fetch('/api/newsletter', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email }) });
       const body = await res.json().catch(() => ({}));
-      setState(res.ok && body?.success ? 'done' : 'error');
+      const ok = res.ok && body?.success;
+      if (ok) trackConversion('newsletter');
+      setState(ok ? 'done' : 'error');
     } catch {
       setState('error');
     }
