@@ -87,7 +87,7 @@ export const translations: TranslationPair[] = [
   { en: '/ai-features/custom-detections', de: '/de/ki-funktionen/individuelle-erkennungen', sourceHash: 'c448812ec067' },
 
   // Partners
-  { en: '/partners', de: '/de/partner', sourceHash: '07fba1fca9f0' },
+  { en: '/partners', de: '/de/partner', sourceHash: 'e6848d67821d' },
   { en: '/partners/for-monitoring-centers', de: '/de/fuer-leitstellen', sourceHash: '8da3fa4a24e3' },
   { en: '/partners/for-managed-service-providers', de: '/de/fuer-managed-service-provider', sourceHash: 'fc827b4e4c9d' },
   { en: '/partners/become-a-reseller', de: '/de/reseller-werden', sourceHash: '8e28a60bfc09' },
@@ -102,6 +102,7 @@ export const translations: TranslationPair[] = [
   { en: '/pricing', de: '/de/preise', sourceHash: '59e579252dad' },
   { en: '/security-and-compliance', de: '/de/sicherheit-und-datenschutz', sourceHash: 'b6ae1839138b' },
   { en: '/supported-cameras', de: '/de/unterstuetzte-kameras', sourceHash: '4099c0a3ffcd' },
+  { en: '/supported-cameras/reolink', de: '/de/unterstuetzte-kameras/reolink', sourceHash: 'dcdafcf21ea2' },
   { en: '/camzify-connector', de: '/de/camzify-connector', sourceHash: '76cce2afb081' },
 ];
 

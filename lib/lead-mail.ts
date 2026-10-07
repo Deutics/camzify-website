@@ -15,12 +15,11 @@ import { siteConfig } from '@/lib/site-config';
  * addresses copied on every lead. ZEPTOMAIL_API_URL only changes for the EU or India
  * data centres (api.zeptomail.eu, api.zeptomail.in).
  */
-export type LeadKind = 'contact' | 'book-demo' | 'free-trial' | 'newsletter' | 'quote';
+export type LeadKind = 'contact' | 'book-demo' | 'newsletter' | 'quote';
 
 const KIND_LABEL: Record<LeadKind, string> = {
   contact: 'Contact form',
   'book-demo': 'Demo request',
-  'free-trial': 'Free trial request',
   newsletter: 'Newsletter subscription',
   quote: 'Quote request',
 };

@@ -13,7 +13,7 @@ the rendered title (62 or fewer) and description (70 to 158).
 import collections, glob, html, os, re, sys, time, urllib.request
 
 STOP = set('a an the and or of for on in to with by from at vs your you how what is are it its & ai'.split())
-NO_FAQ_BY_DESIGN = {'/about', '/about/muhammad-talha', '/blog', '/book-a-demo', '/contact', '/free-trial', '/sitemap-page'}
+NO_FAQ_BY_DESIGN = {'/about', '/about/muhammad-talha', '/blog', '/book-a-demo', '/contact', '/sitemap-page'}
 
 
 def pages():

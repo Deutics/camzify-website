@@ -5,6 +5,7 @@ import { PageShell } from '@/components/layout/page-shell';
 import { SITEMAP_ENTRIES } from '@/lib/routes';
 import { GLOSSARY_TERMS } from '@/lib/glossary-terms';
 import { CAMERA_BRAND_GUIDES } from '@/lib/camera-brand-guides';
+import { CAMERA_BRAND_GUIDES_DE } from '@/lib/camera-brand-guides-de';
 import { siteConfig } from '@/lib/site-config';
 import Link from 'next/link';
 
@@ -27,7 +28,7 @@ const pageMeta = {
 export const metadata = generatePageMeta(pageMeta);
 
 const SECTIONS: { title: string; match: (p: string) => boolean }[] = [
-  { title: 'Start here', match: (p) => ['/', '/pricing', '/book-a-demo', '/free-trial', '/roi-calculator', '/contact'].includes(p) },
+  { title: 'Start here', match: (p) => ['/', '/pricing', '/book-a-demo', '/roi-calculator', '/contact'].includes(p) },
   { title: 'Virtual patrolling', match: (p) => p.startsWith('/virtual-patrolling') || p === '/virtual-guard' },
   { title: 'Platform', match: (p) => p.startsWith('/platform') || p === '/cloud-video-surveillance' || p === '/business-security-cameras' || p === '/camzify-connector' },
   { title: 'AI features', match: (p) => p.startsWith('/ai-features') },
@@ -38,13 +39,16 @@ const SECTIONS: { title: string; match: (p: string) => boolean }[] = [
   { title: 'Guides', match: (p) => p.startsWith('/guides') },
   { title: 'Comparisons and alternatives', match: (p) => p.startsWith('/compare') || p.startsWith('/alternatives') },
   { title: 'Glossary', match: (p) => p.startsWith('/glossary') },
-  { title: 'Company and trust', match: (p) => ['/faqs', '/trust', '/security-and-compliance', '/roadmap', '/blog'].includes(p) || p.startsWith('/about') },
+  { title: 'Company and trust', match: (p) => ['/faqs', '/trust', '/security-and-compliance', '/roadmap', '/blog', '/singapore'].includes(p) || p.startsWith('/about') },
   { title: 'Legal', match: (p) => ['/privacy-policy', '/terms-of-service', '/cookie-policy', '/accessibility'].includes(p) },
   { title: 'Deutsch', match: (p) => p === '/de' || p.startsWith('/de/') },
 ];
 
 const glossaryNames = new Map(GLOSSARY_TERMS.map((t) => [`/glossary/${t.slug}`, t.term]));
-const brandGuideNames = new Map(CAMERA_BRAND_GUIDES.map((g) => [`/supported-cameras/${g.slug}`, `${g.brand} camera setup`]));
+const brandGuideNames = new Map<string, string>([
+  ...CAMERA_BRAND_GUIDES.map((g) => [`/supported-cameras/${g.slug}`, `${g.brand} camera setup`] as const),
+  ...CAMERA_BRAND_GUIDES_DE.map((g) => [`/de/unterstuetzte-kameras/${g.slug}`, `${g.brand}-Kameras einrichten`] as const),
+]);
 
 /** The page's own title from its pageMeta, without the " | ..." qualifier. */
 function titleFor(route: string): string {

@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { BrandStrip } from '@/components/content/brand-strip';
 import { cameraBrands, type CameraBrand } from '@/lib/camera-brands';
 import { guideFor } from '@/lib/camera-brand-guides';
+import { CAMERA_BRAND_GUIDES_DE } from '@/lib/camera-brand-guides-de';
 
 /**
  * German counterpart of /supported-cameras.
@@ -54,6 +55,8 @@ const faqs = [
 
 /** Wie auf /supported-cameras: Hersteller mit Anleitung verlinken dorthin, alle anderen auf die RTSP-Anleitung (beide Englisch). */
 function brandLinkDe(b: CameraBrand) {
+  const de = CAMERA_BRAND_GUIDES_DE.find((x) => x.brand === b.name);
+  if (de) return { href: `/de/unterstuetzte-kameras/${de.slug}`, label: `Einrichtung für ${b.name}` };
   const g = guideFor(b.name);
   return g
     ? { href: `/supported-cameras/${g.slug}`, label: `Einrichtung für ${b.name} (EN)` }

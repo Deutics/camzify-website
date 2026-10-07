@@ -24,13 +24,16 @@ const group = (
 const core = group(['/'], 1.0, 'weekly');
 
 const conversion = group(
-  ['/pricing', '/book-a-demo', '/free-trial', '/roi-calculator', '/contact'],
+  ['/pricing', '/book-a-demo', '/roi-calculator', '/contact'],
   0.9,
   'monthly'
 );
 
 // Legal and policy pages: indexed, rarely changed, never the point of a search.
 const legal = group(['/privacy-policy', '/terms-of-service', '/cookie-policy', '/accessibility'], 0.3, 'yearly');
+
+// Markets with their own page (the company is headquartered in Singapore).
+const locations = group(['/singapore'], 0.6, 'monthly');
 
 // Tier 2 — silo hubs. These carry the internal-link equity to their children.
 const hubs = group(
@@ -314,6 +317,7 @@ export const SITEMAP_ENTRIES: SitemapEntry[] = [
   ...cameraBrandGuides,
   ...partners,
   ...company,
+  ...locations,
   ...de,
 ];
 

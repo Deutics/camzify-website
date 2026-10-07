@@ -107,7 +107,7 @@ export default function LicensePlateRecognitionPage() {
               <span className="font-mono text-mono-sm uppercase text-primary">Terms</span>
               <h2 className="mt-3 font-display text-2xl font-bold sm:text-3xl">License plate reader, LPR, ALPR, ANPR: the same job</h2>
               <p className="mt-4 max-w-prose text-body text-muted-foreground">
-                The names differ by market and vendor, not by what the technology does. In the US it is a license plate reader, LPR or ALPR (automatic license plate recognition); in the UK, Australia and India it is usually ANPR (automatic number plate recognition). Each reads the plate from the camera image and checks it against a list. Camzify reads US and Singapore plates today, so for UK or Australian plates it would be a new build.
+                The names differ by market and vendor, not by what the technology does. In the US it is a license plate reader, LPR or ALPR (automatic license plate recognition); in the UK, Australia and India it is usually ANPR (automatic number plate recognition). Each reads the plate from the camera image and checks it against a list. Camzify reads US and Singapore plates today (see <Link href="/singapore" className="text-primary hover:underline">Camzify in Singapore</Link>), so for UK or Australian plates it would be a new build.
               </p>
               <p className="mt-4 max-w-prose text-body text-muted-foreground">
                 The real choice is between a dedicated plate-reading camera and software that reads plates from the video of cameras already in place. Camzify is the second kind: it runs on any camera whose stream reaches the platform, from any of the{' '}

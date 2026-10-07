@@ -72,10 +72,10 @@ function glossaryUrls(head) {
   return ['/glossary', ...slugs.map((s) => `/glossary/${s}`)];
 }
 
-function brandGuideUrls(head) {
-  const source = git('show', `${head}:lib/camera-brand-guides.ts`);
+function brandGuideUrls(head, file, prefix) {
+  const source = git('show', `${head}:${file}`);
   const slugs = [...source.matchAll(/^\s*slug:\s*['"]([^'"]+)['"]/gm)].map((x) => x[1]);
-  return slugs.map((s) => `/supported-cameras/${s}`);
+  return slugs.map((s) => `${prefix}${s}`);
 }
 
 function collect(base, head) {
@@ -85,7 +85,8 @@ function collect(base, head) {
     if (route) paths.add(route);
     else if (file.startsWith('app/_components/')) { paths.add('/'); paths.add('/de'); }
     else if (file === 'lib/glossary-terms.ts') glossaryUrls(head).forEach((p) => paths.add(p));
-    else if (file === 'lib/camera-brand-guides.ts' || file === 'app/supported-cameras/[brand]/page.tsx') brandGuideUrls(head).forEach((p) => paths.add(p));
+    else if (file === 'lib/camera-brand-guides.ts' || file === 'app/supported-cameras/[brand]/page.tsx') brandGuideUrls(head, 'lib/camera-brand-guides.ts', '/supported-cameras/').forEach((p) => paths.add(p));
+    else if (file === 'lib/camera-brand-guides-de.ts' || file === 'app/de/unterstuetzte-kameras/[marke]/page.tsx') brandGuideUrls(head, 'lib/camera-brand-guides-de.ts', '/de/unterstuetzte-kameras/').forEach((p) => paths.add(p));
     else if (file === 'app/llms.txt/route.ts') paths.add('/llms.txt');
   }
   return [...paths].sort().map((p) => (p === '/' ? ORIGIN : ORIGIN + p)).slice(0, MAX_URLS);

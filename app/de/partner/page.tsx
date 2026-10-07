@@ -41,6 +41,8 @@ export default function DePartnerHub() {
           <h1 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Partner</h1>
           <p className="mt-6 max-w-2xl text-body text-muted-foreground">
             Das Partnerprogramm von Camzify richtet sich an Unternehmen, die Standorte mit Kameras bereits betreuen: Sicherheitsdienste, Errichter von Video- und Alarmanlagen, Leitstellen, Managed Service Provider und Reseller. Jeder ergänzt die Leistung, die er schon verkauft, um den <Link href="/de/ki-waechterrundgang" className="text-primary hover:underline">KI-gestützten Wächterrundgang</Link> und Cloud-Video auf den vorhandenen Kameras seiner Kunden.
+            In Singapur ist Nettbox der lokale Partner von Camzify; siehe{' '}
+            <Link href="/singapore" hrefLang="en-US" className="text-primary hover:underline">Camzify in Singapur</Link> (auf Englisch).
           </p>
           <div className="mt-14 grid gap-6 sm:grid-cols-2">
             {partnerTypes.map((p, i) => (

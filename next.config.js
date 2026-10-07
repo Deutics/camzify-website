@@ -106,6 +106,13 @@ const nextConfig = {
         permanent: true,
       },
       {
+        // /free-trial described a self-serve trial that does not exist (confirmed by the
+        // business 2026-10-08). Retired; the demo is the real first step.
+        source: '/free-trial',
+        destination: '/book-a-demo',
+        permanent: true,
+      },
+      {
         // The WordPress site's FAQ page; Search Console reports it as a 404 (October 2026).
         source: '/faq',
         destination: '/faqs',

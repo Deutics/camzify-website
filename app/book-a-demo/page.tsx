@@ -36,7 +36,7 @@ export default function BookDemoPage() {
                   { icon: Clock, text: '15 minutes, no slides, just the live product' },
                   { icon: Camera, text: 'See a patrol round run across real cameras' },
                   { icon: Shield, text: 'Custom quote based on your sites and camera count' },
-                  { icon: CheckCircle, text: 'No commitment, try the free trial first if you prefer' },
+                  { icon: CheckCircle, text: 'No commitment: nothing is agreed until a quote says so' },
                 ].map((item: any, i: number) => {
                   const Icon = item?.icon ?? CheckCircle;
                   return (
