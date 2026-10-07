@@ -87,6 +87,7 @@ const content: UseCaseContent = {
         'It will not see a corner without a camera or through a camera that has gone dark.',
         'It will not move the car from the fire lane; it tells the person designated for that camera and keeps the frame.',
       ] },
+      <>Reading plates is a separate, custom detection: <Link href="/ai-features/license-plate-recognition" className="text-primary hover:underline">license plate recognition</Link> reads US and Singapore plates from a camera framed on the entry lane and alerts when a plate on your watchlist arrives.</>,
       <>We do not publish detection rates for lots, because lighting and camera placement vary too much to give one honestly. The <Link href="/trust" className="text-primary hover:underline">trust page</Link> sets out the policy.</>,
     ],
   },

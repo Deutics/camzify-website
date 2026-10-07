@@ -27,7 +27,7 @@ const pageMeta = {
 };
 
 const publishedTime = '2026-09-18';
-const modifiedTime = '2026-09-18';
+const modifiedTime = '2026-10-07';
 
 export const metadata = generatePageMeta({ ...pageMeta, type: 'article', publishedTime, modifiedTime });
 
@@ -37,7 +37,7 @@ const faqs = [
   { question: 'What is a VMS in CCTV?', answer: 'In a CCTV system the VMS is the software layer between the cameras and the people watching them. Cameras capture and encode video; the VMS receives those streams, records them, shows them live, plays them back and decides who can see which camera. In a small analog system that layer lives inside the DVR; in an IP system it runs on an NVR, a server or in the cloud.' },
   { question: 'Is a VMS the same as an NVR?', answer: 'No. An NVR is a recorder, a box with disks that takes in IP camera streams and stores them. A VMS is the software that manages recording, viewing and access, and an NVR is one of the places that software can run. Buying an NVR gets you a VMS embedded in a fixed box; buying VMS software separately lets you choose where it runs and how far it scales.' },
   { question: 'Do I need a VMS if my cameras have their own app?', answer: 'For one or two cameras at one site, usually not. A VMS earns its place when cameras from more than one manufacturer need to be viewed in one place, when retention must be set and enforced per camera, when several people need different levels of access, or when several sites need to be run from one console. Each camera app does one of those jobs for its own cameras; a VMS does all of them for every camera.' },
-  { question: 'What does a VMS cost?', answer: 'It depends on the form. On-premise VMS software is generally licensed per server or per camera channel, with the server, storage and maintenance bought on top. Cloud VMS products are generally licensed per camera per month, with storage included or sold separately. Camzify is priced per instance per month and quoted per site, from $5 per camera per month; no other rate is published.' },
+  { question: 'What does a VMS cost?', answer: 'It depends on the form. On-premise VMS software is generally licensed per server or per camera channel, with the server, storage and maintenance bought on top. Cloud VMS products are generally licensed per camera per month, with storage included or sold separately. Camzify is priced per instance per month and quoted per site, from $5 per camera per month; most cameras land between $20 and $90 per camera per month depending on which detections run, with cloud storage per terabyte per month on top.' },
 ];
 
 export default function WhatIsAVideoManagementSystemPage() {
@@ -137,6 +137,29 @@ export default function WhatIsAVideoManagementSystemPage() {
                 <p>
                   A cloud VMS runs on infrastructure the vendor operates, and the customer pays per camera. Cameras stream to it, footage is stored off site, every site is on one login, and updates are the vendor&rsquo;s job. It needs upstream bandwidth for every camera it streams, and footage leaves the building, encrypted, which some policies forbid. The trade-offs are tabled on{' '}
                   <Link href="/compare/cloud-vms-vs-on-premise" className="text-primary hover:underline">cloud VMS vs on-premise VMS</Link>.
+                </p>
+              </div>
+            </ScrollReveal>
+          </section>
+
+          <section className="mt-16">
+            <ScrollReveal>
+              <h2 className="font-display text-2xl font-bold">What does a VMS cost?</h2>
+              <div className="mt-4 max-w-prose space-y-4 text-muted-foreground">
+                <p>
+                  <strong className="font-semibold text-foreground">A VMS costs what its form makes you pay for: an on-premise VMS is mostly up front and in maintenance, a cloud VMS mostly per camera per month.</strong>{' '}
+                  Comparing the two on license price alone misses most of the bill.
+                </p>
+                <p>
+                  On premises, the software is generally licensed per server or per camera channel, and the rest is bought separately: the server, its disks, and someone to keep both running. The ongoing maintenance costs are the ones that surprise people: replacing failed disks, adding storage as cameras or retention grow, software upgrades, and the integrator visits that come with each.
+                </p>
+                <p>
+                  In the cloud, the cost is generally a subscription per camera per month, with storage either included or sold separately, and the hardware, upgrades and off-site copy are the vendor&rsquo;s. What drives that bill (cameras, AI features per camera, retention, bandwidth, sites) is broken down in{' '}
+                  <Link href="/guides/cloud-vms-cost" className="text-primary hover:underline">what a cloud VMS costs</Link>.
+                </p>
+                <p>
+                  Camzify is priced per instance per month and quoted per site. It starts from $5 per camera per month, and most cameras land between $20 and $90 per camera per month depending on which detections run and whether patrol rounds are on, with cloud storage per terabyte per month on top. The{' '}
+                  <Link href="/pricing" className="text-primary hover:underline">pricing page</Link> builds a quote from your camera and feature counts.
                 </p>
               </div>
             </ScrollReveal>

@@ -51,7 +51,7 @@ const hubs = group(
 );
 
 // Category pillars: the market's names for what the site sells, one page each.
-const pillars = group(['/virtual-guard', '/cloud-video-surveillance'], 0.8, 'weekly');
+const pillars = group(['/virtual-guard', '/cloud-video-surveillance', '/business-security-cameras'], 0.8, 'weekly');
 
 // Tier 3 — the flagship cluster. Highest-intent commercial content after the hubs.
 const virtualPatrolling = group(

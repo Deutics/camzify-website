@@ -51,13 +51,13 @@ export const translations: TranslationPair[] = [
   // Pilot, September 2026
   { en: '/', de: '/de', sourceHash: '0418913979af' },
   { en: '/virtual-guard', de: '/de/virtueller-waechterrundgang', sourceHash: '0c55e683e5cf' },
-  { en: '/cloud-video-surveillance', de: '/de/cloud-videomanagementsystem', sourceHash: '4eba2e37e2b2' },
+  { en: '/cloud-video-surveillance', de: '/de/cloud-videomanagementsystem', sourceHash: 'a85dfd1fc8dc' },
   { en: '/guides/what-is-intelligent-video-analytics', de: '/de/ki-videoanalyse', sourceHash: '9ef9cd0f0dfb' },
   { en: '/partners/for-security-agencies', de: '/de/fuer-sicherheitsdienste', sourceHash: '523d760b2ff8' },
   { en: '/partners/for-security-integrators', de: '/de/fuer-installateure', sourceHash: '7508ad8aad42' },
 
   // Virtual patrolling
-  { en: '/virtual-patrolling', de: '/de/ki-waechterrundgang', sourceHash: 'f7baa232be7e' },
+  { en: '/virtual-patrolling', de: '/de/ki-waechterrundgang', sourceHash: 'e7fd8e745439' },
   { en: '/virtual-patrolling/how-it-works', de: '/de/ki-waechterrundgang/so-funktioniert-es', sourceHash: '15dd9f7b9e4c' },
   { en: '/virtual-patrolling/automated-patrol-scheduling', de: '/de/ki-waechterrundgang/automatische-planung', sourceHash: '5cea897fdc37' },
   { en: '/virtual-patrolling/patrol-checklists', de: '/de/ki-waechterrundgang/checklisten', sourceHash: 'b3d6dcf89d92' },
@@ -93,7 +93,7 @@ export const translations: TranslationPair[] = [
   { en: '/partners/become-a-reseller', de: '/de/reseller-werden', sourceHash: '8e28a60bfc09' },
 
   // Industries
-  { en: '/industries', de: '/de/branchen', sourceHash: '853a71a55248' },
+  { en: '/industries', de: '/de/branchen', sourceHash: '3247e76491f5' },
   { en: '/industries/manufacturing', de: '/de/branchen/industrie-und-produktion', sourceHash: 'fdaa16b9d900' },
   { en: '/industries/warehouses', de: '/de/branchen/lager-und-logistik', sourceHash: '5f42b24ca62c' },
   { en: '/industries/construction-sites', de: '/de/branchen/baustellen', sourceHash: '0cb2a969af6f' },

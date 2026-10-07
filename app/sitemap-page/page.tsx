@@ -29,7 +29,7 @@ export const metadata = generatePageMeta(pageMeta);
 const SECTIONS: { title: string; match: (p: string) => boolean }[] = [
   { title: 'Start here', match: (p) => ['/', '/pricing', '/book-a-demo', '/free-trial', '/roi-calculator', '/contact'].includes(p) },
   { title: 'Virtual patrolling', match: (p) => p.startsWith('/virtual-patrolling') || p === '/virtual-guard' },
-  { title: 'Platform', match: (p) => p.startsWith('/platform') || p === '/cloud-video-surveillance' || p === '/camzify-connector' },
+  { title: 'Platform', match: (p) => p.startsWith('/platform') || p === '/cloud-video-surveillance' || p === '/business-security-cameras' || p === '/camzify-connector' },
   { title: 'AI features', match: (p) => p.startsWith('/ai-features') },
   { title: 'Use cases', match: (p) => p.startsWith('/use-cases') },
   { title: 'Industries', match: (p) => p.startsWith('/industries') },

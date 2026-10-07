@@ -113,6 +113,8 @@ ${siteConfig.name} is operated by ${siteConfig.legalName}, headquartered in Sing
 - [How virtual patrolling works](${siteConfig.url}/virtual-patrolling/how-it-works): the round, the checks, the alert on failure and the compliance report
 - [Virtual guard](${siteConfig.url}/virtual-guard): the service model, for buyers comparing it with on-site guards
 - [Cloud video surveillance](${siteConfig.url}/cloud-video-surveillance): the category pillar: cloud recording, retention per camera, no recorder on site
+- [Business security cameras](${siteConfig.url}/business-security-cameras): what turns a business's existing commercial cameras into a security system (cloud recording, AI detections, patrol rounds); Camzify does not sell cameras
+- [Camera brand setup guides](${siteConfig.url}/supported-cameras): RTSP URL and ONVIF setup per brand (Hikvision, Dahua, Axis, Reolink, Amcrest), each cited to the manufacturer's documentation; any RTSP, RTMP or HTTPS camera works
 - [AI features](${siteConfig.url}/ai-features): the 23 detections, each on its own page
 - [License plate recognition](${siteConfig.url}/ai-features/license-plate-recognition): a custom detection that reads US and Singapore plates and alerts when a plate on the customer's watchlist is recognized
 - [Deployment options](${siteConfig.url}/platform/deployment-options): cloud (default), on premises, or a hybrid; on-premises installs are planned with the client and installed by ${siteConfig.name}
