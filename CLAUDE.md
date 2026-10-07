@@ -82,7 +82,7 @@ rendered text, not just JSON-LD — unmounting content makes it invisible to the
 app/                    Routes. One folder per URL segment, each with page.tsx
   _components/          Homepage-only sections
   api/                  Four lead-capture POST routes (the only dynamic routes)
-  wp-json/, feed/, tag/, category/, wp-admin/, wp-content/, wp-includes/, wdt_headers/, author/, xmlrpc.php
+  wp-json/, feed/, tag/, category/, wp-admin/, wp-content/, wp-includes/, wdt_headers/, author/, product/, xmlrpc.php
                         410 Gone handlers for WordPress-era paths (lib/gone.ts); do not remove them
 components/
   layout/               Header, footer, PageShell, breadcrumbs, CTA band
@@ -186,6 +186,11 @@ rendered result — do not ask the user to look for you.
   `tailwind.config.ts`.** They are not Tailwind defaults; without them `bg-live/15` or
   `text-foreground/85` silently generates no CSS at all, and text falls back to the
   inherited body colour — which is how the hero labels went dark-on-dark in light mode.
+- **`lib/lastmod-dates.json` is generated, and committed by a bot.** sitemap.xml dates
+  pages from git (`lib/lastmod.ts`), but Vercel deletes `.git/` before building
+  (`.vercelignore`, kept that way because the history is ~580 MB), so production reads this
+  file. `.github/workflows/lastmod.yml` regenerates it after every push to main and commits
+  it back; do not hand-edit it, and pull `main` before branching from it.
 - **`app/opengraph-image.tsx` generates the social card at build time**, and
   `generatePageMeta` attaches it to every page as the default `og:image`. A page that
   exports its own metadata does not inherit the root card on its own, so do not remove

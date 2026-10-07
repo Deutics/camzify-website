@@ -106,6 +106,12 @@ const nextConfig = {
         permanent: true,
       },
       {
+        // The WordPress site's FAQ page; Search Console reports it as a 404 (October 2026).
+        source: '/faq',
+        destination: '/faqs',
+        permanent: true,
+      },
+      {
         // The WordPress site's contact and about pages. Google still ranks both (positions
         // 3 and 5 in Search Console, October 2026) and they 404ed after the rebuild.
         source: '/contact-us',
