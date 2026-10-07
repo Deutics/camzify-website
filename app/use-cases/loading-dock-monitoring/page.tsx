@@ -5,8 +5,8 @@ import { UseCasePage, type UseCaseContent } from '@/components/content/use-case-
 import Link from 'next/link';
 
 const pageMeta = {
-  title: "Loading Dock Security Monitoring",
-  description: "Loading dock monitoring on the bay cameras: door status and staging areas checked against the delivery window, vehicles tracked at the bay, guard messaged.",
+  title: "Loading Dock Monitoring: Doors, Bays, Trucks",
+  description: "Loading dock door monitoring on your bay cameras: doors and staging areas checked against the delivery window, trucks tracked at the bay, the guard messaged.",
   path: "/use-cases/loading-dock-monitoring",
 };
 

@@ -61,7 +61,7 @@ export const translations: TranslationPair[] = [
   { en: '/virtual-patrolling/how-it-works', de: '/de/ki-waechterrundgang/so-funktioniert-es', sourceHash: '15dd9f7b9e4c' },
   { en: '/virtual-patrolling/automated-patrol-scheduling', de: '/de/ki-waechterrundgang/automatische-planung', sourceHash: '5cea897fdc37' },
   { en: '/virtual-patrolling/patrol-checklists', de: '/de/ki-waechterrundgang/checklisten', sourceHash: 'b3d6dcf89d92' },
-  { en: '/virtual-patrolling/patrol-reports', de: '/de/ki-waechterrundgang/kontrollprotokolle', sourceHash: '63e1cb8c3d92' },
+  { en: '/virtual-patrolling/patrol-reports', de: '/de/ki-waechterrundgang/kontrollprotokolle', sourceHash: '6177648e170b' },
   { en: '/virtual-patrolling/guard-notifications', de: '/de/ki-waechterrundgang/benachrichtigungen', sourceHash: '9825bd76ad92' },
   { en: '/virtual-patrolling/patrol-compliance-tracking', de: '/de/ki-waechterrundgang/digitales-wachbuch', sourceHash: '65350fed8f4d' },
   { en: '/virtual-patrolling/risk-detection', de: '/de/ki-waechterrundgang/risikoerkennung', sourceHash: '2b83880ab6ee' },
@@ -83,7 +83,7 @@ export const translations: TranslationPair[] = [
   { en: '/ai-features/loitering-detection', de: '/de/ki-funktionen/verweilerkennung', sourceHash: '2cd739d014a3' },
   { en: '/ai-features/fire-and-smoke-detection', de: '/de/ki-funktionen/feuer-und-rauch-erkennung', sourceHash: 'f917bf1828de' },
   { en: '/ai-features/ppe-violation-detection', de: '/de/ki-funktionen/psa-erkennung', sourceHash: '105c926cbfad' },
-  { en: '/ai-features/camera-tampering-detection', de: '/de/ki-funktionen/sabotageerkennung', sourceHash: '848c1b7e1d17' },
+  { en: '/ai-features/camera-tampering-detection', de: '/de/ki-funktionen/sabotageerkennung', sourceHash: '442038ead4a9' },
   { en: '/ai-features/custom-detections', de: '/de/ki-funktionen/individuelle-erkennungen', sourceHash: 'c448812ec067' },
 
   // Partners

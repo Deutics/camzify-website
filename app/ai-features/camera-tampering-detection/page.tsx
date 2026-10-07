@@ -13,8 +13,8 @@ import Link from 'next/link';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Camera Tampering Detection | Five Modes",
-  description: "Camzify camera tampering detection monitors five modes: defocus, coverage, scene change, brightness shift, and frozen frames.",
+  title: "Camera Tampering Detection: 5 Alert Modes",
+  description: "Camera tampering detection that alerts when a camera is covered, defocused, moved, hit by a sudden brightness shift or frozen, on the cameras you already own.",
   path: "/ai-features/camera-tampering-detection",
 };
 

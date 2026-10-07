@@ -23,7 +23,7 @@ const pageMeta = {
 
 export const metadata = generatePageMeta({ ...pageMeta });
 
-const UPDATED = '22 September 2026';
+const UPDATED = '7 October 2026';
 
 const storageItems = [
   { name: 'theme', type: 'Local storage', set: 'When you choose light or dark mode', purpose: 'Remembers the theme you picked so the site does not flash the other one on the next page.', lasts: 'Until you clear it or change it' },
@@ -90,7 +90,7 @@ export default function CookiePolicyPage() {
 
           <h2 className="mt-12 font-display text-2xl font-bold">Cookieless analytics (always on)</h2>
           <p className="mt-4 max-w-prose text-muted-foreground">
-            Vercel Web Analytics and Vercel Speed Insights measure page visits and page-load performance in aggregate, without a cookie or any identifier that could tie a visit back to your browser across sessions. They cannot recognize you individually, which is why they run without asking.
+            Vercel Web Analytics and Vercel Speed Insights measure page visits and page-load performance in aggregate, without a cookie or any identifier that could tie a visit back to your browser across sessions. Vercel Web Analytics also counts completed form submissions by form name only, never their contents. They cannot recognize you individually, which is why they run without asking.
           </p>
 
           <h2 className="mt-12 font-display text-2xl font-bold">Analytics cookies (only after you accept)</h2>

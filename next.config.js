@@ -98,6 +98,26 @@ const nextConfig = {
         permanent: true,
       },
       {
+        // Search Console, October 2026: an old post still drawing impressions (229, two
+        // clicks). Its subject, AI object detection in business use, is what the
+        // intelligent video analytics guide covers; the catch-all below would only reach the hub.
+        source: '/blog/object-detection-transforming-business-operations-with-ai-powered-computer-vision',
+        destination: '/guides/what-is-intelligent-video-analytics',
+        permanent: true,
+      },
+      {
+        // The WordPress site's contact and about pages. Google still ranks both (positions
+        // 3 and 5 in Search Console, October 2026) and they 404ed after the rebuild.
+        source: '/contact-us',
+        destination: '/contact',
+        permanent: true,
+      },
+      {
+        source: '/about-us',
+        destination: '/about',
+        permanent: true,
+      },
+      {
         // WordPress served the homepage at /home/ as well as /; Search Console still
         // holds that URL. Permanent, to the real homepage.
         source: '/home',

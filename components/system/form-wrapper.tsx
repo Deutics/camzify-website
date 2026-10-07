@@ -2,6 +2,7 @@
 
 import { useState, FormEvent, ReactNode } from 'react';
 import { CheckCircle, Loader2 } from 'lucide-react';
+import { trackConversion, formFromEndpoint } from '@/components/system/track-conversion';
 
 export function FormWrapper({
   endpoint,
@@ -42,6 +43,8 @@ export function FormWrapper({
 
       const result = await res?.json?.();
       if (result?.success) {
+        const form = formFromEndpoint(endpoint);
+        if (form) trackConversion(form);
         setSubmitted(true);
       } else {
         setError(result?.message ?? 'Something went wrong. Please try again.');
