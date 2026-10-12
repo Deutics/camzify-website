@@ -134,6 +134,14 @@ material yet.
   The closest match on the market to Camzify's own pitch.
 - **Irisity** — established AI video analytics; the foil for the AI features side.
 
+**Raised by a lead (2026-10-12): Blue Iris.** Windows video management software
+(Perspective Software LLC), mostly run by homeowners and hobbyists but also on a PC at small
+business sites. A Blue Iris user came in through the contact form, and "blue iris
+alternative(s)" has about 170 US searches a month at low competition, so it has a switching
+page at `/alternatives/blue-iris`. The honest angle: it is a capable local recorder with
+built-in AI; Camzify is for the business that wants recordings off site, remote access with
+no port forwarding and patrol reports, and is the wrong tool for one home.
+
 **Tier 3 — supplied by the business, not currently worth a page.** Digifort, Videonetics,
 Camect, Umbo CV, Specter, Enview, IPTechView, Airship AI, PromptView, VisionFacts,
 Hexatech, Bluedove, WeSight, Surveillant, CameraDX, FortixAI, Intelisenz, Torlin, Staqu,

@@ -33,11 +33,12 @@ const items = [
   { href: '/compare/camzify-vs-avigilon-alta', title: 'Camzify vs Avigilon Alta' },
   { href: '/alternatives/adt', title: 'Camzify as an ADT Alternative' },
   { href: '/alternatives/verkada', title: 'Camzify as a Verkada Alternative' },
+  { href: '/alternatives/blue-iris', title: 'Camzify as a Blue Iris Alternative' },
 ];
 
 const faqs = [
   { question: 'Are these comparisons independent?', answer: 'No, and we do not pretend so. Each page names what the alternative does well and what Camzify does not do, which is the only way a comparison written by a vendor earns any trust.' },
-  { question: 'Why is there no pricing comparison?', answer: "Because we do not publish our prices and will not characterise other vendors'. Ask for a quote and compare it against what routine rounds cost you today." },
+  { question: 'Why is there no pricing comparison?', answer: "Because we publish only our starting point, from $5 per camera per month, and will not characterize other vendors' prices beyond what their own pricing pages say. Ask for a quote and compare it against what routine rounds cost you today." },
   { question: 'Which comparison should I read first?', answer: 'If you employ guards or sell guarding, virtual patrolling versus security guards or versus mobile patrols. If you are choosing software, cloud versus on-premise.' },
   { question: 'Can I see the product rather than a table?', answer: 'Yes. The interactive demonstration on the virtual patrolling page runs a manual round end to end, and a demo runs one on your own cameras.' },
 ];

@@ -18,7 +18,7 @@ import { ArrowLeftRight } from 'lucide-react';
  */
 const pageMeta = {
   title: "Camzify as an Alternative | Switching Guides",
-  description: "Switching guides for buyers who already use ADT or Verkada: what you keep, what you give up, and who should stay put. Every vendor fact is sourced.",
+  description: "Switching guides for buyers on ADT, Verkada or Blue Iris: what you keep, what you give up, and who should stay put. Every vendor fact is sourced.",
   path: "/alternatives",
 };
 
@@ -27,6 +27,7 @@ export const metadata = generatePageMeta({ ...pageMeta });
 const items = [
   { href: '/alternatives/adt', title: 'ADT alternative', desc: 'For businesses on ADT that want AI detections and patrol rounds on the cameras they already have.' },
   { href: '/alternatives/verkada', title: 'Verkada alternative', desc: 'For buyers who want a cloud VMS without replacing every camera with the vendor’s own.' },
+  { href: '/alternatives/blue-iris', title: 'Blue Iris alternative', desc: 'For businesses and security companies that want recordings off site and no Windows PC to look after at every site.' },
 ];
 
 const faqs = [
