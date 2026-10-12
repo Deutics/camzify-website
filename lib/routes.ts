@@ -250,6 +250,7 @@ const guides = group(
     '/guides/what-is-vsaas',
     '/guides/hybrid-cloud-video-surveillance',
     '/guides/construction-site-security-checklist',
+    '/guides/people-counters-sensors-vs-cameras',
   ],
   0.7,
   'monthly'

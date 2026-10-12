@@ -42,7 +42,8 @@ detections are built to order (`/ai-features/custom-detections`): a one-off buil
 per-instance license, build footage deleted afterwards. License plate recognition
 (`/ai-features/license-plate-recognition`) reads US and Singapore plates only and alerts on a watchlist; no
 accuracy, distance or approved-list rule was given. Alerts reach the assigned contact within seconds of a confirmed detection (confirmed by the business
-2026-10-08); no other latency figure was given. None of the standard detections identifies anyone;
+2026-10-08); no other latency figure was given. A line across an entrance counts people entering and leaving separately, and
+occupancy counts people per zone (both confirmed 2026-10-12); occupancy does not alert at a number. None of the standard detections identifies anyone;
 facial recognition exists only as a custom build for a customer with the legal basis to use it, so never write
 that Camzify "does no facial recognition" or "no plate reading", and never present either as a standard feature. If you need a number you do not have, write around it honestly; do not
 estimate. `/trust` and `/llms.txt` both state this policy publicly, so violating it makes

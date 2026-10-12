@@ -80,6 +80,14 @@ Staged 2026-09-26. New and revised:
 so do 09 (virtual patrolling cost) and 11 (AI analytics cost). Both pairs are live as
 supplied; distinct art for one of each pair would help.
 
+## 0. New guide, 12 October 2026
+
+`/guides/people-counters-sensors-vs-cameras` (people counters: sensors vs the cameras you
+own) has no art of its own. It borrows `feature-occupancy-and-peak-hour-trends-1` as hero
+and card. Wanted: `guide-people-counters-sensors-vs-cameras` (hero) and
+`guide-thumb-people-counters-sensors-vs-cameras` (card), ideally an entrance camera view
+with a counting line across the doorway and in/out tallies.
+
 ## 1. Optional, only if the team has capacity
 
 A hub visual for /glossary (the 30 term pages are text by design); a variant of the
