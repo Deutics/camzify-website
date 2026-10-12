@@ -4,6 +4,8 @@ import Link from 'next/link';
 
 import { useState } from 'react';
 import { FormWrapper } from '@/components/system/form-wrapper';
+import { PhoneField } from '@/components/system/phone-field';
+import { LEAD_MESSAGES } from '@/lib/lead-messages';
 import { configFields, ConfigSummary, EstimateFields, useEstimateConfig } from '@/components/content/estimate-fields';
 import { Loader2, ArrowRight, ChevronDown } from 'lucide-react';
 
@@ -13,7 +15,7 @@ export function BookDemoForm() {
   return (
     <FormWrapper
       endpoint="/api/book-demo"
-      successMessage="Demo request submitted. We will contact you within one business day to schedule your session."
+      successMessage={LEAD_MESSAGES['book-demo']}
       onSubmit={(data) => {
         if (!withEstimate) return data;
         const { cameras, ...rest } = configFields(config);
@@ -38,6 +40,7 @@ export function BookDemoForm() {
               placeholder="you@company.com"
             />
           </div>
+          <PhoneField id="demo-phone" />
           <div>
             <label htmlFor="company" className="text-sm font-medium">Company</label>
             <input
@@ -85,7 +88,7 @@ export function BookDemoForm() {
             {loading ? 'Submitting...' : 'Book My Demo'}
           </button>
           <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
-            We store what you send so we can reply, and nothing else happens with it. See the{' '}
+            We store what you send, with your approximate location and time zone so we can reply at a good time, and nothing else happens with it. See the{' '}
             <Link href="/privacy-policy" className="text-primary hover:underline">privacy policy</Link>.
           </p>
         </>
