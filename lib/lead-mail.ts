@@ -1,4 +1,5 @@
-import { siteConfig } from '@/lib/site-config';
+import { siteConfig, formattedAddress } from '@/lib/site-config';
+import { LEAD_MESSAGES, type AcknowledgedKind } from '@/lib/lead-messages';
 
 /*
  * Lead notification by email, through ZeptoMail (Zoho's transactional mail API).
@@ -82,4 +83,102 @@ export async function sendLeadEmail(kind: LeadKind, fields: Record<string, strin
           : '';
     throw new Error(`ZeptoMail responded ${res.status} ${res.statusText} via ${url}${detail ? `: ${detail}` : ''}${hint}`);
   }
+}
+
+/*
+ * Acknowledgement to the visitor: the confirmation the page shows, sent to the address
+ * they entered, with what happens next and a way to reply.
+ *
+ * Kept deliberately separate from the team email above, which carries the internal
+ * estimate built from list rates (lib/pricing-estimates.ts) and the visitor's free text:
+ * neither may ever reach this email. Anyone can type someone else's address into a form,
+ * so this email repeats only short, checked fields (a name and company with no links,
+ * counts) and never a free-text message; the endpoints also run lib/lead-guard.ts first.
+ * It is sent after the team email and never fails the request: the lead is already safe.
+ */
+
+const ACK: Record<AcknowledgedKind, { subject: string; thanks: string }> = {
+  'book-demo': { subject: 'We received your demo request', thanks: 'Thank you for requesting a demo of Camzify.' },
+  quote: { subject: 'We received your quote request', thanks: 'Thank you for requesting a quote from Camzify.' },
+  contact: { subject: 'We received your message', thanks: 'Thank you for getting in touch with Camzify.' },
+};
+
+/** A short, link-free value safe to repeat back, or undefined. */
+function safeEcho(v: unknown, max = 80): string | undefined {
+  if (typeof v !== 'string') return undefined;
+  const s = v.replace(/\s+/g, ' ').trim();
+  if (!s || s.length > max) return undefined;
+  if (/(https?:|www\.|\.[a-z]{2,}\/|@|<|>)/i.test(s)) return undefined;
+  return s;
+}
+
+export async function sendAcknowledgement(
+  kind: AcknowledgedKind,
+  to: string,
+  fields: { name?: unknown; company?: unknown; cameras?: unknown; configuration?: unknown },
+): Promise<void> {
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(to)) return;
+  const token = (process.env.ZEPTOMAIL_TOKEN || '').trim().replace(/^Zoho-enczapikey\s+/i, '');
+  const from = (process.env.ZEPTOMAIL_FROM_ADDRESS || '').trim();
+  if (!token || !from) return;
+  const url = process.env.ZEPTOMAIL_API_URL || 'https://api.zeptomail.com/v1.1/email';
+
+  const name = safeEcho(fields.name, 60);
+  const echo: [string, string | undefined][] = [
+    ['Company', safeEcho(fields.company)],
+    ['Cameras', safeEcho(fields.cameras, 20)],
+    // Counts only, built by the endpoint from numbers (never the estimate).
+    ['Configuration', safeEcho(fields.configuration, 200)],
+  ];
+  const rows = echo.filter(([, v]) => v) as [string, string][];
+  const site = siteConfig.url;
+  const links: [string, string][] = [
+    ['How a virtual patrol round works', `${site}/virtual-patrolling/how-it-works`],
+    ['Cameras that work with Camzify', `${site}/supported-cameras`],
+    ['Pricing', `${site}/pricing`],
+  ];
+  const { subject, thanks } = ACK[kind];
+  const greeting = name ? `Hi ${name},` : 'Hello,';
+  const confirmation = LEAD_MESSAGES[kind];
+  const footer = `You received this because this address was entered on a form at ${site.replace(/^https?:\/\//, '')}. If that was not you, you can ignore this email.`;
+
+  const textbody = [
+    greeting, '', thanks, confirmation, '',
+    ...(rows.length ? ['What you sent us:', ...rows.map(([k, v]) => `  ${k}: ${v}`), ''] : []),
+    'While you wait:', ...links.map(([l, u]) => `  ${l}: ${u}`), '',
+    `Reply to this email, or call us on ${siteConfig.phone}.`, '',
+    `The ${siteConfig.name} team`, siteConfig.legalName, formattedAddress, '', footer,
+  ].join('\n');
+
+  const p = 'font:15px/1.6 -apple-system,Segoe UI,sans-serif;margin:0 0 14px;color:#111';
+  const small = 'font:12px/1.5 -apple-system,Segoe UI,sans-serif;color:#777;margin:18px 0 0';
+  const htmlbody =
+    `<div style="max-width:560px">` +
+    `<p style="${p}">${escapeHtml(greeting)}</p>` +
+    `<p style="${p}">${escapeHtml(thanks)} ${escapeHtml(confirmation)}</p>` +
+    (rows.length
+      ? `<p style="${p};margin-bottom:6px"><strong>What you sent us</strong></p><table style="font:14px/1.5 -apple-system,Segoe UI,sans-serif;border-collapse:collapse;margin:0 0 14px">` +
+        rows.map(([k, v]) => `<tr><td style="padding:2px 12px 2px 0;color:#666">${escapeHtml(k)}</td><td style="padding:2px 0">${escapeHtml(v)}</td></tr>`).join('') +
+        `</table>`
+      : '') +
+    `<p style="${p};margin-bottom:6px"><strong>While you wait</strong></p><ul style="font:14px/1.7 -apple-system,Segoe UI,sans-serif;margin:0 0 14px;padding-left:20px">` +
+    links.map(([l, u]) => `<li><a href="${escapeHtml(u)}" style="color:#c0392b">${escapeHtml(l)}</a></li>`).join('') +
+    `</ul>` +
+    `<p style="${p}">Reply to this email, or call us on ${escapeHtml(siteConfig.phone)}.</p>` +
+    `<p style="${p}">The ${escapeHtml(siteConfig.name)} team<br><span style="color:#666">${escapeHtml(siteConfig.legalName)}, ${escapeHtml(formattedAddress)}</span></p>` +
+    `<p style="${small}">${escapeHtml(footer)}</p></div>`;
+
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: { Accept: 'application/json', 'Content-Type': 'application/json', Authorization: `Zoho-enczapikey ${token}` },
+    body: JSON.stringify({
+      from: { address: from, name: siteConfig.name },
+      to: [{ email_address: { address: to, name: name || to } }],
+      reply_to: [{ address: siteConfig.email, name: siteConfig.name }],
+      subject: `${subject} | ${siteConfig.name}`,
+      textbody,
+      htmlbody,
+    }),
+  });
+  if (!res.ok) throw new Error(`ZeptoMail acknowledgement responded ${res.status} ${res.statusText}`);
 }

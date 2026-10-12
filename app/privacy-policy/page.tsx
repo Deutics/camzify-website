@@ -27,7 +27,7 @@ const pageMeta = {
 
 export const metadata = generatePageMeta({ ...pageMeta });
 
-const UPDATED = '8 October 2026';
+const UPDATED = '13 October 2026';
 
 const faqs = [
   { question: 'Does this policy cover the Camzify product, or just the website?', answer: 'Just this website. Video, detections, patrol reports and account data in the Camzify console are processed under the customer agreement for that account, and the security and compliance page describes how that data is protected. This policy covers what happens when you read these pages or send us a form.' },
@@ -69,7 +69,13 @@ export default function PrivacyPolicyPage() {
 
           <H2>What we collect</H2>
           <P>
-            <strong className="font-semibold text-foreground">What you send us.</strong> The site has four forms. The contact form stores your name, email address, a subject and your message. The demo request form stores your name, email address, your company name if you give it, and the number of cameras you tell us about. The quote form on the pricing page stores your name, email address, your company name and a message if you give them, and the camera and feature counts you configured. The newsletter form stores your email address. Nothing on these forms is required beyond your name, your email address and, for the contact form, your message.
+            <strong className="font-semibold text-foreground">What you send us.</strong> The site has four forms. The contact form stores your name, email address, a subject and your message. The demo request form stores your name, email address, your company name if you give it, and the number of cameras you tell us about. The quote form on the pricing page stores your name, email address, your company name and a message if you give them, and the camera and feature counts you configured. The contact, demo and quote forms also take a phone number if you give one. The newsletter form stores your email address. Nothing on these forms is required beyond your name, your email address and, for the contact form, your message.
+          </P>
+          <P>
+            <strong className="font-semibold text-foreground">Where you are, so we can reply at a good time.</strong> When you send the contact, demo or quote form, we also record your approximate location (country, region and city, worked out from your internet connection by our hosting provider), your browser&rsquo;s time zone and language, and the page you sent the form from and the page before it. We use these only to reply to you at a sensible hour and to know which page you had a question about. We do not keep your IP address with your request.
+          </P>
+          <P>
+            <strong className="font-semibold text-foreground">The confirmation email.</strong> After you send one of those forms, we email a confirmation to the address you entered, repeating your name, company and camera counts, never your message. If you did not send the form, you can ignore it; nothing else follows from it.
           </P>
           <P>
             <strong className="font-semibold text-foreground">What your browser sends.</strong> Like any website, ours is served by a hosting provider that records the technical details of each request, such as your IP address, browser type, the page requested and the time. We use those records to keep the site running and secure, not to profile you.
