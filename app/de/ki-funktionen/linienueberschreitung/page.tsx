@@ -101,7 +101,7 @@ export default function DeLinienueberschreitungPage() {
               <div>
                 <h2 className="font-display text-2xl font-bold">Konfiguration</h2>
                 <p className="mt-4 text-muted-foreground">
-                  Linien werden im Konfigurationsbereich direkt auf das Kamerabild gezeichnet. Eine Linie über einem Eingang zählt außerdem die eintretenden und die hinausgehenden Personen getrennt; wie sich das mit Personenzählern über der Tür vergleicht, steht im <Link href="/guides/people-counters-sensors-vs-cameras" hrefLang="en-US" className="text-primary hover:underline">Leitfaden zu Personenzählern (EN)</Link>. Jede Linie unterstützt:
+                  Linien werden im Konfigurationsbereich direkt auf das Kamerabild gezeichnet. Eine Linie über einem Eingang zählt außerdem die eintretenden und die hinausgehenden Personen getrennt; wie sich das mit Personenzählern über der Tür vergleicht, steht im <Link href="/blog/people-counters-sensors-vs-cameras" hrefLang="en-US" className="text-primary hover:underline">Artikel über Personenzähler (EN)</Link>. Jede Linie unterstützt:
                 </p>
                 <ul className="mt-4 space-y-3 text-muted-foreground">
                   <li className="flex gap-2">• Richtungssteuerung: A→B, B→A oder beide Richtungen</li>

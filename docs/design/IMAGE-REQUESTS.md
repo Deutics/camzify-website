@@ -84,13 +84,11 @@ Staged 2026-09-26. New and revised:
 so do 09 (virtual patrolling cost) and 11 (AI analytics cost). Both pairs are live as
 supplied; distinct art for one of each pair would help.
 
-## 0. New guide, 12 October 2026
+## 0. Blog posts
 
-`/guides/people-counters-sensors-vs-cameras` (people counters: sensors vs the cameras you
-own) has no art of its own. It borrows `feature-occupancy-and-peak-hour-trends-1` as hero
-and card. Wanted: `guide-people-counters-sensors-vs-cameras` (hero) and
-`guide-thumb-people-counters-sensors-vs-cameras` (card), ideally an entrance camera view
-with a counting line across the doorway and in/out tallies.
+Every image the blog needs is briefed in [BLOG-IMAGE-BRIEFS.md](BLOG-IMAGE-BRIEFS.md),
+generated from `lib/blog-posts.ts`: file names, sizes, where each one sits and what it
+must show. Each slot also shows its brief in place on any preview deployment.
 
 ## 1. Optional, only if the team has capacity
 

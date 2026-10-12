@@ -64,7 +64,7 @@ export default function Page() {
               <h2 className="font-display text-2xl font-bold">Why occupancy and peak hour trends matter</h2>
               <div className="mt-4 space-y-4 max-w-prose text-muted-foreground">
                 <p>Staffing, cleaning schedules, and restocking windows are usually set based on rough assumptions, "lunch is busy," "weekends are slower", rather than actual measured data. Those assumptions drift over time as customer behavior changes, and nobody notices until a location is visibly understaffed during a rush or overstaffed during a lull.</p>
-                <p>Dedicated people-counting sensors can answer this, but they mean new hardware, new installation, and another system to maintain, often not worth it just to answer a scheduling question. The trade-offs are set out in <Link href="/guides/people-counters-sensors-vs-cameras" className="text-primary hover:underline">people counters: sensors vs the cameras you own</Link>.</p>
+                <p>Dedicated people-counting sensors can answer this, but they mean new hardware, new installation, and another system to maintain, often not worth it just to answer a scheduling question. The trade-offs are set out in <Link href="/blog/people-counters-sensors-vs-cameras" className="text-primary hover:underline">people counters: sensors vs the cameras you own</Link>.</p>
                 <p>Occupancy and peak hour trends answers it using cameras that are already in place, turning live subject counts into a continuous, accurate picture of when and where a site is actually busiest.</p>
               </div>
             </ScrollReveal>

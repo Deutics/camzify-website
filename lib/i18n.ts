@@ -79,7 +79,7 @@ export const translations: TranslationPair[] = [
   // AI detections
   { en: '/ai-features', de: '/de/ki-funktionen', sourceHash: '74f2acd59a41' },
   { en: '/ai-features/zone-intrusion-detection', de: '/de/ki-funktionen/bereichsueberwachung', sourceHash: '264f6a75a6bb' },
-  { en: '/ai-features/line-intrusion-detection', de: '/de/ki-funktionen/linienueberschreitung', sourceHash: '2e46c17822da' },
+  { en: '/ai-features/line-intrusion-detection', de: '/de/ki-funktionen/linienueberschreitung', sourceHash: 'b293cd675a4b' },
   { en: '/ai-features/loitering-detection', de: '/de/ki-funktionen/verweilerkennung', sourceHash: '2cd739d014a3' },
   { en: '/ai-features/fire-and-smoke-detection', de: '/de/ki-funktionen/feuer-und-rauch-erkennung', sourceHash: 'f917bf1828de' },
   { en: '/ai-features/ppe-violation-detection', de: '/de/ki-funktionen/psa-erkennung', sourceHash: '105c926cbfad' },

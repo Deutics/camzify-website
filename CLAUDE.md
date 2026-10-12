@@ -100,6 +100,10 @@ components/
 lib/
   site-config.ts        Identity + navigation. Single source of truth
   glossary-terms.ts     The glossary: one entry renders one /glossary/<slug> page
+  blog-posts.ts         The blog: one entry lists a post on /blog and in the sitemap, and
+                        declares its image slots with a brief for the designer. Previews
+                        show each brief in place (ImageSlot); the live site never does.
+                        `npx tsx scripts/blog-image-briefs.ts` writes the designer's list
   camera-brand-guides.ts  One entry renders one /supported-cameras/<brand> setup guide. Every
                         brand fact comes from that manufacturer's own documentation, opened
                         and listed in the entry's sources; where the docs are silent, so is

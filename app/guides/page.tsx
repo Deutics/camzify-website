@@ -54,8 +54,6 @@ const items = [
   { slug: 'what-is-vsaas', title: 'What Is VSaaS?' },
   { slug: 'hybrid-cloud-video-surveillance', title: 'Hybrid Cloud Video Surveillance' },
   { slug: 'construction-site-security-checklist', title: 'Construction Site Security Checklist' },
-  // No designer thumbnail yet (requested in docs/design/IMAGE-REQUESTS.md): borrows the feature figure.
-  { slug: 'people-counters-sensors-vs-cameras', title: 'People Counters: Sensors vs Cameras', thumb: '/feature-occupancy-and-peak-hour-trends-1.webp' },
 ];
 
 const faqs = [
@@ -82,7 +80,7 @@ export default function GuidesHub() {
                 <Link href={`/guides/${item.slug}`} className="group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card shadow-md transition-all hover:shadow-lg hover:-translate-y-0.5">
                   {/* The designer's card thumbnail for each guide (2026-09-25 delivery). */}
                   <div className="aspect-video w-full overflow-hidden border-b border-border bg-muted/30">
-                    <SiteImage src={'thumb' in item && item.thumb ? item.thumb : `/guide-thumb-${item.slug}.webp`} alt={`Cover illustration for the guide ${item.title}`} width={821} height={462} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" priority={i === 0} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]" />
+                    <SiteImage src={`/guide-thumb-${item.slug}.webp`} alt={`Cover illustration for the guide ${item.title}`} width={821} height={462} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" priority={i === 0} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]" />
                   </div>
                   <div className="flex flex-1 flex-col p-6">
                     <h2 className="font-display text-base font-bold group-hover:text-primary">{item.title}</h2>

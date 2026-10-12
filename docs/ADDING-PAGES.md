@@ -218,6 +218,30 @@ tanks click-through the moment the year turns.
 
 ---
 
+### Blog post — `/blog/<slug>`
+
+Written around one search question, with keyword research behind it (DataForSEO, US,
+English), and ending in a hand-off to the product page that answers it. Built like a
+guide (`articleSchema`, `type: 'article'`, `AuthorByline`, a Sources section for every
+outside figure), with three differences:
+
+1. **Register it first** in `lib/blog-posts.ts`: slug, card title, excerpt, dates, a
+   thumbnail brief and one entry per image. That entry is what lists the post on
+   `/blog` and in the sitemap; nothing is added to `lib/routes.ts` by hand.
+2. **Images are slots, not files.** Put `<ImageSlot post={post.slug} n={2} />` where each
+   image goes, numbered in page order (1 is the hero). Each slot's brief, in the
+   registry, tells the designer what to draw. Previews and local builds show the brief in
+   a dashed box on the page; the live site shows the slot's `fallback` image or nothing.
+   When the designer's `blog-<slug>-<n>` file is staged with `scripts/optimise-images.py`,
+   it replaces the slot with no code change.
+3. **Regenerate the designer's brief** with `npx tsx scripts/blog-image-briefs.ts` and
+   commit `docs/design/BLOG-IMAGE-BRIEFS.md`, which is what goes to the designer.
+
+Breadcrumbs are `Blog` → the short title. Read dates from the registry
+(`blogPost(slug).published` / `.updated`) so the card, the byline and the schema agree.
+
+---
+
 ### Glossary term — `/glossary/<slug>`
 
 No page file. Add an entry to `lib/glossary-terms.ts` (the `GlossaryTerm` type and its

@@ -1,5 +1,6 @@
 import { generatePageMeta } from '@/lib/page-utils';
-import { PhotoFigure } from '@/components/content/photo-figure';
+import { ImageSlot } from '@/components/content/image-slot';
+import { blogPost } from '@/lib/blog-posts';
 import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { articleSchema, personSchema } from '@/lib/seo';
@@ -12,7 +13,8 @@ import Link from 'next/link';
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
  * <head> tags, and by `PageShell` for the on-page structured data.
  *
- * The buyer's guide behind "people counter" / "people counting" / "footfall counter" (one
+ * A blog post (lib/blog-posts.ts holds its card and its image briefs; moved from /guides,
+ * where it was first drafted, on 2026-10-13). The buyer's article behind "people counter" / "people counting" / "footfall counter" (one
  * Google Ads cluster, ~2,400 US searches a month, KD 1, ~640 AI searches) and the sensor,
  * retail-traffic and foot-traffic terms around it (DataForSEO, 2026-10-12). It answers the
  * comparison and cost questions the SERP asks and hands the reader to the feature page
@@ -32,11 +34,12 @@ import Link from 'next/link';
 const pageMeta = {
   title: 'People Counters: Sensors vs the Cameras You Own',
   description: 'What a people counter is, how sensors and cameras count foot traffic, what each costs, and how to count people in and out with the security cameras you own.',
-  path: '/guides/people-counters-sensors-vs-cameras',
+  path: '/blog/people-counters-sensors-vs-cameras',
 };
 
-const publishedTime = '2026-10-12';
-const modifiedTime = '2026-10-12';
+const post = blogPost('people-counters-sensors-vs-cameras');
+const publishedTime = post.published;
+const modifiedTime = post.updated;
 
 export const metadata = generatePageMeta({ ...pageMeta, type: 'article', publishedTime, modifiedTime });
 
@@ -49,7 +52,7 @@ const faqs = [
   { question: 'How do I count foot traffic across several stores?', answer: 'With one platform for every site. Dedicated counters report per device; a cloud video management system counts on each store\'s cameras and rolls the figures up across every site on one login.' },
 ];
 
-export default function PeopleCountersGuidePage() {
+export default function PeopleCountersPostPage() {
   return (
     <PageShell
       {...pageMeta}
@@ -59,8 +62,8 @@ export default function PeopleCountersGuidePage() {
         personSchema(),
       ]}
       breadcrumbs={[
-        { label: 'Guides', href: '/guides' },
-        { label: 'People Counters' },
+        { label: 'Blog', href: '/blog' },
+        { label: 'People counters' },
       ]}
     >
       <article className="pb-16">
@@ -69,11 +72,11 @@ export default function PeopleCountersGuidePage() {
           <AuthorByline className="mt-6" updated={modifiedTime} />
           <p className="mt-6 max-w-prose text-body text-muted-foreground">
             <strong className="font-semibold text-foreground">A people counter is a sensor over a door, or software reading camera video, that measures how many people pass through an entrance or occupy a space.</strong>{' '}
-            Most businesses that want the numbers already have the second kind of hardware on the wall: a security camera watching the entrance. This guide compares the two routes, what each costs, how accurate each tends to be, and what counting with the cameras you already own looks like in practice.
+            Most businesses that want the numbers already have the second kind of hardware on the wall: a security camera watching the entrance. This article compares the two routes, what each costs, how accurate each tends to be, and what counting with the cameras you already own looks like in practice.
           </p>
 
           <div className="mt-10 max-w-3xl">
-            <PhotoFigure src="/feature-occupancy-and-peak-hour-trends-1.webp" alt="The Camzify console showing occupancy and peak-hour trends from a site's existing cameras" caption="Occupancy and peak-hour trends from existing cameras" priority />
+            <ImageSlot post={post.slug} n={1} priority />
           </div>
 
           <section className="mt-16">
@@ -105,6 +108,10 @@ export default function PeopleCountersGuidePage() {
               </div>
             </ScrollReveal>
           </section>
+
+          <div className="mt-12 max-w-3xl">
+            <ImageSlot post={post.slug} n={2} />
+          </div>
 
           <section className="mt-16">
             <ScrollReveal>
@@ -158,7 +165,7 @@ export default function PeopleCountersGuidePage() {
           </section>
 
           <div className="mt-12 max-w-3xl">
-            <PhotoFigure src="/feature-line-intrusion-detection-2.webp" alt="A camera view with a virtual line drawn across an entrance, the kind of line that counts people entering and leaving" caption="A line across the entrance counts each direction separately" />
+            <ImageSlot post={post.slug} n={3} />
           </div>
 
           <section className="mt-16">
@@ -193,6 +200,10 @@ export default function PeopleCountersGuidePage() {
             </ScrollReveal>
           </section>
 
+          <div className="mt-12 max-w-3xl">
+            <ImageSlot post={post.slug} n={4} />
+          </div>
+
           <section className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Is camera-based people counting private?</h2>
@@ -214,7 +225,7 @@ export default function PeopleCountersGuidePage() {
                 </p>
                 <PointList items={[
                   'No device per door: each entrance is counted by the camera already covering it.',
-                  'Every site in one place: counts from every store roll up on one login, instead of one device and one report per door.',
+                  'Every site in one place: counts from every store are read on one login, instead of one device and one report per door.',
                   'More than a number: the same cameras record, run security detections and, if you choose, scheduled patrol rounds, so counting is one use of a system you would run anyway.',
                   'Security on the same feed: the detections that watch for intrusion or loitering on those cameras notify the right person within seconds of a confirmed detection; the counts themselves are read, not alarmed.',
                 ]} />

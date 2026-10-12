@@ -37,9 +37,10 @@ const SECTIONS: { title: string; match: (p: string) => boolean }[] = [
   { title: 'Partners', match: (p) => p.startsWith('/partners') },
   { title: 'Cameras and connectivity', match: (p) => p.startsWith('/camera-connectivity') || p.startsWith('/supported-cameras') },
   { title: 'Guides', match: (p) => p.startsWith('/guides') },
+  { title: 'Blog', match: (p) => p === '/blog' || p.startsWith('/blog/') },
   { title: 'Comparisons and alternatives', match: (p) => p.startsWith('/compare') || p.startsWith('/alternatives') },
   { title: 'Glossary', match: (p) => p.startsWith('/glossary') },
-  { title: 'Company and trust', match: (p) => ['/faqs', '/trust', '/security-and-compliance', '/roadmap', '/blog', '/singapore'].includes(p) || p.startsWith('/about') },
+  { title: 'Company and trust', match: (p) => ['/faqs', '/trust', '/security-and-compliance', '/roadmap', '/singapore'].includes(p) || p.startsWith('/about') },
   { title: 'Legal', match: (p) => ['/privacy-policy', '/terms-of-service', '/cookie-policy', '/accessibility'].includes(p) },
   { title: 'Deutsch', match: (p) => p === '/de' || p.startsWith('/de/') },
 ];
