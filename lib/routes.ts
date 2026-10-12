@@ -211,7 +211,7 @@ const compare = group(
 );
 
 // Switch-intent pages: the buyer already has the other vendor.
-const alternatives = group(['/alternatives', '/alternatives/adt', '/alternatives/verkada'], 0.8, 'monthly');
+const alternatives = group(['/alternatives', '/alternatives/adt', '/alternatives/verkada', '/alternatives/blue-iris'], 0.8, 'monthly');
 
 const glossary = group(['/glossary', ...GLOSSARY_TERMS.map((t) => `/glossary/${t.slug}`)], 0.6, 'monthly');
 

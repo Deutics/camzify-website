@@ -3,13 +3,15 @@
 import Link from 'next/link';
 
 import { FormWrapper } from '@/components/system/form-wrapper';
+import { PhoneField } from '@/components/system/phone-field';
+import { LEAD_MESSAGES } from '@/lib/lead-messages';
 import { Loader2, Send } from 'lucide-react';
 
 export function ContactForm() {
   return (
     <FormWrapper
       endpoint="/api/contact"
-      successMessage="Message sent. We will respond within one business day."
+      successMessage={LEAD_MESSAGES.contact}
     >
       {({ loading }: { loading: boolean }) => (
         <>
@@ -21,6 +23,7 @@ export function ContactForm() {
             <label htmlFor="email" className="text-sm font-medium">Email *</label>
             <input id="email" name="email" type="email" required className="mt-1.5 w-full rounded-lg border border-border bg-background px-4 py-3 text-sm focus:border-primary focus:ring-1 focus:ring-primary" placeholder="you@company.com" />
           </div>
+          <PhoneField id="contact-phone" />
           <div>
             <label htmlFor="subject" className="text-sm font-medium">Subject</label>
             <input id="subject" name="subject" className="mt-1.5 w-full rounded-lg border border-border bg-background px-4 py-3 text-sm focus:border-primary focus:ring-1 focus:ring-primary" placeholder="What is this about?" />
@@ -34,7 +37,7 @@ export function ContactForm() {
             {loading ? 'Sending...' : 'Send Message'}
           </button>
           <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
-            We store what you send so we can reply, and nothing else happens with it. See the{' '}
+            We store what you send, with your approximate location and time zone so we can reply at a good time, and nothing else happens with it. See the{' '}
             <Link href="/privacy-policy" className="text-primary hover:underline">privacy policy</Link>.
           </p>
         </>

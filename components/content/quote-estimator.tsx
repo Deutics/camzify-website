@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import { ArrowRight, Loader2 } from 'lucide-react';
 import { FormWrapper } from '@/components/system/form-wrapper';
+import { PhoneField } from '@/components/system/phone-field';
+import { LEAD_MESSAGES } from '@/lib/lead-messages';
 import { configFields, ConfigSummary, EstimateFields, useEstimateConfig } from '@/components/content/estimate-fields';
 
 /*
@@ -44,7 +46,7 @@ export function QuoteEstimator() {
           <div className="mt-6">
             <FormWrapper
               endpoint="/api/quote"
-              successMessage="Quote request received. We will reply with a quote for this configuration within one business day."
+              successMessage={LEAD_MESSAGES.quote}
               onSubmit={(data) => ({ ...data, ...configFields(config) })}
             >
               {({ loading }: { loading: boolean }) => (
@@ -63,6 +65,7 @@ export function QuoteEstimator() {
                     <label htmlFor="quote-email" className="text-sm font-medium">Work email *</label>
                     <input id="quote-email" name="email" type="email" required className="mt-1.5 w-full rounded-lg border border-border bg-background px-4 py-3 text-sm focus:border-primary focus:ring-1 focus:ring-primary" placeholder="you@company.com" />
                   </div>
+                  <PhoneField id="quote-phone" />
                   <div>
                     <label htmlFor="quote-message" className="text-sm font-medium">Anything we should know</label>
                     <textarea id="quote-message" name="message" rows={5} className="mt-1.5 w-full rounded-lg border border-border bg-background px-4 py-3 text-sm focus:border-primary focus:ring-1 focus:ring-primary" placeholder="Sites, camera brands, an annual term, a partner portfolio" />
@@ -72,7 +75,7 @@ export function QuoteEstimator() {
                     {loading ? 'Sending...' : 'Request a quote for this configuration'}
                   </button>
                   <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
-                    The counts in step 1 are sent with your request. We store what you send so we can reply, and nothing else happens with it. See the{' '}
+                    The counts in step 1 are sent with your request. We store what you send, with your approximate location and time zone so we can reply at a good time, and nothing else happens with it. See the{' '}
                     <Link href="/privacy-policy" className="text-primary hover:underline">privacy policy</Link>.
                   </p>
                 </>

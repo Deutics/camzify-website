@@ -39,6 +39,10 @@ redesign it closed every item this doc had been tracking as missing:
 Everything tracked below is resolved. Nothing is currently outstanding except the
 optional, capacity-permitting items and the regional market pages.
 
+## Requested 13 October 2026
+
+- **`/alternatives/blue-iris` hero** (`alternatives-blue-iris`, 1600 × 900, the same style as `alternatives-verkada` and `alternatives-adt`): the Camzify console on a laptop beside a desktop PC tower under a desk acting as the site's recorder, the same camera feeds on both. Do not show the Blue Iris interface or logo. The page borrows `compare-vs-on-premise` until this arrives.
+
 ## Requested 28 September 2026
 
 - **`/ai-features/license-plate-recognition` hero** (1229 × 692 render, transparent background, like the other feature heroes): a gate or entry-lane camera frame with a plate read and a watchlist match shown in the console. The page currently uses a plain step illustration because no existing image shows plate reading.
