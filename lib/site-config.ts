@@ -432,7 +432,7 @@ export const navItems: NavEntry[] = [
       ] }] },
       { label: 'Decide', sections: [{ items: [
         { label: 'Compare', href: '/compare', description: 'Side-by-side comparisons' },
-        { label: 'Alternatives', href: '/alternatives', description: 'Switching from ADT or Verkada' },
+        { label: 'Alternatives', href: '/alternatives', description: 'Switching from ADT, Verkada or Blue Iris' },
         { label: 'ROI Calculator', href: '/roi-calculator', description: 'Your numbers, two calculators' },
       ] }] },
       { label: 'Set Up', sections: [{ items: [

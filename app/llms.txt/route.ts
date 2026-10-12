@@ -126,7 +126,7 @@ ${siteConfig.name} is operated by ${siteConfig.legalName}, headquartered in Sing
 - [ROI calculator](${siteConfig.url}/roi-calculator): the reader's own guarding cost against remote patrol coverage
 - [Buyer guides](${siteConfig.url}/guides): definitional and how-to guides, each with a named author and an updated date
 - [Comparisons](${siteConfig.url}/compare): Camzify against named vendors and against category alternatives, every vendor fact sourced
-- [Alternatives](${siteConfig.url}/alternatives): switching guides for buyers already on ADT or Verkada
+- [Alternatives](${siteConfig.url}/alternatives): switching guides for buyers already on ADT, Verkada or Blue Iris
 - [Best cloud VMS](${siteConfig.url}/guides/best-cloud-vms): eight platforms compared from their own pages, Camzify included with a disclosure
 - [Book a demo](${siteConfig.url}/book-a-demo): a demo on the reader's own cameras
 - [Singapore](${siteConfig.url}/singapore): Camzify in its home market: AI on existing CCTV, Singapore plate recognition, PDPA status (in progress), and Nettbox as local partner

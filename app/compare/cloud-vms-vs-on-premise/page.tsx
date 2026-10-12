@@ -138,7 +138,7 @@ export default function CloudVmsVsOnPremisePage() {
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Where a cloud VMS is the better choice</h2>
               <p className="mt-4 max-w-prose text-muted-foreground">
-                A cloud VMS is the better choice when there are several sites, when people outside the building need to see the cameras, or when nobody wants to own and maintain a server. The <Link href="/guides/what-is-a-cloud-vms" className="text-primary hover:underline">cloud VMS guide</Link> covers the model in more depth.
+                A cloud VMS is the better choice when there are several sites, when people outside the building need to see the cameras, or when nobody wants to own and maintain a server. The <Link href="/guides/what-is-a-cloud-vms" className="text-primary hover:underline">cloud VMS guide</Link> covers the model in more depth, and the <Link href="/alternatives/blue-iris" className="text-primary hover:underline">Blue Iris alternative</Link> page walks through the move from a recording PC on site.
               </p>
               <PointList items={cloudBetter} />
             </ScrollReveal>
