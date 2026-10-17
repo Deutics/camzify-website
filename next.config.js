@@ -98,6 +98,14 @@ const nextConfig = {
         permanent: true,
       },
       {
+        // Search Console, October 2026: an old post Google still crawls ("Crawled - currently
+        // not indexed"). Its subject is the guide's exact query; the catch-all would only
+        // reach the guides hub.
+        source: '/blog/virtual-patrolling-services-the-future-of-modern-security',
+        destination: '/guides/what-is-virtual-patrolling',
+        permanent: true,
+      },
+      {
         // Search Console, October 2026: an old post still drawing impressions (229, two
         // clicks). Its subject, AI object detection in business use, is what the
         // intelligent video analytics guide covers; the catch-all below would only reach the hub.
