@@ -11,6 +11,11 @@ import { siteConfig } from '@/lib/site-config';
  *
  * `/api/` is disallowed because those routes are write-only lead endpoints with no
  * crawlable content.
+ *
+ * `/_next/` is NOT disallowed. It holds the site's CSS and JavaScript, and Google renders
+ * pages with them: blocking it meant Googlebot saw every page unstyled, and Search Console
+ * listed the stylesheets themselves as "Blocked by robots.txt" and "Indexed, though blocked
+ * by robots.txt" (October 2026). Google's guidance is never to block CSS or JS.
  */
 export default function robots(): MetadataRoute.Robots {
   const aiCrawlers = [
@@ -40,7 +45,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/_next/'],
+        disallow: ['/api/'],
       },
       ...aiCrawlers.map((userAgent) => ({ userAgent, allow: '/' })),
     ],

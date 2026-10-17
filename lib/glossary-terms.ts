@@ -687,6 +687,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
       "Camzify is a cloud video management system that runs on the CCTV cameras a site already has, adding AI detection and scheduled patrol rounds on top of recording and playback. It is not a CCTV installer or a camera manufacturer, and it does not use or claim the term to mean anything other than what it already means across the industry.",
     ],
     related: [
+      { href: "/blog/what-is-cctv", label: "What is CCTV? The full article" },
       { href: "/cloud-video-surveillance", label: "Cloud video surveillance" },
       { href: "/guides/what-is-a-cloud-vms", label: "What is a cloud VMS?" },
       { href: "/virtual-guard", label: "Virtual guard" },
