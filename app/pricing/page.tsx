@@ -182,7 +182,7 @@ export default function PricingPage() {
             </ScrollReveal>
           </div>
 
-          <div className="mt-16">
+          <div id="quote" className="mt-16 scroll-mt-28">
             <ScrollReveal>
               <span className="font-mono text-mono-sm uppercase text-primary">Request a quote</span>
               <h2 className="mt-2 font-display text-2xl font-bold sm:text-3xl">Your counts, then the quote</h2>
