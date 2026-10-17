@@ -17,7 +17,7 @@ import { SiteImage } from '@/components/content/site-image';
  */
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 /** '2026-09-18' -> '18 September 2026'. Hand-formatted so the server and client agree byte for byte. */
-const longDate = (iso: string) => { const [y, m, d] = iso.split('-').map(Number); return `${d} ${MONTHS[m - 1]} ${y}`; };
+export const longDate = (iso: string) => { const [y, m, d] = iso.split('-').map(Number); return `${d} ${MONTHS[m - 1]} ${y}`; };
 
 export function AuthorByline({ className = '', updated }: { className?: string; updated?: string }) {
   const { name, slug, role, credential } = siteConfig.author;
