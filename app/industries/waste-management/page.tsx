@@ -16,8 +16,8 @@ import { SiteImage } from '@/components/content/site-image';
  * const is what stops the meta description and the schema drifting apart.
  */
 const pageMeta = {
-  title: "Waste, Scrap Yard & Recycling Security | AI",
-  description: "Camzify provides AI-powered virtual patrolling and video analytics for waste management, automated patrols, real-time alerts, and compliance reports.",
+  title: "Scrap Yard Security Camera Software | Recycling",
+  description: "Security camera software for scrap yards, recycling centers and waste sites: perimeter alerts after hours, fire and smoke detection, and patrol rounds.",
   path: "/industries/waste-management",
 };
 
