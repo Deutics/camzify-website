@@ -63,6 +63,9 @@ const PRICING: CtaCopy = {
 
 /** First match wins, so the more specific rules come first. */
 const RULES: [RegExp, CtaCopy][] = [
+  // Blog posts, by subject (lib/blog-posts.ts).
+  [/^\/blog\/what-is-cctv$/, CLOUD_VMS],
+  [/^\/blog\/people-counters-sensors-vs-cameras$/, DETECTIONS],
   // Cost and pricing guides: the reader is pricing a purchase.
   [/^\/guides\/[a-z-]*-cost(-[a-z-]*)?$/, PRICING],
   // Camera setup: connection guides, brand guides, the connector, protocol explainers.
