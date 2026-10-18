@@ -4,6 +4,7 @@ import { CTABand } from '@/components/layout/cta-band';
 import { JsonLd } from '@/components/system/json-ld';
 import { graph, webPageSchema, faqSchema, type QA } from '@/lib/seo';
 import { localeFromPath, LOCALES } from '@/lib/i18n';
+import { ctaForPath } from '@/lib/cta-by-section';
 
 /**
  * Standard wrapper for every content page: breadcrumb trail, page-level structured
@@ -19,6 +20,9 @@ import { localeFromPath, LOCALES } from '@/lib/i18n';
  * page gets German breadcrumbs and CTA band, `inLanguage: 'de'` in its schema, and its
  * content wrapped in `lang="de"` so assistive technology and crawlers read it as German
  * even though the document root, shared by every route, says `en` until hydration.
+ *
+ * The closing band matches the section (lib/cta-by-section.ts) unless the page passes its
+ * own `ctaProps`; German pages keep their German default.
  */
 export function PageShell({
   path,
@@ -68,7 +72,7 @@ export function PageShell({
         </div>
       </div>
       {children}
-      {showCTA && <CTABand locale={locale} {...(ctaProps ?? {})} />}
+      {showCTA && <CTABand locale={locale} {...(ctaProps ?? (locale === 'en' ? ctaForPath(path) : undefined) ?? {})} />}
     </>
   );
 

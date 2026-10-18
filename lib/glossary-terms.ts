@@ -27,6 +27,13 @@ export type GlossaryTerm = {
   body: string[];
   /** Two to five internal links to existing routes. */
   related: { href: string; label: string }[];
+  /**
+   * The page meant to rank for this term, when the site has one. Shown right under the
+   * definition. Search Console (October 2026) showed glossary entries competing with the
+   * guide or product page on the same term ("cloud vms", "guard tour system", "virtual
+   * guard"); such entries carry a "Meaning, in Brief" title and point here instead.
+   */
+  primary?: { href: string; label: string };
   /** Two or three questions with two-to-four-sentence answers. */
   faqs: { question: string; answer: string }[];
 };
@@ -83,7 +90,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     slug: "video-surveillance-as-a-service",
     term: "Video surveillance as a service",
     abbreviation: "VSaaS",
-    title: "What Is VSaaS? | Video Surveillance as a Service",
+    title: "VSaaS Meaning, in Brief",
     description: "VSaaS, video surveillance as a service, is cloud recording, storage and viewing sold as a subscription. What it covers, and what it does not.",
     definition: "Video surveillance as a service, or VSaaS, is a subscription in which cameras stream to a cloud service that records, stores, streams and manages the video instead of a recorder on site. The customer keeps its cameras and its internet connection and pays per camera or per instance per month for the service.",
     body: [
@@ -92,6 +99,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
       "On Camzify the subscription is per instance per month: a stream instance for each camera, a detection instance for each AI feature on a camera, a patrol instance for each camera on rounds, and storage per terabyte. AI detections and scheduled patrol rounds run inside the same service on the same streams.",
       "A site with too little upstream bandwidth for its cameras, or a policy that footage must never leave the building, is the case where a recorder on site remains the better fit.",
     ],
+    primary: { href: "/guides/what-is-vsaas", label: "What is VSaaS? The full guide" },
     related: [
       { href: "/guides/what-is-vsaas", label: "What is VSaaS?" },
       { href: "/cloud-video-surveillance", label: "Cloud video surveillance" },
@@ -105,7 +113,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
   {
     slug: "cloud-vms",
     term: "Cloud VMS",
-    title: "What Is a Cloud VMS? | Cloud Video Management",
+    title: "Cloud VMS Meaning, in Brief",
     description: "A cloud VMS is video management software delivered as a service: recording, storage, live view and users in the cloud, no server on site.",
     definition: "A cloud VMS is a video management system that runs as a cloud service rather than on a server the site owns. Cameras stream to it, footage is recorded and kept there under a retention window set per camera, and every site is viewed and managed from one login in a browser.",
     body: [
@@ -113,6 +121,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
       "The trade-offs are practical. A cloud VMS needs upstream bandwidth for every camera streamed and puts the footage outside the building, encrypted. An on-premise VMS keeps footage local and integrates deeply with access control and building systems, at the cost of hardware to buy, maintain and replace.",
       "Camzify is a cloud VMS with virtual patrolling built in: alongside recording, live streaming, alerts, analytics and user management, it runs AI detections and scheduled patrol rounds on the same camera streams and files a report per round.",
     ],
+    primary: { href: "/guides/what-is-a-cloud-vms", label: "What is a cloud VMS? The full guide" },
     related: [
       { href: "/guides/what-is-a-cloud-vms", label: "What is a cloud VMS?" },
       { href: "/platform", label: "The Camzify platform" },
@@ -126,7 +135,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
   {
     slug: "cloud-video-surveillance",
     term: "Cloud video surveillance",
-    title: "Cloud Video Surveillance, Defined | Glossary",
+    title: "Cloud Video Surveillance Meaning, in Brief",
     description: "Cloud video surveillance sends camera streams to a cloud service that records and manages them instead of a recorder on site. The model, defined.",
     definition: "Cloud video surveillance is the model in which a site's cameras stream to a service in the cloud that records, stores and manages the video instead of a recorder on site. The cameras stay where they are; recording, retention, live viewing and user access move to the service.",
     body: [
@@ -134,6 +143,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
       "Its advantages are the ones a recorder cannot offer: retention set per camera rather than per box, one login for every site, footage that survives a stolen or failed recorder, and on Camzify the AI detections and scheduled patrol rounds that run on the same streams.",
       "Its limits are bandwidth and policy. Every camera streamed needs upstream capacity at the site, and some organizations require footage to stay inside the building. A hybrid arrangement, with the recorder kept and the cloud added for the cameras that matter, covers both.",
     ],
+    primary: { href: "/cloud-video-surveillance", label: "Cloud video surveillance on Camzify" },
     related: [
       { href: "/cloud-video-surveillance", label: "Cloud video surveillance" },
       { href: "/guides/hybrid-cloud-video-surveillance", label: "Hybrid cloud video surveillance" },
@@ -169,7 +179,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
   {
     slug: "virtual-guard",
     term: "Virtual guard",
-    title: "What Is a Virtual Guard? | Glossary",
+    title: "Virtual Guard Meaning, in Brief",
     description: "A virtual guard watches a site through its cameras from somewhere else, on a schedule, and raises what a person must act on. The term defined.",
     definition: "A virtual guard is a security service in which a site is watched through its cameras from another location, by an operator or by software, instead of by a guard standing on the premises. It covers the routine watching and the round; a person still attends what it raises.",
     body: [
@@ -177,6 +187,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
       "On Camzify the virtual guard is virtual patrolling: scheduled rounds through the cameras with a checklist per camera, a guard messaged when a check fails, and a report per round. Security agencies and monitoring centers sell it on the cameras their clients already own.",
       "A virtual guard does not replace the response. A door found open still needs someone to close it, and an intruder still needs someone to attend, whether that is a mobile patrol, the site's own staff or the police.",
     ],
+    primary: { href: "/virtual-guard", label: "How a virtual guard works on Camzify" },
     related: [
       { href: "/virtual-guard", label: "Virtual guard" },
       { href: "/virtual-patrolling/vs-security-guards", label: "Virtual patrolling vs security guards" },
@@ -190,7 +201,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
   {
     slug: "virtual-patrolling",
     term: "Virtual patrolling",
-    title: "What Is Virtual Patrolling? | Glossary",
+    title: "Virtual Patrolling Meaning, in Brief",
     description: "Virtual patrolling is a scheduled round through a site's cameras with a checklist at each stop, a guard notified on failure and a report per round.",
     definition: "Virtual patrolling is a scheduled patrol round conducted through a site's cameras rather than on foot: each camera is a stop, each stop has a checklist, and a failed check notifies the assigned guard and is recorded in a report for the round. It replaces the routine walk, not the response.",
     body: [
@@ -198,6 +209,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
       "Every item is marked compliant or not, with the frame it was judged on. A failing item captures a snapshot and messages the guard designated for that camera; it stays pending until it is fixed, which captures the after frame, or is held with a written reason. The report per round carries all of it and a compliance percentage.",
       "An automated round also records, for every camera, a description of the scene, the people and objects present and any safety or security risk it sees, whether or not the checklist asked. That is what makes the report a record rather than a log.",
     ],
+    primary: { href: "/guides/what-is-virtual-patrolling", label: "What is virtual patrolling? The full guide" },
     related: [
       { href: "/virtual-patrolling", label: "Virtual patrolling" },
       { href: "/virtual-patrolling/how-it-works", label: "How it works" },
@@ -233,7 +245,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
   {
     slug: "guard-tour-system",
     term: "Guard tour system",
-    title: "What Is a Guard Tour System? | Glossary",
+    title: "Guard Tour System Meaning, in Brief",
     description: "A guard tour system records that a guard reached each checkpoint on a round, usually by tapping a tag. What it proves, and what it cannot.",
     definition: "A guard tour system is a way of recording that a guard visited each checkpoint on a patrol route, usually by tapping a tag or scanning a code with a device that logs the time. It proves presence at the checkpoint; it does not record the condition the guard found there.",
     body: [
@@ -241,6 +253,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
       "What they cannot show is what the guard saw. The tag at the rear gate is tapped whether the gate was closed or open, which is why a guard tour log is evidence of attendance rather than of condition.",
       "A virtual patrol answers the other question. Each camera is a checkpoint, each checklist item is judged on the frame, and the report carries the frame for every item, so the record shows the condition at the time and needs nobody to walk the route.",
     ],
+    primary: { href: "/guides/guard-tour-systems-explained", label: "Guard tour systems explained" },
     related: [
       { href: "/guides/guard-tour-systems-explained", label: "Guard tour systems explained" },
       { href: "/compare/virtual-patrolling-vs-guard-tour-systems", label: "Virtual patrolling vs guard tour systems" },
