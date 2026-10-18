@@ -6,6 +6,7 @@
  *
  *   node scripts/indexnow.mjs --base <sha> --head <sha>          # submit
  *   node scripts/indexnow.mjs --base <sha> --head <sha> --dry-run # print, send nothing
+ *   node scripts/indexnow.mjs --all [--dry-run]                   # every URL in the live sitemap
  *
  * Run automatically by .github/workflows/indexnow.yml after every successful
  * production deployment, with base = the deployed commit's first parent.
@@ -20,6 +21,12 @@
  * A change to shared chrome (header, footer, site-config) touches every page but
  * changes none of them in substance, so it submits nothing: resubmitting 270 URLs on
  * every menu tweak is the kind of volume the protocol answers with 429.
+ *
+ * --all resubmits every URL in https://camzify.com/sitemap.xml. It is for repair, not
+ * routine use: Bing Webmaster Tools (October 2026) held stale copies of pages that had
+ * not changed since a bad crawl (one guide "a redirect", another with no title or H1),
+ * and a changed-files-only submission never reaches those. Run it by hand, or from the
+ * workflow's "Run workflow" button, after confirming the live pages are right.
  *
  * THE KEY is public by design: the engines fetch it from https://camzify.com/<key>.txt
  * to confirm the submitter controls the host. Rotate it by generating a new one,
@@ -92,12 +99,21 @@ function collect(base, head) {
   return [...paths].sort().map((p) => (p === '/' ? ORIGIN : ORIGIN + p)).slice(0, MAX_URLS);
 }
 
+async function sitemapUrls() {
+  const res = await fetch(`${ORIGIN}/sitemap.xml`);
+  if (!res.ok) throw new Error(`sitemap.xml answered ${res.status}`);
+  const xml = await res.text();
+  // Only the canonical host: anything else in the sitemap would be rejected by the endpoint.
+  return [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1].trim()).filter((u) => u === ORIGIN || u.startsWith(`${ORIGIN}/`)).slice(0, MAX_URLS);
+}
+
 async function main() {
+  const all = process.argv.includes('--all');
   const base = arg('--base');
   const head = arg('--head') ?? 'HEAD';
   const dryRun = process.argv.includes('--dry-run');
-  if (!base) {
-    console.error('usage: node scripts/indexnow.mjs --base <sha> [--head <sha>] [--dry-run]');
+  if (!all && !base) {
+    console.error('usage: node scripts/indexnow.mjs --base <sha> [--head <sha>] [--dry-run]\n       node scripts/indexnow.mjs --all [--dry-run]');
     process.exit(2);
   }
 
@@ -107,8 +123,8 @@ async function main() {
     process.exit(1);
   }
 
-  const urlList = collect(base, head);
-  console.log(`${urlList.length} changed URL(s) between ${base.slice(0, 7)} and ${head.slice(0, 7)}`);
+  const urlList = all ? await sitemapUrls() : collect(base, head);
+  console.log(all ? `${urlList.length} URL(s) from ${ORIGIN}/sitemap.xml` : `${urlList.length} changed URL(s) between ${base.slice(0, 7)} and ${head.slice(0, 7)}`);
   urlList.forEach((u) => console.log(`  ${u}`));
   if (urlList.length === 0 || dryRun) return;
 
