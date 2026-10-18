@@ -59,6 +59,11 @@ export default function GlossaryTermPage({ params }: { params: { slug: string } 
             {t.abbreviation && <span className="ml-3 font-mono text-2xl font-medium text-muted-foreground sm:text-3xl">({t.abbreviation})</span>}
           </h1>
           <p className="mt-6 max-w-prose text-body font-semibold leading-relaxed text-foreground">{t.definition}</p>
+          {t.primary && (
+            <p className="mt-4 max-w-prose text-body">
+              <Link href={t.primary.href} className="font-semibold text-primary hover:underline">{t.primary.label} →</Link>
+            </p>
+          )}
 
           <div className="mt-10 max-w-prose space-y-4 text-muted-foreground">
             {t.body.map((p, i) => (
