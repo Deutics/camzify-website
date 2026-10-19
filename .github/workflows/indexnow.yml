@@ -9,13 +9,27 @@ name: IndexNow
 
 on:
   deployment_status:
+  # Manual repair: resubmit every URL in the live sitemap (scripts/indexnow.mjs --all).
+  workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
+  submit-all:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Submit every sitemap URL
+        run: node scripts/indexnow.mjs --all
+
   submit:
-    if: github.event.deployment_status.state == 'success' && github.event.deployment.environment == 'Production'
+    if: github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success' && github.event.deployment.environment == 'Production'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
