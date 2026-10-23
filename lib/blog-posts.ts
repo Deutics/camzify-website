@@ -57,6 +57,37 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'what-is-cctv',
+    title: 'What is CCTV? Meaning, how it works, and types',
+    excerpt: 'CCTV means closed-circuit television: cameras that send video to a private recorder and screens instead of broadcasting it. How a system works, the three types, and where CCTV is heading.',
+    published: '2026-10-17',
+    updated: '2026-10-17',
+    thumbBrief: 'A card-sized version of image 1: one wall-mounted security camera with a thin line running from it to a small recorder box and a screen, and a faint cloud outline above. Bold shapes that read at 300px wide; no text.',
+    images: [
+      {
+        n: 1,
+        kind: 'render',
+        placement: 'Hero, under the opening paragraph',
+        brief: 'The idea of "closed circuit" in one picture: two or three security cameras on a building, each connected by a line to a single recorder box and a monitor inside the building, the whole system drawn inside a closed loop or outline. Outside the loop, one faint cloud shape with a dotted line to the recorder, hinting at where CCTV goes next. Clean line illustration in the site style, brand red for the cameras. No brand names, no faces.',
+        alt: 'A CCTV system as a closed loop: cameras on a building connected to one recorder and one monitor inside it',
+      },
+      {
+        n: 2,
+        kind: 'render',
+        placement: 'Under "How does a CCTV system work?"',
+        brief: 'A left-to-right diagram of the four parts, each labeled: "Cameras" (a dome and a bullet camera) → "Cabling or network" (a coax cable and an Ethernet cable) → "Recorder" (a box labeled DVR / NVR with a hard disk icon) → "Viewing" (a monitor and a phone). Arrows show video flowing left to right. Simple, readable on a phone (stack vertically on narrow widths is fine).',
+        alt: 'How CCTV works: cameras send video over cabling or a network to a DVR or NVR, which records it and shows it on a monitor or phone',
+      },
+      {
+        n: 3,
+        kind: 'render',
+        placement: 'Under "What are the types of CCTV?"',
+        brief: 'Three side-by-side panels with a heading each. "Analog": a camera on a coax cable into a DVR box. "IP": a camera on an Ethernet cable into a network switch and an NVR box. "Cloud": an IP camera connected through the building\'s internet to a cloud shape, with a laptop and phone viewing it. Same line style as image 2. The cloud panel subtly highlighted in brand red.',
+        alt: 'The three types of CCTV: analog cameras recording to a DVR, IP cameras recording to an NVR, and cameras recording to the cloud',
+      },
+    ],
+  },
+  {
     slug: 'people-counters-sensors-vs-cameras',
     title: 'People counters: sensors vs the cameras you own',
     excerpt: 'What a people counter is, how sensors and cameras count foot traffic, what each costs, and how to count people in and out with the security cameras already on the wall.',
