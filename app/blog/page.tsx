@@ -30,14 +30,14 @@ const SHOW_BRIEFS = process.env.VERCEL_ENV !== 'production';
 function cardImage(post: BlogPost): string | undefined {
   const hero = post.images.find((i) => i.n === 1);
   return (
-    deliveredImage(blogThumbStem(post.slug), 'render') ??
-    (hero && deliveredImage(blogImageStem(post.slug, 1), hero.kind)) ??
+    deliveredImage(blogThumbStem(post.slug)) ??
+    (hero && deliveredImage(blogImageStem(post.slug, 1))) ??
     hero?.fallback?.src
   );
 }
 
 function CardImage({ post, priority }: { post: BlogPost; priority: boolean }) {
-  const thumb = deliveredImage(blogThumbStem(post.slug), 'render');
+  const thumb = deliveredImage(blogThumbStem(post.slug));
   if (!thumb && SHOW_BRIEFS) {
     return (
       <div className="flex aspect-video w-full flex-col justify-center gap-2 border-b-2 border-dashed border-primary/40 bg-primary/5 p-4">
