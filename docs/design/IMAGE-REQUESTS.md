@@ -39,16 +39,6 @@ redesign it closed every item this doc had been tracking as missing:
 Everything tracked below is resolved. Nothing is currently outstanding except the
 optional, capacity-permitting items and the regional market pages.
 
-## Requested 13 October 2026
-
-- **`/alternatives/blue-iris` hero** (`alternatives-blue-iris`, 1600 × 900, the same style as `alternatives-verkada` and `alternatives-adt`): the Camzify console on a laptop beside a desktop PC tower under a desk acting as the site's recorder, the same camera feeds on both. Do not show the Blue Iris interface or logo. The page borrows `compare-vs-on-premise` until this arrives.
-
-## Requested 28 September 2026
-
-- **`/ai-features/license-plate-recognition` hero** (1229 × 692 render, transparent background, like the other feature heroes): a gate or entry-lane camera frame with a plate read and a watchlist match shown in the console. The page currently uses a plain step illustration because no existing image shows plate reading.
-- **`/platform/deployment-options` hero**: the three options (cloud, on premises, hybrid) as one render, e.g. a server rack on site and the cloud console side by side. Currently a step illustration.
-- **`/ai-features/custom-detections` hero**: optional; a step illustration stands in.
-
 ## Delivered 25 September 2026
 
 Staged 2026-09-26. New and revised:
@@ -83,6 +73,32 @@ Staged 2026-09-26. New and revised:
 **Worth knowing:** folders 22 (VMS) and 24 (best cloud VMS) contain the same image, and
 so do 09 (virtual patrolling cost) and 11 (AI analytics cost). Both pairs are live as
 supplied; distinct art for one of each pair would help.
+
+## Delivered 23 October 2026
+
+Staged 2026-10-24. The zip is the full set again; only these files are new since the
+25 September delivery, and all of them closed an open request:
+
+- **`/alternatives/blue-iris` hero** (`alternatives-blue-iris`, `Compare/15.png`), replacing
+  the borrowed `compare-vs-on-premise` render. It shows a generic Windows recording program,
+  not the Blue Iris interface, as asked.
+- **`/ai-features/license-plate-recognition` hero** (`feature-license-plate-recognition-1`):
+  a gate camera with a US plate read and marked "Watchlist Matched".
+- **`/ai-features/custom-detections` hero** (`feature-custom-detections-1`), also on
+  `/de/ki-funktionen/individuelle-erkennungen`.
+- **`/platform/deployment-options` hero** (`deployment-options`): cloud, on premises and
+  hybrid side by side, also on `/de/plattform/bereitstellung`.
+- **The four people-counter blog images** (`blog-people-counters-sensors-vs-cameras-1` to
+  `-4`), where they replace the designer briefs on the post.
+
+Nothing is requested beyond the blog images below. Still open from earlier deliveries:
+
+- `GUIDES/23 What Is a Cloud VMS` is still pixel-identical to folders 21 and 25 (only
+  the file metadata changed), so `/guides/what-is-a-cloud-vms` keeps its earlier render.
+- `Supported Cameras/Armcrest.png` is still the icon-only mark.
+- Folders 22 and 24, and 09 and 11, still hold the same image as each other.
+- `GUIDES/Thumbnails/24 Best Cloud VMS` is now an empty folder. The site keeps the card
+  thumbnail from the 25 September delivery.
 
 ## 0. Blog posts
 

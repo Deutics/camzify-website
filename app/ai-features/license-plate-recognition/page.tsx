@@ -2,7 +2,7 @@ import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { FeatureHero } from '@/components/content/feature-hero';
 import { FaqSection } from '@/components/content/faq-section';
-import { SectionVisual } from '@/components/content/section-visual';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
 
@@ -55,7 +55,7 @@ export default function LicensePlateRecognitionPage() {
         facts={['US and Singapore plates', 'Watchlist alerts', 'Cloud or on premises']}
         primary={{ href: '/book-a-demo', label: 'Set up plate recognition' }}
         secondary={{ href: '/ai-features/custom-detections', label: 'All custom detections' }}
-        visual={<SectionVisual variant="flow" caption="License plate recognition · watchlist" alt="Four steps: a vehicle enters the frame, the plate is read, it is checked against the watchlist, and a listed plate raises an alert" steps={['Vehicle in frame', 'Plate read', 'Checked against watchlist', 'Listed plate: alert']} />}
+        visual={<PhotoFigure src="/feature-license-plate-recognition-1.webp" alt="The console live view of a gate camera: a car stopped at the barrier, its plate read and marked Watchlist Matched" caption="License plate recognition · watchlist match" priority />}
       />
 
       <section className="pb-16">
