@@ -2,7 +2,7 @@ import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { FeatureHero } from '@/components/content/feature-hero';
 import { FaqSection } from '@/components/content/faq-section';
-import { SectionVisual } from '@/components/content/section-visual';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
 
@@ -67,7 +67,7 @@ export default function CustomDetectionsPage() {
         facts={['One-off build price, then per camera', 'Cloud or on premises', 'Build footage deleted afterwards']}
         primary={{ href: '/book-a-demo', label: 'Discuss a detection' }}
         secondary={{ href: '/ai-features', label: 'The 23 standard detections' }}
-        visual={<SectionVisual variant="flow" caption="Custom detection · request to live" alt="Four steps: requirement agreed, detection built, deployed in the cloud or on premises, licensed per camera" steps={['Requirement agreed', 'Detection built', 'Cloud or on premises', 'Licensed per camera']} />}
+        visual={<PhotoFigure src="/feature-custom-detections-1.webp" alt="Four steps from request to live: requirement agreed, detection built, deployed in the cloud or on premises, licensed per camera" caption="Custom detection · request to live" priority />}
       />
 
       <section className="pb-16">

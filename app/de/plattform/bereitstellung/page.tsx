@@ -2,7 +2,7 @@ import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { FeatureHero } from '@/components/content/feature-hero';
 import { FaqSection } from '@/components/content/faq-section';
-import { SectionVisual } from '@/components/content/section-visual';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
 
@@ -74,7 +74,7 @@ export default function DeBereitstellungPage() {
         facts={['Standardmäßig in der Cloud', 'Vor Ort für den Datenschutz', 'Von Camzify eingerichtet']}
         primary={{ href: '/book-a-demo', label: 'Bereitstellung planen' }}
         secondary={{ href: '/de/sicherheit-und-datenschutz', label: 'Sicherheit und Datenschutz' }}
-        visual={<SectionVisual locale="de" variant="flow" caption="Bereitstellung · drei Varianten" alt="Drei Varianten der Bereitstellung: Cloud, vor Ort und Hybrid" steps={['Cloud', 'Vor Ort', 'Hybrid', 'Pro Standort angeboten']} />}
+        visual={<PhotoFigure src="/deployment-options.webp" alt="Drei Bereitstellungen nebeneinander: ein Mitarbeiter verfolgt Kameras in der Cloud-Konsole, ein Serverschrank vor Ort mit Überwachungsplatz, und eine Kombination aus beidem" caption="Bereitstellung · Cloud, vor Ort, Hybrid" priority />}
       />
 
       <section className="pb-16">

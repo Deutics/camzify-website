@@ -2,7 +2,7 @@ import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { FeatureHero } from '@/components/content/feature-hero';
 import { FaqSection } from '@/components/content/faq-section';
-import { SectionVisual } from '@/components/content/section-visual';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
 
@@ -56,7 +56,7 @@ export default function DeIndividuelleErkennungenPage() {
         facts={['Einmaliger Preis, dann pro Kamera', 'Cloud oder vor Ort', 'Entwicklungsaufnahmen gelöscht']}
         primary={{ href: '/book-a-demo', label: 'Erkennung besprechen' }}
         secondary={{ href: '/de/ki-funktionen', label: 'Die 23 Standard-Erkennungen' }}
-        visual={<SectionVisual locale="de" variant="flow" caption="Individuelle Erkennung · von der Anfrage bis live" alt="Vier Schritte: Anforderung festgelegt, Erkennung entwickelt, Betrieb in der Cloud oder vor Ort, Lizenz pro Kamera" steps={['Anforderung festgelegt', 'Erkennung entwickelt', 'Cloud oder vor Ort', 'Lizenz pro Kamera']} />}
+        visual={<PhotoFigure src="/feature-custom-detections-1.webp" alt="Vier Schritte von der Anfrage bis zum Betrieb: Anforderung festgelegt, Erkennung entwickelt, Betrieb in der Cloud oder vor Ort, Lizenz pro Kamera" caption="Individuelle Erkennung · von der Anfrage bis live" priority />}
       />
 
       <section className="pb-16">

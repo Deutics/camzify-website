@@ -2,7 +2,7 @@ import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { FeatureHero } from '@/components/content/feature-hero';
 import { FaqSection } from '@/components/content/faq-section';
-import { SectionVisual } from '@/components/content/section-visual';
+import { PhotoFigure } from '@/components/content/photo-figure';
 import { ScrollReveal } from '@/components/motion/scroll-reveal';
 import Link from 'next/link';
 
@@ -81,7 +81,7 @@ export default function DeploymentOptionsPage() {
         facts={['Cloud by default', 'On premises for data privacy', 'Installed and set up by Camzify']}
         primary={{ href: '/book-a-demo', label: 'Plan a deployment' }}
         secondary={{ href: '/security-and-compliance', label: 'Security and compliance' }}
-        visual={<SectionVisual variant="flow" caption="Deployment · three options" alt="Three deployment options: cloud, on premises and hybrid" steps={['Cloud', 'On premises', 'Hybrid', 'Quoted per site']} />}
+        visual={<PhotoFigure src="/deployment-options.webp" alt="Three deployments side by side: an operator watching cameras in the cloud console, an on-site server rack with a monitoring desk, and a hybrid of the two" caption="Deployment · cloud, on premises, hybrid" priority />}
       />
 
       <section className="pb-16">

@@ -73,7 +73,7 @@ export const translations: TranslationPair[] = [
   { en: '/platform/video-backup-and-retention', de: '/de/plattform/videospeicherung', sourceHash: '55f033e829bc' },
   { en: '/platform/multi-site-management', de: '/de/plattform/mehrere-standorte', sourceHash: '58009f121a5c' },
   { en: '/platform/notifications-and-alerts', de: '/de/plattform/alarme-und-benachrichtigungen', sourceHash: 'd68cdc050e98' },
-  { en: '/platform/deployment-options', de: '/de/plattform/bereitstellung', sourceHash: '6c152eebef5c' },
+  { en: '/platform/deployment-options', de: '/de/plattform/bereitstellung', sourceHash: '3ac4ea31a3c5' },
   { en: '/platform/user-management', de: '/de/plattform/benutzerverwaltung', sourceHash: 'e1e8e9e7e506' },
 
   // AI detections
@@ -84,7 +84,7 @@ export const translations: TranslationPair[] = [
   { en: '/ai-features/fire-and-smoke-detection', de: '/de/ki-funktionen/feuer-und-rauch-erkennung', sourceHash: 'f917bf1828de' },
   { en: '/ai-features/ppe-violation-detection', de: '/de/ki-funktionen/psa-erkennung', sourceHash: '105c926cbfad' },
   { en: '/ai-features/camera-tampering-detection', de: '/de/ki-funktionen/sabotageerkennung', sourceHash: '442038ead4a9' },
-  { en: '/ai-features/custom-detections', de: '/de/ki-funktionen/individuelle-erkennungen', sourceHash: 'c448812ec067' },
+  { en: '/ai-features/custom-detections', de: '/de/ki-funktionen/individuelle-erkennungen', sourceHash: '36c3d1648b38' },
 
   // Partners
   { en: '/partners', de: '/de/partner', sourceHash: 'e6848d67821d' },
@@ -99,7 +99,7 @@ export const translations: TranslationPair[] = [
   { en: '/industries/construction-sites', de: '/de/branchen/baustellen', sourceHash: '0cb2a969af6f' },
 
   // Buying and trust
-  { en: '/pricing', de: '/de/preise', sourceHash: '59e579252dad' },
+  { en: '/pricing', de: '/de/preise', sourceHash: '5a33e58308bc' },
   { en: '/security-and-compliance', de: '/de/sicherheit-und-datenschutz', sourceHash: 'b6ae1839138b' },
   { en: '/supported-cameras', de: '/de/unterstuetzte-kameras', sourceHash: '1079b3cc9765' },
   { en: '/supported-cameras/reolink', de: '/de/unterstuetzte-kameras/reolink', sourceHash: 'dcdafcf21ea2' },

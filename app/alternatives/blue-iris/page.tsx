@@ -127,7 +127,7 @@ export default function BlueIrisAlternativePage() {
           </p>
 
           <div className="mt-10 max-w-3xl">
-            <PhotoFigure src="/compare-vs-on-premise.webp" alt="An on-site recorder beside the Camzify console open on a laptop, the same camera feeds on both: recording on a machine in the building versus in the cloud" />
+            <PhotoFigure src="/alternatives-blue-iris.webp" alt="Camzify open on a laptop beside a Windows desktop running a camera recording program: a cloud console versus software on a PC in the building" />
           </div>
 
           <div className="mt-12">
