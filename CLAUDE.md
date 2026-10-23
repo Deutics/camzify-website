@@ -42,7 +42,8 @@ detections are built to order (`/ai-features/custom-detections`): a one-off buil
 per-instance license, build footage deleted afterwards. License plate recognition
 (`/ai-features/license-plate-recognition`) reads US and Singapore plates only and alerts on a watchlist; no
 accuracy, distance or approved-list rule was given. Alerts reach the assigned contact within seconds of a confirmed detection (confirmed by the business
-2026-10-08); no other latency figure was given. None of the standard detections identifies anyone;
+2026-10-08); no other latency figure was given. A line across an entrance counts people entering and leaving separately, and
+occupancy counts people per zone (both confirmed 2026-10-12); occupancy does not alert at a number. None of the standard detections identifies anyone;
 facial recognition exists only as a custom build for a customer with the legal basis to use it, so never write
 that Camzify "does no facial recognition" or "no plate reading", and never present either as a standard feature. If you need a number you do not have, write around it honestly; do not
 estimate. `/trust` and `/llms.txt` both state this policy publicly, so violating it makes
@@ -99,6 +100,10 @@ components/
 lib/
   site-config.ts        Identity + navigation. Single source of truth
   glossary-terms.ts     The glossary: one entry renders one /glossary/<slug> page
+  blog-posts.ts         The blog: one entry lists a post on /blog and in the sitemap, and
+                        declares its image slots with a brief for the designer. Previews
+                        show each brief in place (ImageSlot); the live site never does.
+                        `npx tsx scripts/blog-image-briefs.ts` writes the designer's list
   camera-brand-guides.ts  One entry renders one /supported-cameras/<brand> setup guide. Every
                         brand fact comes from that manufacturer's own documentation, opened
                         and listed in the entry's sources; where the docs are silent, so is

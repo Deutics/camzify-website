@@ -158,15 +158,9 @@ const nextConfig = {
         destination: '/sitemap.xml',
         permanent: true,
       },
-      {
-        // Any other old blog slug: the posts were not carried over, and the guides
-        // hub is where their subjects now live. A 308 to the hub beats a 404 for the
-        // reader and for any inbound link we never catalogued. /blog itself still
-        // renders its own page, so this only matches deeper paths.
-        source: '/blog/:slug+',
-        destination: '/guides',
-        permanent: true,
-      },
+      // Any other old blog slug is redirected to /guides by app/blog/[...rest]/route.ts,
+      // not here: a config redirect runs before the filesystem and would catch the new
+      // posts in lib/blog-posts.ts as well.
     ];
   },
   webpack: (config, { isServer }) => {

@@ -89,9 +89,9 @@ Staged 2026-10-24. The zip is the full set again; only these files are new since
 - **`/platform/deployment-options` hero** (`deployment-options`): cloud, on premises and
   hybrid side by side, also on `/de/plattform/bereitstellung`.
 - **The four people-counter blog images** (`blog-people-counters-sensors-vs-cameras-1` to
-  `-4`), staged with the blog itself (PR #39), where they replace the designer briefs.
+  `-4`), where they replace the designer briefs on the post.
 
-Nothing is currently requested. Still open from earlier deliveries:
+Nothing is requested beyond the blog images below. Still open from earlier deliveries:
 
 - `GUIDES/23 What Is a Cloud VMS` is still pixel-identical to folders 21 and 25 (only
   the file metadata changed), so `/guides/what-is-a-cloud-vms` keeps its earlier render.
@@ -99,6 +99,12 @@ Nothing is currently requested. Still open from earlier deliveries:
 - Folders 22 and 24, and 09 and 11, still hold the same image as each other.
 - `GUIDES/Thumbnails/24 Best Cloud VMS` is now an empty folder. The site keeps the card
   thumbnail from the 25 September delivery.
+
+## 0. Blog posts
+
+Every image the blog needs is briefed in [BLOG-IMAGE-BRIEFS.md](BLOG-IMAGE-BRIEFS.md),
+generated from `lib/blog-posts.ts`: file names, sizes, where each one sits and what it
+must show. Each slot also shows its brief in place on any preview deployment.
 
 ## 1. Optional, only if the team has capacity
 

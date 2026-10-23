@@ -107,7 +107,7 @@ export default function LineIntrusionPage() {
               <div>
                 <h2 className="font-display text-2xl font-bold">Configuration</h2>
                 <p className="mt-4 text-muted-foreground">
-                  Lines are drawn directly on the camera view in the configuration panel. Each line supports:
+                  Lines are drawn directly on the camera view in the configuration panel. A line across an entrance also counts people entering and leaving separately, the basis of <Link href="/blog/people-counters-sensors-vs-cameras" className="text-primary hover:underline">counting foot traffic on existing cameras</Link>. Each line supports:
                 </p>
                 <ul className="mt-4 space-y-3 text-muted-foreground">
                   <li className="flex gap-2">• Directional control. A→B, B→A, or bidirectional</li>
