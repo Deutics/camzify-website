@@ -691,7 +691,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     slug: "cctv",
     term: "Closed-circuit television",
     abbreviation: "CCTV",
-    title: "What Is CCTV? | Closed-Circuit Television",
+    title: "CCTV Meaning, in Brief",
     description: "CCTV is the everyday UK term for camera surveillance, recorded or live. What it covers, and how cloud video surveillance fits under it.",
     definition: "CCTV, closed-circuit television, is any camera system whose picture is sent to a limited set of monitors or a recorder rather than broadcast, and it is the term most UK buyers and installers use for what a US buyer might call video surveillance. It covers everything from a single doorbell camera to a multi-site network of IP cameras recording to the cloud.",
     body: [
@@ -699,6 +699,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
       "A modern CCTV system can be almost entirely cloud based: IP cameras stream over the network to a service that records, stores and serves the footage, with no recorder on site. Installers and monitoring companies sometimes call this specific case cloud CCTV, to distinguish it from a system that still records to a local NVR.",
       "Camzify is a cloud video management system that runs on the CCTV cameras a site already has, adding AI detection and scheduled patrol rounds on top of recording and playback. It is not a CCTV installer or a camera manufacturer, and it does not use or claim the term to mean anything other than what it already means across the industry.",
     ],
+    primary: { href: "/blog/what-is-cctv", label: "What is CCTV? The full article" },
     related: [
       { href: "/cloud-video-surveillance", label: "Cloud video surveillance" },
       { href: "/guides/what-is-a-cloud-vms", label: "What is a cloud VMS?" },

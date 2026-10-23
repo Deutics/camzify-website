@@ -94,7 +94,7 @@ export default function WhatIsAVideoManagementSystemPage() {
                   A VMS is software. There is no such thing as a VMS device in the strict sense, but the software has to run somewhere, and the place it runs is often called by the same name. That is why a search for a VMS device turns up NVRs, servers and cloud subscriptions together.
                 </p>
                 <p>
-                  The pieces of a camera system divide cleanly. Cameras capture and encode video; a DVR takes analog camera signals, digitizes them and records them to its own disks; a{' '}
+                  The pieces of a camera system divide cleanly (<Link href="/blog/what-is-cctv" className="text-primary hover:underline">what CCTV is</Link> covers them from the start). Cameras capture and encode video; a DVR takes analog camera signals, digitizes them and records them to its own disks; a{' '}
                   <Link href="/glossary/network-video-recorder" className="text-primary hover:underline">network video recorder</Link>, or NVR, takes streams that IP cameras have already encoded and records those. The VMS is the management layer on top: it decides what is recorded, for how long, who can watch it and what happens when something is detected.
                 </p>
                 <p>

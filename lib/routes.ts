@@ -1,6 +1,7 @@
 import { germanPaths } from '@/lib/i18n';
 import { GLOSSARY_TERMS } from '@/lib/glossary-terms';
 import { CAMERA_BRAND_GUIDES } from '@/lib/camera-brand-guides';
+import { BLOG_POSTS_NEWEST } from '@/lib/blog-posts';
 
 /**
  * Every route on the site, in one list: the single source for sitemap.xml (app/sitemap.ts)
@@ -213,6 +214,9 @@ const compare = group(
 // Switch-intent pages: the buyer already has the other vendor.
 const alternatives = group(['/alternatives', '/alternatives/adt', '/alternatives/verkada', '/alternatives/blue-iris'], 0.8, 'monthly');
 
+// The blog: the index and every post in lib/blog-posts.ts.
+const blog = group(['/blog', ...BLOG_POSTS_NEWEST.map((p) => `/blog/${p.slug}`)], 0.6, 'weekly');
+
 const glossary = group(['/glossary', ...GLOSSARY_TERMS.map((t) => `/glossary/${t.slug}`)], 0.6, 'monthly');
 
 const guides = group(
@@ -285,7 +289,7 @@ const partners = group(
 
 // Trust and company pages: low crawl priority, high conversion-assist value.
 const company = group(
-  ['/about', '/about/muhammad-talha', '/faqs', '/trust', '/security-and-compliance', '/roadmap', '/blog', '/sitemap-page'],
+  ['/about', '/about/muhammad-talha', '/faqs', '/trust', '/security-and-compliance', '/roadmap', '/sitemap-page'],
   0.5,
   'monthly'
 );
@@ -312,6 +316,7 @@ export const SITEMAP_ENTRIES: SitemapEntry[] = [
   ...compare,
   ...alternatives,
   ...guides,
+  ...blog,
   ...glossary,
   ...connectivity,
   ...cameraBrandGuides,

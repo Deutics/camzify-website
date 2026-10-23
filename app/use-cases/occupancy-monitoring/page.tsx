@@ -35,7 +35,7 @@ const content: UseCaseContent = {
     heading: 'Staffing is planned from a guess',
     paras: [
       'When is the floor busiest? The answer is usually a manager\'s impression, refreshed once a year by a clipboard count on a day that was not typical. Rosters, cleaning windows and restocking are planned from it, and the cost of getting it wrong shows up as queues at one hour and idle staff at another.',
-      'The cameras over the floor have been counting the whole time. They were installed for security, and nobody asked them the operational question.',
+      <>The cameras over the floor have been counting the whole time. They were installed for security, and nobody asked them the operational question; how they compare with door counters is in <Link href="/blog/people-counters-sensors-vs-cameras" className="text-primary hover:underline">people counters: sensors vs cameras</Link>.</>,
     ],
     visual: 'compliance',
     caption: 'A week of counts per zone, read as a trend. The peaks are what the roster is built around.',
