@@ -70,6 +70,7 @@ export const BLOG_POSTS: BlogPost[] = [
         placement: 'Hero, under the opening paragraph',
         brief: 'The idea of "closed circuit" in one picture: two or three security cameras on a building, each connected by a line to a single recorder box and a monitor inside the building, the whole system drawn inside a closed loop or outline. Outside the loop, one faint cloud shape with a dotted line to the recorder, hinting at where CCTV goes next. Clean line illustration in the site style, brand red for the cameras. No brand names, no faces.',
         alt: 'A CCTV system as a closed loop: cameras on a building connected to one recorder and one monitor inside it',
+        fallback: { src: '/cloud-video-backup-against-dvr-theft.webp', alt: 'A recorder in an on-site rack beside camera feeds recording to the cloud and viewed on a laptop', caption: 'Recording on site, and recording to the cloud' },
       },
       {
         n: 2,
