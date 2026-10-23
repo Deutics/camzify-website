@@ -42,7 +42,7 @@ for (const post of BLOG_POSTS_NEWEST) {
       spec: img.kind === 'photo' ? 'photo, 1600 × 900 JPEG' : 'render, 1600 × 900 PNG, transparent background',
       placement: img.placement,
       brief: img.brief,
-      done: Boolean(deliveredImage(blogImageStem(post.slug, img.n), img.kind)),
+      done: Boolean(deliveredImage(blogImageStem(post.slug, img.n))),
     })),
     {
       stem: blogThumbStem(post.slug),
@@ -50,7 +50,7 @@ for (const post of BLOG_POSTS_NEWEST) {
       spec: '821 × 462, PNG or JPEG',
       placement: 'The card for this post on /blog',
       brief: post.thumbBrief,
-      done: Boolean(deliveredImage(blogThumbStem(post.slug), 'render')),
+      done: Boolean(deliveredImage(blogThumbStem(post.slug))),
     },
   ];
   for (const r of rows) {

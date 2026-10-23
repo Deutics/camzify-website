@@ -137,12 +137,13 @@ export function blogPost(slug: string): BlogPost {
 }
 
 /**
- * The delivered image's path, or undefined while the designer's file is outstanding. The
- * extension tells PhotoFigure how to frame it (a card for a photograph, none for a render);
- * SiteImage serves the responsive WebP variants either way.
+ * The delivered image's path, or undefined while the designer's file is outstanding.
+ * Delivered images are staged as WebP sources, and the designer draws photographs and
+ * renders alike with their own rounded corners on a transparent background, so a card
+ * around them would read as a frame inside a frame: PhotoFigure frames none of them.
  */
-export function deliveredImage(stem: string, kind: BlogImageKind): string | undefined {
-  return imageManifest[stem] ? `/${stem}.${kind === 'photo' ? 'jpg' : 'png'}` : undefined;
+export function deliveredImage(stem: string): string | undefined {
+  return imageManifest[stem] ? `/${stem}.webp` : undefined;
 }
 
 export const blogImageStem = (slug: string, n: number) => `blog-${slug}-${n}`;

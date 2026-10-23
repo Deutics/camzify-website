@@ -22,7 +22,7 @@ export function ImageSlot({ post, n, priority = false }: { post: string; n: numb
   if (!image) throw new Error(`Blog post "${post}" declares no image ${n} in lib/blog-posts.ts`);
 
   const stem = blogImageStem(post, n);
-  const delivered = deliveredImage(stem, image.kind);
+  const delivered = deliveredImage(stem);
   if (delivered) return <PhotoFigure src={delivered} alt={image.alt} caption={image.caption} priority={priority} />;
 
   if (!SHOW_BRIEFS) {
