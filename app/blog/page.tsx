@@ -47,9 +47,11 @@ function CardImage({ post, priority }: { post: BlogPost; priority: boolean }) {
     );
   }
   const src = cardImage(post);
+  // No thumbnail, hero or stand-in yet: no image area at all, rather than an empty box.
+  if (!src) return null;
   return (
     <div className="aspect-video w-full overflow-hidden border-b border-border bg-muted/30">
-      {src && <SiteImage src={src} alt={`Cover illustration for the article ${post.title}`} width={821} height={462} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" priority={priority} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]" />}
+      <SiteImage src={src} alt={`Cover illustration for the article ${post.title}`} width={821} height={462} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" priority={priority} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]" />
     </div>
   );
 }
