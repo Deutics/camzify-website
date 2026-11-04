@@ -19,8 +19,8 @@ import Link from 'next/link';
  * either side.
  */
 const pageMeta = {
-  title: "Camzify vs Coram AI | Cloud Rounds vs Appliance",
-  description: "Camzify vs Coram AI: a cloud service with no recorder that runs scheduled patrol rounds, against an on-site AI NVR with cameras, faces and plates.",
+  title: "Coram AI Alternative | Camzify vs Coram Compared",
+  description: "A Coram AI alternative with no recorder on site: Camzify runs AI detections and patrol rounds in the cloud; Coram uses an AI NVR. When each is the better choice.",
   path: "/compare/camzify-vs-coram-ai",
 };
 
