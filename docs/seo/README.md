@@ -5,7 +5,9 @@ answer engines and AI citation, and how to measure it) and
 [`AUDIT-2026-09-18.md`](AUDIT-2026-09-18.md) (where it stands and the ordered backlog).
 The rest of this file is the dated log of each research pass, oldest first. Data files:
 `01-*` the original keyword map, `02-*` competitor phrases, `03-*` volumes and difficulty,
-`04-*` the rendered site audit, `05-*` AI visibility.
+`04-*` the rendered site audit, `05-*` AI visibility. Reviews of the live numbers:
+[`GSC-2026-10-17.md`](GSC-2026-10-17.md), [`BING-2026-10-19.md`](BING-2026-10-19.md) and, newest,
+[`REVIEW-2026-11-04.md`](REVIEW-2026-11-04.md).
 
 # Keyword research (7 September 2026)
 
