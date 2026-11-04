@@ -20,8 +20,8 @@ import Link from 'next/link';
  * characterized beyond what their pages state, and no figure is quoted.
  */
 const pageMeta = {
-  title: "Camzify vs Eagle Eye Networks | An Alternative?",
-  description: "Camzify runs AI detections and patrol rounds on cameras you own, nothing on site. Eagle Eye Networks is a bridge-based cloud VMS sold via partners.",
+  title: "Eagle Eye Networks Alternative | Camzify Compared",
+  description: "An Eagle Eye Networks alternative with no bridge on site: AI detections and patrol rounds on the cameras you own, in the cloud. When each is the better choice.",
   path: "/compare/camzify-vs-eagle-eye-networks",
 };
 

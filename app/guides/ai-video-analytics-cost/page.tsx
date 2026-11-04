@@ -19,8 +19,8 @@ import Link from 'next/link';
  * a percentage or a payback period here.
  */
 const pageMeta = {
-  title: "AI Video Analytics Pricing: Cost per Camera",
-  description: "What AI video analytics costs per camera per month, how pricing models differ, and the ROI math. On Camzify most cameras land between $20 and $90 a month.",
+  title: "AI Video Analytics Software Pricing per Camera",
+  description: "Video analytics is priced per camera per month. On Camzify most cameras land between $20 and $90, from $5. What moves the price and how to estimate your sites.",
   path: "/guides/ai-video-analytics-cost",
 };
 

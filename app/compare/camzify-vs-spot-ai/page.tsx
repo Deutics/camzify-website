@@ -18,8 +18,8 @@ import Link from 'next/link';
  * own site publishes no software price, so none is characterized here.
  */
 const pageMeta = {
-  title: "Camzify vs Spot AI | AI Guard vs Patrol Rounds",
-  description: "Camzify vs Spot AI from both vendors' own pages: cameras supplied against cameras kept, and a continuous AI guard against scheduled patrol rounds.",
+  title: "Spot AI Alternative | Camzify vs Spot AI Compared",
+  description: "A Spot AI alternative with no recorder on site: Camzify runs in the cloud on cameras you own and adds scheduled patrol rounds. When each is the better choice.",
   path: "/compare/camzify-vs-spot-ai",
 };
 
