@@ -116,7 +116,11 @@ export default function UsingExistingCamerasWithACloudVmsPage() {
                   whether or not its brand appears on the{' '}
                   <Link href="/supported-cameras" className={linkClass}>supported cameras</Link> page,
                   which is a recognition aid for buyers who search by brand rather than a
-                  compatibility matrix.
+                  compatibility matrix. For the RTSP address itself, the setup guides for{' '}
+                  <Link href="/supported-cameras/hikvision" className={linkClass}>Hikvision</Link>,{' '}
+                  <Link href="/supported-cameras/dahua" className={linkClass}>Dahua</Link> and{' '}
+                  <Link href="/supported-cameras/reolink" className={linkClass}>Reolink</Link> give
+                  each manufacturer&apos;s own format.
                 </p>
                 <p>
                   The two protocols do different jobs. ONVIF is the open standard that lets cameras,

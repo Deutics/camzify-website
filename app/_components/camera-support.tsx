@@ -40,6 +40,15 @@ const paths = [
   },
 ];
 
+/** The brand setup guides linked under the logo marquee, most-searched brands first. */
+const SETUP_GUIDES = [
+  { slug: 'hikvision', brand: 'Hikvision' },
+  { slug: 'dahua', brand: 'Dahua' },
+  { slug: 'axis', brand: 'Axis' },
+  { slug: 'reolink', brand: 'Reolink' },
+  { slug: 'ezviz', brand: 'EZVIZ' },
+];
+
 const COPY = {
   en: {
     eyebrow: 'Cameras We Support',
@@ -136,6 +145,25 @@ export function CameraSupport({ locale = 'en' }: { locale?: Locale }) {
           >
             {copy.viewAll} <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
+          {/*
+            The brand setup guides answer the question these visitors search ("hikvision rtsp
+            url") and were linked only from /supported-cameras and each other, so Google left
+            the Hikvision guide uncrawled for a month (November 2026). English only: the German
+            site has one brand guide, linked from its own camera page.
+          */}
+          {locale === 'en' && (
+            <p className="mt-4 text-sm text-muted-foreground">
+              RTSP setup guides:{' '}
+              {SETUP_GUIDES.map((g, i) => (
+                <span key={g.slug}>
+                  {i > 0 && ' · '}
+                  <Link href={`/supported-cameras/${g.slug}`} className="text-primary hover:underline">
+                    {g.brand}
+                  </Link>
+                </span>
+              ))}
+            </p>
+          )}
         </div>
       </div>
     </section>

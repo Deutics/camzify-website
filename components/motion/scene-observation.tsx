@@ -170,15 +170,24 @@ export function SceneObservation({ locale = 'en' }: { locale?: Locale } = {}) {
           ) : (
             <Eye className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground" aria-hidden="true" />
           )}
-          <p className="text-xs leading-relaxed text-muted-foreground">
-            {resolved ? (
-              <>
-                <span className="font-medium text-live">{c.resolvedLead}</span>{c.resolvedRest}
-              </>
-            ) : (
-              <>{c.observing}</>
-            )}
-          </p>
+          {/* Both messages share one grid cell, so the box keeps the height of the longer
+              one. Swapping the text instead resized the box every loop, and on a phone, where
+              the two cards stack, that pushed the rest of the homepage up and down (Clarity
+              measured CLS 0.29 in November 2026). */}
+          <div className="grid">
+            <p
+              aria-hidden={!resolved}
+              className={`col-start-1 row-start-1 text-xs leading-relaxed text-muted-foreground transition-opacity duration-300 ${resolved ? 'opacity-100' : 'opacity-0'}`}
+            >
+              <span className="font-medium text-live">{c.resolvedLead}</span>{c.resolvedRest}
+            </p>
+            <p
+              aria-hidden={resolved}
+              className={`col-start-1 row-start-1 text-xs leading-relaxed text-muted-foreground transition-opacity duration-300 ${resolved ? 'opacity-0' : 'opacity-100'}`}
+            >
+              {c.observing}
+            </p>
+          </div>
         </div>
       </div>
     </div>

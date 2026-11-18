@@ -49,7 +49,7 @@ export interface TranslationPair {
 
 export const translations: TranslationPair[] = [
   // Pilot, September 2026
-  { en: '/', de: '/de', sourceHash: '0418913979af' },
+  { en: '/', de: '/de', sourceHash: 'd28a677e4cca' },
   { en: '/virtual-guard', de: '/de/virtueller-waechterrundgang', sourceHash: '0c55e683e5cf' },
   { en: '/cloud-video-surveillance', de: '/de/cloud-videomanagementsystem', sourceHash: '14898866a575' },
   { en: '/guides/what-is-intelligent-video-analytics', de: '/de/ki-videoanalyse', sourceHash: '9ef9cd0f0dfb' },
