@@ -3,6 +3,7 @@ import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { siteConfig, formattedAddress } from '@/lib/site-config';
 import Link from 'next/link';
+import { demoBookingUrl } from '@/lib/demo-booking';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -14,7 +15,9 @@ import Link from 'next/link';
  * Analytics and Microsoft Clarity, which since 2026-10-08 load on every visit unless the
  * visitor turns analytics off on the cookie policy page (components/system/analytics-consent.tsx,
  * REQUIRE_CONSENT = false; with it true they wait for the cookie banner instead); a theme preference and two session flags
- * in browser storage; and no emails sent by the site beyond replies to a form.
+ * in browser storage; and no emails sent by the site beyond replies to a form. Since 2026-11-19, when
+ * NEXT_PUBLIC_DEMO_BOOKING_URL is set, the demo confirmation links to a Zoho Bookings page
+ * (lib/demo-booking.ts) and the paragraphs that describe it render; unset, they do not.
  * Company details come from lib/site-config.ts. This is a draft for counsel to review
  * before the site leaves maintenance; the review date below is the date it was
  * written, not the date it was approved.
@@ -27,7 +30,7 @@ const pageMeta = {
 
 export const metadata = generatePageMeta({ ...pageMeta });
 
-const UPDATED = '13 October 2026';
+const UPDATED = '19 November 2026';
 
 const faqs = [
   { question: 'Does this policy cover the Camzify product, or just the website?', answer: 'Just this website. Video, detections, patrol reports and account data in the Camzify console are processed under the customer agreement for that account, and the security and compliance page describes how that data is protected. This policy covers what happens when you read these pages or send us a form.' },
@@ -77,6 +80,12 @@ export default function PrivacyPolicyPage() {
           <P>
             <strong className="font-semibold text-foreground">The confirmation email.</strong> After you send one of those forms, we email a confirmation to the address you entered, repeating your name, company and camera counts, never your message. If you did not send the form, you can ignore it; nothing else follows from it.
           </P>
+          {/* Only while the booking page is configured (lib/demo-booking.ts). */}
+          {demoBookingUrl && (
+            <P>
+              <strong className="font-semibold text-foreground">Booking your demo yourself.</strong> After you send the demo form, you can pick a time for the demo on our booking calendar, which runs on Zoho Bookings (operated by Zoho). That page is on Zoho&rsquo;s site and asks for your name and email itself; nothing from our form is passed to it. What you enter there and the time you pick are processed by Zoho on our behalf and added to our team&rsquo;s calendar.
+            </P>
+          )}
           <P>
             <strong className="font-semibold text-foreground">What your browser sends.</strong> Like any website, ours is served by a hosting provider that records the technical details of each request, such as your IP address, browser type, the page requested and the time. We use those records to keep the site running and secure, not to profile you.
           </P>
@@ -95,7 +104,7 @@ export default function PrivacyPolicyPage() {
 
           <H2>Where it is kept, and for how long</H2>
           <P>
-            Form submissions are emailed to our team through a transactional email provider (ZeptoMail, operated by Zoho) and, once our lead database is connected, also stored in a database operated with our hosting and database providers. These providers process it on our instructions and may do so in countries other than yours, including outside Singapore, the EEA and the UK, under contracts that require them to protect it. We keep an enquiry for as long as we are dealing with it and for a reasonable period afterwards so that we can pick the conversation up if you come back; a newsletter address is kept until you unsubscribe. If you ask us to delete what we hold about you, we do, unless a legal obligation requires us to keep a record.
+            Form submissions are emailed to our team through a transactional email provider (ZeptoMail, operated by Zoho) and, once our lead database is connected, also stored in a database operated with our hosting and database providers.{demoBookingUrl ? ' A demo time you book on our booking calendar is held in Zoho Bookings.' : ''} These providers process it on our instructions and may do so in countries other than yours, including outside Singapore, the EEA and the UK, under contracts that require them to protect it. We keep an enquiry for as long as we are dealing with it and for a reasonable period afterwards so that we can pick the conversation up if you come back; a newsletter address is kept until you unsubscribe. If you ask us to delete what we hold about you, we do, unless a legal obligation requires us to keep a record.
           </P>
 
           <H2>Who can see it</H2>
@@ -120,7 +129,7 @@ export default function PrivacyPolicyPage() {
 
           <H2>Changes</H2>
           <P>
-            This version reflects the addition of Vercel Web Analytics, Vercel Speed Insights, Google Analytics and Microsoft Clarity, and the counting of completed form submissions, described above. If we change what the site collects again, we will update this policy first and change the date at the top. This version was written on {UPDATED} from the site as it was on that day.
+            This version reflects the addition of Vercel Web Analytics, Vercel Speed Insights, Google Analytics and Microsoft Clarity, the counting of completed form submissions{demoBookingUrl ? ', and the demo booking calendar' : ''}, described above. If we change what the site collects again, we will update this policy first and change the date at the top. This version was written on {UPDATED} from the site as it was on that day.
           </P>
 
           <H2>Contact</H2>

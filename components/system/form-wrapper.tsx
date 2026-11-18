@@ -7,11 +7,14 @@ import { trackConversion, formFromEndpoint } from '@/components/system/track-con
 export function FormWrapper({
   endpoint,
   successMessage = 'Submitted successfully. We will be in touch shortly.',
+  successAction,
   children,
   onSubmit,
 }: {
   endpoint: string;
   successMessage?: string;
+  /** Optional next step shown under the confirmation, e.g. the demo booking button. */
+  successAction?: ReactNode;
   children: (props: { loading: boolean }) => ReactNode;
   onSubmit?: (formData: Record<string, string>) => Record<string, string>;
 }) {
@@ -74,6 +77,7 @@ export function FormWrapper({
         <CheckCircle className="h-12 w-12 text-live" />
         <h3 className="font-display text-xl font-bold">Thank you</h3>
         <p className="text-muted-foreground">{successMessage}</p>
+        {successAction}
       </div>
     );
   }

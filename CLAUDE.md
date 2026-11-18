@@ -87,7 +87,9 @@ app/                    Routes. One folder per URL segment, each with page.tsx
                         Demo, quote and contact add location, time zone, page and phone to
                         the team email (lib/lead-context.ts), send the visitor a confirmation
                         (sendAcknowledgement in lib/lead-mail.ts: never the estimate, never
-                        free text) and check a honeypot and rate limit first (lib/lead-guard.ts)
+                        free text) and check a honeypot and rate limit first (lib/lead-guard.ts).
+                        With NEXT_PUBLIC_DEMO_BOOKING_URL set (lib/demo-booking.ts), the demo
+                        confirmation and its email offer the team's Zoho Bookings page
   wp-json/, feed/, tag/, category/, wp-admin/, wp-content/, wp-includes/, wdt_headers/, author/, product/, xmlrpc.php
                         410 Gone handlers for WordPress-era paths (lib/gone.ts); do not remove them
 components/
@@ -151,7 +153,8 @@ actually opened, quoted exactly, with its link.
 
 `npm install && npm run dev` — that is all. **No database and no `.env` are required** to
 run or build the site; all 210 pages are static and `prisma generate` needs no live
-connection. Only the four `/api/*` form endpoints need `.env`. Do not stall trying to
+connection. Only the four `/api/*` form endpoints need `.env` to send email; under
+`npm run dev` without it they print the lead to the server log and succeed instead. Do not stall trying to
 provision a database you do not need.
 
 Port 3000 is often occupied on this machine; the preview config uses 3411.
