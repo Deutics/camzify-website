@@ -74,7 +74,7 @@ export default function OnvifAndRtspExplainedPage() {
           <section className="mt-16">
             <ScrollReveal>
               <h2 className="font-display text-2xl font-bold">Checking camera compatibility</h2>
-              <div className="mt-4 max-w-prose space-y-4 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `Most IP cameras manufactured after 2010 support ONVIF and RTSP. Check the camera's specification sheet for "ONVIF Profile S" (streaming) or "ONVIF Profile T" (advanced streaming). The <a href="/supported-cameras">supported cameras</a> page lists verified models.` }} />
+              <div className="mt-4 max-w-prose space-y-4 text-muted-foreground" dangerouslySetInnerHTML={{ __html: `Most IP cameras manufactured after 2010 support ONVIF and RTSP. Check the camera's specification sheet for "ONVIF Profile S" (streaming) or "ONVIF Profile T" (advanced streaming). The <a href="/supported-cameras">supported cameras</a> page lists verified models. For the exact RTSP address on a given brand, see the setup guides for <a href="/supported-cameras/hikvision">Hikvision</a>, <a href="/supported-cameras/dahua">Dahua</a> and <a href="/supported-cameras/axis">Axis</a>.` }} />
             </ScrollReveal>
           </section>
 
