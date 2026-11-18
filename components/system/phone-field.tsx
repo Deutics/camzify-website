@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { DIAL_CODES } from '@/lib/dial-codes';
 
 /**
@@ -19,15 +19,6 @@ export function PhoneField({ id = 'phone' }: { id?: string }) {
   // A ref, not state: the detection below must see a choice made while it was in flight.
   const touched = useRef(false);
 
-  const options = useMemo(() => {
-    let names: Intl.DisplayNames | null = null;
-    try {
-      names = new Intl.DisplayNames(['en'], { type: 'region' });
-    } catch {
-      names = null;
-    }
-    return DIAL_CODES.map(([region, code]) => ({ region, code, label: names?.of(region) ?? region })).sort((a, b) => a.label.localeCompare(b.label));
-  }, []);
 
   useEffect(() => {
     let cancelled = false;
@@ -62,9 +53,9 @@ export function PhoneField({ id = 'phone' }: { id?: string }) {
           }}
           className="w-28 shrink-0 rounded-lg border border-border bg-background px-2 py-3 text-sm sm:w-40 sm:px-3 focus:border-primary focus:ring-1 focus:ring-primary"
         >
-          {options.map((o) => (
-            <option key={o.region} value={o.region}>
-              +{o.code} {o.label}
+          {DIAL_CODES.map(([region, code, name]) => (
+            <option key={region} value={region}>
+              +{code} {name}
             </option>
           ))}
         </select>

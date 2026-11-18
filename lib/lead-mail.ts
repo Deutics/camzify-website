@@ -1,5 +1,6 @@
 import { siteConfig, formattedAddress } from '@/lib/site-config';
 import { LEAD_MESSAGES, type AcknowledgedKind } from '@/lib/lead-messages';
+import { demoBookingUrl } from '@/lib/demo-booking';
 
 /*
  * Lead notification by email, through ZeptoMail (Zoho's transactional mail API).
@@ -102,7 +103,8 @@ export async function sendLeadEmail(kind: LeadKind, fields: Record<string, strin
  * pinned to light so dark-mode clients do not invert them into something unreadable.
  * Every line of copy about what happens next is wording already on the site
  * (/book-a-demo, the pricing quote step, the forms' confirmations): CLAUDE.md rule 2.
- * Preview it with renderAcknowledgement() before changing it.
+ * Preview it with renderAcknowledgement() before changing it. `cta` is a label and either
+ * a site path or, for the demo booking page (lib/demo-booking.ts), an absolute https URL.
  */
 const ACK: Record<AcknowledgedKind, { subject: string; eyebrow: string; heading: string; steps: string[]; cta: [string, string] }> = {
   'book-demo': {
@@ -110,11 +112,15 @@ const ACK: Record<AcknowledgedKind, { subject: string; eyebrow: string; heading:
     eyebrow: 'Demo request received',
     heading: 'we have your demo request',
     steps: [
-      'We get in touch to schedule your session.',
+      demoBookingUrl
+        ? 'Pick a time for your session with the button below, or we get in touch to schedule it.'
+        : 'We get in touch to schedule your session.',
       '15 minutes, no slides, just the live product: a patrol round run across real cameras.',
       'A custom quote based on your sites and camera count. No commitment: nothing is agreed until a quote says so.',
     ],
-    cta: ['See how a patrol round works', '/virtual-patrolling/how-it-works'],
+    // With a booking page configured (lib/demo-booking.ts) the button books the session;
+    // the how-it-works link then moves to the "While you wait" list on its own.
+    cta: demoBookingUrl ? ['Pick a time for your demo', demoBookingUrl] : ['See how a patrol round works', '/virtual-patrolling/how-it-works'],
   },
   quote: {
     subject: 'We received your quote request',
@@ -159,6 +165,7 @@ export function renderAcknowledgement(kind: AcknowledgedKind, fields: AckFields)
   const sentence = `${c.heading.charAt(0).toUpperCase()}${c.heading.slice(1)}.`;
   const heading = first ? `Thanks, ${first}. ${sentence}` : `Thank you. ${sentence}`;
   const confirmation = LEAD_MESSAGES[kind];
+  const ctaHref = /^https:\/\//.test(c.cta[1]) ? c.cta[1] : site + c.cta[1];
   const rows = ([
     ['Company', safeEcho(fields.company)],
     ['Cameras', safeEcho(fields.cameras, 20)],
@@ -170,7 +177,7 @@ export function renderAcknowledgement(kind: AcknowledgedKind, fields: AckFields)
     ['How a virtual patrol round works', `${site}/virtual-patrolling/how-it-works`],
     ['Cameras that work with Camzify', `${site}/supported-cameras`],
     ['Pricing', `${site}/pricing`],
-  ] as [string, string][]).filter(([, u]) => u !== site + c.cta[1]);
+  ] as [string, string][]).filter(([, u]) => u !== ctaHref);
   const phoneHref = `tel:${siteConfig.phone.replace(/\s/g, '')}`;
   const why = `You received this email because this address was entered on a form at ${domain}. If that was not you, you can ignore it; nothing else will follow.`;
 
@@ -215,7 +222,7 @@ export function renderAcknowledgement(kind: AcknowledgedKind, fields: AckFields)
     `<tr><td style="padding:0 32px 8px 32px"><div style="font:700 17px/1.4 ${FONT};color:${INK};margin:0 0 16px">What happens next</div>` +
     `<table role="presentation" width="100%" cellpadding="0" cellspacing="0">${stepRows}</table></td></tr>` +
     `<tr><td style="padding:10px 32px 30px 32px"><table role="presentation" cellpadding="0" cellspacing="0"><tr><td style="border-radius:8px;background:${RED}">` +
-    `<a href="${e(site + c.cta[1])}" style="display:inline-block;padding:13px 24px;font:600 15px/1.2 ${FONT};color:#ffffff;text-decoration:none;border-radius:8px">${e(c.cta[0])} &rarr;</a></td></tr></table></td></tr>` +
+    `<a href="${e(ctaHref)}" style="display:inline-block;padding:13px 24px;font:600 15px/1.2 ${FONT};color:#ffffff;text-decoration:none;border-radius:8px">${e(c.cta[0])} &rarr;</a></td></tr></table></td></tr>` +
     `<tr><td style="padding:0 32px"><div style="height:1px;background:${LINE};font-size:0;line-height:0">&nbsp;</div></td></tr>` +
     `<tr><td style="padding:24px 32px 6px 32px"><div style="font:700 15px/1.4 ${FONT};color:${INK};margin:0 0 10px">While you wait</div>` +
     links.map(([l, u]) => `<div style="margin:0 0 8px"><a href="${e(u)}" style="font:15px/1.5 ${FONT};color:${RED};text-decoration:none">${e(l)} &rsaquo;</a></div>`).join('') +
@@ -237,7 +244,7 @@ export function renderAcknowledgement(kind: AcknowledgedKind, fields: AckFields)
     'What happens next',
     ...c.steps.map((t, i) => `  ${i + 1}. ${t}`),
     '',
-    `${c.cta[0]}: ${site}${c.cta[1]}`,
+    `${c.cta[0]}: ${ctaHref}`,
     '',
     'While you wait:',
     ...links.map(([l, u]) => `  ${l}: ${u}`),

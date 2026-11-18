@@ -7,6 +7,7 @@ import { formatPhone, leadContext } from '@/lib/lead-context';
 import { isBot, rateLimited } from '@/lib/lead-guard';
 import { siteConfig } from '@/lib/site-config';
 import { describeEstimate } from '@/lib/pricing-estimates';
+import { demoBookingUrl } from '@/lib/demo-booking';
 
 /**
  * Lead capture. The submission is emailed to the team through ZeptoMail (lib/lead-mail.ts);
@@ -37,7 +38,10 @@ export async function POST(request: Request) {
     const estimate = config ? describeEstimate(config) : undefined;
 
     const phone = formatPhone(data.phoneCountry, data.phone);
-    await sendLeadEmail('book-demo', { name, email, phone, company, cameras, configuration, estimate, ...leadContext(request, data) }, email);
+    // Tells the team the visitor was offered the booking page, so they check Zoho Bookings
+    // before writing to schedule a session that may already be booked.
+    const scheduling = demoBookingUrl ? 'Booking link offered: check Zoho Bookings before writing to schedule' : undefined;
+    await sendLeadEmail('book-demo', { name, email, phone, company, cameras, configuration, estimate, scheduling, ...leadContext(request, data) }, email);
 
     // The visitor's copy. Never fails the request: the lead above is already safe.
     try {

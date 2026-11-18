@@ -87,7 +87,9 @@ app/                    Routes. One folder per URL segment, each with page.tsx
                         Demo, quote and contact add location, time zone, page and phone to
                         the team email (lib/lead-context.ts), send the visitor a confirmation
                         (sendAcknowledgement in lib/lead-mail.ts: never the estimate, never
-                        free text) and check a honeypot and rate limit first (lib/lead-guard.ts)
+                        free text) and check a honeypot and rate limit first (lib/lead-guard.ts).
+                        With NEXT_PUBLIC_DEMO_BOOKING_URL set (lib/demo-booking.ts), the demo
+                        confirmation and its email offer the team's Zoho Bookings page
   wp-json/, feed/, tag/, category/, wp-admin/, wp-content/, wp-includes/, wdt_headers/, author/, product/, xmlrpc.php
                         410 Gone handlers for WordPress-era paths (lib/gone.ts); do not remove them
 components/
