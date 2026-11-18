@@ -153,7 +153,8 @@ actually opened, quoted exactly, with its link.
 
 `npm install && npm run dev` — that is all. **No database and no `.env` are required** to
 run or build the site; all 210 pages are static and `prisma generate` needs no live
-connection. Only the four `/api/*` form endpoints need `.env`. Do not stall trying to
+connection. Only the four `/api/*` form endpoints need `.env` to send email; under
+`npm run dev` without it they print the lead to the server log and succeed instead. Do not stall trying to
 provision a database you do not need.
 
 Port 3000 is often occupied on this machine; the preview config uses 3411.

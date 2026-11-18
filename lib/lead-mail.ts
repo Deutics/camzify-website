@@ -38,7 +38,17 @@ export async function sendLeadEmail(kind: LeadKind, fields: Record<string, strin
   // The console shows the token as `Zoho-enczapikey <value>`; accept it pasted either way.
   const token = (process.env.ZEPTOMAIL_TOKEN || '').trim().replace(/^Zoho-enczapikey\s+/i, '');
   const from = (process.env.ZEPTOMAIL_FROM_ADDRESS || '').trim();
-  if (!token || !from) throw new Error('ZeptoMail is not configured: set ZEPTOMAIL_TOKEN and ZEPTOMAIL_FROM_ADDRESS');
+  if (!token || !from) {
+    // Local development only (`npm run dev`; every Vercel build is production): with no
+    // .env the lead is printed to the server log and the form succeeds, so the forms and
+    // their confirmations can be tried without mail credentials. Anywhere else a missing
+    // configuration still fails the request, because the email is the record of the lead.
+    if (process.env.NODE_ENV === 'development') {
+      console.warn(`[lead-mail] ZeptoMail is not configured; not sent (development only). ${KIND_LABEL[kind]}:`, JSON.stringify(fields));
+      return;
+    }
+    throw new Error('ZeptoMail is not configured: set ZEPTOMAIL_TOKEN and ZEPTOMAIL_FROM_ADDRESS');
+  }
   const to = process.env.LEADS_TO_EMAIL || siteConfig.email;
   const cc = (process.env.LEADS_CC_EMAIL || '')
     .split(/[,;]/)
