@@ -1,45 +1,88 @@
 generator client {
-    provider = "prisma-client-js"
+  provider = "prisma-client-js"
 }
 
 datasource db {
-    provider = "postgresql"
-    url      = env("DATABASE_URL")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
+/// One row per demo request (/book-a-demo). The context columns match the team's lead
+/// email (lib/lead-context.ts); configuration and estimate are set only when the visitor
+/// added a configuration. The estimate is computed from list rates on the server and is
+/// for the team only, like the email. bookingOffered: the confirmation offered the Zoho
+/// Bookings link (lib/demo-booking.ts); the booking itself lives in Zoho Bookings.
 model DemoRequest {
-  id          String   @id @default(cuid())
-  name        String
-  email       String
-  company     String
-  cameras     String
-  createdAt   DateTime @default(now())
-  status      String   @default("pending")
+  id             String   @id @default(cuid())
+  name           String
+  email          String
+  company        String
+  cameras        String
+  phone          String   @default("")
+  location       String   @default("")
+  timeZone       String   @default("")
+  language       String   @default("")
+  page           String   @default("")
+  referrer       String   @default("")
+  configuration  String   @default("")
+  estimate       String   @default("")
+  bookingOffered Boolean  @default(false)
+  createdAt      DateTime @default(now())
+  status         String   @default("pending")
 }
 
+/// One row per quote request (the quote form on /pricing and /de/preise). The estimate is
+/// for the team only, as on DemoRequest.
+model QuoteRequest {
+  id            String   @id @default(cuid())
+  name          String
+  email         String
+  company       String   @default("")
+  message       String   @default("")
+  configuration String
+  estimate      String   @default("")
+  phone         String   @default("")
+  location      String   @default("")
+  timeZone      String   @default("")
+  language      String   @default("")
+  page          String   @default("")
+  referrer      String   @default("")
+  createdAt     DateTime @default(now())
+  status        String   @default("new")
+}
+
+/// One row per contact form message (/contact).
 model ContactSubmission {
-  id          String   @id @default(cuid())
-  name        String
-  email       String
-  subject     String
-  message     String
-  createdAt   DateTime @default(now())
-  status      String   @default("new")
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  subject   String
+  message   String
+  phone     String   @default("")
+  location  String   @default("")
+  timeZone  String   @default("")
+  language  String   @default("")
+  page      String   @default("")
+  referrer  String   @default("")
+  createdAt DateTime @default(now())
+  status    String   @default("new")
 }
 
+/// Retired with /free-trial (2026-10-08): nothing writes to it. Kept so no migration
+/// drops a table; remove it deliberately if it is ever wanted gone.
 model FreeTrialRequest {
-  id          String   @id @default(cuid())
-  name        String
-  email       String
-  company     String
-  phone       String   @default("")
-  cameras     String   @default("")
-  createdAt   DateTime @default(now())
-  status      String   @default("pending")
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  company   String
+  phone     String   @default("")
+  cameras   String   @default("")
+  createdAt DateTime @default(now())
+  status    String   @default("pending")
 }
 
 model NewsletterSubscription {
-  id          String   @id @default(cuid())
-  email       String   @unique
-  createdAt   DateTime @default(now())
+  id        String   @id @default(cuid())
+  email     String   @unique
+  createdAt DateTime @default(now())
 }

@@ -2,10 +2,11 @@ export const dynamic = 'force-dynamic';
 
 import { NextResponse } from 'next/server';
 import { sendLeadEmail } from '@/lib/lead-mail';
+import { databaseUrl } from '@/lib/database-url';
 
 /**
  * Newsletter subscription. Emailed to the team through ZeptoMail (lib/lead-mail.ts) so a
- * subscriber is never lost; when DATABASE_URL is set the address is also upserted into
+ * subscriber is never lost; when the lead database is connected (lib/database-url.ts) the address is also upserted into
  * the subscription table, non-fatally.
  */
 export async function POST(request: Request) {
@@ -19,7 +20,7 @@ export async function POST(request: Request) {
 
     await sendLeadEmail('newsletter', { email }, email);
 
-    if (process.env.DATABASE_URL) {
+    if (databaseUrl) {
       try {
         const { prisma } = await import('@/lib/prisma');
         await prisma.newsletterSubscription.upsert({ where: { email }, update: {}, create: { email } });

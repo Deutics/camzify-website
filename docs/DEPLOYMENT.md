@@ -18,7 +18,7 @@ values directly in **Vercel → Project → Settings → Environment Variables**
 |---|---|---|---|
 | `ZEPTOMAIL_TOKEN`, `ZEPTOMAIL_FROM_ADDRESS` | **Yes, for forms** | Production, Preview | All five forms return `{"success": false}` and the visitor is told to email us. Every page still renders normally. |
 | `LEADS_TO_EMAIL`, `LEADS_CC_EMAIL`, `ZEPTOMAIL_FROM_NAME`, `ZEPTOMAIL_API_URL` | No | Production, Preview | Defaults: the public contact address, "Camzify website", the global ZeptoMail endpoint. |
-| `DATABASE_URL` | No, until the lead database is connected | Production, Preview | Leads are emailed only; nothing is written. When set, each lead is also stored, normally. |
+| `CAMZIFY_WEBSITE_DATABASE_*` (from the Neon integration), or `DATABASE_URL` | No | Production, Preview | Leads are emailed only; nothing is written. When set, each lead is also stored. See "The lead database" below. |
 
 That is the entire list. The site has no other runtime configuration.
 
@@ -27,7 +27,7 @@ That is the entire list. The site has no other runtime configuration.
 Every form submission is sent to `LEADS_TO_EMAIL` through ZeptoMail by `lib/lead-mail.ts`,
 with the visitor's address as the reply-to. Until the lead database is connected that email
 is the record of the lead, so a failed send fails the request and the form tells the
-visitor to try again or email directly. When `DATABASE_URL` is set the endpoint also writes
+visitor to try again or email directly. With the lead database connected the endpoint also writes
 the row after emailing, and a failed write is logged, never surfaced: a lead that was
 emailed is never lost to a database error.
 
@@ -65,21 +65,35 @@ headers — the defaults are correct for this project.
 
 ---
 
-## Connecting the lead database later
+## The lead database
 
-Add `DATABASE_URL` (a PostgreSQL connection string) to the deploy target and redeploy.
-The build script runs `prisma migrate deploy` whenever that variable is present
-(`scripts/migrate-if-configured.mjs`), which applies `prisma/migrations` and creates the
-four lead tables; from then on each lead is stored after it is emailed. Without the
-variable the step is skipped and the build needs no database. To create the tables from
-a laptop instead:
+Connected on 2026-11-20: Neon, added from the Vercel Marketplace (Storage → Neon) and
+attached to this project for Production and Preview. The integration names its variables
+with the prefix `CAMZIFY_WEBSITE_DATABASE_`; the code reads `…_DATABASE_URL` (pooled, for
+the form endpoints, `lib/database-url.ts`) and `…_DATABASE_URL_UNPOOLED` (direct, for
+migrations), with plain `DATABASE_URL` / `DATABASE_URL_UNPOOLED` taking precedence if set.
+
+The build runs `prisma migrate deploy` whenever a connection string is present
+(`scripts/migrate-if-configured.mjs`), so a migration merged to main is applied by the
+next deploy; from then on each lead is stored after it is emailed. Without a connection
+string the step is skipped and the build needs no database.
+
+The tables: `DemoRequest`, `QuoteRequest`, `ContactSubmission` (each with the phone,
+approximate location, time zone, language, page and referrer the lead email carries; demo
+and quote also the configuration and the team-only estimate), `NewsletterSubscription`,
+and the retired `FreeTrialRequest`. To read them: the Neon console (Vercel → Storage →
+the database → Open in Neon → Tables), which can filter and export CSV.
+
+To apply migrations from a laptop instead:
 
 ```bash
 DATABASE_URL="postgresql://..." npx prisma migrate deploy
 ```
 
-Schema changes go through `npx prisma migrate dev --name <change>` against a development
-database, and the resulting folder under `prisma/migrations` is committed.
+Schema changes go through a new folder under `prisma/migrations`, committed with the
+schema: `npx prisma migrate dev --name <change>` against a development database, or
+`npx prisma migrate diff --from-schema-datamodel <old schema> --to-schema-datamodel
+prisma/schema.prisma --script` to write the SQL without one (how `0002_lead_details` was made).
 
 ## Why `prisma generate` is in the build script
 
@@ -104,7 +118,7 @@ Running it twice locally is harmless; it takes ~30ms.
 129 routes prerender with no `.env` present. `prisma generate` reads the schema, not a
 live database.
 
-The practical consequence: **a missing `DATABASE_URL` will not fail your build.** It fails
+The practical consequence: **a missing database connection will not fail your build.** It fails
 silently at runtime, on form submission only. Do not treat a green build as proof the
 forms work — submit one after deploying.
 
@@ -112,19 +126,18 @@ forms work — submit one after deploying.
 
 ## Database scoping
 
-If Preview and Production share a `DATABASE_URL`, test submissions from preview
-deployments land in your real leads table alongside genuine ones. Either point Preview at
+Preview and Production share the one Neon database, so test submissions from preview
+deployments land in the real lead tables alongside genuine ones. Nothing in a row marks
+which deployment sent it, so test with an obvious name and delete those rows in the Neon
+console afterwards. Either point Preview at
 a separate database, or accept the mixing and filter by `createdAt` when exporting.
 
-The four tables (`DemoRequest`, `ContactSubmission`, `FreeTrialRequest`,
-`NewsletterSubscription`) are write-only — nothing on the site reads them back — so there
+The lead tables are write-only — nothing on the site reads them back — so there
 is no read-path risk from a shared database, only data hygiene.
 
-After changing `prisma/schema.prisma`, push it before deploying:
-
-```bash
-npx prisma db push
-```
+After changing `prisma/schema.prisma`, commit a migration with it (above); never
+`prisma db push` against the production database, which changes tables without a
+migration record and leaves the next `migrate deploy` out of step.
 
 ---
 
