@@ -25,7 +25,8 @@ export async function POST(request: Request) {
     const lead = await prisma.demoRequest.findUnique({ where: { id }, include: { booking: true } });
     if (!lead) return NextResponse.json({ success: false, message: 'This booking link is not valid or has expired.' }, { status: 403 });
     if (lead.booking) {
-      return NextResponse.json({ success: true, booked: { start: lead.booking.start.toISOString(), end: lead.booking.end.toISOString() } });
+      const b = lead.booking;
+      return NextResponse.json({ success: true, booked: { start: b.start.toISOString(), end: b.end.toISOString(), meetUrl: b.meetUrl } });
     }
 
     // A request handler, not render: reading the clock here is the point.

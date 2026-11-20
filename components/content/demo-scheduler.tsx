@@ -20,7 +20,7 @@ type State =
   | { kind: 'ready'; days: Day[]; minutes: number }
   | { kind: 'empty' }
   | { kind: 'error'; message: string }
-  | { kind: 'booked'; label: string };
+  | { kind: 'booked'; label: string; meetUrl: string };
 
 function zoneName(timeZone: string): string {
   try {
@@ -50,6 +50,11 @@ function bookedLabel(iso: string, timeZone: string): string {
   return new Date(iso).toLocaleString('en-US', { timeZone, weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit', timeZoneName: 'short' });
 }
 
+/** Only a Google Meet address is ever shown as the join link. */
+function meetLink(url: unknown): string {
+  return typeof url === 'string' && /^https:\/\/meet\.google\.com\//.test(url) ? url : '';
+}
+
 const FALLBACK = 'We will contact you within one business day to schedule it instead.';
 
 export function DemoScheduler({ token }: { token: string }) {
@@ -72,7 +77,7 @@ export function DemoScheduler({ token }: { token: string }) {
     try {
       const res = await fetch('/api/demo-slots', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ token }) });
       const body = await res.json().catch(() => ({}));
-      if (body?.booked?.start) return setState({ kind: 'booked', label: bookedLabel(body.booked.start, timeZone) });
+      if (body?.booked?.start) return setState({ kind: 'booked', label: bookedLabel(body.booked.start, timeZone), meetUrl: meetLink(body.booked.meetUrl) });
       if (!res.ok || !body?.success) return setState({ kind: 'error', message: body?.message ?? 'We could not load the available times.' });
       const days = group(body.slots ?? [], timeZone);
       if (!days.length) return setState({ kind: 'empty' });
@@ -102,7 +107,7 @@ export function DemoScheduler({ token }: { token: string }) {
       const res = await fetch('/api/demo-booking', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ token, start: slot }) });
       const body = await res.json().catch(() => ({}));
       if (body?.booked?.start) {
-        setState({ kind: 'booked', label: bookedLabel(body.booked.start, zone.id) });
+        setState({ kind: 'booked', label: bookedLabel(body.booked.start, zone.id), meetUrl: meetLink(body.booked.meetUrl) });
       } else if (body?.taken) {
         setNotice(body.message ?? 'That time has just been taken. Please pick another.');
         await load(zone.id);
@@ -124,8 +129,19 @@ export function DemoScheduler({ token }: { token: string }) {
           <div>
             <p className="font-semibold">Your demo is booked</p>
             <p className="mt-1 text-sm text-muted-foreground">{state.label}.</p>
-            <p className="mt-2 text-sm text-muted-foreground">
-              A Google Calendar invitation with the Google Meet link is on its way to your inbox. To move or cancel, reply to that invitation or email {siteConfig.email}.
+            {state.meetUrl && (
+              <a
+                href={state.meetUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                Google Meet link
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
+            )}
+            <p className="mt-3 text-sm text-muted-foreground">
+              A confirmation with the join link and a calendar file is on its way to your inbox from {siteConfig.name}. To move or cancel, reply to it or email {siteConfig.email}.
             </p>
           </div>
         </div>

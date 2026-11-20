@@ -86,7 +86,7 @@ export default function PrivacyPolicyPage() {
           </P>
           {scheduling && (
             <P>
-              <strong className="font-semibold text-foreground">Booking your demo yourself.</strong> After you send the demo form, you can pick a time for the demo on this site. To show you open times we check our team&rsquo;s Google Calendar for when it is busy, never what is in it. When you book, we add the call to that calendar and invite you, so Google (Google LLC) receives your name, your email address and the time you picked, and sends you the invitation with the video-call link. We keep the time you booked with your demo request.
+              <strong className="font-semibold text-foreground">Booking your demo yourself.</strong> After you send the demo form, you can pick a time for the demo on this site. To show you open times we check our team&rsquo;s Google Calendar for when it is busy, never what is in it. When you book, we add the call to that calendar with you as a guest, so that the Google Meet video call lets you in; Google (Google LLC) therefore receives your name, your email address and the time you picked, but does not email you. We send you the confirmation and the video-call link ourselves, and keep the time you booked with your demo request.
             </P>
           )}
           <P>

@@ -87,8 +87,10 @@ export async function busyTimes(timeMin: Date, timeMax: Date): Promise<Busy[]> {
 export type CreatedEvent = { id: string; htmlLink: string; meetUrl: string };
 
 /**
- * Creates the demo event with a Google Meet link and invites the visitor; Google emails
- * them the invitation (sendUpdates=all), which is their confirmation.
+ * Creates the demo event with a Google Meet link and the visitor as a guest. Google
+ * sends nothing (sendUpdates=none): the visitor's confirmation comes from camzify.com
+ * (lib/demo-confirmation.ts). Being a guest is what lets them into the Meet call
+ * without asking to join.
  */
 export async function createDemoEvent(input: {
   start: Date;
@@ -105,7 +107,7 @@ export async function createDemoEvent(input: {
   }
   const { calendarId } = env();
   const { status, body } = await call<{ id?: string; htmlLink?: string; hangoutLink?: string; error?: { message?: string } }>(
-    `/calendars/${encodeURIComponent(calendarId)}/events?conferenceDataVersion=1&sendUpdates=all`,
+    `/calendars/${encodeURIComponent(calendarId)}/events?conferenceDataVersion=1&sendUpdates=none`,
     {
       method: 'POST',
       body: JSON.stringify({
@@ -116,6 +118,7 @@ export async function createDemoEvent(input: {
         attendees: [{ email: input.attendee.email, displayName: input.attendee.name }],
         conferenceData: { createRequest: { requestId: input.requestId, conferenceSolutionKey: { type: 'hangoutsMeet' } } },
         guestsCanInviteOthers: true,
+        guestsCanSeeOtherGuests: false,
         reminders: { useDefault: true },
       }),
     },

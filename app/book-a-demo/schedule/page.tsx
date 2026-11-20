@@ -22,7 +22,7 @@ export default function ScheduleDemoPage() {
       <section className="pb-20">
         <div className="mx-auto max-w-xl px-6">
           <h1 className="font-display text-3xl font-extrabold tracking-tight sm:text-4xl">Pick a time for your demo</h1>
-          <p className="mt-4 text-muted-foreground">Choose any open time below. You will get a Google Calendar invitation with the video link.</p>
+          <p className="mt-4 text-muted-foreground">Choose any open time below. We email you a confirmation with the video link.</p>
           <div className="mt-8">
             <ScheduleFromLink />
           </div>

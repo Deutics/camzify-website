@@ -1,8 +1,9 @@
 # Demo self-scheduling
 
 After someone sends the demo form, they can pick a time for the call on camzify.com. The
-slot picker reads the team's Google Calendar, books the slot, adds a Google Meet link and
-invites the visitor. No third-party booking tool is involved.
+slot picker reads the team's Google Calendar, books the slot and adds a Google Meet link.
+The visitor's confirmation comes from camzify.com, not from Google. No third-party
+booking tool is involved.
 
 ## How it works
 
@@ -15,9 +16,16 @@ invites the visitor. No third-party booking tool is involved.
 3. `/api/demo-slots` asks Google Calendar when the calendar is busy (free/busy only, never
    event details) and returns the open slots. The picker shows them in the visitor's own
    time zone.
-4. `/api/demo-booking` checks the slot again, claims it in the `DemoBooking` table (one
-   booking per request, one request per slot), creates the calendar event with a Meet
-   link and invites the visitor (`sendUpdates=all`), then emails the team **Demo booked**
+4. `/api/demo-booking` checks the slot again and claims it in the `DemoBooking` table (one
+   booking per request, one request per slot). It then creates the calendar event with a
+   Meet link, adding the visitor as a guest so Meet admits them without "ask to join".
+   Google's own emails are off (`sendUpdates=none`).
+5. The visitor gets a confirmation from the Camzify address (`lib/demo-confirmation.ts`):
+   - the time in their time zone and in Singapore
+   - a **Join with Google Meet** button
+   - a calendar file (`camzify-demo.ics`) and an "add to Google Calendar" link
+
+   The booked screen on the site shows the Meet link too. The team gets **Demo booked**
    with both time zones and the Meet link.
 
 **The rules** live in `lib/demo-scheduling.ts`, set by the business on 2026-11-20:
@@ -31,12 +39,20 @@ invites the visitor. No third-party booking tool is involved.
 | Notice | At least 4 hours |
 | Window | Up to 14 days ahead |
 
-Anything in the calendar blocks time, demo or not. To take a day off, put an all-day
-busy event in the calendar.
+Anything in the calendar marked **Busy** blocks time, demo or not, with the 15-minute gap
+around it. Two things do not block:
 
-**Moving or cancelling.** The visitor replies to the Google invitation or emails the team.
-The team moves or deletes the event in Google Calendar as usual. A deleted or cancelled
-event frees its slot for the next booking.
+- **All-day events.** Google creates these as "Free". For a day off, use an **Out of
+  office** event, or set the all-day event to **Show as: Busy**.
+- **Events marked Free.**
+
+Only the connected calendar is checked, not other calendars on other accounts.
+
+**Moving or cancelling.** The visitor replies to the confirmation email, which goes to the
+team's address. The team moves or deletes the event in Google Calendar. When Google asks
+whether to email the guest about the change, choose **Don't send** and reply to the
+visitor yourself, so everything they get comes from Camzify. A deleted or cancelled event
+frees its slot for the next booking.
 
 ## Switched on by five variables
 
@@ -55,10 +71,10 @@ When any is missing, the site behaves as before: the team schedules by email.
 
 ## One-time setup (personal Gmail)
 
-The demo calendar is a personal Gmail account. **The invitations come from that address**,
-so prospects see it as the organizer. A dedicated account, for example a Gmail made for
-Camzify demos and shared with whoever runs them, keeps a personal address out of
-prospects' inboxes.
+The demo calendar is a personal Gmail account. Prospects never get email from it: their
+confirmation comes from Camzify. The Gmail account is still the Meet call's host, so
+whoever runs demos signs in to it to start the call. A dedicated Gmail account for demos
+is easiest to share.
 
 1. **Create a Google Cloud project.** Go to <https://console.cloud.google.com>, signed in
    as the demo Gmail account. Use the project picker → New project, and name it

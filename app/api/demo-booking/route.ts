@@ -6,6 +6,7 @@ import { DEMO_SCHEDULE, openSlots, slotEnd } from '@/lib/demo-scheduling';
 import { busyTimes, createDemoEvent, eventStillBooked } from '@/lib/google-calendar';
 import { rateLimited } from '@/lib/lead-guard';
 import { sendLeadEmail } from '@/lib/lead-mail';
+import { sendBookingConfirmation } from '@/lib/demo-confirmation';
 import { siteConfig } from '@/lib/site-config';
 
 /**
@@ -17,9 +18,11 @@ import { siteConfig } from '@/lib/site-config';
  * 3. A DemoBooking row claims the slot (its `start` is unique), so two visitors choosing
  *    the same time at the same moment cannot both get it. A row whose calendar event has
  *    since been cancelled or deleted no longer holds the slot and is replaced.
- * 4. The Google Calendar event is created with a Meet link and the visitor invited;
- *    Google's invitation is their confirmation. If that fails the claim is released.
- * 5. The team gets a "Demo booked" email. It never fails the booking.
+ * 4. The Google Calendar event is created with a Meet link and the visitor as a guest,
+ *    with Google's own emails off. If that fails the claim is released.
+ * 5. The visitor gets the confirmation from camzify.com with the Meet link and a
+ *    calendar file (lib/demo-confirmation.ts); the team gets a "Demo booked" email.
+ *    Neither ever fails the booking: the booked screen shows the Meet link as well.
  */
 const taken = (message: string) => NextResponse.json({ success: false, taken: true, message }, { status: 409 });
 
@@ -42,7 +45,8 @@ export async function POST(request: Request) {
     const lead = await prisma.demoRequest.findUnique({ where: { id }, include: { booking: true } });
     if (!lead) return NextResponse.json({ success: false, message: 'This booking link is not valid or has expired.' }, { status: 403 });
     if (lead.booking) {
-      return NextResponse.json({ success: true, booked: { start: lead.booking.start.toISOString(), end: lead.booking.end.toISOString() } });
+      const b = lead.booking;
+      return NextResponse.json({ success: true, booked: { start: b.start.toISOString(), end: b.end.toISOString(), meetUrl: b.meetUrl } });
     }
 
     // A request handler, not render: reading the clock here is the point.
@@ -78,7 +82,7 @@ export async function POST(request: Request) {
         description: [
           `A ${DEMO_SCHEDULE.minutes}-minute live demo of ${siteConfig.name}: a patrol round run across real cameras, and a quote for your sites.`,
           '',
-          `Join with the Google Meet link in this invitation. To move or cancel, reply to this invitation or email ${siteConfig.email}.`,
+          `Join with the Google Meet link on this event. To move or cancel, reply to the confirmation email or write to ${siteConfig.email}.`,
           '',
           siteConfig.url,
         ].join('\n'),
@@ -89,6 +93,12 @@ export async function POST(request: Request) {
       throw e;
     }
     await prisma.demoBooking.update({ where: { id: booking.id }, data: { eventId: event.id, meetUrl: event.meetUrl } });
+
+    try {
+      await sendBookingConfirmation({ bookingId: booking.id, name: lead.name, email: lead.email, start, end, meetUrl: event.meetUrl, timeZone: lead.timeZone });
+    } catch (mailError: any) {
+      console.error('Booking confirmation email failed (non-fatal):', mailError?.message);
+    }
 
     try {
       await sendLeadEmail('demo-booked', {
@@ -106,7 +116,7 @@ export async function POST(request: Request) {
       console.error('Demo booked email failed (non-fatal):', mailError?.message);
     }
 
-    return NextResponse.json({ success: true, booked: { start: start.toISOString(), end: end.toISOString() } });
+    return NextResponse.json({ success: true, booked: { start: start.toISOString(), end: end.toISOString(), meetUrl: event.meetUrl } });
   } catch (error: any) {
     console.error('Demo booking error:', error?.message);
     return NextResponse.json({ success: false, message: 'Could not book that time' }, { status: 500 });
