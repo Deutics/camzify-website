@@ -65,23 +65,17 @@ export function formatPhone(country: unknown, number: unknown): string | undefin
   return `${raw}${region ? ` (country ${region})` : ''} (could not be verified as a valid number)`;
 }
 
-/** Labelled lines for the team's lead email: location, time zone, local time, page. */
-export function leadContext(request: Request, data: Record<string, unknown>): Record<string, string | undefined> {
+/** The context as plain values, for storing with the lead (the lead database). */
+export type LeadRecord = { location: string; timeZone: string; language: string; page: string; referrer: string };
+
+function details(request: Request, data: Record<string, unknown>) {
   const ipCountry = header(request, 'x-vercel-ip-country');
   const ipRegion = header(request, 'x-vercel-ip-country-region');
   const ipCity = header(request, 'x-vercel-ip-city');
   const ipTimeZone = validTimeZone(header(request, 'x-vercel-ip-timezone'));
   const browserTimeZone = validTimeZone(data.timeZone);
   const timeZone = browserTimeZone ?? ipTimeZone;
-
   const place = [ipCity, ipRegion && ipRegion !== ipCity ? ipRegion : undefined, countryName(ipCountry)].filter(Boolean).join(', ');
-
-  let localTime: string | undefined;
-  if (timeZone) {
-    // A server-side request handler, not render: the clock is meant to be read here.
-    localTime = new Date().toLocaleString('en-US', { timeZone, weekday: 'short', day: 'numeric', month: 'short', hour: 'numeric', minute: '2-digit', timeZoneName: 'short' });
-  }
-
   const zoneNote = browserTimeZone
     ? ipTimeZone && ipTimeZone !== browserTimeZone
       ? `${browserTimeZone} (from their browser; their connection suggests ${ipTimeZone})`
@@ -89,16 +83,37 @@ export function leadContext(request: Request, data: Record<string, unknown>): Re
     : ipTimeZone
       ? `${ipTimeZone} (from their connection)`
       : undefined;
-
   const page = clean(data.page, MAX.page);
-  const referrer = clean(data.referrer, MAX.referrer);
-
   return {
-    'Location (approximate, from their connection)': place || undefined,
-    'Time zone': zoneNote,
-    'Their local time when they sent it': localTime,
-    'Browser language': clean(data.language, MAX.language),
-    'Sent from page': page && page.startsWith('/') ? page : undefined,
-    'Came to that page from': referrer,
+    place: place || undefined,
+    timeZone,
+    zoneNote,
+    language: clean(data.language, MAX.language),
+    page: page && page.startsWith('/') ? page : undefined,
+    referrer: clean(data.referrer, MAX.referrer),
   };
+}
+
+/** Labelled lines for the team's lead email: location, time zone, local time, page. */
+export function leadContext(request: Request, data: Record<string, unknown>): Record<string, string | undefined> {
+  const d = details(request, data);
+  let localTime: string | undefined;
+  if (d.timeZone) {
+    // A server-side request handler, not render: the clock is meant to be read here.
+    localTime = new Date().toLocaleString('en-US', { timeZone: d.timeZone, weekday: 'short', day: 'numeric', month: 'short', hour: 'numeric', minute: '2-digit', timeZoneName: 'short' });
+  }
+  return {
+    'Location (approximate, from their connection)': d.place,
+    'Time zone': d.zoneNote,
+    'Their local time when they sent it': localTime,
+    'Browser language': d.language,
+    'Sent from page': d.page,
+    'Came to that page from': d.referrer,
+  };
+}
+
+/** The same context as plain columns for the lead database; empty strings when unknown. */
+export function leadRecord(request: Request, data: Record<string, unknown>): LeadRecord {
+  const d = details(request, data);
+  return { location: d.place ?? '', timeZone: d.timeZone ?? '', language: d.language ?? '', page: d.page ?? '', referrer: d.referrer ?? '' };
 }

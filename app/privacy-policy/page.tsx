@@ -4,13 +4,14 @@ import { FaqSection } from '@/components/content/faq-section';
 import { siteConfig, formattedAddress } from '@/lib/site-config';
 import Link from 'next/link';
 import { demoBookingUrl } from '@/lib/demo-booking';
+import { databaseUrl } from '@/lib/database-url';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
  * <head> tags, and by `PageShell` for the on-page structured data.
  *
  * Written from what the site actually does, checked in code on 2026-09-22: four forms
- * that email what a visitor types to the team (and store it once the database is
+ * that email what a visitor types to the team (and store it in the lead database
  * connected); cookieless Vercel Web Analytics and Speed Insights, always on; Google
  * Analytics and Microsoft Clarity, which since 2026-10-08 load on every visit unless the
  * visitor turns analytics off on the cookie policy page (components/system/analytics-consent.tsx,
@@ -30,7 +31,7 @@ const pageMeta = {
 
 export const metadata = generatePageMeta({ ...pageMeta });
 
-const UPDATED = '19 November 2026';
+const UPDATED = '20 November 2026';
 
 const faqs = [
   { question: 'Does this policy cover the Camzify product, or just the website?', answer: 'Just this website. Video, detections, patrol reports and account data in the Camzify console are processed under the customer agreement for that account, and the security and compliance page describes how that data is protected. This policy covers what happens when you read these pages or send us a form.' },
@@ -104,12 +105,12 @@ export default function PrivacyPolicyPage() {
 
           <H2>Where it is kept, and for how long</H2>
           <P>
-            Form submissions are emailed to our team through a transactional email provider (ZeptoMail, operated by Zoho) and, once our lead database is connected, also stored in a database operated with our hosting and database providers.{demoBookingUrl ? ' A demo time you book on our booking calendar is held in Zoho Bookings.' : ''} These providers process it on our instructions and may do so in countries other than yours, including outside Singapore, the EEA and the UK, under contracts that require them to protect it. We keep an enquiry for as long as we are dealing with it and for a reasonable period afterwards so that we can pick the conversation up if you come back; a newsletter address is kept until you unsubscribe. If you ask us to delete what we hold about you, we do, unless a legal obligation requires us to keep a record.
+            Form submissions are emailed to our team through a transactional email provider (ZeptoMail, operated by Zoho){databaseUrl ? ' and stored in our lead database, run by Neon on our hosting provider’s platform' : ' and, once our lead database is connected, also stored in a database operated with our hosting and database providers'}. What is stored is what the email carries: the details you entered and the context described above.{demoBookingUrl ? ' A demo time you book on our booking calendar is held in Zoho Bookings.' : ''} These providers process it on our instructions and may do so in countries other than yours, including outside Singapore, the EEA and the UK, under contracts that require them to protect it. We keep an enquiry for as long as we are dealing with it and for a reasonable period afterwards so that we can pick the conversation up if you come back; a newsletter address is kept until you unsubscribe. If you ask us to delete what we hold about you, we do, unless a legal obligation requires us to keep a record.
           </P>
 
           <H2>Who can see it</H2>
           <P>
-            The people at {siteConfig.company} who answer enquiries, and the providers who host the site, deliver the email and, when connected, the database. We do not sell personal data, we do not share it with advertisers, and we do not pass it to anyone else except where the law requires it or you ask us to.
+            The people at {siteConfig.company} who answer enquiries, and the providers who host the site, deliver the email and{databaseUrl ? ' run' : ', when connected,'} the database. We do not sell personal data, we do not share it with advertisers, and we do not pass it to anyone else except where the law requires it or you ask us to.
           </P>
 
           <H2>Cookies and browser storage</H2>
@@ -129,7 +130,7 @@ export default function PrivacyPolicyPage() {
 
           <H2>Changes</H2>
           <P>
-            This version reflects the addition of Vercel Web Analytics, Vercel Speed Insights, Google Analytics and Microsoft Clarity, the counting of completed form submissions{demoBookingUrl ? ', and the demo booking calendar' : ''}, described above. If we change what the site collects again, we will update this policy first and change the date at the top. This version was written on {UPDATED} from the site as it was on that day.
+            This version reflects the addition of Vercel Web Analytics, Vercel Speed Insights, Google Analytics and Microsoft Clarity, the counting of completed form submissions{demoBookingUrl ? ', the demo booking calendar' : ''}{databaseUrl ? ', and the lead database' : ''}, described above. If we change what the site collects again, we will update this policy first and change the date at the top. This version was written on {UPDATED} from the site as it was on that day.
           </P>
 
           <H2>Contact</H2>

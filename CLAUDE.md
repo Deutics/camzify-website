@@ -182,16 +182,20 @@ rendered result — do not ask the user to look for you.
 
 - **`prisma generate` is in both `build` and `postinstall`.** Not a duplicate — Vercel
   restores `node_modules` from cache and skips `postinstall`. See `docs/DEPLOYMENT.md`.
-- **The build applies migrations only when `DATABASE_URL` is set.**
-  `scripts/migrate-if-configured.mjs` runs `prisma migrate deploy` in that case and skips
-  otherwise, so a deploy with no database still builds, and connecting the database is
-  one variable plus a redeploy. Schema changes need a migration in `prisma/migrations`.
+- **The build applies migrations only when a database is connected.**
+  `scripts/migrate-if-configured.mjs` runs `prisma migrate deploy` in that case (over the
+  direct, unpooled connection) and skips otherwise, so a deploy with no database still
+  builds. Schema changes need a migration in `prisma/migrations`.
+- **The lead database is Neon, connected 2026-11-20 through the Vercel Marketplace**, whose
+  variables carry the prefix `CAMZIFY_WEBSITE_DATABASE_`, so there is no `DATABASE_URL` on
+  Vercel. `lib/database-url.ts` resolves either name; check `databaseUrl`, never
+  `process.env.DATABASE_URL`. Preview and Production share the one database.
 - **Leads are emailed through ZeptoMail; the database is optional.** `lib/lead-mail.ts`
   sends every form submission to `LEADS_TO_EMAIL` (default: the public contact address),
   copying any addresses in `LEADS_CC_EMAIL`,
   using `ZEPTOMAIL_TOKEN` and `ZEPTOMAIL_FROM_ADDRESS`. Until the database is connected
-  the email is the record of the lead, so a failed send fails the request. When
-  `DATABASE_URL` is set the row is also written, non-fatally. `.env.example` is the
+  the email is the record of the lead, so a failed send fails the request. With the
+  database connected the row is also written, non-fatally. `.env.example` is the
   inventory of variables; the Abacus.AI notification integration is gone for good.
 - **`images.unoptimized: true` in `next.config.js`** is deliberate for the deploy target.
   Images still use `next/image` with explicit `width`/`height` to prevent layout shift.

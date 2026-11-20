@@ -3,7 +3,8 @@ export const dynamic = 'force-dynamic';
 import { NextResponse } from 'next/server';
 import { sendLeadEmail } from '@/lib/lead-mail';
 import { sendAcknowledgement } from '@/lib/lead-mail';
-import { formatPhone, leadContext } from '@/lib/lead-context';
+import { formatPhone, leadContext, leadRecord } from '@/lib/lead-context';
+import { databaseUrl } from '@/lib/database-url';
 import { isBot, rateLimited } from '@/lib/lead-guard';
 import { siteConfig } from '@/lib/site-config';
 import { describeEstimate } from '@/lib/pricing-estimates';
@@ -11,8 +12,8 @@ import { describeEstimate } from '@/lib/pricing-estimates';
 /**
  * Quote request from the pricing page estimator. The configuration the visitor built
  * and the estimate they saw travel with the request, so the reply can start from the
- * same numbers. Emailed through ZeptoMail like the other forms; when DATABASE_URL is
- * set it is also stored as a contact submission, non-fatally, so no migration is needed.
+ * same numbers. Emailed through ZeptoMail like the other forms; when the lead database
+ * is connected (lib/database-url.ts) it is also stored as a QuoteRequest row, non-fatally.
  */
 const toNum = (v: unknown) => {
   const n = Number(v);
@@ -50,11 +51,11 @@ export async function POST(request: Request) {
       console.error('Acknowledgement email failed (non-fatal):', ackError?.message);
     }
 
-    if (process.env.DATABASE_URL) {
+    if (databaseUrl) {
       try {
         const { prisma } = await import('@/lib/prisma');
-        await prisma.contactSubmission.create({
-          data: { name, email, subject: 'Quote request', message: `${configuration}\n${estimate}\n${message ?? ''}` },
+        await prisma.quoteRequest.create({
+          data: { name, email, company: company ?? '', message: message ?? '', configuration, estimate: estimate ?? '', phone: phone ?? '', ...leadRecord(request, data) },
         });
       } catch (dbError: any) {
         console.error('Quote request error (database, non-fatal):', dbError?.message);

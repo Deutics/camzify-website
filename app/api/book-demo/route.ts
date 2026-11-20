@@ -3,7 +3,8 @@ export const dynamic = 'force-dynamic';
 import { NextResponse } from 'next/server';
 import { sendLeadEmail } from '@/lib/lead-mail';
 import { sendAcknowledgement } from '@/lib/lead-mail';
-import { formatPhone, leadContext } from '@/lib/lead-context';
+import { formatPhone, leadContext, leadRecord } from '@/lib/lead-context';
+import { databaseUrl } from '@/lib/database-url';
 import { isBot, rateLimited } from '@/lib/lead-guard';
 import { siteConfig } from '@/lib/site-config';
 import { describeEstimate } from '@/lib/pricing-estimates';
@@ -12,8 +13,8 @@ import { demoBookingUrl } from '@/lib/demo-booking';
 /**
  * Lead capture. The submission is emailed to the team through ZeptoMail (lib/lead-mail.ts);
  * until the lead database is connected, that email is the record of the lead, so a failed
- * send fails the request and the visitor is told. When DATABASE_URL is set the row is also
- * written to Postgres, non-fatally: a failed write never loses a lead that was emailed.
+ * send fails the request and the visitor is told. When the lead database is connected the row is also
+ * written to Postgres (lib/database-url.ts), non-fatally: a failed write never loses a lead that was emailed.
  */
 export async function POST(request: Request) {
   try {
@@ -50,10 +51,16 @@ export async function POST(request: Request) {
       console.error('Acknowledgement email failed (non-fatal):', ackError?.message);
     }
 
-    if (process.env.DATABASE_URL) {
+    if (databaseUrl) {
       try {
         const { prisma } = await import('@/lib/prisma');
-        await prisma.demoRequest.create({ data: { name, email, company: company ?? '', cameras: cameras ?? '' } });
+        await prisma.demoRequest.create({
+          data: {
+            name, email, company: company ?? '', cameras: cameras ?? '', phone: phone ?? '',
+            configuration: configuration ?? '', estimate: estimate ?? '', bookingOffered: Boolean(demoBookingUrl),
+            ...leadRecord(request, data),
+          },
+        });
       } catch (dbError: any) {
         console.error('Demo request error (database, non-fatal):', dbError?.message);
       }
