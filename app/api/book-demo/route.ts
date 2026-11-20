@@ -8,13 +8,18 @@ import { databaseUrl } from '@/lib/database-url';
 import { isBot, rateLimited } from '@/lib/lead-guard';
 import { siteConfig } from '@/lib/site-config';
 import { describeEstimate } from '@/lib/pricing-estimates';
-import { demoBookingUrl } from '@/lib/demo-booking';
+import { schedulingEnabled, signBookingToken, scheduleUrl } from '@/lib/demo-booking';
 
 /**
  * Lead capture. The submission is emailed to the team through ZeptoMail (lib/lead-mail.ts);
  * until the lead database is connected, that email is the record of the lead, so a failed
  * send fails the request and the visitor is told. When the lead database is connected the row is also
  * written to Postgres (lib/database-url.ts), non-fatally: a failed write never loses a lead that was emailed.
+ *
+ * The row is written first because demo self-scheduling (lib/demo-booking.ts) needs its
+ * id: with scheduling on, the reply carries a booking token for the slot picker, and the
+ * visitor's confirmation email a link back to it. If the write fails there is simply no
+ * token, and the team schedules by email as before.
  */
 export async function POST(request: Request) {
   try {
@@ -39,34 +44,38 @@ export async function POST(request: Request) {
     const estimate = config ? describeEstimate(config) : undefined;
 
     const phone = formatPhone(data.phoneCountry, data.phone);
-    // Tells the team the visitor was offered the booking page, so they check Zoho Bookings
-    // before writing to schedule a session that may already be booked.
-    const scheduling = demoBookingUrl ? 'Booking link offered: check Zoho Bookings before writing to schedule' : undefined;
-    await sendLeadEmail('book-demo', { name, email, phone, company, cameras, configuration, estimate, scheduling, ...leadContext(request, data) }, email);
 
-    // The visitor's copy. Never fails the request: the lead above is already safe.
-    try {
-      await sendAcknowledgement('book-demo', email, { name, company, cameras });
-    } catch (ackError: any) {
-      console.error('Acknowledgement email failed (non-fatal):', ackError?.message);
-    }
-
+    let token: string | undefined;
     if (databaseUrl) {
       try {
         const { prisma } = await import('@/lib/prisma');
-        await prisma.demoRequest.create({
+        const offer = schedulingEnabled();
+        const row = await prisma.demoRequest.create({
           data: {
             name, email, company: company ?? '', cameras: cameras ?? '', phone: phone ?? '',
-            configuration: configuration ?? '', estimate: estimate ?? '', bookingOffered: Boolean(demoBookingUrl),
+            configuration: configuration ?? '', estimate: estimate ?? '', bookingOffered: offer,
             ...leadRecord(request, data),
           },
         });
+        if (offer) token = signBookingToken(row.id);
       } catch (dbError: any) {
         console.error('Demo request error (database, non-fatal):', dbError?.message);
       }
     }
 
-    return NextResponse.json({ success: true, message: 'Demo request submitted successfully' });
+    // Tells the team the visitor can book a slot themselves, so nobody writes to schedule
+    // a call that may already be in the calendar; a "Demo booked" email follows if they do.
+    const scheduling = token ? 'Offered the slot picker. If they book, a "Demo booked" email follows and the call is in the calendar.' : undefined;
+    await sendLeadEmail('book-demo', { name, email, phone, company, cameras, configuration, estimate, scheduling, ...leadContext(request, data) }, email);
+
+    // The visitor's copy. Never fails the request: the lead above is already safe.
+    try {
+      await sendAcknowledgement('book-demo', email, { name, company, cameras, bookingUrl: token ? scheduleUrl(token) : undefined });
+    } catch (ackError: any) {
+      console.error('Acknowledgement email failed (non-fatal):', ackError?.message);
+    }
+
+    return NextResponse.json({ success: true, message: 'Demo request submitted successfully', ...(token ? { booking: { token } } : {}) });
   } catch (error: any) {
     console.error('Demo request error:', error?.message);
     return NextResponse.json({ success: false, message: 'Failed to submit request' }, { status: 500 });

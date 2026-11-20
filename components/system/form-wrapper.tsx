@@ -12,14 +12,16 @@ export function FormWrapper({
   onSubmit,
 }: {
   endpoint: string;
-  successMessage?: string;
-  /** Optional next step shown under the confirmation, e.g. the demo booking button. */
-  successAction?: ReactNode;
+  /** The confirmation; a function receives the endpoint's JSON reply. */
+  successMessage?: string | ((result: any) => string);
+  /** Optional next step under the confirmation (the demo slot picker), from the reply. */
+  successAction?: ReactNode | ((result: any) => ReactNode);
   children: (props: { loading: boolean }) => ReactNode;
   onSubmit?: (formData: Record<string, string>) => Record<string, string>;
 }) {
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [result, setResult] = useState<any>(null);
   const [error, setError] = useState('');
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -60,6 +62,7 @@ export function FormWrapper({
       if (result?.success) {
         const form = formFromEndpoint(endpoint);
         if (form) trackConversion(form);
+        setResult(result);
         setSubmitted(true);
       } else {
         setError(result?.message ?? 'Something went wrong. Please try again.');
@@ -73,11 +76,11 @@ export function FormWrapper({
 
   if (submitted) {
     return (
-      <div className="flex flex-col items-center gap-4 rounded-2xl border border-live/30 bg-live/5 p-12 text-center">
+      <div className="flex flex-col items-center gap-4 rounded-2xl border border-live/30 bg-live/5 p-6 text-center sm:p-10">
         <CheckCircle className="h-12 w-12 text-live" />
         <h3 className="font-display text-xl font-bold">Thank you</h3>
-        <p className="text-muted-foreground">{successMessage}</p>
-        {successAction}
+        <p className="text-muted-foreground">{typeof successMessage === 'function' ? successMessage(result) : successMessage}</p>
+        {typeof successAction === 'function' ? successAction(result) : successAction}
       </div>
     );
   }

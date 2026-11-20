@@ -18,12 +18,17 @@ export function isBot(data: Record<string, unknown>): boolean {
   return typeof data.website === 'string' && data.website.trim() !== '';
 }
 
-export function rateLimited(request: Request): boolean {
+/**
+ * `bucket` keeps separate counts per purpose: the demo scheduler loads slots and books
+ * under 'booking' with a higher limit, so picking a time never uses up the form quota.
+ */
+export function rateLimited(request: Request, bucket = 'lead', limit = LIMIT): boolean {
   const ip = (request.headers.get('x-forwarded-for') || '').split(',')[0].trim() || request.headers.get('x-real-ip') || 'unknown';
+  const key = `${bucket}:${ip}`;
   const now = Date.now();
-  const recent = (seen.get(ip) || []).filter((t) => now - t < WINDOW_MS);
+  const recent = (seen.get(key) || []).filter((t) => now - t < WINDOW_MS);
   recent.push(now);
-  seen.set(ip, recent);
+  seen.set(key, recent);
   if (seen.size > 5000) seen.clear(); // keep memory bounded on a long-lived instance
-  return recent.length > LIMIT;
+  return recent.length > limit;
 }

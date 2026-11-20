@@ -12,12 +12,13 @@ dynamic API routes — so deployment is close to the Next.js default. The things
 values directly in **Vercel → Project → Settings → Environment Variables**.
 [`.env.example`](../.env.example) documents each one inline.
 
-**There is exactly one variable.**
+**These are all the runtime variables.**
 
 | Variable | Required? | Environments | What breaks without it |
 |---|---|---|---|
 | `ZEPTOMAIL_TOKEN`, `ZEPTOMAIL_FROM_ADDRESS` | **Yes, for forms** | Production, Preview | All five forms return `{"success": false}` and the visitor is told to email us. Every page still renders normally. |
 | `LEADS_TO_EMAIL`, `LEADS_CC_EMAIL`, `ZEPTOMAIL_FROM_NAME`, `ZEPTOMAIL_API_URL` | No | Production, Preview | Defaults: the public contact address, "Camzify website", the global ZeptoMail endpoint. |
+| `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `GOOGLE_REFRESH_TOKEN`, `BOOKING_TOKEN_SECRET` | No | Production, Preview | Demo self-scheduling is off and the team schedules by email. See `docs/DEMO-SCHEDULING.md`. |
 | `CAMZIFY_WEBSITE_DATABASE_*` (from the Neon integration), or `DATABASE_URL` | No | Production, Preview | Leads are emailed only; nothing is written. When set, each lead is also stored. See "The lead database" below. |
 
 That is the entire list. The site has no other runtime configuration.

@@ -8,7 +8,7 @@
  * on English pages that do not pass their own `ctaProps`; patrol, guarding, industry and
  * use-case pages keep the default patrol band, which is the one written for them.
  *
- * Copy rules: say only what the demo page and the pricing page already say (a 15-minute
+ * Copy rules: say only what the demo page and the pricing page already say (a 30-minute
  * live demo, a quote per site, the two public price figures), and never promise the demo
  * runs on the visitor's own cameras. The two price figures are typed here rather than
  * imported: lib/pricing-estimates.ts also holds the list rates, which must stay out of
@@ -27,7 +27,7 @@ const from = 'from $5 per camera per month';
 
 const CLOUD_VMS: CtaCopy = {
   title: 'See your cameras in a cloud VMS',
-  description: `A 15-minute demo of the live console: cloud recording with retention per camera, live view and AI detections on the cameras you already have. Pricing starts ${from}.`,
+  description: `A 30-minute demo of the live console: cloud recording with retention per camera, live view and AI detections on the cameras you already have. Pricing starts ${from}.`,
   primaryLabel: 'Book a Demo',
   primaryHref: '/book-a-demo',
   secondaryLabel: 'See Pricing',
@@ -36,7 +36,7 @@ const CLOUD_VMS: CtaCopy = {
 
 const DETECTIONS: CtaCopy = {
   title: 'See the detections on live cameras',
-  description: 'A 15-minute demo of the live product: the detections your site needs, running on real camera feeds, and a quote per camera for your sites.',
+  description: 'A 30-minute demo of the live product: the detections your site needs, running on real camera feeds, and a quote per camera for your sites.',
   primaryLabel: 'Book a Demo',
   primaryHref: '/book-a-demo',
   secondaryLabel: 'See Pricing',

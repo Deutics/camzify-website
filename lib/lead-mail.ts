@@ -1,6 +1,6 @@
 import { siteConfig, formattedAddress } from '@/lib/site-config';
-import { LEAD_MESSAGES, type AcknowledgedKind } from '@/lib/lead-messages';
-import { demoBookingUrl } from '@/lib/demo-booking';
+import { LEAD_MESSAGES, BOOK_DEMO_WITH_SCHEDULING, type AcknowledgedKind } from '@/lib/lead-messages';
+import { DEMO_MINUTES } from '@/lib/demo-scheduling';
 
 /*
  * Lead notification by email, through ZeptoMail (Zoho's transactional mail API).
@@ -17,11 +17,12 @@ import { demoBookingUrl } from '@/lib/demo-booking';
  * addresses copied on every lead. ZEPTOMAIL_API_URL only changes for the EU or India
  * data centres (api.zeptomail.eu, api.zeptomail.in).
  */
-export type LeadKind = 'contact' | 'book-demo' | 'newsletter' | 'quote';
+export type LeadKind = 'contact' | 'book-demo' | 'demo-booked' | 'newsletter' | 'quote';
 
 const KIND_LABEL: Record<LeadKind, string> = {
   contact: 'Contact form',
   'book-demo': 'Demo request',
+  'demo-booked': 'Demo booked',
   newsletter: 'Newsletter subscription',
   quote: 'Quote request',
 };
@@ -114,7 +115,9 @@ export async function sendLeadEmail(kind: LeadKind, fields: Record<string, strin
  * Every line of copy about what happens next is wording already on the site
  * (/book-a-demo, the pricing quote step, the forms' confirmations): CLAUDE.md rule 2.
  * Preview it with renderAcknowledgement() before changing it. `cta` is a label and either
- * a site path or, for the demo booking page (lib/demo-booking.ts), an absolute https URL.
+ * a site path or an absolute https URL. A demo request that may book its own slot
+ * (`bookingUrl`, lib/demo-booking.ts) gets its first step and button swapped for the
+ * slot picker, and the how-it-works link moves to the "While you wait" list on its own.
  */
 const ACK: Record<AcknowledgedKind, { subject: string; eyebrow: string; heading: string; steps: string[]; cta: [string, string] }> = {
   'book-demo': {
@@ -122,15 +125,11 @@ const ACK: Record<AcknowledgedKind, { subject: string; eyebrow: string; heading:
     eyebrow: 'Demo request received',
     heading: 'we have your demo request',
     steps: [
-      demoBookingUrl
-        ? 'Pick a time for your session with the button below, or we get in touch to schedule it.'
-        : 'We get in touch to schedule your session.',
-      '15 minutes, no slides, just the live product: a patrol round run across real cameras.',
+      'We get in touch to schedule your session.',
+      `${DEMO_MINUTES} minutes, no slides, just the live product: a patrol round run across real cameras.`,
       'A custom quote based on your sites and camera count. No commitment: nothing is agreed until a quote says so.',
     ],
-    // With a booking page configured (lib/demo-booking.ts) the button books the session;
-    // the how-it-works link then moves to the "While you wait" list on its own.
-    cta: demoBookingUrl ? ['Pick a time for your demo', demoBookingUrl] : ['See how a patrol round works', '/virtual-patrolling/how-it-works'],
+    cta: ['See how a patrol round works', '/virtual-patrolling/how-it-works'],
   },
   quote: {
     subject: 'We received your quote request',
@@ -164,17 +163,21 @@ function safeEcho(v: unknown, max = 80): string | undefined {
   return s;
 }
 
-type AckFields = { name?: unknown; company?: unknown; cameras?: unknown; configuration?: unknown };
+type AckFields = { name?: unknown; company?: unknown; cameras?: unknown; configuration?: unknown; bookingUrl?: string };
 
 /** Subject, HTML and plain-text bodies of the acknowledgement. Pure: safe to preview. */
 export function renderAcknowledgement(kind: AcknowledgedKind, fields: AckFields): { subject: string; html: string; text: string } {
-  const c = ACK[kind];
+  const booking = kind === 'book-demo' && fields.bookingUrl && /^https:\/\//.test(fields.bookingUrl) ? fields.bookingUrl : undefined;
+  const base = ACK[kind];
+  const c = booking
+    ? { ...base, steps: ['Pick a time for your demo with the button below, or we get in touch to schedule it.', ...base.steps.slice(1)], cta: ['Pick a time for your demo', booking] as [string, string] }
+    : base;
   const site = siteConfig.url;
   const domain = site.replace(/^https?:\/\//, '');
   const first = safeEcho(fields.name, 60)?.split(' ')[0];
   const sentence = `${c.heading.charAt(0).toUpperCase()}${c.heading.slice(1)}.`;
   const heading = first ? `Thanks, ${first}. ${sentence}` : `Thank you. ${sentence}`;
-  const confirmation = LEAD_MESSAGES[kind];
+  const confirmation = booking ? BOOK_DEMO_WITH_SCHEDULING : LEAD_MESSAGES[kind];
   const ctaHref = /^https:\/\//.test(c.cta[1]) ? c.cta[1] : site + c.cta[1];
   const rows = ([
     ['Company', safeEcho(fields.company)],

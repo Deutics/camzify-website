@@ -83,13 +83,16 @@ rendered text, not just JSON-LD — unmounting content makes it invisible to the
 ```
 app/                    Routes. One folder per URL segment, each with page.tsx
   _components/          Homepage-only sections
-  api/                  Four lead-capture POST routes and /api/geo (the only dynamic routes).
+  api/                  Four lead-capture POST routes, /api/geo, and the demo scheduler's
+                        /api/demo-slots and /api/demo-booking (the only dynamic routes).
                         Demo, quote and contact add location, time zone, page and phone to
                         the team email (lib/lead-context.ts), send the visitor a confirmation
                         (sendAcknowledgement in lib/lead-mail.ts: never the estimate, never
                         free text) and check a honeypot and rate limit first (lib/lead-guard.ts).
-                        With NEXT_PUBLIC_DEMO_BOOKING_URL set (lib/demo-booking.ts), the demo
-                        confirmation and its email offer the team's Zoho Bookings page
+                        Demo self-scheduling (lib/demo-booking.ts, docs/DEMO-SCHEDULING.md):
+                        after the demo form the visitor books a slot in the team's Google
+                        Calendar; rules in lib/demo-scheduling.ts. /book-a-demo/schedule is
+                        noindex and deliberately not in lib/routes.ts
   wp-json/, feed/, tag/, category/, wp-admin/, wp-content/, wp-includes/, wdt_headers/, author/, product/, xmlrpc.php
                         410 Gone handlers for WordPress-era paths (lib/gone.ts); do not remove them
 components/
