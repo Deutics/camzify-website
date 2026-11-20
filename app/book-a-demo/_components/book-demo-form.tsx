@@ -5,10 +5,10 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { FormWrapper } from '@/components/system/form-wrapper';
 import { PhoneField } from '@/components/system/phone-field';
-import { LEAD_MESSAGES } from '@/lib/lead-messages';
-import { demoBookingUrl } from '@/lib/demo-booking';
+import { LEAD_MESSAGES, BOOK_DEMO_WITH_SCHEDULING } from '@/lib/lead-messages';
+import { DemoScheduler } from '@/components/content/demo-scheduler';
 import { configFields, ConfigSummary, EstimateFields, useEstimateConfig } from '@/components/content/estimate-fields';
-import { Loader2, ArrowRight, ChevronDown, CalendarClock } from 'lucide-react';
+import { Loader2, ArrowRight, ChevronDown } from 'lucide-react';
 
 export function BookDemoForm() {
   const [withEstimate, setWithEstimate] = useState(false);
@@ -16,8 +16,10 @@ export function BookDemoForm() {
   return (
     <FormWrapper
       endpoint="/api/book-demo"
-      successMessage={LEAD_MESSAGES['book-demo']}
-      successAction={demoBookingUrl ? <BookingButton href={demoBookingUrl} /> : undefined}
+      // With self-scheduling on (lib/demo-booking.ts) the reply carries a booking token and
+      // the slot picker opens right here; without one the confirmation reads as before.
+      successMessage={(r) => (r?.booking?.token ? BOOK_DEMO_WITH_SCHEDULING : LEAD_MESSAGES['book-demo'])}
+      successAction={(r) => (r?.booking?.token ? <DemoScheduler token={r.booking.token} /> : null)}
       onSubmit={(data) => {
         if (!withEstimate) return data;
         const { cameras, ...rest } = configFields(config);
@@ -99,25 +101,3 @@ export function BookDemoForm() {
   );
 }
 
-/**
- * The visitor's own way to schedule the demo they just requested (lib/demo-booking.ts).
- * It opens the booking page in a new tab so this confirmation stays on screen, and it
- * carries nothing about the visitor: the booking page asks for name and email itself.
- */
-function BookingButton({ href }: { href: string }) {
-  return (
-    <div className="mt-2 flex flex-col items-center gap-2">
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground transition-all hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-      >
-        <CalendarClock className="h-4 w-4" aria-hidden="true" />
-        Pick a time now
-        <span className="sr-only"> (opens our booking calendar in a new tab)</span>
-      </a>
-      <p className="text-xs text-muted-foreground">Opens our booking calendar in a new tab.</p>
-    </div>
-  );
-}

@@ -3,7 +3,7 @@ import { PageShell } from '@/components/layout/page-shell';
 import { FaqSection } from '@/components/content/faq-section';
 import { siteConfig, formattedAddress } from '@/lib/site-config';
 import Link from 'next/link';
-import { demoBookingUrl } from '@/lib/demo-booking';
+import { schedulingEnabled } from '@/lib/demo-booking';
 import { databaseUrl } from '@/lib/database-url';
 
 /**
@@ -16,9 +16,9 @@ import { databaseUrl } from '@/lib/database-url';
  * Analytics and Microsoft Clarity, which since 2026-10-08 load on every visit unless the
  * visitor turns analytics off on the cookie policy page (components/system/analytics-consent.tsx,
  * REQUIRE_CONSENT = false; with it true they wait for the cookie banner instead); a theme preference and two session flags
- * in browser storage; and no emails sent by the site beyond replies to a form. Since 2026-11-19, when
- * NEXT_PUBLIC_DEMO_BOOKING_URL is set, the demo confirmation links to a Zoho Bookings page
- * (lib/demo-booking.ts) and the paragraphs that describe it render; unset, they do not.
+ * in browser storage; and no emails sent by the site beyond replies to a form. Since 2026-11-20, where demo
+ * self-scheduling is on (lib/demo-booking.ts: Google Calendar), the paragraphs that describe
+ * it render; where it is off, they do not. The same for the lead database.
  * Company details come from lib/site-config.ts. This is a draft for counsel to review
  * before the site leaves maintenance; the review date below is the date it was
  * written, not the date it was approved.
@@ -32,6 +32,9 @@ const pageMeta = {
 export const metadata = generatePageMeta({ ...pageMeta });
 
 const UPDATED = '20 November 2026';
+// Read at build, like the database check: the policy describes demo self-scheduling only
+// on a deploy where it is switched on (lib/demo-booking.ts).
+const scheduling = schedulingEnabled();
 
 const faqs = [
   { question: 'Does this policy cover the Camzify product, or just the website?', answer: 'Just this website. Video, detections, patrol reports and account data in the Camzify console are processed under the customer agreement for that account, and the security and compliance page describes how that data is protected. This policy covers what happens when you read these pages or send us a form.' },
@@ -81,10 +84,9 @@ export default function PrivacyPolicyPage() {
           <P>
             <strong className="font-semibold text-foreground">The confirmation email.</strong> After you send one of those forms, we email a confirmation to the address you entered, repeating your name, company and camera counts, never your message. If you did not send the form, you can ignore it; nothing else follows from it.
           </P>
-          {/* Only while the booking page is configured (lib/demo-booking.ts). */}
-          {demoBookingUrl && (
+          {scheduling && (
             <P>
-              <strong className="font-semibold text-foreground">Booking your demo yourself.</strong> After you send the demo form, you can pick a time for the demo on our booking calendar, which runs on Zoho Bookings (operated by Zoho). That page is on Zoho&rsquo;s site and asks for your name and email itself; nothing from our form is passed to it. What you enter there and the time you pick are processed by Zoho on our behalf and added to our team&rsquo;s calendar.
+              <strong className="font-semibold text-foreground">Booking your demo yourself.</strong> After you send the demo form, you can pick a time for the demo on this site. To show you open times we check our team&rsquo;s Google Calendar for when it is busy, never what is in it. When you book, we add the call to that calendar and invite you, so Google (Google LLC) receives your name, your email address and the time you picked, and sends you the invitation with the video-call link. We keep the time you booked with your demo request.
             </P>
           )}
           <P>
@@ -105,12 +107,12 @@ export default function PrivacyPolicyPage() {
 
           <H2>Where it is kept, and for how long</H2>
           <P>
-            Form submissions are emailed to our team through a transactional email provider (ZeptoMail, operated by Zoho){databaseUrl ? ' and stored in our lead database, run by Neon on our hosting provider’s platform' : ' and, once our lead database is connected, also stored in a database operated with our hosting and database providers'}. What is stored is what the email carries: the details you entered and the context described above.{demoBookingUrl ? ' A demo time you book on our booking calendar is held in Zoho Bookings.' : ''} These providers process it on our instructions and may do so in countries other than yours, including outside Singapore, the EEA and the UK, under contracts that require them to protect it. We keep an enquiry for as long as we are dealing with it and for a reasonable period afterwards so that we can pick the conversation up if you come back; a newsletter address is kept until you unsubscribe. If you ask us to delete what we hold about you, we do, unless a legal obligation requires us to keep a record.
+            Form submissions are emailed to our team through a transactional email provider (ZeptoMail, operated by Zoho){databaseUrl ? ' and stored in our lead database, run by Neon on our hosting provider’s platform' : ' and, once our lead database is connected, also stored in a database operated with our hosting and database providers'}. What is stored is what the email carries: the details you entered and the context described above.{scheduling ? ' A demo you book is also held in our team’s Google Calendar, operated by Google.' : ''} These providers process it on our instructions and may do so in countries other than yours, including outside Singapore, the EEA and the UK, under contracts that require them to protect it. We keep an enquiry for as long as we are dealing with it and for a reasonable period afterwards so that we can pick the conversation up if you come back; a newsletter address is kept until you unsubscribe. If you ask us to delete what we hold about you, we do, unless a legal obligation requires us to keep a record.
           </P>
 
           <H2>Who can see it</H2>
           <P>
-            The people at {siteConfig.company} who answer enquiries, and the providers who host the site, deliver the email and{databaseUrl ? ' run' : ', when connected,'} the database. We do not sell personal data, we do not share it with advertisers, and we do not pass it to anyone else except where the law requires it or you ask us to.
+            The people at {siteConfig.company} who answer enquiries, and the providers who host the site, deliver the email and{databaseUrl ? ' run' : ', when connected,'} the database{scheduling ? ', and Google for a demo you book' : ''}. We do not sell personal data, we do not share it with advertisers, and we do not pass it to anyone else except where the law requires it or you ask us to.
           </P>
 
           <H2>Cookies and browser storage</H2>
@@ -130,7 +132,7 @@ export default function PrivacyPolicyPage() {
 
           <H2>Changes</H2>
           <P>
-            This version reflects the addition of Vercel Web Analytics, Vercel Speed Insights, Google Analytics and Microsoft Clarity, the counting of completed form submissions{demoBookingUrl ? ', the demo booking calendar' : ''}{databaseUrl ? ', and the lead database' : ''}, described above. If we change what the site collects again, we will update this policy first and change the date at the top. This version was written on {UPDATED} from the site as it was on that day.
+            This version reflects the addition of Vercel Web Analytics, Vercel Speed Insights, Google Analytics and Microsoft Clarity, the counting of completed form submissions{scheduling ? ', booking a demo time on the site' : ''}{databaseUrl ? ', and the lead database' : ''}, described above. If we change what the site collects again, we will update this policy first and change the date at the top. This version was written on {UPDATED} from the site as it was on that day.
           </P>
 
           <H2>Contact</H2>

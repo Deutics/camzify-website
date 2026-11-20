@@ -1,7 +1,8 @@
 import { generatePageMeta } from '@/lib/page-utils';
 import { PageShell } from '@/components/layout/page-shell';
 import { BookDemoForm } from './_components/book-demo-form';
-import { CheckCircle, Shield, Camera, Clock } from 'lucide-react';
+import { CheckCircle, Shield, Camera, Clock, CalendarCheck } from 'lucide-react';
+import { schedulingEnabled } from '@/lib/demo-booking';
 
 /**
  * Page identity. Declared once and consumed twice: by `generatePageMeta` for the
@@ -10,7 +11,7 @@ import { CheckCircle, Shield, Camera, Clock } from 'lucide-react';
  */
 const pageMeta = {
   title: "Book a Demo | See Camzify Virtual Patrolling Live",
-  description: "Book a 15-minute demo of Camzify virtual patrolling. See a live patrol run on real cameras and get a custom quote for your sites.",
+  description: "Book a 30-minute demo of Camzify virtual patrolling. See a live patrol run on real cameras and get a custom quote for your sites.",
   path: "/book-a-demo",
 };
 
@@ -33,7 +34,9 @@ export default function BookDemoPage() {
               <div className="mt-10 space-y-4">
                 <h3 className="font-display text-lg font-bold">What to expect</h3>
                 {[
-                  { icon: Clock, text: '15 minutes, no slides, just the live product' },
+                  // Read at build: the line appears only where self-scheduling is on.
+                  ...(schedulingEnabled() ? [{ icon: CalendarCheck, text: 'Pick your time as soon as you send the form' }] : []),
+                  { icon: Clock, text: '30 minutes, no slides, just the live product' },
                   { icon: Camera, text: 'See a patrol round run across real cameras' },
                   { icon: Shield, text: 'Custom quote based on your sites and camera count' },
                   { icon: CheckCircle, text: 'No commitment: nothing is agreed until a quote says so' },
@@ -49,7 +52,7 @@ export default function BookDemoPage() {
               </div>
             </div>
 
-            <div className="rounded-2xl border border-border bg-card p-8">
+            <div className="min-w-0 rounded-2xl border border-border bg-card p-6 sm:p-8">
               <BookDemoForm />
             </div>
           </div>

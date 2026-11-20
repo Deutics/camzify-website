@@ -250,7 +250,7 @@ export default function WhatIsCctvPostPage() {
           <section className="mt-20 rounded-xl bg-card p-8 shadow">
             <h2 className="font-display text-xl font-bold">Put your CCTV cameras on the cloud</h2>
             <p className="mt-3 max-w-prose text-muted-foreground">
-              See cloud recording, AI detections and patrol rounds on real cameras in a 15-minute demo, and get a quote for your camera count.
+              See cloud recording, AI detections and patrol rounds on real cameras in a 30-minute demo, and get a quote for your camera count.
             </p>
             <div className="mt-4 flex flex-wrap gap-3">
               <Link href="/cloud-video-surveillance" className="rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-white">Cloud video surveillance</Link>

@@ -31,7 +31,7 @@ const en = {
   dismiss: 'Dismiss',
   cta: {
     title: 'Ready to patrol your site 24/7?',
-    description: 'Book a 15-minute demo and see a live patrol run on your own cameras.',
+    description: 'Book a 30-minute demo and see a live patrol run on your own cameras.',
     primaryLabel: 'Book a Demo',
     secondaryLabel: 'Calculate Your Savings',
   },
@@ -70,7 +70,7 @@ const de: UiStrings = {
   dismiss: 'Ausblenden',
   cta: {
     title: 'Ihre Standorte rund um die Uhr kontrollieren?',
-    description: 'Vereinbaren Sie eine 15-minütige Demo und sehen Sie einen Rundgang live auf Ihren eigenen Kameras.',
+    description: 'Vereinbaren Sie eine 30-minütige Demo und sehen Sie einen Rundgang live auf Ihren eigenen Kameras.',
     primaryLabel: 'Demo anfragen',
     secondaryLabel: 'Einsparung berechnen',
   },

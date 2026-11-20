@@ -10,25 +10,42 @@ datasource db {
 /// One row per demo request (/book-a-demo). The context columns match the team's lead
 /// email (lib/lead-context.ts); configuration and estimate are set only when the visitor
 /// added a configuration. The estimate is computed from list rates on the server and is
-/// for the team only, like the email. bookingOffered: the confirmation offered the Zoho
-/// Bookings link (lib/demo-booking.ts); the booking itself lives in Zoho Bookings.
+/// for the team only, like the email. bookingOffered: the visitor was offered the slot
+/// picker (lib/demo-booking.ts); `booking` is the slot they took, if they did.
 model DemoRequest {
-  id             String   @id @default(cuid())
+  id             String       @id @default(cuid())
   name           String
   email          String
   company        String
   cameras        String
-  phone          String   @default("")
-  location       String   @default("")
-  timeZone       String   @default("")
-  language       String   @default("")
-  page           String   @default("")
-  referrer       String   @default("")
-  configuration  String   @default("")
-  estimate       String   @default("")
-  bookingOffered Boolean  @default(false)
-  createdAt      DateTime @default(now())
-  status         String   @default("pending")
+  phone          String       @default("")
+  location       String       @default("")
+  timeZone       String       @default("")
+  language       String       @default("")
+  page           String       @default("")
+  referrer       String       @default("")
+  configuration  String       @default("")
+  estimate       String       @default("")
+  bookingOffered Boolean      @default(false)
+  createdAt      DateTime     @default(now())
+  status         String       @default("pending")
+  booking        DemoBooking?
+}
+
+/// The slot a demo request booked on the site (lib/demo-booking.ts), one per request.
+/// The Google Calendar event is the record the team works from; this row links it to
+/// the lead. `start` is unique so two visitors cannot claim one slot at the same moment;
+/// if the event is later cancelled in the calendar, the next booking of that slot
+/// replaces the stale row (app/api/demo-booking/route.ts).
+model DemoBooking {
+  id            String      @id @default(cuid())
+  demoRequestId String      @unique
+  demoRequest   DemoRequest @relation(fields: [demoRequestId], references: [id], onDelete: Cascade)
+  start         DateTime    @unique
+  end           DateTime
+  eventId       String      @default("")
+  meetUrl       String      @default("")
+  createdAt     DateTime    @default(now())
 }
 
 /// One row per quote request (the quote form on /pricing and /de/preise). The estimate is
